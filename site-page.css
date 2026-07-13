@@ -235,6 +235,7 @@ h2 {
 
 .section-intro {
   max-width: 800px;
+  padding-top: 30px;
   margin-bottom: 0;
   color: var(--body);
   font-size: 1.02rem;
@@ -282,13 +283,6 @@ h2 {
 .home-hero .lede {
   max-width: 780px;
   margin-bottom: 28px;
-}
-
-.hero-mark {
-  width: 96px;
-  height: auto;
-  margin-bottom: 28px;
-  filter: invert(1) brightness(1.35);
 }
 
 .project-list {
@@ -816,6 +810,10 @@ footer .wrap {
   .section-head,
   .light-band .wrap {
     grid-template-columns: 1fr;
+  }
+
+  .section-intro {
+    padding-top: 0;
   }
 
   .grid,

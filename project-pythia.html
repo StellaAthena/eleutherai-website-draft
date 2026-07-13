@@ -192,6 +192,7 @@
 
     .section-intro {
       max-width: 760px;
+      padding-top: 30px;
       margin-bottom: 0;
       color: var(--body);
       font-size: 1.02rem;
@@ -375,6 +376,10 @@
       .section-head,
       .light-band .wrap {
         grid-template-columns: 1fr;
+      }
+
+      .section-intro {
+        padding-top: 0;
       }
 
       .side-panel {
@@ -702,11 +707,11 @@
     </div>
   </div>
 
-  <section class="light-band" aria-labelledby="database-title">
+  <section class="light-band" aria-labelledby="inspectable-title">
     <div class="wrap">
       <div>
         <span class="section-kicker">Why it matters</span>
-        <h2 id="database-title">Pythia makes training trajectories inspectable.</h2>
+        <h2 id="inspectable-title">Pythia makes training trajectories inspectable.</h2>
       </div>
       <p>Most model releases expose final weights. Pythia exposes the path to those weights: intermediate checkpoints, controlled data order, and enough surrounding code and documentation for researchers to ask when capabilities, failures, and mechanisms emerge.</p>
     </div>
