@@ -71,8 +71,9 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="projects-title">
-      <div class="wrap">
+    <div class="wrap home-layout">
+      <div class="home-main">
+        <section class="section" aria-labelledby="projects-title">
         <div class="section-head">
           <div>
             <span class="section-kicker">Projects</span>
@@ -100,92 +101,87 @@
             <a class="link" href="research.html#nlp">View area -></a>
           </article>
         </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="section" aria-labelledby="publications-title">
-      <div class="wrap">
+        <section class="section" aria-labelledby="publications-title">
         <div class="section-head">
           <div>
             <span class="section-kicker">Recent Publications</span>
-            <h2 id="publications-title">Research output</h2>
-          </div>
-          <p class="section-intro">Recent papers and preprints from EleutherAI researchers and collaborators.</p>
-        </div>
-        <div class="publication-layout">
-          <article class="featured-publication">
-            <div class="meta"><span>Featured</span><span>Feb 16, 2026</span><span>arXiv</span></div>
-            <h3>Quantifying the Effect of Test Set Contamination on Generative Evaluations</h3>
-            <p>As frontier AI systems are pretrained on web-scale data, test set contamination has become a critical concern for accurately assessing their capabilities. This work studies contamination across pretraining, further training, and inference.</p>
-            <a class="link" href="research.html">Browse publications -></a>
-          </article>
-          <div class="artifact-table compact-list">
-            <article class="artifact-row">
-              <div class="label">Aug 25, 2025</div>
-              <div>
-                <h3><a href="blog/deep-ignorance.html">Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs</a></h3>
-              </div>
-              <div class="kind">Paper</div>
-            </article>
-            <article class="artifact-row">
-              <div class="label">Jul 9, 2025</div>
-              <div>
-                <h3>Composable Interventions for Language Models</h3>
-              </div>
-              <div class="kind">Paper</div>
-            </article>
-            <article class="artifact-row">
-              <div class="label">Jul 8, 2025</div>
-              <div>
-                <h3>Evaluating Morphological Alignment of Tokenizers in 70 Languages</h3>
-              </div>
-              <div class="kind">Paper</div>
-            </article>
-            <article class="artifact-row">
-              <div class="label">Jun 30, 2025</div>
-              <div>
-                <h3>Scaling Self-Supervised Representation Learning for Symbolic Piano Performance</h3>
-              </div>
-              <div class="kind">Paper</div>
-            </article>
+            <h2 id="publications-title">Latest papers</h2>
           </div>
         </div>
+        <div class="publication-list">
+          <details class="publication-item" open>
+            <summary>
+              <span class="publication-date">Feb 16, 2026</span>
+              <span class="publication-title">Quantifying the Effect of Test Set Contamination on Generative Evaluations</span>
+              <span class="publication-venue">arXiv</span>
+            </summary>
+            <p>Test set contamination is a critical concern for generative evaluations. This work studies contamination across pretraining, further training, and inference, showing how generation and memorization interact through the language model lifecycle.</p>
+            <a class="link" href="https://arxiv.org/abs/2601.04301">Read paper -></a>
+          </details>
+          <details class="publication-item">
+            <summary>
+              <span class="publication-date">Aug 25, 2025</span>
+              <span class="publication-title">Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs</span>
+              <span class="publication-venue">ICLR</span>
+            </summary>
+            <p>Filtering pretraining data can build safeguards into open-weight models before deployment-time interventions are applied.</p>
+            <a class="link" href="https://arxiv.org/abs/2508.06601">Read paper -></a>
+          </details>
+          <details class="publication-item">
+            <summary>
+              <span class="publication-date">Jul 9, 2025</span>
+              <span class="publication-title">Composable Interventions for Language Models</span>
+              <span class="publication-venue">ICLR</span>
+            </summary>
+            <p>Composable methods for intervening on language models and studying how model behavior changes under targeted edits.</p>
+            <a class="link" href="https://arxiv.org/abs/2407.06483">Read paper -></a>
+          </details>
+          <details class="publication-item">
+            <summary>
+              <span class="publication-date">Jul 8, 2025</span>
+              <span class="publication-title">Evaluating Morphological Alignment of Tokenizers in 70 Languages</span>
+              <span class="publication-venue">ICML Workshop</span>
+            </summary>
+            <p>An evaluation of how tokenizers align with morphology across a broad multilingual setting.</p>
+            <a class="link" href="https://arxiv.org/abs/2507.06378">Read paper -></a>
+          </details>
+          <details class="publication-item">
+            <summary>
+              <span class="publication-date">Jun 30, 2025</span>
+              <span class="publication-title">Scaling Self-Supervised Representation Learning for Symbolic Piano Performance</span>
+              <span class="publication-venue">ISMIR</span>
+            </summary>
+            <p>Scaling self-supervised representation learning for symbolic piano performance.</p>
+          </details>
+        </div>
+        </section>
       </div>
-    </section>
 
-    <section class="section" aria-labelledby="news-title">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <span class="section-kicker">News</span>
-            <h2 id="news-title">Updates</h2>
-          </div>
-          <p class="section-intro">Announcements, programs, releases, and organizational updates.</p>
-        </div>
-        <div class="news-grid">
-          <article class="news-item">
+      <aside class="news-sidebar" aria-labelledby="news-title">
+        <span class="section-kicker">News</span>
+        <h2 id="news-title">Updates</h2>
+        <div class="news-list">
+          <article class="news-list-item">
             <div class="meta"><span>May 18, 2026</span></div>
             <h3>A short retrospective on the EleutherAI Summer of Open AI Research</h3>
-            <p>Reflections on a summer research program built around open AI science.</p>
           </article>
-          <article class="news-item">
+          <article class="news-list-item">
             <div class="meta"><span>Jul 7, 2025</span></div>
             <h3>Summer of Open Science</h3>
-            <p>Community research programming and opportunities for open scientific work.</p>
           </article>
-          <article class="news-item">
+          <article class="news-list-item">
             <div class="meta"><span>Jun 15, 2025</span></div>
             <h3><a href="blog/common-pile.html">Common Pile v0.1</a></h3>
-            <p>A large-scale corpus of openly licensed and public domain text for language model training.</p>
           </article>
-          <article class="news-item">
+          <article class="news-list-item">
             <div class="meta"><span>Jun 12, 2025</span></div>
             <h3>EvalEval Coalition</h3>
-            <p>Work on evaluating evaluations and improving how AI systems are measured.</p>
           </article>
         </div>
-      </div>
-    </section>
+      </aside>
+    </div>
   </main>
 
   <footer>
