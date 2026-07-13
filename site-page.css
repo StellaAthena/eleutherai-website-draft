@@ -309,6 +309,14 @@ h2 {
   margin-top: 18px;
 }
 
+.spaced {
+  margin-top: 18px;
+}
+
+.prose + .contribution-map {
+  margin-top: 28px;
+}
+
 .card {
   min-height: 190px;
   padding: 20px;
