@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Experiments in Weak-to-Strong Generalization | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>Experiments in Weak-to-Strong Generalization</h1>
+          <p class="article-dek">Writing up results from a recent project</p>
+          <div class="article-meta">
+            <span>Jun 14, 2024</span>
+            <span>Adam Scherlis, Alex Mallen, Lucia Quirke, Nora Belrose</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p>The EleutherAI interpretability team has been investigating weak-to-strong generalization in open-source models. In this post, we report some results on Qwen1.5 0.5B and Llama 3 8B. We observe consistent weak-to-strong generalization across 21 NLP datasets. We also investigate several other modifications to weak-to-strong training, with generally negative results: strong-to-strong training, modified loss functions, and several probe-based experiments. Among these, only the log-confidence auxiliary loss shows possible signs of consistently improving generalization.</p>
+<h2 id="introduction-weak-to-strong-generalization">Introduction: Weak-to-Strong Generalization</h2>
+<p>In some circumstances, a stronger student model can outperform a weaker supervisor. <a href="https://openai.com/index/weak-to-strong-generalization/">Burns et al., 2024</a> demonstrate weak-to-strong generalization across several tasks and a range of model sizes. Their setup is as follows:
+1. The "weak supervisor", a small pretrained language model, is finetuned on a particular task and used to generate predictions (soft labels) on a held-out dataset for that task.
+2. The "strong student", a larger pretrained LM, is finetuned on the weak model's predictions.
+3. The "strong ceiling", another copy of the larger model, is finetuned directly on the ground-truth labels to provide a baseline.</p>
+<p>Burns et al. quantify weak-to-strong generalization in terms of Performance Gap Recovered (PGR):</p>
+<p>$$
+\begin{align<em>}
+    PGR = \frac{\text{student} - \text{weak}}{\text{ceiling} - \text{weak}}
+\end{align</em>} 
+$$</p>
+<p>(We use ROC AUC as the metric for the student, weak, and ceiling performances.)</p>
+<p>In many cases, the strong student performs worse than the strong ceiling, but better than the weak supervisor, so that $0 &lt; PGR &lt; 1$.</p>
+<p>Note that a PGR of 1 corresponds to an ideal outcome (the strong model performs just as well as it would have with perfect supervision). In contrast, a strong student that "succeeds" in perfectly imitating its supervisor, including its flaws, would obtain a PGR of 0. (This is not the same as overfitting to individual data points; PGR is evaluated on a separate test set.)</p>
+<p>Therefore, weak-to-strong generalization depends on the strong student not being <em>too</em> good at obtaining low predictive loss. Burns et al. find that, at least in some cases, the student eventually "overfits" to the supervisor and ground-truth performance starts to decrease by the end of training.</p>
+<h3 id="motivation">Motivation</h3>
+<p>This setup is intended to simulate a future situation in which human supervisors provide imperfect training data to a superhuman model. Ideally, the model would learn the intended task and ignore the flaws in training data, but it could in principle obtain better predictive loss by learning to model the supervisors' inaccuracies as well. Methods to improve weak-to-strong generalization could also improve scalable oversight in this setting, although there are various possible disanalogies.</p>
+<h3 id="interpretation">Interpretation</h3>
+<p>Burns et al. interpret weak-to-strong generalization in terms of saliency: some tasks are already salient to the (pretrained but not yet finetuned) strong model. This makes them easy to learn, whereas the weak model's imperfect heuristics may not be as salient.</p>
+<p>We observe that this is somewhat similar to regularization methods, which sometimes have a nice Bayesian <a href="https://statisticaloddsandends.wordpress.com/2018/12/29/bayesian-interpretation-of-ridge-regression/">interpretation</a>, with the regularizer corresponding to a prior that favors regular models. In the case of weak-to-strong generalization, the data provides stronger evidence for the weak model's heuristics than for the ground truth, but the student has a higher prior on the ground truth. This perspective informs some of our experiments.</p>
+<h2 id="setup">Setup</h2>
+<p>We use the following models:
+* Strong: Llama3 8B
+* Weak: Qwen1.5 0.5</p>
+<p>All models are trained for 3 epochs. Strong models are early-stopped based on ROC AUC on a validation set of weak predictions. Note that we have four dataset splits in total:
+* Weak training set (ground truth used to train supervisor)
+* Strong training set (weak predictions used to train student)
+* Validation set (weak predictions used to early-stop student)
+* Test set (ground truth used to evaluate all models and probes)</p>
+<p>Models are finetuned with LoRA (rank 8). We use gradient accumulation with an effective batch size of 32 and a minibatch size of 1. We use ADAM, with learning rates 5e-4 for the weak model and 8e-5 for the strong model. Except where otherwise specified, we use cross-entropy loss with an auxiliary log-confidence term ($\alpha=0.5$).</p>
+<p>We train on the 22 NLP datasets from Burns et al., including separate copies of SciQ with and without supporting evidence. We also include two additional datasets:
+* <a href="https://huggingface.co/datasets/Anthropic/hh-rlhf">Anthropic HH</a>
+* <a href="https://huggingface.co/datasets/fancyzhx/amazon_polarity">Amazon Polarity</a></p>
+<p>for a total of 25, although four of these are uninformative due to all of our models reaching perfect performance.</p>
+<p>In addition to the basic setup, we try various interventions:
+* Strong-to-strong training
+* Loss functions:
+  * Cross-entropy
+  * Auxiliary log-confidence
+  * Auxiliary entropy
+  * Confidence window
+* Activation probes (kNN and logistic regression):
+  * Probe predictions
+  * Probe-to-strong training
+  * Data filtration</p>
+<h2 id="weak-to-strong-generalization">Weak-to-Strong Generalization</h2>
+<p>We see clear weak-to-strong generalization ($PGR &gt; 0$) across all datasets, except for four (three of the ETHICS datasets and OpenBookQA) where all three models perform at above .999 ROC AUC. We exclude these four datasets from other results reported below.</p>
+<p><img alt="Weak-to-strong AUC results" src="../assets/blog/w2s/w2s.png"></p>
+<h2 id="strong-to-strong-training">Strong-to-Strong Training</h2>
+<p>After training the strong student, if PGR on the strong training set is positive, we can use the student to improve its own training data. We can then use these improved labels to train a fresh copy of the student, in the hopes of obtaining better performance.</p>
+<p>We can think about this in terms of saliency and regularization, as a way to encourage the pretrained strong model to stay closer to its priors while still learning the task. More directly, it should put a limit on "overfitting": even if the second copy of the student imitates its training data exactly, it will do no worse than the first copy, and in practice we can hope that it overfits less than that and does better.</p>
+<p>(In the limit, after many iterations of this, we might expect the student to converge to whatever function is most salient to it, whether or not that has any correlation to the original task.)</p>
+<p>We do two iterations of this (relabeling the strong training set again after the first iteration), and find that performance does not consistently improve relative to the original student:</p>
+<p><img alt="Strong-to-strong PGR results" src="../assets/blog/w2s/s2s.png"></p>
+<h2 id="modified-loss-functions">Modified Loss Functions</h2>
+<p>We tried three modifications to cross-entropy loss when training the strong student. None are convincingly better than cross-entropy:</p>
+<p><img alt="Loss PGR results" src="../assets/blog/w2s/loss.png"></p>
+<h3 id="auxiliary-log-confidence-loss">Auxiliary log-confidence loss</h3>
+<p>Burns et al. find that, on some tasks, an auxiliary loss term can reduce the amount of "overfitting" to the supervisor by encouraging the student model to be confident. The effect of the auxiliary term, in its simplest form, is equivalent to averaging the supervisor soft labels with the student's hardened current predictions:</p>
+<p>$$
+\begin{align<em>}
+    L_{\text{conf}} &amp;= \text{CE}(f(x), (1-\alpha) \cdot f_w(x) + \alpha  \cdot \hat f_t(x))\\
+    &amp;= (1-\alpha) \cdot \text{CE}(f(x), f_w(x)) + \alpha \cdot  \text{CE}(f(x), \hat f_t(x))
+\end{align</em>} 
+$$</p>
+<p>where $f(x)$ is the student's prediction, $f_w(x)$ is the weak supervisor's label, and $\hat f_t(x)$ is the hardened label $I[f(x) &gt; t]$ for a threshold $t$. (We set $t$ adaptively to the median of the most recent 32 predictions.)</p>
+<p>Note, however, that this auxiliary loss does not seem to have a large effect in the range of model sizes we are working with:</p>
+<p><img alt="Burns Fig. 5 with circles added" src="../assets/blog/w2s/oai_scales.png">
+(from Burns et al. Figure 5)</p>
+<p>The circled areas should approximately correspond to 8B strong and 0.5B weak models, assuming GPT-4 is in the vicinity of 2T parameters and using the approximations</p>
+<p>$$
+\begin{align<em>}
+\text{compute} &amp;\propto N_{\text{params}} \times N_{\text{tokens}}\\
+N_{\text{tokens}} &amp;\propto N_{\text{params}}\\
+\implies \text{compute} &amp;\propto N_{\text{params}}^2
+\end{align</em>}
+$$</p>
+<p>Our own results indicate that the log-confidence loss may have a small positive effect on models at this scale, although the evidence is weak. Log-confidence performs better than cross-entropy on 16 out of 21 datasets (excluding those where performance saturates). A one-sided paired $t$-test is not very significant (at $p=.135$), nor is a one-sided paired Wilcoxon signed-rank test at ($p=.079$), indicating that there is not very strong evidence for a positive mean or median effect (respectively) across datasets. In other words, while log confidence may improve or harm performance on particular datasets, we have only weak evidence that the effect is positive for a typical NLP dataset similar to those we use.</p>
+<p>We also looked at some alternative losses:</p>
+<h3 id="entropy-loss">Entropy loss</h3>
+<p>If we use the student's predictions as soft labels instead of hardening them, the auxiliary term becomes equivalent to an entropy penalty on the student:</p>
+<p>$$
+\begin{align<em>}
+    L_{\text{entropy}} &amp;= \text{CE}(f(x), (1-\alpha) \cdot f_w(x) + \alpha  \cdot f(x))\\
+    &amp;= (1-\alpha) \cdot \text{CE}(f(x), f_w(x)) + \alpha  \cdot \text{H}(f(x))
+\end{align</em>} 
+$$</p>
+<h3 id="confidence-window-loss">Confidence-window loss</h3>
+<p>The loss function in this case is just cross-entropy, but we only train on datapoints that the student is unconfident about. Specifically, we exclude datapoints where $|f(x) - \tfrac12| &gt; t$, where $f(x)$ is the student prediction and $t$ is a hyperparameter. In the experiments shown here, we set the threshold $t$ to the median confidence of the weak labels.</p>
+<h2 id="probes">Probes</h2>
+<p>We train two kinds of probes -- $k$-nearest neighbors and logistic regression -- on the pretrained strong model's activations and the weak model's predictions. Both of these probes have a hyperparameter ($k$ and the L2 penalty, respectively) which can be increased to regularize more strongly (biasing more towards whatever is salient in the activations).</p>
+<p>We use $k=50$ for kNN, and an L2 penalty of 1e-2 for logistic regression.</p>
+<p>We use activations at layer 16 (out of 32) of Llama 3 8b.</p>
+<p><img alt="Probe PGR results" src="../assets/blog/w2s/probes.png"></p>
+<p><img alt="Filter PGR results" src="../assets/blog/w2s/filter.png"></p>
+<p>We show results above for three kinds of experiment with these, all of which perform poorly compared to vanilla weak-to-strong training. The probe experiments produce poor results on many datasets, while occasionally outperforming the strong student on others.</p>
+<p>Note that the first graph cuts off some datapoints which had extremely low PGRs.</p>
+<h3 id="probe-predictions">Probe predictions</h3>
+<p>In these experiments we fit probes to the strong model's activations on the strong training set, then evaluate them on the test set.</p>
+<h3 id="filtering">Filtering</h3>
+<p>In the filtering experiments, we identify data points where the probe strongly disagrees with the weak labels and drop them from the training set for the student.</p>
+<p>In addition to kNN and logistic regression, we use <a href="https://arxiv.org/abs/2012.04835">TopoFilter</a>, with $k=50$ for both steps.</p>
+<p>We remove the highest-disagreement 10% of data each time (adjusting the $\zeta$ parameter of TopoFilter as necessary), except for seven datasets where the first step of TopoFilter (TopoCC) already removed &gt;10% of data:</p>
+<p><img alt="TopoCC fraction removed" src="../assets/blog/w2s/topocc.png"></p>
+<h3 id="relabeling">Relabeling</h3>
+<p>In these experiments, we fit the probe to the strong model's training set and obtain its predictions on that same training set. We train the strong student on the probe's predictions instead of the supervisor's. As with strong-to-strong training, the idea is to lean harder on the strong model's inductive biases while still making use of all of the data.</p>
+<h3 id="layer-and-parameter-choice">Layer and parameter choice</h3>
+<p>Varying $k$ and the L2 penalty, and using activations from layers closer to the beginning and end of the model, we don't find any combinations that seem obviously better than those used above. While some datasets seem to see gradually increasing kNN performance above $k=50$, most of them steadily degrade as $k$ increases. Logistic regression performs best around a penalty of 1e-2, when it works at all. The middle-layer activations seem to perform a little better than the early or late layers.</p>
+<p>Here, we plot the difference between the ROC AUC for the probes and the ROC AUC of the weak labels:</p>
+<p><img alt="kNN parameter sweep" src="../assets/blog/w2s/knn_sweep.png"></p>
+<p><img alt="Logistic regression parameter sweep" src="../assets/blog/w2s/logreg_sweep.png"></p>
+<h2 id="discussion">Discussion</h2>
+<p>While the basic form of weak-to-strong generalization appears consistently across different NLP tasks, none of our interventions consistently improve the strength of generalization. These results suggest that vanilla weak-to-strong training may already be close to eliciting everything the strong model "knows" about these tasks.</p>
+<p>Results seem to vary strongly across datasets. This is reminiscent of some of the findings in Burns et al., such as weak-to-strong generalization for NLP tasks and chess but not reward modeling, or effectiveness of the auxiliary log-confidence loss for NLP tasks (and large models) but not chess (or smaller models).</p>
+<p>In this vein, it is worth noting that our negative results may not generalize to larger models, where (for instance) log-confidence loss apparently becomes much more effective per Burns et al.</p>
+<p>This lack of consistency across tasks and model sizes underscores the need for a "validation set" in the analogous setting of superhuman models supervised by humans. Weak-to-strong generalization is not itself a complete solution to scalable oversight. Even if a model happens to generalize in the desired direction, this fact needs to be verified, which requires a ground-truth signal more reliable than naive human supervision.</p>
+<h2 id="code">Code</h2>
+<p>The code used for these experiments can be found in our <a href="https://github.com/EleutherAI/w2s">GitHub repository</a>.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

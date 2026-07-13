@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Downstream Evaluations of Rotary Position Embeddings | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>Downstream Evaluations of Rotary Position Embeddings</h1>
+          <p class="article-dek">A comparison of Rotary Position Embedding against GPT-style learned position embeddings.</p>
+          <div class="article-meta">
+            <span>Aug 16, 2021</span>
+            <span>Leo Gao</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p>A head-to-head comparison of <a href="https://arxiv.org/abs/2104.09864">Rotary Position Embedding</a> and <a href="https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf">GPT-style learned position embeddings</a>. Both 1.3B models were trained for 100k steps on <a href="https://pile.eleuther.ai">the Pile</a> using <a href="https://github.com/kingoflolz/mesh-transformer-jax">Mesh Transformer JAX</a>. There isn't a very strong trend, but hopefully someone will find these results useful regardless. </p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Metric</th>
+<th>Learned</th>
+<th>Rotary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lambada</td>
+<td>ppl</td>
+<td>7.940 ± 0.208</td>
+<td><strong>7.156 ± 0.208</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>acc</td>
+<td>0.556 ± 0.007</td>
+<td>0.567 ± 0.007</td>
+</tr>
+<tr>
+<td>piqa</td>
+<td>acc</td>
+<td>0.700 ± 0.011</td>
+<td>0.714 ± 0.011</td>
+</tr>
+<tr>
+<td></td>
+<td>acc_norm</td>
+<td>0.693 ± 0.011</td>
+<td>0.709 ± 0.011</td>
+</tr>
+<tr>
+<td>hellaswag</td>
+<td>acc</td>
+<td>0.376 ± 0.005</td>
+<td><strong>0.389 ± 0.005</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>acc_norm</td>
+<td>0.472 ± 0.005</td>
+<td><strong>0.488 ± 0.005</strong></td>
+</tr>
+<tr>
+<td>winogrande</td>
+<td>acc</td>
+<td>0.540 ± 0.014</td>
+<td>0.571 ± 0.014</td>
+</tr>
+<tr>
+<td>mathqa</td>
+<td>acc</td>
+<td>0.231 ± 0.008</td>
+<td>0.230 ± 0.008</td>
+</tr>
+<tr>
+<td></td>
+<td>acc_norm</td>
+<td>0.234 ± 0.008</td>
+<td>0.227 ± 0.008</td>
+</tr>
+<tr>
+<td>pubmedqa</td>
+<td>acc</td>
+<td>0.599 ± 0.015</td>
+<td>0.583 ± 0.015</td>
+</tr>
+<tr>
+<td>boolq</td>
+<td>acc</td>
+<td>0.575 ± 0.009</td>
+<td><strong>0.614 ± 0.009</strong></td>
+</tr>
+<tr>
+<td>anli_r3</td>
+<td>acc</td>
+<td>0.344 ± 0.014</td>
+<td>0.351 ± 0.014</td>
+</tr>
+<tr>
+<td>openbookqa</td>
+<td>acc</td>
+<td>0.198 ± 0.018</td>
+<td>0.206 ± 0.018</td>
+</tr>
+<tr>
+<td></td>
+<td>acc_norm</td>
+<td>0.316 ± 0.021</td>
+<td>0.330 ± 0.021</td>
+</tr>
+<tr>
+<td>triviaqa</td>
+<td>acc</td>
+<td><strong>0.041 ± 0.002</strong></td>
+<td>0.026 ± 0.002</td>
+</tr>
+<tr>
+<td>arc_challenge</td>
+<td>acc</td>
+<td>0.235 ± 0.012</td>
+<td>0.230 ± 0.012</td>
+</tr>
+<tr>
+<td></td>
+<td>acc_norm</td>
+<td>0.260 ± 0.013</td>
+<td>0.272 ± 0.013</td>
+</tr>
+<tr>
+<td>arc_easy</td>
+<td>acc</td>
+<td>0.564 ± 0.010</td>
+<td>0.568 ± 0.010</td>
+</tr>
+<tr>
+<td></td>
+<td>acc_norm</td>
+<td>0.505 ± 0.010</td>
+<td>0.486 ± 0.010</td>
+</tr>
+<tr>
+<td>cb</td>
+<td>acc</td>
+<td>0.375 ± 0.065</td>
+<td>0.357 ± 0.065</td>
+</tr>
+<tr>
+<td>cola</td>
+<td>mcc</td>
+<td>0.042 ± 0.034</td>
+<td>0.022 ± 0.034</td>
+</tr>
+<tr>
+<td>copa</td>
+<td>acc</td>
+<td>0.730 ± 0.044</td>
+<td>0.730 ± 0.044</td>
+</tr>
+<tr>
+<td>ethics_cm</td>
+<td>acc</td>
+<td>0.491 ± 0.008</td>
+<td>0.480 ± 0.008</td>
+</tr>
+<tr>
+<td>ethics_deontology</td>
+<td>acc</td>
+<td>0.497 ± 0.008</td>
+<td>0.497 ± 0.008</td>
+</tr>
+<tr>
+<td>ethics_justice</td>
+<td>acc</td>
+<td>0.501 ± 0.010</td>
+<td>0.501 ± 0.010</td>
+</tr>
+<tr>
+<td>ethics_utilitarianism</td>
+<td>acc</td>
+<td>0.497 ± 0.007</td>
+<td>0.493 ± 0.007</td>
+</tr>
+<tr>
+<td>ethics_virtue</td>
+<td>acc</td>
+<td>0.200 ± 0.006</td>
+<td>0.200 ± 0.006</td>
+</tr>
+<tr>
+<td>headqa</td>
+<td>acc</td>
+<td>0.227 ± 0.008</td>
+<td>0.224 ± 0.008</td>
+</tr>
+<tr>
+<td></td>
+<td>acc_norm</td>
+<td>0.270 ± 0.008</td>
+<td>0.271 ± 0.008</td>
+</tr>
+<tr>
+<td>logiqa</td>
+<td>acc</td>
+<td>0.221 ± 0.016</td>
+<td>0.215 ± 0.016</td>
+</tr>
+<tr>
+<td></td>
+<td>acc_norm</td>
+<td>0.293 ± 0.018</td>
+<td>0.283 ± 0.018</td>
+</tr>
+<tr>
+<td>mnli</td>
+<td>acc</td>
+<td>0.344 ± 0.005</td>
+<td>0.344 ± 0.005</td>
+</tr>
+<tr>
+<td>mnli_mismatched</td>
+<td>acc</td>
+<td>0.345 ± 0.005</td>
+<td>0.349 ± 0.005</td>
+</tr>
+<tr>
+<td>mrpc</td>
+<td>acc</td>
+<td>0.684 ± 0.023</td>
+<td>0.684 ± 0.023</td>
+</tr>
+<tr>
+<td></td>
+<td>f1</td>
+<td>0.812 ± 0.017</td>
+<td>0.812 ± 0.017</td>
+</tr>
+<tr>
+<td>qa4mre_2011</td>
+<td>acc</td>
+<td>0.392 ± 0.045</td>
+<td>0.358 ± 0.045</td>
+</tr>
+<tr>
+<td></td>
+<td>acc_norm</td>
+<td>0.450 ± 0.045</td>
+<td>0.433 ± 0.045</td>
+</tr>
+<tr>
+<td>qa4mre_2012</td>
+<td>acc</td>
+<td>0.287 ± 0.036</td>
+<td>0.312 ± 0.036</td>
+</tr>
+<tr>
+<td></td>
+<td>acc_norm</td>
+<td>0.394 ± 0.039</td>
+<td>0.400 ± 0.039</td>
+</tr>
+<tr>
+<td>qa4mre_2013</td>
+<td>acc</td>
+<td>0.335 ± 0.028</td>
+<td>0.335 ± 0.028</td>
+</tr>
+<tr>
+<td></td>
+<td>acc_norm</td>
+<td>0.352 ± 0.028</td>
+<td>0.349 ± 0.028</td>
+</tr>
+<tr>
+<td>qnli</td>
+<td>acc</td>
+<td>0.498 ± 0.007</td>
+<td><strong>0.517 ± 0.007</strong></td>
+</tr>
+<tr>
+<td>qqp</td>
+<td>acc</td>
+<td>0.370 ± 0.002</td>
+<td>0.368 ± 0.002</td>
+</tr>
+<tr>
+<td></td>
+<td>f1</td>
+<td>0.538 ± 0.003</td>
+<td>0.538 ± 0.003</td>
+</tr>
+<tr>
+<td>race</td>
+<td>acc</td>
+<td>0.345 ± 0.015</td>
+<td>0.343 ± 0.015</td>
+</tr>
+<tr>
+<td>record</td>
+<td>f1</td>
+<td>0.805 ± 0.004</td>
+<td>0.813 ± 0.004</td>
+</tr>
+<tr>
+<td></td>
+<td>em</td>
+<td>0.797 ± 0.004</td>
+<td>0.805 ± 0.004</td>
+</tr>
+<tr>
+<td>rte</td>
+<td>acc</td>
+<td>0.538 ± 0.030</td>
+<td>0.523 ± 0.030</td>
+</tr>
+<tr>
+<td>sciq</td>
+<td>acc</td>
+<td>0.867 ± 0.011</td>
+<td>0.865 ± 0.011</td>
+</tr>
+<tr>
+<td></td>
+<td>acc_norm</td>
+<td>0.796 ± 0.013</td>
+<td>0.771 ± 0.013</td>
+</tr>
+<tr>
+<td>sst</td>
+<td>acc</td>
+<td><strong>0.572 ± 0.017</strong></td>
+<td>0.519 ± 0.017</td>
+</tr>
+<tr>
+<td>webqs</td>
+<td>acc</td>
+<td><strong>0.021 ± 0.003</strong></td>
+<td>0.006 ± 0.003</td>
+</tr>
+<tr>
+<td>wic</td>
+<td>acc</td>
+<td>0.500 ± 0.020</td>
+<td>0.498 ± 0.020</td>
+</tr>
+<tr>
+<td>wnli</td>
+<td>acc</td>
+<td>0.437 ± 0.059</td>
+<td>0.549 ± 0.059</td>
+</tr>
+<tr>
+<td>wsc</td>
+<td>acc</td>
+<td>0.365 ± 0.047</td>
+<td>0.365 ± 0.047</td>
+</tr>
+<tr>
+<td>wsc273</td>
+<td>acc</td>
+<td>0.722 ± 0.027</td>
+<td>0.736 ± 0.027</td>
+</tr>
+</tbody>
+</table>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

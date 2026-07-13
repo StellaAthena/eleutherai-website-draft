@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Foundation Model Development Cheatsheet | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>The Foundation Model Development Cheatsheet</h1>
+          <p class="article-dek">Announcing a new resource, the FM Dev Cheatsheet.</p>
+          <div class="article-meta">
+            <span>Feb 29, 2024</span>
+            <span>Hailey Schoelkopf, Stella Biderman</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p>The pace of foundation model releases and progress has continued to grow rapidly over the past few years, with many new models released from <a href="https://docs.google.com/spreadsheets/d/1gc6yse74XCwBx028HV_cvdxwXkmXejVjkO-Mz2uwE0k/edit?pli=1#gid=0">organizations of all kinds worldwide</a>. In addition to releasing models themselves, it's also important to make the tools to create these models - <a href="https://github.com/EleutherAI/gpt-neox">large-scale training libraries</a>, <a href="https://github.com/allenai/dolma">data processing and creation tooling</a>, and more - widely available. In April 2023 we released the Pythia model suite, the first LLMs with a fully released and reproducible technical pipeline from start to finish. We are excited to see other organizations following suit, with the <a href="https://www.llm360.ai/">LLM360</a> project releasing Amber later that year and AI2’s <a href="https://allenai.org/olmo">OLMo</a> as fully-transparent artifact releases across the entire language model development process. Additionally, many other orgs have released new tools for underserved aspects of the development pipeline. Without full-pipeline transparency, accountability for undisclosed design decisions is prevented, and independent research and auditing are limited in their ability to draw robust conclusions or accurately assess harms.</p>
+<p>As a continuation of EleutherAI’s mission to lower <a href="https://arxiv.org/abs/2210.06413">barriers to entry</a> of research and provide mentorship and <a href="https://blog.eleuther.ai/transformer-math/">educational</a> <a href="https://github.com/EleutherAI/cookbook">resources</a> about large-scale AI model development, we have collaborated with researchers from MIT, AI2, Hugging Face, Stanford, Princeton, Masakhane, MLCommons, and more to release “The Foundation Model Development Cheatsheet”, a quick-start guide to familiarize new developers with useful tools and resources for developing new open models. The topics covered span the entire model development cycle, from data collection to licensing and release practices, and are aimed to give a jumping-off point and high level survey of all the important steps for responsibly and successfully developing new models. We hope that the Cheatsheet will be a useful learning resource and reference for newer developers to be exposed to not just the technical aspects of model creation, which rightfully receives much attention already, but also the crucially important good practices around responsible development practices and release management.</p>
+<p>We hope the Cheatsheet will be a useful entry point into responsible and well-documented model development, and help raise awareness of these crucial issues. You can read the <a href="https://github.com/allenai/fm-cheatsheet/blob/main/app/resources/paper.pdf">paper</a> for full details, or explore the collection of resources interactively via the <a href="https://fmcheatsheet.org/">interactive website</a>. It is intended as a living resource–all are welcome to <a href="https://github.com/allenai/fm-cheatsheet#add-to-cheatsheet">submit new resources</a> and be recognized for their contributions!</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

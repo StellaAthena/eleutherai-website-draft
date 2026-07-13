@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multiple Choice Normalization in LM Evaluation | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>Multiple Choice Normalization in LM Evaluation</h1>
+          <p class="article-dek">There are multiple ways of evaluating multiple choice tasks on autoregressive LMs like GPT-3/Neo/J. This post lays out the current prevalent normalization methods.</p>
+          <div class="article-meta">
+            <span>Oct 11, 2021</span>
+            <span>Leo Gao</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p>Let $x_{0:m}$ be the prompt, and $x_{m:n_i}$ be the $i$th possible continuation with a token length of $n_i - m$. There are several ways to use a language model to rank multiple possible continuations to a prompt. Since the language model only gives (log) probabilities for the next token given the context (i.e $\log \mathbb P(x_i|x_{0:i})$), there is ambiguity in handling scoring for arbitrary continuations. The following are several possible ways to resolve this problem:</p>
+<ul>
+<li>Unnormalized: The score of continuation $i$ is determined using $\sum_{j=m}^{n_i - 1} \log \mathbb P(x_j|x_{0:j})$. Intuitively, this is the probability of a generation sampled from the prompt containing the continuation in question. While this is the simplest method, problems arise when there are significant differences in length between different continuations, as longer continuations tend to have lower log probabilities, thus biasing the language model towards picking shorter continuations. This approach is used by <a href="https://github.com/EleutherAI/lm-evaluation-harness">eval harness</a> in all multiple choice tasks and presented as <code>acc</code>.</li>
+<li>Token-length normalized: The score of continuation $i$ is determined using $\sum_{j=m}^{n_i - 1} \log \mathbb P(x_j|x_{0:j}) / (n_i - m)$. This approach attempts to normalize for length by computing average log probability per token; however, this approach is not tokenization agnostic, and as such two models with different tokenization that assign the same log likelihood to every single input string will have different token-length normalized scores. This approach is used by <a href="https://arxiv.org/abs/2005.14165">GPT-3</a> in most tasks. Eval harness does not report this score because it violates the design principle that all tasks should be tokenization independent.</li>
+<li>Byte-length normalized: The score of continuation $i$ is determined using $\sum_{j=m}^{n_i - 1} \log \mathbb P(x_j|x_{0:j}) / \sum_{j=m}^{n_i - 1} L_{x_j}$, where $L_{x_j}$ is the number of bytes represented by the token $x_j$. This approach attempts to normalize for length by computing average log probability per character, which ensures that it is tokenization agnostic. This approach is also used by eval harness in all multiple choice tasks and presented as <code>acc_norm</code>.</li>
+<li>Unconditional likelihood normalized: The score of continuation $i$ is determined using $\sum_{j=m}^{n_i - 1} \log \mathbb P(x_j|x_{0:j}) - \log \mathbb P(x_j)$. Intuitively, this approach measures the amount that the prompt increases the model's probability of outputting each continuation from the probability of the model unconditionally producing that continuation. This approach is used by GPT-3 in select tasks (ARC, OpenBookQA, and RACE), though no justification for why only these tasks in particular use this method is provided other than that this improves performance.</li>
+</ul>
+<p>The unnormalized, token-length normalized, and byte-length normalized metrics can be computed without additional LM calls. The unconditional likelihood normalized metric requires an additional LM call to obtain the unconditional likelihood.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

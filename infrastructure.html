@@ -12,10 +12,38 @@
       <a class="brand" href="index.html" aria-label="EleutherAI home">
         <img class="brand-logo" src="assets/eleutherai-logo.svg" alt="EleutherAI">
       </a>
-      <nav aria-label="Primary navigation">
-        <a href="research.html">Research</a>
-        <a href="infrastructure.html">Infrastructure</a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="research.html#nlp">Model Training</a>
+              <a href="research.html#nlp">Evaluation</a>
+              <a href="research.html#nlp">Multilingual</a>
+              <a href="research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="research.html#interpretability">Circuits</a>
+              <a href="research-training-dynamics.html">Training Dynamics</a>
+              <a href="research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="research.html#alignment">Open Weight Safety</a>
+              <a href="research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="research.html#other-research">Other Modalities</a>
+              <a href="research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="blog.html">Blog</a>
         <a href="community.html">Community</a>
+        <a href="staff.html">Staff</a>
         <a href="about.html">About</a>
         <a class="support" href="support.html">Support us</a>
       </nav>
@@ -38,7 +66,7 @@
             <span class="section-kicker">Artifacts</span>
             <h2>Core public artifacts</h2>
           </div>
-          <p class="section-intro">These are examples of the project records that should eventually drive project pages, related research areas, paper lists, and release feeds.</p>
+          <p class="section-intro">Project records connect models, datasets, benchmarks, code, papers, and releases so public artifacts remain tied to the research questions they support.</p>
         </div>
         <div class="artifact-table">
           <article class="artifact-row">

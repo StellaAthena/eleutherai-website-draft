@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research Update: Applications of Local Volume Measurement | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>Research Update: Applications of Local Volume Measurement</h1>
+          <p class="article-dek">Research update on on applying local volume measurement to downstream tasks</p>
+          <div class="article-meta">
+            <span>Jun 23, 2025</span>
+            <span>Dipika Khullar, David Johnston</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p>Earlier this year, we published <a href="https://arxiv.org/abs/2501.18812">Estimating the Probability of Sampling a Trained Neural Network at Random</a>, where we detailed a new method for estimating the probability of randomly sampling a neural network with behaviour similar to a given trained network, a figure we sometimes call the <em>local volume</em>. Alongside this we released the <a href="https://github.com/EleutherAI/tyche">tyche</a> library for measuring the local volume of a neural network with respect to a given dataset and loss function.</p>
+<p>We thought local volume measurement could be a useful tool for detecting unusual model behaviour. Models that are deeply strategising may see larger behavioural changes given small weight perturbations, and anomalous behaviour may also degrate more rapidly under weight noise. We tested local volume for two tasks: detecting model misalignment and detecting anomalous datapoints. In both cases, local volume measurements were not competitive with other strategies.</p>
+<h2 id="poser-vs-tyche-perturbation-strategies-for-detecting-model-misalignment">POSER vs Tyche: Perturbation Strategies for Detecting Model Misalignment</h2>
+<p>We tested Tyche on the <a href="https://github.com/sevdeawesome/POSER/tree/master">POSER</a> benchmark for detection of deliberately trained misaligned models. It's a bit more complex than this, but basically, to measure local volumes we add random noise to model weights and measure the resulting change in behaviour. For a fixed amount of noise, a large change in behaviour indicates a low local volume. This is very similar to the best performing method in the original POSER paper, which added random noise to model <em>activations</em>, and found that this was highly effective at distinguishing aligned from misaligned models.</p>
+<h3 id="methodology">Methodology</h3>
+<p>POSER and Tyche both compare the difference between a model's normal operation and its operation under some perturbation. Here we summarize both approaches.</p>
+<p>POSER:
+ - Constructs a steering vector from contrast pairs (clean vs critical prompts)
+ - Samples a random perturbation of the same norm as the steering vector
+ - Adds scalar multiples of the random vector (coefficients 0 to 20) to the residual stream at a specific layer (15 in our tests)
+ - Classifies the model whose probabilities diverge more from the baseline due to the perturbation as the presumed misaligned model</p>
+<p>Tyche:
+ - Samples random directions in parameter space (25 samples, 100 iterations).
+ - Scales each vector to match a target KL divergence (e.g., 1e-2).
+ - Operates either across all layers or a single layer (e.g., layer 15).
+ - Computes a volume estimate from the norms of the random directions</p>
+<h4 id="experimental-setup">Experimental Setup</h4>
+<ol>
+<li>We used the CAA benchmark, selecting clean and critical prompts for steering vector construction and evaluation.</li>
+<li>Models: truth-teller (aligned), genie (aligned), *-maximizer (misaligned).</li>
+<li>Evaluation Metric: KL divergence between perturbed and original output distributions.</li>
+</ol>
+<h2 id="key-findings">Key Findings</h2>
+<p>POSER Sensitivity: Misaligned models (e.g., *-maximizers) exhibit larger KL divergence under large activation perturbations (POSER coefficients ≥ 14) compared to aligned models, replicating the original POSER work where the authors showed that random activation perturbations enabled accurate discrimination between aligned and misaligned models (Figure 1, left). On the other hand, under weight perturbations with the tyche library, we found that misaligned models on average deviated from  slightly <em>less</em> from their baseline behaviour than aligned models (Figure 1, right). Discrimination was mediocre in either direction (Figure 2).</p>
+<figure><img src="../assets/blog/tyche-poser-comparison/money_maximizer_1_dual_tyche_comparison.png" alt=""></figure>
+
+<figure><img src="../assets/blog/tyche-poser-comparison/roc_curve_volume_vs_alignment.png" alt=""></figure>
+
+<p>This result was surprising to us, and we performed some further investigation, including measuring behavioural deviation using KL divergence from baseline behaviour (the original POSER paper measured the probability on the misaligned answer for each prompt), and restricting the Tyche perturbations to the 15th layer, matching the layer choice for activation perturbations in the original POSER work. Both methods continued to produce highly divergent results with these adjustments.</p>
+<h2 id="tyche-for-mechanistic-anomaly-detection">Tyche for Mechanistic Anomaly Detection</h2>
+<p>We also tried applying Tyche to the mechanistic anomaly detection task we have reported on previously (see our <a href="https://arxiv.org/abs/2504.08812">paper</a> and <a href="/mad_research_update/">research update 1</a>, <a href="/mad_research_update_2/">research update 2</a>).</p>
+<p>Our method was to use Tyche to compute a local volume for each data point. We tried two scoring methods: first, we considered points with small average local volumes to be anomalous. This was anti-predictive (see "meta local volume" in Table 1). Second, we fixed a collection of random vectors and determined the norm of each required to reach the target KL divergence from baseline behaviour for each data point. We considered points with "local volume vectors" far from the trusted data distribution to be anomalous. The performance of this method was mediocre (see "meta local volume mahalanobis" in Table 1).</p>
+<h3 id="table-1-mechanistic-anomaly-detection-results">Table 1: Mechanistic anomaly detection results</h3>
+<table>
+<thead>
+<tr>
+<th>Model and score type</th>
+<th>AUROC avg</th>
+<th>AUROC avg (anomalous agrees with GT)</th>
+<th>AUROC avg (anomalous disagrees with GT)</th>
+<th>Number of datasets</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>meta activations lof</td>
+<td>0.762</td>
+<td>0.763</td>
+<td>0.768</td>
+<td>10</td>
+</tr>
+<tr>
+<td>meta activations mahalanobis</td>
+<td>0.741</td>
+<td>0.750</td>
+<td>0.712</td>
+<td>10</td>
+</tr>
+<tr>
+<td><em>meta local volume</em></td>
+<td><em>0.380</em></td>
+<td><em>0.392</em></td>
+<td><em>0.346</em></td>
+<td><em>8</em></td>
+</tr>
+<tr>
+<td>meta attribution lof mean</td>
+<td>0.730</td>
+<td>0.747</td>
+<td>0.718</td>
+<td>10</td>
+</tr>
+<tr>
+<td>meta attribution mahalanobis mean</td>
+<td>0.639</td>
+<td>0.682</td>
+<td>0.609</td>
+<td>10</td>
+</tr>
+<tr>
+<td><em>meta local volume mahalanobis</em></td>
+<td><em>0.572</em></td>
+<td><em>0.558</em></td>
+<td><em>0.599</em></td>
+<td><em>10</em></td>
+</tr>
+<tr>
+<td>meta flow laplace</td>
+<td>0.581</td>
+<td>0.617</td>
+<td>0.522</td>
+<td>10</td>
+</tr>
+<tr>
+<td>meta flow mahalanobis</td>
+<td>0.737</td>
+<td>0.744</td>
+<td>0.710</td>
+<td>10</td>
+</tr>
+<tr>
+<td>meta probe lof mean</td>
+<td>0.737</td>
+<td>0.753</td>
+<td>0.717</td>
+<td>10</td>
+</tr>
+<tr>
+<td>meta probe mahalanobis mean</td>
+<td>0.652</td>
+<td>0.696</td>
+<td>0.615</td>
+<td>10</td>
+</tr>
+<tr>
+<td>meta sae diag mahalanobis</td>
+<td>0.729</td>
+<td>0.744</td>
+<td>0.689</td>
+<td>10</td>
+</tr>
+<tr>
+<td>meta sae l0</td>
+<td>0.737</td>
+<td>0.747</td>
+<td>0.715</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<h2 id="outlook">Outlook</h2>
+<p>These results make us more pessimistic about the utility of local volume measurement for detecting model misalignment and anomalous datapoints. Combined with our <a href="https://blog.eleuther.ai/inductive-bias/">previous negative results</a> on using local volume to study inductive biases, we are not currently planning to pursue further research in this direction. </p>
+<p>At a high level, we can think about local volume measurement as an attempt to measure the sensitivity of model behavior to perturbations in its <em>parameters</em>. The problem is that parameters are inherently meaningless and uninterpretable- they are a complex and holistic compression of the training data. By contrast, the data is inherently interpretable, so we are now exploring the sensitivity of model behavior to <em>data perturbations</em> instead- that is, the field of <em>data attribution</em>. Check out the data-attribution channel in our <a href="https://discord.gg/eleutherai">Discord</a> for more discussion on this topic.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

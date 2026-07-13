@@ -1,0 +1,2205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finetuning Models on Downstream Tasks | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>Finetuning Models on Downstream Tasks</h1>
+          <p class="article-dek">We tuned GPT-Neo on eval harness tasks to see how it would change its performance.</p>
+          <div class="article-meta">
+            <span>May 24, 2021</span>
+            <span>Leo Gao</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p>The GPT-3 paper didn't explore fine tuning on downstream tasks, so I decided to tune Neo 2.7B for 1.1k iters on all the tasks in <a href="https://github.com/EleutherAI/lm-evaluation-harness">eval harness</a> that have a train set (all at once, because tuning one model per task would have taken ages). I was quite surprised that the tuned model didn't destroy untuned 2.7B completely on all tasks, but rather from eyeballing it seems like a tossup. Interestingly, tuned seems to defeat 2.7B by quite a lot on anli, which is especially notable given that this is one task the models in the GPT-3 paper struggled on. Also, lambada and pubmedqa are included in these tables, even though it doesn't have a training set (at least for the implementation in eval harness, using the OA version of lambada), because I wanted to look at effects on sets not in the tuning, to potentially observe some catastrophic forgetting or something. Sure enough, lambada and pubmedqa scores are significantly worse on the tuned model. </p>
+<h2 id="zero-shot">Zero shot</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Task</th>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: center;">2.7B</th>
+<th style="text-align: center;">Tuned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">anli_r1</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.332 ± 0.015</td>
+<td style="text-align: center;"><strong>0.418 ± 0.015</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">anli_r2</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.342 ± 0.015</td>
+<td style="text-align: center;">0.375 ± 0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">anli_r3</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.352 ± 0.014</td>
+<td style="text-align: center;"><strong>0.392 ± 0.014</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">arc_challenge</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.275 ± 0.013</td>
+<td style="text-align: center;">0.286 ± 0.013</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.301 ± 0.013</td>
+<td style="text-align: center;">0.312 ± 0.013</td>
+</tr>
+<tr>
+<td style="text-align: left;">arc_easy</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;"><strong>0.611 ± 0.010</strong></td>
+<td style="text-align: center;">0.560 ± 0.010</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.539 ± 0.010</td>
+<td style="text-align: center;">0.558 ± 0.010</td>
+</tr>
+<tr>
+<td style="text-align: left;">boolq</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;"><strong>0.630 ± 0.008</strong></td>
+<td style="text-align: center;">0.605 ± 0.008</td>
+</tr>
+<tr>
+<td style="text-align: left;">cb</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.304 ± 0.062</td>
+<td style="text-align: center;">0.411 ± 0.062</td>
+</tr>
+<tr>
+<td style="text-align: left;">copa</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.800 ± 0.040</td>
+<td style="text-align: center;">0.730 ± 0.040</td>
+</tr>
+<tr>
+<td style="text-align: left;">ethics_cm</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.510 ± 0.008</td>
+<td style="text-align: center;"><strong>0.561 ± 0.008</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">ethics_deontology</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.497 ± 0.008</td>
+<td style="text-align: center;"><strong>0.658 ± 0.008</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">ethics_justice</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.501 ± 0.010</td>
+<td style="text-align: center;"><strong>0.589 ± 0.010</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">ethics_utilitarianism</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.497 ± 0.007</td>
+<td style="text-align: center;">0.498 ± 0.007</td>
+</tr>
+<tr>
+<td style="text-align: left;">ethics_virtue</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.251 ± 0.006</td>
+<td style="text-align: center;"><strong>0.800 ± 0.006</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">headqa</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.235 ± 0.008</td>
+<td style="text-align: center;">0.233 ± 0.008</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.272 ± 0.008</td>
+<td style="text-align: center;">0.265 ± 0.008</td>
+</tr>
+<tr>
+<td style="text-align: left;">hellaswag</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;"><strong>0.427 ± 0.005</strong></td>
+<td style="text-align: center;">0.400 ± 0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;"><strong>0.558 ± 0.005</strong></td>
+<td style="text-align: center;">0.517 ± 0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-abstract_algebra</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.230 ± 0.042</td>
+<td style="text-align: center;">0.340 ± 0.042</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.200 ± 0.040</td>
+<td style="text-align: center;"><strong>0.350 ± 0.040</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-anatomy</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.252 ± 0.037</td>
+<td style="text-align: center;">0.267 ± 0.037</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.222 ± 0.036</td>
+<td style="text-align: center;">0.252 ± 0.036</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-astronomy</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.250 ± 0.035</td>
+<td style="text-align: center;">0.309 ± 0.035</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.362 ± 0.039</td>
+<td style="text-align: center;">0.309 ± 0.039</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-business_ethics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.360 ± 0.048</td>
+<td style="text-align: center;">0.340 ± 0.048</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.280 ± 0.045</td>
+<td style="text-align: center;">0.310 ± 0.045</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-clinical_knowledge</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.291 ± 0.028</td>
+<td style="text-align: center;">0.370 ± 0.028</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.287 ± 0.028</td>
+<td style="text-align: center;"><strong>0.374 ± 0.028</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-college_biology</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.250 ± 0.036</td>
+<td style="text-align: center;">0.250 ± 0.036</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.222 ± 0.035</td>
+<td style="text-align: center;">0.271 ± 0.035</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-college_chemistry</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.230 ± 0.042</td>
+<td style="text-align: center;">0.350 ± 0.042</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.250 ± 0.044</td>
+<td style="text-align: center;">0.350 ± 0.044</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-college_computer_science</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.280 ± 0.045</td>
+<td style="text-align: center;"><strong>0.430 ± 0.045</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.270 ± 0.045</td>
+<td style="text-align: center;">0.390 ± 0.045</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-college_mathematics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.200 ± 0.040</td>
+<td style="text-align: center;"><strong>0.370 ± 0.040</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.300 ± 0.046</td>
+<td style="text-align: center;">0.350 ± 0.046</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-college_medicine</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.254 ± 0.033</td>
+<td style="text-align: center;">0.312 ± 0.033</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.260 ± 0.033</td>
+<td style="text-align: center;">0.306 ± 0.033</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-college_physics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.225 ± 0.042</td>
+<td style="text-align: center;">0.275 ± 0.042</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.245 ± 0.043</td>
+<td style="text-align: center;">0.284 ± 0.043</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-computer_security</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.270 ± 0.045</td>
+<td style="text-align: center;">0.290 ± 0.045</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.330 ± 0.047</td>
+<td style="text-align: center;">0.290 ± 0.047</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-conceptual_physics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.247 ± 0.028</td>
+<td style="text-align: center;">0.315 ± 0.028</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.187 ± 0.026</td>
+<td style="text-align: center;"><strong>0.319 ± 0.026</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-econometrics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.193 ± 0.037</td>
+<td style="text-align: center;">0.272 ± 0.037</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.228 ± 0.039</td>
+<td style="text-align: center;">0.281 ± 0.039</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-electrical_engineering</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.331 ± 0.039</td>
+<td style="text-align: center;">0.386 ± 0.039</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.338 ± 0.039</td>
+<td style="text-align: center;">0.386 ± 0.039</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-elementary_mathematics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.230 ± 0.022</td>
+<td style="text-align: center;">0.280 ± 0.022</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.270 ± 0.023</td>
+<td style="text-align: center;">0.278 ± 0.023</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-formal_logic</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.333 ± 0.042</td>
+<td style="text-align: center;">0.310 ± 0.042</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.302 ± 0.041</td>
+<td style="text-align: center;">0.278 ± 0.041</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-global_facts</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.240 ± 0.043</td>
+<td style="text-align: center;">0.250 ± 0.043</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.240 ± 0.043</td>
+<td style="text-align: center;">0.260 ± 0.043</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_biology</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.219 ± 0.024</td>
+<td style="text-align: center;"><strong>0.335 ± 0.024</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.284 ± 0.026</td>
+<td style="text-align: center;">0.329 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_chemistry</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.167 ± 0.026</td>
+<td style="text-align: center;">0.207 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.256 ± 0.031</td>
+<td style="text-align: center;">0.212 ± 0.031</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_computer_science</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.220 ± 0.042</td>
+<td style="text-align: center;">0.290 ± 0.042</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.280 ± 0.045</td>
+<td style="text-align: center;">0.280 ± 0.045</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_european_history</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.267 ± 0.035</td>
+<td style="text-align: center;">0.358 ± 0.035</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.285 ± 0.035</td>
+<td style="text-align: center;">0.358 ± 0.035</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_geography</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.227 ± 0.030</td>
+<td style="text-align: center;"><strong>0.359 ± 0.030</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.298 ± 0.033</td>
+<td style="text-align: center;">0.333 ± 0.033</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_government_and_politics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.207 ± 0.029</td>
+<td style="text-align: center;"><strong>0.301 ± 0.029</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.259 ± 0.032</td>
+<td style="text-align: center;">0.311 ± 0.032</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_macroeconomics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.262 ± 0.022</td>
+<td style="text-align: center;">0.267 ± 0.022</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.267 ± 0.022</td>
+<td style="text-align: center;">0.262 ± 0.022</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_mathematics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.174 ± 0.023</td>
+<td style="text-align: center;"><strong>0.248 ± 0.023</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.244 ± 0.026</td>
+<td style="text-align: center;">0.270 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_microeconomics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.256 ± 0.028</td>
+<td style="text-align: center;">0.265 ± 0.028</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.328 ± 0.030</td>
+<td style="text-align: center;">0.277 ± 0.030</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_physics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.225 ± 0.034</td>
+<td style="text-align: center;">0.212 ± 0.034</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.219 ± 0.034</td>
+<td style="text-align: center;">0.225 ± 0.034</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_psychology</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.253 ± 0.019</td>
+<td style="text-align: center;"><strong>0.338 ± 0.019</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.261 ± 0.019</td>
+<td style="text-align: center;"><strong>0.330 ± 0.019</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_statistics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.264 ± 0.030</td>
+<td style="text-align: center;">0.278 ± 0.030</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.338 ± 0.032</td>
+<td style="text-align: center;">0.273 ± 0.032</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_us_history</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.235 ± 0.030</td>
+<td style="text-align: center;">0.230 ± 0.030</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.270 ± 0.031</td>
+<td style="text-align: center;">0.235 ± 0.031</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_world_history</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.270 ± 0.029</td>
+<td style="text-align: center;"><strong>0.388 ± 0.029</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.300 ± 0.030</td>
+<td style="text-align: center;"><strong>0.392 ± 0.030</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-human_aging</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.296 ± 0.031</td>
+<td style="text-align: center;">0.318 ± 0.031</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.238 ± 0.029</td>
+<td style="text-align: center;">0.314 ± 0.029</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-human_sexuality</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.336 ± 0.041</td>
+<td style="text-align: center;">0.290 ± 0.041</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.290 ± 0.040</td>
+<td style="text-align: center;">0.290 ± 0.040</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-international_law</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.248 ± 0.039</td>
+<td style="text-align: center;">0.322 ± 0.039</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;"><strong>0.496 ± 0.046</strong></td>
+<td style="text-align: center;">0.347 ± 0.046</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-jurisprudence</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.250 ± 0.042</td>
+<td style="text-align: center;">0.269 ± 0.042</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;"><strong>0.426 ± 0.048</strong></td>
+<td style="text-align: center;">0.296 ± 0.048</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-logical_fallacies</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.209 ± 0.032</td>
+<td style="text-align: center;">0.258 ± 0.032</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.288 ± 0.036</td>
+<td style="text-align: center;">0.264 ± 0.036</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-machine_learning</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.295 ± 0.043</td>
+<td style="text-align: center;">0.250 ± 0.043</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.259 ± 0.042</td>
+<td style="text-align: center;">0.259 ± 0.042</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-management</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.184 ± 0.038</td>
+<td style="text-align: center;"><strong>0.311 ± 0.038</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.282 ± 0.045</td>
+<td style="text-align: center;">0.330 ± 0.045</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-marketing</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.316 ± 0.030</td>
+<td style="text-align: center;"><strong>0.432 ± 0.030</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.338 ± 0.031</td>
+<td style="text-align: center;"><strong>0.440 ± 0.031</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-medical_genetics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.300 ± 0.046</td>
+<td style="text-align: center;">0.240 ± 0.046</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.370 ± 0.049</td>
+<td style="text-align: center;">0.270 ± 0.049</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-miscellaneous</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.281 ± 0.016</td>
+<td style="text-align: center;">0.323 ± 0.016</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.271 ± 0.016</td>
+<td style="text-align: center;"><strong>0.328 ± 0.016</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-moral_disputes</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.286 ± 0.024</td>
+<td style="text-align: center;">0.350 ± 0.024</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.355 ± 0.026</td>
+<td style="text-align: center;">0.364 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-moral_scenarios</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.234 ± 0.014</td>
+<td style="text-align: center;">0.264 ± 0.014</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.273 ± 0.015</td>
+<td style="text-align: center;">0.269 ± 0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-nutrition</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.275 ± 0.026</td>
+<td style="text-align: center;">0.307 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.359 ± 0.027</td>
+<td style="text-align: center;">0.333 ± 0.027</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-philosophy</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.270 ± 0.025</td>
+<td style="text-align: center;">0.305 ± 0.025</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.315 ± 0.026</td>
+<td style="text-align: center;">0.322 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-prehistory</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.256 ± 0.024</td>
+<td style="text-align: center;"><strong>0.361 ± 0.024</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.216 ± 0.023</td>
+<td style="text-align: center;"><strong>0.364 ± 0.023</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-professional_accounting</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.248 ± 0.026</td>
+<td style="text-align: center;">0.230 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.259 ± 0.026</td>
+<td style="text-align: center;">0.220 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-professional_law</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.267 ± 0.011</td>
+<td style="text-align: center;">0.275 ± 0.011</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.300 ± 0.012</td>
+<td style="text-align: center;">0.284 ± 0.012</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-professional_medicine</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.246 ± 0.026</td>
+<td style="text-align: center;">0.290 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.232 ± 0.026</td>
+<td style="text-align: center;">0.298 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-professional_psychology</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.258 ± 0.018</td>
+<td style="text-align: center;">0.299 ± 0.018</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.253 ± 0.018</td>
+<td style="text-align: center;"><strong>0.315 ± 0.018</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-public_relations</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.300 ± 0.044</td>
+<td style="text-align: center;">0.364 ± 0.044</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.164 ± 0.035</td>
+<td style="text-align: center;"><strong>0.373 ± 0.035</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-security_studies</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.339 ± 0.030</td>
+<td style="text-align: center;">0.343 ± 0.030</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.286 ± 0.029</td>
+<td style="text-align: center;">0.286 ± 0.029</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-sociology</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.269 ± 0.031</td>
+<td style="text-align: center;"><strong>0.403 ± 0.031</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.264 ± 0.031</td>
+<td style="text-align: center;"><strong>0.423 ± 0.031</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-us_foreign_policy</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.330 ± 0.047</td>
+<td style="text-align: center;">0.390 ± 0.047</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.350 ± 0.048</td>
+<td style="text-align: center;">0.390 ± 0.048</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-virology</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.313 ± 0.036</td>
+<td style="text-align: center;">0.325 ± 0.036</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.331 ± 0.037</td>
+<td style="text-align: center;">0.343 ± 0.037</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-world_religions</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.304 ± 0.035</td>
+<td style="text-align: center;">0.316 ± 0.035</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.386 ± 0.037</td>
+<td style="text-align: center;">0.339 ± 0.037</td>
+</tr>
+<tr>
+<td style="text-align: left;">logiqa</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.201 ± 0.016</td>
+<td style="text-align: center;"><strong>0.280 ± 0.016</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.281 ± 0.018</td>
+<td style="text-align: center;">0.283 ± 0.018</td>
+</tr>
+<tr>
+<td style="text-align: left;">mathqa</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.247 ± 0.008</td>
+<td style="text-align: center;">0.248 ± 0.008</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.246 ± 0.008</td>
+<td style="text-align: center;">0.239 ± 0.008</td>
+</tr>
+<tr>
+<td style="text-align: left;">mnli</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.339 ± 0.005</td>
+<td style="text-align: center;"><strong>0.729 ± 0.005</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">mnli_mismatched</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.338 ± 0.005</td>
+<td style="text-align: center;"><strong>0.742 ± 0.005</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">mrpc</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.684 ± 0.023</td>
+<td style="text-align: center;">0.701 ± 0.023</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">f1</td>
+<td style="text-align: center;">0.812 ± 0.016</td>
+<td style="text-align: center;">0.820 ± 0.016</td>
+</tr>
+<tr>
+<td style="text-align: left;">multirc</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;"><strong>0.016 ± 0.004</strong></td>
+<td style="text-align: center;">0.004 ± 0.004</td>
+</tr>
+<tr>
+<td style="text-align: left;">openbookqa</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.234 ± 0.019</td>
+<td style="text-align: center;">0.248 ± 0.019</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.332 ± 0.021</td>
+<td style="text-align: center;">0.318 ± 0.021</td>
+</tr>
+<tr>
+<td style="text-align: left;">piqa</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.721 ± 0.010</td>
+<td style="text-align: center;">0.713 ± 0.010</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.729 ± 0.010</td>
+<td style="text-align: center;">0.708 ± 0.010</td>
+</tr>
+<tr>
+<td style="text-align: left;">qnli</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.509 ± 0.007</td>
+<td style="text-align: center;"><strong>0.761 ± 0.007</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">qqp</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.368 ± 0.002</td>
+<td style="text-align: center;"><strong>0.843 ± 0.002</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">f1</td>
+<td style="text-align: center;">0.538 ± 0.003</td>
+<td style="text-align: center;"><strong>0.789 ± 0.003</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">race</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.353 ± 0.015</td>
+<td style="text-align: center;">0.362 ± 0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">record</td>
+<td style="text-align: left;">f1</td>
+<td style="text-align: center;"><strong>0.845 ± 0.004</strong></td>
+<td style="text-align: center;">0.779 ± 0.004</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">em</td>
+<td style="text-align: center;"><strong>0.838 ± 0.004</strong></td>
+<td style="text-align: center;">0.770 ± 0.004</td>
+</tr>
+<tr>
+<td style="text-align: left;">rte</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.520 ± 0.030</td>
+<td style="text-align: center;"><strong>0.729 ± 0.030</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">sciq</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.893 ± 0.010</td>
+<td style="text-align: center;"><strong>0.919 ± 0.010</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.828 ± 0.012</td>
+<td style="text-align: center;"><strong>0.913 ± 0.012</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">sst</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.789 ± 0.014</td>
+<td style="text-align: center;"><strong>0.862 ± 0.014</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">webqs</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.016 ± 0.003</td>
+<td style="text-align: center;"><strong>0.071 ± 0.003</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">wic</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.500 ± 0.020</td>
+<td style="text-align: center;">0.517 ± 0.020</td>
+</tr>
+<tr>
+<td style="text-align: left;">winogrande</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.575 ± 0.014</td>
+<td style="text-align: center;">0.570 ± 0.014</td>
+</tr>
+<tr>
+<td style="text-align: left;">wnli</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.310 ± 0.055</td>
+<td style="text-align: center;"><strong>0.563 ± 0.055</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">wsc</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.365 ± 0.047</td>
+<td style="text-align: center;">0.365 ± 0.047</td>
+</tr>
+<tr>
+<td style="text-align: left;">lambada</td>
+<td style="text-align: left;">ppl</td>
+<td style="text-align: center;"><strong>5.626 ± 0.139</strong></td>
+<td style="text-align: center;">27.796 ± 0.139</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;"><strong>0.622 ± 0.007</strong></td>
+<td style="text-align: center;">0.387 ± 0.007</td>
+</tr>
+<tr>
+<td style="text-align: left;">pubmedqa</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;"><strong>0.565 ± 0.016</strong></td>
+<td style="text-align: center;">0.496 ± 0.016</td>
+</tr>
+<tr>
+<td style="text-align: left;">coqa</td>
+<td style="text-align: left;">f1</td>
+<td style="text-align: center;">0.604 ± 0.018</td>
+<td style="text-align: center;">0.598 ± 0.018</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">em</td>
+<td style="text-align: center;">0.479 ± 0.020</td>
+<td style="text-align: center;">0.480 ± 0.020</td>
+</tr>
+<tr>
+<td style="text-align: left;">drop</td>
+<td style="text-align: left;">em</td>
+<td style="text-align: center;"><strong>0.026 ± 0.002</strong></td>
+<td style="text-align: center;">0.001 ± 0.002</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">f1</td>
+<td style="text-align: center;"><strong>0.083 ± 0.002</strong></td>
+<td style="text-align: center;">0.033 ± 0.002</td>
+</tr>
+<tr>
+<td style="text-align: left;">math_algebra</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.008 ± 0.003</td>
+<td style="text-align: center;"><strong>0.025 ± 0.003</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">math_geometry</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.002 ± 0.002</td>
+<td style="text-align: center;"><strong>0.021 ± 0.002</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">math_intermediate_algebra</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.004 ± 0.002</td>
+<td style="text-align: center;"><strong>0.025 ± 0.002</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">math_num_theory</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.019 ± 0.006</td>
+<td style="text-align: center;"><strong>0.046 ± 0.006</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">math_prealgebra</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.001 ± 0.001</td>
+<td style="text-align: center;"><strong>0.039 ± 0.001</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">math_precalc</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.005 ± 0.003</td>
+<td style="text-align: center;">0.016 ± 0.003</td>
+</tr>
+</tbody>
+</table>
+<h2 id="one-shot">One shot</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Task</th>
+<th style="text-align: left;">Metric</th>
+<th style="text-align: center;">2.7B</th>
+<th style="text-align: center;">Tuned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">anli_r1</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.331 ± 0.015</td>
+<td style="text-align: center;"><strong>0.443 ± 0.015</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">anli_r2</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.307 ± 0.015</td>
+<td style="text-align: center;"><strong>0.373 ± 0.015</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">anli_r3</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.343 ± 0.014</td>
+<td style="text-align: center;"><strong>0.423 ± 0.014</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">arc_challenge</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.302 ± 0.013</td>
+<td style="text-align: center;">0.292 ± 0.013</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.323 ± 0.014</td>
+<td style="text-align: center;">0.323 ± 0.014</td>
+</tr>
+<tr>
+<td style="text-align: left;">arc_easy</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;"><strong>0.634 ± 0.010</strong></td>
+<td style="text-align: center;">0.567 ± 0.010</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;"><strong>0.622 ± 0.010</strong></td>
+<td style="text-align: center;">0.562 ± 0.010</td>
+</tr>
+<tr>
+<td style="text-align: left;">boolq</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.536 ± 0.009</td>
+<td style="text-align: center;"><strong>0.620 ± 0.009</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">cb</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.429 ± 0.067</td>
+<td style="text-align: center;">0.411 ± 0.067</td>
+</tr>
+<tr>
+<td style="text-align: left;">cola</td>
+<td style="text-align: left;">mcc</td>
+<td style="text-align: center;">0.001 ± 0.031</td>
+<td style="text-align: center;">0.022 ± 0.031</td>
+</tr>
+<tr>
+<td style="text-align: left;">copa</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.770 ± 0.042</td>
+<td style="text-align: center;">0.780 ± 0.042</td>
+</tr>
+<tr>
+<td style="text-align: left;">ethics_cm</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.508 ± 0.008</td>
+<td style="text-align: center;"><strong>0.625 ± 0.008</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">ethics_deontology</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.511 ± 0.008</td>
+<td style="text-align: center;"><strong>0.683 ± 0.008</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">ethics_justice</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.515 ± 0.010</td>
+<td style="text-align: center;"><strong>0.604 ± 0.010</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">ethics_utilitarianism</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.490 ± 0.007</td>
+<td style="text-align: center;"><strong>0.536 ± 0.007</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">ethics_virtue</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.726 ± 0.006</td>
+<td style="text-align: center;"><strong>0.805 ± 0.006</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">headqa</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.230 ± 0.008</td>
+<td style="text-align: center;">0.228 ± 0.008</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.270 ± 0.008</td>
+<td style="text-align: center;">0.275 ± 0.008</td>
+</tr>
+<tr>
+<td style="text-align: left;">hellaswag</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;"><strong>0.428 ± 0.005</strong></td>
+<td style="text-align: center;">0.386 ± 0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;"><strong>0.557 ± 0.005</strong></td>
+<td style="text-align: center;">0.494 ± 0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-abstract_algebra</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.220 ± 0.042</td>
+<td style="text-align: center;">0.270 ± 0.042</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.290 ± 0.046</td>
+<td style="text-align: center;">0.260 ± 0.046</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-anatomy</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.289 ± 0.039</td>
+<td style="text-align: center;">0.304 ± 0.039</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.230 ± 0.036</td>
+<td style="text-align: center;">0.289 ± 0.036</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-astronomy</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.204 ± 0.033</td>
+<td style="text-align: center;"><strong>0.322 ± 0.033</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.303 ± 0.037</td>
+<td style="text-align: center;">0.322 ± 0.037</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-business_ethics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.290 ± 0.046</td>
+<td style="text-align: center;">0.320 ± 0.046</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.280 ± 0.045</td>
+<td style="text-align: center;">0.280 ± 0.045</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-clinical_knowledge</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.287 ± 0.028</td>
+<td style="text-align: center;">0.351 ± 0.028</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.328 ± 0.029</td>
+<td style="text-align: center;">0.358 ± 0.029</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-college_biology</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.215 ± 0.034</td>
+<td style="text-align: center;">0.271 ± 0.034</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.194 ± 0.033</td>
+<td style="text-align: center;">0.271 ± 0.033</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-college_chemistry</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.300 ± 0.046</td>
+<td style="text-align: center;">0.330 ± 0.046</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.340 ± 0.048</td>
+<td style="text-align: center;">0.320 ± 0.048</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-college_computer_science</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.330 ± 0.047</td>
+<td style="text-align: center;">0.390 ± 0.047</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.310 ± 0.046</td>
+<td style="text-align: center;">0.360 ± 0.046</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-college_mathematics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.200 ± 0.040</td>
+<td style="text-align: center;">0.280 ± 0.040</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.220 ± 0.042</td>
+<td style="text-align: center;">0.270 ± 0.042</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-college_medicine</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.254 ± 0.033</td>
+<td style="text-align: center;">0.295 ± 0.033</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.260 ± 0.033</td>
+<td style="text-align: center;">0.283 ± 0.033</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-college_physics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.304 ± 0.046</td>
+<td style="text-align: center;">0.284 ± 0.046</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.333 ± 0.047</td>
+<td style="text-align: center;">0.304 ± 0.047</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-computer_security</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.320 ± 0.047</td>
+<td style="text-align: center;">0.270 ± 0.047</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.320 ± 0.047</td>
+<td style="text-align: center;">0.290 ± 0.047</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-conceptual_physics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.268 ± 0.029</td>
+<td style="text-align: center;">0.349 ± 0.029</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.255 ± 0.029</td>
+<td style="text-align: center;"><strong>0.345 ± 0.029</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-econometrics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.298 ± 0.043</td>
+<td style="text-align: center;">0.272 ± 0.043</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.298 ± 0.043</td>
+<td style="text-align: center;">0.263 ± 0.043</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-electrical_engineering</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.338 ± 0.039</td>
+<td style="text-align: center;">0.324 ± 0.039</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.290 ± 0.038</td>
+<td style="text-align: center;">0.303 ± 0.038</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-elementary_mathematics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.262 ± 0.023</td>
+<td style="text-align: center;">0.275 ± 0.023</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.294 ± 0.023</td>
+<td style="text-align: center;">0.275 ± 0.023</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-formal_logic</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.310 ± 0.041</td>
+<td style="text-align: center;">0.310 ± 0.041</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.294 ± 0.041</td>
+<td style="text-align: center;">0.270 ± 0.041</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-global_facts</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.200 ± 0.040</td>
+<td style="text-align: center;">0.290 ± 0.040</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.210 ± 0.041</td>
+<td style="text-align: center;">0.290 ± 0.041</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_biology</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.265 ± 0.025</td>
+<td style="text-align: center;"><strong>0.342 ± 0.025</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.287 ± 0.026</td>
+<td style="text-align: center;">0.342 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_chemistry</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.251 ± 0.031</td>
+<td style="text-align: center;">0.232 ± 0.031</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.291 ± 0.032</td>
+<td style="text-align: center;">0.227 ± 0.032</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_computer_science</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.260 ± 0.044</td>
+<td style="text-align: center;">0.280 ± 0.044</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.300 ± 0.046</td>
+<td style="text-align: center;">0.260 ± 0.046</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_european_history</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.267 ± 0.035</td>
+<td style="text-align: center;">0.309 ± 0.035</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.315 ± 0.036</td>
+<td style="text-align: center;">0.321 ± 0.036</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_geography</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.227 ± 0.030</td>
+<td style="text-align: center;"><strong>0.348 ± 0.030</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.278 ± 0.032</td>
+<td style="text-align: center;">0.354 ± 0.032</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_government_and_politics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.290 ± 0.033</td>
+<td style="text-align: center;">0.332 ± 0.033</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.290 ± 0.033</td>
+<td style="text-align: center;">0.321 ± 0.033</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_macroeconomics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.279 ± 0.023</td>
+<td style="text-align: center;">0.305 ± 0.023</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.267 ± 0.022</td>
+<td style="text-align: center;">0.285 ± 0.022</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_mathematics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.252 ± 0.026</td>
+<td style="text-align: center;">0.278 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.296 ± 0.028</td>
+<td style="text-align: center;">0.304 ± 0.028</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_microeconomics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.265 ± 0.029</td>
+<td style="text-align: center;">0.256 ± 0.029</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.324 ± 0.030</td>
+<td style="text-align: center;">0.273 ± 0.030</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_physics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.205 ± 0.033</td>
+<td style="text-align: center;">0.205 ± 0.033</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.232 ± 0.034</td>
+<td style="text-align: center;">0.212 ± 0.034</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_psychology</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.251 ± 0.019</td>
+<td style="text-align: center;"><strong>0.328 ± 0.019</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.270 ± 0.019</td>
+<td style="text-align: center;"><strong>0.325 ± 0.019</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_statistics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.319 ± 0.032</td>
+<td style="text-align: center;">0.241 ± 0.032</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.319 ± 0.032</td>
+<td style="text-align: center;">0.245 ± 0.032</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_us_history</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.265 ± 0.031</td>
+<td style="text-align: center;">0.221 ± 0.031</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.260 ± 0.031</td>
+<td style="text-align: center;">0.230 ± 0.031</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-high_school_world_history</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.283 ± 0.029</td>
+<td style="text-align: center;"><strong>0.371 ± 0.029</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.266 ± 0.029</td>
+<td style="text-align: center;"><strong>0.380 ± 0.029</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-human_aging</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.296 ± 0.031</td>
+<td style="text-align: center;">0.296 ± 0.031</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.274 ± 0.030</td>
+<td style="text-align: center;">0.291 ± 0.030</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-human_sexuality</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.351 ± 0.042</td>
+<td style="text-align: center;">0.290 ± 0.042</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.282 ± 0.039</td>
+<td style="text-align: center;">0.290 ± 0.039</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-international_law</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.248 ± 0.039</td>
+<td style="text-align: center;">0.322 ± 0.039</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.347 ± 0.043</td>
+<td style="text-align: center;">0.331 ± 0.043</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-jurisprudence</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.269 ± 0.043</td>
+<td style="text-align: center;">0.296 ± 0.043</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.370 ± 0.047</td>
+<td style="text-align: center;">0.296 ± 0.047</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-logical_fallacies</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.202 ± 0.032</td>
+<td style="text-align: center;">0.276 ± 0.032</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.270 ± 0.035</td>
+<td style="text-align: center;">0.258 ± 0.035</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-machine_learning</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.295 ± 0.043</td>
+<td style="text-align: center;">0.250 ± 0.043</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.330 ± 0.045</td>
+<td style="text-align: center;">0.223 ± 0.045</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-management</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.282 ± 0.045</td>
+<td style="text-align: center;">0.320 ± 0.045</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.272 ± 0.044</td>
+<td style="text-align: center;">0.350 ± 0.044</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-marketing</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.303 ± 0.030</td>
+<td style="text-align: center;"><strong>0.415 ± 0.030</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.329 ± 0.031</td>
+<td style="text-align: center;"><strong>0.423 ± 0.031</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-medical_genetics</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.330 ± 0.047</td>
+<td style="text-align: center;">0.300 ± 0.047</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.420 ± 0.050</td>
+<td style="text-align: center;">0.300 ± 0.050</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-miscellaneous</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.319 ± 0.017</td>
+<td style="text-align: center;">0.318 ± 0.017</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.319 ± 0.017</td>
+<td style="text-align: center;">0.313 ± 0.017</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-moral_disputes</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.298 ± 0.025</td>
+<td style="text-align: center;">0.341 ± 0.025</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.318 ± 0.025</td>
+<td style="text-align: center;">0.344 ± 0.025</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-moral_scenarios</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.267 ± 0.015</td>
+<td style="text-align: center;">0.240 ± 0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.265 ± 0.015</td>
+<td style="text-align: center;">0.238 ± 0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-nutrition</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.278 ± 0.026</td>
+<td style="text-align: center;">0.330 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.337 ± 0.027</td>
+<td style="text-align: center;">0.350 ± 0.027</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-philosophy</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.251 ± 0.025</td>
+<td style="text-align: center;">0.315 ± 0.025</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.293 ± 0.026</td>
+<td style="text-align: center;">0.325 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-prehistory</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.244 ± 0.024</td>
+<td style="text-align: center;"><strong>0.352 ± 0.024</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.250 ± 0.024</td>
+<td style="text-align: center;"><strong>0.361 ± 0.024</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-professional_accounting</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;"><strong>0.287 ± 0.027</strong></td>
+<td style="text-align: center;">0.213 ± 0.027</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.248 ± 0.026</td>
+<td style="text-align: center;">0.216 ± 0.026</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-professional_law</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.273 ± 0.011</td>
+<td style="text-align: center;">0.267 ± 0.011</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.269 ± 0.011</td>
+<td style="text-align: center;">0.269 ± 0.011</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-professional_medicine</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.301 ± 0.028</td>
+<td style="text-align: center;">0.301 ± 0.028</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.268 ± 0.027</td>
+<td style="text-align: center;">0.327 ± 0.027</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-professional_psychology</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.279 ± 0.018</td>
+<td style="text-align: center;">0.304 ± 0.018</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.284 ± 0.018</td>
+<td style="text-align: center;">0.310 ± 0.018</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-public_relations</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.327 ± 0.045</td>
+<td style="text-align: center;">0.345 ± 0.045</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.309 ± 0.044</td>
+<td style="text-align: center;">0.336 ± 0.044</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-security_studies</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.265 ± 0.028</td>
+<td style="text-align: center;">0.331 ± 0.028</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.208 ± 0.026</td>
+<td style="text-align: center;"><strong>0.290 ± 0.026</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-sociology</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.269 ± 0.031</td>
+<td style="text-align: center;"><strong>0.393 ± 0.031</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.249 ± 0.031</td>
+<td style="text-align: center;"><strong>0.383 ± 0.031</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-us_foreign_policy</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.290 ± 0.046</td>
+<td style="text-align: center;">0.320 ± 0.046</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.320 ± 0.047</td>
+<td style="text-align: center;">0.320 ± 0.047</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-virology</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.289 ± 0.035</td>
+<td style="text-align: center;">0.349 ± 0.035</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.265 ± 0.034</td>
+<td style="text-align: center;">0.355 ± 0.034</td>
+</tr>
+<tr>
+<td style="text-align: left;">hendrycksTest-world_religions</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.374 ± 0.037</td>
+<td style="text-align: center;">0.345 ± 0.037</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.409 ± 0.038</td>
+<td style="text-align: center;">0.351 ± 0.038</td>
+</tr>
+<tr>
+<td style="text-align: left;">logiqa</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.255 ± 0.017</td>
+<td style="text-align: center;">0.273 ± 0.017</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.272 ± 0.017</td>
+<td style="text-align: center;">0.280 ± 0.017</td>
+</tr>
+<tr>
+<td style="text-align: left;">mathqa</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.256 ± 0.008</td>
+<td style="text-align: center;">0.253 ± 0.008</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.258 ± 0.008</td>
+<td style="text-align: center;">0.240 ± 0.008</td>
+</tr>
+<tr>
+<td style="text-align: left;">mnli</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.338 ± 0.005</td>
+<td style="text-align: center;"><strong>0.801 ± 0.005</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">mnli_mismatched</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.362 ± 0.005</td>
+<td style="text-align: center;"><strong>0.811 ± 0.005</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">mrpc</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.571 ± 0.025</td>
+<td style="text-align: center;"><strong>0.750 ± 0.025</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">f1</td>
+<td style="text-align: center;">0.689 ± 0.022</td>
+<td style="text-align: center;"><strong>0.841 ± 0.022</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">multirc</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;"><strong>0.047 ± 0.007</strong></td>
+<td style="text-align: center;">0.012 ± 0.007</td>
+</tr>
+<tr>
+<td style="text-align: left;">openbookqa</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.222 ± 0.019</td>
+<td style="text-align: center;">0.268 ± 0.019</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.346 ± 0.021</td>
+<td style="text-align: center;">0.344 ± 0.021</td>
+</tr>
+<tr>
+<td style="text-align: left;">piqa</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.726 ± 0.010</td>
+<td style="text-align: center;">0.714 ± 0.010</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.736 ± 0.010</td>
+<td style="text-align: center;">0.718 ± 0.010</td>
+</tr>
+<tr>
+<td style="text-align: left;">qnli</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.504 ± 0.007</td>
+<td style="text-align: center;"><strong>0.788 ± 0.007</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">qqp</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.534 ± 0.002</td>
+<td style="text-align: center;"><strong>0.847 ± 0.002</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">f1</td>
+<td style="text-align: center;">0.372 ± 0.004</td>
+<td style="text-align: center;"><strong>0.793 ± 0.004</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">race</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.352 ± 0.015</td>
+<td style="text-align: center;">0.355 ± 0.015</td>
+</tr>
+<tr>
+<td style="text-align: left;">record</td>
+<td style="text-align: left;">f1</td>
+<td style="text-align: center;"><strong>0.843 ± 0.004</strong></td>
+<td style="text-align: center;">0.778 ± 0.004</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">em</td>
+<td style="text-align: center;"><strong>0.835 ± 0.004</strong></td>
+<td style="text-align: center;">0.771 ± 0.004</td>
+</tr>
+<tr>
+<td style="text-align: left;">rte</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.491 ± 0.030</td>
+<td style="text-align: center;"><strong>0.747 ± 0.030</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">sciq</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.930 ± 0.008</td>
+<td style="text-align: center;">0.939 ± 0.008</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc_norm</td>
+<td style="text-align: center;">0.938 ± 0.008</td>
+<td style="text-align: center;">0.935 ± 0.008</td>
+</tr>
+<tr>
+<td style="text-align: left;">sst</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.492 ± 0.017</td>
+<td style="text-align: center;"><strong>0.916 ± 0.017</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">webqs</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.054 ± 0.005</td>
+<td style="text-align: center;"><strong>0.095 ± 0.005</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">wic</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.472 ± 0.020</td>
+<td style="text-align: center;"><strong>0.539 ± 0.020</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">winogrande</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.582 ± 0.014</td>
+<td style="text-align: center;">0.571 ± 0.014</td>
+</tr>
+<tr>
+<td style="text-align: left;">wnli</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.380 ± 0.058</td>
+<td style="text-align: center;"><strong>0.549 ± 0.058</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">wsc</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.365 ± 0.047</td>
+<td style="text-align: center;">0.365 ± 0.047</td>
+</tr>
+<tr>
+<td style="text-align: left;">lambada</td>
+<td style="text-align: left;">ppl</td>
+<td style="text-align: center;"><strong>6.423 ± 0.162</strong></td>
+<td style="text-align: center;">20.150 ± 0.162</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;"><strong>0.576 ± 0.007</strong></td>
+<td style="text-align: center;">0.394 ± 0.007</td>
+</tr>
+<tr>
+<td style="text-align: left;">pubmedqa</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;"><strong>0.529 ± 0.016</strong></td>
+<td style="text-align: center;">0.479 ± 0.016</td>
+</tr>
+<tr>
+<td style="text-align: left;">coqa</td>
+<td style="text-align: left;">f1</td>
+<td style="text-align: center;">0.606 ± 0.018</td>
+<td style="text-align: center;">0.581 ± 0.018</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">em</td>
+<td style="text-align: center;">0.484 ± 0.020</td>
+<td style="text-align: center;">0.472 ± 0.020</td>
+</tr>
+<tr>
+<td style="text-align: left;">drop</td>
+<td style="text-align: left;">em</td>
+<td style="text-align: center;">0.001 ± 0.000</td>
+<td style="text-align: center;">0.001 ± 0.000</td>
+</tr>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">f1</td>
+<td style="text-align: center;"><strong>0.039 ± 0.001</strong></td>
+<td style="text-align: center;">0.031 ± 0.001</td>
+</tr>
+<tr>
+<td style="text-align: left;">math_algebra</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.016 ± 0.004</td>
+<td style="text-align: center;">0.024 ± 0.004</td>
+</tr>
+<tr>
+<td style="text-align: left;">math_counting_and_prob</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.023 ± 0.007</td>
+<td style="text-align: center;">0.030 ± 0.007</td>
+</tr>
+<tr>
+<td style="text-align: left;">math_geometry</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.006 ± 0.004</td>
+<td style="text-align: center;">0.021 ± 0.004</td>
+</tr>
+<tr>
+<td style="text-align: left;">math_intermediate_algebra</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.020 ± 0.005</td>
+<td style="text-align: center;">0.029 ± 0.005</td>
+</tr>
+<tr>
+<td style="text-align: left;">math_num_theory</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.037 ± 0.008</td>
+<td style="text-align: center;">0.039 ± 0.008</td>
+</tr>
+<tr>
+<td style="text-align: left;">math_prealgebra</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.023 ± 0.005</td>
+<td style="text-align: center;"><strong>0.041 ± 0.005</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">math_precalc</td>
+<td style="text-align: left;">acc</td>
+<td style="text-align: center;">0.015 ± 0.005</td>
+<td style="text-align: center;">0.022 ± 0.005</td>
+</tr>
+</tbody>
+</table>
+<p>The model can be downloaded <a href="https://huggingface.co/lg/openinstruct_1k1">here</a>, though I don't recommend using it for anything.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

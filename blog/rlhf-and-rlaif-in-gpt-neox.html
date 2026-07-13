@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RLHF and RLAIF in GPT-NeoX | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>RLHF and RLAIF in GPT-NeoX</h1>
+          <p class="article-dek">GPT-NeoX now supports post-training thanks to a collaboration with SynthLabs.</p>
+          <div class="article-meta">
+            <span>Oct 10, 2024</span>
+            <span>Dakota Mahan, Quentin Anthony, Louis Castricato, Nathan Lile, Stella Biderman</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p>Today <a href="https://www.synthlabs.ai/">SynthLabs</a> and EleutherAI are excited to announce large scale post training and preference learning in <a href="https://github.com/EleutherAI/gpt-neox">GPT-NeoX</a>, one of the most widespread and adopted pretraining frameworks for large scale language models. This effort represents a partnership towards improving accessibility of preference learning research at scale. </p>
+<p>Currently large scale preference learning research is bottlenecked by a lack of easily scalable and robust frameworks. Pushing the boundary of what models are easily trainable and what training methodologies are easily accessible will enable a new wave of research developments and breakthroughs in the space of preference learning as well as a new set of previously unknown applications, much likeas did the introduction of many of EleutherAI’s own prior open source models did.</p>
+<p>This collaboration combines SynthLabs' expertise in preference learning—the same minds behind trlX, the first open-source library to implement scalable and easy to use RLHF techniques; #1 leaderboard-ranked models like <a href="https://huggingface.co/stabilityai/StableBeluga2">StableBeluga</a>; and <a href="https://odsc.medium.com/meet-stablevicuna-the-first-large-scale-open-source-rlhf-chatbot-by-stability-ai-7012f7b43edd">StableVicuna</a>, one of the first open-source models fine-tuned with RLHF—with EleutherAI's leadership in optimizing model training at scale.</p>
+<p><strong>Reinforcement Learning with Human Feedback (RLHF)</strong> is one of the most effective methods for aligning AI models with human preferences. It has been successfully applied to language models to improve their performance on tasks like summarization. RLHF and related approaches, often referred to collectively as preference learning, are now being implemented in real-world AI systems including but not limited to models like ChatGPT or more recently GPT-4.</p>
+<p>Today, we introduce a number of methodologies implemented into GPT-NeoX for performing large-scale preference learning. </p>
+<p>Firstly, we present an implementation of Direct Preference Optimization (DPO), first introduced in early 2023. DPO represents one of the most scalable and widely utilized preference learning algorithms due to its ease-of-use and overall training stability, including but not limited to models like llama 3 and its more recent derivative llama 3.1. </p>
+<p>Secondly, we present an implementation of Kahneman-Tversky Optimization (KTO). KTO is a method designed to use binary rewards for preference learning, unlike the conventional pairwise-preference approaches found in other preference post-training approaches. For instance, in a point-of-sale chatbot, KTO can efficiently learn from simple "successful sale" or "no sale" outcomes, rather than comparing pairs of interactions. </p>
+<p>Finally, we present functionality for training reward models as well as improved supervised finetuning within the GPT-NeoX library. We hope that enabling reward modeling training in NeoX in particular will open the door to large-scale reward modeling research. By "large-scale", we refer to massively parallel models, and distributed high performance computing.</p>
+<h2 id="efficiency">Efficiency</h2>
+<p>GPT-NeoX builds on leading core technologies for large scale optimization including ZeRO, 3D parallelism, and flash attention and combines them with both novel HPC optimizations as well as support and out–of-the-box performance on a wide variety of GPUs (NVIDIA, AMD), model architectures (transformers, mixture-of-experts, Mamba, RWKV), interconnects (InfiniBand, Ethernet, Slingshot), and job launchers (Slurm, MPI, IBM Job Step Manager). Through maintaining performance across all combinations, GPT-NeoX has become a standard library for training large scale models deployed across a wide variety of academic and cloud systems.</p>
+<p>By adding support for preference learning (SFT, DPO, KTO) into GPT-NeoX, we are able to exploit pretraining optimizations (both scale-up and scale-out) during the post-training process. This alleviates the efficiency bottleneck inherent to existing post-training libraries like TRL.</p>
+<figure><img src="../assets/blog/rlhf-and-rlaif-in-gpt-neox/scaling.svg" alt="Comparison between GPT-NeoX and trl"></figure>
+
+<p><sub><sup>We use HuggingFace's hyperparameters from the alignment handbook repo for zephyr-7b-beta. 13B Seconds per iteration for TRL using 8 Gradient Accumulation Steps, batch size per device of 2, zero3, and gradient checkpointing enabled</sup></sub></p>
+<p>In particular, we find that leveraging GPT-NeoX for post training provides a 30-40% speed-up compared to TRL at the 7B and 13B parameter scale. GPT-NeoX has been scaled to thousands of GPUs, and we expect similar performance improvements for preference learning on massive models and HPC systems.</p>
+<h2 id="reproducibility-release">Reproducibility + Release</h2>
+<p>To get started with preference learning techniques such as SFT, DPO, KTO, and Reward Modeling, please refer to our <a href="https://github.com/EleutherAI/gpt-neox/tree/main/post-training">post-training folder</a> in the repository. These examples will guide you through the process of applying the various methods to fine-tune models.</p>
+<p>To verify our implementation, we've recreated the <a href="https://huggingface.co/HuggingFaceH4/zephyr-7b-beta">HuggingFaceH4/zephyr-7b-beta model</a> using our DPO implementation. You can find our model <a href="https://huggingface.co/EleutherAI/neox_mistral_7b_dpo_ultrafeedback">here</a>. Details on how we generated the data as well as the GPT-NeoX configuration can be found <a href="https://github.com/EleutherAI/gpt-neox/blob/main/post-training/recreating_zephyr_dpo.md">here</a>.</p>
+<p>To evaluate our model, we utilized the latest <a href="https://github.com/EleutherAI/lm-evaluation-harness">lm-evaluation-harness</a> with vLLM:</p>
+<figure><img src="../assets/blog/rlhf-and-rlaif-in-gpt-neox/evals.svg" alt="Comparison between GPT-NeoX and trl"></figure>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">Average</th>
+<th style="text-align: center;">GSM8k 5 shot  flexible-extract</th>
+<th style="text-align: center;">Mmlu 5 shot acc</th>
+<th style="text-align: center;">ARC-Challenge 25 shot acc_norm</th>
+<th style="text-align: center;">HellaSwag 10 shot acc_norm</th>
+<th style="text-align: center;">WinoGrande 5 shot acc</th>
+<th style="text-align: center;">TruthfulQA 0 shot Mc2 acc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NeoX DPO  from Zephyr-SFT</td>
+<td style="text-align: center;">63.5</td>
+<td style="text-align: center;">41.1</td>
+<td style="text-align: center;">59.4</td>
+<td style="text-align: center;">61.7</td>
+<td style="text-align: center;">85.0</td>
+<td style="text-align: center;">79.0</td>
+<td style="text-align: center;">54.6</td>
+</tr>
+<tr>
+<td>Zephy-7b-Beta</td>
+<td style="text-align: center;">62.5</td>
+<td style="text-align: center;">34.3</td>
+<td style="text-align: center;">59.8</td>
+<td style="text-align: center;">63.6</td>
+<td style="text-align: center;">84.4</td>
+<td style="text-align: center;">77.6</td>
+<td style="text-align: center;">55.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="synthlabs-mission-statement">SynthLabs Mission Statement</h2>
+<p>SynthLabs is a post-training AI research lab advancing and scaling synthetic reasoning. Our mission is to open and democratize new frontiers in post-training research, specializing in developing innovative preference learning techniques and optimizing the performance and alignment of foundation models. Through our ongoing collaboration with EleutherAI, we're making sophisticated AI techniques accessible, enabling a new era of large-scale, open science research. We're empowering academics and innovators to explore post-training research questions that were once the exclusive domain of large industry labs. As part of this commitment, we plan to implement various policy gradient approaches, including REINFORCE. Looking ahead, SynthLabs and EleutherAI aim to expand support for online reinforcement learning methodologies applicable to more complex, agentic environments. We intend to explore these topics, along with studying reward models at scale, within the GPT-NeoX framework. Going forward, EleutherAI and SynthLabs intend to explore the topics of online RL and studying reward models at scale within the framework of GPT-NeoX.</p>
+<h2 id="eleutherai-mission-statement">EleutherAI Mission Statement</h2>
+<p>EleutherAI is a world-renowned non-profit research lab specializing in large language models and natural language processing. We strive to lower the barrier of entry to doing research on large language models through providing accessible research infrastructure to train and evaluate large language models. By integrating preference learning functionality into our GPT-NeoX training library we enable our team, as well as the dozens of academic, small company, and government labs around the world who use GPT-NeoX, to easily work with this technology at massive scale. Open-sourcing scalable preference learning tools is another step towards ensuring the future of AI systems isn't solely determined by the most powerful for-profit companies.</p>
+<p>EleutherAI looks forward to a fruitful partnership with SynthLabs, and is happy to engage with other like-minded individuals and organizations! If you would like to work with us or support our mission, please get in touch at contact@eleuther.ai</p>
+<h2 id="future-gpt-neox-tease">Future GPT-NeoX Tease</h2>
+<p>GPT-NeoX has been improving! We now have alpha implementations of the following:
+- AMD GPU support
+- Mixture-of-Experts (MoE) support
+- <a href="https://www.rwkv.com/">RWKV</a> and <a href="https://github.com/state-spaces/mamba">Mamba</a> support
+- <a href="https://arxiv.org/abs/2205.05198">Sequence parallelism</a></p>
+<p>The implementation of preference learning is part of a broader push to improve the GPT-NeoX library and continue to power open research at scale on frontier HPC systems. Preference learning will be included in the upcoming GPT-NeoX 3.0 release, which includes stable versions of the above features.</p>
+<p>To start working with early implementations of the above today, check out the <a href="https://github.com/EleutherAI/gpt-neox">GPT-NeoX repository</a>!</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mechanistic Anomaly Detection Research Update 2 | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>Mechanistic Anomaly Detection Research Update 2</h1>
+          <p class="article-dek">Interim report on ongoing work on mechanistic anomaly detection</p>
+          <div class="article-meta">
+            <span>Oct 14, 2024</span>
+            <span>David Johnston, Nora Belrose</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p><a href="/mechanistic-anomaly-detection-research-update/">Previously</a> we discussed our progress in testing some approaches to mechanistic anomaly detection (MAD). This is a short update on progress since then.</p>
+<ul>
+<li>We found anomaly detection performance on non-arithmetic tasks was much worse for Llama 3.1 8B trained in the same way as Mistral 7B v0.1, the model that we were using previously.</li>
+<li>When anomaly detection did not work well, we found Llama was somewhat less quirky than Mistral, but it still exhibited the desired quirky behaviour and achieved lower loss on average across the tasks.</li>
+<li>We found that the distance between the centroids of Alice and Bob contexts in the hidden state space at a given layer explained MAD performance well, and that Llama had less Alice-Bob separation than Mistral.</li>
+</ul>
+<p>Overall, these results are discouraging for our MAD approaches. While Llama was less quirky than Mistral on the datasets where we found anomaly detection hard, it was still unambiguously quirky. This suggests that it's possible for models to develop practically important anomalous behaviour without our MAD methods being able to reliably detect it.</p>
+<p>We also tested two more approaches to anomaly detection:
+ - Using the outputs of a normalising flow trained on activations of hidden layers of Llama 3.1 base.
+ - Using the latent activations of a sparse autoencoder trained on the activations of hidden layers of Llama 3.1 base.</p>
+<p>Both approaches yielded a performance profile close to the performance of the Mahalanobis distance on raw activations, and normalising flows in particular offered performance that matched the Mahalanobis distance on raw activations to a high level of precision.</p>
+<h2 id="anomaly-detection-on-llama-31-8b">Anomaly detection on Llama 3.1 8B</h2>
+<p>We had previously held Llama 3.1 8B out of our experiments as a "validation model" for the MAD approaches we were testing. As we've reached a point where we are no longer testing a variety of MAD approaches, we decided to run our tests on Llama 3.1 8B to see how the methods performed on a different model. </p>
+<p>For all non-arithmetic quirky datasets, we found that all of our anomaly detection methods achieved poor performance on Llama 3.1 8B. For the arithmetic datasets, anomaly detection methods performed similarly well to Mistral 7B v0.1.</p>
+<p>We tested the quantum entropy detector as the best performing method for MAD from our previous report. Similarly to the previous report, it was somewhat better than other methods for Meta, but the overall performance on non-arithmetic datasets was still poor. As discussed in our previous report, quantum entropy is an "offline" score, which means that in training we have access to easy normal and easy quirky examples, compared to Mahalanobis distance and other scores investigated here which only have access to easy normal examples in training.</p>
+<p><img alt="Comparison of MAD AUC between Meta and Mistral models" src="../assets/blog/mechanistic-anomaly-detection/mad_incl_meta_flows.png">
+<em>Figure 1: Comparison of MAD AUC at different internal layers between Meta and Mistral models - online scores</em></p>
+<p><img alt="Comparison of MAD AUC between Meta and Mistral models aggregated" src="../assets/blog/mechanistic-anomaly-detection/mad_incl_meta_flows_overall.png">
+<em>Figure 2: Comparison of MAD AUC aggeragated across internal layers between Meta and Mistral models - online scores</em></p>
+<p><img alt="Comparison of MAD AUC between Meta and Mistral models - offline scores" src="../assets/blog/mechanistic-anomaly-detection/mad_incl_meta_flows_offline.png">
+<em>Figure 3: Comparison of MAD AUC at different internal layers between Meta and Mistral models - offline scores (quantum entropy only)</em></p>
+<p><img alt="Comparison of MAD AUC between Meta and Mistral models aggregated - offline scores" src="../assets/blog/mechanistic-anomaly-detection/mad_incl_meta_flows_overall_offline.png">
+<em>Figure 4: Comparison of MAD AUC aggeragated across internal layers between Meta and Mistral models - offline scores (quantum entropy only)</em></p>
+<h3 id="llama-31-was-less-quirky-than-mistral-7b-v01">Llama 3.1 was less quirky than Mistral 7B v0.1</h3>
+<p>While the Llama 3.1 models exhibited quirky behaviour on most datasets, they were significantly less quirky on the non-arithmetic datasets than their Mistral 7B v0.1 counterparts. The difference seems mainly attributable to the Llama models being less confident than the Mistral models. Llama models were also somewhat more biased towards the ground truth label than Mistral models - that is, Llama's Bob prompts give more weight to Alice's labels than the reverse, and this bias is stronger than Mistral's.</p>
+<p>We fine-tuned our models until the validation loss began to rise, then selected the checkpoint with the lowest validation loss. Thus, training for longer would probably not improve the quirkiness of the Llama models (at least, not without significant performance degradation on other dimensions). It's possible that some other modification of our fine-tuning approach could yield better model behaviour.</p>
+<p>We did observe that attribution based methods (particularly the <code>probe</code> score) show substantially better performance on the <code>sentiment</code> dataset than activation based methods - evidence that attribution patching methods can be effective where activation based methods are not, though (as we found in our previous report) this is usually not the case.</p>
+<p><img alt="Log odds assigned to Alice's labels on Alice's prompts" src="../assets/blog/mechanistic-anomaly-detection/alice_logits_dist_by_base.png">
+<img alt="Log odds assigned to Bob's labels on Alice's prompts" src="../assets/blog/mechanistic-anomaly-detection/bob_logits_dist_by_base.png">
+<em>Figure 5: Log odds assigned to Alice or Bob's labels on the corresponding prompts for each model. <code>mistral</code> is Mistral 7B v0.1 and <code>meta</code> is Meta Llama 3.1 8B. Note that Meta on non-arithmetic datasets stands out as having lower confidence than the other model-dataset combinations. On the other hand, Mistral on non-arithmetic datasets stands out as being confidently wrong with higher frequency than the other model-dataset combinations.</em></p>
+<p><img alt="Log odds assigned to Alice's labels on Bob's prompts" src="../assets/blog/mechanistic-anomaly-detection/bob_logits_on_alice_dist_by_base.png">
+<img alt="Log odds assigned to Bob's labels on Alice's prompts" src="../assets/blog/mechanistic-anomaly-detection/alice_logits_on_bob_dist_by_base.png">
+<em>Figure 6: Log odds assigned to Alice or Bob's labels on opposing prompts for each model. Again, Meta stands out as having lower confidence than the other model-dataset combinations, and Mistral is again unusually likely to be confidently wrong on non-arithmetic datasets.</em></p>
+<p>We quantify the degree of quirkiness of a model by the shift (in logits) induced by switching labels from Alice to Bob on questions where Alice and Bob have opposing labels. We observed a significant correlation between the quirkiness of a model and the performance of the MAD methods for Llama, but less of a correlation for Mistral. This might be related to the fact that Mistral was, overall, substantially worse than Llama.</p>
+<p>Figures 7 and 8 show the relationship between MAD AUC and "quirkiness coefficient" for each model and dataset. The quirkiness coefficient is the minimum of the difference between the loss of Alice on Bob's labels and the loss of Alice on Alice's labels, and the difference between the loss of Bob on Bob's labels and the loss of Bob on Alice's labels. If the coefficient is below 0, then at least one character does not exhibit the desired behaviour at all - note that this applied to Llama on <code>sciq</code>, <code>nli</code> and <code>hemisphere</code>.</p>
+<p><img alt="Quirkiness vs MAD AUC" src="../assets/blog/mechanistic-anomaly-detection/quirky_coef_vs_auc_activations.png">
+<em>Figure 7: MAD AUC using activations and the Mahalanobis distance vs quirkiness coefficient for each model and dataset</em></p>
+<p><img alt="Quirkiness vs MAD AUC attribution" src="../assets/blog/mechanistic-anomaly-detection/quirky_coef_vs_auc.png">
+<em>Figure 8: MAD AUC using attribution patching and the Mahalanobis distance vs quirkiness coefficient for each model and dataset</em></p>
+<p>Figures 9 and 10 compare the average loss of both models against both the correct labels (i.e. Alice's labels for Alice's prompts) and the incorrect labels (i.e. Bob's labels for Alice's prompts). Llama clearly achieves lower loss on average across most datasets. Furthermore, Llama clearly achieves notably low average loss on Alice's labels for Bob's prompts, which is further evidence of the ground truth bias we noded in Figures 5 and 6.</p>
+<p><img alt="Loss on Alice's labels on Alice's prompts" src="../assets/blog/mechanistic-anomaly-detection/alice_loss_by_base.png">
+<img alt="Loss on Bob's labels on Alice's prompts" src="../assets/blog/mechanistic-anomaly-detection/bob_loss_by_base.png">
+<em>Figure 9: Averge loss on Alice's labels on Alice's prompts and Bob's labels on Bob's prompts for each model and dataset (hard examples only); </em><em>lower is better</em><em>. Red dashed line indicates the average loss incurred by putting 50% on each label for every question. Meta notably outperforms Mistral on most datasets.</em></p>
+<p><img alt="Loss on Alice's labels on Bob's prompts" src="../assets/blog/mechanistic-anomaly-detection/bob_loss_on_alice_by_base.png">
+<img alt="Loss on Bob's labels on Alice's prompts" src="../assets/blog/mechanistic-anomaly-detection/alice_loss_on_bob_by_base.png">
+<em>Figure 10: Average loss on Alice's labels on Bob's prompts and Bob's labels on Alice's prompts for each model and dataset; </em><em>higher is better</em><em>. Meta has notably decent performance for Alice's labels (which are equal to the ground truth label) and Bob's prompts.</em></p>
+<h4 id="comparing-activation-separation-for-llama-and-mistral">Comparing activation separation for Llama and Mistral</h4>
+<p>A hypothesis arising from Figures 5 and 6 is that perhaps the lower separation in logits observed in Llama on non-arithmetic tasks corresponds to lower separation in the hidden states, which might explain the poor performance of anomaly detection methods on Llama. We measured separation by taking the squared distance between class centroids and dividing by the total variance of the hidden states. Let $\mu^{\mathrm{Alice}}_i$ and $\mu^{\mathrm{Bob}}_i$ be the hidden state centroids at layer $i$ for all test datapoints in the Alice and Bob contexts respectively and $\Sigma^{\mathrm{Alice}, \mathrm{Bob}}_i$ be the covariance matrix of the hidden states for all test datapoints (both Alice and Bob contexts combined) at layer $i$. 
+Then we compute the hidden state separation at layer $i$ as</p>
+<p>$S_i = \frac{(\mu^{\mathrm{Alice}}_{i}-\mu^{\mathrm{Bob}}_i)^2}{\mathrm{Tr}(\Sigma_i^{\mathrm{Alice}, \mathrm{Bob}})}$</p>
+<p>We found that the hidden state separation explained MAD performance using the Mahalanobis distance very well (Figure 11), and that Llama exhibited a lower separation than Mistral. We found only a very weak correlation between the hidden state separation and the same separation measure computed on output logits. We found a slightly stronger (but still weak) correlation between hidden state separation and the total variance of output logits (which, unlike Alice-Bob separation, could be estimated without access to quirky labels), and a similarly strong correlation between the hidden state separation and the Alice-Bob separation of the output logits.</p>
+<p><img alt="AUC ROC vs hidden state separation" src="../assets/blog/mechanistic-anomaly-detection/aucroc_vs_variance_ration_by_layer.png">
+<em>Figure 11: AUC ROC vs hidden state separation for each model, dataset and layer. The hidden state separation is the ratio of the squared distance between the Alice and Bob centroids to total variance of the hidden states. There is a clear s-shaped relationship between the two, with three notable exceptions that achieve relatively high AUC ROC despite having a relatively low hidden state separation (those exceptions being particular layers of Mistral on the population, subtraction and addition datasets).</em></p>
+<p><img alt="Logit separation vs hidden state separation" src="../assets/blog/mechanistic-anomaly-detection/act_var_ratio_vs_logit_var_ratio.png">
+<em>Figure 12: Logit separation vs hidden state separation for each model, dataset and layer. There is only a weak correlation between the two, $R^2 = 0.09$.</em></p>
+<p><img alt="Logit variance vs hidden state separation" src="../assets/blog/mechanistic-anomaly-detection/logit_var_vs_act_var_ratio.png">
+<em>Figure 13: Logit variance vs hidden state separation (averaged across layers) for each model and dataset. There is a modest correlation between the two, $R^2 = 0.21$.</em></p>
+<p><img alt="Alice-Bob separation vs hidden state separation" src="../assets/blog/mechanistic-anomaly-detection/bet_logit_var_vs_act_var_ratio.png">
+<em>Figure 14: Alice-Bob separation vs hidden state separation (averaged across layers) for each model and dataset. There is a modest correlation between the two, $R^2 = 0.18$.</em></p>
+<p>While there is a relationship between Llama's less confident quirky behaviour and its weaker MAD performance when compared to Mistral, it is unclear if this is a robust relationship that might also be seen in other models and anomaly detection tasks.</p>
+<h3 id="anomaly-detection-with-normalising-flows">Anomaly detection with normalising flows</h3>
+<p>We tested anomaly detection using a trained normalising flow. A normalising flow is a trainable function that learns an invertible mapping from a complex distribution to a simpler prior distribution (in this case, a Laplace distribution with mean 0 and variance 1 along each dimension, which are otherwise mutually independent). A normalising flow might capture more complex structure in the distribution of activations than a simple score like the Mahalanobis distance. Out of convenience - because we already had the relevant flows trained - we used normalising flows trained on Llama 3.1 <em>base</em> to transform activations at layers 23 and 29 and used the prior density as a score function. </p>
+<p>We tested two score functions. First, we used the prior density of the normalising flow to score the transformed activation. Second, we used the Mahalanobis distance on the transformed activations. The Mahalanobis distance can be thought of as scoring according to a Laplace density with the mean and covariance estimated from the training data instead of fixed to the prior distribution. Scoring examples according to the prior yielded generally poor results, while scoring the transformed examples using the Mahalanobis distance yielded performance that was not distinguishable from the performance of the Mahalanobis distance on raw activations on the same layers -- to the point that we see very similar scores for both methods on each individual dataset (see Figure 2). The correspondence between Mahalanobis scoring on raw and transformed activations is somewhat surprising, given that we expect the normalising flow to significantly change the distribution of activations. Our results also suggest that either the fine tuning process or the quirky dataset prompts shifted the distribution of the transformed activations from the prior, such that scoring according to the prior was not a good measure of "anomalousness" of an example activation.</p>
+<p>Results are in Figures 1 and 2.</p>
+<h3 id="anomaly-detection-with-sparse-autoencoders">Anomaly detection with sparse autoencoders</h3>
+<p>We also tested anomaly detection using a <a href="https://transformer-circuits.pub/2023/monosemantic-features">sparse autoencoder</a>. Specifically, we used a <a href="https://cdn.openai.com/papers/sparse-autoencoders.pdf">top-k</a> sparse autoencoder <a href="https://huggingface.co/EleutherAI/sae-llama-3.1-8b-64x">trained on Llama 3.1 base</a> to extract latent features from hidden layers 23 and 29 of Llama 3.1 8B. We tried two scores: <em>diagonal Mahalanobis</em> is a variant of Mahalanobis distance that assumes all dimensions are independent, and the $l_0$ counts the number of latent features with nonzero activation for the given examples that did not activate at all in the training data.</p>
+<p>Both scores performed similarly to the Mahalanobis distance on raw activations, results are in Figures 1 and 2.</p>
+<h2 id="outlook">Outlook</h2>
+<p>We haven't obtained particularly promising results for MAD. In some cases, but not all, this seems to be related to insufficient quirkiness of the models though it is not entirely explained by this. We are deprioritising work on MAD for the time being. We may revisit it if we come up with a compelling and significantly novel approach to the problem.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

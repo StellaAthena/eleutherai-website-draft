@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why Release a Large Language Model? | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>Why Release a Large Language Model?</h1>
+          <p class="article-dek">We believe the creation and open source release of a large language model is a net good to AI safety. We explain why.</p>
+          <div class="article-meta">
+            <span>Jun 2, 2021</span>
+            <span>Connor Leahy</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p>Here at EleutherAI, we are probably most well known for our <a href="https://www.eleuther.ai/projects/gpt-neox/">ongoing project to produce a GPT&#8288;-&#8288;3-like very large language model and release it as open source</a>. Reasonable safety concerns about this project have been raised many times. We take <a href="https://www.youtube.com/watch?v=EUjc1WuyPT8">AI safety</a> extremely seriously, and consider it one of the, if not <em>the</em> most important problem to be working on today. We have discussed extensively the risk-benefit tradeoff (it's <em>always</em> a tradeoff), and are by now quite certain that the construction and release of such a model is net good for society, because it will enable more safety-relevant research to be done on such models.</p>
+<p>While this is a genuinely nuanced issue whose full subtlety cannot be captured in a single short blogpost, we have tried to summarize the most important reasons we believe this is the best course of action for us:</p>
+<ol>
+<li><strong>There is significant, important safety research that can only be done with access to large, pretrained models. We would like to make <a href="https://www.lesswrong.com/posts/PZtsoaoSLpKjjbMqM/the-case-for-aligning-narrowly-superhuman-models">such research</a> possible and easy for low-resource researchers (and <a href="https://www.lesswrong.com/posts/EmxfgPGvaKqhttPM8/thoughts-on-the-alignment-implications-of-scaling-language">participate in such research ourselves</a>).</strong> We take the possibility that the first <a href="https://drive.google.com/drive/u/0/folders/15ArhEPZSTYU8f012bs6ehPS6-xmhtBPP">TAI</a> ends up being effectively a <a href="https://ai-alignment.com/prosaic-ai-control-b959644d79c2">scaled up transformer without any radically new scientific insights in its architecture</a> <a href="https://docs.google.com/spreadsheets/d/16WlWJAmUe32oyQfiI9di86BXzX1EI0eWZ0fOakSA_f0/edit">extremely seriously</a>. We feel that the ways in which future scaled-up LMs could be dangerously powerful are not sufficiently well understood. Meanwhile, since GPT&#8288;-&#8288;3 already exists, and we have not yet been taken over by some form of malicious AGI, we are quite confident that models of this scale are not world-endingly dangerous. We think that this means we have the opportunity to do safety critical research before such models become truly dangerous. In order to do so though, we need access to large models to do the best research. Access to the actual underlying model is critical for work on model interpretability (a field <a href="https://www.alignmentforum.org/posts/hvGoYXi2kgnS3vxqb/some-ai-research-areas-and-their-relevance-to-existential-1">especially useful to safety</a>), and it seems certain relevant capabilities worth studying only start to emerge at larger scales (such as <a href="https://arxiv.org/pdf/2005.14165.pdf#page=4">few-shot improvements only becoming noticeable for large models</a>). It is very unclear if and when such models will start to exhibit far more powerful and dangerous capabilities. If we had access to a truly unprecedentedly large model (say one quadrillion parameters), we would not release it, as no one could know what such a system might be capable of.</li>
+<li><strong>Most (&gt;99%) of the damage of GPT&#8288;-&#8288;3's release was done the moment the paper was published.</strong> What the release of the GPT&#8288;-&#8288;3 paper showed was just how simple and theoretically straight-forward building such a model is. "The only secret was that it was possible," as it were. Assuming that the <a href="https://arxiv.org/abs/2001.08361">scaling</a> <a href="https://arxiv.org/abs/2102.01293">laws</a> of <a href="https://arxiv.org/abs/2010.14701">transformers</a> hold (and all current empirical evidence seems to point in that direction) there is very little one can do to prevent well funded actors from acquiring such capabilities (OpenAI has <a href="https://arxiv.org/abs/2102.02503">estimated at best a ~6 month lead time</a> over replications), as the technology can so easily be scaled up by just investing more money. If even a bunch of random volunteers on the internet working in their free time using donated compute can put together such a model, then just about anyone can. And indeed, many different well funded actors are acquiring such capabilities: a few examples are <a href="https://arxiv.org/abs/1909.08053">Megatron-LM</a>, <a href="https://www.microsoft.com/en-us/research/blog/turing-nlg-a-17-billion-parameter-language-model-by-microsoft/">Turing-NLG</a>, <a href="https://arxiv.org/abs/2101.03961">Switch Transformer</a>, <a href="https://arxiv.org/abs/2104.12369">PanGu-α/盘古 α</a>, <a href="https://www.navercorp.com/promotion/pressReleasesView/30546">HyperCLOVA</a> and <a href="https://zhuanlan.zhihu.com/p/377047779">Wudao/悟道 2.0</a>, and that's just from the ones that are publicly known. We think the damage caused by new technologies like these are likely to be heavy-tailed, in the sense that the top 1% of dangerous actors are likely to be responsible for &gt;99% of the damage. For the reasons just given, attempting to keep this technology out of the hands of bad actors is futile, and the best we can do is empower society as a whole to study and use this technology for good.</li>
+<li><strong>Delaying the release of language models is not a solution to solving the attacks on our epistemic commons.</strong> As Connor Leahy, a co-founder of EleutherAI, has <a href="https://towardsdatascience.com/gpt2-counting-consciousness-and-the-curious-hacker-323c6639a3a8">written</a> <a href="https://medium.com/@NPCollapse/counting-consciousness-part-2-61a1d407175b">about</a> <a href="https://medium.com/@NPCollapse/counting-consciousness-part-3-e53a1a97d48b">rather</a> <a href="https://medium.com/@NPCollapse/counting-consciousness-part-4-33089435d39d">extensively</a>, language models are just the latest tool that might be deployed in attacking our society's epistemics. This is a fundamental problem that <em>needs to be fixed</em>. But attempting to limit the availability of LMs is a misguided attempt at security. Security through obscurity is not security. As already described in point 2, attempting to keep this technology out of select actors hands is just infeasible. Pretending that LMs are in some sense uniquely responsible for these security vulnerabilities in our shared epistemic norms and censoring their study will not give us the robust security we need. The attacks need to be studied and countermeasures developed, not well-meaning and high value research hampered. The scare around LMs has many of the hallmarks of security theatre, in that it costs large corporations little to nothing to gate their models behind a (commercial) API and claim they have contributed to safety, while in reality cheap and easy to run troll farms, recommender algorithms on social media platforms super charging disinformation and other far more serious threats remain under-addressed. Language Models in a sense represent a "Photoshop for text", and as with Photoshop proper, the solution was not to ban Photoshop, or restrict the study of digital image manipulation and CGI techniques.</li>
+</ol>
+<p>This short overview should not be seen as a full treatise on all of the various EleutherAI members' beliefs about this highly complex situation. If you have questions or concerns, please feel free to reach out either directly to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#101;&#108;&#101;&#117;&#116;&#104;&#101;&#114;&#46;&#97;&#105;">&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#101;&#108;&#101;&#117;&#116;&#104;&#101;&#114;&#46;&#97;&#105;</a> or drop by our discord and talk to us in our #alignment-general channel, where we love to talk about this kind of stuff for hours.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

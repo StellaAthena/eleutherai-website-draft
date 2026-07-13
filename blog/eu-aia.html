@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EleutherAI&#x27;s Thoughts on the EU AI Act | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>EleutherAI&#x27;s Thoughts on the EU AI Act</h1>
+          <p class="article-dek">How we are supporting open source and open science in the EU AI Act.</p>
+          <div class="article-meta">
+            <span>Jul 26, 2023</span>
+            <span>Aviya Skowron, Stella Biderman</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p>In June, the European Parliament adopted its negotiating position on the EU AI, a comprehensive piece of legislation aimed at regulating a wide variety of artificial intelligence (AI) research, products, and services. It's expected to be finalized and adopted by the end of the year, bringing widespread changes to the way that AI organizations operate in the European Union. There is a lot in the current draft's regulations on large-scale AI systems that we agree with, such as an emphasis on transparency and documentation and an explicit requirement to assess the suitability of training data. Unfortunately the current text places a substantial burden on non-profit, open source, and community-driven research, drawing no distinction between tech giants like OpenAI and Google, non-profit research groups like EleutherAI and the Allen Institute for Artificial Intelligence, and independent hobbyists who train or finetune models governed by this law.</p>
+<p><em>[Read the full position paper <a href="https://blog.eleuther.ai/supporting_OS_in_the_AIAct.pdf">here</a>]</em></p>
+<p>In April we released the <a href="https://arxiv.org/abs/2304.01373">Pythia</a> model suite, a set of eight models trained on two different datasets
+ranging from 70 million to 12 billion parameters. To empower researchers to study how the capabilities of large language models evolve over the course of training we saved and released 154 checkpoints per model, providing a previously unprecedented amount of detail to the picture of how large language models train. The 154 Pythia-12B checkpoints represents more partially trained checkpoints for a single model than the rest of the world has ever released across all other 12 billion parameter or larger language models. Pythia has received widespread acclaim, with over sixty citations in just four months and was accepted for an oral presentation at <a href="https://icml.cc/">the International Conference on Machine Learning (ICML)</a> occuring later today. Under the current parliamentary text we would not be able to do a project like this again, as the <em>over 5,000</em> variations and partially trained model checkpoints each count as their own model and would require the same individualized documentation, testing, and reporting as if we developed over 5,000 distinct commercially deployed models.</p>
+<p>The Parliamentary text also includes requirements that are currently impossible for EleutherAI to comply with. For example, it requires reporting energy usage and environmental data about the computing cluster used to train the model - information we do not necessarily have access to since we, like almost everyone who does large scale AI research, do not own the actual GPUs we use to train our models. While we work with our cloud providers to disclose as much as possible about energy usage and environmental impact, some information the EU Parliament texts requires for disclosure is viewed as proprietary by the cloud providers and is not something we have access to.</p>
+<p>To address these shortcomings EleutherAI has partnered with <a href="https://creativecommons.org/">Creative Commons</a>, <a href="https://huggingface.co/">Hugging Face</a>, <a href="https://github.com/">GitHub</a>, <a href="https://laion.ai/">LAION</a>, and <a href="https://openfuture.ai/">Open Future</a> to draft a <a href="https://blog.eleuther.ai/supporting_OS_in_the_AIAct.pdf">position paper</a> detailing our perspectives on the parlementary text and recommending how the EU can better achieve its goals by embracing what the open source community has to offer. Our primary recommendations are:</p>
+<ol>
+<li>Define AI components clearly,</li>
+<li>Clarify that collaborative development of open source AI components and making them available in public repositories does not subject developers to the requirements in the AI Act, building on and improving the Parliament text’s Recitals 12a-c and Article 2(5e),</li>
+<li>Support the AI Office’s coordination and inclusive governance with the open source ecosystem, building on the Parliament’s text,</li>
+<li>Ensure the R&amp;D exception is practical and effective, by permitting limited testing in real-world conditions, combining aspects of the Council’s approach and an amended version of the Parliament’s Article 2(5d),</li>
+<li>Set proportional requirements for “foundation models,” recognizing and distinctly treating different uses and development modalities, including open source approaches, tailoring the Parliament’s Article 28b.</li>
+</ol>
+<p>EleutherAI is an <a href="https://arxiv.org/abs/2210.06413">unprecedented experiment</a> in doing open, transparent, and public scientific research in artifical intelligence. While we do not believe that all organizations must necessary follow in our footsteps, we believe that it's important that somebody reveals what goes on behind the curtain during the development of these increasingly influential technologies. As such we are committing today to not only comply with the final text to the best of our ability, but also to document and publicly disclose all costs we incur and additional steps we need to take to achieve compliance. As countries around the world look to the EU AI Act when drafting their own regulation, we hope that an honest and open accounting of our ability to comply with the EU AI Act will provide lawmakers essential information about how to design regulatory frameworks that do not put an undue burden on non-profit, open source, and independent researchers.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

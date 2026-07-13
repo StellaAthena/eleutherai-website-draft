@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>On the Sizes of OpenAI API Models | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>On the Sizes of OpenAI API Models</h1>
+          <p class="article-dek">Using eval harness, we can deduce the sizes of OpenAI API models from their performance.</p>
+          <div class="article-meta">
+            <span>May 24, 2021</span>
+            <span>Leo Gao</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p>OpenAI hasn't officially said anything about their API model sizes, which naturally leads to the question of just how big they are. Thankfully, we can use <a href="https://github.com/EleutherAI/lm-evaluation-harness">eval harness</a> to evaluate the API models on a bunch of tasks and compare to the figures in the GPT-3 paper. Obviously since there are going to be minor differences in task implementation and OpenAI is probably fine tuning their API models all the time, the numbers don't line up exactly, but they should give a pretty good idea of the ballpark things are in.</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>LAMBADA ppl ↓</th>
+<th>LAMBADA acc ↑</th>
+<th>Winogrande ↑</th>
+<th>Hellaswag ↑</th>
+<th>PIQA ↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-3-124M</td>
+<td>18.6</td>
+<td>42.7%</td>
+<td>52.0%</td>
+<td>33.7%</td>
+<td>64.6%</td>
+</tr>
+<tr>
+<td>GPT-3-350M</td>
+<td>9.09</td>
+<td>54.3%</td>
+<td>52.1%</td>
+<td>43.6%</td>
+<td>70.2%</td>
+</tr>
+<tr>
+<td>Ada</td>
+<td>9.95</td>
+<td>51.6%</td>
+<td>52.9%</td>
+<td>43.4%</td>
+<td>70.5%</td>
+</tr>
+<tr>
+<td>GPT-3-760M</td>
+<td>6.53</td>
+<td>60.4%</td>
+<td>57.4%</td>
+<td>51.0%</td>
+<td>72.9%</td>
+</tr>
+<tr>
+<td>GPT-3-1.3B</td>
+<td>5.44</td>
+<td>63.6%</td>
+<td>58.7%</td>
+<td>54.7%</td>
+<td>75.1%</td>
+</tr>
+<tr>
+<td>Babbage</td>
+<td>5.58</td>
+<td>62.4%</td>
+<td>59.0%</td>
+<td>54.5%</td>
+<td>75.5%</td>
+</tr>
+<tr>
+<td>GPT-3-2.7B</td>
+<td>4.60</td>
+<td>67.1%</td>
+<td>62.3%</td>
+<td>62.8%</td>
+<td>75.6%</td>
+</tr>
+<tr>
+<td>GPT-3-6.7B</td>
+<td>4.00</td>
+<td>70.3%</td>
+<td>64.5%</td>
+<td>67.4%</td>
+<td>78.0%</td>
+</tr>
+<tr>
+<td>Curie</td>
+<td>4.00</td>
+<td>68.5%</td>
+<td>65.6%</td>
+<td>68.5%</td>
+<td>77.9%</td>
+</tr>
+<tr>
+<td>GPT-3-13B</td>
+<td>3.56</td>
+<td>72.5%</td>
+<td>67.9%</td>
+<td>70.9%</td>
+<td>78.5%</td>
+</tr>
+<tr>
+<td>GPT-3-175B</td>
+<td>3.00</td>
+<td>76.2%</td>
+<td>70.2%</td>
+<td>78.9%</td>
+<td>81.0%</td>
+</tr>
+<tr>
+<td>Davinci</td>
+<td>2.97</td>
+<td>74.8%</td>
+<td>70.2%</td>
+<td>78.1%</td>
+<td>80.4%</td>
+</tr>
+</tbody>
+</table>
+<p>Ada, Babbage, Curie and Davinci line up closely with 350M, 1.3B, 6.7B, and 175B respectively. Obviously this isn't ironclad evidence that the models <em>are</em> those sizes, but it's pretty suggestive.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

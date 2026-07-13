@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reward Hacking Resarch Update | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>Reward Hacking Resarch Update</h1>
+          <p class="article-dek">Interim report on ongoing work on reward hacking</p>
+          <div class="article-meta">
+            <span>Oct 7, 2025</span>
+            <span>David Johnston</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <h1 id="investigating-reward-hacking">Investigating reward hacking</h1>
+<p>We’ve been developing a testing environment to study the emergence of reward hacking in reinforcement learners. We want to assess whether there are robust ways to monitor when models learn to reward-hack, and whether interpretability methods (or other approaches) can prevent it. We’ve built a dataset of ~750 coding problems and 26 exploit types to test this.</p>
+<p>We encountered more difficulty than expected eliciting reward hacking with reinforcement learning. We suspect this may be because Qwen 3 models tend not to generalise a propensity to hack across coding problems. Supervised fine-tuning experiments show that the GPT-OSS family generalises a propensity to hack coding problems much more readily than the Qwen 3 family, and we will focus on GPT-OSS going forward.</p>
+<p>In detail, we found:
+- Qwen family models learned to reward-hack very slowly unless explicitly asked to look for reward hacks.
+- Qwen family models significantly improved their hacking rate on held-out exploits after fine-tuning on a set of training exploits only when explicitly asked to hack.
+- GPT-OSS family models significantly improved their rate of hacking on held-out exploits after similar fine-tuning whether or not they were asked to hack.</p>
+<h2 id="project">Project</h2>
+<p>We're developing a testbed for reward hacking called <a href="https://github.com/EleutherAI/djinn/tree/main">djinn</a>. It consists of a library of <a href="https://huggingface.co/datasets/EleutherAI/djinn-problems-v0.8">coding problems</a> together with a collection of exploitable verifiers plus one "secure" verifier. We have 26 different kinds of exploit, each with its own exploitable verifier. These range from trivial (e.g. insert a particular string as a comment) to relatively difficult for today's best open source coding models (e.g. expected outputs are computed from the same inputs passed to the code submission, allowing the submitted code to alter the inputs to known cases). We also include "hints" in all of the problem descriptions that make it at least in principle possible to deduce the exploit from the available material, though we try to dress them up as specifications, logs or error messages that look at least plausibly like they should be in the description.</p>
+<p>We want to use this to test a range of monitoring and mitigation strategies, such as:
+ - How much does removing easy (but not difficult) hacking opportunities help suppress the emergence of reward hacking?
+ - How effective are "canaries" (easily hackable problems in an evaluation set) for monitoring the emergence of reward hacking behaviour?
+ - How effective are interpretability methods – such as probes trained to flag known deceptive behaviours, or attributing behavior to dishonest vs honest response data – for monitoring and suppressing reward hacking?</p>
+<h2 id="failure-to-elicit-hacking-in-rl-experiments">Failure to elicit hacking in RL experiments</h2>
+<p>We initially tried eliciting reward hacking directly with RL training on this dataset. We focused on Qwen 3 family models—chiefly the 8B and 14B variants—because they are fairly strong coding models that fit our compute budget. We found the Llama family significantly less capable of finding exploits when prompted to look for them, and we had trouble configuring an RL package environment that supported the Gemma and Qwen families simultaneously.</p>
+<p>To cut a long story short: we tried many variations of RL (single-turn; multi-turn with feedback from first attempts; varying exploit-class distributions; different hyperparameters, etc.) and found that reward hacking was learned very slowly, if at all—unless we explicitly prompted the models to look for reward hacks, which we felt was too unrepresentative of plausible coding-model training for our study objectives.</p>
+<p><img alt="Average rates of reward hacking" src="../assets/blog/reward-hacking/training_unnormalized_metrics_drsrpo_small.png">
+<em>Figure 1: Example trace from an RL training run. <code>rewards/reward_gap/mean</code> is the difference between the secure and insecure verifier rewards and is a measure of reward hacking. Note that it increases very slowly—a factor of 5 more slowly than reward learning. We were unable to elicit high rates of reward hacking for any training run we could feasibly study. Note also in addition to successful hacks of the intended type, reward gaps can happen the insecure verifier has inadequate test coverage, passing honest but buggy attempts at solving the problem, and this contributed many of the "hacks" seen here. Not every reward gap is an instance of a hack of the intended type, though more recent versions of the dataset have fewer spurious hacks than the one illustrated here.</em></p>
+<h2 id="hacking-generalization-from-fine-tuning-experiments">Hacking generalization from fine tuning experiments</h2>
+<p>We weren’t making progress with RL, so we moved to a simpler starting point: fine-tuning models on a training set of exploits and measuring generalisation to held-out exploits. We evaluated four models:
+ - Qwen 3 4b
+ - Qwen 3 32b
+ - GPT-OSS 20b
+ - GPT-OSS 120b</p>
+<p>We trained these models for 10 epochs on the training set (13 exploit types, 371 data points). Qwen 3 4B did not seem capable enough to study further—it failed to find many types of hack and tended to produce code that didn’t solve edge cases when attempting to operate “honestly” (hence it achieved a high pass rate on the inadequate test coverage exploit).
+On the evaluation set (13 new exploit types not in training), both Qwen 3 32B and GPT-OSS 20B successfully found about 35% of the exploits after fine-tuning when explicitly prompted to look for them. When not explicitly asked to find hacks, the models diverged: GPT-OSS continued to exploit in ~25% of cases, while Qwen’s exploit rate fell below 5%. We speculate that Qwen’s slower-changing propensity to exploit problems relates to our observation that it learned to hack slowly in RL environments.</p>
+<p><img alt="Average rates of reward hacking" src="../assets/blog/reward-hacking/hack_rates_on_eval_overall.png">
+<em>Figure 2: Comparison of reward hacking rates for the four models studies with and without explicit prompting to look for hacks, and with and without finetuning on exploit examples</em></p>
+<p>In general, fine tuning led to models more robustly find exploits they were already able to find when prompted to look for them. There were some exceptions such as "mock functionality replacement", where Qwen 32B and OSS 20B showed some ability to find the exploit only after fine-tuning.</p>
+<p><img alt="Average rates of reward hacking" src="../assets/blog/reward-hacking/hack_rates_on_eval_pertype.png">
+<em>Figure 3: Hack success rates on different types of exploit in the evaluation set. Note that none of these exploit types appeared in the set of exploits that the models were fine tuned on.</em></p>
+<h2 id="outlook">Outlook</h2>
+<p>We're focussing on RL tuning GPT-OSS 20B to hack in an RL environment. While the differences between the Qwen and GPT-OSS families are potentially of interest to our broader project of detecting and supressing hacking in RL, our top priority is to elicit hacking in a robust manner in a "semi-realistic" RL environment.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

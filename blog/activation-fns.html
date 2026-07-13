@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Activation Function Ablation | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>Activation Function Ablation</h1>
+          <p class="article-dek">An ablation of activation functions in GPT-like autoregressive language models.</p>
+          <div class="article-meta">
+            <span>May 24, 2021</span>
+            <span>Leo Gao</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p>This was an ablation of activation functions on GPT-like models of ~100M params that I ran ages ago. Each model was run for 10k iters, which isn't very long. My original goal was to show that activation function doesn't matter than much, but to do so I'd need to run a bunch more runs to get variance and show no statistical significance, and I don't plan on running a more exhaustive version of this experiment any time soon. So, I'm just dumping these results here in case anyone has any use for them. All the activation definitions are <a href="https://github.com/EleutherAI/gpt-neo/blob/master/models/activations.py#L44">here</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Pile Validation BPB</th>
+<th>LAMBADA acc</th>
+<th>LAMBADA ppl</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>softsign</td>
+<td>1.1485</td>
+<td>34.3</td>
+<td>81.32</td>
+</tr>
+<tr>
+<td>ReLU</td>
+<td>1.1482</td>
+<td>34.3</td>
+<td>82.01</td>
+</tr>
+<tr>
+<td>spike2</td>
+<td>1.1480</td>
+<td>34.4</td>
+<td>83.13</td>
+</tr>
+<tr>
+<td>selu</td>
+<td>1.1485</td>
+<td>34.5</td>
+<td>83.32</td>
+</tr>
+<tr>
+<td>elish</td>
+<td>1.1492</td>
+<td>33.9</td>
+<td>84.04</td>
+</tr>
+<tr>
+<td>tanhexp</td>
+<td>1.1474</td>
+<td>33.7</td>
+<td>84.06</td>
+</tr>
+<tr>
+<td>sigmoid</td>
+<td>1.1484</td>
+<td>33.9</td>
+<td>85.20</td>
+</tr>
+<tr>
+<td>tanhshrink</td>
+<td>1.1483</td>
+<td>33.9</td>
+<td>85.42</td>
+</tr>
+<tr>
+<td>maxtanh</td>
+<td>1.1479</td>
+<td>33.7</td>
+<td>85.53</td>
+</tr>
+<tr>
+<td>roottanh</td>
+<td>1.1485</td>
+<td>33.4</td>
+<td>86.00</td>
+</tr>
+<tr>
+<td>softplusmone</td>
+<td>1.1488</td>
+<td>34.1</td>
+<td>86.21</td>
+</tr>
+<tr>
+<td>logsoftmax</td>
+<td>1.1492</td>
+<td>34.2</td>
+<td>86.29</td>
+</tr>
+<tr>
+<td>ELU</td>
+<td>1.1496</td>
+<td>33.8</td>
+<td>86.37</td>
+</tr>
+<tr>
+<td>Swish</td>
+<td>1.1482</td>
+<td>33.7</td>
+<td>86.42</td>
+</tr>
+<tr>
+<td>softmax</td>
+<td>1.1491</td>
+<td>33.2</td>
+<td>86.74</td>
+</tr>
+<tr>
+<td>square_relax</td>
+<td>1.1484</td>
+<td>33.5</td>
+<td>86.92</td>
+</tr>
+<tr>
+<td>lisht</td>
+<td>1.1500</td>
+<td>33.8</td>
+<td>87.17</td>
+</tr>
+<tr>
+<td>GELU</td>
+<td>1.1453</td>
+<td>34.0</td>
+<td>87.84</td>
+</tr>
+<tr>
+<td>abs</td>
+<td>1.1489</td>
+<td>33.5</td>
+<td>87.96</td>
+</tr>
+<tr>
+<td>tanh</td>
+<td>1.1481</td>
+<td>33.2</td>
+<td>89.28</td>
+</tr>
+<tr>
+<td>Mish</td>
+<td>1.1482</td>
+<td>33.6</td>
+<td>89.84</td>
+</tr>
+<tr>
+<td>triangle_relax</td>
+<td>1.1502</td>
+<td>33.7</td>
+<td>89.91</td>
+</tr>
+<tr>
+<td>seagull</td>
+<td>1.1487</td>
+<td>33.3</td>
+<td>90.08</td>
+</tr>
+<tr>
+<td>maxsig</td>
+<td>1.1480</td>
+<td>33.3</td>
+<td>90.23</td>
+</tr>
+<tr>
+<td>softplus</td>
+<td>1.1460</td>
+<td>33.1</td>
+<td>90.74</td>
+</tr>
+<tr>
+<td>minsin</td>
+<td>1.1498</td>
+<td>33.3</td>
+<td>91.18</td>
+</tr>
+<tr>
+<td>snake</td>
+<td>1.1484</td>
+<td>33.1</td>
+<td>91.93</td>
+</tr>
+<tr>
+<td>cosid</td>
+<td>1.1490</td>
+<td>33.3</td>
+<td>92.99</td>
+</tr>
+<tr>
+<td>spike</td>
+<td>1.1498</td>
+<td>33.3</td>
+<td>93.78</td>
+</tr>
+<tr>
+<td>bipolarsigmoid</td>
+<td>1.1513</td>
+<td>32.8</td>
+<td>96.73</td>
+</tr>
+</tbody>
+</table>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

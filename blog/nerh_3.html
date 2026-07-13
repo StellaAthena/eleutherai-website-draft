@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The third New England RLHF Hackers Hackathon | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>The third New England RLHF Hackers Hackathon</h1>
+          <p class="article-dek">Introduction At the third New England RLHF Hackathon, several interesting projects were showcased, each focusing on different aspects of machine learning and reinforcement learning. Participants and those interested in f...</p>
+          <div class="article-meta">
+            <span>Nov 26, 2023</span>
+            <span>Will Beddow, Matthew Bernstein, Chase Blagden, Louis Castricato, Jacob Makar-Limanov, Arjun Prakash, Sid Verma</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <h1 id="introduction">Introduction</h1>
+<p>At the third New England RLHF Hackathon, several interesting projects were showcased, each focusing on different aspects of machine learning and reinforcement learning. Participants and those interested in future events are encouraged to join the Discord community for more information and updates. <a href="https://discord.gg/5UhtzZnU">Join the discord community</a></p>
+<p>The highlighted projects include:</p>
+<p>1) Pink Elephants Pt 3 (Authors: Sid Verma, Louis Castricato): This project aimed to train a pink elephant model via ILQL (Inverse Learning from Q-learning), using the standard trlX implementation. The team faced challenges in finding optimal hyperparameters and proposed future research that includes more nuanced reward shaping and combining different RL techniques like DPO and ReST for more effective training.
+2) Exploring Iterated RLHF (Authors: Arjun Prakash, Jacob Makar-Limanov): This project focused on understanding iterated RLHF and the co-evolution of the LLM and reward model. The team replaced human participants with an "idealized" gold standard model, using UltraRM-13b, to focus on aligning with this model rather than learning human preferences. Future work includes refining their approach with methods like ReST.
+3) Visualizing the Reward Model via QDAIF (Authors: Will Beddow, Matthew Bernstein, Chase Blagden): This project aimed at visualizing and interpreting the reward model in RLHF. The team adapted the QDAIF technique, using a Deberta model finetuned on human preference data as the fitness function. They used llama-70b for poem generation and mutation, uncovering trends in rewards based on poem types and tones.</p>
+<p><strong>The next hackathon is scheduled to be at NeurIPS, and for those interested in participating or learning more, joining the Discord community is highly recommended.</strong></p>
+<h1 id="pink-elephants-pt-3">Pink Elephants Pt 3</h1>
+<p>Authors:  Sid Verma, Louis Castricato</p>
+<h1 id="introduction_1">Introduction:</h1>
+<p>This is an extension of prior work on the pink elephant problem. Our goal for this hackathon was to implement infrastructure to train a pink elephant model via ILQL.</p>
+<h1 id="implementation">Implementation:</h1>
+<p>We utilized the standard trlX implementation, and after permuting over a wide range of hyper parameters were unable to find a run that converged to satisfactory results. </p>
+<h1 id="future-work">Future Work:</h1>
+<p>Future work may require more reward shaping (e.g. right now we use a +1 for the accepted answer and -1 for the rejected answer), perhaps training reward models rather than relying on binary signals. We’ve also considered exploring the possibility of using DPO or using online RL like ReST or PPO. </p>
+<p>Various colleagues have pointed to the advantages of ReST over PPO (e.g. easier convergence) so that is certainly an exciting avenue. We’ve also discussed combining ReST with DPO. Namely, for the fine tuning step one can finetune with DPO rather than negative log likelihood over token predictions. </p>
+<h1 id="exploring-iterated-rlhf">Exploring Iterated RLHF</h1>
+<p>Authors: Arjun Prakash, Jacob Makar-Limanov </p>
+<h2 id="introduction_2">Introduction:</h2>
+<p>In this project, we plan on exploring iterated Reinforcement Learning from Human Feedback (RLHF). Our goal is to better understand iterated RLHF and how the LLM and reward model can evolve together.</p>
+<h2 id="implementation_1">Implementation:</h2>
+<p>This hackathon we worked on formulating our algorithm and setting up our experimental environment. In our setup, we replace the human participant with a "gold standard" reward model, thereby shifting the focus from learning human preferences to learning and aligning with the preferences of this idealized model. We are currently implementing our algorithm with UltraRM-13b as our chosen gold standard model.</p>
+<h2 id="future-work_1">Future Work:</h2>
+<p>Now that we have formulated the problem and set up our experimental environment, we hope to finetune an LLM with an iterated method like ReST.  Next, we will evaluate different variants of iteration and this to standard RLHF.</p>
+<h1 id="visualizing-the-reward-model-via-qdaif">Visualizing the Reward Model via QDAIF</h1>
+<p>Authors: Will Beddow, Matthew Bernstein, Chase Blagden</p>
+<h2 id="introduction_3">Introduction</h2>
+<p>Understanding and being able to interpret the reward model is important to interpretability in RLHF. However, due to the high-dimensional nature of it, it is difficult to visualize and understand it. We seek to mitigate this by modifying a novel technique for creative writing generation to use reward models.</p>
+<h2 id="approach">Approach</h2>
+<p>To accomplish this, we decided to modify the <a href="https://qdaif.github.io/">Quality-Diversity through AI Feedback</a> (QDAIF) technique to visualize the reward function. QDAIF works by having a language model generate solutions along two different axes (e.g. tone and genre for poetry), and then mutates them and replaces the original solution if it is determined to be of higher quality. To ensure diversity of solutions, the model is prompted to generate solutions with the specific qualities of interest. This creates a map showing the quality of solutions along the predefined axes. Instead of prompting a model to get the fitness of a generation, we decide to use a reward model trained on human preference data instead. This gives us a way to visualize the a lower bound of the reward function and see what traits may correspond to a higher or lower reward. </p>
+<p><img alt="An explanation of QDAIF" src="../assets/blog/nerh_3/image1.png"></p>
+<h2 id="implementation_2">Implementation</h2>
+<p>We <a href="https://github.com/ironman5366/OpenELM">modified</a> the existing implementation of QDAIF by replacing the fitness function with a reward model prompted to rate a poem. We replace the base language model used for random poem generation and mutation with llama-70b, and for the reward model we use a <a href="https://huggingface.co/OpenAssistant/reward-model-deberta-v3-large">Deberta</a> model finetuned on human preference data.</p>
+<h2 id="results">Results</h2>
+<p><img alt="Some image of results" src="../assets/blog/nerh_3/image2.png"></p>
+<p>We obtained the above map after running it for 2500 iterations. Interestingly sonnets have the lowest overall rewards and reflective tones seem to have the lowest overall rewards, </p>
+<h2 id="code">Code</h2>
+<p>The source code is available here: https://github.com/ironman5366/OpenELM </p>
+<pre><code>@online{nerh3,
+  title = {The third New England RLHF Hackers Hackathon},
+  author = {Verma, Sid and Castricato, Louis and Prakash, Arjun and Makar-Limanov, Jacob and Beddow, Will and Bernstein, Matthew and Blagden, Chase},
+  year = {2023},
+  month = {11},
+  url = {https://blog.eleuther.ai/nerh_3/},
+  note = {Blog post},
+}
+</code></pre>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background: black;
+            margin: 0;
+            padding: 0;
+            overflow-y: hidden;
+        }
+
+        .demo-container {
+            font-family: Arial, sans-serif;
+            width: 100%;
+            max-width: 770px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #fff;
+            overflow: hidden;
+            height: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+        }
+
+        .text-line {
+            display: flex;
+            align-items: center;
+            min-height: 20px;
+            margin-right: 20px;
+            margin-top: 20px;
+            margin-bottom: 0px;
+        }
+
+        .static-text {
+            color: white;
+            padding: 4px 0;
+        }
+
+        .split-word {
+            display: inline-block;
+            position: relative;
+            min-height: 80px;
+            min-width: 40px;
+        }
+
+        .original-word {
+            position: absolute;
+            left: 0;
+            padding: 4px 8px;
+            top: 0%;
+            transform: translateY(105%);
+        }
+
+        .altered-word {
+            position: absolute;
+            left: 0;
+            padding: 4px 8px;
+            border-radius: 3px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            white-space: nowrap;
+            transform: translateY(-100%);
+            cursor: pointer;
+            background: rgba(0, 255, 0, 0.1);
+            color: white;
+            top: 100%;
+        }
+
+        .clickable-word {
+            cursor: pointer;
+            color: white;
+            padding: 2px 4px;
+            margin: 0 2px;
+            border-radius: 3px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-block;
+        }
+
+        .top-section {
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-areas: 
+                "text text slider"
+                "nav progress slider"
+                "explanation explanation colorbar";
+            grid-template-rows: 60px 50px 50px;
+            grid-template-columns: 250px auto 100px;
+            gap: 20px;
+            height: 200px;
+        }
+
+        .navigation-controls {
+            grid-area: nav;
+            display: flex;
+            gap: 10px;
+            padding-top: 10px;
+            align-items: center;
+            height: 40px;
+        }
+
+        .explanation-text{
+            grid-area: explanation;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 20px;
+            font-size: 10px;
+        }
+
+        .nav-arrow {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .nav-arrow:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-arrow-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .text-section {
+            grid-area: text;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column-reverse;
+            justify-content: center;
+            padding-bottom: 30px;
+        }
+
+        .position-slider {
+            grid-area: progress;
+            position: relative;
+            display: flex;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 20px 0;
+            width: 90%;
+            align-self: center;
+        }
+
+        .slider-handle {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+
+        .fraction-slider {
+            grid-area: slider;
+            padding-right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+        }
+
+        .fraction-controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mode-select {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 5px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            width: 150px;
+            cursor: pointer;
+            margin-bottom: 0px;
+        }
+
+        .mode-select option {
+            background: black;
+            color: white;
+        }
+
+        .slider {
+            writing-mode: bt-lr;
+            -webkit-appearance: slider-vertical;
+            width: 8px;
+            height: 100px;
+            margin: 0px auto;
+        }
+
+        .slider.hidden {
+            display: none;
+        }
+
+        .fraction-value {
+            margin-top: 0px;
+            white-space: nowrap;
+            position: static;
+            transform: none;
+        }
+
+        .info-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            height: 460px;
+            overflow: hidden;
+        }
+
+        .panel-container {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 4px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .panel-content {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .latent-item {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .latent-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .latent-number {
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 50px;
+            color: #fff;
+        }
+
+        .latent-explanation {
+            flex-grow: 1;
+            color: #fff;
+        }
+
+        .correct {
+            background-color: rgba(0, 255, 0, 0.1);
+            border-color: rgba(0, 255, 0, 0.3);
+        }
+
+        .incorrect {
+            background-color: rgba(255, 0, 0, 0.1);
+            border-color: rgba(255, 0, 0, 0.3);
+        }
+
+        .context-row {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .context-text {
+            color: #fff;
+            display: flex;
+            gap: 1px;
+        }
+
+        .context-token {
+            padding: 1px;
+            border-radius: 3px;
+            color: #fff;
+        }
+
+        .colorbar-container {
+            grid-area: colorbar;
+            margin-top: 25px;  /* Position below the slider */
+            width: 90%;
+            align-self: center;
+        }
+
+        .colorbar {
+            height: 8px;
+            width: 100%;
+            border-radius: 2px;
+            margin-bottom: 4px;
+            background: linear-gradient(to right, 
+                rgba(0, 255, 0, 0.5) 0%,    /* Green */
+                rgba(125, 125, 0, 0.5) 50%,    /* Yellow */
+                rgba(255, 0, 0, 0.5) 100%     /* Red */
+            );
+        }
+
+        .colorbar-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div id="activation-demo"></div>
+
+    <script>
+        // Function to load JSON data
+        async function loadData() {
+            try {
+                const [percentageOutputs, percentageKL, percentageCorrectActiveFeatures, helpOutputs, helpKL, helpCorrectActiveFeatures, quantilesExplanations, topExplanations, allContexts] = await Promise.all([
+                    fetch('/images/blog/generating-text-using-nl-to-simulate-activations/iterative_generation_percentage_outputs.json').then(r => r.json()),
+                    fetch('/images/blog/generating-text-using-nl-to-simulate-activations/iterative_generation_percentage_kl_div.json').then(r => r.json()),
+                    fetch('/images/blog/generating-text-using-nl-to-simulate-activations/iterative_generation_percentage_correct_active_features.json').then(r => r.json()),
+                    fetch('/images/blog/generating-text-using-nl-to-simulate-activations/iterative_generation_with_help_outputs.json').then(r => r.json()),
+                    fetch('/images/blog/generating-text-using-nl-to-simulate-activations/iterative_generation_with_help_kl_div.json').then(r => r.json()),
+                    fetch('/images/blog/generating-text-using-nl-to-simulate-activations/iterative_generation_with_help_correct_active_features.json').then(r => r.json()),
+                    fetch('/images/blog/generating-text-using-nl-to-simulate-activations/quantiles_explanations_unique.json').then(r => r.json()),
+                    fetch('/images/blog/generating-text-using-nl-to-simulate-activations/top_explanations_unique.json').then(r => r.json()),
+                    fetch('/images/blog/generating-text-using-nl-to-simulate-activations/all_contexts.json').then(r => r.json())
+                ]);
+
+                //console.log("Loaded data:", { percentageOutputs, percentageKL, percentageCorrectActiveFeatures, helpOutputs, helpKL, helpCorrectActiveFeatures });
+
+                const result = {};
+                const prompts = {
+                    "sun": "The sun was",
+                    "im": "I'm a", 
+                    "text": "This text was",
+                    "quick": "The quick brown",
+                    "people": "There are always people"
+                };
+
+                Object.entries(prompts).forEach(([key, prompt], index) => {
+                    if (!helpOutputs.normal_outputs[index] || !helpOutputs.reconstructed_outputs[index]) {
+                        console.error(`Missing data for index ${index}`);
+                        return;
+                    }
+                    result[key] = {
+                        initial: prompt,
+                        unalteredCompletion: helpOutputs.normal_outputs[index],
+                        alteredCompletions: {
+                            "full_sae": {
+                                tokens: helpOutputs.reconstructed_outputs[index],
+                                divergences: helpKL.kl_div_reconstructed[index] || []
+                            },
+                            "quantile_help": {
+                                tokens: helpOutputs.simulated_outputs_quantile[index] || [],
+                                divergences: helpKL.kl_div_simulated_quantile[index] || []
+                            },
+                            "top_help": {
+                                tokens: helpOutputs.simulated_outputs_top[index] || [],
+                                divergences: helpKL.kl_div_simulated_top[index] || []
+                            },
+                            "random": {
+                                tokens: helpOutputs.random_outputs[index] || [],
+                                divergences: helpKL.kl_div_random[index] || []
+                            }
+                        },
+                        correctLatents: {},
+                        contexts: allContexts
+                    };
+
+                    Object.entries(percentageOutputs.simulated_outputs_top[index] || {}).forEach(([percentage, tokens]) => {
+                        result[key].alteredCompletions[percentage] = {
+                            tokens: tokens,
+                            divergences: percentageKL.kl_div_simulated_top[index][percentage] || []
+                        };
+                    });
+
+                    const allWords = [ ...helpOutputs.normal_outputs[index]];
+                    allWords.forEach((word, wordIndex) => {
+                    
+                        result[key].correctLatents[wordIndex] = {"top_help": [], "quantile_help": [], "random": []};
+                        const active_latents = percentageCorrectActiveFeatures.all_active_features[index]?.[wordIndex] || [];
+                        // Loop through all the active latents
+                        active_latents.forEach(latentNum => {
+                            if (helpCorrectActiveFeatures.correct_active_top[index]?.[wordIndex]) {
+                                // add an element to the correctLatents object, with the latent number, explanation, and isCorrect set to true if latentNum is in the all_active_top array
+                                result[key].correctLatents[wordIndex]["top_help"].push({
+                                    number: latentNum,
+                                    explanation: topExplanations[latentNum],
+                                    isCorrect: helpCorrectActiveFeatures.correct_active_top[index][wordIndex].includes(latentNum),
+                                });
+                            }
+                        
+                            // Check latents for quantile explanations 
+                            if (helpCorrectActiveFeatures.correct_active_quantile[index]?.[wordIndex]) {
+                                result[key].correctLatents[wordIndex]["quantile_help"].push({
+                                    number: latentNum,
+                                    explanation: quantilesExplanations[latentNum],
+                                    isCorrect: helpCorrectActiveFeatures.correct_active_quantile[index][wordIndex].includes(latentNum),
+                                });
+                            }
+
+                            result[key].correctLatents[wordIndex]["random"].push({
+                                number: latentNum,
+                                explanation: topExplanations[latentNum],
+                                isCorrect: false,
+                            });
+
+                            // Check latents for each percentage
+                            Object.entries(percentageCorrectActiveFeatures.active_features_top[index] || {}).forEach(([percentage, allLatents]) => {
+                                if (allLatents[wordIndex]) {
+                                    // check if result[key].correctLatents[word][percentage] exists, if not create it
+                                    if (!result[key].correctLatents[wordIndex][percentage]) {
+                                        result[key].correctLatents[wordIndex][percentage] = [];
+                                    }
+                                    result[key].correctLatents[wordIndex][percentage].push({
+                                        number: latentNum,
+                                        explanation: quantilesExplanations[latentNum],
+                                        isCorrect: allLatents[wordIndex].includes(latentNum),
+                                    });
+                                }
+                            });
+                        });
+                       
+                    });
+                });
+
+                console.log("Processed data:", result);
+                return result;
+
+            } catch (error) {
+                console.error('Error loading data:', error);
+                return null;
+            }
+        }
+
+        function getDivergenceColor(kl_div) {
+            // Convert KL divergence to a color scale
+            // Lower KL = more green (better), Higher KL = more red (worse)
+            // Use a log scale to make the difference more pronounced
+            // log(kl) will be between -2 and -4. Everything else should be clipped to -2
+            const normalized = (Math.max(Math.min(Math.log(kl_div), -2), -4)+4)/2; 
+            console.log(kl_div,Math.log(kl_div), normalized);
+            return `rgba(${255 * (normalized)}, ${255 * (1-normalized)}, 0, 0.5)`;
+        }
+        
+        function getActivationColor(activation) {
+            // Convert activation to a color scale
+            // Higher activation = more green, Lower activation = more red
+            const normalized = Math.min(activation, 1); // Cap at 1 for very high activations
+            return `rgba(0, ${255 * normalized}, 0, 0.5)`;
+        }
+
+        
+        // Update the ActivationDemo class to handle async initialization
+        class ActivationDemo {
+            constructor(containerId) {
+                this.container = document.getElementById(containerId);
+                this.currentFraction = 0.6;
+                this.selectedWord = null;
+                this.selectedLatent = null;
+                this.currentTest = "sun";
+                this.tests = ["sun", "im", "text", "quick", "people"];
+                this.mode = "quantile";
+                this.maxVisibleTokens = 10;
+                // Create structure first
+                this.createStructure();
+                // Then initialize
+                this.init();
+            }
+
+            async init() {
+                try {
+                    this.allData = await loadData();
+                    if (this.allData) {
+                        this.mockData = this.allData[this.currentTest];
+                        this.currentPosition = this.mockData.initial.split(' ').length;
+                        // Setup event listeners after data is loaded
+                        this.setupEventListeners();
+                        this.render();
+                    } else {
+                        this.container.innerHTML = '<div class="demo-container">Error loading data</div>';
+                    }
+                } catch (error) {
+                    console.error('Initialization error:', error);
+                    this.container.innerHTML = '<div class="demo-container">Error loading data</div>';
+                }
+            }
+
+            createStructure() {
+                this.container.innerHTML = `
+                    <div class="demo-container">
+                        <div class="top-section">
+                            
+                            <div class="text-section">
+                                <div class="text-line">
+                                    <div class="static-text">Loading...</div>
+                                    <div class="split-word">
+                                        <div class="original-word"></div>
+                                        <div class="altered-word"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="position-slider">
+                                <div class="slider-handle"></div>
+                            </div>
+                            <div class="colorbar-container">
+                                <div class="colorbar"></div>
+                                <div class="colorbar-labels">
+                                    <span>Low KL</span>
+                                    <span>High KL</span>
+                                </div>
+                            </div>
+                            <div class="navigation-controls">
+                                <button class="nav-arrow left">←</button>
+                                <div class="nav-arrow-text">
+                                    Change sentence
+                                </div>
+                                <button class="nav-arrow right">→</button>
+                            </div>
+                            <div class="explanation-text">
+                                Top line shows generations by Gemma 2 9b. Bottom line shows generations by selecting certain SAE latents to be active.
+                                <br>
+                                Quantile and Top indicate different explanations to select the latents, while Percentage controls the percentage of correct latents.
+                                <br>
+                                Correct latents are highlighted in green in the box below.
+                            </div>
+                            <div class="fraction-slider">
+                                <div class="fraction-controls">
+                                    <select class="mode-select">
+                                        <option value="quantile">Quantile</option>
+                                        <option value="percentage">Percentage</option>
+                                        <option value="top">Top</option>
+                                    </select>
+                                    <input type="range" min="0" max="1" value="0.6" step="0.01" class="slider hidden" id="fractionSlider">
+                                    <span class="fraction-value"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-panel">
+                            <div class="panel-container latent-info">
+                                <h3>Active Latents</h3>
+                                <div class="panel-content latent-list">
+                                    Select token to see active latents
+                                </div>
+                            </div>
+                            <div class="panel-container dashboard">
+                                <h3>Latent Contexts</h3>
+                                <div class="panel-content context-list">
+                                    Select active latent to see activating contexts
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            setupEventListeners() {
+                // Only setup event listeners if elements exist
+                const elements = {
+                    leftArrow: this.container.querySelector('.nav-arrow.left'),
+                    rightArrow: this.container.querySelector('.nav-arrow.right'),
+                    splitWord: this.container.querySelector('.split-word'),
+                    staticText: this.container.querySelector('.static-text'),
+                    sliderHandle: this.container.querySelector('.slider-handle'),
+                    fractionSlider: this.container.querySelector('#fractionSlider')
+                };
+
+                // Check if all elements exist before setting up listeners
+                if (Object.values(elements).every(el => el)) {
+                    elements.leftArrow.addEventListener('click', () => this.navigateTest('prev'));
+                    elements.rightArrow.addEventListener('click', () => this.navigateTest('next'));
+                    
+                    elements.splitWord.addEventListener('click', () => {
+                        const promptLength = this.mockData.initial.split(' ').length;
+                        this.showLatentInfo(this.currentPosition-promptLength);
+                        
+                        if (this.currentPosition >= this.maxVisibleTokens) {
+                            this.currentPosition = this.maxVisibleTokens;
+                        } else {
+                            this.currentPosition++;
+                        }
+                        this.render();
+                    });
+
+                    elements.staticText.addEventListener('click', (e) => {
+                        if (e.target.classList.contains('clickable-word')) {
+                            const promptLength = this.mockData.initial.split(' ').length;
+                            // current positon is the position of the word clicked
+                            this.currentPosition = parseInt(e.target.dataset.position);
+                            this.showLatentInfo(this.currentPosition-promptLength);
+                            this.render();
+                        }
+                    });
+
+                    // Allow clicking on the latent info to show the dashboard
+                    this.container.addEventListener('click', (e) => {
+                        const latentItem = e.target.closest('.latent-item');
+                        // latentItem is a div, which has a child called .latent-number
+                        const latentNumber = latentItem.querySelector('.latent-number').textContent.trim();
+                        this.showLatentDashboard(latentNumber);
+                    });
+
+
+                    let isDragging = false;
+                    elements.sliderHandle.addEventListener('mousedown', () => isDragging = true);
+                    document.addEventListener('mousemove', (e) => {
+                        if (isDragging) {
+                            this.updatePositionFromSlider(e);
+                        }
+                    });
+                    document.addEventListener('mouseup', () => isDragging = false);
+
+                    elements.fractionSlider.addEventListener('input', (e) => {
+                        this.currentFraction = Number(e.target.value);
+                        
+                        this.render();
+                    });
+                }
+
+
+
+                const modeSelect = this.container.querySelector('.mode-select');
+                modeSelect.addEventListener('change', (e) => {
+                    this.mode = e.target.value;
+                    const slider = this.container.querySelector('.slider');
+                    const fractionValue = this.container.querySelector('.fraction-value');
+                    
+                    if (this.mode === 'percentage') {
+                        slider.classList.remove('hidden');
+                        fractionValue.textContent = `${Math.round(this.currentFraction * 100)}% correct`;
+                    } else {
+                        slider.classList.add('hidden');
+                        fractionValue.textContent = this.mode === 'top' ? '' : '';
+                    }
+                    this.render();
+                });
+
+            }
+
+            navigateTest(direction) {
+                const currentIndex = this.tests.indexOf(this.currentTest);
+                if (direction === 'prev') {
+                    this.currentTest = this.tests[currentIndex > 0 ? currentIndex - 1 : this.tests.length - 1];
+                } else {
+                    this.currentTest = this.tests[currentIndex < this.tests.length - 1 ? currentIndex + 1 : 0];
+                }
+                // Reset position to after the prompt
+                this.mockData = this.allData[this.currentTest];
+                this.currentPosition = this.mockData.initial.split(' ').length;
+                this.render();
+            }
+
+        
+
+            updatePositionFromSlider(event) {
+                const slider = this.container.querySelector('.position-slider');
+                const rect = slider.getBoundingClientRect();
+                const percentage = (event.clientX - rect.left) / rect.width;
+                const tokens = this.getAllTokens();
+                const promptLength = this.mockData.initial.split(' ').length;
+                
+                // Calculate position ensuring it doesn't go before prompt
+                const maxPosition = this.maxVisibleTokens;
+                const minPosition = promptLength;
+                this.currentPosition = Math.max(
+                    minPosition,
+                    Math.min(maxPosition, Math.floor(percentage * (maxPosition - minPosition) + minPosition))
+                );
+                
+                this.render();
+            }
+
+            getAllTokens() {
+                return [...this.mockData.initial.split(' '), ...this.mockData.unalteredCompletion];
+            }
+
+            getClosestFraction(wordIndex) {
+                // find nearest percentage
+                const availablePercentages = Object.keys(this.mockData.correctLatents[wordIndex]).map(Number).filter(Number).sort((a, b) => a - b);
+                const nearestPercentage = availablePercentages.reduce((prev, curr) => {
+                    return Math.abs(curr - this.currentFraction) < Math.abs(prev - this.currentFraction) ? curr : prev;
+                });
+                return nearestPercentage;
+            }
+
+            showLatentInfo(wordIndex) {
+                const latentInfo = this.container.querySelector('.latent-info .panel-content');
+                const latentTitle = this.container.querySelector('.latent-info h3');
+                
+                if (this.mockData.correctLatents[wordIndex]) {
+                    const currentWord = this.getAllTokens()[this.currentPosition-1];
+                    latentTitle.textContent = `Active Latents (${currentWord})`;
+                    
+                    let latents;
+                    if (this.mode === 'percentage') {
+                        if (this.currentFraction === 0) {
+                            latents = this.mockData.correctLatents[wordIndex].random || [];
+                        } else if (this.currentFraction === 1) {
+                            // For full_sae, all latents are considered correct
+                            latents = this.mockData.correctLatents[wordIndex].random.map(l => ({
+                                ...l,
+                                isCorrect: true
+                            }));
+                        } else {
+                            const closestFraction = this.getClosestFraction(wordIndex);
+                            latents = this.mockData.correctLatents[wordIndex][closestFraction] || [];
+                        }
+                    } else {
+                        latents = this.mockData.correctLatents[wordIndex][`${this.mode}_help`] || [];
+                    }
+                    
+                    latentInfo.innerHTML = latents
+                        .map(latent => `
+                            <div class="latent-item ${latent.isCorrect ? 'correct' : 'incorrect'}">
+                                <span class="latent-number">${latent.number}</span>
+                                <span class="latent-explanation">${latent.explanation}</span>
+                            </div>
+                        `).join('');
+                    this.showLatentDashboard(latents[0].number);
+                } else {
+                    latentTitle.textContent = 'Active Latents';
+                    latentInfo.innerHTML = 'Select token to see active features';
+                }
+            }
+
+            showLatentDashboard(latentNumber) {
+                const dashboard = this.container.querySelector('.dashboard');
+                const contextList = dashboard.querySelector('.context-list');
+                const dashboardTitle = dashboard.querySelector('h3');
+                
+                dashboardTitle.textContent = `Latent Contexts (${latentNumber})`;
+                
+                const contexts = this.mockData.contexts[latentNumber] || [];
+                
+                contextList.innerHTML = contexts.length > 0
+                    ? contexts
+                        .map(context => `
+                            <div class="context-row">
+                                <span class="context-text" style="word-wrap: break-word; white-space: normal;">
+                                    ${context.tokens.map((token, i) => `
+                                        <span class="context-token" 
+                                              style="background-color: ${getActivationColor(context.activations[i])}">
+                                            ${token}
+                                        </span>
+                                    `).join('')}
+                                </span>
+                            </div>
+                        `)
+                        .join('')
+                    : 'Select active latent to see activating contexts';
+            }
+
+
+            getCompletion = () => {
+                if (this.mode === 'percentage') {
+                    const fraction = this.currentFraction;
+                    
+                    // Handle special cases at the extremes
+                    if (fraction === 0) {
+                        return this.mockData.alteredCompletions.random;
+                    }
+                    if (fraction === 1) {
+                        return this.mockData.alteredCompletions.full_sae;
+                    }
+                    
+                    const closestFraction = this.getClosestFraction(this.currentPosition-1);
+                    console.log(closestFraction,this.mockData.alteredCompletions);
+                    return this.mockData.alteredCompletions[closestFraction];
+                } else if (this.mode === 'top') {
+                    return this.mockData.alteredCompletions.top_help;
+                } else {
+                    return this.mockData.alteredCompletions.quantile_help;
+                }
+            };
+
+            render() {
+                const tokens = this.getAllTokens();
+                const promptTokens = this.mockData.initial.split(' ');
+                const promptLength = promptTokens.length;
+                
+                // Ensure currentPosition is set
+                if (typeof this.currentPosition === 'undefined') {
+                    this.currentPosition = promptLength;
+                }
+                
+                // Show static text with prompt and clickable words
+                const staticText = this.container.querySelector('.static-text');
+                
+                // Always show prompt tokens without click handlers
+                const promptHtml = promptTokens.map(token => token).join(' ');
+                
+                // Get completion based on current mode
+                const completion = this.getCompletion();
+                this.showLatentInfo(this.currentPosition-promptLength);
+
+                // Show only up to 6 tokens after the prompt, with KL divergence colors
+                const maxVisibleTokens = 10;
+                const startIdx = promptLength;
+                const endIdx = Math.min(this.currentPosition, maxVisibleTokens);
+                
+                const additionalTokens = tokens.slice(startIdx, endIdx);
+                console.log(completion);
+                const additionalHtml = additionalTokens.map((token, index) => {
+                    const absoluteIndex = startIdx - promptLength + index;
+                    const divergence = completion.divergences[absoluteIndex];
+                    const backgroundColor = getDivergenceColor(divergence);
+                    return `<span class="clickable-word" 
+                              data-position="${startIdx + index}"
+                              style="background-color: ${backgroundColor}">
+                        ${token}
+                    </span>`;
+                }).join(' ');
+                
+                staticText.innerHTML = promptHtml + (additionalHtml ? ' ' + additionalHtml : '') + ' ';
+
+                // Show split word
+                const splitWord = this.container.querySelector('.split-word');
+                const originalWord = this.container.querySelector('.original-word');
+                const alteredWord = this.container.querySelector('.altered-word');
+                const currentToken = tokens[this.currentPosition];
+                
+                if (currentToken) {
+                    splitWord.style.display = 'inline-block';
+                    originalWord.textContent = currentToken;
+                    const alteredToken = completion.tokens[this.currentPosition - promptLength];
+                    const divergence = completion.divergences[this.currentPosition - promptLength];
+                    
+                    alteredWord.textContent = alteredToken;
+                    alteredWord.style.backgroundColor = getDivergenceColor(divergence);
+                } else {
+                    splitWord.style.display = 'none';
+                }
+
+                // Update slider position
+                const sliderHandle = this.container.querySelector('.slider-handle');
+                const maxPosition = maxVisibleTokens;
+                const minPosition = promptLength;
+                const percentage = ((this.currentPosition - minPosition) / (maxPosition - minPosition)) * 100;
+                sliderHandle.style.left = `${percentage}%`;
+
+                // Update fraction display
+                if (this.mode === 'percentage') {
+                    let closestFraction;
+                    if (this.currentFraction === 0) {
+                        closestFraction = 0;
+                    } else if (this.currentFraction === 1) {
+                        closestFraction = 1;
+                    } else {
+                        closestFraction = this.getClosestFraction(this.currentPosition-1);
+                    }
+                    this.container.querySelector('.fraction-value').textContent = 
+                        `${Math.round(closestFraction * 100)}% correct`;
+                } else {
+                    this.container.querySelector('.fraction-value').textContent = 
+                        this.mode === 'top' ? '' : '';
+                }
+
+                // Update click handlers for clickable words
+                const clickableWords = staticText.querySelectorAll('.clickable-word');
+                clickableWords.forEach(word => {
+                    word.addEventListener('click', () => {
+                        const position = parseInt(word.dataset.position);
+                        if (position >= maxVisibleTokens) {
+                            position = maxVisibleTokens;
+                        }
+                        this.currentPosition = position;
+                        this.render();
+                    });
+                });
+            }
+        }
+
+        // Initialize the demo when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new ActivationDemo('activation-demo');
+        });
+    </script>
+</body>
+</html> 

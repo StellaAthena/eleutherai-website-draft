@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evaluating Different Fewshot Description Prompts on GPT-3 | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>Evaluating Different Fewshot Description Prompts on GPT-3</h1>
+          <p class="article-dek">We evaluate different fewshot prompts on GPT-3 to see how it changes performance.</p>
+          <div class="article-meta">
+            <span>May 24, 2021</span>
+            <span>Leo Gao</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p><a href="https://www.alignmentforum.org/users/adamshimi">Adam Shimi</a> suggested the idea of trying different fewshot prompts on GPT-3, and hopefully observing something that evidenced larger models being able to handle a wider variety of prompting. He also wrote up a bunch of prompts to try on SST.</p>
+<p>Unfortunately, the results were kinda mixed: the GPT-2 models all did absolutely terrible and their results were basically useless; the performance wasn't monotonic with model size (1.3B did better than 2.7B, and babbage did better than curie). Also, the variance <em>increased</em> with performance in general.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Mean Accuracy</th>
+<th>Standard Deviation in Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gpt3-ada</td>
+<td>51.9</td>
+<td>0.0368</td>
+</tr>
+<tr>
+<td>gpt3-babbage</td>
+<td>69.4</td>
+<td>0.0840</td>
+</tr>
+<tr>
+<td>gpt3-curie</td>
+<td>67.4</td>
+<td>0.0807</td>
+</tr>
+<tr>
+<td>neo-1.3B</td>
+<td>63.0</td>
+<td>0.0522</td>
+</tr>
+<tr>
+<td>neo-2.7B</td>
+<td>56.5</td>
+<td>0.0684</td>
+</tr>
+</tbody>
+</table>
+<p>However, there was one interesting and unexpected result: there's basically no correlation between different models on which prompts do the best. This is highly unexpected because I'd expect <em>a priori</em> that models trained on the same/similar data should have similar preferences for what kinds of prompts work well, and that surely some prompts must be better than other prompts in general.</p>
+<p>Here's what that looks like plotted out. Each point in these plots is one prompt, and the axes are different models. The values are SST accuracy:</p>
+<figure><img src="../assets/current-site/research-log/fig_gpt2_pretrained-EleutherAI_gpt-neo-1.3B_gpt2_pretrained-EleutherAI_gpt-neo-2.7B.png" alt=""></figure>
+<figure><img src="../assets/current-site/research-log/fig_gpt3_engine-ada_gpt2_pretrained-EleutherAI_gpt-neo-1.3B.png" alt=""></figure>
+<figure><img src="../assets/current-site/research-log/fig_gpt3_engine-ada_gpt2_pretrained-EleutherAI_gpt-neo-2.7B.png" alt=""></figure>
+<figure><img src="../assets/current-site/research-log/fig_gpt3_engine-ada_gpt3_engine-curie.png" alt=""></figure>
+<figure><img src="../assets/current-site/research-log/fig_gpt3_engine-babbage_gpt2_pretrained-EleutherAI_gpt-neo-1.3B.png" alt=""></figure>
+<figure><img src="../assets/current-site/research-log/fig_gpt3_engine-babbage_gpt2_pretrained-EleutherAI_gpt-neo-2.7B.png" alt=""></figure>
+<figure><img src="../assets/current-site/research-log/fig_gpt3_engine-babbage_gpt3_engine-curie.png" alt=""></figure>
+<figure><img src="../assets/current-site/research-log/fig_gpt3_engine-curie_gpt2_pretrained-EleutherAI_gpt-neo-1.3B.png" alt=""></figure>
+<figure><img src="../assets/current-site/research-log/fig_gpt3_engine-curie_gpt2_pretrained-EleutherAI_gpt-neo-2.7B.png" alt=""></figure>
+
+<p>The code for the experiment is <a href="https://gist.github.com/leogao2/d156d8e0f49ac83b239dde3819668b4b">here</a>.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

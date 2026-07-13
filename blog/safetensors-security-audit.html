@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🐶Safetensors audited as really safe and becoming the default | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>🐶Safetensors audited as really safe and becoming the default</h1>
+          <p class="article-dek">&lt;h1 Audit shows that safetensors is safe and ready to become the default&lt;/h1 Hugging Face https://huggingface.co/ , in close collaboration with EleutherAI https://www.eleuther.ai/ and Stability AI https://stability.ai/ ,...</p>
+          <div class="article-meta">
+            <span>May 23, 2023</span>
+            <span>Nicolas Patry, Stella Biderman, Garry Jean-Baptiste</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <h1>Audit shows that safetensors is safe and ready to become the default</h1>
+
+<p><a href="https://huggingface.co/">Hugging Face</a>, in close collaboration with <a href="https://www.eleuther.ai/">EleutherAI</a> and <a href="https://stability.ai/">Stability AI</a>, has ordered
+an external security audit of the <code>safetensors</code> library, the results of which allow
+all three organizations to move toward making the library the default format
+for saved models.</p>
+<p>The full results of the security audit, performed by <a href="https://www.trailofbits.com/">Trail of Bits</a>, 
+can be found here: <a href="https://huggingface.co/datasets/safetensors/trail_of_bits_audit_repot/resolve/main/SOW-TrailofBits-EleutherAI_HuggingFace-v1.2.pdf">Report</a>.</p>
+<p>The following blog post explains the origins of the library, why these audit results are important,
+and the next steps.</p>
+<h1 id="what-is-safetensors">What is safetensors?</h1>
+<p>🐶<a href="https://github.com/huggingface/safetensors">Safetensors</a> is a library
+  for saving and loading tensors in the most common frameworks (including PyTorch, TensorFlow, JAX, PaddlePaddle, and NumPy).</p>
+<p>For a more concrete explanation, we'll use PyTorch.</p>
+<pre><code class="language-python">import torch
+from safetensors.torch import load_file, save_file
+
+weights = {&quot;embeddings&quot;: torch.zeros((10, 100))}
+save_file(weights, &quot;model.safetensors&quot;)
+weights2 = load_file(&quot;model.safetensors&quot;)
+</code></pre>
+<p>It also has a number of <a href="https://github.com/huggingface/safetensors#yet-another-format-">cool features</a> compared to other formats, most notably that loading files is <em>safe</em>, as we'll see later. </p>
+<p>When you're using <code>transformers</code>, if <code>safetensors</code> is installed, then those files will already
+be used preferentially in order to prevent issues, which means that</p>
+<pre><code>pip install safetensors
+</code></pre>
+<p>is likely to be the only thing needed to run <code>safetensors</code> files safely.</p>
+<p>Going forward and thanks to the validation of the library, <code>safetensors</code> will now be installed in <code>transformers</code> by
+default. The next step is saving models in <code>safetensors</code> by default.</p>
+<p>We are thrilled to see that the <code>safetensors</code> library is already seeing use in the ML ecosystem, including:</p>
+<ul>
+<li><a href="https://civitai.com/">Civitai</a></li>
+<li><a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">Stable Diffusion Web UI</a></li>
+<li><a href="https://github.com/coreylowman/dfdx">dfdx</a></li>
+<li><a href="https://github.com/ggerganov/llama.cpp/blob/e6a46b0ed1884c77267dc70693183e3b7164e0e0/convert.py#L537">LLaMA.cpp</a></li>
+</ul>
+<h1 id="why-create-something-new">Why create something new?</h1>
+<p>The creation of this library was driven by the fact that PyTorch uses <code>pickle</code> under
+the hood, which is inherently unsafe. (Sources: <a href="https://huggingface.co/docs/hub/security-pickle">1</a>, <a href="https://www.youtube.com/watch?v=2ethDz9KnLk">2, video</a>, <a href="https://github.com/pytorch/pytorch/issues/52596">3</a>)</p>
+<p>With pickle, it is possible to write a malicious file posing as a model 
+that gives full control of a user's computer to an attacker without the user's knowledge,
+allowing the attacker to steal all their bitcoins 😓.</p>
+<p>While this vulnerability in pickle is widely known in the computer security world (and is acknowledged in the PyTorch <a href="https://pytorch.org/docs/stable/generated/torch.load.html">docs</a>), it’s not common knowledge in the broader ML community.</p>
+<p>Since the Hugging Face Hub is a platform where anyone can upload and share models, it is important to make efforts 
+to prevent users from getting infected by malware.</p>
+<p>We are also taking steps to make sure the existing PyTorch files are not malicious, but the best we can do is flag suspicious-looking files.</p>
+<p>Of course, there are other file formats out there, but
+none seemed to meet the full set of <a href="https://github.com/huggingface/safetensors#yet-another-format-">ideal requirements</a> our team identified.</p>
+<p>In addition to being safe, <code>safetensors</code> allows lazy loading and generally faster loads (around 100x faster on CPU).</p>
+<p>Lazy loading means loading only part of a tensor in an efficient manner.
+This particular feature enables arbitrary sharding with efficient inference libraries, such as <a href="https://github.com/huggingface/text-generation-inference">text-generation-inference</a>, to load LLMs (such as LLaMA, StarCoder, etc.) on various types of hardware
+with maximum efficiency.</p>
+<p>Because it loads so fast and is framework agnostic, we can even use the format
+to load models from the same file in PyTorch or TensorFlow.</p>
+<h1 id="the-security-audit">The security audit</h1>
+<p>Since <code>safetensors</code> main asset is providing safety guarantees, we wanted to make sure
+it actually delivered. That's why Hugging Face, EleutherAI, and Stability AI teamed up to get an external
+security audit to confirm it.</p>
+<p>Important findings:</p>
+<ul>
+<li>No critical security flaw leading to arbitrary code execution was found.</li>
+<li>Some imprecisions in the spec format were detected and fixed. </li>
+<li>Some missing validation allowed <a href="https://en.wikipedia.org/wiki/Polyglot_(computing)">polyglot files</a>, which was fixed.</li>
+<li>Lots of improvements to the test suite were proposed and implemented.</li>
+</ul>
+<p>In the name of openness and transparency, all companies agreed to make the report
+fully public.</p>
+<p><a href="https://huggingface.co/datasets/safetensors/trail_of_bits_audit_repot/resolve/main/SOW-TrailofBits-EleutherAI_HuggingFace-v1.2.pdf">Full report</a></p>
+<p>One import thing to note is that the library is written in Rust. This adds
+an extra layer of <a href="https://doc.rust-lang.org/rustc/exploit-mitigations.html">security</a>
+coming directly from the language itself.</p>
+<p>While it is impossible to 
+prove the absence of flaws, this is a major step in giving reassurance that <code>safetensors</code>
+is indeed safe to use.</p>
+<h1 id="going-forward">Going forward</h1>
+<p>For Hugging Face, EleutherAI, and Stability AI, the master plan is to shift to using this format by default.</p>
+<p>EleutherAI has added support for evaluating models stored as <code>safetensors</code> in their LM Evaluation Harness and is working on supporting the format in their GPT-NeoX distributed training library.</p>
+<p>Within the <code>transformers</code> library we are doing the following:</p>
+<ul>
+<li>[x] Create <code>safetensors</code>.</li>
+<li>[x] Verify it works and can deliver on all promises (lazy load for LLMs, single file for all frameworks, faster loads).</li>
+<li>[x] Verify it's safe. (This is today's announcement.)</li>
+<li>[x] Make <code>safetensors</code> a core dependency. (This is already done or soon to come.)</li>
+<li>[ ] Make <code>safetensors</code> the default saving format. This will happen in a few months when we have enough feedback
+  to make sure it will cause as little disruption as possible and enough users already have the library
+  to be able to load new models even on relatively old <code>transformers</code> versions.</li>
+</ul>
+<p>As for <code>safetensors</code> itself, we're looking into adding more advanced features for LLM training,
+which has its own set of issues with current formats.</p>
+<p>Finally, we plan to release a <code>1.0</code> in the near future, with the large user base of <code>transformers</code> providing the final testing step.
+The format and the lib have had very few modifications since their inception,
+which is a good sign of stability.</p>
+<p>We're glad we can bring ML one step closer to being safe and efficient for all!</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

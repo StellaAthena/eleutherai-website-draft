@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pile-T5 | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>Pile-T5</h1>
+          <p class="article-dek">Trained T5 on the Pile</p>
+          <div class="article-meta">
+            <span>Apr 14, 2024</span>
+            <span>Lintang Sutawika, Aran Komatsuzaki, Colin Raffel</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p>The T5 model (Raffel et al, 2019) is widely used in the NLP community. Its base model has been downloaded from Hugging Face millions of times, leaving no doubt that these models are a favorite of the community. However, T5's tokenizer omits important code-related tokens and subsequent pretraining datasets have been released with higher quality filtering and more diverse domains. In this blog post, we introduce a new version of T5 intended to address those weaknesses: <strong>Pile-T5</strong>, trained on the Pile (Gao et al, 2020) and using the LLaMA tokenizer (Touvron et al, 2023).</p>
+<h2 id="model-description">Model Description</h2>
+<p>Our alternative version replaces the pretraining dataset with the Pile and switches the original T5 tokenizer for the LLaMA tokenizer. Pile-T5 was trained to 2 million steps or 2 trillion tokens in total - twice what the original T5 model was trained for. We train with the original span corruption method and observe improvements for finetuning on downstream tasks applicable to users. We find that our models substantially outperform the most widely used T5 models (called T5-v1.1) even in token-matched settings. In particular, Pile-T5 performs much better on code tasks. Our released models were trained on the same hyperparameters as the original T5, utilizing <a href="https://github.com/google-research/t5x">T5x</a>. We release our experiment scripts <a href="https://github.com/EleutherAI/improved-t5">here</a>.</p>
+<p>These models are accessible from EleutherAI's <a href="https://huggingface.co/collections/EleutherAI/pile-t5-65a76a0d0022dd270b385a66">Hugging Face page</a>. A notable difference from the original T5 is the use of the transformer implementation from <a href="https://huggingface.co/docs/transformers/model_doc/umt5">umT5</a> (Chung, Constant, Garcia et al, 2023) due to the use of the scalable implementation in T5x. Inspired by Pythia (Biderman and Schoelkopf et al 2023), we release <a href="https://huggingface.co/collections/EleutherAI/pile-t5-65a76a0d0022dd270b385a66">intermediate checkpoints</a> that span every 10,000 steps with the goal of empowering researchers who wish to study the evolution of our models over time. The <code>main</code> branch for these models in their respective Hugging Face page contains the 2 million step version, and the the partially trained checkpoints can be found in the other branches. In addition, we release the T5x versions of the checkpoints <a href="https://huggingface.co/collections/EleutherAI/pile-t5-t5x-checkpoints-660aaab3e8c24412c5f69a6a">here</a>.</p>
+<h2 id="going-beyond-1-trillion-tokens">Going Beyond 1 Trillion Tokens</h2>
+<p>The Pile-T5 models were evaluated on SuperGLUE, CodeXGLUE, as well as MMLU and Bigbench Hard. The Pile-T5 models were compared with <a href="https://github.com/google-research/text-to-text-transfer-transformer/blob/main/released_checkpoints.md">T5v1.1</a> where both were finetuned over the same amount of tokens. We also compare Pile-T5 models against the Flan-T5 models for MMLU and BBH as a loose comparison. All evaluations were done with the <a href="https://github.com/EleutherAI/lm-evaluation-harness">LM-Evaluation Harness</a> (Gao et al, 2023) to report model performance over the benchmarks presented here. We release the finetuned checkpoints for <a href="https://huggingface.co/collections/lintang/pile-t5-base-finetuned-models-65d307353ecda975d828ebb8">Base</a>, <a href="https://huggingface.co/collections/lintang/pile-t5-large-finetuned-models-65d307ec0545ab7c1153b804">Large</a>, <a href="https://huggingface.co/collections/lintang/pile-t5-xl-finetuned-models-65d30bbcf5a15aa421099b4e">XL</a>, and <a href="https://huggingface.co/collections/lintang/pile-t5-xxl-finetuned-models-65a76bbc4908b2676c6b8a94">XXL</a>.</p>
+<h3 id="performance-on-superglue">Performance on SuperGLUE</h3>
+<p>To assess performance on SuperGLUE, we finetune the Pile-T5 (both the 1 trillion token version and the final 2 trillion token version) and T5v1.1 models with a batch size of 128 for 263K steps, matching the original T5 paper. With all models except for Large, we observe a substantial performance increase. Note that Pile-T5 (1T) already outperforms T5-v1.1 and that performance is further increased by further training.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Size</th>
+<th style="text-align: center;">Variant</th>
+<th style="text-align: center;">Average</th>
+<th style="text-align: center;">boolq</th>
+<th style="text-align: center;">cb</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">copa</th>
+<th style="text-align: center;">multirc</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">record</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">rte</th>
+<th style="text-align: center;">wic</th>
+<th style="text-align: center;">wsc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">acc</td>
+<td style="text-align: center;">f1</td>
+<td style="text-align: center;">acc</td>
+<td style="text-align: center;">acc</td>
+<td style="text-align: center;">f1</td>
+<td style="text-align: center;">em</td>
+<td style="text-align: center;">em</td>
+<td style="text-align: center;">f1</td>
+<td style="text-align: center;">acc</td>
+<td style="text-align: center;">acc</td>
+<td style="text-align: center;">acc</td>
+</tr>
+<tr>
+<td style="text-align: center;">Base</td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;">71.33</td>
+<td style="text-align: center;">79.36</td>
+<td style="text-align: center;">83.63</td>
+<td style="text-align: center;">87.5</td>
+<td style="text-align: center;">63</td>
+<td style="text-align: center;">73.45</td>
+<td style="text-align: center;">33.26</td>
+<td style="text-align: center;">69.7</td>
+<td style="text-align: center;">68.75</td>
+<td style="text-align: center;">78.34</td>
+<td style="text-align: center;">65.83</td>
+<td style="text-align: center;"><strong>75.96</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5 (1T)</td>
+<td style="text-align: center;">74.85</td>
+<td style="text-align: center;">81.46</td>
+<td style="text-align: center;">93.69</td>
+<td style="text-align: center;"><strong>94.64</strong></td>
+<td style="text-align: center;">65</td>
+<td style="text-align: center;"><strong>77.75</strong></td>
+<td style="text-align: center;"><strong>40.50</strong></td>
+<td style="text-align: center;">76.97</td>
+<td style="text-align: center;"><strong>76.49</strong></td>
+<td style="text-align: center;">80.86</td>
+<td style="text-align: center;"><strong>67.39</strong></td>
+<td style="text-align: center;">74.03</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>Pile-T5</strong></td>
+<td style="text-align: center;"><strong>76.13</strong></td>
+<td style="text-align: center;"><strong>82.45</strong></td>
+<td style="text-align: center;"><strong>96.07</strong></td>
+<td style="text-align: center;"><strong>94.64</strong></td>
+<td style="text-align: center;"><strong>72</strong></td>
+<td style="text-align: center;"><strong>77.74</strong></td>
+<td style="text-align: center;">39.56</td>
+<td style="text-align: center;"><strong>77.64</strong></td>
+<td style="text-align: center;"><strong>76.88</strong></td>
+<td style="text-align: center;"><strong>83.03</strong></td>
+<td style="text-align: center;"><strong>67.24</strong></td>
+<td style="text-align: center;">73.08</td>
+</tr>
+<tr>
+<td style="text-align: center;">Large</td>
+<td style="text-align: center;"><strong>T5-v1.1</strong></td>
+<td style="text-align: center;"><strong>81.11</strong></td>
+<td style="text-align: center;"><strong>85.96</strong></td>
+<td style="text-align: center;"><strong>93.21</strong></td>
+<td style="text-align: center;"><strong>96.43</strong></td>
+<td style="text-align: center;"><strong>82</strong></td>
+<td style="text-align: center;">81.71</td>
+<td style="text-align: center;">48.37</td>
+<td style="text-align: center;">82.18</td>
+<td style="text-align: center;">81.71</td>
+<td style="text-align: center;"><strong>85.92</strong></td>
+<td style="text-align: center;"><strong>71.47</strong></td>
+<td style="text-align: center;"><strong>81.73</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5 (1T)</td>
+<td style="text-align: center;">79.18</td>
+<td style="text-align: center;">83.70</td>
+<td style="text-align: center;">91.85</td>
+<td style="text-align: center;">94.64</td>
+<td style="text-align: center;">79</td>
+<td style="text-align: center;">82.36</td>
+<td style="text-align: center;">47.85</td>
+<td style="text-align: center;">82.72</td>
+<td style="text-align: center;">82.14</td>
+<td style="text-align: center;">83.03</td>
+<td style="text-align: center;">65.2</td>
+<td style="text-align: center;"><strong>81.73</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5</td>
+<td style="text-align: center;">79.67</td>
+<td style="text-align: center;">85.71</td>
+<td style="text-align: center;">88.96</td>
+<td style="text-align: center;">94.64</td>
+<td style="text-align: center;">74</td>
+<td style="text-align: center;"><strong>82.60</strong></td>
+<td style="text-align: center;"><strong>50.47</strong></td>
+<td style="text-align: center;"><strong>84.1</strong></td>
+<td style="text-align: center;"><strong>83.70</strong></td>
+<td style="text-align: center;">85.19</td>
+<td style="text-align: center;">68.49</td>
+<td style="text-align: center;"><strong>81.73</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">XL</td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;">81.76</td>
+<td style="text-align: center;">86.79</td>
+<td style="text-align: center;">81.18</td>
+<td style="text-align: center;">91.07</td>
+<td style="text-align: center;">84</td>
+<td style="text-align: center;">84.03</td>
+<td style="text-align: center;">52.89</td>
+<td style="text-align: center;">83.92</td>
+<td style="text-align: center;">83.5</td>
+<td style="text-align: center;">90.25</td>
+<td style="text-align: center;">73.04</td>
+<td style="text-align: center;">81.73</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5 (1T)</td>
+<td style="text-align: center;">86.09</td>
+<td style="text-align: center;">89.76</td>
+<td style="text-align: center;">90.6</td>
+<td style="text-align: center;">94.64</td>
+<td style="text-align: center;"><strong>96</strong></td>
+<td style="text-align: center;">88.17</td>
+<td style="text-align: center;">63.90</td>
+<td style="text-align: center;">91.58</td>
+<td style="text-align: center;">91.36</td>
+<td style="text-align: center;"><strong>93.50</strong></td>
+<td style="text-align: center;">72.73</td>
+<td style="text-align: center;">86.54</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>Pile-T5</strong></td>
+<td style="text-align: center;"><strong>89.00</strong></td>
+<td style="text-align: center;"><strong>90.4</strong></td>
+<td style="text-align: center;"><strong>93.1</strong></td>
+<td style="text-align: center;"><strong>96.43</strong></td>
+<td style="text-align: center;"><strong>96</strong></td>
+<td style="text-align: center;"><strong>88.63</strong></td>
+<td style="text-align: center;"><strong>65.16</strong></td>
+<td style="text-align: center;"><strong>92.21</strong></td>
+<td style="text-align: center;"><strong>91.96</strong></td>
+<td style="text-align: center;">92.78</td>
+<td style="text-align: center;"><strong>75.24</strong></td>
+<td style="text-align: center;"><strong>96.15</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">XXL</td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;">82.43</td>
+<td style="text-align: center;">88.29</td>
+<td style="text-align: center;">93.61</td>
+<td style="text-align: center;">94.64</td>
+<td style="text-align: center;">86</td>
+<td style="text-align: center;">75.22</td>
+<td style="text-align: center;">51.00</td>
+<td style="text-align: center;">84.67</td>
+<td style="text-align: center;">84.55</td>
+<td style="text-align: center;">89.17</td>
+<td style="text-align: center;">72.41</td>
+<td style="text-align: center;">81.73</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5 (1T)</td>
+<td style="text-align: center;">87.11</td>
+<td style="text-align: center;">90.46</td>
+<td style="text-align: center;">94.3</td>
+<td style="text-align: center;">96.43</td>
+<td style="text-align: center;">93</td>
+<td style="text-align: center;">80.81</td>
+<td style="text-align: center;">56.77</td>
+<td style="text-align: center;">91.36</td>
+<td style="text-align: center;">91.18</td>
+<td style="text-align: center;">92.42</td>
+<td style="text-align: center;">70.38</td>
+<td style="text-align: center;">95.19</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>Pile-T5</strong></td>
+<td style="text-align: center;"><strong>90.08</strong></td>
+<td style="text-align: center;"><strong>90.98</strong></td>
+<td style="text-align: center;"><strong>98.68</strong></td>
+<td style="text-align: center;"><strong>98.21</strong></td>
+<td style="text-align: center;"><strong>95</strong></td>
+<td style="text-align: center;"><strong>89.28</strong></td>
+<td style="text-align: center;"><strong>67.68</strong></td>
+<td style="text-align: center;"><strong>93.04</strong></td>
+<td style="text-align: center;"><strong>92.7</strong></td>
+<td style="text-align: center;"><strong>93.5</strong></td>
+<td style="text-align: center;"><strong>75.24</strong></td>
+<td style="text-align: center;"><strong>96.15</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="performance-on-codexglue">Performance on CodeXGLUE</h3>
+<p>As one of our major goals is to improve the ability of the models to understand code, we ran evaluations on the Code-to-Text subtask of CodeXGLUE (Su et al, 2021). All models were finetuned on each programming language variant for 10 epochs with the same method as the <a href="https://github.com/microsoft/CodeXGLUE/tree/main/Code-Text/code-to-text">original repository</a>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Size</th>
+<th style="text-align: center;">Version</th>
+<th style="text-align: center;">Average</th>
+<th style="text-align: center;">Python</th>
+<th style="text-align: center;">PHP</th>
+<th style="text-align: center;">Go</th>
+<th style="text-align: center;">Java</th>
+<th style="text-align: center;">JavaScript</th>
+<th style="text-align: center;">Ruby</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Base</td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;">14.34</td>
+<td style="text-align: center;">15.55</td>
+<td style="text-align: center;">21.72</td>
+<td style="text-align: center;">14.71</td>
+<td style="text-align: center;">14.89</td>
+<td style="text-align: center;">9.25</td>
+<td style="text-align: center;">9.90</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5 (1T)</td>
+<td style="text-align: center;">15.90</td>
+<td style="text-align: center;">17.20</td>
+<td style="text-align: center;">22.90</td>
+<td style="text-align: center;"><strong>16.75</strong></td>
+<td style="text-align: center;">16.24</td>
+<td style="text-align: center;">11.23</td>
+<td style="text-align: center;">11.10</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>Pile-T5</strong></td>
+<td style="text-align: center;"><strong>16.37</strong></td>
+<td style="text-align: center;"><strong>17.78</strong></td>
+<td style="text-align: center;"><strong>23.12</strong></td>
+<td style="text-align: center;"><strong>16.70</strong></td>
+<td style="text-align: center;"><strong>16.68</strong></td>
+<td style="text-align: center;"><strong>11.89</strong></td>
+<td style="text-align: center;"><strong>12.06</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">Large</td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;">11.53</td>
+<td style="text-align: center;">12.18</td>
+<td style="text-align: center;">14.17</td>
+<td style="text-align: center;">12.37</td>
+<td style="text-align: center;">12.30</td>
+<td style="text-align: center;">8.85</td>
+<td style="text-align: center;">9.32</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5 (1T)</td>
+<td style="text-align: center;">15.74</td>
+<td style="text-align: center;">17.09</td>
+<td style="text-align: center;">22.80</td>
+<td style="text-align: center;"><strong>17.16</strong></td>
+<td style="text-align: center;">16.33</td>
+<td style="text-align: center;">10.75</td>
+<td style="text-align: center;">10.31</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>Pile-T5</strong></td>
+<td style="text-align: center;"><strong>16.28</strong></td>
+<td style="text-align: center;"><strong>17.72</strong></td>
+<td style="text-align: center;"><strong>22.95</strong></td>
+<td style="text-align: center;">17.07</td>
+<td style="text-align: center;"><strong>16.41</strong></td>
+<td style="text-align: center;"><strong>12.05</strong></td>
+<td style="text-align: center;"><strong>11.45</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">XL</td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;">16.17</td>
+<td style="text-align: center;">17.36</td>
+<td style="text-align: center;">21.91</td>
+<td style="text-align: center;">16.69</td>
+<td style="text-align: center;">17.74</td>
+<td style="text-align: center;">11.08</td>
+<td style="text-align: center;">12.25</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5 (1T)</td>
+<td style="text-align: center;">18.01</td>
+<td style="text-align: center;">18.61</td>
+<td style="text-align: center;">23.75</td>
+<td style="text-align: center;">19.04</td>
+<td style="text-align: center;">18.43</td>
+<td style="text-align: center;">14.27</td>
+<td style="text-align: center;">13.93</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>Pile-T5</strong></td>
+<td style="text-align: center;"><strong>18.68</strong></td>
+<td style="text-align: center;"><strong>19.25</strong></td>
+<td style="text-align: center;"><strong>24.37</strong></td>
+<td style="text-align: center;"><strong>19.42</strong></td>
+<td style="text-align: center;"><strong>19.15</strong></td>
+<td style="text-align: center;"><strong>15.1</strong></td>
+<td style="text-align: center;"><strong>14.81</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">XXL</td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;">17.67</td>
+<td style="text-align: center;">17.89</td>
+<td style="text-align: center;">23.21</td>
+<td style="text-align: center;">18.54</td>
+<td style="text-align: center;">19.17</td>
+<td style="text-align: center;">13.85</td>
+<td style="text-align: center;">13.33</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5 (1T)</td>
+<td style="text-align: center;">18.55</td>
+<td style="text-align: center;">19.53</td>
+<td style="text-align: center;">24.11</td>
+<td style="text-align: center;">19.27</td>
+<td style="text-align: center;">18.52</td>
+<td style="text-align: center;"><strong>15.11</strong></td>
+<td style="text-align: center;">14.75</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><strong>Pile-T5</strong></td>
+<td style="text-align: center;"><strong>18.72</strong></td>
+<td style="text-align: center;"><strong>19.27</strong></td>
+<td style="text-align: center;"><strong>24.49</strong></td>
+<td style="text-align: center;"><strong>19.60</strong></td>
+<td style="text-align: center;"><strong>18.96</strong></td>
+<td style="text-align: center;"><strong>15.10</strong></td>
+<td style="text-align: center;"><strong>14.92</strong></td>
+</tr>
+</tbody>
+</table>
+<p>As a result of both the Pile including code-based data and the LLaMA tokenizer including characters frequently used in code, we observe a sharp improvement in performance. Note that even though Pile-T5-Large performs worse than T5-v1.1 in general, it substantially outperforms it on these coding benchmarks. This appears to be primarily driven by the very poor performance of T5-v1.1-Large, which substantially underperforms T5-v1.1-base! By contrast, Pile-T5-Large performs similarly to Pile-T5-base.</p>
+<h2 id="using-flan-instruction-tuning">Using Flan Instruction Tuning</h2>
+<p>We continue by finetuning Pile-T5 models on Flan (Chung, Hou, Longpre et all, 2022) with the same training hyperparameters and evaluating on MMLU (Hendrycks et al, 2021) and BigBench Hard (Suzgun et al, 2022). </p>
+<p>When compared to the Flan-T5 model, we found that Pile-T5 falls short by a small but meaningful amount. After following up with the authors, we learned that not all of the finetuning data used to produce Flan-T5 was publicly released, which may account for the difference in performance. </p>
+<p>For a fairer comparison, we also finetuned T5-v1.1 checkpoints with the same procedure and data used on the Pile-T5 models. We specifically use the 2 trillion token version of Pile-T5 so that the comparison with T5-v1.1 reflects both the increased scale of the training data and the change in data and tokenizer.</p>
+<h3 id="performance-on-held-in">Performance on Held-In</h3>
+<p>We observe competitive performance over held-in tasks (tasks that were included in the Flan Instruction Tuning dataset) with a dip in performance in the Large variant, similar to the behaviour observed with SuperGLUE.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Size</th>
+<th style="text-align: center;">Version</th>
+<th style="text-align: center;">Average</th>
+<th style="text-align: center;">ANLI R1</th>
+<th style="text-align: center;">ANLI R2</th>
+<th style="text-align: center;">ANLI R3</th>
+<th style="text-align: center;">Arc Easy</th>
+<th style="text-align: center;">Arc Challenge</th>
+<th style="text-align: center;">BoolQ</th>
+<th style="text-align: center;">RTE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Base</td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;"><strong>46.50</strong></td>
+<td style="text-align: center;"><strong>39.90</strong></td>
+<td style="text-align: center;">34.96</td>
+<td style="text-align: center;">37.33</td>
+<td style="text-align: center;"><strong>38.12</strong></td>
+<td style="text-align: center;">28.23</td>
+<td style="text-align: center;">70.26</td>
+<td style="text-align: center;"><strong>76.73</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5</td>
+<td style="text-align: center;">46.37</td>
+<td style="text-align: center;">39.32</td>
+<td style="text-align: center;"><strong>35.28</strong></td>
+<td style="text-align: center;"><strong>37.53</strong></td>
+<td style="text-align: center;">36.61</td>
+<td style="text-align: center;"><strong>30.67</strong></td>
+<td style="text-align: center;"><strong>71.87</strong></td>
+<td style="text-align: center;">73.28</td>
+</tr>
+<tr>
+<td style="text-align: center;">Large</td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;"><strong>54.90</strong></td>
+<td style="text-align: center;"><strong>52.46</strong></td>
+<td style="text-align: center;"><strong>39.67</strong></td>
+<td style="text-align: center;"><strong>42.53</strong></td>
+<td style="text-align: center;"><strong>50.60</strong></td>
+<td style="text-align: center;"><strong>39.99</strong></td>
+<td style="text-align: center;"><strong>78.56</strong></td>
+<td style="text-align: center;"><strong>80.50</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5</td>
+<td style="text-align: center;">36.97</td>
+<td style="text-align: center;">33.00</td>
+<td style="text-align: center;">33.03</td>
+<td style="text-align: center;">32.98</td>
+<td style="text-align: center;">29.27</td>
+<td style="text-align: center;">21.21</td>
+<td style="text-align: center;">56.36</td>
+<td style="text-align: center;">52.95</td>
+</tr>
+<tr>
+<td style="text-align: center;">XL</td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;">56.40</td>
+<td style="text-align: center;">53.82</td>
+<td style="text-align: center;">40.22</td>
+<td style="text-align: center;">41.01</td>
+<td style="text-align: center;">56.31</td>
+<td style="text-align: center;">39.08</td>
+<td style="text-align: center;">80.66</td>
+<td style="text-align: center;"><strong>83.71</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5</td>
+<td style="text-align: center;"><strong>64.41</strong></td>
+<td style="text-align: center;"><strong>64.36</strong></td>
+<td style="text-align: center;"><strong>48.02</strong></td>
+<td style="text-align: center;"><strong>49.18</strong></td>
+<td style="text-align: center;"><strong>66.56</strong></td>
+<td style="text-align: center;"><strong>58.28</strong></td>
+<td style="text-align: center;"><strong>85.16</strong></td>
+<td style="text-align: center;">79.30</td>
+</tr>
+<tr>
+<td style="text-align: center;">XXL</td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;"><strong>69.99</strong></td>
+<td style="text-align: center;"><strong>71.63</strong></td>
+<td style="text-align: center;">55.81</td>
+<td style="text-align: center;"><strong>57.41</strong></td>
+<td style="text-align: center;"><strong>75.56</strong></td>
+<td style="text-align: center;"><strong>62.30</strong></td>
+<td style="text-align: center;">86.53</td>
+<td style="text-align: center;">80.71</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5</td>
+<td style="text-align: center;">69.21</td>
+<td style="text-align: center;">71.16</td>
+<td style="text-align: center;"><strong>55.92</strong></td>
+<td style="text-align: center;">55.19</td>
+<td style="text-align: center;">70.85</td>
+<td style="text-align: center;">59.82</td>
+<td style="text-align: center;"><strong>87.55</strong></td>
+<td style="text-align: center;"><strong>83.96</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="performance-on-mmlu">Performance on MMLU</h3>
+<p>The models are evaluated with two different versions of the prompt: the original prompt (Hendrycks et al, 2021) and the Flan prompt (Chung, Hou, Longpre et all, 2022).</p>
+<p>MMLU Prompt:</p>
+<pre><code>The following are multiple choice questions (with answers) about abstract algebra.
+
+Find the degree for the given field extension Q(sqrt(2), sqrt(3), sqrt(18)) over Q.
+A. 0
+B. 4
+C. 2
+D. 6
+Answer:
+</code></pre>
+<p>Flan Prompt:</p>
+<pre><code>The following are multiple choice questions (with answers) about abstract algebra.
+
+Q: Find the degree for the given field extension Q(sqrt(2), sqrt(3), sqrt(18)) over Q.
+(A) 0 (B) 4 (C) 2 (D) 6
+A:
+</code></pre>
+<p>We observed performance gains when using Pile-T5. For MMLU, both the highest log-likelihood and generative generation were used for evaluation. We observed that log-likelihood evaluation primarily benefitted zero-shot prompting; greedy generation often struggled with outputting a well-structured response, including generating complete answers instead of a single letter that would be rejected by the strict evaluator.</p>
+<p>Performance on greedy generation is improved by the use of five-shot prompting, which provide the models with examples of the correct response format. It should be noted that performance can vary significantly depending on the prompt format. Averaging across all variations show that Pile-T5 improves upon v1.1 and is competitive against Flan-T5 variants.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Size</th>
+<th style="text-align: center;">Variant</th>
+<th style="text-align: center;">Average</th>
+<th style="text-align: center;">Highest Log-likelihood</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Greedy Generation</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Original Prompt</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Flan Prompt</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Original Prompt</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Flan Prompt</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0-Shot</td>
+<td style="text-align: center;">5-Shot</td>
+<td style="text-align: center;">0-Shot</td>
+<td style="text-align: center;">5-Shot</td>
+<td style="text-align: center;">0-Shot</td>
+<td style="text-align: center;">5-Shot</td>
+<td style="text-align: center;">0-Shot</td>
+<td style="text-align: center;">5-Shot</td>
+</tr>
+<tr>
+<td style="text-align: center;">XL</td>
+<td style="text-align: center;">Flan-T5</td>
+<td style="text-align: center;"><strong>42.45</strong></td>
+<td style="text-align: center;"><strong>47.37</strong></td>
+<td style="text-align: center;"><strong>49.17</strong></td>
+<td style="text-align: center;"><strong>47.83</strong></td>
+<td style="text-align: center;"><strong>49.43</strong></td>
+<td style="text-align: center;">6.63</td>
+<td style="text-align: center;"><strong>48.8</strong></td>
+<td style="text-align: center;"><strong>40.98</strong></td>
+<td style="text-align: center;"><strong>49.39</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;">36.58</td>
+<td style="text-align: center;">38.59</td>
+<td style="text-align: center;">39.52</td>
+<td style="text-align: center;">40.64</td>
+<td style="text-align: center;">39.79</td>
+<td style="text-align: center;"><strong>25.95</strong></td>
+<td style="text-align: center;">38.84</td>
+<td style="text-align: center;">29.66</td>
+<td style="text-align: center;">39.67</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5</td>
+<td style="text-align: center;">40.82</td>
+<td style="text-align: center;">46.04</td>
+<td style="text-align: center;">48.71</td>
+<td style="text-align: center;">47.13</td>
+<td style="text-align: center;">48.18</td>
+<td style="text-align: center;">3.61</td>
+<td style="text-align: center;">48.58</td>
+<td style="text-align: center;">35.53</td>
+<td style="text-align: center;">48.77</td>
+</tr>
+<tr>
+<td style="text-align: center;">XXL</td>
+<td style="text-align: center;">Flan-T5</td>
+<td style="text-align: center;">46.94</td>
+<td style="text-align: center;"><strong>51.47</strong></td>
+<td style="text-align: center;"><strong>54.28</strong></td>
+<td style="text-align: center;"><strong>53.31</strong></td>
+<td style="text-align: center;"><strong>53.85</strong></td>
+<td style="text-align: center;">2.69</td>
+<td style="text-align: center;"><strong>53.93</strong></td>
+<td style="text-align: center;"><strong>52.15</strong></td>
+<td style="text-align: center;"><strong>53.85</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;">45.76</td>
+<td style="text-align: center;">51.03</td>
+<td style="text-align: center;">51.15</td>
+<td style="text-align: center;">46.72</td>
+<td style="text-align: center;">50.77</td>
+<td style="text-align: center;">31.00</td>
+<td style="text-align: center;">50.72</td>
+<td style="text-align: center;">33.90</td>
+<td style="text-align: center;">50.78</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5</td>
+<td style="text-align: center;"><strong>48.27</strong></td>
+<td style="text-align: center;">50.88</td>
+<td style="text-align: center;">53.35</td>
+<td style="text-align: center;">52.22</td>
+<td style="text-align: center;">53.06</td>
+<td style="text-align: center;"><strong>35.8</strong></td>
+<td style="text-align: center;">53.13</td>
+<td style="text-align: center;">33.85</td>
+<td style="text-align: center;"><strong>53.84</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="performance-on-bigbench-hard-bbh">Performance on BigBench Hard (BBH)</h3>
+<p>Pile-T5 performs substantially better than T5v1.1 on BBH on both few-shot and zero-shot settings, and is competitive with Flan-T5.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Size</th>
+<th style="text-align: center;">Variant</th>
+<th style="text-align: center;">Greedy Generation</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Zero-Shot</td>
+<td style="text-align: center;">Few-Shot</td>
+</tr>
+<tr>
+<td style="text-align: center;">XL</td>
+<td style="text-align: center;">Flan-T5</td>
+<td style="text-align: center;">24.71</td>
+<td style="text-align: center;">40.36</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;">28.67</td>
+<td style="text-align: center;">33.06</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5</td>
+<td style="text-align: center;"><strong>29.98</strong></td>
+<td style="text-align: center;"><strong>41.49</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">XXL</td>
+<td style="text-align: center;">Flan-T5</td>
+<td style="text-align: center;"><strong>43.06</strong></td>
+<td style="text-align: center;">44.72</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">T5-v1.1</td>
+<td style="text-align: center;">35.14</td>
+<td style="text-align: center;">39.84</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Pile-T5</td>
+<td style="text-align: center;">41.61</td>
+<td style="text-align: center;"><strong>46.71</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="conclusion">Conclusion</h2>
+<p>We observe improvements on finetuned benchmarks such as SuperGLUE, CodeXGLUE, MMLU and BBH. Pile-T5 outperforms T5v1.1, with the caveat that Pile-T5 finetuned on the Flan mixture is still outpeformed by Flan-T5. We conclude that Pile-T5 would be well-suited for future multitask finetuning and other tasks that benefit from the encoder-decoder architecture. As Pile-T5 Large underperforms in benchmarks, including SuperGLUE and Flan Held-In, we believe that there may have been a bug during training and advise caution in its use. Finally, we hope that the release of the intermediate checkpoints will be of benefit to the research community in interpretability and other endeavours.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>We are grateful to Stability AI for providing the compute required to train these models, and to the TRC Program for providing compute to finetune some of the models.
+Thanks to Stella Biderman and @philpax for making adjustments to the blog post.</p>
+<h2 id="citation">Citation</h2>
+<pre><code>@misc{2024PileT5,
+  author  = {Lintang Sutawika and Aran Komatsuzaki and Colin Raffel},
+  title   = {Pile-T5},
+  year    = {2024},
+  url     = {https://blog.eleuther.ai/pile-t5/},
+  note    = {Blog post},
+}
+</code></pre>
+<h2 id="references">References</h2>
+<ol>
+<li>Biderman, Stella, Hailey Schoelkopf, Quentin Anthony, Herbie Bradley, Kyle O’Brien, Eric Hallahan, Mohammad Aflah Khan, et al. <em>Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling</em>. arXiv [Cs.CL], 2023. arXiv. http://arxiv.org/abs/2304.01373.</li>
+<li>Chung, Hyung Won, Noah Constant, Xavier Garcia, Adam Roberts, Yi Tay, Sharan Narang, and Orhan Firat. <em>UniMax: Fairer and More Effective Language Sampling for Large-Scale Multilingual Pretraining</em>. arXiv [Cs.CL], 2023. arXiv. http://arxiv.org/abs/2304.09151.</li>
+<li>Chung, Hyung Won, Le Hou, Shayne Longpre, Barret Zoph, Yi Tay, William Fedus, Yunxuan Li, et al. <em>Scaling Instruction-Finetuned Language Models</em>. arXiv [Cs.LG], 2022. arXiv. http://arxiv.org/abs/2210.11416.</li>
+<li>Gao, Leo, Stella Biderman, Sid Black, Laurence Golding, Travis Hoppe, Charles Foster, Jason Phang, et al. ‘The Pile: An 800GB Dataset of Diverse Text for Language Modeling’. arXiv [Cs.CL], 2020. arXiv. http://arxiv.org/abs/2101.00027.</li>
+<li>Gao, Leo, Jonathan Tow, Baber Abbasi, Stella Biderman, Sid Black, Anthony DiPofi, Charles Foster, et al. ‘A Framework for Few-Shot Language Model Evaluation’. Zenodo, 12 2023. https://doi.org/10.5281/zenodo.10256836.</li>
+<li>Hendrycks, Dan, Collin Burns, Steven Basart, Andy Zou, Mantas Mazeika, Dawn Song, and Jacob Steinhardt. ‘Measuring Massive Multitask Language Understanding’. arXiv [Cs.CY], 2021. arXiv. http://arxiv.org/abs/2009.03300.</li>
+<li>Longpre, Shayne, Le Hou, Tu Vu, Albert Webson, Hyung Won Chung, Yi Tay, Denny Zhou, et al. <em>The Flan Collection: Designing Data and Methods for Effective Instruction Tuning</em>. arXiv [Cs.AI], 2023. arXiv. http://arxiv.org/abs/2301.13688.</li>
+<li>Lu, Shuai, Daya Guo, Shuo Ren, Junjie Huang, Alexey Svyatkovskiy, Ambrosio Blanco, Colin Clement, et al. ‘CodeXGLUE: A Machine Learning Benchmark Dataset for Code Understanding and Generation’. arXiv [Cs.SE], 2021. arXiv. http://arxiv.org/abs/2102.04664.</li>
+<li>Suzgun, Mirac, Nathan Scales, Nathanael Schärli, Sebastian Gehrmann, Yi Tay, Hyung Won Chung, Aakanksha Chowdhery, et al. ‘Challenging BIG-Bench Tasks and Whether Chain-of-Thought Can Solve Them’. arXiv [Cs.CL], 2022. arXiv. http://arxiv.org/abs/2210.09261.</li>
+<li>Touvron, Hugo, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, et al. ‘LLaMA: Open and Efficient Foundation Language Models’. arXiv [Cs.CL], 2023. arXiv. http://arxiv.org/abs/2302.13971.</li>
+</ol>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Third-party evaluation to identify risks in LLMs’ training data | EleutherAI</title>
+  <link rel="stylesheet" href="../site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="../assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="../research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="../research.html#nlp">Model Training</a>
+              <a href="../research.html#nlp">Evaluation</a>
+              <a href="../research.html#nlp">Multilingual</a>
+              <a href="../research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="../research.html#interpretability">Circuits</a>
+              <a href="../research-training-dynamics.html">Training Dynamics</a>
+              <a href="../research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="../research.html#alignment">Open Weight Safety</a>
+              <a href="../research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="../research.html#other-research">Other Modalities</a>
+              <a href="../research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="../blog.html">Blog</a>
+        <a href="../community.html">Community</a>
+        <a href="../staff.html">Staff</a>
+        <a href="../about.html">About</a>
+        <a class="support" href="../support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="blog-article">
+      <div class="wrap article-wrap">
+        <a class="back-link" href="../blog.html">Back to blog</a>
+        <header class="article-header">
+          <div class="eyebrow">Blog</div>
+          <h1>Third-party evaluation to identify risks in LLMs’ training data</h1>
+          <p class="article-dek">An overview of the minetester and preliminary work</p>
+          <div class="article-meta">
+            <span>Oct 31, 2024</span>
+            <span>Irina Bejan, Curtis Huebner</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p><strong>TLDR</strong> - EleutherAI and OpenMined conducted a demonstration project to show how third-party evaluators can query a non-public AI training dataset. This approach provides third-party evaluators with a new method for conducting AI safety evaluations without accessing the model or sensitive data.  </p>
+<p><img src="../assets/blog/third-party-evals/diagram-blogpost-eai-om.png" width="60%" align="center" /></p>
+<h2 id="the-problem">The Problem</h2>
+<p>With the rapid advancement of frontier artificial intelligence (AI) models, establishing effective third-party oversight and evaluation is crucial to ensure their responsible development and maintain public trust. However, many third-party oversight methods primarily rely on black-box access, in which evaluators can only query the system and observe its outputs. This degree of access severely restricts the ability of third parties to evaluate and interpret the models, because they do not have any information about the model’s inner workings, or its training and development [Cite: https://arxiv.org/pdf/2401.14446].</p>
+<p>Many AI safety research projects are limited to <em>black-box</em> access methods because AI developers have valid concerns about the risks associated with providing broader access to underlying assets, such as training data, user logs, or development methodology. Typically, these risks include invading the privacy of model users or of those in the training data, compromising the security of the AI system, and revealing valuable, proprietary intellectual property (IP).</p>
+<p>As long as these risks remain unaddressed, AI developers and third-party evaluators (including researchers, academic institutions, governments, etc.) will find it difficult to collaborate on making AI systems safer.</p>
+<h2 id="the-project">The project</h2>
+<p>The Project</p>
+<p>Over the past several months, EleutherAI and OpenMined have collaborated on a project to demonstrate that third parties can run informative, custom safety evaluations against non-public assets without revealing proprietary or sensitive information. In this project, we used <a href="https://github.com/OpenMined/PySyft">PySyft</a>, a library developed by OpenMined, to investigate a non-public Large Language Model (LLM)’s training dataset hosted by EleutherAI.</p>
+<p>Given that the demonstration project primarily focused on the evaluation method rather than on the particular outcome of the chosen evaluation, we could have investigated whether the training data leads to various safety risks (i.e., cyber security, manipulation of public opinion, etc.) as the illustrative example. That said, we chose to evaluate the degree to which harmful and undesirable training data was available to the LLM, as such an evaluation can reveal the degree to which an LLM has access to dangerous knowledge. More specifically, our evaluation </p>
+<h2 id="setting-up-third-party-evaluations-with-pysyft">Setting up Third-party Evaluations with PySyft</h2>
+<p>PySyft is an open-source library developed by OpenMined designed to enable responsible access to sensitive data and models while mitigating risks associated with this access. In this case, PySyft was used to support the responsible access of a third-party evaluator to sensitive LLM training data while mitigating the AI developer’s concerns over the risks associated with such access.</p>
+<p>Through PySyft, the third-party evaluator analyzed the private training data by:
+ * Learning from the mock data (i.e., data that directly imitates the real data in its schema and structure but does not have real, private values) what their evaluation query could contain.<br>
+ * Writing a specific evaluation query, based on what they learned from the mock data, using arbitrary code for any analysis they’d like to compute on the private data — as if they had direct access to the real private data. 
+ * Testing this arbitrary code against the mock data to ensure the code compiles, functions correctly, and returns the expected results. 
+ * Submitting this code to the AI developer for review. 
+   - The AI developer can review the code for any issues and either request changes or approve the query to be executed on the private data. 
+ * Reviewing the results once the code is approved executed on the privately hosted data, and the results are returned.</p>
+<h2 id="evaluation-setup">Evaluation Setup</h2>
+<p>As stated above, given that the demonstration project primarily focused on the evaluation method rather than on the particular outcome of the chosen evaluation, we could have investigated the presence of various types of dangerous knowledge in the training data (i.e, dangerous pathogens, cybersecurity). We focused here on illustrating its application for bio-safety risks. We initiated our evaluation by searching the LLM training dataset for information about three commonly used biological agents. Since the evaluation is illustrative rather than substantive, we chose relatively benign biological agents to serve as proxies for more harmful pathogens that could be revealed through a similar evaluation technique. The three biological agents included: </p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Bacillus_subtilis">Bacillus subtilis</a> – a soil bacterium, commonly used as a model organism for basic research. </li>
+<li><a href="https://en.wikipedia.org/wiki/Influenza">Influenza virus</a> – the family of viruses that causes the flu, commonly used for vaccine development.</li>
+<li><a href="https://en.wikipedia.org/wiki/Respiratory_syncytial_virus">Respiratory Syncytial Viruses (RSV)</a> – a virus commonly used in research that is harmless in most adults but can lead to disease in elderly people and children. </li>
+</ul>
+<p>EleutherAI privately hosted the training dataset for evaluation, which consisted of documents, each with text comprised of a subset of <a href="https://huggingface.co/datasets/tiiuae/falcon-refinedweb">Falcon-RefinedWeb</a>, <a href="https://huggingface.co/datasets/Open-Orca/OpenOrca">OpenOrca</a>, and a non-public dataset provided by the UK AISI containing a high incidence of sensitive information about these biological agents. </p>
+<p>The evaluator tested a keyword-based method to ascertain if the training dataset contained the targeted biological agents. The evaluation used Term Frequency-Inverse Document Frequency (TF-IDF) based search to identify problematic documents in the training dataset. Other Bayesian methods, such as Latent Dirichlet Allocation, or more advanced retrieval methods, such as semantic search, were considered but ultimately not tested, given the emphasis on the methodology of conducting third-party evaluations and not on the evaluation performance.</p>
+<p>Notebooks to replicate this training data evaluation are available here: https://github.com/OpenMined/llm-training-data-eval</p>
+<h2 id="evaluation-results-succesful-demonstration">Evaluation Results &amp; Succesful Demonstration</h2>
+<p>Our evaluation showed that TF-IDF effectively retrieved most documents in the training dataset containing subtilis, likely because it has fewer written variations than other biological agents. However, TF-IDF performed less precisely with documents matching the other query terms. These limitations can be mitigated by carefully selecting the query terms or using semantic search, which accounts for the context in which terms are used.</p>
+<p>Of over 200,000 documents evaluated, only a very small fraction contain the biological agents, as most of the training dataset is non-curated web data. However, our purpose is not to retrieve the documents perfectly but to produce a simple binary answer - whether or not the training data contains the biological agents. Regardless, we evaluate precision and recall for each query with respect to the known dangerous documents in the dataset. In this case, recall is especially important as large frontier models can learn effectively even if there are only a few tangentially related documents in a pretraining dataset. Our evaluation flagged roughly 60 documents, and EleutherAI was able to inspect the results, with their domain expertise and strategic context, before releasing them to the evaluator. In this case, only a summarized view of the results and not the documents themselves were released to the evaluator.</p>
+<table>
+<thead>
+<tr>
+<th>Query / Result</th>
+<th>% of Documents Returned</th>
+<th>Precision</th>
+<th>Recall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"subtilis"</td>
+<td>0.01%</td>
+<td>0.79</td>
+<td>0.79</td>
+</tr>
+<tr>
+<td>"RSV"</td>
+<td>0.03%</td>
+<td>0.11</td>
+<td>0.60</td>
+</tr>
+<tr>
+<td>"influenza"</td>
+<td>0.03%</td>
+<td>0.21</td>
+<td>0.57</td>
+</tr>
+</tbody>
+</table>
+<p>While we can find a significant fraction of the documents, some are missed. A closer inspection of the missing documents shows many, but not all, are for products and reagents. In such cases, the AI developer might decide to release back subsamples to the third-party evaluator to allow for small-scale qualitative analysis to better understand the results of the evaluation and identify improvements. </p>
+<p>The completion of the evaluation successfully demonstrated that this evaluation method and setup can be used to identify the presence of information, such as toxic or harmful knowledge, in a private LLM training dataset. In practice, any Python evaluation can be run through PySyft, and TF-IDF was used here for illustrative purposes. In addition, we learned that it is crucial for the third-party evaluator to independently assess the performance of their evaluation before conducting a remote evaluation, as it is particularly challenging to measure performance against the hidden or private test set (i.e., the AI developer’s data).</p>
+<h2 id="future-work">Future Work</h2>
+<p>In addition to demonstrating the viability of PySyft for enabling external safety research of proprietary AI models, our collaboration helped identify areas where additional features or improvements could be introduced to PySyft to enhance the remote execution user experience for both AI developers and third party evaluators, and account for the third party evaluators’ concerns over the verification of evaluation integrity and the honesty of the results. The latter is particularly important to ensure with a high degree of confidence that the remote evaluation took place as specified and based on the data promised for analysis.</p>
+<p>While this project was concerned with safety against biorisk, and only evaluated training datasets, future work could explore using this method to interrogate a broader range of assets, such as the model’s gradients, activation functions, log-probability outputs, weights, and beyond. </p>
+<h2 id="conclusions">Conclusions</h2>
+<p>The project concluded with the evaluator inspecting the LLM’s training data for risk-relevant features, and doing so in a manner that assuaged and minimized numerous risk factors, including various legal, privacy, IP, cost, and security concerns. These risk factors are what often restricts AI safety work to “black-box access” methods, whose deficiencies have been exhaustively documented by leading academic researchers worldwide [Cite: https://arxiv.org/pdf/2401.14446]. </p>
+<p>Thus, this project demonstrates that the infrastructure and governance approach provided by PySyft can enable novel forms of AI safety evaluations. Our hope is that this will facilitate mutually-beneficial collaborations and partnerships between third-party evaluators and AI developers throughout the model development life cycle.</p>
+<p>We are sincerely grateful to all of our collaborators from OpenMined for their pioneering efforts and significant contributions to this work. We also thank the UK AI Safety Institute for providing early advice and introductions to make the project possible, as well as providing the proxy dataset used in the evaluation.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="../blog.html">All posts</a></span>
+    </div>
+  </footer>
+</body>
+</html>

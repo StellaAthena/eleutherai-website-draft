@@ -12,10 +12,38 @@
       <a class="brand" href="index.html" aria-label="EleutherAI home">
         <img class="brand-logo" src="assets/eleutherai-logo.svg" alt="EleutherAI">
       </a>
-      <nav aria-label="Primary navigation">
-        <a href="research.html">Research</a>
-        <a href="infrastructure.html">Infrastructure</a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="research.html#nlp">Model Training</a>
+              <a href="research.html#nlp">Evaluation</a>
+              <a href="research.html#nlp">Multilingual</a>
+              <a href="research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="research.html#interpretability">Circuits</a>
+              <a href="research-training-dynamics.html">Training Dynamics</a>
+              <a href="research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="research.html#alignment">Open Weight Safety</a>
+              <a href="research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="research.html#other-research">Other Modalities</a>
+              <a href="research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="blog.html">Blog</a>
         <a href="community.html">Community</a>
+        <a href="staff.html">Staff</a>
         <a href="about.html">About</a>
         <a class="support" href="support.html">Support us</a>
       </nav>
@@ -30,7 +58,7 @@
         <p class="lede">EleutherAI began as an open research community and still works through a mix of staff researchers, volunteers, collaborators, and external partners. The community page should help people find the right level of engagement without blurring research standards.</p>
         <div class="button-row">
           <a class="button primary" href="https://discord.gg/zBGx3azzUn">Join Discord</a>
-          <a class="button" href="mailto:contact@eleuther.ai">Contact EleutherAI</a>
+          <a class="button" href="research.html">Browse research</a>
         </div>
       </div>
     </section>
@@ -39,29 +67,35 @@
       <div class="wrap">
         <div class="section-head">
           <div>
-            <span class="section-kicker">Participation</span>
-            <h2>Ways to engage</h2>
+            <span class="section-kicker">Contribution Map</span>
+            <h2>Find the right place to contribute</h2>
           </div>
-          <p class="section-intro">The community should route people toward productive research participation, project collaboration, and public technical discussion.</p>
+          <p class="section-intro">The community works best when people enter through concrete research needs: papers, datasets, models, evaluations, implementation work, and discussion that moves projects forward.</p>
         </div>
-        <div class="grid">
-          <article class="card">
-            <div class="meta"><span>Researchers</span></div>
-            <h3>Collaborate on projects</h3>
-            <p>Find collaborators around active research areas, shared artifacts, and papers connected to EleutherAI infrastructure.</p>
-            <a class="link" href="research.html">Browse research -></a>
+        <div class="contribution-map">
+          <article class="map-node primary">
+            <h3>Read the research map</h3>
+            <p>Start with the research areas and identify papers, projects, or open questions that match your expertise.</p>
           </article>
-          <article class="card">
-            <div class="meta"><span>Builders</span></div>
-            <h3>Contribute to tools</h3>
-            <p>Work on evaluation, training, data, model-release infrastructure, and documentation.</p>
-            <a class="link" href="infrastructure.html">View infrastructure -></a>
+          <article class="map-node">
+            <h3>Join project discussion</h3>
+            <p>Use Discord to follow active channels, ask informed questions, and find collaborators around specific work.</p>
           </article>
-          <article class="card">
-            <div class="meta"><span>Learners</span></div>
-            <h3>Observe research discussion</h3>
-            <p>The Discord is oriented toward research-level discussion. People learning the field can benefit by reading, following projects, and joining where they can contribute.</p>
-            <a class="link" href="https://discord.gg/zBGx3azzUn">Join Discord -></a>
+          <article class="map-node">
+            <h3>Contribute code or analysis</h3>
+            <p>Work on evaluation, data processing, reproducibility, model analysis, or implementation support for public artifacts.</p>
+          </article>
+          <article class="map-node">
+            <h3>Extend papers</h3>
+            <p>Replicate results, run follow-up experiments, add ablations, or connect EleutherAI artifacts to new research questions.</p>
+          </article>
+          <article class="map-node primary">
+            <h3>Build reusable assets</h3>
+            <p>Improve datasets, benchmarks, checkpoints, documentation, and tooling so other researchers can reuse the work.</p>
+          </article>
+          <article class="map-node">
+            <h3>Support the institution</h3>
+            <p>Provide funding, compute, partnerships, or operational support for open research that requires durability.</p>
           </article>
         </div>
       </div>
@@ -74,7 +108,7 @@
             <span class="section-kicker">Norms</span>
             <h2>What the community is for</h2>
           </div>
-          <p class="section-intro">The public community works best when the site states expectations clearly: EleutherAI is open and collaborative, but it is not a generic help forum.</p>
+          <p class="section-intro">EleutherAI is open and collaborative, but it is not a generic help forum. The strongest contributions come from people who can engage with research-level questions and help move specific work forward.</p>
         </div>
         <div class="artifact-table">
           <article class="artifact-row">
@@ -94,14 +128,24 @@
             <div class="kind">Mission</div>
           </article>
           <article class="artifact-row">
-            <div class="label">Collaboration</div>
+            <div class="label">Entry</div>
             <div>
-              <h3>People can enter through projects</h3>
-              <p>Project pages should make it easier to see where contributions, maintenance, analysis, and research extensions are useful.</p>
+              <h3>New contributors should enter through concrete work</h3>
+              <p>People interested in contributing should join Discord, observe the relevant channels, and look for places where their expertise matches an active research need.</p>
             </div>
             <div class="kind">Route</div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="light-band">
+      <div class="wrap">
+        <div>
+          <span class="section-kicker">Contact</span>
+          <h2>Collaboration starts with a specific project.</h2>
+        </div>
+        <p>Join the public Discord for research discussion. For institutional partnerships, funding, compute, or media inquiries, contact <a class="link" href="mailto:contact@eleuther.ai">contact@eleuther.ai</a>.</p>
       </div>
     </section>
   </main>

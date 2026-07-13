@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | EleutherAI</title>
+  <link rel="stylesheet" href="site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="research.html">Research</a>
+          <div class="dropdown research-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>NLP</span>
+              <a href="research.html#nlp">Model Training</a>
+              <a href="research.html#nlp">Evaluation</a>
+              <a href="research.html#nlp">Multilingual</a>
+              <a href="research.html#nlp">Datasets</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Interpretability</span>
+              <a href="research.html#interpretability">Circuits</a>
+              <a href="research-training-dynamics.html">Training Dynamics</a>
+              <a href="research.html#interpretability">Data Attribution</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Alignment</span>
+              <a href="research.html#alignment">Open Weight Safety</a>
+              <a href="research.html#alignment">Behavioral Safety</a>
+            </div>
+            <div class="dropdown-group">
+              <span>Other Research</span>
+              <a href="research.html#other-research">Other Modalities</a>
+              <a href="research.html#other-research">Privacy and Security</a>
+            </div>
+          </div>
+        </div>
+        <a href="blog.html">Blog</a>
+        <a href="community.html">Community</a>
+        <a href="staff.html">Staff</a>
+        <a href="about.html">About</a>
+        <a class="support" href="support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Blog</div>
+        <h1>Research notes, announcements, and technical essays.</h1>
+        <p class="lede">Long-form technical notes, release announcements, and essays from EleutherAI researchers and collaborators.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Featured</span>
+            <h2>Latest posts</h2>
+          </div>
+          <p class="section-intro">The blog should feel like part of the research site: dense, readable, and connected to papers, releases, and research programs.</p>
+        </div>
+        <div class="grid">
+          <article class="card blog-card">
+            <div class="meta"><span>Apr 15, 2026</span></div>
+            <h3>Early Indicators of Reward Hacking via Reasoning Interpolation</h3>
+            <p>Using importance sampling with fine-tuned donor prefills to predict reward hacking emergence during training</p>
+            <a class="link" href="blog/reward-hacking-indicators.html">Read post -></a>
+          </article>
+          <article class="card blog-card">
+            <div class="meta"><span>Oct 7, 2025</span></div>
+            <h3>Reward Hacking Resarch Update</h3>
+            <p>Interim report on ongoing work on reward hacking</p>
+            <a class="link" href="blog/reward_hacking.html">Read post -></a>
+          </article>
+          <article class="card blog-card">
+            <div class="meta"><span>Aug 12, 2025</span></div>
+            <h3>Pretraining Data Filtering for Open-Weight AI Safety</h3>
+            <p>Announcing Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs</p>
+            <a class="link" href="blog/deep-ignorance.html">Read post -></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Archive</span>
+            <h2>Recent archive</h2>
+          </div>
+          <p class="section-intro">Browse recent posts from the EleutherAI archive, including research notes, release writeups, policy commentary, and community updates.</p>
+        </div>
+        <div class="artifact-table blog-list">
+          <article class="artifact-row">
+            <div class="label">Aug 1, 2025</div>
+            <div>
+              <h3><a href="blog/attention-probes.html">Attention Probes</a></h3>
+              <p>Adding attention to linear probes</p>
+            </div>
+            <div class="kind">Stepan Shabalin</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Jun 23, 2025</div>
+            <div>
+              <h3><a href="blog/tyche-poser-comparison.html">Research Update: Applications of Local Volume Measurement</a></h3>
+              <p>Research update on on applying local volume measurement to downstream tasks</p>
+            </div>
+            <div class="kind">Dipika Khullar</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Jun 12, 2025</div>
+            <div>
+              <h3><a href="blog/inductive-bias.html">Studying inductive biases of random networks via local volumes</a></h3>
+              <p>In this post, we will study inductive biases of the parameter-function map of random neural networks using star domain volume estimates . This builds on the ideas introduced in Estimating the Probability of Sampling a Tr...</p>
+            </div>
+            <div class="kind">Louis Jaburi</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Jun 5, 2025</div>
+            <div>
+              <h3><a href="blog/common-pile.html">The Common Pile v0.1</a></h3>
+              <p>Announcing the Common Pile v0.1: An 8TB Dataset of Public Domain and Openly Licensed Text</p>
+            </div>
+            <div class="kind">Stella Biderman</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">May 30, 2025</div>
+            <div>
+              <h3><a href="blog/pkm-coders.html">Product Key Memory Sparse Coders</a></h3>
+              <p>Using Product Key Memories to encode sparse coder features</p>
+            </div>
+            <div class="kind">Stepan Shabalin</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Dec 12, 2024</div>
+            <div>
+              <h3><a href="blog/sae_seed_similarity.html">SAEs trained on the same data don’t learn the same features</a></h3>
+              <p>In this post, we show that when two TopK SAEs are trained on the same data, with the same batch order but with different random initializations , there are many latents in the first SAE that don&#x27;t have a close counterpar...</p>
+            </div>
+            <div class="kind">Gonçalo Paulo</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Nov 10, 2024</div>
+            <div>
+              <h3><a href="blog/generating-text-using-nl-to-simulate-activations.html">Partially rewriting an LLM in natural language</a></h3>
+              <p>Using interpretations of SAE latents to simulate activations.</p>
+            </div>
+            <div class="kind">Gonçalo Paulo</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Oct 31, 2024</div>
+            <div>
+              <h3><a href="blog/third-party-evals.html">Third-party evaluation to identify risks in LLMs’ training data</a></h3>
+              <p>An overview of the minetester and preliminary work</p>
+            </div>
+            <div class="kind">Irina Bejan</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Oct 14, 2024</div>
+            <div>
+              <h3><a href="blog/mad_research_update_2.html">Mechanistic Anomaly Detection Research Update 2</a></h3>
+              <p>Interim report on ongoing work on mechanistic anomaly detection</p>
+            </div>
+            <div class="kind">David Johnston</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Oct 10, 2024</div>
+            <div>
+              <h3><a href="blog/rlhf-and-rlaif-in-gpt-neox.html">RLHF and RLAIF in GPT-NeoX</a></h3>
+              <p>GPT-NeoX now supports post-training thanks to a collaboration with SynthLabs.</p>
+            </div>
+            <div class="kind">Dakota Mahan</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Sep 19, 2024</div>
+            <div>
+              <h3><a href="blog/mutransfer.html">The Practitioner&#x27;s Guide to the Maximal Update Parameterization</a></h3>
+              <p>Exploring the implementation details of muTransfer</p>
+            </div>
+            <div class="kind">Nolan Dey</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Aug 5, 2024</div>
+            <div>
+              <h3><a href="blog/mad_research_update.html">Mechanistic Anomaly Detection Research Update</a></h3>
+              <p>Interim report on ongoing work on mechanistic anomaly detection</p>
+            </div>
+            <div class="kind">David Johnston</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Jul 30, 2024</div>
+            <div>
+              <h3><a href="blog/autointerp.html">Open Source Automated Interpretability for Sparse Autoencoder Features</a></h3>
+              <p>Building and evaluating an open-source pipeline for auto-interpretability</p>
+            </div>
+            <div class="kind">Caden Juang</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Jun 14, 2024</div>
+            <div>
+              <h3><a href="blog/weak-to-strong.html">Experiments in Weak-to-Strong Generalization</a></h3>
+              <p>Writing up results from a recent project</p>
+            </div>
+            <div class="kind">Adam Scherlis</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Jun 13, 2024</div>
+            <div>
+              <h3><a href="blog/free-form-leace.html">Free Form Least-Squares Concept Erasure Without Oracle Concept Labels</a></h3>
+              <p>Achieving even more surgical edits than LEACE without concept labels at inference time.</p>
+            </div>
+            <div class="kind">Brennan Dury</div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Blog</span>
+      <span><a class="link" href="research.html">Research</a> / <a class="link" href="community.html">Community</a></span>
+    </div>
+  </footer>
+</body>
+</html>
