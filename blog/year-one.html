@@ -14,6 +14,16 @@
       </a>
       <nav class="nav-menu" aria-label="Primary navigation">
         <div class="nav-item has-menu">
+          <a href="../about.html">About</a>
+          <div class="dropdown about-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>EleutherAI</span>
+              <a href="../about.html">About</a>
+              <a href="../staff.html">Staff</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item has-menu">
           <a href="../research.html">Research</a>
           <div class="dropdown research-dropdown" role="menu">
             <div class="dropdown-group">
@@ -41,11 +51,9 @@
             </div>
           </div>
         </div>
-        <a href="../blog.html">Blog</a>
         <a href="../community.html">Community</a>
-        <a href="../staff.html">Staff</a>
-        <a href="../about.html">About</a>
-        <a class="support" href="../support.html">Support us</a>
+        <a href="../blog.html">Blog</a>
+        <a class="support" href="../support.html">Support Us</a>
       </nav>
     </div>
   </header>
@@ -234,7 +242,7 @@ We recommend [this wonderful post from Machine Learning at Berkeley](https://ml.
 <p>We believe that AI Alignment presents one of the, if not <em>the</em> most important problems to be working on in our lifetime. And this is at the core of what motivates us to be working on building and understanding these large language models. The state of our understanding of these powerful technologies is extremely primitive, and this does not bode well for our future safety and flourishing.</p>
 <figure><img src="https://cdn.discordapp.com/attachments/733347369847881838/743244626521227375/Dp3Y1d1X4AElzyq.png" alt=""></figure>
 
-<p>Safety research was always a primary motivation for our work at EleutherAI, as we explained in our blogpost <em><a href="/why-release-a-large-language-model/">Why Release A Large Language Model?</a></em>. We think that access to large, pretrained models will enable large swathes of research that would not have been possible while such technologies are locked away behind corporate walls. For-profit entities have explicit incentives to downplay risks and discourage security probing. We want to help the wider safety and security communities access and study these new technologies.</p>
+<p>Safety research was always a primary motivation for our work at EleutherAI, as we explained in our blogpost <em><a href="why-release-a-large-language-model.html">Why Release A Large Language Model?</a></em>. We think that access to large, pretrained models will enable large swathes of research that would not have been possible while such technologies are locked away behind corporate walls. For-profit entities have explicit incentives to downplay risks and discourage security probing. We want to help the wider safety and security communities access and study these new technologies.</p>
 <p>We ourselves are working on doing just this as well. We have produced our first contribution to the wider alignment community in the form of our Alignment Forum post <em><a href="https://www.alignmentforum.org/posts/EmxfgPGvaKqhttPM8/thoughts-on-the-alignment-implications-of-scaling-language">Thoughts on the Alignment Implications of Scaling</a></em>, which summarizes many of the insights and ideas we have had so far.</p>
 <p>And this is just a start, multiple groups inside EleutherAI are expanding their work in studying the safety and alignment of large, self-supervised models to human values.</p>
 <h3 id="reflections">Reflections</h3>
@@ -279,8 +287,21 @@ i thought he was a fake 1800s german philosopher like hegel that we just made up
   </main>
   <footer>
     <div class="wrap">
-      <span>EleutherAI / Blog</span>
-      <span><a class="link" href="../blog.html">All posts</a></span>
+      <span>EleutherAI</span>
+      <div class="social-links" aria-label="Social links">
+        <a class="social-link" href="mailto:contact@eleuther.ai" aria-label="Email EleutherAI">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
+        </a>
+        <a class="social-link" href="https://discord.gg/zBGx3azzUn" aria-label="EleutherAI Discord">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8.5c3.4-1.8 6.6-1.8 10 0l1.3 6.9c-1.2 1-2.5 1.6-4 1.9l-.8-1.3c-1 .2-2 .2-3 0l-.8 1.3c-1.5-.3-2.8-.9-4-1.9L7 8.5z"></path><path d="M9.5 13h.1"></path><path d="M14.4 13h.1"></path></svg>
+        </a>
+        <a class="social-link" href="https://github.com/EleutherAI" aria-label="EleutherAI GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 18c-3-1-4-3.4-4-6.1a8 8 0 0 1 16 0c0 2.7-1 5.1-4 6.1"></path><path d="M9 19v-3.2c0-.9.7-1.6 1.6-1.6h2.8c.9 0 1.6.7 1.6 1.6V19"></path><path d="M9 8.2 7.8 5.8"></path><path d="m15 8.2 1.2-2.4"></path></svg>
+        </a>
+        <a class="social-link" href="https://twitter.com/AiEleuther" aria-label="EleutherAI on X">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 5 12 14"></path><path d="M18 5 6 19"></path></svg>
+        </a>
+      </div>
     </div>
   </footer>
 </body>

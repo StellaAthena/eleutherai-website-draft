@@ -18,6 +18,16 @@ MIN_DATE = datetime.min.replace(tzinfo=timezone.utc)
 
 NAV = """<nav class="nav-menu" aria-label="Primary navigation">
         <div class="nav-item has-menu">
+          <a href="about.html">About</a>
+          <div class="dropdown about-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>EleutherAI</span>
+              <a href="about.html">About</a>
+              <a href="staff.html">Staff</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item has-menu">
           <a href="research.html">Research</a>
           <div class="dropdown research-dropdown" role="menu">
             <div class="dropdown-group">
@@ -45,12 +55,32 @@ NAV = """<nav class="nav-menu" aria-label="Primary navigation">
             </div>
           </div>
         </div>
-        <a href="blog.html">Blog</a>
         <a href="community.html">Community</a>
-        <a href="staff.html">Staff</a>
-        <a href="about.html">About</a>
-        <a class="support" href="support.html">Support us</a>
+        <a href="blog.html">Blog</a>
+        <a class="support" href="support.html">Support Us</a>
       </nav>"""
+
+SOCIAL_LINKS = """<div class="social-links" aria-label="Social links">
+        <a class="social-link" href="mailto:contact@eleuther.ai" aria-label="Email EleutherAI">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
+        </a>
+        <a class="social-link" href="https://discord.gg/zBGx3azzUn" aria-label="EleutherAI Discord">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8.5c3.4-1.8 6.6-1.8 10 0l1.3 6.9c-1.2 1-2.5 1.6-4 1.9l-.8-1.3c-1 .2-2 .2-3 0l-.8 1.3c-1.5-.3-2.8-.9-4-1.9L7 8.5z"></path><path d="M9.5 13h.1"></path><path d="M14.4 13h.1"></path></svg>
+        </a>
+        <a class="social-link" href="https://github.com/EleutherAI" aria-label="EleutherAI GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 18c-3-1-4-3.4-4-6.1a8 8 0 0 1 16 0c0 2.7-1 5.1-4 6.1"></path><path d="M9 19v-3.2c0-.9.7-1.6 1.6-1.6h2.8c.9 0 1.6.7 1.6 1.6V19"></path><path d="M9 8.2 7.8 5.8"></path><path d="m15 8.2 1.2-2.4"></path></svg>
+        </a>
+        <a class="social-link" href="https://twitter.com/AiEleuther" aria-label="EleutherAI on X">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 5 12 14"></path><path d="M18 5 6 19"></path></svg>
+        </a>
+      </div>"""
+
+FOOTER = f"""<footer>
+    <div class="wrap">
+      <span>EleutherAI</span>
+      {SOCIAL_LINKS}
+    </div>
+  </footer>"""
 
 
 def parse_front_matter(text: str) -> tuple[dict, str]:
@@ -132,6 +162,11 @@ def clean_markdown(text: str) -> str:
 
 def absolutize_assets(html: str, article: bool) -> str:
     prefix = "../" if article else ""
+    html = html.replace('href="/https://cadentj.github.io/demo//', 'href="https://cadentj.github.io/demo/')
+    html = html.replace('href="/mechanistic-anomaly-detection-research-update/"', 'href="mad_research_update.html"')
+    html = html.replace('href="/mad_research_update/"', 'href="mad_research_update.html"')
+    html = html.replace('href="/mad_research_update_2/"', 'href="mad_research_update_2.html"')
+    html = html.replace('href="/why-release-a-large-language-model/"', 'href="why-release-a-large-language-model.html"')
     html = html.replace('src="/images/blog/', f'src="{prefix}assets/blog/')
     html = html.replace('href="/images/blog/', f'href="{prefix}assets/blog/')
     html = html.replace('src="/images/research-log/', f'src="{prefix}assets/current-site/research-log/')
@@ -243,12 +278,7 @@ def write_article(post: dict) -> None:
       </div>
     </article>
   </main>
-  <footer>
-    <div class="wrap">
-      <span>EleutherAI / Blog</span>
-      <span><a class="link" href="../blog.html">All posts</a></span>
-    </div>
-  </footer>"""
+  {FOOTER}"""
     (OUTPUT_DIR / f"{post['slug']}.html").write_text(page_shell(post["title"], body, depth=1))
 
 
@@ -291,7 +321,7 @@ def write_index(posts: list[dict]) -> None:
             <span class="section-kicker">Featured</span>
             <h2>Latest posts</h2>
           </div>
-          <p class="section-intro">The blog should feel like part of the research site: dense, readable, and connected to papers, releases, and research programs.</p>
+          <p class="section-intro">Research notes, release writeups, policy commentary, and community updates from EleutherAI researchers and collaborators.</p>
         </div>
         <div class="grid">
 {featured_html}
@@ -314,12 +344,7 @@ def write_index(posts: list[dict]) -> None:
       </div>
     </section>
   </main>
-  <footer>
-    <div class="wrap">
-      <span>EleutherAI / Blog</span>
-      <span><a class="link" href="research.html">Research</a> / <a class="link" href="community.html">Community</a></span>
-    </div>
-  </footer>"""
+  {FOOTER}"""
     INDEX_PATH.write_text(page_shell("Blog", body, depth=0))
 
 

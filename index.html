@@ -5,601 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EleutherAI</title>
   <link rel="stylesheet" href="site-page.css">
-  <style>
-    :root {
-      --black: #07090d;
-      --panel: #10151d;
-      --panel-soft: #151b25;
-      --ink: #f4f5f7;
-      --body: #c4c9d1;
-      --muted: #7f8997;
-      --line: #27313f;
-      --line-soft: #1b2430;
-      --green: #62d77a;
-      --blue: #78b8ee;
-      --gold: #d8b44a;
-      --violet: #b692f6;
-      --white: #ffffff;
-      --light: #f5f5f2;
-      --light-body: #30343a;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      background: var(--black);
-    }
-
-    body {
-      margin: 0;
-      background: var(--black);
-      color: var(--ink);
-      font-family: "Open Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.5;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .wrap {
-      width: min(1240px, calc(100% - 56px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      border-bottom: 1px solid var(--line-soft);
-      background: rgba(7, 9, 13, 0.94);
-      backdrop-filter: blur(14px);
-    }
-
-    .site-header .wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 74px;
-      gap: 32px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-    }
-
-    .brand-logo {
-      display: block;
-      width: 164px;
-      height: auto;
-      filter: invert(1) brightness(1.35);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 26px;
-      color: var(--body);
-      font-size: 0.93rem;
-    }
-
-    .support {
-      color: var(--green);
-      font-weight: 700;
-    }
-
-    .page-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 330px;
-      gap: 52px;
-      align-items: start;
-    }
-
-    main {
-      min-width: 0;
-    }
-
-    .hero {
-      min-height: 500px;
-      padding: 54px 0 62px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .eyebrow,
-    .meta,
-    .label,
-    .kind,
-    .metric-label {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-    }
-
-    .eyebrow {
-      margin-bottom: 18px;
-      color: var(--green);
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
-    h1 {
-      max-width: 820px;
-      margin-bottom: 24px;
-      font-size: 4.45rem;
-      line-height: 1.02;
-      letter-spacing: 0;
-    }
-
-    .lede {
-      max-width: 710px;
-      margin-bottom: 30px;
-      color: var(--body);
-      font-size: 1.15rem;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      color: var(--ink);
-      font-weight: 700;
-      background: var(--panel);
-    }
-
-    .button.primary {
-      border-color: var(--green);
-      color: var(--black);
-      background: var(--green);
-    }
-
-    .button.secondary {
-      color: var(--blue);
-      background: transparent;
-    }
-
-    .section {
-      padding: 50px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: 240px minmax(0, 1fr);
-      gap: 40px;
-      margin-bottom: 28px;
-    }
-
-    h2 {
-      margin-bottom: 0;
-      color: var(--ink);
-      font-size: 1.72rem;
-      line-height: 1.18;
-      letter-spacing: 0;
-    }
-
-    .section-kicker {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--gold);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .section-intro {
-      max-width: 760px;
-      margin-bottom: 0;
-      color: var(--body);
-      font-size: 1.02rem;
-    }
-
-    .link {
-      color: var(--blue);
-      font-weight: 700;
-    }
-
-    .artifact-table {
-      display: grid;
-      border-top: 1px solid var(--line);
-    }
-
-    .artifact-row,
-    .agenda-row {
-      display: grid;
-      grid-template-columns: 150px minmax(0, 1fr) 150px;
-      gap: 26px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--line-soft);
-    }
-
-    .label {
-      color: var(--green);
-      font-size: 0.84rem;
-      font-weight: 700;
-    }
-
-    .artifact-row h3,
-    .agenda-row h3 {
-      margin-bottom: 5px;
-      color: var(--ink);
-      font-size: 1.08rem;
-      line-height: 1.3;
-    }
-
-    .artifact-row p,
-    .agenda-row p {
-      margin-bottom: 0;
-      color: var(--body);
-      font-size: 0.95rem;
-    }
-
-    .field-areas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .field-areas span {
-      padding: 5px 8px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      color: var(--body);
-      background: #0c1118;
-      font-size: 0.82rem;
-    }
-
-    .kind {
-      color: var(--muted);
-      font-size: 0.78rem;
-      text-align: right;
-      text-transform: uppercase;
-    }
-
-    .pillar-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .pillar {
-      min-height: 250px;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: var(--panel);
-    }
-
-    .pillar h3 {
-      margin-bottom: 12px;
-      color: var(--ink);
-      font-size: 1.16rem;
-    }
-
-    .pillar p {
-      color: var(--body);
-      font-size: 0.95rem;
-    }
-
-    .mini {
-      display: grid;
-      gap: 7px;
-      margin: 20px 0 0;
-      padding: 0;
-      color: var(--muted);
-      font-size: 0.9rem;
-      list-style: none;
-    }
-
-    .mini li {
-      padding-top: 7px;
-      border-top: 1px solid var(--line-soft);
-    }
-
-    .feature {
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
-      gap: 30px;
-      align-items: stretch;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: var(--panel);
-    }
-
-    .feature-visual {
-      position: relative;
-      min-height: 284px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      background: #0b1017;
-      overflow: hidden;
-    }
-
-    .feature-visual::before {
-      content: "";
-      position: absolute;
-      inset: 34px 28px 52px;
-      border-left: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .feature-visual::after {
-      content: "";
-      position: absolute;
-      left: 32px;
-      right: 32px;
-      bottom: 55px;
-      height: 120px;
-      background:
-        linear-gradient(115deg, transparent 0 10%, var(--blue) 10% 11%, transparent 11% 24%, var(--green) 24% 25%, transparent 25% 42%, var(--gold) 42% 43%, transparent 43% 62%, var(--violet) 62% 63%, transparent 63%),
-        linear-gradient(180deg, rgba(120,184,238,0.18), rgba(120,184,238,0));
-      clip-path: polygon(0 82%, 13% 68%, 25% 72%, 37% 48%, 49% 55%, 62% 28%, 74% 34%, 88% 13%, 100% 21%, 100% 100%, 0 100%);
-    }
-
-    .ticks {
-      position: absolute;
-      left: 28px;
-      right: 28px;
-      bottom: 22px;
-      display: flex;
-      justify-content: space-between;
-      color: var(--muted);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 0.72rem;
-    }
-
-    .feature-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 14px;
-      color: var(--muted);
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .meta span {
-      color: var(--green);
-    }
-
-    .feature h3 {
-      margin-bottom: 14px;
-      color: var(--ink);
-      font-size: 1.44rem;
-      line-height: 1.24;
-    }
-
-    .feature p {
-      color: var(--body);
-    }
-
-    .path-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .audience-path {
-      min-height: 172px;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: var(--panel);
-    }
-
-    .audience-path strong {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--ink);
-      font-size: 1rem;
-    }
-
-    .audience-path p {
-      color: var(--body);
-      font-size: 0.92rem;
-    }
-
-    .closing {
-      padding: 52px 0 70px;
-    }
-
-    .closing h2 {
-      max-width: 860px;
-      margin-bottom: 18px;
-      color: var(--ink);
-      font-size: 2.08rem;
-    }
-
-    .latest {
-      position: sticky;
-      top: 96px;
-      padding-top: 20px;
-    }
-
-    .latest h2 {
-      margin-bottom: 6px;
-      color: var(--ink);
-      font-size: 1.34rem;
-    }
-
-    .latest-intro {
-      margin-bottom: 18px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .latest-card {
-      padding: 17px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .latest-card:last-of-type {
-      border-bottom: 1px solid var(--line);
-    }
-
-    .latest-meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 8px;
-      color: var(--muted);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .latest-meta span:first-child {
-      color: var(--gold);
-    }
-
-    .latest-card h3 {
-      margin-bottom: 7px;
-      color: var(--ink);
-      font-size: 1rem;
-      line-height: 1.28;
-    }
-
-    .latest-card p {
-      margin-bottom: 0;
-      color: var(--body);
-      font-size: 0.9rem;
-    }
-
-    .light-band {
-      margin-top: 14px;
-      background: var(--light);
-      color: var(--black);
-    }
-
-    .light-band .wrap {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 48px;
-      padding: 58px 0;
-    }
-
-    .light-band h2 {
-      color: var(--black);
-    }
-
-    .light-band p {
-      color: var(--light-body);
-    }
-
-    footer {
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    footer .wrap {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 26px 0;
-    }
-
-    @media (max-width: 1040px) {
-      nav a:not(.support) {
-        display: none;
-      }
-
-      .page-grid,
-      .section-head,
-      .feature,
-      .light-band .wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .latest {
-        position: static;
-        grid-row: 2;
-        padding-top: 0;
-      }
-
-      h1 {
-        font-size: 3.5rem;
-      }
-
-      .pillar-grid,
-      .path-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 680px) {
-      .wrap {
-        width: min(100% - 30px, 1240px);
-      }
-
-      .site-header .wrap,
-      footer .wrap {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .site-header .wrap {
-        justify-content: center;
-        min-height: 92px;
-        gap: 10px;
-      }
-
-      h1 {
-        font-size: 2.55rem;
-      }
-
-      .hero,
-      .section {
-        padding: 36px 0;
-      }
-
-      .artifact-row,
-      .agenda-row {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .kind {
-        text-align: left;
-      }
-
-      .pillar-grid,
-      .path-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 <body>
   <header class="site-header">
@@ -608,6 +13,16 @@
         <img class="brand-logo" src="assets/eleutherai-logo.svg" alt="EleutherAI">
       </a>
       <nav class="nav-menu" aria-label="Primary navigation">
+        <div class="nav-item has-menu">
+          <a href="about.html">About</a>
+          <div class="dropdown about-dropdown" role="menu">
+            <div class="dropdown-group">
+              <span>EleutherAI</span>
+              <a href="about.html">About</a>
+              <a href="staff.html">Staff</a>
+            </div>
+          </div>
+        </div>
         <div class="nav-item has-menu">
           <a href="research.html">Research</a>
           <div class="dropdown research-dropdown" role="menu">
@@ -636,270 +51,161 @@
             </div>
           </div>
         </div>
-        <a href="blog.html">Blog</a>
         <a href="community.html">Community</a>
-        <a href="staff.html">Staff</a>
-        <a href="about.html">About</a>
-        <a class="support" href="support.html">Support us</a>
+        <a href="blog.html">Blog</a>
+        <a class="support" href="support.html">Support Us</a>
       </nav>
     </div>
   </header>
 
-  <div class="wrap">
-    <div class="page-grid">
-      <main>
-        <section class="hero" aria-labelledby="hero-title">
-          <div>
-            <div class="eyebrow">Nonprofit AI Research Institute</div>
-            <h1 id="hero-title">Open research infrastructure for understanding AI.</h1>
-            <p class="lede">EleutherAI studies large models, with a focus on interpretability, alignment, language model science, and the public artifacts researchers need to inspect modern AI systems.</p>
-            <div class="actions">
-              <a class="button primary" href="research.html">Explore our work</a>
-              <a class="button secondary" href="community.html">Join the community</a>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="infrastructure" aria-labelledby="proof-title">
-          <div class="section-head">
-            <div>
-              <span class="section-kicker">Artifacts</span>
-              <h2 id="proof-title">Public infrastructure with a research purpose</h2>
-            </div>
-            <p class="section-intro">EleutherAI's models, datasets, codebases, and benchmarks are not side products. They are shared instruments for studying data, training, evaluation, and model behavior in the open.</p>
-          </div>
-          <div class="artifact-table">
-            <article class="artifact-row">
-              <div class="label">Dataset</div>
-              <div>
-                <h3>The Pile</h3>
-                <p>A large public training dataset that helped make large-scale pretraining easier to inspect, reproduce, and discuss.</p>
-              </div>
-              <div class="kind">Data</div>
-            </article>
-            <article class="artifact-row">
-              <div class="label">Training</div>
-              <div>
-                <h3>GPT-NeoX</h3>
-                <p>Open training infrastructure for large language model research.</p>
-              </div>
-              <div class="kind">Tooling</div>
-            </article>
-            <article class="artifact-row">
-              <div class="label">Checkpoints</div>
-              <div>
-                <h3><a href="project-pythia.html">Pythia</a></h3>
-                <p>Model checkpoints for studying how behavior changes during training.</p>
-              </div>
-              <div class="kind">Models</div>
-            </article>
-            <article class="artifact-row">
-              <div class="label">Evaluation</div>
-              <div>
-                <h3><a href="https://github.com/EleutherAI/lm-evaluation-harness">LM Evaluation Harness</a></h3>
-                <p>Evaluation tooling used across research groups to compare model behavior.</p>
-              </div>
-              <div class="kind">Benchmarks</div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" aria-labelledby="work-title">
-          <div class="section-head">
-            <div>
-              <span class="section-kicker">Operating Model</span>
-              <h2 id="work-title">Research, infrastructure, and community in one institution</h2>
-            </div>
-            <p class="section-intro">EleutherAI turns scientific questions into public artifacts, and public artifacts into shared research capacity for people outside a single company or lab.</p>
-          </div>
-          <div class="pillar-grid">
-            <article class="pillar">
-              <h3>Research</h3>
-              <p>We investigate how models learn, generalize, fail, and change across training, data, and deployment contexts.</p>
-              <ul class="mini">
-                <li>Training dynamics</li>
-                <li>Circuits and interpretability</li>
-                <li>Open-weight safety</li>
-              </ul>
-            </article>
-            <article class="pillar">
-              <h3>Public artifacts</h3>
-              <p>We release model suites, datasets, benchmarks, and tools for reproducible work.</p>
-              <ul class="mini">
-                <li>Models and checkpoints</li>
-                <li>Evaluation systems</li>
-                <li>Dataset curation</li>
-              </ul>
-            </article>
-            <article class="pillar">
-              <h3>Community</h3>
-              <p>We make serious AI research more accessible to collaborators, volunteers, and external research groups.</p>
-              <ul class="mini">
-                <li>Collaborative projects</li>
-                <li>Events and mentorship</li>
-                <li>Open participation</li>
-              </ul>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="research" aria-labelledby="agenda-title">
-          <div class="section-head">
-            <div>
-              <span class="section-kicker">Research Areas</span>
-              <h2 id="agenda-title">A browsable map of EleutherAI research</h2>
-            </div>
-            <p class="section-intro">Fields organize the site at the highest level. Area pages connect papers, projects, artifacts, collaborators, and open questions.</p>
-          </div>
-          <div class="artifact-table">
-            <article class="agenda-row">
-              <div class="label">NLP</div>
-              <div>
-                <h3>Language models, datasets, and evaluation</h3>
-                <p>Research on training open models, measuring model behavior, multilingual systems, and the data those systems learn from.</p>
-                <div class="field-areas"><span>Model Training</span><span>Evaluation</span><span>Multilingual</span><span>Datasets</span></div>
-              </div>
-              <div class="kind">4 areas</div>
-            </article>
-            <article class="agenda-row">
-              <div class="label">Interpretability</div>
-              <div>
-                <h3>How models represent, compute, and change</h3>
-                <p>Mechanistic and empirical work on circuits, training trajectories, and the influence of data on model internals.</p>
-                <div class="field-areas"><span>Circuits</span><span>Training Dynamics</span><span>Data Attribution</span></div>
-              </div>
-              <div class="kind">3 areas</div>
-            </article>
-            <article class="agenda-row">
-              <div class="label">Alignment</div>
-              <div>
-                <h3>Safety for open and deployed systems</h3>
-                <p>Research on open-weight release, safeguards, evaluations, and behavioral reliability.</p>
-                <div class="field-areas"><span>Open Weight Safety</span><span>Behavioral Safety</span></div>
-              </div>
-              <div class="kind">2 areas</div>
-            </article>
-            <article class="agenda-row">
-              <div class="label">Other Research</div>
-              <div>
-                <h3>Work outside the core language-model taxonomy</h3>
-                <p>Research that extends EleutherAI's open-science approach to other modalities, privacy, and security.</p>
-                <div class="field-areas"><span>Other Modalities</span><span>Privacy and Security</span></div>
-              </div>
-              <div class="kind">2 areas</div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" aria-labelledby="featured-title">
-          <div class="section-head">
-            <div>
-              <span class="section-kicker">Featured Work</span>
-              <h2 id="featured-title">Training as an object of study</h2>
-            </div>
-            <p class="section-intro">A research area becomes more useful when papers, checkpoints, datasets, and code are connected rather than scattered across separate pages.</p>
-          </div>
-          <article class="feature">
-            <div class="feature-visual" aria-hidden="true">
-              <div class="ticks"><span>step 0</span><span>step 32k</span><span>step 64k</span><span>step 96k</span></div>
-            </div>
-            <div class="feature-copy">
-              <div>
-                <div class="meta"><span>Research area</span><span>Interpretability</span><span>Training Dynamics</span></div>
-                <h3>Learning dynamics as a foundation for AI science</h3>
-                <p>Training Dynamics connects model checkpoints, evaluation traces, data interventions, and mechanistic analysis so researchers can study how behavior emerges instead of only inspecting the final model.</p>
-              </div>
-              <a class="link" href="research-training-dynamics.html">View research area -></a>
-            </div>
-          </article>
-        </section>
-
-        <section class="section" aria-labelledby="paths-title">
-          <div class="section-head">
-            <div>
-              <span class="section-kicker">Entry Points</span>
-              <h2 id="paths-title">Find the right path into the work</h2>
-            </div>
-            <p class="section-intro">Different audiences need different routes: reading papers, using artifacts, joining projects, or supporting durable infrastructure.</p>
-          </div>
-          <div class="path-grid">
-            <article class="audience-path">
-              <strong>Researchers</strong>
-              <p>Browse papers, artifacts, and open problems.</p>
-              <a class="link" href="research.html">Read research -></a>
-            </article>
-            <article class="audience-path">
-              <strong>Builders</strong>
-              <p>Use and improve tools for training, data, and evaluation.</p>
-              <a class="link" href="https://github.com/EleutherAI">View GitHub -></a>
-            </article>
-            <article class="audience-path">
-              <strong>Contributors</strong>
-              <p>Join projects, attend calls, and find collaborators.</p>
-              <a class="link" href="community.html">Get involved -></a>
-            </article>
-            <article class="audience-path">
-              <strong>Partners</strong>
-              <p>Support open research infrastructure with institutional durability.</p>
-              <a class="link" href="support.html">Support us -></a>
-            </article>
-          </div>
-        </section>
-
-        <section class="closing" aria-labelledby="closing-title">
-          <h2 id="closing-title">Open AI research needs durable public infrastructure.</h2>
-          <p class="lede">EleutherAI builds part of the public scientific record for language models: papers, checkpoints, datasets, tools, evaluations, and collaborators tied together.</p>
-          <a class="button primary" href="support.html">Support the work</a>
-        </section>
-      </main>
-
-      <aside class="latest" aria-labelledby="latest-title">
-        <h2 id="latest-title">Latest</h2>
-        <p class="latest-intro">Recent papers and releases from EleutherAI's public research record.</p>
-
-        <article class="latest-card">
-          <div class="latest-meta"><span>ICML Oral</span><time datetime="2026-07-10">Jul 10</time></div>
-          <h3>A Science of AI Must Study Learning Dynamics</h3>
-          <p>Position paper connecting model science to the process that produces model behavior.</p>
-        </article>
-
-        <article class="latest-card">
-          <div class="latest-meta"><span>ICML</span><time datetime="2026-07-08">Jul 8</time></div>
-          <h3>Who Evaluates AI's Social Impacts?</h3>
-          <p>Mapping coverage and gaps in first- and third-party evaluations.</p>
-        </article>
-
-        <article class="latest-card">
-          <div class="latest-meta"><span>ICML</span><time datetime="2026-07-07">Jul 7</time></div>
-          <h3>When AI Benchmarks Plateau</h3>
-          <p>A systematic study of benchmark saturation and what it hides.</p>
-        </article>
-
-        <article class="latest-card">
-          <div class="latest-meta"><span>ICLR</span><time datetime="2026-04-23">Apr 23</time></div>
-          <h3>Deep Ignorance</h3>
-          <p>Filtering pretraining data to build stronger safeguards into open-weight models.</p>
-        </article>
-
-        <p><a class="link" href="research.html">View research areas -></a></p>
-      </aside>
-    </div>
-  </div>
-
-  <section class="light-band" id="about" aria-labelledby="institution-title">
-    <div class="wrap">
-      <div>
-        <span class="section-kicker">Institution</span>
-        <h2 id="institution-title">A nonprofit lab for open, inspectable AI research.</h2>
+  <main>
+    <section class="hero home-hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <img class="hero-mark" src="assets/eleutherai-logo.svg" alt="">
+        <div class="eyebrow">EleutherAI</div>
+        <h1 id="hero-title">Explore our research</h1>
+        <p class="lede">EleutherAI is a non-profit AI research lab focused on interpretability and alignment of large models. We build public artifacts, publish research, and coordinate open scientific work on modern AI systems.</p>
+        <div class="button-row">
+          <a class="button primary" href="research.html">Research</a>
+          <a class="button" href="community.html">Community</a>
+        </div>
       </div>
-      <p>EleutherAI grew from an open research community into a nonprofit institute focused on interpretability, alignment, and open foundation-model research. The lab's work combines staff research, volunteer collaboration, external partnerships, and public releases that make independent study of AI systems possible.</p>
-    </div>
-  </section>
+    </section>
+
+    <section class="section" aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Projects</span>
+            <h2 id="projects-title">Current research directions</h2>
+          </div>
+          <p class="section-intro">Active research directions at EleutherAI connect interpretability, alignment, language modeling, and the public artifacts needed to study AI systems in the open.</p>
+        </div>
+        <div class="project-list">
+          <article class="project-link">
+            <div class="meta"><span>Interpretability</span></div>
+            <h3><a href="research-training-dynamics.html">Interpreting Across Time</a></h3>
+            <p>How do properties of models emerge and evolve over the course of training?</p>
+            <a class="link" href="research-training-dynamics.html">View project -></a>
+          </article>
+          <article class="project-link">
+            <div class="meta"><span>Alignment</span></div>
+            <h3><a href="research.html#alignment">Eliciting Latent Knowledge</a></h3>
+            <p>As models get smarter, humans will not always be able to independently check whether a model's claims are true or false.</p>
+            <a class="link" href="research.html#alignment">View area -></a>
+          </article>
+          <article class="project-link">
+            <div class="meta"><span>Language Models</span></div>
+            <h3><a href="research.html#nlp">Training LLMs</a></h3>
+            <p>EleutherAI has trained and released many powerful open source language models.</p>
+            <a class="link" href="research.html#nlp">View area -></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="publications-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Recent Publications</span>
+            <h2 id="publications-title">Research output</h2>
+          </div>
+          <p class="section-intro">Recent papers and preprints from EleutherAI researchers and collaborators.</p>
+        </div>
+        <div class="publication-layout">
+          <article class="featured-publication">
+            <div class="meta"><span>Featured</span><span>Feb 16, 2026</span><span>arXiv</span></div>
+            <h3>Quantifying the Effect of Test Set Contamination on Generative Evaluations</h3>
+            <p>As frontier AI systems are pretrained on web-scale data, test set contamination has become a critical concern for accurately assessing their capabilities. This work studies contamination across pretraining, further training, and inference.</p>
+            <a class="link" href="research.html">Browse publications -></a>
+          </article>
+          <div class="artifact-table compact-list">
+            <article class="artifact-row">
+              <div class="label">Aug 25, 2025</div>
+              <div>
+                <h3><a href="blog/deep-ignorance.html">Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs</a></h3>
+              </div>
+              <div class="kind">Paper</div>
+            </article>
+            <article class="artifact-row">
+              <div class="label">Jul 9, 2025</div>
+              <div>
+                <h3>Composable Interventions for Language Models</h3>
+              </div>
+              <div class="kind">Paper</div>
+            </article>
+            <article class="artifact-row">
+              <div class="label">Jul 8, 2025</div>
+              <div>
+                <h3>Evaluating Morphological Alignment of Tokenizers in 70 Languages</h3>
+              </div>
+              <div class="kind">Paper</div>
+            </article>
+            <article class="artifact-row">
+              <div class="label">Jun 30, 2025</div>
+              <div>
+                <h3>Scaling Self-Supervised Representation Learning for Symbolic Piano Performance</h3>
+              </div>
+              <div class="kind">Paper</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="news-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">News</span>
+            <h2 id="news-title">Updates</h2>
+          </div>
+          <p class="section-intro">Announcements, programs, releases, and organizational updates.</p>
+        </div>
+        <div class="news-grid">
+          <article class="news-item">
+            <div class="meta"><span>May 18, 2026</span></div>
+            <h3>A short retrospective on the EleutherAI Summer of Open AI Research</h3>
+            <p>Reflections on a summer research program built around open AI science.</p>
+          </article>
+          <article class="news-item">
+            <div class="meta"><span>Jul 7, 2025</span></div>
+            <h3>Summer of Open Science</h3>
+            <p>Community research programming and opportunities for open scientific work.</p>
+          </article>
+          <article class="news-item">
+            <div class="meta"><span>Jun 15, 2025</span></div>
+            <h3><a href="blog/common-pile.html">Common Pile v0.1</a></h3>
+            <p>A large-scale corpus of openly licensed and public domain text for language model training.</p>
+          </article>
+          <article class="news-item">
+            <div class="meta"><span>Jun 12, 2025</span></div>
+            <h3>EvalEval Coalition</h3>
+            <p>Work on evaluating evaluations and improving how AI systems are measured.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="wrap">
       <span>EleutherAI</span>
-      <span><a class="link" href="mailto:contact@eleuther.ai">contact@eleuther.ai</a> / <a class="link" href="https://github.com/EleutherAI">GitHub</a> / <a class="link" href="https://discord.gg/zBGx3azzUn">Discord</a></span>
+      <div class="social-links" aria-label="Social links">
+        <a class="social-link" href="mailto:contact@eleuther.ai" aria-label="Email EleutherAI">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
+        </a>
+        <a class="social-link" href="https://discord.gg/zBGx3azzUn" aria-label="EleutherAI Discord">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8.5c3.4-1.8 6.6-1.8 10 0l1.3 6.9c-1.2 1-2.5 1.6-4 1.9l-.8-1.3c-1 .2-2 .2-3 0l-.8 1.3c-1.5-.3-2.8-.9-4-1.9L7 8.5z"></path><path d="M9.5 13h.1"></path><path d="M14.4 13h.1"></path></svg>
+        </a>
+        <a class="social-link" href="https://github.com/EleutherAI" aria-label="EleutherAI GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 18c-3-1-4-3.4-4-6.1a8 8 0 0 1 16 0c0 2.7-1 5.1-4 6.1"></path><path d="M9 19v-3.2c0-.9.7-1.6 1.6-1.6h2.8c.9 0 1.6.7 1.6 1.6V19"></path><path d="M9 8.2 7.8 5.8"></path><path d="m15 8.2 1.2-2.4"></path></svg>
+        </a>
+        <a class="social-link" href="https://twitter.com/AiEleuther" aria-label="EleutherAI on X">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 5 12 14"></path><path d="M18 5 6 19"></path></svg>
+        </a>
+      </div>
     </div>
   </footer>
 </body>
