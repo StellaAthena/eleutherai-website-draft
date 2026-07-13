@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Infrastructure | EleutherAI</title>
+  <link rel="stylesheet" href="site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="research.html">Research</a>
+        <a href="infrastructure.html">Infrastructure</a>
+        <a href="community.html">Community</a>
+        <a href="about.html">About</a>
+        <a class="support" href="support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Infrastructure</div>
+        <h1>Models, datasets, benchmarks, and code as public research instruments.</h1>
+        <p class="lede">EleutherAI releases infrastructure so researchers can inspect, reproduce, evaluate, and build on large-model work outside a single closed lab.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Artifacts</span>
+            <h2>Core public artifacts</h2>
+          </div>
+          <p class="section-intro">These are examples of the project records that should eventually drive project pages, related research areas, paper lists, and release feeds.</p>
+        </div>
+        <div class="artifact-table">
+          <article class="artifact-row">
+            <div class="label">Model suite</div>
+            <div>
+              <h3><a href="project-pythia.html">Pythia</a></h3>
+              <p>Intermediate checkpoints across model scales for studying training trajectories, evaluation, memorization, circuits, and safety.</p>
+            </div>
+            <div class="kind">Models</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Training</div>
+            <div>
+              <h3>GPT-NeoX</h3>
+              <p>Open large-model training infrastructure used by EleutherAI and external research groups.</p>
+            </div>
+            <div class="kind">Code</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Evaluation</div>
+            <div>
+              <h3><a href="https://github.com/EleutherAI/lm-evaluation-harness">LM Evaluation Harness</a></h3>
+              <p>Evaluation tooling for comparing language model behavior across tasks, model families, and research settings.</p>
+            </div>
+            <div class="kind">Tooling</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Dataset</div>
+            <div>
+              <h3>The Pile</h3>
+              <p>A large public dataset that helped make pretraining data a concrete object of research and scrutiny.</p>
+            </div>
+            <div class="kind">Data</div>
+          </article>
+          <article class="artifact-row">
+            <div class="label">Dataset</div>
+            <div>
+              <h3>Common Pile</h3>
+              <p>A public-domain and openly licensed text dataset for language model research and reproducible data curation work.</p>
+            </div>
+            <div class="kind">Data</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">How to Use</span>
+            <h2>Routes into the infrastructure</h2>
+          </div>
+          <p class="section-intro">Different visitors need different entry points: model weights, code repositories, papers, or the conceptual project page.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="meta"><span>Models</span></div>
+            <h3>Find released weights</h3>
+            <p>Use Hugging Face project pages and model cards to locate released checkpoints and usage details.</p>
+            <a class="link" href="project-pythia.html">Start with Pythia -></a>
+          </article>
+          <article class="card">
+            <div class="meta"><span>Code</span></div>
+            <h3>Inspect implementation</h3>
+            <p>Use GitHub repositories for training, evaluation, analysis, and documentation.</p>
+            <a class="link" href="https://github.com/EleutherAI">Open GitHub -></a>
+          </article>
+          <article class="card">
+            <div class="meta"><span>Research</span></div>
+            <h3>Connect artifacts to papers</h3>
+            <p>Project and area pages should show which papers introduced, extended, or used each artifact.</p>
+            <a class="link" href="research.html">Browse research -></a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Infrastructure</span>
+      <span><a class="link" href="index.html">Homepage</a> / <a class="link" href="research.html">Research</a></span>
+    </div>
+  </footer>
+</body>
+</html>

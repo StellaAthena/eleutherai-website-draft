@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research | EleutherAI</title>
+  <link rel="stylesheet" href="site-page.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="EleutherAI home">
+        <img class="brand-logo" src="assets/eleutherai-logo.svg" alt="EleutherAI">
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="research.html">Research</a>
+        <a href="infrastructure.html">Infrastructure</a>
+        <a href="community.html">Community</a>
+        <a href="about.html">About</a>
+        <a class="support" href="support.html">Support us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Research</div>
+        <h1>Research areas tied to papers, projects, and public artifacts.</h1>
+        <p class="lede">EleutherAI organizes research around fields, areas, and projects. Fields provide the broad map; area pages explain the scientific program; project pages connect papers to models, datasets, code, and releases.</p>
+        <div class="button-row">
+          <a class="button primary" href="research-training-dynamics.html">View Training Dynamics</a>
+          <a class="button" href="#taxonomy">Browse taxonomy</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="taxonomy">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Taxonomy</span>
+            <h2>Fields and research areas</h2>
+          </div>
+          <p class="section-intro">This page is the top-level research directory. Each row is designed to become a database-backed route into area pages, papers, projects, and people.</p>
+        </div>
+        <div class="artifact-table">
+          <article class="artifact-row" id="nlp">
+            <div class="label">NLP</div>
+            <div>
+              <h3>Language models, evaluation, multilinguality, and data</h3>
+              <p>Research on how language models are trained, measured, extended across languages, and shaped by the datasets they learn from.</p>
+              <div class="tag-list">
+                <span class="tag">Model Training</span>
+                <span class="tag">Evaluation</span>
+                <span class="tag">Multilingual</span>
+                <span class="tag">Datasets</span>
+              </div>
+            </div>
+            <div class="kind">4 areas</div>
+          </article>
+          <article class="artifact-row" id="interpretability">
+            <div class="label">Interpretability</div>
+            <div>
+              <h3>Circuits, training dynamics, and data attribution</h3>
+              <p>Research on how models represent information, how those representations change during training, and how data shapes internal mechanisms.</p>
+              <div class="tag-list">
+                <span class="tag">Circuits</span>
+                <a class="tag" href="research-training-dynamics.html">Training Dynamics</a>
+                <span class="tag">Data Attribution</span>
+              </div>
+            </div>
+            <div class="kind">3 areas</div>
+          </article>
+          <article class="artifact-row" id="alignment">
+            <div class="label">Alignment</div>
+            <div>
+              <h3>Open-weight and behavioral safety</h3>
+              <p>Research on risks, safeguards, evaluations, and interventions for systems that can be inspected, reused, fine-tuned, or deployed by others.</p>
+              <div class="tag-list">
+                <span class="tag">Open Weight Safety</span>
+                <span class="tag">Behavioral Safety</span>
+              </div>
+            </div>
+            <div class="kind">2 areas</div>
+          </article>
+          <article class="artifact-row" id="other-research">
+            <div class="label">Other Research</div>
+            <div>
+              <h3>Other modalities, privacy, and security</h3>
+              <p>Research that extends EleutherAI's open-science approach beyond the core language-model taxonomy.</p>
+              <div class="tag-list">
+                <span class="tag">Other Modalities</span>
+                <span class="tag">Privacy and Security</span>
+              </div>
+            </div>
+            <div class="kind">2 areas</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Highlighted Area</span>
+            <h2>Training Dynamics</h2>
+          </div>
+          <p class="section-intro">The first fleshed-out area page demonstrates the intended structure: overview text, highlighted projects, research questions, generated papers, and related areas.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="meta"><span>Area page</span></div>
+            <h3>Training Dynamics</h3>
+            <p>Studies how capabilities, failures, representations, and evaluation behavior emerge during training.</p>
+            <a class="link" href="research-training-dynamics.html">Open area page -></a>
+          </article>
+          <article class="card">
+            <div class="meta"><span>Project</span></div>
+            <h3>Pythia</h3>
+            <p>A model suite with intermediate checkpoints for studying behavior across scale and training time.</p>
+            <a class="link" href="project-pythia.html">Open project page -></a>
+          </article>
+          <article class="card">
+            <div class="meta"><span>Generated</span></div>
+            <h3>Reverse-chronological papers</h3>
+            <p>The Training Dynamics paper list is generated from the paper sheet and an area mapping file.</p>
+            <a class="link" href="research-training-dynamics.html#papers">View papers -></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="light-band">
+      <div class="wrap">
+        <div>
+          <span class="section-kicker">Source of truth</span>
+          <h2>Research pages should be populated from structured records.</h2>
+        </div>
+        <p>The public site should not rely on people hand-editing every page when a paper appears. Papers, projects, artifacts, people, and updates should be tagged once, then reused across the homepage, research index, area pages, and project pages.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>EleutherAI / Research</span>
+      <span><a class="link" href="index.html">Homepage</a> / <a class="link" href="infrastructure.html">Infrastructure</a></span>
+    </div>
+  </footer>
+</body>
+</html>
