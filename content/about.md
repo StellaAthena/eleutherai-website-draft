@@ -1,6 +1,6 @@
 ---
 title: "EleutherAI is a non-profit AI research lab that focuses on interpretability and alignment of large models."
-layout: page
+layout: about
 url: /about.html
 ---
 
@@ -33,15 +33,3 @@ Our models have been downloaded over 70 million times, enabling cutting-edge res
 Our research has resulted in over 130 publications in top machine learning and natural language processing venues including NeurIPS, ICML, ICLR, EMNLP, ECCV, TMLR, Nature, ACL, Blackbox NLP, NAACL, and COLM.
 
 We sponsor AI research and education efforts around the world, bringing access to and knowledge about recently developed technologies to people and places who otherwise wouldn't have access to it.
-
-The work we do would not be possible without the generous support of our donors and other sponsors:
-
-- Google TRC
-- Open Philanthropy
-- Mozilla Foundation
-- Omidiyar Network
-- Stability AI
-- Lambda Labs
-- Nat Friedman
-
-If you would like to help to empower AI research at EleutherAI, please get in touch at [contact@eleuther.ai](mailto:contact@eleuther.ai).

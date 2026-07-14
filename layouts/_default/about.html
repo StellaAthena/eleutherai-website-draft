@@ -1,0 +1,37 @@
+{{ define "main" }}
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose article-body">
+        {{ .Content }}
+      </div>
+    </div>
+  </section>
+
+  {{ with site.Data.donors }}
+    <section class="section donor-section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>Donors and sponsors</h2></div>
+          <p class="section-intro">{{ .intro }}</p>
+        </div>
+        <div class="donor-logo-grid">
+          {{ range .items }}
+            <a class="donor-logo-card" href="{{ .url }}" aria-label="{{ .name }}">
+              <img src="{{ .logo | relURL }}" alt="{{ .name }}">
+            </a>
+          {{ end }}
+        </div>
+        <p class="donor-contact">If you would like to help to empower AI research at EleutherAI, please get in touch at <a class="link" href="mailto:contact@eleuther.ai">contact@eleuther.ai</a>.</p>
+      </div>
+    </section>
+  {{ end }}
+</main>
+{{ end }}

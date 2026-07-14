@@ -599,6 +599,50 @@ h2 {
   font-size: 0.9rem;
 }
 
+.donor-section {
+  padding-top: 18px;
+}
+
+.donor-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.donor-logo-card {
+  display: grid;
+  place-items: center;
+  min-height: 118px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+  transition: border-color 160ms ease, transform 160ms ease, background 160ms ease;
+}
+
+.donor-logo-card:hover,
+.donor-logo-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(116, 185, 239, 0.7);
+  background: #101720;
+  outline: none;
+}
+
+.donor-logo-card img {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.donor-contact {
+  max-width: 780px;
+  margin: 24px 0 0;
+  color: var(--body);
+  font-size: 1.02rem;
+}
+
 .person-card {
   overflow: hidden;
 }
@@ -891,6 +935,7 @@ footer .wrap {
   .stat-grid,
   .people-grid,
   .sponsor-grid,
+  .donor-logo-grid,
   .contribution-map,
   .home-project-grid,
   .publication-layout {
@@ -933,6 +978,7 @@ footer .wrap {
   .stat-grid,
   .people-grid,
   .sponsor-grid,
+  .donor-logo-grid,
   .contribution-map,
   .home-project-grid,
   .publication-layout,
