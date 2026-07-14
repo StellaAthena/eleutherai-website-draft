@@ -67,7 +67,7 @@ def display_homepage_venue(row):
     if status == "accepted":
         venue = conference or workshop
     elif conference:
-        venue = workshop
+        venue = workshop or "arXiv"
     else:
         venue = "arXiv"
     return venue.replace(" (Oral)", " Oral")
