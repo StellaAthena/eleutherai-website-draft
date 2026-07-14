@@ -11,7 +11,7 @@ PAPERS_CSV = ROOT / "eleutherai_papers_sheet_gid2053751678.csv"
 AREA_PAPERS_CSV = ROOT / "research_area_papers.csv"
 AREA_FILTERS_CSV = ROOT / "research_area_filters.csv"
 OUTPUT_DIR = ROOT / "data" / "research"
-HOMEPAGE_PAPER_LIMIT = 5
+HOMEPAGE_PAPER_LIMIT = 10
 
 
 def parse_date(value):

@@ -45,5 +45,50 @@
     "venue": "ICML",
     "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Pawan Ammanamanchi."
+  },
+  {
+    "title": "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation",
+    "url": "https://arxiv.org/abs/2602.16763",
+    "date": "7 July 2026",
+    "date_sort": "2026-07-07",
+    "venue": "ICML",
+    "superlatives": [],
+    "details": "Area: NLP, Ethics and Policy. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
+  },
+  {
+    "title": "L1 Influence in L2 Language Models: A Human-centric Approach",
+    "url": "",
+    "date": "4 July 2026",
+    "date_sort": "2026-07-04",
+    "venue": "Computational Developmental Linguistics Workshop at ACL",
+    "superlatives": [],
+    "details": "Area: NLP. Lead org: University of Cambridge. EleutherAI contact: Catherine Arnett."
+  },
+  {
+    "title": "Weight Tying Biases Token Embeddings Towards the Output Space",
+    "url": "https://arxiv.org/abs/2603.26663",
+    "date": "2 July 2026",
+    "date_sort": "2026-07-02",
+    "venue": "ACL Findings",
+    "superlatives": [],
+    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Catherine Arnett."
+  },
+  {
+    "title": "CommonLID: Re-evaluating State-of-the-Art Language Identification Performance on Web Data",
+    "url": "https://arxiv.org/abs/2601.18026",
+    "date": "2 July 2026",
+    "date_sort": "2026-07-02",
+    "venue": "ACL",
+    "superlatives": [],
+    "details": "Area: NLP. Lead org: Common Crawl. EleutherAI contact: Catherine Arnett."
+  },
+  {
+    "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
+    "url": "",
+    "date": "12 June 2026",
+    "date_sort": "2026-06-12",
+    "venue": "arXiv",
+    "superlatives": [],
+    "details": "Area: NLP. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
   }
 ]

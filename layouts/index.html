@@ -8,25 +8,21 @@
 
   <section class="section home-stack" aria-labelledby="projects-title">
     <div class="wrap">
-      <h2 class="center-heading" id="projects-title">Explore our research</h2>
-      <div class="home-project-grid">
-        {{ range site.Data.home.projects }}
-          <article class="home-project-card">
-            <a href="{{ .url | relURL }}" aria-label="{{ .title }}">
-              <img src="{{ .image }}" alt="{{ .title }}">
-            </a>
-            <h3><a href="{{ .url | relURL }}">{{ .title }}</a></h3>
-            <p>{{ .text }}</p>
-          </article>
-        {{ end }}
-      </div>
-    </div>
-  </section>
+      <div class="home-main-layout">
+        <div class="home-main-column">
+          <h2 id="projects-title">Explore our research</h2>
+          <div class="home-project-grid">
+            {{ range site.Data.home.projects }}
+              <article class="home-project-card">
+                <a href="{{ .url | relURL }}" aria-label="{{ .title }}">
+                  <img src="{{ .image }}" alt="{{ .title }}">
+                </a>
+                <h3><a href="{{ .url | relURL }}">{{ .title }}</a></h3>
+                <p>{{ .text }}</p>
+              </article>
+            {{ end }}
+          </div>
 
-  <section class="section home-stack" aria-labelledby="publications-title">
-    <div class="wrap">
-      <div class="home-publications-layout">
-        <div>
           <h2 id="publications-title">Recent Publications</h2>
           <div class="publication-list">
             {{ range $index, $paper := site.Data.research.homepage_papers }}
