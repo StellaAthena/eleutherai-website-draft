@@ -152,10 +152,13 @@
         </div>
         <div class="artifact-table">
           {{ range $papers }}
-            <article class="paper-entry">
+            <article class="paper-entry{{ if .superlatives }} has-superlative{{ end }}">
               <div>
-                <h3>{{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
-                <p class="paper-meta">{{ with .date }}{{ . }} · {{ end }}{{ .venue }}</p>
+                <h3>{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
+                <p class="paper-meta">
+                  {{ with .date }}{{ . }} · {{ end }}{{ .venue }}
+                  {{ range .superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}
+                </p>
                 {{ with .summary }}<p>{{ . }}</p>{{ end }}
               </div>
             </article>

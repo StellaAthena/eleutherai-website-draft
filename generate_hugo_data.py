@@ -49,6 +49,10 @@ def split_terms(value):
     return [item.strip().casefold() for item in (value or "").split(";") if item.strip()]
 
 
+def display_terms(value):
+    return [item.strip() for item in (value or "").replace(",", ";").split(";") if item.strip()]
+
+
 def row_date(row):
     return parse_date(row.get("Sort Date") or row.get("Release Date") or row.get("Archival Date"))
 
@@ -131,6 +135,7 @@ def paper_record(row):
         "date": display_full_date(date),
         "date_sort": date.strftime("%Y-%m-%d") if date != datetime.min else "",
         "venue": homepage_venue(row),
+        "superlatives": display_terms(row.get("Superlatives")),
         "details": ". ".join(details) + ("." if details else ""),
     }
 
@@ -147,6 +152,7 @@ def area_paper_record(row, summary="", display_venue=""):
         "date": display_full_date(date),
         "year": str(date.year) if date != datetime.min else "",
         "venue": venue,
+        "superlatives": display_terms(row.get("Superlatives")),
         "sort_date": date.strftime("%Y-%m-%d") if date != datetime.min else "",
     }
 

@@ -5,6 +5,7 @@
     "date": "6 October 2026",
     "date_sort": "2026-10-06",
     "venue": "COLM",
+    "superlatives": [],
     "details": "Area: Alignment, Security. Lead org: EleutherAI. EleutherAI contact: Moritz Weckbecker."
   },
   {
@@ -13,6 +14,9 @@
     "date": "10 July 2026",
     "date_sort": "2026-07-10",
     "venue": "ICML Oral",
+    "superlatives": [
+      "Oral"
+    ],
     "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
   },
   {
@@ -21,6 +25,7 @@
     "date": "10 July 2026",
     "date_sort": "2026-07-10",
     "venue": "Mechanistic interpretability workshop @ ICML",
+    "superlatives": [],
     "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
   },
   {
@@ -29,6 +34,7 @@
     "date": "8 July 2026",
     "date_sort": "2026-07-08",
     "venue": "ICML",
+    "superlatives": [],
     "details": "Area: NLP, Ethics and Policy. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
   },
   {
@@ -37,6 +43,7 @@
     "date": "8 July 2026",
     "date_sort": "2026-07-08",
     "venue": "ICML",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Pawan Ammanamanchi."
   },
   {
@@ -45,6 +52,7 @@
     "date": "7 July 2026",
     "date_sort": "2026-07-07",
     "venue": "ICML",
+    "superlatives": [],
     "details": "Area: NLP, Ethics and Policy. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
   },
   {
@@ -53,6 +61,7 @@
     "date": "4 July 2026",
     "date_sort": "2026-07-04",
     "venue": "Computational Developmental Linguistics Workshop at ACL",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: University of Cambridge. EleutherAI contact: Catherine Arnett."
   },
   {
@@ -61,6 +70,7 @@
     "date": "2 July 2026",
     "date_sort": "2026-07-02",
     "venue": "ACL Findings",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Catherine Arnett."
   },
   {
@@ -69,6 +79,7 @@
     "date": "2 July 2026",
     "date_sort": "2026-07-02",
     "venue": "ACL",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Common Crawl. EleutherAI contact: Catherine Arnett."
   },
   {
@@ -77,6 +88,7 @@
     "date": "12 June 2026",
     "date_sort": "2026-06-12",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
   },
   {
@@ -85,6 +97,7 @@
     "date": "11 June 2026",
     "date_sort": "2026-06-11",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP, HPC. Lead org: EleutherAI. EleutherAI contact: @leloy!."
   },
   {
@@ -93,6 +106,7 @@
     "date": "8 June 2026",
     "date_sort": "2026-06-08",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
   },
   {
@@ -101,6 +115,7 @@
     "date": "9 May 2026",
     "date_sort": "2026-05-09",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Guijin Son."
   },
   {
@@ -109,6 +124,7 @@
     "date": "23 April 2026",
     "date_sort": "2026-04-23",
     "venue": "ICLR",
+    "superlatives": [],
     "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
   },
   {
@@ -117,6 +133,7 @@
     "date": "23 April 2026",
     "date_sort": "2026-04-23",
     "venue": "ICLR",
+    "superlatives": [],
     "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
   },
   {
@@ -125,6 +142,9 @@
     "date": "23 April 2026",
     "date_sort": "2026-04-23",
     "venue": "ICLR",
+    "superlatives": [
+      "Workshop Best Paper Runner-up"
+    ],
     "details": "Area: Alignment, NLP. Lead org: EleutherAI and AISI. EleutherAI contact: Kyle O'Brien."
   },
   {
@@ -133,6 +153,7 @@
     "date": "27 March 2026",
     "date_sort": "2026-03-27",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP, Ethics and Policy. Lead org: MIT. EleutherAI contact: Catherine Arnett."
   },
   {
@@ -141,6 +162,7 @@
     "date": "16 February 2026",
     "date_sort": "2026-02-16",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Interpretability, Alignment. Lead org: FAR.AI. EleutherAI contact: Gonçalo Paulo, Louis."
   },
   {
@@ -149,6 +171,7 @@
     "date": "6 February 2026",
     "date_sort": "2026-02-06",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Stanford. EleutherAI contact: Baber Abbasi."
   },
   {
@@ -157,6 +180,7 @@
     "date": "7 January 2026",
     "date_sort": "2026-01-07",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP, Security. Lead org: Stanford. EleutherAI contact: Baber Abbasi."
   },
   {
@@ -165,6 +189,7 @@
     "date": "7 December 2025",
     "date_sort": "2025-12-07",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Alignment, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
   },
   {
@@ -173,6 +198,7 @@
     "date": "6 December 2025",
     "date_sort": "2025-12-06",
     "venue": "CogInterp Workshop @ NeurIPS",
+    "superlatives": [],
     "details": "Area: NLP, Interpretability. Lead org: MIT. EleutherAI contact: Catherine Arnett."
   },
   {
@@ -181,6 +207,7 @@
     "date": "2 December 2025",
     "date_sort": "2025-12-02",
     "venue": "Mech Interp Workshop @ NeurIPS",
+    "superlatives": [],
     "details": "Area: Interpretability, Alignment. Lead org: Bau Lab. EleutherAI contact: Lucia Quirke."
   },
   {
@@ -189,6 +216,7 @@
     "date": "2 December 2025",
     "date_sort": "2025-12-02",
     "venue": "AI4Music @ NeurIPS",
+    "superlatives": [],
     "details": "Area: Other Modalities. Lead org: Queen Mary University of London and EleutherAI. EleutherAI contact: Louis Bradshaw."
   },
   {
@@ -197,6 +225,7 @@
     "date": "2 December 2025",
     "date_sort": "2025-12-02",
     "venue": "NeurIPS Datasets and Benchmarks",
+    "superlatives": [],
     "details": "Area: NLP, Ethics and Policy. Lead org: University of Toronto and EleutherAI. EleutherAI contact: Stella Biderman."
   },
   {
@@ -205,6 +234,7 @@
     "date": "2 December 2025",
     "date_sort": "2025-12-02",
     "venue": "NeurIPS",
+    "superlatives": [],
     "details": "Area: Ethics and Policy, NLP. Lead org: EleutherAI. EleutherAI contact: Jenn Mickel."
   },
   {
@@ -213,6 +243,7 @@
     "date": "2 December 2025",
     "date_sort": "2025-12-02",
     "venue": "NeurIPS",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Catherine Arnett."
   },
   {
@@ -221,6 +252,7 @@
     "date": "25 November 2025",
     "date_sort": "2025-11-25",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Ethics and Policy, Other Modalities. Lead org: MIT. EleutherAI contact: Stella Biderman."
   },
   {
@@ -229,6 +261,7 @@
     "date": "6 November 2025",
     "date_sort": "2025-11-06",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Ethics and Policy, NLP. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
   },
   {
@@ -237,6 +270,7 @@
     "date": "25 October 2025",
     "date_sort": "2025-10-25",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Catherine Arnett."
   },
   {
@@ -245,6 +279,7 @@
     "date": "7 October 2025",
     "date_sort": "2025-10-07",
     "venue": "COLM",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: LF AI & Data and EleutherAI. EleutherAI contact: Daniel Goldstein."
   },
   {
@@ -253,6 +288,7 @@
     "date": "7 October 2025",
     "date_sort": "2025-10-07",
     "venue": "COLM",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Recursal AI. EleutherAI contact: Daniel Goldstein."
   },
   {
@@ -261,6 +297,7 @@
     "date": "27 September 2025",
     "date_sort": "2025-09-27",
     "venue": "TMLR",
+    "superlatives": [],
     "details": "Area: Interpretability. Lead org: Apollo Research. EleutherAI contact: Stella Biderman."
   },
   {
@@ -269,6 +306,7 @@
     "date": "21 September 2025",
     "date_sort": "2025-09-21",
     "venue": "ISMIR",
+    "superlatives": [],
     "details": "Area: Other Modalities. Lead org: Queen Mary University of London and EleutherAI. EleutherAI contact: Louis Bradshaw."
   },
   {
@@ -277,6 +315,7 @@
     "date": "27 July 2025",
     "date_sort": "2025-07-27",
     "venue": "ACL",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: UCSD. EleutherAI contact: Catherine Arnett."
   },
   {
@@ -285,6 +324,7 @@
     "date": "19 July 2025",
     "date_sort": "2025-07-19",
     "venue": "Actionable Interpretability Workshop @ ICML",
+    "superlatives": [],
     "details": "Area: Alignment, Interpretability. Lead org: Microsoft. EleutherAI contact: Kyle O'Brien."
   },
   {
@@ -293,6 +333,7 @@
     "date": "18 July 2025",
     "date_sort": "2025-07-18",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
   },
   {
@@ -301,6 +342,7 @@
     "date": "18 July 2025",
     "date_sort": "2025-07-18",
     "venue": "Tokenizer Workshop @ ICML 2025",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Catherine Arnett."
   },
   {
@@ -309,6 +351,9 @@
     "date": "18 July 2025",
     "date_sort": "2025-07-18",
     "venue": "Tokenizer Workshop @ ICML 2025",
+    "superlatives": [
+      "Best paper @ Tokenizer Workshop"
+    ],
     "details": "Area: NLP. Lead org: Cohere. EleutherAI contact: Catherine Arnett."
   },
   {
@@ -317,6 +362,7 @@
     "date": "13 July 2025",
     "date_sort": "2025-07-13",
     "venue": "ICML",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Stanford (STAIR AI Lab). EleutherAI contact: Stella Biderman."
   },
   {
@@ -325,6 +371,7 @@
     "date": "13 July 2025",
     "date_sort": "2025-07-13",
     "venue": "ICML",
+    "superlatives": [],
     "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
   },
   {
@@ -333,6 +380,7 @@
     "date": "17 May 2025",
     "date_sort": "2025-05-17",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Guijin Son."
   },
   {
@@ -341,6 +389,7 @@
     "date": "29 April 2025",
     "date_sort": "2025-04-29",
     "venue": "NAACL",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: KAIST. EleutherAI contact: Guijin Son."
   },
   {
@@ -349,6 +398,7 @@
     "date": "29 April 2025",
     "date_sort": "2025-04-29",
     "venue": "NAACL",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Guijin Son."
   },
   {
@@ -357,6 +407,7 @@
     "date": "24 April 2025",
     "date_sort": "2025-04-24",
     "venue": "ICLR",
+    "superlatives": [],
     "details": "Area: NLP, Interpretability. Lead org: EleutherAI. EleutherAI contact: Naomi Saphra."
   },
   {
@@ -365,6 +416,7 @@
     "date": "24 April 2025",
     "date_sort": "2025-04-24",
     "venue": "ICLR",
+    "superlatives": [],
     "details": "Area: NLP, Interpretability. Lead org: EleutherAI. EleutherAI contact: Oskar van der Wal."
   },
   {
@@ -373,6 +425,7 @@
     "date": "24 April 2025",
     "date_sort": "2025-04-24",
     "venue": "ICLR",
+    "superlatives": [],
     "details": "Area: Interpretability, NLP. Lead org: University of Virginia. EleutherAI contact: Kyle O'Brien."
   },
   {
@@ -381,6 +434,7 @@
     "date": "24 April 2025",
     "date_sort": "2025-04-24",
     "venue": "ICLR",
+    "superlatives": [],
     "details": "Area: Ethics and Policy, NLP. Lead org: Data Provenance Initiative. EleutherAI contact: Stella Biderman."
   },
   {
@@ -389,6 +443,7 @@
     "date": "24 April 2025",
     "date_sort": "2025-04-24",
     "venue": "ICLR",
+    "superlatives": [],
     "details": "Area: Other Modalities. Lead org: EleutherAI. EleutherAI contact: Louis Bradshaw."
   },
   {
@@ -397,6 +452,7 @@
     "date": "9 April 2025",
     "date_sort": "2025-04-09",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: David Johnston."
   },
   {
@@ -405,6 +461,7 @@
     "date": "8 April 2025",
     "date_sort": "2025-04-08",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: Nora Belrose."
   },
   {
@@ -413,6 +470,7 @@
     "date": "21 March 2025",
     "date_sort": "2025-03-21",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: David Johnston."
   },
   {
@@ -421,6 +479,7 @@
     "date": "25 February 2025",
     "date_sort": "2025-02-25",
     "venue": "AAAI",
+    "superlatives": [],
     "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Nora Belrose."
   },
   {
@@ -429,6 +488,7 @@
     "date": "12 February 2025",
     "date_sort": "2025-02-12",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
   },
   {
@@ -437,6 +497,7 @@
     "date": "5 February 2025",
     "date_sort": "2025-02-05",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: Lucia Quirke."
   },
   {
@@ -445,6 +506,7 @@
     "date": "3 February 2025",
     "date_sort": "2025-02-03",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: Nora Belrose."
   },
   {
@@ -453,6 +515,7 @@
     "date": "31 January 2025",
     "date_sort": "2025-01-31",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
   },
   {
@@ -461,6 +524,7 @@
     "date": "30 January 2025",
     "date_sort": "2025-01-30",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP, Security. Lead org: Tsinghua and EleutherAI. EleutherAI contact: Zhang Ruichong, Daniel Goldstein."
   },
   {
@@ -469,6 +533,7 @@
     "date": "14 January 2025",
     "date_sort": "2025-01-14",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP, Ethics and Policy. Lead org: Mozilla and EleutherAI. EleutherAI contact: Stella Biderman."
   },
   {
@@ -477,6 +542,7 @@
     "date": "10 December 2024",
     "date_sort": "2024-12-10",
     "venue": "NeurIPS",
+    "superlatives": [],
     "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: Curt Tigges."
   },
   {
@@ -485,6 +551,7 @@
     "date": "10 December 2024",
     "date_sort": "2024-12-10",
     "venue": "NeurIPS Datasets and Benchmarks",
+    "superlatives": [],
     "details": "Area: NLP, Ethics and Policy. Lead org: Data Provenance Initiative. EleutherAI contact: Stella Biderman."
   },
   {
@@ -493,6 +560,7 @@
     "date": "7 December 2024",
     "date_sort": "2024-12-07",
     "venue": "TMLR",
+    "superlatives": [],
     "details": "Area: NLP, Ethics and Policy. Lead org: MIT and EleutherAI. EleutherAI contact: Stella Biderman."
   },
   {
@@ -501,6 +569,7 @@
     "date": "1 December 2024",
     "date_sort": "2024-12-01",
     "venue": "Northern European Journal of Language Technology",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Stella Biderman."
   },
   {
@@ -509,6 +578,7 @@
     "date": "15 November 2024",
     "date_sort": "2024-11-15",
     "venue": "BlackBox NLP",
+    "superlatives": [],
     "details": "Area: Interpretability, NLP. Lead org: MATS. EleutherAI contact: Curt Tigges."
   },
   {
@@ -517,6 +587,7 @@
     "date": "13 November 2024",
     "date_sort": "2024-11-13",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Thomas Marshall."
   },
   {
@@ -525,6 +596,7 @@
     "date": "12 November 2024",
     "date_sort": "2024-11-12",
     "venue": "EMNLP",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Brown University. EleutherAI contact: Jessica Forde."
   },
   {
@@ -533,6 +605,7 @@
     "date": "30 October 2024",
     "date_sort": "2024-10-30",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP, Other Modalities. Lead org: Sorbonne Université. EleutherAI contact: Harrison Vanderbyl, Théodor Lemerle."
   },
   {
@@ -541,6 +614,7 @@
     "date": "22 October 2024",
     "date_sort": "2024-10-22",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP, Alignment. Lead org: EleutherAI. EleutherAI contact: Alex Mallen."
   },
   {
@@ -549,6 +623,7 @@
     "date": "15 October 2024",
     "date_sort": "2024-10-15",
     "venue": "TMLR",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: CMU. EleutherAI contact: Hailey Schoelkopf."
   },
   {
@@ -557,6 +632,7 @@
     "date": "7 October 2024",
     "date_sort": "2024-10-07",
     "venue": "COLM",
+    "superlatives": [],
     "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Alex Mallen."
   },
   {
@@ -565,6 +641,7 @@
     "date": "7 October 2024",
     "date_sort": "2024-10-07",
     "venue": "COLM",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: LF AI & Data and EleutherAI. EleutherAI contact: Quentin Anthony."
   },
   {
@@ -573,6 +650,7 @@
     "date": "12 August 2024",
     "date_sort": "2024-08-12",
     "venue": "ICPP",
+    "superlatives": [],
     "details": "Area: HPC. Lead org: EleutherAI. EleutherAI contact: Quentin Anthony."
   },
   {
@@ -581,6 +659,7 @@
     "date": "1 August 2024",
     "date_sort": "2024-08-01",
     "venue": "ACL",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Guijin Son."
   },
   {
@@ -589,6 +668,7 @@
     "date": "1 August 2024",
     "date_sort": "2024-08-01",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: AnswerDotAI. EleutherAI contact: Hailey Schoelkopf."
   },
   {
@@ -597,6 +677,7 @@
     "date": "25 July 2024",
     "date_sort": "2024-07-25",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: AI2. EleutherAI contact: Hailey Schoelkopf."
   },
   {
@@ -605,6 +686,7 @@
     "date": "23 July 2024",
     "date_sort": "2024-07-23",
     "venue": "ICML",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Honglu Fan."
   },
   {
@@ -613,6 +695,7 @@
     "date": "23 July 2024",
     "date_sort": "2024-07-23",
     "venue": "ICML Position Paper Track",
+    "superlatives": [],
     "details": "Area: Ethics and Policy, Alignment. Lead org: CMU, Potsdam Institute, UC Berkeley. EleutherAI contact: Hailey Schoelkopf."
   },
   {
@@ -621,6 +704,9 @@
     "date": "23 July 2024",
     "date_sort": "2024-07-23",
     "venue": "ICML Position Paper Track Oral",
+    "superlatives": [
+      "Oral"
+    ],
     "details": "Area: Ethics and Policy. Lead org: Stanford University. EleutherAI contact: Aviya Skowron."
   },
   {
@@ -629,6 +715,7 @@
     "date": "23 July 2024",
     "date_sort": "2024-07-23",
     "venue": "ICML",
+    "superlatives": [],
     "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: Nora Belrose."
   },
   {
@@ -637,6 +724,7 @@
     "date": "23 July 2024",
     "date_sort": "2024-07-23",
     "venue": "ICML",
+    "superlatives": [],
     "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: Dashiell Stander."
   },
   {
@@ -645,6 +733,9 @@
     "date": "23 July 2024",
     "date_sort": "2024-07-23",
     "venue": "ICML Position Paper Track Oral",
+    "superlatives": [
+      "Oral"
+    ],
     "details": "Area: Ethics and Policy, Security. Lead org: MIT. EleutherAI contact: Aviya Skowron."
   },
   {
@@ -653,6 +744,7 @@
     "date": "16 July 2024",
     "date_sort": "2024-07-16",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Recursal AI. EleutherAI contact: Daniel Goldstein."
   },
   {
@@ -661,6 +753,7 @@
     "date": "18 June 2024",
     "date_sort": "2024-06-18",
     "venue": "TMLR",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Kyle O'Brien."
   },
   {
@@ -669,6 +762,7 @@
     "date": "7 June 2024",
     "date_sort": "2024-06-07",
     "venue": "TMLR",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Mila. EleutherAI contact: Quentin Anthony."
   },
   {
@@ -677,6 +771,7 @@
     "date": "23 May 2024",
     "date_sort": "2024-05-23",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
   },
   {
@@ -685,6 +780,7 @@
     "date": "20 May 2024",
     "date_sort": "2024-05-20",
     "venue": "COLING",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Guijin Son."
   },
   {
@@ -693,6 +789,7 @@
     "date": "14 May 2024",
     "date_sort": "2024-05-14",
     "venue": "Nature Methods",
+    "superlatives": [],
     "details": "Area: Other Modalities, Interpretability. Lead org: Harvard and Columbia. EleutherAI contact: Stella Biderman."
   },
   {
@@ -701,6 +798,7 @@
     "date": "11 May 2024",
     "date_sort": "2024-05-11",
     "venue": "ICLR 2024 Workshop on Mathematical and Empirical Understanding of Foundation Models",
+    "superlatives": [],
     "details": "Area: NLP, Interpretability. Lead org: EleutherAI. EleutherAI contact: Laura O'Mahony."
   },
   {
@@ -709,6 +807,7 @@
     "date": "7 May 2024",
     "date_sort": "2024-05-07",
     "venue": "ICLR",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Honglu Fan."
   },
   {
@@ -717,6 +816,7 @@
     "date": "7 May 2024",
     "date_sort": "2024-05-07",
     "venue": "ICLR",
+    "superlatives": [],
     "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Hoagy Cunningham."
   },
   {
@@ -725,6 +825,7 @@
     "date": "7 May 2024",
     "date_sort": "2024-05-07",
     "venue": "ICLR",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: UMass Lowell. EleutherAI contact: Vladislav Lialin."
   },
   {
@@ -733,6 +834,7 @@
     "date": "7 May 2024",
     "date_sort": "2024-05-07",
     "venue": "ICLR",
+    "superlatives": [],
     "details": "Area: Alignment, NLP. Lead org: EleutherAI. EleutherAI contact: Herbie Bradley."
   },
   {
@@ -741,6 +843,7 @@
     "date": "7 May 2024",
     "date_sort": "2024-05-07",
     "venue": "ICLR",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: University of Toronto. EleutherAI contact: Zhangir Azerbayev."
   },
   {
@@ -749,6 +852,7 @@
     "date": "7 May 2024",
     "date_sort": "2024-05-07",
     "venue": "ICLR",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Zhangir Azerbayev."
   },
   {
@@ -757,6 +861,7 @@
     "date": "18 February 2024",
     "date_sort": "2024-02-18",
     "venue": "Genetic Programming Theory & Practice",
+    "superlatives": [],
     "details": "Area: Alignment, NLP. Lead org: CarperAI. EleutherAI contact: Herbie Bradley."
   },
   {
@@ -765,6 +870,7 @@
     "date": "12 February 2024",
     "date_sort": "2024-02-12",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP, Alignment. Lead org: synthlabs.ai and EleutherAI. EleutherAI contact: Louis Castricato."
   },
   {
@@ -773,6 +879,7 @@
     "date": "16 December 2023",
     "date_sort": "2023-12-16",
     "venue": "NeurIPS Workshop on Socially Responsible Language Modelling Research (SoLaR)",
+    "superlatives": [],
     "details": "Area: Security, NLP. Lead org: EleutherAI. EleutherAI contact: Curtis Huebner."
   },
   {
@@ -781,6 +888,7 @@
     "date": "15 December 2023",
     "date_sort": "2023-12-15",
     "venue": "NeurIPS Workshop on Backdoors in Deep Learning",
+    "superlatives": [],
     "details": "Area: Security. Lead org: EleutherAI. EleutherAI contact: Herbie Bradley."
   },
   {
@@ -789,6 +897,7 @@
     "date": "13 December 2023",
     "date_sort": "2023-12-13",
     "venue": "NeurIPS Datasets and Benchmarks",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Stella Biderman."
   },
   {
@@ -797,6 +906,9 @@
     "date": "10 December 2023",
     "date_sort": "2023-12-10",
     "venue": "NeurIPS",
+    "superlatives": [
+      "Spotlight"
+    ],
     "details": "Area: Interpretability, NLP. Lead org: University College of London. EleutherAI contact: Stella Biderman."
   },
   {
@@ -805,6 +917,9 @@
     "date": "10 December 2023",
     "date_sort": "2023-12-10",
     "venue": "NeurIPS",
+    "superlatives": [
+      "Spotlight"
+    ],
     "details": "Area: Other Modalities. Lead org: MedARC. EleutherAI contact: Tanishq Abraham."
   },
   {
@@ -813,6 +928,7 @@
     "date": "10 December 2023",
     "date_sort": "2023-12-10",
     "venue": "NeurIPS",
+    "superlatives": [],
     "details": "Area: Interpretability, Alignment. Lead org: EleutherAI. EleutherAI contact: Nora Belrose."
   },
   {
@@ -821,6 +937,7 @@
     "date": "10 December 2023",
     "date_sort": "2023-12-10",
     "venue": "NeurIPS",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
   },
   {
@@ -829,6 +946,7 @@
     "date": "7 December 2023",
     "date_sort": "2023-12-07",
     "venue": "EMNLP Workshop on Computational Approaches to Linguistic Code-Switching",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Brown University. EleutherAI contact: Lintang Sutawika."
   },
   {
@@ -837,6 +955,7 @@
     "date": "6 December 2023",
     "date_sort": "2023-12-06",
     "venue": "EMNLP",
+    "superlatives": [],
     "details": "Area: Alignment, NLP. Lead org: CarperAI. EleutherAI contact: Louis Castricato."
   },
   {
@@ -845,6 +964,7 @@
     "date": "6 December 2023",
     "date_sort": "2023-12-06",
     "venue": "EMNLP (Findings)",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Quentin Anthony."
   },
   {
@@ -853,6 +973,7 @@
     "date": "1 December 2023",
     "date_sort": "2023-12-01",
     "venue": "TMLR",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: BigCode. EleutherAI contact: Hailey Schoelkopf."
   },
   {
@@ -861,6 +982,7 @@
     "date": "1 November 2023",
     "date_sort": "2023-11-01",
     "venue": "AACL Workshop in South East Asian Language Processing",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Datasaur. EleutherAI contact: Lintang Sutawika."
   },
   {
@@ -869,6 +991,7 @@
     "date": "2 October 2023",
     "date_sort": "2023-10-02",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Interpretability. Lead org: Center for AI Safety. EleutherAI contact: Alex Mallen."
   },
   {
@@ -877,6 +1000,7 @@
     "date": "29 August 2023",
     "date_sort": "2023-08-29",
     "venue": "AIES",
+    "superlatives": [],
     "details": "Area: Ethics and Policy. Lead org: Mila. EleutherAI contact: Herbie Bradley."
   },
   {
@@ -885,6 +1009,7 @@
     "date": "28 July 2023",
     "date_sort": "2023-07-28",
     "venue": "ICML Workshop on Theory of Mind in Communicating Agents",
+    "superlatives": [],
     "details": "Area: Alignment, NLP. Lead org: University College of London. EleutherAI contact: Herbie Bradley."
   },
   {
@@ -893,6 +1018,7 @@
     "date": "23 July 2023",
     "date_sort": "2023-07-23",
     "venue": "ICML",
+    "superlatives": [],
     "details": "Area: Security, NLP. Lead org: Laboratory for Physical Sciences. EleutherAI contact: Stella Biderman."
   },
   {
@@ -901,6 +1027,9 @@
     "date": "23 July 2023",
     "date_sort": "2023-07-23",
     "venue": "ICML Oral",
+    "superlatives": [
+      "Oral"
+    ],
     "details": "Area: NLP, Interpretability. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
   },
   {
@@ -909,6 +1038,7 @@
     "date": "23 July 2023",
     "date_sort": "2023-07-23",
     "venue": "ICML",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: New York University. EleutherAI contact: Jason Phang."
   },
   {
@@ -917,6 +1047,7 @@
     "date": "23 July 2023",
     "date_sort": "2023-07-23",
     "venue": "Extended to a published paper",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Mila. EleutherAI contact: Quentin Anthony."
   },
   {
@@ -925,6 +1056,7 @@
     "date": "19 July 2023",
     "date_sort": "2023-07-19",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: University College of London. EleutherAI contact: Herbie Bradley."
   },
   {
@@ -933,6 +1065,7 @@
     "date": "9 July 2023",
     "date_sort": "2023-07-09",
     "venue": "ACL 2023 Demos Track",
+    "superlatives": [],
     "details": "Area: Ethics and Policy, NLP. Lead org: BigScience. EleutherAI contact: Hailey Schoelkopf."
   },
   {
@@ -941,6 +1074,7 @@
     "date": "9 July 2023",
     "date_sort": "2023-07-09",
     "venue": "ACL",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Lintang Sutawika."
   },
   {
@@ -949,6 +1083,7 @@
     "date": "9 July 2023",
     "date_sort": "2023-07-09",
     "venue": "ACL",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Lintang Sutawika."
   },
   {
@@ -957,6 +1092,7 @@
     "date": "6 June 2023",
     "date_sort": "2023-06-06",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Kevin Ko."
   },
   {
@@ -965,6 +1101,7 @@
     "date": "25 May 2023",
     "date_sort": "2023-05-25",
     "venue": "Nature",
+    "superlatives": [],
     "details": "Area: Alignment, NLP. Lead org: Google DeepMind. EleutherAI contact: Laria Reynolds."
   },
   {
@@ -973,6 +1110,7 @@
     "date": "24 May 2023",
     "date_sort": "2023-05-24",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Interpretability. Lead org: UIUC. EleutherAI contact: Curt Tigges."
   },
   {
@@ -981,6 +1119,7 @@
     "date": "14 May 2023",
     "date_sort": "2023-05-14",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: Nora Belrose."
   },
   {
@@ -989,6 +1128,7 @@
     "date": "11 May 2023",
     "date_sort": "2023-05-11",
     "venue": "TMLR",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Google. EleutherAI contact: Stella Biderman."
   },
   {
@@ -997,6 +1137,7 @@
     "date": "24 February 2023",
     "date_sort": "2023-02-24",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Yale University. EleutherAI contact: Hailey Schoelkopf."
   },
   {
@@ -1005,6 +1146,7 @@
     "date": "6 February 2023",
     "date_sort": "2023-02-06",
     "venue": "Foundations of Deep Generative Models @ ICML",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Stanford. EleutherAI contact: Baber Abbasi."
   },
   {
@@ -1013,6 +1155,7 @@
     "date": "21 January 2023",
     "date_sort": "2023-01-21",
     "venue": "Protein Engineering Design and Selection",
+    "superlatives": [],
     "details": "Area: Other Modalities. Lead org: Microsoft Research. EleutherAI contact: Niccolò Zanichelli."
   },
   {
@@ -1021,6 +1164,7 @@
     "date": "9 January 2023",
     "date_sort": "2023-01-09",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: BigCode. EleutherAI contact: Hailey Schoelkopf."
   },
   {
@@ -1029,6 +1173,7 @@
     "date": "1 December 2022",
     "date_sort": "2022-12-01",
     "venue": "EMNLP (Findings)",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Jason Phang."
   },
   {
@@ -1037,6 +1182,7 @@
     "date": "28 November 2022",
     "date_sort": "2022-11-28",
     "venue": "NeurIPS Datasets and Benchmarks",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Lintang Sutawika."
   },
   {
@@ -1045,6 +1191,9 @@
     "date": "28 November 2022",
     "date_sort": "2022-11-28",
     "venue": "NeurIPS Datasets and Benchmarks (Best Paper)",
+    "superlatives": [
+      "Best Paper"
+    ],
     "details": "Area: Other Modalities. Lead org: LAION. EleutherAI contact: Aran Komatsuzaki."
   },
   {
@@ -1053,6 +1202,9 @@
     "date": "28 November 2022",
     "date_sort": "2022-11-28",
     "venue": "NeurIPS Workshop on Broadening Research Collaborations Oral",
+    "superlatives": [
+      "Oral"
+    ],
     "details": "Area: Ethics and Policy. Lead org: EleutherAI. EleutherAI contact: Jason Phang."
   },
   {
@@ -1061,6 +1213,7 @@
     "date": "10 November 2022",
     "date_sort": "2022-11-10",
     "venue": "TMLR",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Stella Biderman."
   },
   {
@@ -1069,6 +1222,7 @@
     "date": "23 October 2022",
     "date_sort": "2022-10-23",
     "venue": "ECCV",
+    "superlatives": [],
     "details": "Area: Other Modalities. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
   },
   {
@@ -1077,6 +1231,7 @@
     "date": "17 October 2022",
     "date_sort": "2022-10-17",
     "venue": "CIKM",
+    "superlatives": [],
     "details": "Area: NLP, Security. Lead org: Booz Allen Hamilton. EleutherAI contact: Stella Biderman."
   },
   {
@@ -1085,6 +1240,7 @@
     "date": "15 October 2022",
     "date_sort": "2022-10-15",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: Alignment, NLP. Lead org: CarperAI. EleutherAI contact: Louis Castricato."
   },
   {
@@ -1093,6 +1249,7 @@
     "date": "1 October 2022",
     "date_sort": "2022-10-01",
     "venue": "The Journal of the Acoustical Society of America",
+    "superlatives": [],
     "details": "Area: Other Modalities. Lead org: Stability AI. EleutherAI contact: Katherine Crowson."
   },
   {
@@ -1101,6 +1258,7 @@
     "date": "20 June 2022",
     "date_sort": "2022-06-20",
     "venue": "FAccT",
+    "superlatives": [],
     "details": "Area: Ethics and Policy, NLP. Lead org: BigScience. EleutherAI contact: Stella Biderman."
   },
   {
@@ -1109,6 +1267,7 @@
     "date": "13 June 2022",
     "date_sort": "2022-06-13",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP, Ethics and Policy. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
   },
   {
@@ -1117,6 +1276,7 @@
     "date": "28 May 2022",
     "date_sort": "2022-05-28",
     "venue": "ACL Workshop on Challenges & Perspectives in Creating Large Language Models",
+    "superlatives": [],
     "details": "Area: Ethics and Policy. Lead org: BigScience. EleutherAI contact: Stella Biderman."
   },
   {
@@ -1125,6 +1285,7 @@
     "date": "28 May 2022",
     "date_sort": "2022-05-28",
     "venue": "ACL Workshop on Challenges & Perspectives in Creating Large Language Models",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Sid Black."
   },
   {
@@ -1133,6 +1294,7 @@
     "date": "25 April 2022",
     "date_sort": "2022-04-25",
     "venue": "ICLR",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Stella Biderman."
   },
   {
@@ -1141,6 +1303,7 @@
     "date": "31 January 2022",
     "date_sort": "2022-01-31",
     "venue": "TACL",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Google. EleutherAI contact: Stella Biderman."
   },
   {
@@ -1149,6 +1312,7 @@
     "date": "5 January 2022",
     "date_sort": "2022-01-05",
     "venue": "Journal of Computational Chemistry",
+    "superlatives": [],
     "details": "Area: Other Modalities. Lead org: Vir Biotechnology. EleutherAI contact: Stella Biderman."
   },
   {
@@ -1157,6 +1321,7 @@
     "date": "14 December 2021",
     "date_sort": "2021-12-14",
     "venue": "NeurIPS Workshopn on Data-Centic AI",
+    "superlatives": [],
     "details": "Area: Other Modalities. Lead org: LAION. EleutherAI contact: Katherine Crowson."
   },
   {
@@ -1165,6 +1330,7 @@
     "date": "6 October 2021",
     "date_sort": "2021-10-06",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Louis Castricato."
   },
   {
@@ -1173,6 +1339,7 @@
     "date": "2 September 2021",
     "date_sort": "2021-09-02",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Leo Gao."
   },
   {
@@ -1181,6 +1348,7 @@
     "date": "11 June 2021",
     "date_sort": "2021-06-11",
     "venue": "NAACL Workshop on Narrative Understanding",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Georgia Tech. EleutherAI contact: Louis Castricato."
   },
   {
@@ -1189,6 +1357,7 @@
     "date": "31 December 2020",
     "date_sort": "2020-12-31",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Leo Gao."
   },
   {
@@ -1197,6 +1366,7 @@
     "date": "15 September 2020",
     "date_sort": "2020-09-15",
     "venue": "arXiv",
+    "superlatives": [],
     "details": "Area: NLP. Lead org: Georgia Tech. EleutherAI contact: Aran Komatsuzaki."
   }
 ]
