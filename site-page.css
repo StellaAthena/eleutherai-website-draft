@@ -117,6 +117,12 @@ nav {
   width: 220px;
 }
 
+.research-dropdown {
+  right: -120px;
+  left: auto;
+  transform: translateY(-4px);
+}
+
 .dropdown::before {
   content: "";
   position: absolute;
@@ -131,6 +137,11 @@ nav {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(-45%) translateY(0);
+}
+
+.has-menu:hover .research-dropdown,
+.has-menu:focus-within .research-dropdown {
+  transform: translateY(0);
 }
 
 .dropdown-group {
@@ -559,6 +570,47 @@ h2 {
   margin-bottom: 0;
   color: var(--body);
   font-size: 1.02rem;
+}
+
+.prose ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--body);
+  font-size: 1.02rem;
+}
+
+.prose li + li {
+  margin-top: 8px;
+}
+
+.image-panel {
+  margin: 34px 0 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel);
+}
+
+.image-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  background: var(--light);
+}
+
+.feature-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.feature-card time {
+  color: var(--green);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .sponsor-grid,
