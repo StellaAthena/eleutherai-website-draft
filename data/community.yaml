@@ -1,0 +1,28 @@
+image:
+  src: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/62b36f8a-25e3-4b61-ba34-2ef7474e2669/The_EleutherAI_Community%284%29.png"
+  alt: "Map of the EleutherAI community showing paid staff, community researchers, and community members around the world."
+
+projects:
+  title: "Community-Led Research Projects"
+  intro: "EleutherAI has empowered research on a diverse array of topics, ranging from developing new architectures to efficient low-resource training to interpretability research."
+  items:
+    - title: "VQGAN-CLIP: Open Domain Image Generation and Editing with Natural Language Guidance"
+      date: "8 October 2023"
+    - title: "ReLoRA: High Rank Training Through Low-Rank Updates"
+      date: "8 October 2023"
+    - title: "Classifier-Free Guidance"
+      date: "8 October 2023"
+    - title: "RWKV"
+      date: "8 October 2023"
+
+people:
+  title: "Meet Our Community"
+  items:
+    - name: "Naomi Saphra"
+      date: "15 November 2023"
+      image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1700767002336-5ZVY0SG3I7NIKRDXOM11/naomi.jpg"
+      quote: "We have two choices as a society. The first is to accept that one company will eventually emerge dominant with a monopoly on the models that shape our world. The other is to commit to public open source models."
+    - name: "Mohammad Aflah Khan"
+      date: "21 September 2023"
+      image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1696774265472-P3AH1QOFWDZPYHFJK27G/mohammad.jpg"
+      quote: "Open research communities let people outside a small number of institutions make real contributions to frontier AI research."

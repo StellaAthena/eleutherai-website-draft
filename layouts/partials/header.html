@@ -1,0 +1,50 @@
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ "index.html" | relURL }}" aria-label="EleutherAI home">
+      <img class="brand-logo" src="{{ "assets/eleutherai-logo.svg" | relURL }}" alt="EleutherAI">
+    </a>
+    <nav class="nav-menu" aria-label="Primary navigation">
+      <div class="nav-item has-menu">
+        <a href="{{ "about.html" | relURL }}">About</a>
+        <div class="dropdown about-dropdown" role="menu">
+          <div class="dropdown-group">
+            <span>EleutherAI</span>
+            <a href="{{ "about.html" | relURL }}">About</a>
+            <a href="{{ "staff.html" | relURL }}">Staff</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item has-menu">
+        <a href="{{ "research.html" | relURL }}">Research</a>
+        <div class="dropdown research-dropdown" role="menu">
+          <div class="dropdown-group">
+            <span>NLP</span>
+            <a href="{{ "research.html#nlp" | relURL }}">Model Training</a>
+            <a href="{{ "research.html#nlp" | relURL }}">Evaluation</a>
+            <a href="{{ "research.html#nlp" | relURL }}">Multilingual</a>
+            <a href="{{ "research.html#nlp" | relURL }}">Datasets</a>
+          </div>
+          <div class="dropdown-group">
+            <span>Interpretability</span>
+            <a href="{{ "research.html#interpretability" | relURL }}">Circuits</a>
+            <a href="{{ "research-training-dynamics.html" | relURL }}">Training Dynamics</a>
+            <a href="{{ "research.html#interpretability" | relURL }}">Data Attribution</a>
+          </div>
+          <div class="dropdown-group">
+            <span>Alignment</span>
+            <a href="{{ "research.html#alignment" | relURL }}">Open Weight Safety</a>
+            <a href="{{ "research.html#alignment" | relURL }}">Behavioral Safety</a>
+          </div>
+          <div class="dropdown-group">
+            <span>Other Research</span>
+            <a href="{{ "research.html#other-research" | relURL }}">Other Modalities</a>
+            <a href="{{ "research.html#other-research" | relURL }}">Privacy and Security</a>
+          </div>
+        </div>
+      </div>
+      <a href="{{ "community.html" | relURL }}">Community</a>
+      <a href="{{ "blog.html" | relURL }}">Blog</a>
+      <a class="support" href="{{ "support.html" | relURL }}">Support Us</a>
+    </nav>
+  </div>
+</header>

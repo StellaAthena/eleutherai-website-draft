@@ -1,0 +1,84 @@
+use:
+  title: "Models, code, and citation"
+  intro: "Pythia is meant to be used directly: download checkpoints, inspect the training setup, reproduce analyses, and cite the model suite in downstream work."
+  cards:
+    - title: "Download checkpoints"
+      text: "Access released model weights and intermediate checkpoints through the EleutherAI model hub."
+      url: "https://huggingface.co/EleutherAI/pythia-70m"
+      link: "Hugging Face"
+    - title: "Training and analysis code"
+      text: "Find model documentation, training details, analysis code, and reproducibility instructions."
+      url: "https://github.com/EleutherAI/pythia"
+      link: "GitHub"
+    - title: "Cite Pythia"
+      text: "Use the ICML paper when citing the model suite or its controlled training setup."
+      url: "https://arxiv.org/abs/2304.01373"
+      link: "Paper"
+
+what:
+  title: "A model suite for studying training over time"
+  intro: "Pythia was built for researchers who need controlled access to intermediate states of training, not only final model weights."
+  cards:
+    - title: "Multiple scales"
+      text: "Model families across sizes enable scaling comparisons under a shared training setup."
+    - title: "Intermediate checkpoints"
+      text: "Many checkpoints per model make it possible to study when behaviors and representations appear."
+    - title: "Reproducible setup"
+      text: "Models were designed around public data, released code, and reproducible analysis."
+    - title: "Research substrate"
+      text: "Pythia supports work on evaluation, memorization, circuits, safety, and training dynamics."
+
+areas:
+  title: "Research this project supports"
+  intro: "Pythia sits under Training Dynamics, but its checkpoints are useful across evaluation, interpretability, data, and safety research."
+  items:
+    - title: "Observing behavior across training"
+      text: "Pythia provides checkpoint sequences that make training trajectories visible."
+    - title: "Measuring capabilities over time"
+      text: "Intermediate checkpoints can be evaluated to see when capabilities and failures emerge."
+    - title: "Studying learned structure"
+      text: "Checkpointed models support analyses of representation and mechanism development."
+
+papers:
+  title: "Papers"
+  intro: "Papers introducing Pythia, extending the suite, or using it as an empirical substrate."
+  items:
+    - title: "Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling"
+      text: "The ICML paper introducing the controlled model suite for studying training and scaling."
+      url: "https://arxiv.org/abs/2304.01373"
+      meta: "ICML Oral"
+    - title: "PolyPythias: Stability and Outliers across Fifty Language Model Pre-Training Runs"
+      text: "Repeated pretraining runs for studying stability, variance, and outliers across similar training processes."
+      url: "https://arxiv.org/abs/2503.09543"
+      meta: "ICLR"
+    - title: "LLM Circuit Analyses Are Consistent Across Training and Scale"
+      text: "Mechanistic analysis using checkpoints to compare circuits across training and model scale."
+      url: "https://arxiv.org/abs/2407.10827"
+      meta: "NeurIPS"
+    - title: "Emergent and Predictable Memorization in Large Language Models"
+      text: "Analysis of how memorization emerges and becomes predictable during language model training."
+      url: "https://arxiv.org/abs/2304.11158"
+      meta: "NeurIPS"
+
+updates:
+  title: "Releases and updates"
+  intro: "Selected updates from the public project record."
+  items:
+    - title: "PolyPythias added to the project hub"
+      text: "The Pythia repository now points to the repeated-run extension and associated paper."
+    - title: "Project documentation expanded"
+      text: "The README was substantially updated with more historical context and links to research building on Pythia."
+    - title: "Additional small models released"
+      text: "14M and 31M models were added for researchers studying smaller-scale phenomena and sparse autoencoders."
+
+metadata:
+  - "Model suite."
+  - "Active and maintained."
+  - "Part of Training Dynamics."
+  - "Available through Hugging Face, GitHub, and the paper."
+
+people: "Stella Biderman, Hailey Schoelkopf, Quentin Anthony, Herbie Bradley, Kyle O'Brien, Eric Hallahan, Mohammad Aflah Khan, Shivanshu Purohit, USVSN Sai Prashanth, Edward Raff, Aviya Skowron, Lintang Sutawika, and Oskar van der Wal"
+
+closing:
+  title: "Pythia makes training trajectories inspectable."
+  text: "Most model releases expose final weights. Pythia exposes the path to those weights: intermediate checkpoints, controlled data order, and enough surrounding code and documentation for researchers to ask when capabilities, failures, and mechanisms emerge."

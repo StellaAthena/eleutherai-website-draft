@@ -1,0 +1,9 @@
+<figure>
+  {{ with .Get "src" }}
+    <img src="{{ . }}" alt="{{ $.Get "alt" | default ($.Get "caption") | plainify }}">
+  {{ end }}
+  {{ with .Inner }}{{ . | markdownify }}{{ end }}
+  {{ with or (.Get "caption") (.Get "title") }}
+    <figcaption>{{ . | markdownify }}</figcaption>
+  {{ end }}
+</figure>

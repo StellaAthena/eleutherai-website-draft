@@ -1,0 +1,125 @@
+{{ define "main" }}
+{{ $data := site.Data.projects.pythia }}
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
+      <div class="button-row">
+        <a class="button primary" href="#use">Use Pythia</a>
+        <a class="button secondary" href="#papers">View papers</a>
+      </div>
+    </div>
+  </section>
+
+  {{ with $data.use }}
+    <section class="section" id="use">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>{{ .title }}</h2></div>
+          <p class="section-intro">{{ .intro }}</p>
+        </div>
+        <div class="grid">
+          {{ range .cards }}
+            <article class="card">
+              <h3>{{ .title }}</h3>
+              <p>{{ .text }}</p>
+              <a class="link" href="{{ .url }}">{{ .link }} -></a>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with $data.what }}
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>{{ .title }}</h2></div>
+          <p class="section-intro">{{ .intro }}</p>
+        </div>
+        <div class="grid">
+          {{ range .cards }}
+            <article class="card">
+              <h3>{{ .title }}</h3>
+              <p>{{ .text }}</p>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with $data.areas }}
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>{{ .title }}</h2></div>
+          <p class="section-intro">{{ .intro }}</p>
+        </div>
+        <div class="artifact-table">
+          {{ range .items }}
+            <article class="artifact-row">
+              <div>
+                <h3>{{ .title }}</h3>
+                <p>{{ .text }}</p>
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with $data.papers }}
+    <section class="section" id="papers">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>{{ .title }}</h2></div>
+          <p class="section-intro">{{ .intro }}</p>
+        </div>
+        <div class="artifact-table">
+          {{ range .items }}
+            <article class="artifact-row">
+              <div>
+                <h3><a href="{{ .url }}">{{ .title }}</a></h3>
+                <p class="paper-meta">{{ .meta }}</p>
+                <p>{{ .text }}</p>
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with $data.updates }}
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>{{ .title }}</h2></div>
+          <p class="section-intro">{{ .intro }}</p>
+        </div>
+        <div class="artifact-table">
+          {{ range .items }}
+            <article class="artifact-row">
+              <div>
+                <h3>{{ .title }}</h3>
+                <p>{{ .text }}</p>
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  <section class="light-band">
+    <div class="wrap">
+      <div><h2>{{ $data.closing.title }}</h2></div>
+      <p>{{ $data.closing.text }}</p>
+    </div>
+  </section>
+</main>
+{{ end }}

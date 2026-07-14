@@ -1,0 +1,4 @@
+<blockquote class="discord-message">
+  {{ with .Get "handle" }}<p><strong>{{ . }}</strong></p>{{ end }}
+  {{ .Inner | markdownify }}
+</blockquote>

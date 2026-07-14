@@ -1,0 +1,25 @@
+{{ define "main" }}
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="artifact-table">
+        {{ range .Pages.ByTitle }}
+          <article class="artifact-row">
+            <div>
+              <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+              {{ with .Params.lede }}<p>{{ . }}</p>{{ end }}
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+</main>
+{{ end }}

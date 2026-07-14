@@ -1,0 +1,66 @@
+{{ define "main" }}
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.lede }}<p class="lede">{{ . | markdownify }}</p>{{ end }}
+      <div class="button-row">
+        <a class="button primary" href="https://www.discord.gg/eleutherai">Join Discord</a>
+        <a class="button" href="{{ "research.html" | relURL }}">Browse research</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose article-body">{{ .Content }}</div>
+      <figure class="image-panel">
+        <img src="{{ site.Data.community.image.src }}" alt="{{ site.Data.community.image.alt }}">
+      </figure>
+    </div>
+  </section>
+
+  {{ with site.Data.community.projects }}
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>{{ .title }}</h2></div>
+          <p class="section-intro">{{ .intro }}</p>
+        </div>
+        <div class="grid">
+          {{ range .items }}
+            <article class="card feature-card">
+              <h3>{{ .title }}</h3>
+              <time>{{ .date }}</time>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with site.Data.community.people }}
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>{{ .title }}</h2></div>
+        </div>
+        <div class="people-grid">
+          {{ range .items }}
+            <article class="person-card">
+              <div class="person-photo">
+                <img src="{{ .image }}" alt="{{ .name }}">
+              </div>
+              <div class="person-copy">
+                <h3>{{ .name }}</h3>
+                <p class="item-meta">{{ .date }}</p>
+                <p>{{ .quote }}</p>
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+</main>
+{{ end }}

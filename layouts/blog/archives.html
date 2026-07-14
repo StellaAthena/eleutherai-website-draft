@@ -1,0 +1,55 @@
+{{ define "main" }}
+{{ $posts := where site.RegularPages "Section" "blog" | first 200 }}
+{{ $posts = $posts.ByDate.Reverse }}
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Research notes, announcements, and technical essays.</h1>
+      <p class="lede">Long-form technical notes, release announcements, and essays from EleutherAI researchers and collaborators.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2>Latest posts</h2></div>
+        <p class="section-intro">Research notes, release writeups, policy commentary, and community updates from EleutherAI researchers and collaborators.</p>
+      </div>
+      <div class="grid">
+        {{ range first 3 $posts }}
+          <article class="card blog-card">
+            <h3>{{ .Title }}</h3>
+            <p class="item-meta">{{ .Date.Format "Jan 2, 2006" }}</p>
+            <p>{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 220 }}{{ end }}</p>
+            <a class="link" href="{{ .RelPermalink }}">Read post -></a>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2>Recent archive</h2></div>
+        <p class="section-intro">Browse recent posts from the EleutherAI archive, including research notes, release writeups, policy commentary, and community updates.</p>
+      </div>
+      <div class="artifact-table blog-list">
+        {{ range after 3 (first 18 $posts) }}
+          {{ $author := "EleutherAI" }}
+          {{ with .Params.author }}
+            {{ if reflect.IsSlice . }}{{ $author = delimit . ", " }}{{ else }}{{ $author = . }}{{ end }}
+          {{ end }}
+          <article class="artifact-row">
+            <div>
+              <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+              <p class="item-meta">{{ .Date.Format "Jan 2, 2006" }} · {{ $author }}</p>
+              <p>{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 220 }}{{ end }}</p>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+</main>
+{{ end }}

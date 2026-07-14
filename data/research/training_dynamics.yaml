@@ -1,0 +1,101 @@
+overview:
+  title: "Training as an object of study"
+  intro: "Understanding a model means understanding the process that produced it: the data, optimization, scale, architecture, and intermediate states that shape its behavior."
+  paragraphs:
+    - "Training dynamics treats the training process as a scientific object, not merely a way to obtain a final model. Instead of asking only what a model can do after training is complete, this research area asks how capabilities, failures, representations, and evaluation behavior emerge over time."
+    - "For EleutherAI, this area is tied to open checkpoints, reproducible training runs, evaluation infrastructure, and datasets. The goal is to make model development observable: researchers should be able to compare intermediate checkpoints, ask when behaviors appear, and connect those changes to data, scale, architecture, and optimization."
+    - "This work supports a more empirical science of language models, where intermediate models, training traces, and evaluation results are public evidence rather than hidden implementation details."
+
+projects:
+  title: "Projects connected to Training Dynamics"
+  intro: "These projects provide the model suites, repeated runs, data interventions, and evaluation views that make model development easier to study."
+  items:
+    - title: "Pythia"
+      text: "A suite of checkpoints designed to make model development over training observable and comparable across scales."
+      url: "project-pythia.html"
+    - title: "PolyPythias"
+      text: "A family of repeated pretraining runs for studying stability, outliers, and variance across nominally similar training processes."
+    - title: "Pretraining interventions"
+      text: "Work on data filtering, attribution, and other interventions that change model behavior before deployment-time fixes are needed."
+
+questions:
+  title: "What questions organize this area?"
+  intro: "Training dynamics connects empirical measurements to questions about when and why model behavior changes."
+  items:
+    - title: "Emergence over time"
+      text: "When do capabilities, failures, and internal structure appear during training, and which checkpoints make those changes observable?"
+    - title: "Data and optimization"
+      text: "How do data order, filtering, scale, architecture, and optimization shape the path a model takes through training?"
+    - title: "Evaluation during training"
+      text: "How should we evaluate intermediate checkpoints, not just final models, so model development becomes easier to understand?"
+
+directions:
+  title: "How this work clusters"
+  intro: "Papers are grouped by the research question they primarily address."
+  items:
+    - title: "Research infrastructure"
+      text: "Shared model suites, benchmark views, and experimental scaffolding that make training trajectories observable."
+      papers:
+        - "Pythia"
+        - "PolyPythias"
+        - "Benchmark Disaggregation Improves Interpretability of Training Dynamics"
+    - title: "Predicting model behaviors"
+      text: "Work on when model behaviors appear, whether they can be forecast from scale or training state, and what makes those predictions reliable."
+      papers:
+        - "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?"
+        - "Emergent and Predictable Memorization in Large Language Models"
+    - title: "Mechanisms over training"
+      text: "Analyses of representations, circuits, memorization mechanisms, reasoning, and model structure as they change during training."
+      papers:
+        - "Recite, Reconstruct, Recollect: Memorization in LMs as a Multifaceted Phenomenon"
+        - "LLM Circuit Analyses Are Consistent Across Training and Scale"
+        - "Slowing Learning by Erasing Simple Features"
+        - "Examining Two Hop Reasoning Through Information Content Scaling"
+        - "OpenFold: Retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization"
+        - "On the Acquisition of Shared Grammatical Representations in Bilingual Language Models"
+        - "Language Model Shape Shapes Behavior"
+    - title: "Safety interventions"
+      text: "Data and training interventions that aim to change harmful capabilities or misalignment before they become final model behavior."
+      papers:
+        - "Mitigating Emergent Misalignment with Data Attribution"
+        - "Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs"
+    - title: "Fine-tuning dynamics"
+      text: "Studies of how adaptation choices change model behavior after pretraining."
+      papers:
+        - "The Goldilocks of Pragmatic Understanding"
+        - "Attributing Mode Collapse in the Fine-Tuning of Large Language Models"
+    - title: "Framing the area"
+      text: "Work that argues for training dynamics as a necessary object of study."
+      papers:
+        - 'Position: Don''t Just "Fix it in Post"'
+
+featured:
+  title: "A science of model development"
+  intro: "A selected paper that captures the current framing of the research area."
+  paper: 'Position: Don''t Just "Fix it in Post" - A Science of AI Must Study Learning Dynamics'
+  text: "This paper argues that understanding AI systems requires studying the training process itself, rather than treating final model behavior as the only object of analysis."
+
+latest:
+  title: "Latest in this area"
+  intro: "Recent papers and updates connected to this research area."
+  items:
+    - title: "A Science of AI Must Study Training Dynamics"
+      text: "A position paper foregrounding training as a central object of study for AI science."
+    - title: "Deep Ignorance"
+      text: "Pretraining data filtering as a way to build more durable safeguards into open-weight models."
+    - title: "PolyPythias"
+      text: "Repeated training runs for studying stability and outliers in language model pretraining."
+
+related:
+  title: "Related areas and collaboration"
+  intro: "Further paths for readers who want to move from this area into neighboring work or get involved."
+  areas:
+    - title: "Evaluation"
+      url: "research.html#nlp"
+    - title: "Model Training"
+      url: "research.html#nlp"
+    - title: "Datasets"
+      url: "research.html#nlp"
+    - title: "Data Attribution"
+      url: "research.html#interpretability"
+  collaborate: "Interested in checkpoint analysis, evaluation during training, or open training runs?"

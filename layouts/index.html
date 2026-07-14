@@ -1,0 +1,59 @@
+{{ define "main" }}
+<main>
+  <section class="home-cover" aria-labelledby="hero-title">
+    <div class="wrap">
+      <h1 id="hero-title">EleutherAI</h1>
+    </div>
+  </section>
+
+  <section class="section home-stack" aria-labelledby="projects-title">
+    <div class="wrap">
+      <h2 class="center-heading" id="projects-title">Explore our research</h2>
+      <div class="home-project-grid">
+        {{ range site.Data.home.projects }}
+          <article class="home-project-card">
+            <a href="{{ .url | relURL }}" aria-label="{{ .title }}">
+              <img src="{{ .image }}" alt="{{ .title }}">
+            </a>
+            <h3><a href="{{ .url | relURL }}">{{ .title }}</a></h3>
+            <p>{{ .text }}</p>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-stack" aria-labelledby="publications-title">
+    <div class="wrap">
+      <h2 class="center-heading" id="publications-title">Recent Publications</h2>
+      <div class="publication-list">
+        {{ range $index, $paper := site.Data.research.homepage_papers }}
+          <details class="publication-item" {{ if eq $index 0 }}open{{ end }}>
+            <summary>
+              <span>
+                <span class="publication-title">{{ if $paper.url }}<a href="{{ $paper.url }}">{{ $paper.title }}</a>{{ else }}{{ $paper.title }}{{ end }}</span>
+                <span class="publication-meta">{{ $paper.date }} · {{ $paper.venue }}</span>
+              </span>
+            </summary>
+            {{ with $paper.details }}<p>{{ . }}</p>{{ end }}
+            {{ if $paper.url }}<a class="link" href="{{ $paper.url }}">Read paper</a>{{ end }}
+          </details>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-stack" aria-labelledby="news-title">
+    <div class="wrap">
+      <h2 class="center-heading" id="news-title">News</h2>
+      <div class="news-list">
+        {{ range site.Data.home.news }}
+          <article class="news-list-item">
+            <h3><a href="{{ .url | relURL }}">{{ .title }}</a></h3>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+</main>
+{{ end }}

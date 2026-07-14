@@ -1,0 +1,4 @@
+<blockquote>
+  {{ .Inner | markdownify }}
+  {{ with .Get "author" }}<footer>{{ . }}</footer>{{ end }}
+</blockquote>

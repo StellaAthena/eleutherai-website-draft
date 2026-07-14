@@ -1,0 +1,22 @@
+{{- $dest := .Destination -}}
+{{- $dest = replaceRE "^%5B(https?://[^%]+)%5D\\((https?://[^)]+)\\)$" "$1" $dest -}}
+{{- $dest = replaceRE "^\\[(https?://[^\\]]+)\\]\\((https?://[^)]+)\\)$" "$1" $dest -}}
+{{- $dest = replace $dest "https:////cadentj.github.io/" "https://cadentj.github.io/" -}}
+{{- if eq $dest "huggingface.co/" -}}
+  {{- $dest = "https://huggingface.co/" -}}
+{{- else if hasPrefix $dest "/https://cadentj.github.io/demo//" -}}
+  {{- $dest = replace $dest "/https://cadentj.github.io/demo//" "https://cadentj.github.io/demo/" -}}
+{{- else if eq $dest "/mechanistic-anomaly-detection-research-update/" -}}
+  {{- $dest = "/blog/mad_research_update.html" -}}
+{{- else if eq $dest "/mad_research_update/" -}}
+  {{- $dest = "/blog/mad_research_update.html" -}}
+{{- else if eq $dest "/mad_research_update_2/" -}}
+  {{- $dest = "/blog/mad_research_update_2.html" -}}
+{{- else if eq $dest "/why-release-a-large-language-model/" -}}
+  {{- $dest = "/blog/why-release-a-large-language-model.html" -}}
+{{- else if eq $dest "./year-one/" -}}
+  {{- $dest = "/blog/year-one.html" -}}
+{{- else if eq $dest "x" -}}
+  {{- $dest = "#" -}}
+{{- end -}}
+<a href="{{ $dest | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>

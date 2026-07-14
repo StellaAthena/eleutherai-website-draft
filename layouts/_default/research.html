@@ -1,0 +1,52 @@
+{{ define "main" }}
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
+      <div class="button-row">
+        <a class="button primary" href="{{ "research-training-dynamics.html" | relURL }}">View Training Dynamics</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="research-areas">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2>Fields and research areas</h2></div>
+      </div>
+      <div class="artifact-table">
+        {{ range site.Data.research.areas.areas }}
+          <article class="artifact-row" id="{{ .id }}">
+            <div>
+              <h3>{{ .title }}</h3>
+              <p>{{ .text }}</p>
+              {{ with .includes }}<p>{{ . }}</p>{{ end }}
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{ with site.Data.research.areas.highlighted }}
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>{{ .title }}</h2></div>
+          <p class="section-intro">{{ .text }}</p>
+        </div>
+        <div class="grid">
+          {{ range .cards }}
+            <article class="card">
+              <h3>{{ .title }}</h3>
+              <p>{{ .text }}</p>
+              <a class="link" href="{{ .url | relURL }}">{{ .link }} -></a>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+</main>
+{{ end }}
