@@ -1,0 +1,190 @@
+{{ define "main" }}
+{{ $areaKey := .Params.area_key }}
+{{ $data := index site.Data.research.area_pages $areaKey }}
+{{ if eq $areaKey "training_dynamics" }}
+  {{ $data = site.Data.research.training_dynamics }}
+{{ end }}
+{{ $paperMap := site.Data.research.area_papers | default dict }}
+{{ $papers := index $paperMap $areaKey }}
+{{ if not $papers }}
+  {{ $papers = slice }}
+{{ end }}
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
+      <div class="button-row">
+        {{ if gt (len $papers) 0 }}<a class="button primary" href="#papers">View papers</a>{{ end }}
+        {{ with $data.projects }}{{ if .items }}<a class="button secondary" href="#projects">Explore projects</a>{{ end }}{{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{ with $data.overview }}
+    <section class="section" id="overview">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>{{ .title }}</h2></div>
+          <p class="section-intro">{{ .intro }}</p>
+        </div>
+        <div class="prose">
+          {{ range .paragraphs }}<p>{{ . }}</p>{{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with $data.projects }}
+    {{ if .items }}
+      <section class="section" id="projects">
+        <div class="wrap">
+          <div class="section-head">
+            <div><h2>{{ .title }}</h2></div>
+            <p class="section-intro">{{ .intro }}</p>
+          </div>
+          <div class="grid">
+            {{ range .items }}
+              <article class="card">
+                <h3>{{ .title }}</h3>
+                <p>{{ .text }}</p>
+                {{ with .url }}<a class="link" href="{{ . | relURL }}">View project -></a>{{ end }}
+              </article>
+            {{ end }}
+          </div>
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+
+  {{ with $data.questions }}
+    {{ if .items }}
+      <section class="section" id="questions">
+        <div class="wrap">
+          <div class="section-head">
+            <div><h2>{{ .title }}</h2></div>
+            <p class="section-intro">{{ .intro }}</p>
+          </div>
+          <div class="grid">
+            {{ range .items }}
+              <article class="card">
+                <h3>{{ .title }}</h3>
+                <p>{{ .text }}</p>
+              </article>
+            {{ end }}
+          </div>
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+
+  {{ with $data.directions }}
+    {{ if .items }}
+      <section class="section" id="directions">
+        <div class="wrap">
+          <div class="section-head">
+            <div><h2>{{ .title }}</h2></div>
+            <p class="section-intro">{{ .intro }}</p>
+          </div>
+          <div class="artifact-table">
+            {{ range .items }}
+              <article class="artifact-row">
+                <div>
+                  <h3>{{ .title }}</h3>
+                  <p>{{ .text }}</p>
+                  {{ with .papers }}
+                    <ul>
+                      {{ range . }}<li>{{ . }}</li>{{ end }}
+                    </ul>
+                  {{ end }}
+                </div>
+              </article>
+            {{ end }}
+          </div>
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+
+  {{ with $data.featured }}
+    <section class="section" id="featured">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>{{ .title }}</h2></div>
+          <p class="section-intro">{{ .intro }}</p>
+        </div>
+        <article class="card compact">
+          <h3>{{ .paper }}</h3>
+          <p>{{ .text }}</p>
+          <a class="link" href="#papers">Read paper -></a>
+        </article>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with $data.latest }}
+    {{ if .items }}
+      <section class="section" id="latest">
+        <div class="wrap">
+          <div class="section-head">
+            <div><h2>{{ .title }}</h2></div>
+            <p class="section-intro">{{ .intro }}</p>
+          </div>
+          <div class="grid">
+            {{ range .items }}
+              <article class="card">
+                <h3>{{ .title }}</h3>
+                <p>{{ .text }}</p>
+              </article>
+            {{ end }}
+          </div>
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+
+  {{ if gt (len $papers) 0 }}
+    <section class="section" id="papers">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>Papers</h2></div>
+          <p class="section-intro">Papers in this research area, listed newest first.</p>
+        </div>
+        <div class="artifact-table">
+          {{ range $papers }}
+            <article class="paper-entry">
+              <div>
+                <h3>{{ if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
+                <p class="paper-meta">{{ with .date }}{{ . }} · {{ end }}{{ .venue }}</p>
+                {{ with .summary }}<p>{{ . }}</p>{{ end }}
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with $data.related }}
+    {{ if .areas }}
+      <section class="section" id="related">
+        <div class="wrap">
+          <div class="section-head">
+            <div><h2>{{ .title }}</h2></div>
+            <p class="section-intro">{{ .intro }}</p>
+          </div>
+          <div class="grid">
+            {{ range .areas }}
+              <article class="card compact">
+                <h3>{{ .title }}</h3>
+                {{ with .text }}<p>{{ . }}</p>{{ end }}
+                <a class="link" href="{{ .url | relURL }}">Open area -></a>
+              </article>
+            {{ end }}
+          </div>
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+</main>
+{{ end }}

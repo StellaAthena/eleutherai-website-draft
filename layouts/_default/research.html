@@ -21,7 +21,13 @@
             <div>
               <h3>{{ .title }}</h3>
               <p>{{ .text }}</p>
-              {{ with .includes }}<p>{{ . }}</p>{{ end }}
+              {{ with .children }}
+                <div class="area-link-row">
+                  {{ range . }}
+                    <a class="area-link" href="{{ .url | relURL }}">{{ .title }}</a>
+                  {{ end }}
+                </div>
+              {{ end }}
             </div>
           </article>
         {{ end }}

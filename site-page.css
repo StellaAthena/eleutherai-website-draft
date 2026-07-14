@@ -455,6 +455,32 @@ h2 {
   font-size: 0.96rem;
 }
 
+.area-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.area-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--body);
+  background: var(--panel);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.area-link:hover,
+.area-link:focus-visible {
+  border-color: var(--blue);
+  color: var(--ink);
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

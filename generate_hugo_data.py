@@ -9,6 +9,7 @@ from urllib.parse import urlsplit, urlunsplit
 ROOT = Path(__file__).resolve().parent
 PAPERS_CSV = ROOT / "eleutherai_papers_sheet_gid2053751678.csv"
 AREA_PAPERS_CSV = ROOT / "research_area_papers.csv"
+AREA_FILTERS_CSV = ROOT / "research_area_filters.csv"
 OUTPUT_DIR = ROOT / "data" / "research"
 HOMEPAGE_PAPER_LIMIT = 5
 
@@ -42,6 +43,10 @@ def clean_link(link):
 
 def normalize_title(title):
     return " ".join((title or "").split())
+
+
+def split_terms(value):
+    return [item.strip().casefold() for item in (value or "").split(";") if item.strip()]
 
 
 def row_date(row):
@@ -92,6 +97,20 @@ def read_area_configs(area):
         ]
 
 
+def read_area_filters():
+    with AREA_FILTERS_CSV.open(newline="", encoding="utf-8") as f:
+        return [
+            {
+                "key": row["Area Key"].strip(),
+                "broad_areas": split_terms(row.get("Broad Areas")),
+                "include_terms": split_terms(row.get("Include Terms")),
+                "exclude_terms": split_terms(row.get("Exclude Terms")),
+            }
+            for row in csv.DictReader(f)
+            if row.get("Area Key", "").strip()
+        ]
+
+
 def paper_record(row):
     date = pub_date(row)
     areas = []
@@ -116,33 +135,83 @@ def paper_record(row):
     }
 
 
+def area_paper_record(row, summary="", display_venue=""):
+    date = pub_date(row)
+    if date == datetime.min:
+        date = row_date(row)
+    venue = display_venue or homepage_venue(row)
+    return {
+        "title": normalize_title(row.get("Title")),
+        "url": clean_link(row.get("Link")),
+        "summary": summary,
+        "date": display_full_date(date),
+        "year": str(date.year) if date != datetime.min else "",
+        "venue": venue,
+        "sort_date": date.strftime("%Y-%m-%d") if date != datetime.min else "",
+    }
+
+
 def all_papers(rows):
     selected = [row for row in rows if normalize_title(row.get("Title")) and pub_date(row) != datetime.min]
     selected.sort(key=lambda row: (pub_date(row), normalize_title(row.get("Title"))), reverse=True)
     return [paper_record(row) for row in selected]
 
 
-def training_dynamics_papers(rows):
-    configs = read_area_configs("Training Dynamics")
+def configured_area_papers(rows, area):
+    configs = read_area_configs(area)
     by_title = {normalize_title(row.get("Title")): row for row in rows}
     records = []
     for config in configs:
         row = by_title.get(normalize_title(config["title"]))
         if not row:
             raise SystemExit(f"Missing configured paper title in papers CSV: {config['title']}")
-        date = row_date(row)
-        venue = display_venue(row, config)
-        records.append(
-            {
-                "title": normalize_title(row.get("Title")),
-                "url": clean_link(row.get("Link")),
-                "summary": config["summary"],
-                "year": str(date.year) if date != datetime.min else "",
-                "venue": venue,
-                "sort_date": date.strftime("%Y-%m-%d") if date != datetime.min else "",
-            }
-        )
+        records.append(area_paper_record(row, config["summary"], display_venue(row, config)))
     records.sort(key=lambda row: (row["sort_date"], row["title"]), reverse=True)
+    return records
+
+
+def row_areas(row):
+    return {
+        (row.get("Primary Area") or "").strip().casefold(),
+        (row.get("Additional Area") or "").strip().casefold(),
+    }
+
+
+def row_search_text(row):
+    return " ".join(
+        [
+            normalize_title(row.get("Title")),
+            row.get("Superlatives") or "",
+            row.get("Conference or Journal") or "",
+            row.get("Workshop") or "",
+        ]
+    ).casefold()
+
+
+def matches_area_filter(row, config):
+    areas = row_areas(row)
+    if config["broad_areas"] and not areas.intersection(config["broad_areas"]):
+        return False
+    text = row_search_text(row)
+    if config["include_terms"] and not any(term in text for term in config["include_terms"]):
+        return False
+    if config["exclude_terms"] and any(term in text for term in config["exclude_terms"]):
+        return False
+    return pub_date(row) != datetime.min or row_date(row) != datetime.min
+
+
+def filtered_area_papers(rows, config):
+    records = [area_paper_record(row) for row in rows if matches_area_filter(row, config)]
+    records.sort(key=lambda row: (row["sort_date"], row["title"]), reverse=True)
+    return records
+
+
+def area_papers(rows):
+    records = {
+        "training_dynamics": configured_area_papers(rows, "Training Dynamics"),
+    }
+    for config in read_area_filters():
+        records[config["key"]] = filtered_area_papers(rows, config)
     return records
 
 
@@ -155,9 +224,10 @@ def write_json(name, data):
 def main():
     rows = read_papers()
     papers = all_papers(rows)
+    per_area = area_papers(rows)
     write_json("papers.json", papers)
     write_json("homepage_papers.json", papers[:HOMEPAGE_PAPER_LIMIT])
-    write_json("training_dynamics_papers.json", training_dynamics_papers(rows))
+    write_json("area_papers.json", per_area)
     print("Generated Hugo research data")
 
 

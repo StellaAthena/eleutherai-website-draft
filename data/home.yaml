@@ -4,11 +4,11 @@ projects:
     image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1676148799085-8HKZQ4S2WT23SXQ9LWWY/interpret-across-time.jpeg"
     text: "How do properties of models emerge and evolve over the course of training?"
   - title: "Eliciting Latent Knowledge"
-    url: "research.html#alignment"
+    url: "research-open-weight-safety.html"
     image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1672375347709-Q7V80U1D7D45WQP6ZA1U/003150.2613265820.png"
     text: "As models get smarter, humans won't always be able to independently check if a model's claims are true or false. We aim to circumvent this issue by directly eliciting latent knowledge inside the model's activations."
   - title: "Training LLMs"
-    url: "research.html#nlp"
+    url: "research-model-training.html"
     image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1672374945813-2MYK0BWCRTEGHAS17G18/gpt-neox.png"
     text: "EleutherAI has trained and released many powerful open source LLMs."
 

@@ -1,0 +1,258 @@
+model_training:
+  overview:
+    title: "Open model development"
+    intro: "Model Training covers the practice and science of training language models in ways that other researchers can inspect, reproduce, and build on."
+    paragraphs:
+      - "This area includes large-scale pretraining, scaling experiments, open checkpoints, model release practices, and the engineering work needed to make trained models useful research artifacts."
+  projects:
+    title: "Projects connected to Model Training"
+    intro: "These projects are connected to open model development and model release."
+    items:
+      - title: "Pythia"
+        text: "A suite of language models and checkpoints designed for studying training and scaling."
+        url: "project-pythia.html"
+      - title: "GPT-NeoX"
+        text: "A large-scale training framework used for open language model research."
+      - title: "Open model releases"
+        text: "Model releases that make training decisions, artifacts, and downstream analysis available to the research community."
+  related:
+    title: "Related areas"
+    intro: "Model training connects directly to data, evaluation, and training dynamics."
+    areas:
+      - title: "Training Dynamics"
+        url: "research-training-dynamics.html"
+      - title: "Datasets"
+        url: "research-datasets.html"
+      - title: "Evaluation"
+        url: "research-evaluation.html"
+      - title: "Open Weight Safety"
+        url: "research-open-weight-safety.html"
+
+evaluation:
+  overview:
+    title: "Measuring model behavior"
+    intro: "Evaluation research studies how to measure models, how benchmarks fail, and how evaluation practices shape claims about progress."
+    paragraphs:
+      - "This area includes benchmark design, evaluation reporting, reproducibility, benchmark contamination, social impact evaluation, and tools for comparing model behavior."
+  projects:
+    title: "Projects connected to Evaluation"
+    intro: "These projects make model evaluation more reproducible and interpretable."
+    items:
+      - title: "Language Model Evaluation Harness"
+        text: "Shared infrastructure for evaluating language models across tasks and settings."
+      - title: "Evaluation reporting"
+        text: "Work on schemas, cards, and repositories that make evaluation results easier to interpret."
+  related:
+    title: "Related areas"
+    intro: "Evaluation work connects to model training, datasets, and safety."
+    areas:
+      - title: "Model Training"
+        url: "research-model-training.html"
+      - title: "Datasets"
+        url: "research-datasets.html"
+      - title: "Behavioral Safety"
+        url: "research-behavioral-safety.html"
+
+multilingual:
+  overview:
+    title: "Language coverage and representation"
+    intro: "Multilingual research studies how language models work across languages, scripts, and language communities."
+    paragraphs:
+      - "This area includes multilingual data, tokenization, code-mixing, cross-lingual evaluation, and the limits of English-centric model development."
+  projects:
+    title: "Projects connected to Multilingual Research"
+    intro: "These projects focus on language coverage, multilingual data, and multilingual evaluation."
+    items:
+      - title: "Multilingual datasets"
+        text: "Dataset work that improves coverage, documentation, and quality across languages."
+      - title: "Multilingual evaluation"
+        text: "Benchmarks and analyses for measuring model behavior outside English-only settings."
+  related:
+    title: "Related areas"
+    intro: "Multilingual work is closely tied to datasets and evaluation."
+    areas:
+      - title: "Datasets"
+        url: "research-datasets.html"
+      - title: "Evaluation"
+        url: "research-evaluation.html"
+      - title: "Model Training"
+        url: "research-model-training.html"
+
+datasets:
+  overview:
+    title: "Data as research infrastructure"
+    intro: "Dataset research studies the corpora, documentation, filtering, and data practices that shape language models."
+    paragraphs:
+      - "This area includes dataset construction, data documentation, contamination analysis, filtering interventions, licensing, and the role of public corpora in reproducible model science."
+  projects:
+    title: "Projects connected to Datasets"
+    intro: "These projects make training and evaluation data easier to study."
+    items:
+      - title: "The Pile"
+        text: "A large public language modeling dataset that supported early open language model research."
+      - title: "Common Pile"
+        text: "A public-domain and openly licensed corpus for language model training."
+      - title: "Data filtering"
+        text: "Research on how filtering and attribution change model behavior before deployment."
+  related:
+    title: "Related areas"
+    intro: "Dataset work supports model training, multilingual research, and safety interventions."
+    areas:
+      - title: "Model Training"
+        url: "research-model-training.html"
+      - title: "Multilingual"
+        url: "research-multilingual.html"
+      - title: "Open Weight Safety"
+        url: "research-open-weight-safety.html"
+      - title: "Training Dynamics"
+        url: "research-training-dynamics.html"
+
+circuits:
+  overview:
+    title: "Mechanisms inside models"
+    intro: "Circuits research studies the internal features, representations, and computations that give rise to model behavior."
+    paragraphs:
+      - "This area includes mechanistic interpretability, feature analysis, sparse autoencoders, probes, attribution graphs, and analyses of how mechanisms change across scale and training."
+  projects:
+    title: "Projects connected to Circuits"
+    intro: "These projects study internal model mechanisms and representations."
+    items:
+      - title: "Circuit analysis"
+        text: "Work on identifying and comparing mechanisms inside language models."
+      - title: "Sparse autoencoders"
+        text: "Research on feature discovery, interpretation, and evaluation for model internals."
+  related:
+    title: "Related areas"
+    intro: "Circuits work connects to training dynamics, data attribution, and safety."
+    areas:
+      - title: "Training Dynamics"
+        url: "research-training-dynamics.html"
+      - title: "Data Attribution"
+        url: "research-data-attribution.html"
+      - title: "Behavioral Safety"
+        url: "research-behavioral-safety.html"
+
+data_attribution:
+  overview:
+    title: "Connecting data to behavior"
+    intro: "Data Attribution studies how training examples, datasets, and data interventions influence model internals and downstream behavior."
+    paragraphs:
+      - "This area includes influence methods, attribution over training data, intervention design, and analyses that connect learned mechanisms to the data that produced them."
+  projects:
+    title: "Projects connected to Data Attribution"
+    intro: "These projects focus on data-to-behavior connections."
+    items:
+      - title: "Concept influence"
+        text: "Work on using interpretability to understand and improve data attribution."
+      - title: "Misalignment attribution"
+        text: "Research on using attribution to understand and mitigate unwanted behavior."
+  related:
+    title: "Related areas"
+    intro: "Data attribution sits between interpretability, datasets, and safety."
+    areas:
+      - title: "Circuits"
+        url: "research-circuits.html"
+      - title: "Datasets"
+        url: "research-datasets.html"
+      - title: "Open Weight Safety"
+        url: "research-open-weight-safety.html"
+
+open_weight_safety:
+  overview:
+    title: "Safety for inspectable and reusable models"
+    intro: "Open Weight Safety studies safeguards, risks, and interventions for models whose weights can be inspected, modified, fine-tuned, or redeployed."
+    paragraphs:
+      - "This area includes safety interventions before and during training, analysis of open-weight risks, tamper resistance, model release considerations, and public-interest governance questions."
+  projects:
+    title: "Projects connected to Open Weight Safety"
+    intro: "These projects study risks and safeguards for openly available systems."
+    items:
+      - title: "Deep Ignorance"
+        text: "Pretraining data filtering as a way to build durable safeguards into open-weight models."
+      - title: "Open safety evaluations"
+        text: "Evaluation and red-teaming work aimed at understanding risks in reusable models."
+  related:
+    title: "Related areas"
+    intro: "Open-weight safety connects to data, model training, and behavioral safety."
+    areas:
+      - title: "Behavioral Safety"
+        url: "research-behavioral-safety.html"
+      - title: "Datasets"
+        url: "research-datasets.html"
+      - title: "Model Training"
+        url: "research-model-training.html"
+
+behavioral_safety:
+  overview:
+    title: "Failures and interventions in model behavior"
+    intro: "Behavioral Safety studies how models behave in safety-relevant settings, how those behaviors are evaluated, and how interventions change them."
+    paragraphs:
+      - "This area includes misalignment, reward hacking, red-teaming, post-training behavior, pragmatic understanding, and evaluations of deployment-relevant failures."
+  projects:
+    title: "Projects connected to Behavioral Safety"
+    intro: "These projects focus on model behavior and safety-relevant evaluation."
+    items:
+      - title: "Reward hacking"
+        text: "Work on identifying and measuring ways models exploit objective or verifier failures."
+      - title: "Misalignment interventions"
+        text: "Research on how training and data choices shape unwanted model behavior."
+  related:
+    title: "Related areas"
+    intro: "Behavioral safety connects to open-weight safety, evaluation, and training dynamics."
+    areas:
+      - title: "Open Weight Safety"
+        url: "research-open-weight-safety.html"
+      - title: "Evaluation"
+        url: "research-evaluation.html"
+      - title: "Training Dynamics"
+        url: "research-training-dynamics.html"
+
+other_modalities:
+  overview:
+    title: "Beyond text-only language modeling"
+    intro: "Other Modalities covers EleutherAI research in multimodal, scientific, and non-text-only settings."
+    paragraphs:
+      - "This area includes work on vision, biology, audio, multimodal generation, and other settings where open model research extends beyond standard text-only language modeling."
+  projects:
+    title: "Projects connected to Other Modalities"
+    intro: "These projects extend open model research into adjacent domains."
+    items:
+      - title: "OpenFold"
+        text: "Protein-structure work connected to open scientific machine learning."
+      - title: "Multimodal research"
+        text: "Research and collaborations involving image, audio, biology, and other modalities."
+  related:
+    title: "Related areas"
+    intro: "Other modalities often connect back to datasets, evaluation, and model training."
+    areas:
+      - title: "Datasets"
+        url: "research-datasets.html"
+      - title: "Evaluation"
+        url: "research-evaluation.html"
+      - title: "Model Training"
+        url: "research-model-training.html"
+
+privacy_and_security:
+  overview:
+    title: "Privacy, security, and misuse-relevant risks"
+    intro: "Privacy and Security studies leakage, memorization, red-teaming, security evaluations, and risks that matter for public model access."
+    paragraphs:
+      - "This area includes privacy risks in training data, test-set contamination, security-relevant evaluations, safe-harbor work, and analyses of how models may expose or amplify sensitive information."
+  projects:
+    title: "Projects connected to Privacy and Security"
+    intro: "These projects study privacy and security risks around model development and evaluation."
+    items:
+      - title: "Memorization research"
+        text: "Work on when and how models memorize, reconstruct, or expose training data."
+      - title: "Evaluation and red-teaming"
+        text: "Work on measuring security-relevant failures and supporting good-faith safety testing."
+  related:
+    title: "Related areas"
+    intro: "Privacy and security connects to datasets, evaluation, and open-weight safety."
+    areas:
+      - title: "Datasets"
+        url: "research-datasets.html"
+      - title: "Evaluation"
+        url: "research-evaluation.html"
+      - title: "Open Weight Safety"
+        url: "research-open-weight-safety.html"

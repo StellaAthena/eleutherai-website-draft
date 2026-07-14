@@ -1,0 +1,11 @@
+Area Key,Broad Areas,Include Terms,Exclude Terms
+model_training,NLP,"model training;pretrain;pre-training;pretrained;training;scale;scaling;gpt;pythia;neox;architecture",
+evaluation,"NLP;Ethics and Policy","eval;benchmark;bench;test set;leaderboard;measure;metric;assessment",
+multilingual,NLP,"multilingual;bilingual;code-mixed;korean;indonesian;script;summarization",
+datasets,NLP,"dataset;datasets;data;corpus;pile;common pile;roots;filter;filtering;contamination;crawl",
+circuits,Interpretability,"circuit;circuits;sae;sparse autoencoder;feature;features;activation;activations;mechanistic;probe;probing;attribution graph",
+data_attribution,"Interpretability;Alignment;NLP","attribution;influence",
+open_weight_safety,"Alignment;Security;Ethics and Policy","open-weight;open weight;safeguard;safeguards;safety;dangerous;tamper;filtering;ignorance;misalignment",
+behavioral_safety,"Alignment;Ethics and Policy","behavior;behaviour;reward;red team;red-team;safety;alignment;misalignment;mode collapse;pragmatic",
+other_modalities,Other Modalities,,
+privacy_and_security,"Security;Ethics and Policy;NLP","privacy;security;memorization;memorisation;contamination;red team;red-team;safe harbor",
