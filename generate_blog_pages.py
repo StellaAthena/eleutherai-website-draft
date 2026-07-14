@@ -264,7 +264,6 @@ def write_article(post: dict) -> None:
       <div class="wrap article-wrap">
         <a class="back-link" href="../blog.html">Back to blog</a>
         <header class="article-header">
-          <div class="eyebrow">Blog</div>
           <h1>{escape(post["title"])}</h1>
           <p class="article-dek">{escape(post["description"])}</p>
           <div class="article-meta">
@@ -287,8 +286,8 @@ def write_index(posts: list[dict]) -> None:
     recent = posts[3:18]
     featured_html = "\n".join(
         f"""          <article class="card blog-card">
-            <div class="meta"><span>{escape(post["date_label"])}</span></div>
             <h3>{escape(post["title"])}</h3>
+            <p class="item-meta">{escape(post["date_label"])}</p>
             <p>{escape(post["description"])}</p>
             <a class="link" href="blog/{post["slug"]}.html">Read post -></a>
           </article>"""
@@ -296,19 +295,17 @@ def write_index(posts: list[dict]) -> None:
     )
     recent_html = "\n".join(
         f"""          <article class="artifact-row">
-            <div class="label">{escape(post["date_label"])}</div>
             <div>
               <h3><a href="blog/{post["slug"]}.html">{escape(post["title"])}</a></h3>
+              <p class="item-meta">{escape(post["date_label"])} · {escape(post["authors"].split(",")[0])}</p>
               <p>{escape(post["description"])}</p>
             </div>
-            <div class="kind">{escape(post["authors"].split(",")[0])}</div>
           </article>"""
         for post in recent
     )
     body = f"""  <main>
     <section class="hero">
       <div class="wrap">
-        <div class="eyebrow">Blog</div>
         <h1>Research notes, announcements, and technical essays.</h1>
         <p class="lede">Long-form technical notes, release announcements, and essays from EleutherAI researchers and collaborators.</p>
       </div>
@@ -318,7 +315,6 @@ def write_index(posts: list[dict]) -> None:
       <div class="wrap">
         <div class="section-head">
           <div>
-            <span class="section-kicker">Featured</span>
             <h2>Latest posts</h2>
           </div>
           <p class="section-intro">Research notes, release writeups, policy commentary, and community updates from EleutherAI researchers and collaborators.</p>
@@ -333,7 +329,6 @@ def write_index(posts: list[dict]) -> None:
       <div class="wrap">
         <div class="section-head">
           <div>
-            <span class="section-kicker">Archive</span>
             <h2>Recent archive</h2>
           </div>
           <p class="section-intro">Browse recent posts from the EleutherAI archive, including research notes, release writeups, policy commentary, and community updates.</p>

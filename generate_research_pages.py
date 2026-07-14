@@ -93,17 +93,19 @@ def clean_link(link):
 
 
 def render_paper(row, config):
-    tags = "".join(f'<span class="tag">{html.escape(tag)}</span>' for tag in config["tags"])
+    meta = " · ".join(
+        value
+        for value in (display_year(row), display_venue(row, config))
+        if value
+    )
     return "\n".join(
         [
             '            <article class="paper-entry">',
-            f'              <div class="label">{html.escape(display_year(row))}</div>',
             "              <div>",
             f"                <h3>{render_title(row)}</h3>",
+            f'                <p class="paper-meta">{html.escape(meta)}</p>',
             f'                <p>{html.escape(config["summary"])}</p>',
-            f'                <div class="tag-list">{tags}</div>',
             "              </div>",
-            f'              <div class="kind">{html.escape(display_venue(row, config))}</div>',
             "            </article>",
         ]
     )
@@ -136,9 +138,10 @@ def render_homepage_paper(row, is_open=False):
     lines = [
         f'          <details class="publication-item"{ " open" if is_open else "" }>',
         "            <summary>",
-        f'              <span class="publication-date">{html.escape(display_full_date(date))}</span>',
-        f'              <span class="publication-title">{title_html}</span>',
-        f'              <span class="publication-venue">{html.escape(venue)}</span>',
+        "              <span>",
+        f'                <span class="publication-title">{title_html}</span>',
+        f'                <span class="publication-meta">{html.escape(display_full_date(date))} · {html.escape(venue)}</span>',
+        "              </span>",
         "            </summary>",
     ]
     if meta:

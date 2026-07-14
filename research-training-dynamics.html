@@ -93,24 +93,6 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .eyebrow,
-    .meta,
-    .label,
-    .kind,
-    .metric-label,
-    .section-kicker,
-    .facet {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-    }
-
-    .eyebrow {
-      margin-bottom: 18px;
-      color: var(--green);
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
     h1, h2, h3, p { margin-top: 0; }
 
     h1 {
@@ -170,15 +152,6 @@
       margin-bottom: 28px;
     }
 
-    .section-kicker {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--gold);
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
     h2 {
       margin-bottom: 0;
       color: var(--ink);
@@ -189,7 +162,7 @@
 
     .section-intro {
       max-width: 760px;
-      padding-top: 30px;
+      padding-top: 0;
       margin-bottom: 0;
       color: var(--body);
       font-size: 1.02rem;
@@ -227,37 +200,10 @@
     }
 
     .metric {
-      display: grid;
-      grid-template-columns: 92px minmax(0, 1fr);
-      gap: 12px;
+      margin: 0;
       padding: 11px;
-      background: #0c1118;
-    }
-
-    .metric-label {
-      color: var(--blue);
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .metric-value {
       color: var(--body);
-      font-size: 0.88rem;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tag {
-      padding: 5px 8px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      color: var(--body);
-      font-size: 0.84rem;
+      font-size: 0.9rem;
       background: #0c1118;
     }
 
@@ -410,16 +356,10 @@
 
     .artifact-row {
       display: grid;
-      grid-template-columns: 150px minmax(0, 1fr) 150px;
-      gap: 26px;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 8px;
       padding: 20px 0;
       border-bottom: 1px solid var(--line-soft);
-    }
-
-    .label {
-      color: var(--green);
-      font-size: 0.84rem;
-      font-weight: 700;
     }
 
     .artifact-row h3 {
@@ -464,27 +404,6 @@
       color: var(--ink);
       font-weight: 700;
       line-height: 1.35;
-    }
-
-    .secondary-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .secondary-tags span {
-      padding: 3px 6px;
-      border: 1px solid var(--line-soft);
-      border-radius: 4px;
-      color: var(--muted);
-      font-size: 0.74rem;
-    }
-
-    .kind {
-      color: var(--muted);
-      font-size: 0.78rem;
-      text-align: right;
-      text-transform: uppercase;
     }
 
     .project-grid {
@@ -539,8 +458,8 @@
 
     .paper-entry {
       display: grid;
-      grid-template-columns: 110px minmax(0, 1fr) 210px;
-      gap: 26px;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 8px;
       padding: 22px 0;
       border-bottom: 1px solid var(--line-soft);
     }
@@ -556,10 +475,6 @@
       margin-bottom: 12px;
       color: var(--body);
       font-size: 0.94rem;
-    }
-
-    .paper-entry .tag-list {
-      margin-top: 2px;
     }
 
     .related-actions {
@@ -658,8 +573,6 @@
         gap: 8px;
       }
 
-      .kind { text-align: left; }
-
       .question-grid,
       .project-grid,
       .latest-grid,
@@ -668,9 +581,6 @@
         grid-template-columns: 1fr;
       }
 
-      .paper-entry .kind {
-        grid-column: auto;
-      }
     }
   </style>
 </head>
@@ -730,7 +640,6 @@
     <div class="page-grid">
       <main>
         <section class="hero" aria-labelledby="page-title">
-          <div class="eyebrow">Research Area</div>
           <h1 id="page-title">Training Dynamics</h1>
           <p class="lede">We study how models change over training, and why those changes matter for evaluation, interpretability, safety, and open model development.</p>
           <div class="button-row">
@@ -742,7 +651,6 @@
         <section class="section" id="overview" aria-labelledby="overview-title">
           <div class="section-head">
             <div>
-              <span class="section-kicker">Overview</span>
               <h2 id="overview-title">Training as an object of study</h2>
             </div>
             <p class="section-intro">Understanding a model means understanding the process that produced it: the data, optimization, scale, architecture, and intermediate states that shape its behavior.</p>
@@ -757,25 +665,21 @@
         <section class="section" id="projects" aria-labelledby="projects-title">
           <div class="section-head">
             <div>
-              <span class="section-kicker">Highlighted Projects</span>
               <h2 id="projects-title">Projects connected to Training Dynamics</h2>
             </div>
             <p class="section-intro">These projects provide the model suites, repeated runs, data interventions, and evaluation views that make model development easier to study.</p>
           </div>
           <div class="project-grid">
             <article class="project-card featured-project">
-              <div class="meta"><span>Model suite</span><span>Core project</span></div>
               <h3>Pythia</h3>
               <p>A suite of checkpoints designed to make model development over training observable and comparable across scales.</p>
               <a class="link" href="project-pythia.html">View project -></a>
             </article>
             <article class="project-card">
-              <div class="meta"><span>Stability</span><span>Repeated runs</span></div>
               <h3>PolyPythias</h3>
               <p>A family of repeated pretraining runs for studying stability, outliers, and variance across nominally similar training processes.</p>
             </article>
             <article class="project-card">
-              <div class="meta"><span>Data</span><span>Safety</span></div>
               <h3>Pretraining interventions</h3>
               <p>Work on data filtering, attribution, and other interventions that change model behavior before deployment-time fixes are needed.</p>
             </article>
@@ -785,7 +689,6 @@
         <section class="section" id="questions" aria-labelledby="question-title">
           <div class="section-head">
             <div>
-              <span class="section-kicker">Research Questions</span>
               <h2 id="question-title">What questions organize this area?</h2>
             </div>
             <p class="section-intro">Training dynamics connects empirical measurements to questions about when and why model behavior changes.</p>
@@ -809,137 +712,109 @@
         <section class="section" id="directions" aria-labelledby="directions-title">
           <div class="section-head">
             <div>
-              <span class="section-kicker">Research Directions</span>
               <h2 id="directions-title">How this work clusters</h2>
             </div>
             <p class="section-intro">Papers are grouped by the research question they primarily address.</p>
           </div>
           <div class="artifact-table">
             <article class="artifact-row">
-              <div class="label">Infrastructure</div>
               <div>
                 <h3>Research infrastructure</h3>
                 <p>Shared model suites, benchmark views, and experimental scaffolding that make training trajectories observable.</p>
                 <ul class="paper-list">
                   <li>
                     <span class="paper-title">Pythia</span>
-                    <span class="secondary-tags"><span>Mechanisms Over Training</span></span>
                   </li>
                   <li>
                     <span class="paper-title">PolyPythias</span>
-                    <span class="secondary-tags"><span>Stability Across Runs</span><span>Mechanisms Over Training</span></span>
                   </li>
                   <li>
                     <span class="paper-title">Benchmark Disaggregation Improves Interpretability of Training Dynamics</span>
-                    <span class="secondary-tags"><span>Mechanisms Over Training</span></span>
                   </li>
                 </ul>
               </div>
-              <div class="kind">3 papers</div>
             </article>
             <article class="artifact-row">
-              <div class="label">Prediction</div>
               <div>
                 <h3>Predicting model behaviors</h3>
                 <p>Work on when model behaviors appear, whether they can be forecast from scale or training state, and what makes those predictions reliable.</p>
                 <ul class="paper-list">
                   <li>
                     <span class="paper-title">Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?</span>
-                    <span class="secondary-tags"><span>Research Infrastructure</span><span>Mechanisms Over Training</span></span>
                   </li>
                   <li>
                     <span class="paper-title">Emergent and Predictable Memorization in Large Language Models</span>
-                    <span class="secondary-tags"><span>Data</span><span>Mechanisms Over Training</span></span>
                   </li>
                 </ul>
               </div>
-              <div class="kind">2 papers</div>
             </article>
             <article class="artifact-row">
-              <div class="label">Mechanisms</div>
               <div>
                 <h3>Mechanisms over training</h3>
                 <p>Analyses of representations, circuits, memorization mechanisms, reasoning, and model structure as they change during training.</p>
                 <ul class="paper-list">
                   <li>
                     <span class="paper-title">Recite, Reconstruct, Recollect: Memorization in LMs as a Multifaceted Phenomenon</span>
-                    <span class="secondary-tags"><span>Data</span></span>
                   </li>
                   <li>
                     <span class="paper-title">LLM Circuit Analyses Are Consistent Across Training and Scale</span>
-                    <span class="secondary-tags"><span>Research Infrastructure</span></span>
                   </li>
                   <li>
                     <span class="paper-title">Slowing Learning by Erasing Simple Features</span>
-                    <span class="secondary-tags"><span>Data</span></span>
                   </li>
                   <li>
                     <span class="paper-title">Examining Two Hop Reasoning Through Information Content Scaling</span>
-                    <span class="secondary-tags"><span>Research Infrastructure</span></span>
                   </li>
                   <li>
                     <span class="paper-title">OpenFold: Retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization</span>
-                    <span class="secondary-tags"><span>Research Infrastructure</span></span>
                   </li>
                   <li>
                     <span class="paper-title">On the Acquisition of Shared Grammatical Representations in Bilingual Language Models</span>
-                    <span class="secondary-tags"><span>Data</span></span>
                   </li>
                   <li>
                     <span class="paper-title">Language Model Shape Shapes Behavior</span>
                   </li>
                 </ul>
               </div>
-              <div class="kind">7 papers</div>
             </article>
             <article class="artifact-row">
-              <div class="label">Safety</div>
               <div>
                 <h3>Safety interventions</h3>
                 <p>Data and training interventions that aim to change harmful capabilities or misalignment before they become final model behavior.</p>
                 <ul class="paper-list">
                   <li>
                     <span class="paper-title">Mitigating Emergent Misalignment with Data Attribution</span>
-                    <span class="secondary-tags"><span>Data</span><span>Fine-Tuning Dynamics</span></span>
                   </li>
                   <li>
                     <span class="paper-title">Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs</span>
-                    <span class="secondary-tags"><span>Data</span><span>Fine-Tuning Dynamics</span></span>
                   </li>
                 </ul>
               </div>
-              <div class="kind">2 papers</div>
             </article>
             <article class="artifact-row">
-              <div class="label">Fine-tuning</div>
               <div>
                 <h3>Fine-tuning dynamics</h3>
                 <p>Studies of how adaptation choices change model behavior after pretraining.</p>
                 <ul class="paper-list">
                   <li>
                     <span class="paper-title">The Goldilocks of Pragmatic Understanding</span>
-                    <span class="secondary-tags"><span>Mechanisms Over Training</span></span>
                   </li>
                   <li>
                     <span class="paper-title">Attributing Mode Collapse in the Fine-Tuning of Large Language Models</span>
                   </li>
                 </ul>
               </div>
-              <div class="kind">2 papers</div>
             </article>
             <article class="artifact-row">
-              <div class="label">Field-building</div>
               <div>
                 <h3>Framing the area</h3>
                 <p>Work that argues for training dynamics as a necessary object of study.</p>
                 <ul class="paper-list">
                   <li>
                     <span class="paper-title">Position: Don't Just "Fix it in Post"</span>
-                    <span class="secondary-tags"><span>Training Dynamics framing</span></span>
                   </li>
                 </ul>
               </div>
-              <div class="kind">1 paper</div>
             </article>
           </div>
         </section>
@@ -947,7 +822,6 @@
         <section class="section" id="featured" aria-labelledby="featured-title">
           <div class="section-head">
             <div>
-              <span class="section-kicker">Featured Work</span>
               <h2 id="featured-title">A science of model development</h2>
             </div>
             <p class="section-intro">A selected paper that captures the current framing of the research area.</p>
@@ -957,7 +831,6 @@
               <div class="ticks"><span>step 0</span><span>step 32k</span><span>step 64k</span><span>step 96k</span></div>
             </div>
             <div>
-              <div class="meta"><span>Paper</span><span>ICML 2026</span><span>Featured</span></div>
               <h3>Position: Don't Just "Fix it in Post" - A Science of AI Must Study Learning Dynamics</h3>
               <p>This paper argues that understanding AI systems requires studying the training process itself, rather than treating final model behavior as the only object of analysis.</p>
               <a class="link" href="#papers">Read paper -></a>
@@ -968,24 +841,20 @@
         <section class="section" id="latest" aria-labelledby="latest-title">
           <div class="section-head">
             <div>
-              <span class="section-kicker">Latest</span>
               <h2 id="latest-title">Latest in this area</h2>
             </div>
             <p class="section-intro">Recent papers and updates connected to this research area.</p>
           </div>
           <div class="latest-grid">
             <article class="update-card">
-              <div class="meta"><span>Paper</span><span>2026</span></div>
               <h3>A Science of AI Must Study Training Dynamics</h3>
               <p>A position paper foregrounding training as a central object of study for AI science.</p>
             </article>
             <article class="update-card">
-              <div class="meta"><span>Safety</span><span>2025</span></div>
               <h3>Deep Ignorance</h3>
               <p>Pretraining data filtering as a way to build more durable safeguards into open-weight models.</p>
             </article>
             <article class="update-card">
-              <div class="meta"><span>Infrastructure</span><span>ICLR 2025</span></div>
               <h3>PolyPythias</h3>
               <p>Repeated training runs for studying stability and outliers in language model pretraining.</p>
             </article>
@@ -995,156 +864,123 @@
         <section class="section" id="papers" aria-labelledby="papers-title">
           <div class="section-head">
             <div>
-              <span class="section-kicker">Papers</span>
               <h2 id="papers-title">Papers</h2>
             </div>
-            <p class="section-intro">Papers in this research area, listed newest first and tagged by their primary editorial section.</p>
+            <p class="section-intro">Papers in this research area, listed newest first.</p>
           </div>
           <div class="artifact-table">
             <!-- AUTO-GENERATED:PAPERS:START -->
             <article class="paper-entry">
-              <div class="label">2026</div>
               <div>
                 <h3>Position: Don't Just "Fix it in Post'': A Science of AI Must Study Learning Dynamics</h3>
+                <p class="paper-meta">2026 · ICML Oral</p>
                 <p>Training dynamics framing for a science of AI systems.</p>
-                <div class="tag-list"><span class="tag">Other Research / Field-Building</span><span class="tag">Training Dynamics framing</span></div>
               </div>
-              <div class="kind">ICML Oral</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2026</div>
               <div>
                 <h3><a href="https://arxiv.org/abs/2508.06601">Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs</a></h3>
+                <p class="paper-meta">2026 · ICLR</p>
                 <p>Data filtering as a safety intervention before model behavior is fixed in post-training.</p>
-                <div class="tag-list"><span class="tag">Safety Interventions</span><span class="tag">Data</span><span class="tag">Fine-Tuning Dynamics</span></div>
               </div>
-              <div class="kind">ICLR</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2025</div>
               <div>
                 <h3><a href="https://openreview.net/forum?id=gN7pWmjiQW">Mitigating Emergent Misalignment with Data Attribution</a></h3>
+                <p class="paper-meta">2025 · Preprint</p>
                 <p>Data attribution as a route to understanding and intervening on misalignment during adaptation.</p>
-                <div class="tag-list"><span class="tag">Safety Interventions</span><span class="tag">Data</span><span class="tag">Fine-Tuning Dynamics</span></div>
               </div>
-              <div class="kind">Preprint</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2025</div>
               <div>
                 <h3><a href="https://arxiv.org/abs/2510.24934">Benchmark Disaggregation Improves Interpretability of Training Dynamics</a></h3>
+                <p class="paper-meta">2025 · Workshop</p>
                 <p>Benchmark views that make aggregate evaluation results easier to interpret over training.</p>
-                <div class="tag-list"><span class="tag">Research Infrastructure</span><span class="tag">Mechanisms Over Training</span></div>
               </div>
-              <div class="kind">Workshop</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2025</div>
               <div>
                 <h3><a href="https://arxiv.org/abs/2503.03962">On the Acquisition of Shared Grammatical Representations in Bilingual Language Models</a></h3>
+                <p class="paper-meta">2025 · ACL</p>
                 <p>How shared linguistic representations emerge across training.</p>
-                <div class="tag-list"><span class="tag">Mechanisms Over Training</span><span class="tag">Data</span></div>
               </div>
-              <div class="kind">ACL</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2025</div>
               <div>
                 <h3><a href="https://arxiv.org/abs/2406.04391">Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?</a></h3>
+                <p class="paper-meta">2025 · ICML</p>
                 <p>Forecasting model behaviors from scale and evaluation signals.</p>
-                <div class="tag-list"><span class="tag">Predicting Model Behaviors</span><span class="tag">Research Infrastructure</span><span class="tag">Mechanisms Over Training</span></div>
               </div>
-              <div class="kind">ICML</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2025</div>
               <div>
                 <h3><a href="https://arxiv.org/abs/2406.17746">Recite, Reconstruct, Recollect: Memorization in LMs as a Multifaceted Phenomenon</a></h3>
+                <p class="paper-meta">2025 · ICLR</p>
                 <p>Memorization as a set of related but distinct behaviors over training.</p>
-                <div class="tag-list"><span class="tag">Mechanisms Over Training</span><span class="tag">Data</span></div>
               </div>
-              <div class="kind">ICLR</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2025</div>
               <div>
                 <h3><a href="https://arxiv.org/abs/2503.09543">PolyPythias: Stability and Outliers across Fifty Language Model Pre-Training Runs</a></h3>
+                <p class="paper-meta">2025 · ICLR</p>
                 <p>Repeated language model pretraining runs for studying stability and outliers.</p>
-                <div class="tag-list"><span class="tag">Research Infrastructure</span><span class="tag">Stability Across Runs</span><span class="tag">Mechanisms Over Training</span></div>
               </div>
-              <div class="kind">ICLR</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2025</div>
               <div>
                 <h3><a href="https://arxiv.org/abs/2502.03490">Examining Two Hop Reasoning Through Information Content Scaling</a></h3>
+                <p class="paper-meta">2025 · arXiv</p>
                 <p>Reasoning behavior studied through scaling and information content.</p>
-                <div class="tag-list"><span class="tag">Mechanisms Over Training</span><span class="tag">Research Infrastructure</span></div>
               </div>
-              <div class="kind">arXiv</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2025</div>
               <div>
                 <h3><a href="https://arxiv.org/pdf/2502.02820">Slowing Learning by Erasing Simple Features</a></h3>
+                <p class="paper-meta">2025 · arXiv</p>
                 <p>Data and feature interventions that change the speed and path of learning.</p>
-                <div class="tag-list"><span class="tag">Mechanisms Over Training</span><span class="tag">Data</span></div>
               </div>
-              <div class="kind">arXiv</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2024</div>
               <div>
                 <h3><a href="https://arxiv.org/abs/2407.10827">LLM Circuit Analyses Are Consistent Across Training and Scale</a></h3>
+                <p class="paper-meta">2024 · NeurIPS</p>
                 <p>Circuit analysis across model checkpoints and scales.</p>
-                <div class="tag-list"><span class="tag">Mechanisms Over Training</span><span class="tag">Research Infrastructure</span></div>
               </div>
-              <div class="kind">NeurIPS</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2024</div>
               <div>
                 <h3><a href="https://www.biorxiv.org/content/10.1101/2022.11.20.517210v3">OpenFold: Retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization</a></h3>
+                <p class="paper-meta">2024 · Nature Methods</p>
                 <p>Retraining as a way to understand learning mechanisms and generalization.</p>
-                <div class="tag-list"><span class="tag">Mechanisms Over Training</span><span class="tag">Research Infrastructure</span></div>
               </div>
-              <div class="kind">Nature Methods</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2024</div>
               <div>
                 <h3><a href="https://openreview.net/forum?id=3pDMYjpOxk">Attributing Mode Collapse in the fine-tuning of Large Language Models</a></h3>
+                <p class="paper-meta">2024 · Workshop</p>
                 <p>Analysis of how fine-tuning can change or collapse model behavior.</p>
-                <div class="tag-list"><span class="tag">Fine-Tuning Dynamics</span></div>
               </div>
-              <div class="kind">Workshop</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2023</div>
               <div>
                 <h3><a href="https://arxiv.org/abs/2210.14986">The Goldilocks of Pragmatic Understanding: Fine-Tuning Strategy Matters for Implicature Resolution by LLMs</a></h3>
+                <p class="paper-meta">2023 · NeurIPS</p>
                 <p>Fine-tuning strategy and pragmatic understanding in language models.</p>
-                <div class="tag-list"><span class="tag">Fine-Tuning Dynamics</span><span class="tag">Mechanisms Over Training</span></div>
               </div>
-              <div class="kind">NeurIPS</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2023</div>
               <div>
                 <h3><a href="https://arxiv.org/abs/2304.11158">Emergent and Predictable Memorization in Large Language Models</a></h3>
+                <p class="paper-meta">2023 · NeurIPS</p>
                 <p>Research on how memorization develops and can be measured during training.</p>
-                <div class="tag-list"><span class="tag">Predicting Model Behaviors</span><span class="tag">Data</span><span class="tag">Mechanisms Over Training</span></div>
               </div>
-              <div class="kind">NeurIPS</div>
             </article>
             <article class="paper-entry">
-              <div class="label">2023</div>
               <div>
                 <h3><a href="https://dl.acm.org/doi/10.5555/3618408.3618510">Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling</a></h3>
+                <p class="paper-meta">2023 · ICML Oral</p>
                 <p>A model suite for studying training trajectories across scales and checkpoints.</p>
-                <div class="tag-list"><span class="tag">Research Infrastructure</span><span class="tag">Mechanisms Over Training</span></div>
               </div>
-              <div class="kind">ICML Oral</div>
             </article>
           <!-- AUTO-GENERATED:PAPERS:END -->
           </div>
@@ -1153,7 +989,6 @@
         <section class="section" id="related" aria-labelledby="related-title">
           <div class="section-head">
             <div>
-              <span class="section-kicker">Next</span>
               <h2 id="related-title">Related areas and collaboration</h2>
             </div>
             <p class="section-intro">Further paths for readers who want to move from this area into neighboring work or get involved.</p>
@@ -1161,12 +996,7 @@
           <div class="related-actions">
             <article class="cta-panel">
               <h3>Related areas</h3>
-              <div class="tag-list">
-                <a class="tag" href="research.html#nlp">Evaluation</a>
-                <a class="tag" href="research.html#nlp">Model Training</a>
-                <a class="tag" href="research.html#nlp">Datasets</a>
-                <a class="tag" href="research.html#interpretability">Data Attribution</a>
-              </div>
+              <p><a class="link" href="research.html#nlp">Evaluation</a>, <a class="link" href="research.html#nlp">Model Training</a>, <a class="link" href="research.html#nlp">Datasets</a>, and <a class="link" href="research.html#interpretability">Data Attribution</a>.</p>
             </article>
             <article class="cta-panel">
               <h3>Collaborate</h3>
