@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 import csv
 import json
+import sys
 from datetime import datetime
 from pathlib import Path
-from urllib.parse import urlsplit, urlunsplit
+from urllib.error import URLError
+from urllib.parse import urlencode, urlsplit, urlunsplit
+from urllib.request import urlopen
 
 
 ROOT = Path(__file__).resolve().parent
@@ -12,6 +15,10 @@ AREA_PAPERS_CSV = ROOT / "research_area_papers.csv"
 AREA_FILTERS_CSV = ROOT / "research_area_filters.csv"
 OUTPUT_DIR = ROOT / "data" / "research"
 HOMEPAGE_PAPER_LIMIT = 10
+PAPERS_SHEET_CSV_URL = (
+    "https://docs.google.com/spreadsheets/d/"
+    "14amb2CM9nVQR_-ZqpGuNPSSdMxsAk0YEoAvetgEyGRw/export?format=csv&gid=2053751678"
+)
 
 
 def parse_date(value):
@@ -86,6 +93,28 @@ def display_venue(row, config):
 def read_papers():
     with PAPERS_CSV.open(newline="", encoding="utf-8") as f:
         return list(csv.DictReader(f))
+
+
+def refresh_papers_csv(require_refresh=True):
+    if not require_refresh:
+        print("Using local papers CSV snapshot")
+        return
+
+    cache_buster = urlencode({"t": datetime.now().timestamp()})
+    url = f"{PAPERS_SHEET_CSV_URL}&{cache_buster}"
+    try:
+        with urlopen(url, timeout=30) as response:
+            text = response.read().decode("utf-8")
+    except (OSError, URLError) as exc:
+        raise SystemExit(f"Could not refresh Google Sheet CSV: {exc}") from exc
+
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    header = text.splitlines()[0] if text.splitlines() else ""
+    if "Sort Date" not in header or "Title" not in header:
+        raise SystemExit("Google Sheet export did not look like the papers CSV.")
+
+    PAPERS_CSV.write_text(text, encoding="utf-8")
+    print("Refreshed papers CSV from Google Sheets")
 
 
 def read_area_configs(area):
@@ -228,6 +257,8 @@ def write_json(name, data):
 
 
 def main():
+    offline = "--offline" in sys.argv[1:]
+    refresh_papers_csv(require_refresh=not offline)
     rows = read_papers()
     papers = all_papers(rows)
     per_area = area_papers(rows)
