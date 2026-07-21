@@ -1,0 +1,57 @@
+{{ define "main" }}
+  {{ $area := index .Site.Data.areas .Params.area_key }}
+  <section class="page-hero center">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Params.subtitle }}</p>
+  </section>
+
+  {{ with $area.projects }}
+    {{ if gt (len .) 0 }}
+      <section class="page-section">
+        <h2>Current Projects</h2>
+        <div class="card-grid three">
+          {{ range . }}
+            {{ partial "summary-card.html" . }}
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+
+  {{ with $area.releases }}
+    <section class="page-section">
+      <h2>Releases</h2>
+      <div class="summary-list compact">
+        {{ range $name := . }}
+          {{ range $.Site.Data.releases.items }}
+            {{ if eq .title $name }}
+              {{ partial "summary-row.html" (dict "title" .title "meta" .type "url" .url "text" .text) }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+
+  <section class="page-section">
+    <h2>{{ if eq .Title "Interpretability" }}Publications{{ else }}Papers{{ end }}</h2>
+    <div class="summary-list">
+      {{ $terms := .Params.paper_terms }}
+      {{ $shown := 0 }}
+      {{ range .Site.Data.research.papers }}
+        {{ $haystack := print .title " " .details }}
+        {{ $matches := false }}
+        {{ range $terms }}
+          {{ if in $haystack . }}{{ $matches = true }}{{ end }}
+        {{ end }}
+        {{ if $matches }}
+          {{ $shown = add $shown 1 }}
+          {{ partial "paper-row.html" . }}
+        {{ end }}
+      {{ end }}
+      {{ if eq $shown 0 }}
+        <p>No papers are currently tagged for this area.</p>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

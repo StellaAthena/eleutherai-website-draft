@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <section class="page-hero center">
+    <h1>{{ .Title }}</h1>
+  </section>
+  <section class="page-section">
+    <div class="people-grid">
+      {{ range .Site.Data.staff.staff }}
+        {{ partial "person-card.html" . }}
+      {{ end }}
+    </div>
+  </section>
+  <section class="page-section">
+    <h2>Community Research Leads</h2>
+    <div class="people-grid leads">
+      {{ range .Site.Data.staff.community_research_leads }}
+        {{ partial "person-card.html" . }}
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

@@ -1,0 +1,14 @@
+{{ $url := .url }}
+<article class="summary-card">
+  {{ with .image }}
+    <a class="summary-image" href="{{ $url | safeURL }}">
+      <img src="{{ . }}" alt="{{ $.title }}">
+    </a>
+  {{ end }}
+  <div class="summary-card-body">
+    {{ with .meta }}<p class="summary-meta">{{ . }}</p>{{ end }}
+    <h3><a href="{{ $url | safeURL }}">{{ .title }}</a></h3>
+    {{ with .text }}<p>{{ . }}</p>{{ end }}
+    {{ with .excerpt }}<p>{{ . }}</p>{{ end }}
+  </div>
+</article>

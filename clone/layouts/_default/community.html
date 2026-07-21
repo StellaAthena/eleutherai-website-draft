@@ -1,0 +1,30 @@
+{{ define "main" }}
+  <section class="page-hero center">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Params.lede }}</p>
+    <a class="button" href="https://discord.gg/zBGx3azzUn" target="_blank" rel="noopener">Join us on Discord today!</a>
+  </section>
+  <section class="text-page">
+    <div class="rich-text">
+      {{ .Content }}
+    </div>
+    <img class="community-map" src="{{ .Site.Data.community.map.image }}" alt="Map of the EleutherAI community">
+  </section>
+  <section class="page-section">
+    <h2>Community-Led Research Projects</h2>
+    <p class="section-intro">EleutherAI has empowered research on a diverse array of topics, ranging from developing new architectures to efficient low-resource training to interpretability research.</p>
+    <div class="card-grid four">
+      {{ range .Site.Data.community.projects }}
+        {{ partial "summary-card.html" . }}
+      {{ end }}
+    </div>
+  </section>
+  <section class="page-section">
+    <h2>Meet Our Community</h2>
+    <div class="card-grid two">
+      {{ range .Site.Data.community.people }}
+        {{ partial "summary-card.html" . }}
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

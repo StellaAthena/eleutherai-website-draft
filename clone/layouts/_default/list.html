@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <section class="page-hero center">
+    <h1>{{ .Title }}</h1>
+  </section>
+  <section class="page-section">
+    <div class="summary-list compact">
+      {{ range .Pages }}
+        {{ partial "summary-row.html" (dict "title" .Title "url" .RelPermalink) }}
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

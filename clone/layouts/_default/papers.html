@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <section class="page-hero center">
+    <h1>{{ .Title }}</h1>
+  </section>
+  <section class="page-section">
+    <div class="summary-list">
+      {{ range .Site.Data.research.papers }}
+        {{ partial "paper-row.html" . }}
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

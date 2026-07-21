@@ -1,0 +1,9 @@
+<article class="person-card">
+  {{ if .image }}
+    <img src="{{ .image }}" alt="{{ .name }}">
+  {{ else }}
+    <div class="person-placeholder" aria-hidden="true">{{ substr .name 0 1 }}</div>
+  {{ end }}
+  <h3>{{ .name }}</h3>
+  <p>{{ .role }}</p>
+</article>

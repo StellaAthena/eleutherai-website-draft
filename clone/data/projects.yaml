@@ -1,0 +1,48 @@
+interpreting_across_time:
+  releases:
+    - title: "Pythia"
+      date: "13 February 2023"
+      url: "https://github.com/EleutherAI/pythia"
+      text: "A suite of models designed to enable controlled scientific research on transparently trained LLMs."
+  papers:
+    - "Neural networks learn moments of increasing order"
+    - "Emergent and Predictable Memorization in Large Language Models"
+    - "Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling"
+  links:
+    - label: "The Pythia project page on GitHub"
+      url: "https://github.com/EleutherAI/pythia"
+elk:
+  releases:
+    - title: "tuned-lens"
+      date: "5 February 2023"
+      url: "https://github.com/norabelrose/tuned-lens"
+      text: "A library implementing the Tuned Lens, along with other tools for extracting, manipulating, and studying the learned representations of transformers across layers."
+  papers:
+    - "Eliciting Language Model Behaviors using Reverse Language Models"
+    - "LEACE: Perfect linear concept erasure in closed form"
+    - "Eliciting Latent Predictions from Transformers with the Tuned Lens"
+training_large_language_models:
+  releases:
+    - title: "trlX"
+      date: "9 December 2023"
+      url: "https://github.com/CarperAI/trlx"
+      text: "A repo for distributed training of language models with Reinforcement Learning via Human Feedback."
+    - title: "GPT-NeoX"
+      date: "18 January 2022"
+      url: "https://github.com/EleutherAI/gpt-neox"
+      text: "A library for efficiently training large language models with tens of billions of parameters in a multimachine distributed context."
+    - title: "LM Eval Harness"
+      date: "13 May 2021"
+      url: "https://github.com/EleutherAI/lm-evaluation-harness"
+      text: "Our library for reproducible and transparent evaluation of LLMs."
+    - title: "Mesh Transformer Jax"
+      date: "1 May 2021"
+      url: "https://github.com/kingoflolz/mesh-transformer-jax"
+      text: "A JAX and TPU-based library developed by Ben Wang. The library has been used to train GPT-J."
+  papers:
+    - "Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling"
+    - "GPT-NeoX-20B: An Open-Source Autoregressive Language Model"
+    - "The Pile: An 800GB Dataset of Diverse Text for Language Modeling"
+  links:
+    - label: "Transformer Math 101"
+      url: "https://blog.eleuther.ai/transformer-math/"

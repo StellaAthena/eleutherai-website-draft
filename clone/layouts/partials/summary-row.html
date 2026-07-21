@@ -1,0 +1,17 @@
+{{ $url := .url }}
+<article class="summary-row">
+  <div>
+    {{ with .meta }}<p class="summary-meta">{{ . }}</p>{{ end }}
+    {{ with .date }}<p class="summary-meta">{{ . }}</p>{{ end }}
+    <h3>
+      {{ if $url }}
+        <a href="{{ $url | safeURL }}"{{ if hasPrefix $url "http" }} target="_blank" rel="noopener"{{ end }}>{{ .title }}</a>
+      {{ else }}
+        {{ .title }}
+      {{ end }}
+    </h3>
+    {{ with .text }}<p>{{ . }}</p>{{ end }}
+    {{ with .excerpt }}<p>{{ . }}</p>{{ end }}
+    {{ with .details }}<p class="details">{{ . }}</p>{{ end }}
+  </div>
+</article>

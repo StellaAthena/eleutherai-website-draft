@@ -1,0 +1,50 @@
+language_modeling:
+  projects:
+    - title: "Training LLMs"
+      url: "/projects/training-large-language-models"
+      image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1672374945813-2MYK0BWCRTEGHAS17G18/gpt-neox.png"
+    - title: "Evaluating LLMs"
+      url: "https://www.eleuther.ai/projects/large-language-model-evaluation"
+      image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1672376128800-YZEJ75S4JGFZA16HY51X/Lord_Parfington_a_hero_squad_of_engineers_and_maintenance_worke_9f42f782-4fb0-4b77-9d84-f2fcc17686ef.png"
+    - title: "Polyglot"
+      url: "https://www.eleuther.ai/projects/polyglot"
+      image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1672375445319-3BJJZ7SX4GAVO4KP4TSA/003018.2772097535.png"
+  releases:
+    - "trlX"
+    - "Proof-Pile-2"
+    - "LLeMA"
+    - "OpenWebMath"
+    - "Pythia"
+    - "Polyglot-Ko"
+interpretability:
+  projects:
+    - title: "Interpreting Across Time"
+      url: "/projects/interpreting-across-time"
+      image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1676148799085-8HKZQ4S2WT23SXQ9LWWY/interpret-across-time.jpeg"
+    - title: "Eliciting Latent Knowledge"
+      url: "/projects/elk"
+      image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1672375347709-Q7V80U1D7D45WQP6ZA1U/003150.2613265820.png"
+  releases:
+    - "Pythia"
+    - "tuned-lens"
+alignment:
+  projects:
+    - title: "Eliciting Latent Knowledge"
+      url: "/projects/elk"
+      image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1672375347709-Q7V80U1D7D45WQP6ZA1U/003150.2613265820.png"
+    - title: "Alignment MineTest"
+      url: "https://www.eleuther.ai/projects/alignment-minetest"
+      image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1676149147001-EUAN3I6R4Q7HULO0JQ6P/alignment-minetest.jpeg"
+    - title: "Mesaoptimization"
+      url: "https://www.eleuther.ai/projects/mesaoptimization"
+      image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1676312038911-4727C2SHQ3ZAITAZAVQ9/2909945802_A_robot_takes_a_polygraph_test.png"
+  releases:
+    - "trlX"
+    - "tuned-lens"
+other_modalities:
+  projects: []
+  releases:
+    - "SD Upscaler"
+    - "OpenFold"
+    - "Simulacra Aesthetic Captions"
+    - "VQGAN-CLIP"

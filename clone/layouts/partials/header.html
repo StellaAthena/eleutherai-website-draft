@@ -1,0 +1,28 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="{{ "/" | relURL }}" aria-label="EleutherAI home">
+      <img src="{{ .Site.Data.site.logo_full }}" alt="EleutherAI">
+    </a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <div class="nav-folder">
+        <a href="{{ "/about" | relURL }}">About</a>
+        <div class="nav-dropdown">
+          <a href="{{ "/community" | relURL }}">Community</a>
+          <a href="{{ "/staff" | relURL }}">Staff</a>
+        </div>
+      </div>
+      <div class="nav-folder">
+        <a href="{{ "/research" | relURL }}">Research</a>
+        <div class="nav-dropdown">
+          <a href="{{ "/language-modeling" | relURL }}">Language Modeling</a>
+          <a href="{{ "/interpretability" | relURL }}">Interpretability</a>
+          <a href="{{ "/alignment" | relURL }}">Alignment</a>
+          <a href="{{ "/other-modalities" | relURL }}">Other Modalities</a>
+        </div>
+      </div>
+      <a href="{{ "/papers" | relURL }}">Papers</a>
+      <a href="{{ "/releases" | relURL }}">Releases</a>
+      <a href="https://blog.eleuther.ai">Blog</a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <section class="page-hero">
+    <p>{{ .Content }}</p>
+  </section>
+  <section class="page-section research-index">
+    {{ range .Site.Data.research_overview.areas }}
+      <article class="research-index-row">
+        <h2><a href="{{ .url | relURL }}">{{ .title }}</a></h2>
+        <p>{{ .text }}</p>
+      </article>
+    {{ end }}
+  </section>
+{{ end }}

@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <section class="page-hero">
+    <h1>{{ .Title }}</h1>
+  </section>
+  <section class="text-page">
+    <div class="rich-text">
+      {{ .Content }}
+    </div>
+  </section>
+  <section class="page-section support-section">
+    <h2>Support EleutherAI</h2>
+    <p>{{ .Site.Data.support.intro }}</p>
+    <div class="donor-list">
+      {{ range .Site.Data.support.donors }}
+        <span>{{ . }}</span>
+      {{ end }}
+    </div>
+    <p>{{ .Site.Data.support.contact }}</p>
+  </section>
+{{ end }}

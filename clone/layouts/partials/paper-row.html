@@ -1,0 +1,18 @@
+<article class="summary-row paper-row">
+  <div>
+    <p class="summary-meta">{{ .date }}{{ with .venue }} - {{ . }}{{ end }}</p>
+    <h3>
+      {{ if .url }}
+        <a href="{{ .url | safeURL }}" target="_blank" rel="noopener">{{ .title }}</a>
+      {{ else }}
+        {{ .title }}
+      {{ end }}
+    </h3>
+    {{ with .superlatives }}
+      <div class="badges">
+        {{ range . }}<span>{{ . }}</span>{{ end }}
+      </div>
+    {{ end }}
+    {{ with .details }}<p class="details">{{ . }}</p>{{ end }}
+  </div>
+</article>

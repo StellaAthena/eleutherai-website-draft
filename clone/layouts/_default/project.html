@@ -1,0 +1,50 @@
+{{ define "main" }}
+  {{ $project := index .Site.Data.projects .Params.project_key }}
+  <section class="page-hero center project-hero">
+    <h1>{{ .Title }}</h1>
+  </section>
+  <section class="text-page">
+    <div class="rich-text">
+      {{ .Content }}
+    </div>
+  </section>
+  {{ with $project.releases }}
+    <section class="page-section">
+      <h2>Releases</h2>
+      <div class="summary-list compact">
+        {{ range . }}
+          {{ partial "summary-row.html" (dict "title" .title "date" .date "url" .url "text" .text) }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+  {{ with $project.papers }}
+    <section class="page-section">
+      <h2>Papers</h2>
+      <div class="summary-list compact">
+        {{ range $title := . }}
+          {{ $found := false }}
+          {{ range $.Site.Data.research.papers }}
+            {{ if eq .title $title }}
+              {{ $found = true }}
+              {{ partial "paper-row.html" . }}
+            {{ end }}
+          {{ end }}
+          {{ if not $found }}
+            {{ partial "summary-row.html" (dict "title" $title) }}
+          {{ end }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+  {{ with $project.links }}
+    <section class="page-section">
+      <h2>External links</h2>
+      <div class="summary-list compact">
+        {{ range . }}
+          {{ partial "summary-row.html" (dict "title" .label "url" .url) }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+{{ end }}
