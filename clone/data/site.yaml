@@ -28,4 +28,4 @@ footer_nav:
   - label: "Releases"
     url: "/releases"
   - label: "Blog"
-    url: "https://blog.eleuther.ai"
+    url: "/blog.html"

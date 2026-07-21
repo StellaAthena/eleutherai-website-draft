@@ -4,30 +4,34 @@
     <h1>EleutherAI</h1>
   </section>
 
-  <section class="page-section">
-    <h2>Explore our research</h2>
-    <div class="card-grid three">
-      {{ range .Site.Data.home.projects }}
-        {{ partial "summary-card.html" . }}
-      {{ end }}
-    </div>
-  </section>
+  <section class="home-main">
+    <div class="home-primary">
+      <div class="home-block">
+        <h2>Explore our research</h2>
+        <div class="card-grid three">
+          {{ range .Site.Data.home.projects }}
+            {{ partial "summary-card.html" . }}
+          {{ end }}
+        </div>
+      </div>
 
-  <section class="page-section">
-    <h2>Recent Publications</h2>
-    <div class="summary-list">
-      {{ range first 5 .Site.Data.research.homepage_papers }}
-        {{ partial "paper-row.html" . }}
-      {{ end }}
+      <div class="home-block">
+        <h2>Recent Publications</h2>
+        <div class="summary-list">
+          {{ range first 5 .Site.Data.research.homepage_papers }}
+            {{ partial "paper-row.html" . }}
+          {{ end }}
+        </div>
+      </div>
     </div>
-  </section>
 
-  <section class="page-section">
-    <h2>News</h2>
-    <div class="summary-list compact">
-      {{ range .Site.Data.home.news }}
-        {{ partial "summary-row.html" . }}
-      {{ end }}
-    </div>
+    <aside class="news-sidebar" aria-labelledby="home-news-heading">
+      <h2 id="home-news-heading">News</h2>
+      <div class="summary-list compact">
+        {{ range .Site.Data.home.news }}
+          {{ partial "summary-row.html" . }}
+        {{ end }}
+      </div>
+    </aside>
   </section>
 {{ end }}

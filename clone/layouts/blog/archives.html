@@ -1,0 +1,27 @@
+{{ define "main" }}
+  {{ $posts := where site.RegularPages "Section" "blog" }}
+  {{ $posts = $posts.ByDate.Reverse }}
+
+  <section class="page-hero center">
+    <h1>Blog</h1>
+    <p>Research notes, announcements, and technical essays from EleutherAI researchers and collaborators.</p>
+  </section>
+
+  <section class="page-section blog-index">
+    <div class="summary-list">
+      {{ range $posts }}
+        {{ $author := "EleutherAI" }}
+        {{ with .Params.author }}
+          {{ if reflect.IsSlice . }}{{ $author = delimit . ", " }}{{ else }}{{ $author = . }}{{ end }}
+        {{ end }}
+        <article class="summary-row blog-row">
+          <div>
+            <p class="summary-meta">{{ .Date.Format "January 2, 2006" }} · {{ $author }}</p>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            <p>{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 220 }}{{ end }}</p>
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

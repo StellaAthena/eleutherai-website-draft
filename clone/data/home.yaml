@@ -20,7 +20,7 @@ news:
     url: "https://www.eleuther.ai/soar"
   - title: "Common Pile v0.1"
     date: "15 June 2025"
-    url: "https://blog.eleuther.ai/common-pile/"
+    url: "/blog/common-pile/"
   - title: "EvalEval Coallition"
     date: "12 June 2025"
     url: "https://evaleval.github.io/"

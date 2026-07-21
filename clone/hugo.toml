@@ -13,8 +13,14 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
     source = "content"
     target = "content"
   [[module.mounts]]
+    source = "../content-blog"
+    target = "content/blog"
+  [[module.mounts]]
     source = "layouts"
     target = "layouts"
+  [[module.mounts]]
+    source = "../layouts/shortcodes"
+    target = "layouts/shortcodes"
   [[module.mounts]]
     source = "data"
     target = "data"
@@ -27,3 +33,6 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
   [[module.mounts]]
     source = "../assets/eleutherai-logo.svg"
     target = "static/assets/eleutherai-logo.svg"
+  [[module.mounts]]
+    source = "../assets/blog"
+    target = "static/images/blog"

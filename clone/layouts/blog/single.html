@@ -1,0 +1,29 @@
+{{ define "main" }}
+  {{ $author := "EleutherAI" }}
+  {{ with .Params.author }}
+    {{ if reflect.IsSlice . }}{{ $author = delimit . ", " }}{{ else }}{{ $author = . }}{{ end }}
+  {{ end }}
+
+  <article class="blog-article">
+    <a class="back-link" href="{{ "/blog.html" | relURL }}">Back to blog</a>
+    <header class="article-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.description }}<p class="article-dek">{{ . }}</p>{{ end }}
+      <div class="article-meta">
+        <span>{{ .Date.Format "January 2, 2006" }}</span>
+        <span>{{ $author }}</span>
+      </div>
+    </header>
+
+    {{ with .Params.cover.image }}
+      <figure class="article-cover">
+        <img src="{{ . }}" alt="{{ $.Params.cover.alt | default $.Title }}">
+        {{ with $.Params.cover.caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+      </figure>
+    {{ end }}
+
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}
