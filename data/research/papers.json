@@ -1,15 +1,5 @@
 [
   {
-    "title": "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems",
-    "url": "https://arxiv.org/abs/2603.00131",
-    "date": "2026",
-    "date_sort": "2026-07-11",
-    "venue": "arXiv",
-    "venue_year": "2026",
-    "group_sort_date": "2026-07-11",
-    "superlatives": []
-  },
-  {
     "title": "Who Evaluates AI's Social Impacts? Mapping Coverage and Gaps in First and Third Party Evaluations",
     "url": "https://arxiv.org/abs/2511.05613",
     "date": "2026",
@@ -102,46 +92,6 @@
     "superlatives": []
   },
   {
-    "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
-    "url": "",
-    "date": "2026",
-    "date_sort": "2026-06-12",
-    "venue": "arXiv",
-    "venue_year": "2026",
-    "group_sort_date": "2026-06-12",
-    "superlatives": []
-  },
-  {
-    "title": "LoRA-Muon: Spectral Steepest Descent on the Low-Rank Manifold",
-    "url": "https://arxiv.org/abs/2606.12921",
-    "date": "2026",
-    "date_sort": "2026-06-11",
-    "venue": "arXiv",
-    "venue_year": "2026",
-    "group_sort_date": "2026-06-11",
-    "superlatives": []
-  },
-  {
-    "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
-    "url": "https://arxiv.org/abs/2606.09809",
-    "date": "2026",
-    "date_sort": "2026-06-08",
-    "venue": "arXiv",
-    "venue_year": "2026",
-    "group_sort_date": "2026-06-08",
-    "superlatives": []
-  },
-  {
-    "title": "Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs",
-    "url": "https://arxiv.org/abs/2605.09063",
-    "date": "2026",
-    "date_sort": "2026-05-09",
-    "venue": "arXiv",
-    "venue_year": "2026",
-    "group_sort_date": "2026-05-09",
-    "superlatives": []
-  },
-  {
     "title": "Sparse Autoencoders Trained on the Same Data Learn Different Features",
     "url": "https://arxiv.org/abs/2501.16615",
     "date": "2026",
@@ -174,13 +124,63 @@
     ]
   },
   {
+    "title": "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems",
+    "url": "https://arxiv.org/abs/2603.00131",
+    "date": "2026",
+    "date_sort": "2026-07-11",
+    "venue": "arXiv",
+    "venue_year": "2026",
+    "group_sort_date": "2026-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-06-12",
+    "venue": "arXiv",
+    "venue_year": "2026",
+    "group_sort_date": "2026-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "LoRA-Muon: Spectral Steepest Descent on the Low-Rank Manifold",
+    "url": "https://arxiv.org/abs/2606.12921",
+    "date": "2026",
+    "date_sort": "2026-06-11",
+    "venue": "arXiv",
+    "venue_year": "2026",
+    "group_sort_date": "2026-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
+    "url": "https://arxiv.org/abs/2606.09809",
+    "date": "2026",
+    "date_sort": "2026-06-08",
+    "venue": "arXiv",
+    "venue_year": "2026",
+    "group_sort_date": "2026-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs",
+    "url": "https://arxiv.org/abs/2605.09063",
+    "date": "2026",
+    "date_sort": "2026-05-09",
+    "venue": "arXiv",
+    "venue_year": "2026",
+    "group_sort_date": "2026-01-01",
+    "superlatives": []
+  },
+  {
     "title": "How Open Must Language Models be to Enable Reliable Scientific Inference?",
     "url": "https://arxiv.org/abs/2603.26539",
     "date": "2026",
     "date_sort": "2026-03-27",
     "venue": "arXiv",
     "venue_year": "2026",
-    "group_sort_date": "2026-03-27",
+    "group_sort_date": "2026-01-01",
     "superlatives": []
   },
   {
@@ -190,7 +190,7 @@
     "date_sort": "2026-02-16",
     "venue": "arXiv",
     "venue_year": "2026",
-    "group_sort_date": "2026-02-16",
+    "group_sort_date": "2026-01-01",
     "superlatives": []
   },
   {
@@ -200,7 +200,7 @@
     "date_sort": "2026-02-06",
     "venue": "arXiv",
     "venue_year": "2026",
-    "group_sort_date": "2026-02-06",
+    "group_sort_date": "2026-01-01",
     "superlatives": []
   },
   {
@@ -210,17 +210,7 @@
     "date_sort": "2026-01-07",
     "venue": "arXiv",
     "venue_year": "2026",
-    "group_sort_date": "2026-01-07",
-    "superlatives": []
-  },
-  {
-    "title": "Mitigating Emergent Misalignment with Data Attribution",
-    "url": "https://openreview.net/forum?id=gN7pWmjiQW",
-    "date": "2025",
-    "date_sort": "2025-12-07",
-    "venue": "arXiv",
-    "venue_year": "2025",
-    "group_sort_date": "2025-12-07",
+    "group_sort_date": "2026-01-01",
     "superlatives": []
   },
   {
@@ -284,36 +274,6 @@
     "superlatives": []
   },
   {
-    "title": "Video Deepfake Abuse: How Company Choices Predictably Shape Misuse Patterns",
-    "url": "https://arxiv.org/abs/2512.11815",
-    "date": "2025",
-    "date_sort": "2025-11-25",
-    "venue": "arXiv",
-    "venue_year": "2025",
-    "group_sort_date": "2025-11-25",
-    "superlatives": []
-  },
-  {
-    "title": "Who Measures What Matters? An Analysis of Social Impact Evaluations in Foundation Model Reporting",
-    "url": "https://arxiv.org/abs/2511.05613",
-    "date": "2025",
-    "date_sort": "2025-11-06",
-    "venue": "arXiv",
-    "venue_year": "2025",
-    "group_sort_date": "2025-11-06",
-    "superlatives": []
-  },
-  {
-    "title": "Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures",
-    "url": "https://arxiv.org/abs/2510.24081",
-    "date": "2025",
-    "date_sort": "2025-10-25",
-    "venue": "arXiv",
-    "venue_year": "2025",
-    "group_sort_date": "2025-10-25",
-    "superlatives": []
-  },
-  {
     "title": "RWKV-7 \"Goose\" with Expressive Dynamic State Evolution",
     "url": "https://arxiv.org/abs/2503.14456",
     "date": "2025",
@@ -361,16 +321,6 @@
     "venue": "ACL",
     "venue_year": "2025",
     "group_sort_date": "2025-07-27",
-    "superlatives": []
-  },
-  {
-    "title": "Position: Write Code that People Want to Use",
-    "url": "",
-    "date": "2025",
-    "date_sort": "2025-07-18",
-    "venue": "arXiv",
-    "venue_year": "2025",
-    "group_sort_date": "2025-07-18",
     "superlatives": []
   },
   {
@@ -424,16 +374,6 @@
     "superlatives": [
       "Best paper @ Tokenizer Workshop"
     ]
-  },
-  {
-    "title": "When AI Co-Scientists Fail: SPOT—a Benchmark for Automated Verification of Scientific Research",
-    "url": "https://arxiv.org/abs/2505.11855",
-    "date": "2025",
-    "date_sort": "2025-05-17",
-    "venue": "arXiv",
-    "venue_year": "2025",
-    "group_sort_date": "2025-05-17",
-    "superlatives": []
   },
   {
     "title": "The BiGGen Bench: A Principled Benchmark for Fine-grained Evaluation of Language Models with Language Models",
@@ -506,36 +446,6 @@
     "superlatives": []
   },
   {
-    "title": "Mechanistic Anomaly Detection for \"Quirky\" Language Models",
-    "url": "https://arxiv.org/abs/2504.08812",
-    "date": "2025",
-    "date_sort": "2025-04-09",
-    "venue": "arXiv",
-    "venue_year": "2025",
-    "group_sort_date": "2025-04-09",
-    "superlatives": []
-  },
-  {
-    "title": "Estimating the Probability of Sampling a Trained Neural Network at Random",
-    "url": "https://arxiv.org/abs/2501.18812",
-    "date": "2025",
-    "date_sort": "2025-04-08",
-    "venue": "arXiv",
-    "venue_year": "2025",
-    "group_sort_date": "2025-04-08",
-    "superlatives": []
-  },
-  {
-    "title": "Examining Two Hop Reasoning Through Information Content Scaling",
-    "url": "https://arxiv.org/abs/2502.03490",
-    "date": "2025",
-    "date_sort": "2025-03-21",
-    "venue": "arXiv",
-    "venue_year": "2025",
-    "group_sort_date": "2025-03-21",
-    "superlatives": []
-  },
-  {
     "title": "Does Transformer Interpretability Transfer to RNNs?",
     "url": "https://arxiv.org/abs/2404.05971",
     "date": "2025",
@@ -546,13 +456,103 @@
     "superlatives": []
   },
   {
+    "title": "Mitigating Emergent Misalignment with Data Attribution",
+    "url": "https://openreview.net/forum?id=gN7pWmjiQW",
+    "date": "2025",
+    "date_sort": "2025-12-07",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Video Deepfake Abuse: How Company Choices Predictably Shape Misuse Patterns",
+    "url": "https://arxiv.org/abs/2512.11815",
+    "date": "2025",
+    "date_sort": "2025-11-25",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Who Measures What Matters? An Analysis of Social Impact Evaluations in Foundation Model Reporting",
+    "url": "https://arxiv.org/abs/2511.05613",
+    "date": "2025",
+    "date_sort": "2025-11-06",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures",
+    "url": "https://arxiv.org/abs/2510.24081",
+    "date": "2025",
+    "date_sort": "2025-10-25",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Position: Write Code that People Want to Use",
+    "url": "",
+    "date": "2025",
+    "date_sort": "2025-07-18",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "When AI Co-Scientists Fail: SPOT—a Benchmark for Automated Verification of Scientific Research",
+    "url": "https://arxiv.org/abs/2505.11855",
+    "date": "2025",
+    "date_sort": "2025-05-17",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Mechanistic Anomaly Detection for \"Quirky\" Language Models",
+    "url": "https://arxiv.org/abs/2504.08812",
+    "date": "2025",
+    "date_sort": "2025-04-09",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Estimating the Probability of Sampling a Trained Neural Network at Random",
+    "url": "https://arxiv.org/abs/2501.18812",
+    "date": "2025",
+    "date_sort": "2025-04-08",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Examining Two Hop Reasoning Through Information Content Scaling",
+    "url": "https://arxiv.org/abs/2502.03490",
+    "date": "2025",
+    "date_sort": "2025-03-21",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-01-01",
+    "superlatives": []
+  },
+  {
     "title": "Transcoders Beat Sparse Autoencoders for Interpretability",
     "url": "https://arxiv.org/abs/2501.18823",
     "date": "2025",
     "date_sort": "2025-02-12",
     "venue": "arXiv",
     "venue_year": "2025",
-    "group_sort_date": "2025-02-12",
+    "group_sort_date": "2025-01-01",
     "superlatives": []
   },
   {
@@ -562,7 +562,7 @@
     "date_sort": "2025-02-05",
     "venue": "arXiv",
     "venue_year": "2025",
-    "group_sort_date": "2025-02-05",
+    "group_sort_date": "2025-01-01",
     "superlatives": []
   },
   {
@@ -572,7 +572,7 @@
     "date_sort": "2025-02-03",
     "venue": "arXiv",
     "venue_year": "2025",
-    "group_sort_date": "2025-02-03",
+    "group_sort_date": "2025-01-01",
     "superlatives": []
   },
   {
@@ -582,7 +582,7 @@
     "date_sort": "2025-01-31",
     "venue": "arXiv",
     "venue_year": "2025",
-    "group_sort_date": "2025-01-31",
+    "group_sort_date": "2025-01-01",
     "superlatives": []
   },
   {
@@ -592,7 +592,7 @@
     "date_sort": "2025-01-30",
     "venue": "arXiv",
     "venue_year": "2025",
-    "group_sort_date": "2025-01-30",
+    "group_sort_date": "2025-01-01",
     "superlatives": []
   },
   {
@@ -602,7 +602,7 @@
     "date_sort": "2025-01-14",
     "venue": "arXiv",
     "venue_year": "2025",
-    "group_sort_date": "2025-01-14",
+    "group_sort_date": "2025-01-01",
     "superlatives": []
   },
   {
@@ -656,16 +656,6 @@
     "superlatives": []
   },
   {
-    "title": "Refusal in LLMs is an Affine Function",
-    "url": "https://arxiv.org/abs/2411.09003",
-    "date": "2024",
-    "date_sort": "2024-11-13",
-    "venue": "arXiv",
-    "venue_year": "2024",
-    "group_sort_date": "2024-11-13",
-    "superlatives": []
-  },
-  {
     "title": "Re-Evaluating Evaluation for Multilingual Summarization",
     "url": "https://aclanthology.org/2024.emnlp-main.1085.pdf",
     "date": "2024",
@@ -673,26 +663,6 @@
     "venue": "EMNLP",
     "venue_year": "2024",
     "group_sort_date": "2024-11-12",
-    "superlatives": []
-  },
-  {
-    "title": "Lina-Speech: Gated Linear Attention is a Fast and Parameter-Efficient Learner for text-to-speech synthesis",
-    "url": "https://arxiv.org/abs/2410.23320",
-    "date": "2024",
-    "date_sort": "2024-10-30",
-    "venue": "arXiv",
-    "venue_year": "2024",
-    "group_sort_date": "2024-10-30",
-    "superlatives": []
-  },
-  {
-    "title": "Balancing Label Quantity and Quality for Scalable Elicitation",
-    "url": "https://arxiv.org/abs/2410.13215",
-    "date": "2024",
-    "date_sort": "2024-10-22",
-    "venue": "arXiv",
-    "venue_year": "2024",
-    "group_sort_date": "2024-10-22",
     "superlatives": []
   },
   {
@@ -743,26 +713,6 @@
     "venue": "ACL",
     "venue_year": "2024",
     "group_sort_date": "2024-08-01",
-    "superlatives": []
-  },
-  {
-    "title": "Cold Compress: A Toolkit for Benchmarking KV Cache Compression Approaches",
-    "url": "https://github.com/AnswerDotAI/cold-compress",
-    "date": "2024",
-    "date_sort": "2024-08-01",
-    "venue": "arXiv",
-    "venue_year": "2024",
-    "group_sort_date": "2024-08-01",
-    "superlatives": []
-  },
-  {
-    "title": "Self-Directed Synthetic Dialogues and Revisions Technical Report",
-    "url": "https://arxiv.org/abs/2407.18421",
-    "date": "2024",
-    "date_sort": "2024-07-25",
-    "venue": "arXiv",
-    "venue_year": "2024",
-    "group_sort_date": "2024-07-25",
     "superlatives": []
   },
   {
@@ -830,16 +780,6 @@
     ]
   },
   {
-    "title": "GoldFinch: High Performance RWKV/Transformer Hybrid with Linear Pre-Fill and Extreme KV-Cache Compression",
-    "url": "https://arxiv.org/pdf/2407.12077",
-    "date": "2024",
-    "date_sort": "2024-07-16",
-    "venue": "arXiv",
-    "venue_year": "2024",
-    "group_sort_date": "2024-07-16",
-    "superlatives": []
-  },
-  {
     "title": "Improving Black-box Robustness with In-Context Rewriting",
     "url": "https://arxiv.org/abs/2402.08225",
     "date": "2024",
@@ -857,16 +797,6 @@
     "venue": "TMLR",
     "venue_year": "2024",
     "group_sort_date": "2024-06-07",
-    "superlatives": []
-  },
-  {
-    "title": "Lessons from the Trenches on Reproducible Evaluation of Language Models",
-    "url": "https://arxiv.org/abs/2405.14782",
-    "date": "2024",
-    "date_sort": "2024-05-23",
-    "venue": "arXiv",
-    "venue_year": "2024",
-    "group_sort_date": "2024-05-23",
     "superlatives": []
   },
   {
@@ -970,13 +900,83 @@
     "superlatives": []
   },
   {
+    "title": "Refusal in LLMs is an Affine Function",
+    "url": "https://arxiv.org/abs/2411.09003",
+    "date": "2024",
+    "date_sort": "2024-11-13",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Lina-Speech: Gated Linear Attention is a Fast and Parameter-Efficient Learner for text-to-speech synthesis",
+    "url": "https://arxiv.org/abs/2410.23320",
+    "date": "2024",
+    "date_sort": "2024-10-30",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Balancing Label Quantity and Quality for Scalable Elicitation",
+    "url": "https://arxiv.org/abs/2410.13215",
+    "date": "2024",
+    "date_sort": "2024-10-22",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Cold Compress: A Toolkit for Benchmarking KV Cache Compression Approaches",
+    "url": "https://github.com/AnswerDotAI/cold-compress",
+    "date": "2024",
+    "date_sort": "2024-08-01",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Self-Directed Synthetic Dialogues and Revisions Technical Report",
+    "url": "https://arxiv.org/abs/2407.18421",
+    "date": "2024",
+    "date_sort": "2024-07-25",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "GoldFinch: High Performance RWKV/Transformer Hybrid with Linear Pre-Fill and Extreme KV-Cache Compression",
+    "url": "https://arxiv.org/pdf/2407.12077",
+    "date": "2024",
+    "date_sort": "2024-07-16",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Lessons from the Trenches on Reproducible Evaluation of Language Models",
+    "url": "https://arxiv.org/abs/2405.14782",
+    "date": "2024",
+    "date_sort": "2024-05-23",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-01-01",
+    "superlatives": []
+  },
+  {
     "title": "Suppressing Pink Elephants with Direct Principle Feedback",
     "url": "https://arxiv.org/abs/2402.07896",
     "date": "2024",
     "date_sort": "2024-02-12",
     "venue": "arXiv",
     "venue_year": "2024",
-    "group_sort_date": "2024-02-12",
+    "group_sort_date": "2024-01-01",
     "superlatives": []
   },
   {
@@ -1104,16 +1104,6 @@
     "superlatives": []
   },
   {
-    "title": "Representation Engineering: A Top-Down Approach to AI Transparency",
-    "url": "https://arxiv.org/abs/2310.01405",
-    "date": "2023",
-    "date_sort": "2023-10-02",
-    "venue": "arXiv",
-    "venue_year": "2023",
-    "group_sort_date": "2023-10-02",
-    "superlatives": []
-  },
-  {
     "title": "Reclaiming the Digital Commons: A Public Data Trust for Training Data",
     "url": "https://dl.acm.org/doi/10.1145/3600211.3604658",
     "date": "2023",
@@ -1176,16 +1166,6 @@
     "superlatives": []
   },
   {
-    "title": "Challenges and Applications of Large Language Models",
-    "url": "https://arxiv.org/abs/2307.10169",
-    "date": "2023",
-    "date_sort": "2023-07-19",
-    "venue": "arXiv",
-    "venue_year": "2023",
-    "group_sort_date": "2023-07-19",
-    "superlatives": []
-  },
-  {
     "title": "GAIA Search: Hugging Face and Pyserini Interoperability for NLP Training Data Exploration",
     "url": "https://aclanthology.org/2023.acl-demo.57/",
     "date": "2023",
@@ -1216,16 +1196,6 @@
     "superlatives": []
   },
   {
-    "title": "A Technical Report for Polyglot-Ko: Open-Source Large-Scale Korean Language Models",
-    "url": "https://arxiv.org/abs/2306.02254",
-    "date": "2023",
-    "date_sort": "2023-06-06",
-    "venue": "arXiv",
-    "venue_year": "2023",
-    "group_sort_date": "2023-06-06",
-    "superlatives": []
-  },
-  {
     "title": "Role-Play with Large Language Models",
     "url": "https://arxiv.org/abs/2305.16367",
     "date": "2023",
@@ -1233,26 +1203,6 @@
     "venue": "Nature",
     "venue_year": "2023",
     "group_sort_date": "2023-05-25",
-    "superlatives": []
-  },
-  {
-    "title": "Can Transformers Learn to Solve Problems Recursively?",
-    "url": "https://arxiv.org/abs/2305.14699",
-    "date": "2023",
-    "date_sort": "2023-05-24",
-    "venue": "arXiv",
-    "venue_year": "2023",
-    "group_sort_date": "2023-05-24",
-    "superlatives": []
-  },
-  {
-    "title": "Eliciting latent predictions from transformers with the tuned lens",
-    "url": "https://arxiv.org/abs/2303.08112",
-    "date": "2023",
-    "date_sort": "2023-05-14",
-    "venue": "arXiv",
-    "venue_year": "2023",
-    "group_sort_date": "2023-05-14",
     "superlatives": []
   },
   {
@@ -1266,16 +1216,6 @@
     "superlatives": []
   },
   {
-    "title": "ProofNet: Autoformalizing and Formally Proving Undergraduate-Level Mathematics",
-    "url": "https://arxiv.org/abs/2302.12433",
-    "date": "2023",
-    "date_sort": "2023-02-24",
-    "venue": "arXiv",
-    "venue_year": "2023",
-    "group_sort_date": "2023-02-24",
-    "superlatives": []
-  },
-  {
     "title": "Masked inverse folding with sequence transfer for protein representation learning",
     "url": "https://pubmed.ncbi.nlm.nih.gov/37883472/",
     "date": "2023",
@@ -1286,13 +1226,73 @@
     "superlatives": []
   },
   {
+    "title": "Representation Engineering: A Top-Down Approach to AI Transparency",
+    "url": "https://arxiv.org/abs/2310.01405",
+    "date": "2023",
+    "date_sort": "2023-10-02",
+    "venue": "arXiv",
+    "venue_year": "2023",
+    "group_sort_date": "2023-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Challenges and Applications of Large Language Models",
+    "url": "https://arxiv.org/abs/2307.10169",
+    "date": "2023",
+    "date_sort": "2023-07-19",
+    "venue": "arXiv",
+    "venue_year": "2023",
+    "group_sort_date": "2023-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "A Technical Report for Polyglot-Ko: Open-Source Large-Scale Korean Language Models",
+    "url": "https://arxiv.org/abs/2306.02254",
+    "date": "2023",
+    "date_sort": "2023-06-06",
+    "venue": "arXiv",
+    "venue_year": "2023",
+    "group_sort_date": "2023-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Can Transformers Learn to Solve Problems Recursively?",
+    "url": "https://arxiv.org/abs/2305.14699",
+    "date": "2023",
+    "date_sort": "2023-05-24",
+    "venue": "arXiv",
+    "venue_year": "2023",
+    "group_sort_date": "2023-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Eliciting latent predictions from transformers with the tuned lens",
+    "url": "https://arxiv.org/abs/2303.08112",
+    "date": "2023",
+    "date_sort": "2023-05-14",
+    "venue": "arXiv",
+    "venue_year": "2023",
+    "group_sort_date": "2023-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "ProofNet: Autoformalizing and Formally Proving Undergraduate-Level Mathematics",
+    "url": "https://arxiv.org/abs/2302.12433",
+    "date": "2023",
+    "date_sort": "2023-02-24",
+    "venue": "arXiv",
+    "venue_year": "2023",
+    "group_sort_date": "2023-01-01",
+    "superlatives": []
+  },
+  {
     "title": "SantaCoder: don't reach for the stars!",
     "url": "https://arxiv.org/abs/2301.03988",
     "date": "2023",
     "date_sort": "2023-01-09",
     "venue": "arXiv",
     "venue_year": "2023",
-    "group_sort_date": "2023-01-09",
+    "group_sort_date": "2023-01-01",
     "superlatives": []
   },
   {
@@ -1370,16 +1370,6 @@
     "superlatives": []
   },
   {
-    "title": "Robust Preference Learning for Storytelling via Contrastive Reinforcement Learning",
-    "url": "https://arxiv.org/abs/2210.07792",
-    "date": "2022",
-    "date_sort": "2022-10-15",
-    "venue": "arXiv",
-    "venue_year": "2022",
-    "group_sort_date": "2022-10-15",
-    "superlatives": []
-  },
-  {
     "title": "Musical audio samples generated from joint text embeddings",
     "url": "https://pubs.aip.org/asa/jasa/article/152/4_Supplement/A178/2839990/Musical-audio-samples-generated-from-joint-text",
     "date": "2022",
@@ -1397,16 +1387,6 @@
     "venue": "FAccT",
     "venue_year": "2022",
     "group_sort_date": "2022-06-20",
-    "superlatives": []
-  },
-  {
-    "title": "Datasheet for the Pile",
-    "url": "https://arxiv.org/abs/2201.07311",
-    "date": "2022",
-    "date_sort": "2022-06-13",
-    "venue": "arXiv",
-    "venue_year": "2022",
-    "group_sort_date": "2022-06-13",
     "superlatives": []
   },
   {
@@ -1460,6 +1440,26 @@
     "superlatives": []
   },
   {
+    "title": "Robust Preference Learning for Storytelling via Contrastive Reinforcement Learning",
+    "url": "https://arxiv.org/abs/2210.07792",
+    "date": "2022",
+    "date_sort": "2022-10-15",
+    "venue": "arXiv",
+    "venue_year": "2022",
+    "group_sort_date": "2022-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Datasheet for the Pile",
+    "url": "https://arxiv.org/abs/2201.07311",
+    "date": "2022",
+    "date_sort": "2022-06-13",
+    "venue": "arXiv",
+    "venue_year": "2022",
+    "group_sort_date": "2022-01-01",
+    "superlatives": []
+  },
+  {
     "title": "LAION-400M: Open Dataset of CLIP-Filtered 400 Million Image-Text Pairs",
     "url": "https://arxiv.org/abs/2111.02114",
     "date": "2021",
@@ -1467,26 +1467,6 @@
     "venue": "NeurIPS Workshopn on Data-Centic AI",
     "venue_year": "2021",
     "group_sort_date": "2021-12-07",
-    "superlatives": []
-  },
-  {
-    "title": "Cut the CARP: Fishing for zero-shot story evaluation",
-    "url": "https://arxiv.org/abs/2110.03111",
-    "date": "2021",
-    "date_sort": "2021-10-06",
-    "venue": "arXiv",
-    "venue_year": "2021",
-    "group_sort_date": "2021-10-06",
-    "superlatives": []
-  },
-  {
-    "title": "An empirical exploration in quality filtering of text data",
-    "url": "https://arxiv.org/abs/2109.00698",
-    "date": "2021",
-    "date_sort": "2021-09-02",
-    "venue": "arXiv",
-    "venue_year": "2021",
-    "group_sort_date": "2021-09-02",
     "superlatives": []
   },
   {
@@ -1500,13 +1480,33 @@
     "superlatives": []
   },
   {
+    "title": "Cut the CARP: Fishing for zero-shot story evaluation",
+    "url": "https://arxiv.org/abs/2110.03111",
+    "date": "2021",
+    "date_sort": "2021-10-06",
+    "venue": "arXiv",
+    "venue_year": "2021",
+    "group_sort_date": "2021-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "An empirical exploration in quality filtering of text data",
+    "url": "https://arxiv.org/abs/2109.00698",
+    "date": "2021",
+    "date_sort": "2021-09-02",
+    "venue": "arXiv",
+    "venue_year": "2021",
+    "group_sort_date": "2021-01-01",
+    "superlatives": []
+  },
+  {
     "title": "The Pile: An 800GB Dataset of Diverse Text for Language Modeling",
     "url": "https://arxiv.org/abs/2101.00027",
     "date": "2020",
     "date_sort": "2020-12-31",
     "venue": "arXiv",
     "venue_year": "2020",
-    "group_sort_date": "2020-12-31",
+    "group_sort_date": "2020-01-01",
     "superlatives": []
   },
   {
@@ -1516,7 +1516,7 @@
     "date_sort": "2020-09-15",
     "venue": "arXiv",
     "venue_year": "2020",
-    "group_sort_date": "2020-09-15",
+    "group_sort_date": "2020-01-01",
     "superlatives": []
   }
 ]

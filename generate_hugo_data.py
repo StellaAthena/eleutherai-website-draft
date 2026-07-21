@@ -83,6 +83,14 @@ def is_workshop_venue(venue):
     return "workshop" in text or "@" in text
 
 
+def venue_kind(venue):
+    if venue == "arXiv":
+        return "arxiv"
+    if is_workshop_venue(venue):
+        return "workshop"
+    return "conference"
+
+
 def row_date(row):
     return first_valid_date(
         parse_date(row.get("Sort Date")),
@@ -121,6 +129,8 @@ def group_sort_date(row, venue):
     date = venue_date(row, venue)
     if date == datetime.min:
         return date
+    if venue == "arXiv":
+        return datetime(date.year, 1, 1)
     if is_workshop_venue(venue):
         return date - timedelta(days=WORKSHOP_SORT_OFFSET_DAYS)
     return date
@@ -239,6 +249,7 @@ def grouped_papers(papers):
             by_key[key] = {
                 "venue": paper["venue"],
                 "year": paper["venue_year"],
+                "kind": venue_kind(paper["venue"]),
                 "label": f"{paper['venue']}, {paper['venue_year']}" if paper["venue_year"] else paper["venue"],
                 "count": 0,
                 "sort_date": paper["group_sort_date"],

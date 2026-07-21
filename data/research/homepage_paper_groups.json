@@ -1,106 +1,8 @@
 [
   {
-    "venue": "arXiv",
-    "year": "2026",
-    "label": "arXiv, 2026",
-    "count": 9,
-    "sort_date": "2026-07-11",
-    "papers": [
-      {
-        "title": "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems",
-        "url": "https://arxiv.org/abs/2603.00131",
-        "date": "2026",
-        "date_sort": "2026-07-11",
-        "venue": "arXiv",
-        "venue_year": "2026",
-        "group_sort_date": "2026-07-11",
-        "superlatives": []
-      },
-      {
-        "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
-        "url": "",
-        "date": "2026",
-        "date_sort": "2026-06-12",
-        "venue": "arXiv",
-        "venue_year": "2026",
-        "group_sort_date": "2026-06-12",
-        "superlatives": []
-      },
-      {
-        "title": "LoRA-Muon: Spectral Steepest Descent on the Low-Rank Manifold",
-        "url": "https://arxiv.org/abs/2606.12921",
-        "date": "2026",
-        "date_sort": "2026-06-11",
-        "venue": "arXiv",
-        "venue_year": "2026",
-        "group_sort_date": "2026-06-11",
-        "superlatives": []
-      },
-      {
-        "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
-        "url": "https://arxiv.org/abs/2606.09809",
-        "date": "2026",
-        "date_sort": "2026-06-08",
-        "venue": "arXiv",
-        "venue_year": "2026",
-        "group_sort_date": "2026-06-08",
-        "superlatives": []
-      },
-      {
-        "title": "Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs",
-        "url": "https://arxiv.org/abs/2605.09063",
-        "date": "2026",
-        "date_sort": "2026-05-09",
-        "venue": "arXiv",
-        "venue_year": "2026",
-        "group_sort_date": "2026-05-09",
-        "superlatives": []
-      },
-      {
-        "title": "How Open Must Language Models be to Enable Reliable Scientific Inference?",
-        "url": "https://arxiv.org/abs/2603.26539",
-        "date": "2026",
-        "date_sort": "2026-03-27",
-        "venue": "arXiv",
-        "venue_year": "2026",
-        "group_sort_date": "2026-03-27",
-        "superlatives": []
-      },
-      {
-        "title": "Concept Influence: Leveraging Interpretability to Improve Performance and Efficiency in Training Data Attribution",
-        "url": "https://arxiv.org/abs/2602.14869",
-        "date": "2026",
-        "date_sort": "2026-02-16",
-        "venue": "arXiv",
-        "venue_year": "2026",
-        "group_sort_date": "2026-02-16",
-        "superlatives": []
-      },
-      {
-        "title": "Quantifying the Effect of Test Set Contamination on Generative Evaluations",
-        "url": "https://arxiv.org/abs/2601.04301",
-        "date": "2026",
-        "date_sort": "2026-02-06",
-        "venue": "arXiv",
-        "venue_year": "2026",
-        "group_sort_date": "2026-02-06",
-        "superlatives": []
-      },
-      {
-        "title": "The Toxicology of Data: A Dose-Response Framework for Test Set Contamination, Data Poisoning, Finetuning Attacks and Memorization",
-        "url": "https://arxiv.org/abs/2601.04301",
-        "date": "2026",
-        "date_sort": "2026-01-07",
-        "venue": "arXiv",
-        "venue_year": "2026",
-        "group_sort_date": "2026-01-07",
-        "superlatives": []
-      }
-    ]
-  },
-  {
     "venue": "ICML",
     "year": "2026",
+    "kind": "conference",
     "label": "ICML, 2026",
     "count": 4,
     "sort_date": "2026-07-08",
@@ -152,6 +54,7 @@
   {
     "venue": "Mechanistic interpretability workshop @ ICML",
     "year": "2026",
+    "kind": "workshop",
     "label": "Mechanistic interpretability workshop @ ICML, 2026",
     "count": 1,
     "sort_date": "2026-07-03",
@@ -171,6 +74,7 @@
   {
     "venue": "Foundations of Deep Generative Models @ ICML",
     "year": "2026",
+    "kind": "workshop",
     "label": "Foundations of Deep Generative Models @ ICML, 2026",
     "count": 1,
     "sort_date": "2026-07-03",
@@ -190,6 +94,7 @@
   {
     "venue": "ACL",
     "year": "2026",
+    "kind": "conference",
     "label": "ACL, 2026",
     "count": 1,
     "sort_date": "2026-07-02",
@@ -209,6 +114,7 @@
   {
     "venue": "ACL Findings",
     "year": "2026",
+    "kind": "conference",
     "label": "ACL Findings, 2026",
     "count": 1,
     "sort_date": "2026-07-02",
@@ -228,6 +134,7 @@
   {
     "venue": "Computational Developmental Linguistics Workshop at ACL",
     "year": "2026",
+    "kind": "workshop",
     "label": "Computational Developmental Linguistics Workshop at ACL, 2026",
     "count": 1,
     "sort_date": "2026-06-27",
@@ -247,6 +154,7 @@
   {
     "venue": "ICLR",
     "year": "2026",
+    "kind": "conference",
     "label": "ICLR, 2026",
     "count": 3,
     "sort_date": "2026-04-23",
@@ -287,39 +195,100 @@
   },
   {
     "venue": "arXiv",
-    "year": "2025",
-    "label": "arXiv, 2025",
-    "count": 3,
-    "sort_date": "2025-12-07",
+    "year": "2026",
+    "kind": "arxiv",
+    "label": "arXiv, 2026",
+    "count": 9,
+    "sort_date": "2026-01-01",
     "papers": [
       {
-        "title": "Mitigating Emergent Misalignment with Data Attribution",
-        "url": "https://openreview.net/forum?id=gN7pWmjiQW",
-        "date": "2025",
-        "date_sort": "2025-12-07",
+        "title": "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems",
+        "url": "https://arxiv.org/abs/2603.00131",
+        "date": "2026",
+        "date_sort": "2026-07-11",
         "venue": "arXiv",
-        "venue_year": "2025",
-        "group_sort_date": "2025-12-07",
+        "venue_year": "2026",
+        "group_sort_date": "2026-01-01",
         "superlatives": []
       },
       {
-        "title": "Video Deepfake Abuse: How Company Choices Predictably Shape Misuse Patterns",
-        "url": "https://arxiv.org/abs/2512.11815",
-        "date": "2025",
-        "date_sort": "2025-11-25",
+        "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
+        "url": "",
+        "date": "2026",
+        "date_sort": "2026-06-12",
         "venue": "arXiv",
-        "venue_year": "2025",
-        "group_sort_date": "2025-11-25",
+        "venue_year": "2026",
+        "group_sort_date": "2026-01-01",
         "superlatives": []
       },
       {
-        "title": "Who Measures What Matters? An Analysis of Social Impact Evaluations in Foundation Model Reporting",
-        "url": "https://arxiv.org/abs/2511.05613",
-        "date": "2025",
-        "date_sort": "2025-11-06",
+        "title": "LoRA-Muon: Spectral Steepest Descent on the Low-Rank Manifold",
+        "url": "https://arxiv.org/abs/2606.12921",
+        "date": "2026",
+        "date_sort": "2026-06-11",
         "venue": "arXiv",
-        "venue_year": "2025",
-        "group_sort_date": "2025-11-06",
+        "venue_year": "2026",
+        "group_sort_date": "2026-01-01",
+        "superlatives": []
+      },
+      {
+        "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
+        "url": "https://arxiv.org/abs/2606.09809",
+        "date": "2026",
+        "date_sort": "2026-06-08",
+        "venue": "arXiv",
+        "venue_year": "2026",
+        "group_sort_date": "2026-01-01",
+        "superlatives": []
+      },
+      {
+        "title": "Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs",
+        "url": "https://arxiv.org/abs/2605.09063",
+        "date": "2026",
+        "date_sort": "2026-05-09",
+        "venue": "arXiv",
+        "venue_year": "2026",
+        "group_sort_date": "2026-01-01",
+        "superlatives": []
+      },
+      {
+        "title": "How Open Must Language Models be to Enable Reliable Scientific Inference?",
+        "url": "https://arxiv.org/abs/2603.26539",
+        "date": "2026",
+        "date_sort": "2026-03-27",
+        "venue": "arXiv",
+        "venue_year": "2026",
+        "group_sort_date": "2026-01-01",
+        "superlatives": []
+      },
+      {
+        "title": "Concept Influence: Leveraging Interpretability to Improve Performance and Efficiency in Training Data Attribution",
+        "url": "https://arxiv.org/abs/2602.14869",
+        "date": "2026",
+        "date_sort": "2026-02-16",
+        "venue": "arXiv",
+        "venue_year": "2026",
+        "group_sort_date": "2026-01-01",
+        "superlatives": []
+      },
+      {
+        "title": "Quantifying the Effect of Test Set Contamination on Generative Evaluations",
+        "url": "https://arxiv.org/abs/2601.04301",
+        "date": "2026",
+        "date_sort": "2026-02-06",
+        "venue": "arXiv",
+        "venue_year": "2026",
+        "group_sort_date": "2026-01-01",
+        "superlatives": []
+      },
+      {
+        "title": "The Toxicology of Data: A Dose-Response Framework for Test Set Contamination, Data Poisoning, Finetuning Attacks and Memorization",
+        "url": "https://arxiv.org/abs/2601.04301",
+        "date": "2026",
+        "date_sort": "2026-01-07",
+        "venue": "arXiv",
+        "venue_year": "2026",
+        "group_sort_date": "2026-01-01",
         "superlatives": []
       }
     ]
@@ -327,6 +296,7 @@
   {
     "venue": "NeurIPS",
     "year": "2025",
+    "kind": "conference",
     "label": "NeurIPS, 2025",
     "count": 2,
     "sort_date": "2025-12-02",
@@ -356,6 +326,7 @@
   {
     "venue": "NeurIPS Datasets and Benchmarks",
     "year": "2025",
+    "kind": "conference",
     "label": "NeurIPS Datasets and Benchmarks, 2025",
     "count": 1,
     "sort_date": "2025-12-02",
@@ -375,6 +346,7 @@
   {
     "venue": "CogInterp Workshop @ NeurIPS",
     "year": "2025",
+    "kind": "workshop",
     "label": "CogInterp Workshop @ NeurIPS, 2025",
     "count": 1,
     "sort_date": "2025-11-29",
@@ -394,6 +366,7 @@
   {
     "venue": "Mech Interp Workshop @ NeurIPS",
     "year": "2025",
+    "kind": "workshop",
     "label": "Mech Interp Workshop @ NeurIPS, 2025",
     "count": 1,
     "sort_date": "2025-11-25",
@@ -413,6 +386,7 @@
   {
     "venue": "AI4Music @ NeurIPS",
     "year": "2025",
+    "kind": "workshop",
     "label": "AI4Music @ NeurIPS, 2025",
     "count": 1,
     "sort_date": "2025-11-25",
@@ -425,6 +399,56 @@
         "venue": "AI4Music @ NeurIPS",
         "venue_year": "2025",
         "group_sort_date": "2025-11-25",
+        "superlatives": []
+      }
+    ]
+  },
+  {
+    "venue": "COLM",
+    "year": "2025",
+    "kind": "conference",
+    "label": "COLM, 2025",
+    "count": 2,
+    "sort_date": "2025-10-07",
+    "papers": [
+      {
+        "title": "RWKV-7 \"Goose\" with Expressive Dynamic State Evolution",
+        "url": "https://arxiv.org/abs/2503.14456",
+        "date": "2025",
+        "date_sort": "2025-10-07",
+        "venue": "COLM",
+        "venue_year": "2025",
+        "group_sort_date": "2025-10-07",
+        "superlatives": []
+      },
+      {
+        "title": "RADLADS: Rapid Attention Distillation to Linear Attention Decoders at Scale",
+        "url": "https://arxiv.org/abs/2505.03005",
+        "date": "2025",
+        "date_sort": "2025-10-07",
+        "venue": "COLM",
+        "venue_year": "2025",
+        "group_sort_date": "2025-10-07",
+        "superlatives": []
+      }
+    ]
+  },
+  {
+    "venue": "TMLR",
+    "year": "2025",
+    "kind": "conference",
+    "label": "TMLR, 2025",
+    "count": 1,
+    "sort_date": "2025-09-27",
+    "papers": [
+      {
+        "title": "Open Problems in Mechanistic Interpretability",
+        "url": "https://arxiv.org/abs/2501.16496",
+        "date": "2025",
+        "date_sort": "2025-09-27",
+        "venue": "TMLR",
+        "venue_year": "2025",
+        "group_sort_date": "2025-09-27",
         "superlatives": []
       }
     ]

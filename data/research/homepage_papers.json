@@ -1,15 +1,5 @@
 [
   {
-    "title": "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems",
-    "url": "https://arxiv.org/abs/2603.00131",
-    "date": "2026",
-    "date_sort": "2026-07-11",
-    "venue": "arXiv",
-    "venue_year": "2026",
-    "group_sort_date": "2026-07-11",
-    "superlatives": []
-  },
-  {
     "title": "Who Evaluates AI's Social Impacts? Mapping Coverage and Gaps in First and Third Party Evaluations",
     "url": "https://arxiv.org/abs/2511.05613",
     "date": "2026",
@@ -99,6 +89,16 @@
     "venue": "Computational Developmental Linguistics Workshop at ACL",
     "venue_year": "2026",
     "group_sort_date": "2026-06-27",
+    "superlatives": []
+  },
+  {
+    "title": "Sparse Autoencoders Trained on the Same Data Learn Different Features",
+    "url": "https://arxiv.org/abs/2501.16615",
+    "date": "2026",
+    "date_sort": "2026-04-23",
+    "venue": "ICLR",
+    "venue_year": "2026",
+    "group_sort_date": "2026-04-23",
     "superlatives": []
   }
 ]

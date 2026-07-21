@@ -4,9 +4,10 @@
 
 <div class="publication-groups" data-publication-list data-initial-count="{{ $initialCount }}" data-step-count="{{ $stepCount }}">
   {{ range $groups }}
-    <section class="publication-group" data-publication-group>
+    <section class="publication-group is-{{ .kind }}" data-publication-group>
       <div class="publication-group-heading">
-        <h3>{{ .label }}</h3>
+        <h3>{{ .venue }}</h3>
+        {{ with .year }}<time>{{ . }}</time>{{ end }}
         <span aria-label="Publication count: {{ .count }}">{{ .count }}</span>
       </div>
       <div class="publication-group-items">
