@@ -6,6 +6,8 @@
     "date_sort": "2026-07-08",
     "venue": "ICML",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2026-07-08",
     "superlatives": []
   },
@@ -16,6 +18,8 @@
     "date_sort": "2026-07-08",
     "venue": "ICML",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2026-07-08",
     "superlatives": []
   },
@@ -26,6 +30,8 @@
     "date_sort": "2026-07-10",
     "venue": "ICML",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2026-07-07",
     "superlatives": [
       "Oral"
@@ -38,7 +44,21 @@
     "date_sort": "2026-07-07",
     "venue": "ICML",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2026-07-07",
+    "superlatives": []
+  },
+  {
+    "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-07-10",
+    "venue": "MechInterp Workshop @ ICML",
+    "venue_year": "2026",
+    "kind": "workshop",
+    "family": "ICML",
+    "group_sort_date": "2026-07-03",
     "superlatives": []
   },
   {
@@ -48,6 +68,8 @@
     "date_sort": "2026-07-10",
     "venue": "Mechanistic interpretability workshop @ ICML",
     "venue_year": "2026",
+    "kind": "workshop",
+    "family": "ICML",
     "group_sort_date": "2026-07-03",
     "superlatives": []
   },
@@ -58,6 +80,8 @@
     "date_sort": "2023-02-06",
     "venue": "Foundations of Deep Generative Models @ ICML",
     "venue_year": "2026",
+    "kind": "workshop",
+    "family": "ICML",
     "group_sort_date": "2026-07-03",
     "superlatives": []
   },
@@ -68,6 +92,8 @@
     "date_sort": "2026-07-02",
     "venue": "ACL Findings",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ACL",
     "group_sort_date": "2026-07-02",
     "superlatives": []
   },
@@ -78,7 +104,21 @@
     "date_sort": "2026-07-02",
     "venue": "ACL",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ACL",
     "group_sort_date": "2026-07-02",
+    "superlatives": []
+  },
+  {
+    "title": "Faults in Our Formal Benchmarking: Dataset Defects and Evaluation Failures in Lean Theorem Proving",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-07-08",
+    "venue": "Math-AI Workshop @ NeurIPS",
+    "venue_year": "2026",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2026-07-01",
     "superlatives": []
   },
   {
@@ -88,6 +128,8 @@
     "date_sort": "2026-07-04",
     "venue": "Computational Developmental Linguistics Workshop at ACL",
     "venue_year": "2026",
+    "kind": "workshop",
+    "family": "ACL",
     "group_sort_date": "2026-06-27",
     "superlatives": []
   },
@@ -98,6 +140,8 @@
     "date_sort": "2026-04-23",
     "venue": "ICLR",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2026-04-23",
     "superlatives": []
   },
@@ -108,6 +152,8 @@
     "date_sort": "2026-04-23",
     "venue": "ICLR",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2026-04-23",
     "superlatives": []
   },
@@ -118,10 +164,10 @@
     "date_sort": "2026-04-23",
     "venue": "ICLR",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2026-04-23",
-    "superlatives": [
-      "Workshop Best Paper Runner-up"
-    ]
+    "superlatives": []
   },
   {
     "title": "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems",
@@ -130,6 +176,8 @@
     "date_sort": "2026-07-11",
     "venue": "arXiv",
     "venue_year": "2026",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2026-01-01",
     "superlatives": []
   },
@@ -140,6 +188,8 @@
     "date_sort": "2026-06-12",
     "venue": "arXiv",
     "venue_year": "2026",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2026-01-01",
     "superlatives": []
   },
@@ -150,6 +200,8 @@
     "date_sort": "2026-06-11",
     "venue": "arXiv",
     "venue_year": "2026",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2026-01-01",
     "superlatives": []
   },
@@ -160,6 +212,8 @@
     "date_sort": "2026-06-08",
     "venue": "arXiv",
     "venue_year": "2026",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2026-01-01",
     "superlatives": []
   },
@@ -170,6 +224,8 @@
     "date_sort": "2026-05-09",
     "venue": "arXiv",
     "venue_year": "2026",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2026-01-01",
     "superlatives": []
   },
@@ -180,6 +236,8 @@
     "date_sort": "2026-03-27",
     "venue": "arXiv",
     "venue_year": "2026",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2026-01-01",
     "superlatives": []
   },
@@ -190,6 +248,8 @@
     "date_sort": "2026-02-16",
     "venue": "arXiv",
     "venue_year": "2026",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2026-01-01",
     "superlatives": []
   },
@@ -200,6 +260,8 @@
     "date_sort": "2026-02-06",
     "venue": "arXiv",
     "venue_year": "2026",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2026-01-01",
     "superlatives": []
   },
@@ -210,6 +272,8 @@
     "date_sort": "2026-01-07",
     "venue": "arXiv",
     "venue_year": "2026",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2026-01-01",
     "superlatives": []
   },
@@ -220,6 +284,8 @@
     "date_sort": "2025-12-02",
     "venue": "NeurIPS Datasets and Benchmarks",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "NeurIPS",
     "group_sort_date": "2025-12-02",
     "superlatives": []
   },
@@ -230,6 +296,8 @@
     "date_sort": "2025-12-02",
     "venue": "NeurIPS",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "NeurIPS",
     "group_sort_date": "2025-12-02",
     "superlatives": []
   },
@@ -240,8 +308,48 @@
     "date_sort": "2025-12-02",
     "venue": "NeurIPS",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "NeurIPS",
     "group_sort_date": "2025-12-02",
     "superlatives": []
+  },
+  {
+    "title": "Sparse Autoencoders Trained on the Same Data Learn Different Features",
+    "url": "https://arxiv.org/abs/2501.16615",
+    "date": "2026",
+    "date_sort": "2026-04-23",
+    "venue": "Mech Interp Workshop @ NeurIPS",
+    "venue_year": "2025",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2025-11-30",
+    "superlatives": []
+  },
+  {
+    "title": "Evaluating SAE interpretability without explanations",
+    "url": "https://arxiv.org/abs/2507.08473",
+    "date": "2026",
+    "date_sort": "2026-04-23",
+    "venue": "Mech Interp Workshop @ NeurIPS",
+    "venue_year": "2025",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2025-11-30",
+    "superlatives": []
+  },
+  {
+    "title": "Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs",
+    "url": "https://arxiv.org/abs/2508.06601",
+    "date": "2026",
+    "date_sort": "2026-04-23",
+    "venue": "BioSafe Workshop @ NeurIPS",
+    "venue_year": "2025",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2025-11-29",
+    "superlatives": [
+      "Best Paper Runner-up"
+    ]
   },
   {
     "title": "Benchmark Disaggregation Improves Interpretability of Training Dynamics",
@@ -250,6 +358,8 @@
     "date_sort": "2025-12-06",
     "venue": "CogInterp Workshop @ NeurIPS",
     "venue_year": "2025",
+    "kind": "workshop",
+    "family": "NeurIPS",
     "group_sort_date": "2025-11-29",
     "superlatives": []
   },
@@ -260,6 +370,8 @@
     "date_sort": "2025-12-02",
     "venue": "Mech Interp Workshop @ NeurIPS",
     "venue_year": "2025",
+    "kind": "workshop",
+    "family": "NeurIPS",
     "group_sort_date": "2025-11-25",
     "superlatives": []
   },
@@ -270,6 +382,8 @@
     "date_sort": "2025-12-02",
     "venue": "AI4Music @ NeurIPS",
     "venue_year": "2025",
+    "kind": "workshop",
+    "family": "NeurIPS",
     "group_sort_date": "2025-11-25",
     "superlatives": []
   },
@@ -280,6 +394,8 @@
     "date_sort": "2025-10-07",
     "venue": "COLM",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "COLM",
     "group_sort_date": "2025-10-07",
     "superlatives": []
   },
@@ -290,6 +406,8 @@
     "date_sort": "2025-10-07",
     "venue": "COLM",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "COLM",
     "group_sort_date": "2025-10-07",
     "superlatives": []
   },
@@ -300,6 +418,8 @@
     "date_sort": "2025-09-27",
     "venue": "TMLR",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "TMLR",
     "group_sort_date": "2025-09-27",
     "superlatives": []
   },
@@ -310,6 +430,8 @@
     "date_sort": "2025-09-21",
     "venue": "ISMIR",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "ISMIR",
     "group_sort_date": "2025-09-21",
     "superlatives": []
   },
@@ -320,6 +442,8 @@
     "date_sort": "2025-07-27",
     "venue": "ACL",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "ACL",
     "group_sort_date": "2025-07-27",
     "superlatives": []
   },
@@ -330,6 +454,8 @@
     "date_sort": "2025-07-13",
     "venue": "ICML",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2025-07-13",
     "superlatives": []
   },
@@ -340,6 +466,8 @@
     "date_sort": "2025-07-13",
     "venue": "ICML",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2025-07-13",
     "superlatives": []
   },
@@ -350,6 +478,8 @@
     "date_sort": "2025-07-19",
     "venue": "Actionable Interpretability Workshop @ ICML",
     "venue_year": "2025",
+    "kind": "workshop",
+    "family": "ICML",
     "group_sort_date": "2025-07-12",
     "superlatives": []
   },
@@ -360,6 +490,8 @@
     "date_sort": "2025-07-18",
     "venue": "Tokenizer Workshop @ ICML 2025",
     "venue_year": "2025",
+    "kind": "workshop",
+    "family": "ICML",
     "group_sort_date": "2025-07-11",
     "superlatives": []
   },
@@ -370,6 +502,8 @@
     "date_sort": "2025-07-18",
     "venue": "Tokenizer Workshop @ ICML 2025",
     "venue_year": "2025",
+    "kind": "workshop",
+    "family": "ICML",
     "group_sort_date": "2025-07-11",
     "superlatives": [
       "Best paper @ Tokenizer Workshop"
@@ -382,6 +516,8 @@
     "date_sort": "2025-04-29",
     "venue": "NAACL",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "NAACL",
     "group_sort_date": "2025-04-29",
     "superlatives": []
   },
@@ -392,6 +528,8 @@
     "date_sort": "2025-04-29",
     "venue": "NAACL",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "NAACL",
     "group_sort_date": "2025-04-29",
     "superlatives": []
   },
@@ -402,6 +540,8 @@
     "date_sort": "2025-04-24",
     "venue": "ICLR",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2025-04-24",
     "superlatives": []
   },
@@ -412,6 +552,8 @@
     "date_sort": "2025-04-24",
     "venue": "ICLR",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2025-04-24",
     "superlatives": []
   },
@@ -422,6 +564,8 @@
     "date_sort": "2025-04-24",
     "venue": "ICLR",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2025-04-24",
     "superlatives": []
   },
@@ -432,6 +576,8 @@
     "date_sort": "2025-04-24",
     "venue": "ICLR",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2025-04-24",
     "superlatives": []
   },
@@ -442,6 +588,8 @@
     "date_sort": "2025-04-24",
     "venue": "ICLR",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2025-04-24",
     "superlatives": []
   },
@@ -452,6 +600,8 @@
     "date_sort": "2025-02-25",
     "venue": "AAAI",
     "venue_year": "2025",
+    "kind": "conference",
+    "family": "AAAI",
     "group_sort_date": "2025-02-25",
     "superlatives": []
   },
@@ -462,6 +612,8 @@
     "date_sort": "2025-12-07",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -472,6 +624,8 @@
     "date_sort": "2025-11-25",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -482,6 +636,8 @@
     "date_sort": "2025-11-06",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -492,6 +648,8 @@
     "date_sort": "2025-10-25",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -502,6 +660,8 @@
     "date_sort": "2025-07-18",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -512,6 +672,8 @@
     "date_sort": "2025-05-17",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -522,6 +684,8 @@
     "date_sort": "2025-04-09",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -532,6 +696,8 @@
     "date_sort": "2025-04-08",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -542,6 +708,8 @@
     "date_sort": "2025-03-21",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -552,6 +720,8 @@
     "date_sort": "2025-02-12",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -562,6 +732,8 @@
     "date_sort": "2025-02-05",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -572,6 +744,8 @@
     "date_sort": "2025-02-03",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -582,6 +756,8 @@
     "date_sort": "2025-01-31",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -592,6 +768,8 @@
     "date_sort": "2025-01-30",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -602,6 +780,8 @@
     "date_sort": "2025-01-14",
     "venue": "arXiv",
     "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2025-01-01",
     "superlatives": []
   },
@@ -612,6 +792,8 @@
     "date_sort": "2024-12-10",
     "venue": "NeurIPS",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "NeurIPS",
     "group_sort_date": "2024-12-10",
     "superlatives": []
   },
@@ -622,6 +804,8 @@
     "date_sort": "2024-12-10",
     "venue": "NeurIPS Datasets and Benchmarks",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "NeurIPS",
     "group_sort_date": "2024-12-10",
     "superlatives": []
   },
@@ -632,6 +816,8 @@
     "date_sort": "2024-12-07",
     "venue": "TMLR",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "TMLR",
     "group_sort_date": "2024-12-07",
     "superlatives": []
   },
@@ -642,6 +828,8 @@
     "date_sort": "2024-12-01",
     "venue": "Northern European Journal of Language Technology",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "Northern European Journal of Language Technology",
     "group_sort_date": "2024-12-01",
     "superlatives": []
   },
@@ -652,6 +840,8 @@
     "date_sort": "2024-11-15",
     "venue": "BlackBox NLP",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "BlackBox NLP",
     "group_sort_date": "2024-11-15",
     "superlatives": []
   },
@@ -662,6 +852,8 @@
     "date_sort": "2024-11-12",
     "venue": "EMNLP",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "EMNLP",
     "group_sort_date": "2024-11-12",
     "superlatives": []
   },
@@ -672,6 +864,8 @@
     "date_sort": "2024-10-15",
     "venue": "TMLR",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "TMLR",
     "group_sort_date": "2024-10-15",
     "superlatives": []
   },
@@ -682,6 +876,8 @@
     "date_sort": "2024-10-07",
     "venue": "COLM",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "COLM",
     "group_sort_date": "2024-10-07",
     "superlatives": []
   },
@@ -692,6 +888,8 @@
     "date_sort": "2024-10-07",
     "venue": "COLM",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "COLM",
     "group_sort_date": "2024-10-07",
     "superlatives": []
   },
@@ -702,6 +900,8 @@
     "date_sort": "2024-08-12",
     "venue": "ICPP",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "ICPP",
     "group_sort_date": "2024-08-12",
     "superlatives": []
   },
@@ -712,6 +912,8 @@
     "date_sort": "2024-08-01",
     "venue": "ACL",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "ACL",
     "group_sort_date": "2024-08-01",
     "superlatives": []
   },
@@ -722,6 +924,8 @@
     "date_sort": "2024-07-23",
     "venue": "ICML",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2024-07-23",
     "superlatives": []
   },
@@ -732,6 +936,8 @@
     "date_sort": "2024-07-23",
     "venue": "ICML Position Paper Track",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2024-07-23",
     "superlatives": []
   },
@@ -742,6 +948,8 @@
     "date_sort": "2024-07-23",
     "venue": "ICML Position Paper Track",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2024-07-23",
     "superlatives": [
       "Oral"
@@ -754,6 +962,8 @@
     "date_sort": "2024-07-23",
     "venue": "ICML",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2024-07-23",
     "superlatives": []
   },
@@ -764,6 +974,8 @@
     "date_sort": "2024-07-23",
     "venue": "ICML",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2024-07-23",
     "superlatives": []
   },
@@ -774,10 +986,72 @@
     "date_sort": "2024-07-23",
     "venue": "ICML Position Paper Track",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2024-07-23",
     "superlatives": [
       "Oral"
     ]
+  },
+  {
+    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
+    "url": "https://arxiv.org/abs/2406.04391",
+    "date": "2025",
+    "date_sort": "2025-07-13",
+    "venue": "The 7th workshop on Neural Scaling Laws (talk)",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "The 7th workshop on Neural Scaling Laws (talk)",
+    "group_sort_date": "2024-07-15",
+    "superlatives": []
+  },
+  {
+    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
+    "url": "https://arxiv.org/abs/2406.04391",
+    "date": "2025",
+    "date_sort": "2025-07-13",
+    "venue": "DMLR workshop (ICML 24)",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "ICML",
+    "group_sort_date": "2024-07-15",
+    "superlatives": []
+  },
+  {
+    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
+    "url": "https://arxiv.org/abs/2406.04391",
+    "date": "2025",
+    "date_sort": "2025-07-13",
+    "venue": "ICML 24 TiFA Workshop",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "ICML",
+    "group_sort_date": "2024-07-15",
+    "superlatives": []
+  },
+  {
+    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
+    "url": "https://arxiv.org/abs/2406.04391",
+    "date": "2025",
+    "date_sort": "2025-07-13",
+    "venue": "NextGenAISafety Workshop (ICML 24)",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "ICML",
+    "group_sort_date": "2024-07-15",
+    "superlatives": []
+  },
+  {
+    "title": "Position: Social Choice Should Guide AI Alignment: On Dealing with Diverse Human Feedback",
+    "url": "https://arxiv.org/abs/2404.10271",
+    "date": "2024",
+    "date_sort": "2024-07-23",
+    "venue": "SSCW 2024",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "SSCW 2024",
+    "group_sort_date": "2024-06-27",
+    "superlatives": []
   },
   {
     "title": "Improving Black-box Robustness with In-Context Rewriting",
@@ -786,6 +1060,8 @@
     "date_sort": "2024-06-18",
     "venue": "TMLR",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "TMLR",
     "group_sort_date": "2024-06-18",
     "superlatives": []
   },
@@ -796,6 +1072,8 @@
     "date_sort": "2024-06-07",
     "venue": "TMLR",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "TMLR",
     "group_sort_date": "2024-06-07",
     "superlatives": []
   },
@@ -806,6 +1084,8 @@
     "date_sort": "2024-05-20",
     "venue": "COLING",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "COLING",
     "group_sort_date": "2024-05-20",
     "superlatives": []
   },
@@ -816,6 +1096,8 @@
     "date_sort": "2024-05-14",
     "venue": "Nature Methods",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "Nature Methods",
     "group_sort_date": "2024-05-14",
     "superlatives": []
   },
@@ -826,6 +1108,8 @@
     "date_sort": "2024-05-07",
     "venue": "ICLR",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2024-05-07",
     "superlatives": []
   },
@@ -836,6 +1120,8 @@
     "date_sort": "2024-05-07",
     "venue": "ICLR",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2024-05-07",
     "superlatives": []
   },
@@ -846,6 +1132,8 @@
     "date_sort": "2024-05-07",
     "venue": "ICLR",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2024-05-07",
     "superlatives": []
   },
@@ -856,6 +1144,8 @@
     "date_sort": "2024-05-07",
     "venue": "ICLR",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2024-05-07",
     "superlatives": []
   },
@@ -866,6 +1156,8 @@
     "date_sort": "2024-05-07",
     "venue": "ICLR",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2024-05-07",
     "superlatives": []
   },
@@ -876,7 +1168,33 @@
     "date_sort": "2024-05-07",
     "venue": "ICLR",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2024-05-07",
+    "superlatives": []
+  },
+  {
+    "title": "Eliciting Latent Knowledge from Quirky Language Models",
+    "url": "https://arxiv.org/abs/2312.01037",
+    "date": "2024",
+    "date_sort": "2024-10-07",
+    "venue": "ICLR 2024 Workshop on Mathematical and Empirical Understanding of Foundation Models",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "ICLR",
+    "group_sort_date": "2024-05-04",
+    "superlatives": []
+  },
+  {
+    "title": "Multi-Task Inference: Can Large Language Models Follow Multiple Instructions at Once?",
+    "url": "https://arxiv.org/abs/2402.11597",
+    "date": "2024",
+    "date_sort": "2024-08-01",
+    "venue": "ICLR 2024 Workshop on Mathematical and Empirical Understanding of Foundation Models",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "ICLR",
+    "group_sort_date": "2024-05-04",
     "superlatives": []
   },
   {
@@ -886,6 +1204,8 @@
     "date_sort": "2024-05-11",
     "venue": "ICLR 2024 Workshop on Mathematical and Empirical Understanding of Foundation Models",
     "venue_year": "2024",
+    "kind": "workshop",
+    "family": "ICLR",
     "group_sort_date": "2024-05-04",
     "superlatives": []
   },
@@ -896,6 +1216,8 @@
     "date_sort": "2024-02-18",
     "venue": "Genetic Programming Theory & Practice",
     "venue_year": "2024",
+    "kind": "conference",
+    "family": "Genetic Programming Theory & Practice",
     "group_sort_date": "2024-02-18",
     "superlatives": []
   },
@@ -906,6 +1228,8 @@
     "date_sort": "2024-11-13",
     "venue": "arXiv",
     "venue_year": "2024",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2024-01-01",
     "superlatives": []
   },
@@ -916,6 +1240,8 @@
     "date_sort": "2024-10-30",
     "venue": "arXiv",
     "venue_year": "2024",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2024-01-01",
     "superlatives": []
   },
@@ -926,6 +1252,8 @@
     "date_sort": "2024-10-22",
     "venue": "arXiv",
     "venue_year": "2024",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2024-01-01",
     "superlatives": []
   },
@@ -936,6 +1264,8 @@
     "date_sort": "2024-08-01",
     "venue": "arXiv",
     "venue_year": "2024",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2024-01-01",
     "superlatives": []
   },
@@ -946,6 +1276,8 @@
     "date_sort": "2024-07-25",
     "venue": "arXiv",
     "venue_year": "2024",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2024-01-01",
     "superlatives": []
   },
@@ -956,6 +1288,8 @@
     "date_sort": "2024-07-16",
     "venue": "arXiv",
     "venue_year": "2024",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2024-01-01",
     "superlatives": []
   },
@@ -966,6 +1300,8 @@
     "date_sort": "2024-05-23",
     "venue": "arXiv",
     "venue_year": "2024",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2024-01-01",
     "superlatives": []
   },
@@ -976,6 +1312,8 @@
     "date_sort": "2024-02-12",
     "venue": "arXiv",
     "venue_year": "2024",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2024-01-01",
     "superlatives": []
   },
@@ -986,6 +1324,8 @@
     "date_sort": "2023-12-13",
     "venue": "NeurIPS Datasets and Benchmarks",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "NeurIPS",
     "group_sort_date": "2023-12-13",
     "superlatives": []
   },
@@ -996,6 +1336,8 @@
     "date_sort": "2023-12-10",
     "venue": "NeurIPS",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "NeurIPS",
     "group_sort_date": "2023-12-10",
     "superlatives": [
       "Spotlight"
@@ -1008,6 +1350,8 @@
     "date_sort": "2023-12-10",
     "venue": "NeurIPS",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "NeurIPS",
     "group_sort_date": "2023-12-10",
     "superlatives": [
       "Spotlight"
@@ -1020,6 +1364,8 @@
     "date_sort": "2023-12-10",
     "venue": "NeurIPS",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "NeurIPS",
     "group_sort_date": "2023-12-10",
     "superlatives": []
   },
@@ -1030,7 +1376,33 @@
     "date_sort": "2023-12-10",
     "venue": "NeurIPS",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "NeurIPS",
     "group_sort_date": "2023-12-10",
+    "superlatives": []
+  },
+  {
+    "title": "ReLoRA: High-Rank Training Through Low-Rank Updates",
+    "url": "https://arxiv.org/abs/2307.05695",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "NeurIPS Workshop on Advancing Neural Network Training: Computational Efficiency, Scalability",
+    "venue_year": "2023",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2023-12-09",
+    "superlatives": []
+  },
+  {
+    "title": "Quality-Diversity through AI Feedback",
+    "url": "https://arxiv.org/abs/2310.13032",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "NeurIPS Workshop on Agent Learning in Open-Endedness",
+    "venue_year": "2023",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2023-12-09",
     "superlatives": []
   },
   {
@@ -1040,7 +1412,45 @@
     "date_sort": "2023-12-16",
     "venue": "NeurIPS Workshop on Socially Responsible Language Modelling Research (SoLaR)",
     "venue_year": "2023",
+    "kind": "workshop",
+    "family": "NeurIPS",
     "group_sort_date": "2023-12-09",
+    "superlatives": []
+  },
+  {
+    "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
+    "url": "https://arxiv.org/abs/2309.08600",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "NeurIPS Workshop on Attributing Model Behavior at Scale",
+    "venue_year": "2023",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2023-12-08",
+    "superlatives": []
+  },
+  {
+    "title": "OpenWebMath: An Open Dataset of High-Quality Mathematical Web Text",
+    "url": "https://arxiv.org/abs/2310.06786",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "NeurIPS Workshop on Math and AI",
+    "venue_year": "2023",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2023-12-08",
+    "superlatives": []
+  },
+  {
+    "title": "LLeMA: An Open Language Model for Mathematics",
+    "url": "https://arxiv.org/abs/2310.10631",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "NeurIPS Workshop on Math and AI",
+    "venue_year": "2023",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2023-12-08",
     "superlatives": []
   },
   {
@@ -1050,6 +1460,8 @@
     "date_sort": "2023-12-15",
     "venue": "NeurIPS Workshop on Backdoors in Deep Learning",
     "venue_year": "2023",
+    "kind": "workshop",
+    "family": "NeurIPS",
     "group_sort_date": "2023-12-08",
     "superlatives": []
   },
@@ -1060,6 +1472,8 @@
     "date_sort": "2023-12-06",
     "venue": "EMNLP",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "EMNLP",
     "group_sort_date": "2023-12-06",
     "superlatives": []
   },
@@ -1070,6 +1484,8 @@
     "date_sort": "2023-12-06",
     "venue": "EMNLP (Findings)",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "EMNLP",
     "group_sort_date": "2023-12-06",
     "superlatives": []
   },
@@ -1080,6 +1496,8 @@
     "date_sort": "2023-12-01",
     "venue": "TMLR",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "TMLR",
     "group_sort_date": "2023-12-01",
     "superlatives": []
   },
@@ -1090,6 +1508,8 @@
     "date_sort": "2023-12-07",
     "venue": "EMNLP Workshop on Computational Approaches to Linguistic Code-Switching",
     "venue_year": "2023",
+    "kind": "workshop",
+    "family": "EMNLP",
     "group_sort_date": "2023-11-30",
     "superlatives": []
   },
@@ -1100,6 +1520,8 @@
     "date_sort": "2023-11-01",
     "venue": "AACL Workshop in South East Asian Language Processing",
     "venue_year": "2023",
+    "kind": "workshop",
+    "family": "ACL",
     "group_sort_date": "2023-10-25",
     "superlatives": []
   },
@@ -1110,6 +1532,8 @@
     "date_sort": "2023-08-29",
     "venue": "AIES",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "AIES",
     "group_sort_date": "2023-08-29",
     "superlatives": []
   },
@@ -1120,6 +1544,8 @@
     "date_sort": "2023-07-23",
     "venue": "ICML",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2023-07-23",
     "superlatives": []
   },
@@ -1130,6 +1556,8 @@
     "date_sort": "2023-07-23",
     "venue": "ICML",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2023-07-23",
     "superlatives": [
       "Oral"
@@ -1142,16 +1570,8 @@
     "date_sort": "2023-07-23",
     "venue": "ICML",
     "venue_year": "2023",
-    "group_sort_date": "2023-07-23",
-    "superlatives": []
-  },
-  {
-    "title": "Continual Pre-Training of Large Language Models: How to (re)warm your model?",
-    "url": "https://arxiv.org/abs/2308.04014",
-    "date": "2023",
-    "date_sort": "2023-07-23",
-    "venue": "Extended to a published paper",
-    "venue_year": "2023",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2023-07-23",
     "superlatives": []
   },
@@ -1162,7 +1582,21 @@
     "date_sort": "2023-07-28",
     "venue": "ICML Workshop on Theory of Mind in Communicating Agents",
     "venue_year": "2023",
+    "kind": "workshop",
+    "family": "ICML",
     "group_sort_date": "2023-07-21",
+    "superlatives": []
+  },
+  {
+    "title": "Continual Pre-Training of Large Language Models: How to (re)warm your model?",
+    "url": "https://arxiv.org/abs/2308.04014",
+    "date": "2023",
+    "date_sort": "2023-07-23",
+    "venue": "ICML Workshop on Efficient Systems for Foundation Models",
+    "venue_year": "2023",
+    "kind": "workshop",
+    "family": "ICML",
+    "group_sort_date": "2023-07-16",
     "superlatives": []
   },
   {
@@ -1172,6 +1606,8 @@
     "date_sort": "2023-07-09",
     "venue": "ACL 2023 Demos Track",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "ACL",
     "group_sort_date": "2023-07-09",
     "superlatives": []
   },
@@ -1182,6 +1618,8 @@
     "date_sort": "2023-07-09",
     "venue": "ACL",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "ACL",
     "group_sort_date": "2023-07-09",
     "superlatives": []
   },
@@ -1192,6 +1630,8 @@
     "date_sort": "2023-07-09",
     "venue": "ACL",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "ACL",
     "group_sort_date": "2023-07-09",
     "superlatives": []
   },
@@ -1202,6 +1642,8 @@
     "date_sort": "2023-05-25",
     "venue": "Nature",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "Nature",
     "group_sort_date": "2023-05-25",
     "superlatives": []
   },
@@ -1212,6 +1654,8 @@
     "date_sort": "2023-05-11",
     "venue": "TMLR",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "TMLR",
     "group_sort_date": "2023-05-11",
     "superlatives": []
   },
@@ -1222,6 +1666,8 @@
     "date_sort": "2023-01-21",
     "venue": "Protein Engineering Design and Selection",
     "venue_year": "2023",
+    "kind": "conference",
+    "family": "Protein Engineering Design and Selection",
     "group_sort_date": "2023-01-21",
     "superlatives": []
   },
@@ -1232,6 +1678,8 @@
     "date_sort": "2023-10-02",
     "venue": "arXiv",
     "venue_year": "2023",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2023-01-01",
     "superlatives": []
   },
@@ -1242,6 +1690,8 @@
     "date_sort": "2023-07-19",
     "venue": "arXiv",
     "venue_year": "2023",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2023-01-01",
     "superlatives": []
   },
@@ -1252,6 +1702,8 @@
     "date_sort": "2023-06-06",
     "venue": "arXiv",
     "venue_year": "2023",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2023-01-01",
     "superlatives": []
   },
@@ -1262,6 +1714,8 @@
     "date_sort": "2023-05-24",
     "venue": "arXiv",
     "venue_year": "2023",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2023-01-01",
     "superlatives": []
   },
@@ -1272,6 +1726,8 @@
     "date_sort": "2023-05-14",
     "venue": "arXiv",
     "venue_year": "2023",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2023-01-01",
     "superlatives": []
   },
@@ -1282,6 +1738,8 @@
     "date_sort": "2023-02-24",
     "venue": "arXiv",
     "venue_year": "2023",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2023-01-01",
     "superlatives": []
   },
@@ -1292,6 +1750,8 @@
     "date_sort": "2023-01-09",
     "venue": "arXiv",
     "venue_year": "2023",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2023-01-01",
     "superlatives": []
   },
@@ -1302,6 +1762,8 @@
     "date_sort": "2022-12-01",
     "venue": "EMNLP (Findings)",
     "venue_year": "2022",
+    "kind": "conference",
+    "family": "EMNLP",
     "group_sort_date": "2022-12-01",
     "superlatives": []
   },
@@ -1312,6 +1774,8 @@
     "date_sort": "2022-11-28",
     "venue": "NeurIPS Datasets and Benchmarks",
     "venue_year": "2022",
+    "kind": "conference",
+    "family": "NeurIPS",
     "group_sort_date": "2022-11-28",
     "superlatives": []
   },
@@ -1322,6 +1786,8 @@
     "date_sort": "2022-11-28",
     "venue": "NeurIPS Datasets and Benchmarks",
     "venue_year": "2022",
+    "kind": "conference",
+    "family": "NeurIPS",
     "group_sort_date": "2022-11-28",
     "superlatives": [
       "Best Paper"
@@ -1334,6 +1800,8 @@
     "date_sort": "2022-11-28",
     "venue": "NeurIPS Workshop on Broadening Research Collaborations",
     "venue_year": "2022",
+    "kind": "workshop",
+    "family": "NeurIPS",
     "group_sort_date": "2022-11-21",
     "superlatives": [
       "Oral"
@@ -1346,6 +1814,8 @@
     "date_sort": "2022-11-10",
     "venue": "TMLR",
     "venue_year": "2022",
+    "kind": "conference",
+    "family": "TMLR",
     "group_sort_date": "2022-11-10",
     "superlatives": []
   },
@@ -1356,6 +1826,8 @@
     "date_sort": "2022-10-23",
     "venue": "ECCV",
     "venue_year": "2022",
+    "kind": "conference",
+    "family": "ECCV",
     "group_sort_date": "2022-10-23",
     "superlatives": []
   },
@@ -1366,6 +1838,8 @@
     "date_sort": "2022-10-17",
     "venue": "CIKM",
     "venue_year": "2022",
+    "kind": "conference",
+    "family": "CIKM",
     "group_sort_date": "2022-10-17",
     "superlatives": []
   },
@@ -1376,6 +1850,8 @@
     "date_sort": "2022-10-01",
     "venue": "The Journal of the Acoustical Society of America",
     "venue_year": "2022",
+    "kind": "conference",
+    "family": "The Journal of the Acoustical Society of America",
     "group_sort_date": "2022-10-01",
     "superlatives": []
   },
@@ -1386,6 +1862,8 @@
     "date_sort": "2022-06-20",
     "venue": "FAccT",
     "venue_year": "2022",
+    "kind": "conference",
+    "family": "FAccT",
     "group_sort_date": "2022-06-20",
     "superlatives": []
   },
@@ -1396,6 +1874,8 @@
     "date_sort": "2022-05-28",
     "venue": "ACL Workshop on Challenges & Perspectives in Creating Large Language Models",
     "venue_year": "2022",
+    "kind": "workshop",
+    "family": "ACL",
     "group_sort_date": "2022-05-21",
     "superlatives": []
   },
@@ -1406,6 +1886,8 @@
     "date_sort": "2022-05-28",
     "venue": "ACL Workshop on Challenges & Perspectives in Creating Large Language Models",
     "venue_year": "2022",
+    "kind": "workshop",
+    "family": "ACL",
     "group_sort_date": "2022-05-21",
     "superlatives": []
   },
@@ -1416,6 +1898,8 @@
     "date_sort": "2022-04-25",
     "venue": "ICLR",
     "venue_year": "2022",
+    "kind": "conference",
+    "family": "ICLR",
     "group_sort_date": "2022-04-25",
     "superlatives": []
   },
@@ -1426,6 +1910,8 @@
     "date_sort": "2022-01-31",
     "venue": "TACL",
     "venue_year": "2022",
+    "kind": "conference",
+    "family": "TACL",
     "group_sort_date": "2022-01-31",
     "superlatives": []
   },
@@ -1436,6 +1922,8 @@
     "date_sort": "2022-01-05",
     "venue": "Journal of Computational Chemistry",
     "venue_year": "2022",
+    "kind": "conference",
+    "family": "Journal of Computational Chemistry",
     "group_sort_date": "2022-01-05",
     "superlatives": []
   },
@@ -1446,6 +1934,8 @@
     "date_sort": "2022-10-15",
     "venue": "arXiv",
     "venue_year": "2022",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2022-01-01",
     "superlatives": []
   },
@@ -1456,6 +1946,8 @@
     "date_sort": "2022-06-13",
     "venue": "arXiv",
     "venue_year": "2022",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2022-01-01",
     "superlatives": []
   },
@@ -1466,6 +1958,8 @@
     "date_sort": "2021-12-14",
     "venue": "NeurIPS Workshopn on Data-Centic AI",
     "venue_year": "2021",
+    "kind": "workshop",
+    "family": "NeurIPS",
     "group_sort_date": "2021-12-07",
     "superlatives": []
   },
@@ -1476,7 +1970,21 @@
     "date_sort": "2021-06-11",
     "venue": "NAACL Workshop on Narrative Understanding",
     "venue_year": "2021",
+    "kind": "workshop",
+    "family": "ACL",
     "group_sort_date": "2021-06-04",
+    "superlatives": []
+  },
+  {
+    "title": "Quality at a Glance: An Audit of Web-Crawled Multilingual Datasets",
+    "url": "https://aclanthology.org/2022.tacl-1.4/",
+    "date": "2022",
+    "date_sort": "2022-01-31",
+    "venue": "EACL AfricaNLP Workshop",
+    "venue_year": "2021",
+    "kind": "workshop",
+    "family": "ACL",
+    "group_sort_date": "2021-04-12",
     "superlatives": []
   },
   {
@@ -1486,6 +1994,8 @@
     "date_sort": "2021-10-06",
     "venue": "arXiv",
     "venue_year": "2021",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2021-01-01",
     "superlatives": []
   },
@@ -1496,6 +2006,8 @@
     "date_sort": "2021-09-02",
     "venue": "arXiv",
     "venue_year": "2021",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2021-01-01",
     "superlatives": []
   },
@@ -1506,6 +2018,8 @@
     "date_sort": "2020-12-31",
     "venue": "arXiv",
     "venue_year": "2020",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2020-01-01",
     "superlatives": []
   },
@@ -1516,6 +2030,8 @@
     "date_sort": "2020-09-15",
     "venue": "arXiv",
     "venue_year": "2020",
+    "kind": "arxiv",
+    "family": "arXiv",
     "group_sort_date": "2020-01-01",
     "superlatives": []
   }

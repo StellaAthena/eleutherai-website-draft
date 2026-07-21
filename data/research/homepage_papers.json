@@ -6,6 +6,8 @@
     "date_sort": "2026-07-08",
     "venue": "ICML",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2026-07-08",
     "superlatives": []
   },
@@ -16,6 +18,8 @@
     "date_sort": "2026-07-08",
     "venue": "ICML",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2026-07-08",
     "superlatives": []
   },
@@ -26,6 +30,8 @@
     "date_sort": "2026-07-10",
     "venue": "ICML",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2026-07-07",
     "superlatives": [
       "Oral"
@@ -38,7 +44,21 @@
     "date_sort": "2026-07-07",
     "venue": "ICML",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ICML",
     "group_sort_date": "2026-07-07",
+    "superlatives": []
+  },
+  {
+    "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-07-10",
+    "venue": "MechInterp Workshop @ ICML",
+    "venue_year": "2026",
+    "kind": "workshop",
+    "family": "ICML",
+    "group_sort_date": "2026-07-03",
     "superlatives": []
   },
   {
@@ -48,6 +68,8 @@
     "date_sort": "2026-07-10",
     "venue": "Mechanistic interpretability workshop @ ICML",
     "venue_year": "2026",
+    "kind": "workshop",
+    "family": "ICML",
     "group_sort_date": "2026-07-03",
     "superlatives": []
   },
@@ -58,6 +80,8 @@
     "date_sort": "2023-02-06",
     "venue": "Foundations of Deep Generative Models @ ICML",
     "venue_year": "2026",
+    "kind": "workshop",
+    "family": "ICML",
     "group_sort_date": "2026-07-03",
     "superlatives": []
   },
@@ -68,6 +92,8 @@
     "date_sort": "2026-07-02",
     "venue": "ACL Findings",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ACL",
     "group_sort_date": "2026-07-02",
     "superlatives": []
   },
@@ -78,27 +104,21 @@
     "date_sort": "2026-07-02",
     "venue": "ACL",
     "venue_year": "2026",
+    "kind": "conference",
+    "family": "ACL",
     "group_sort_date": "2026-07-02",
     "superlatives": []
   },
   {
-    "title": "L1 Influence in L2 Language Models: A Human-centric Approach",
+    "title": "Faults in Our Formal Benchmarking: Dataset Defects and Evaluation Failures in Lean Theorem Proving",
     "url": "",
     "date": "2026",
-    "date_sort": "2026-07-04",
-    "venue": "Computational Developmental Linguistics Workshop at ACL",
+    "date_sort": "2026-07-08",
+    "venue": "Math-AI Workshop @ NeurIPS",
     "venue_year": "2026",
-    "group_sort_date": "2026-06-27",
-    "superlatives": []
-  },
-  {
-    "title": "Sparse Autoencoders Trained on the Same Data Learn Different Features",
-    "url": "https://arxiv.org/abs/2501.16615",
-    "date": "2026",
-    "date_sort": "2026-04-23",
-    "venue": "ICLR",
-    "venue_year": "2026",
-    "group_sort_date": "2026-04-23",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2026-07-01",
     "superlatives": []
   }
 ]

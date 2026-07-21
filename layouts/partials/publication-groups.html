@@ -6,26 +6,36 @@
   {{ range $groups }}
     <section class="publication-group is-{{ .kind }}" data-publication-group>
       <div class="publication-group-heading">
-        <h3>{{ .venue }}</h3>
+        <h3>{{ .family }}</h3>
         {{ with .year }}<time>{{ . }}</time>{{ end }}
         <span aria-label="Publication count: {{ .count }}">{{ .count }}</span>
       </div>
-      <div class="publication-group-items">
-        {{ range .papers }}
-          <article class="publication-group-item{{ if .superlatives }} has-superlative{{ end }}" data-publication-item>
-            <h4>
-              {{ if .url }}
-                <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
-              {{ else }}
-                {{ .title }}
+      <div class="publication-venues">
+        {{ range .venues }}
+          <section class="publication-venue is-{{ .kind }}" data-publication-venue>
+            <div class="publication-venue-heading">
+              <h4>{{ .label }}</h4>
+              <span aria-label="Track publication count: {{ .count }}">{{ .count }}</span>
+            </div>
+            <div class="publication-group-items">
+              {{ range .papers }}
+                <article class="publication-group-item{{ if .superlatives }} has-superlative{{ end }}" data-publication-item>
+                  <h5>
+                    {{ if .url }}
+                      <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+                    {{ else }}
+                      {{ .title }}
+                    {{ end }}
+                  </h5>
+                  {{ with .superlatives }}
+                    <div class="publication-badges">
+                      {{ range . }}<span class="paper-badge">{{ . }}</span>{{ end }}
+                    </div>
+                  {{ end }}
+                </article>
               {{ end }}
-            </h4>
-            {{ with .superlatives }}
-              <div class="publication-badges">
-                {{ range . }}<span class="paper-badge">{{ . }}</span>{{ end }}
-              </div>
-            {{ end }}
-          </article>
+            </div>
+          </section>
         {{ end }}
       </div>
     </section>
@@ -48,7 +58,10 @@
           item.hidden = index >= visibleCount;
         });
         groups.forEach((group) => {
-          group.hidden = !group.querySelector("[data-publication-item]:not([hidden])");
+          group.querySelectorAll("[data-publication-venue]").forEach((venue) => {
+            venue.hidden = !venue.querySelector("[data-publication-item]:not([hidden])");
+          });
+          group.hidden = !group.querySelector("[data-publication-venue]:not([hidden])");
         });
         if (!button) return;
         const remaining = Math.max(0, items.length - visibleCount);

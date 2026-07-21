@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import csv
 import json
+import re
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -17,6 +18,21 @@ OUTPUT_DIR = ROOT / "data" / "research"
 HOMEPAGE_PAPER_LIMIT = 10
 HOMEPAGE_GROUPED_PAPER_LIMIT = 30
 WORKSHOP_SORT_OFFSET_DAYS = 7
+CONFERENCE_FAMILIES = (
+    "NeurIPS",
+    "ICML",
+    "ICLR",
+    "ACL",
+    "EMNLP",
+    "NAACL",
+    "AACL",
+    "COLM",
+    "ECCV",
+    "CIKM",
+    "FAccT",
+    "TACL",
+    "TMLR",
+)
 PAPERS_SHEET_CSV_URL = (
     "https://docs.google.com/spreadsheets/d/"
     "14amb2CM9nVQR_-ZqpGuNPSSdMxsAk0YEoAvetgEyGRw/export?format=csv&gid=2053751678"
@@ -69,18 +85,51 @@ def display_terms(value):
     return [item.strip() for item in (value or "").replace(",", ";").split(";") if item.strip()]
 
 
+def looks_like_workshop(value):
+    text = (value or "").casefold()
+    return "workshop" in text or "@" in text
+
+
+def split_workshops(value):
+    workshops = []
+    raw_segments = re.split(r";|\n", value or "")
+    for raw_segment in raw_segments:
+        segment = raw_segment.strip()
+        if not segment:
+            continue
+        comma_parts = [part.strip() for part in segment.split(",") if part.strip()]
+        if len(comma_parts) > 1 and all(looks_like_workshop(part) for part in comma_parts):
+            workshops.extend({"venue": part, "award_note": ""} for part in comma_parts)
+            continue
+        award_note = ""
+        if len(comma_parts) > 1 and not looks_like_workshop(comma_parts[-1]):
+            award_note = comma_parts[-1]
+            segment = ", ".join(comma_parts[:-1]).strip()
+        workshops.append({"venue": segment, "award_note": award_note})
+    return workshops
+
+
+def clean_award_text(value):
+    value = (value or "").strip()
+    value = re.sub(r"^workshop\s+", "", value, flags=re.IGNORECASE)
+    value = re.sub(r"^best paper runner-up$", "Best Paper Runner-up", value, flags=re.IGNORECASE)
+    if value.casefold() == "best paper":
+        return "Best Paper"
+    return value[:1].upper() + value[1:] if value else ""
+
+
 def clean_venue_label(venue, superlatives=None):
     venue = (venue or "").strip()
     for superlative in superlatives or []:
         venue = venue.replace(f" ({superlative})", "")
         if venue.endswith(f" {superlative}"):
             venue = venue[: -len(superlative)].rstrip()
+    venue = re.sub(r",\s*best paper runner-up$", "", venue, flags=re.IGNORECASE)
     return venue.replace(" (Oral)", "").removesuffix(" Oral").strip()
 
 
 def is_workshop_venue(venue):
-    text = (venue or "").casefold()
-    return "workshop" in text or "@" in text
+    return looks_like_workshop(venue)
 
 
 def venue_kind(venue):
@@ -89,6 +138,54 @@ def venue_kind(venue):
     if is_workshop_venue(venue):
         return "workshop"
     return "conference"
+
+
+def venue_family(venue):
+    venue = (venue or "").strip()
+    if venue == "arXiv":
+        return "arXiv"
+    if "@" in venue:
+        target = venue.rsplit("@", 1)[1].strip()
+        target = re.sub(r"\b20\d{2}\b|\b\d{2}\b", "", target).strip()
+        for family in CONFERENCE_FAMILIES:
+            if family.casefold() in target.casefold():
+                return family
+        return target or venue
+    if re.search(r"\bat\b", venue, flags=re.IGNORECASE) and is_workshop_venue(venue):
+        target = re.split(r"\bat\b", venue, flags=re.IGNORECASE)[-1].strip()
+        for family in CONFERENCE_FAMILIES:
+            if family.casefold() in target.casefold():
+                return family
+    if is_workshop_venue(venue):
+        for family in CONFERENCE_FAMILIES:
+            if family.casefold() in venue.casefold():
+                return family
+    for family in CONFERENCE_FAMILIES:
+        if venue.casefold().startswith(family.casefold()):
+            return family
+    return venue
+
+
+def venue_track_label(venue, family, kind):
+    label = re.sub(r"\s+", " ", (venue or "").strip())
+    if kind == "arxiv":
+        return "Preprints"
+    if kind == "conference":
+        if label == family:
+            return "Main conference"
+        label = re.sub(rf"^{re.escape(family)}\s*", "", label, flags=re.IGNORECASE).strip()
+        label = re.sub(r"^\d{4}\s*", "", label).strip()
+        return label or "Main conference"
+    label = re.sub(rf"\s*@\s*{re.escape(family)}(\s*20\d{{2}}|\s*\d{{2}})?", "", label, flags=re.IGNORECASE).strip()
+    label = re.sub(rf"\s+at\s+{re.escape(family)}(\s*20\d{{2}}|\s*\d{{2}})?", "", label, flags=re.IGNORECASE).strip()
+    label = re.sub(rf"\s*\({re.escape(family)}\s*\d{{2,4}}\)", "", label, flags=re.IGNORECASE).strip()
+    label = re.sub(rf"^{re.escape(family)}(\s*20\d{{2}}|\s*\d{{2}})?\s*", "", label, flags=re.IGNORECASE).strip()
+    label = re.sub(r"\s+", " ", label)
+    label = re.sub(r"\bworkshop\b", "Workshop", label, flags=re.IGNORECASE)
+    compact = re.sub(r"[^a-z0-9]+", " ", label.casefold()).strip()
+    if "mechinterp workshop" in compact or "mech interp workshop" in compact or "mechanistic interpretability workshop" in compact:
+        return "MechInterp Workshop"
+    return label or "Workshop"
 
 
 def row_date(row):
@@ -145,6 +242,100 @@ def display_venue(row, config):
     return clean_venue_label(venue, display_terms(row.get("Superlatives")))
 
 
+def appearance_superlatives(row, raw_venue, kind, award_note="", has_separate_workshop=False):
+    raw_lower = (raw_venue or "").casefold()
+    award_lower = (award_note or "").casefold()
+    selected = []
+    for term in display_terms(row.get("Superlatives")):
+        lower = term.casefold()
+        if kind == "workshop":
+            if "workshop" in lower or lower in raw_lower or ("best paper" in lower and "best paper" in award_lower):
+                selected.append(clean_award_text(term))
+        elif kind == "conference":
+            if "workshop" in lower:
+                continue
+            if lower in raw_lower or not has_separate_workshop:
+                selected.append(clean_award_text(term))
+    if kind == "workshop" and award_note and "best paper" in award_lower:
+        selected.append(clean_award_text(award_note))
+
+    deduped = []
+    seen = set()
+    for term in selected:
+        key = term.casefold()
+        if term and key not in seen:
+            seen.add(key)
+            deduped.append(term)
+    return deduped
+
+
+def appearance_record(row, raw_venue, date, kind, award_note="", has_separate_workshop=False):
+    venue = clean_venue_label(raw_venue, display_terms(row.get("Superlatives")))
+    paper_date = pub_date(row)
+    sort_date = date
+    if kind == "workshop" and sort_date != datetime.min:
+        sort_date = sort_date - timedelta(days=WORKSHOP_SORT_OFFSET_DAYS)
+    if kind == "arxiv" and sort_date != datetime.min:
+        sort_date = datetime(sort_date.year, 1, 1)
+    return {
+        "title": normalize_title(row.get("Title")),
+        "url": clean_link(row.get("Link")),
+        "date": display_year(paper_date),
+        "date_sort": paper_date.strftime("%Y-%m-%d") if paper_date != datetime.min else "",
+        "venue": venue,
+        "venue_year": display_year(date),
+        "kind": kind,
+        "family": venue_family(venue),
+        "group_sort_date": sort_date.strftime("%Y-%m-%d") if sort_date != datetime.min else "",
+        "superlatives": appearance_superlatives(row, raw_venue, kind, award_note, has_separate_workshop),
+    }
+
+
+def paper_records(row):
+    status = (row.get("Status") or "").strip().casefold()
+    conference = (row.get("Conference or Journal") or "").strip()
+    archival_date = parse_date(row.get("Archival Date"))
+    workshops = split_workshops(row.get("Workshop"))
+    workshop_date = parse_date(row.get("Workshop Date"))
+    paper_date = pub_date(row)
+    records = []
+
+    if status == "accepted":
+        separate_workshops = [
+            workshop
+            for workshop in workshops
+            if clean_venue_label(workshop["venue"], display_terms(row.get("Superlatives"))) != clean_venue_label(conference, display_terms(row.get("Superlatives")))
+        ]
+        conference_is_real = conference and not conference.casefold().startswith("extended to")
+        if conference_is_real:
+            records.append(
+                appearance_record(
+                    row,
+                    conference,
+                    first_valid_date(archival_date, row_date(row), paper_date),
+                    venue_kind(clean_venue_label(conference, display_terms(row.get("Superlatives")))),
+                    has_separate_workshop=bool(separate_workshops),
+                )
+            )
+        for workshop in separate_workshops or ([] if conference_is_real else workshops):
+            records.append(
+                appearance_record(
+                    row,
+                    workshop["venue"],
+                    first_valid_date(workshop_date, row_date(row), paper_date),
+                    "workshop",
+                    award_note=workshop["award_note"],
+                    has_separate_workshop=bool(separate_workshops),
+                )
+            )
+        if not records:
+            records.append(appearance_record(row, "arXiv", first_valid_date(paper_date, row_date(row)), "arxiv"))
+        return records
+
+    venue = homepage_venue(row)
+    return [appearance_record(row, venue, venue_date(row, venue), venue_kind(venue))]
+
+
 def read_papers():
     with PAPERS_CSV.open(newline="", encoding="utf-8") as f:
         return list(csv.DictReader(f))
@@ -199,23 +390,6 @@ def read_area_filters():
         ]
 
 
-def paper_record(row):
-    paper_date = pub_date(row)
-    venue = homepage_venue(row)
-    event_date = venue_date(row, venue)
-    sort_date = group_sort_date(row, venue)
-    return {
-        "title": normalize_title(row.get("Title")),
-        "url": clean_link(row.get("Link")),
-        "date": display_year(paper_date),
-        "date_sort": paper_date.strftime("%Y-%m-%d") if paper_date != datetime.min else "",
-        "venue": venue,
-        "venue_year": display_year(event_date),
-        "group_sort_date": sort_date.strftime("%Y-%m-%d") if sort_date != datetime.min else "",
-        "superlatives": display_terms(row.get("Superlatives")),
-    }
-
-
 def area_paper_record(row, summary="", display_venue=""):
     date = pub_date(row)
     if date == datetime.min:
@@ -235,7 +409,9 @@ def area_paper_record(row, summary="", display_venue=""):
 
 def all_papers(rows):
     selected = [row for row in rows if normalize_title(row.get("Title")) and pub_date(row) != datetime.min]
-    records = [paper_record(row) for row in selected]
+    records = []
+    for row in selected:
+        records.extend(paper_records(row))
     records.sort(key=lambda row: (row["group_sort_date"], row["date_sort"], row["title"]), reverse=True)
     return records
 
@@ -244,26 +420,55 @@ def grouped_papers(papers):
     groups = []
     by_key = {}
     for paper in papers:
-        key = (paper["venue"], paper["venue_year"])
+        key = (paper["family"], paper["venue_year"])
         if key not in by_key:
             by_key[key] = {
-                "venue": paper["venue"],
+                "family": paper["family"],
                 "year": paper["venue_year"],
-                "kind": venue_kind(paper["venue"]),
-                "label": f"{paper['venue']}, {paper['venue_year']}" if paper["venue_year"] else paper["venue"],
+                "kind": paper["kind"],
+                "label": f"{paper['family']}, {paper['venue_year']}" if paper["venue_year"] else paper["family"],
+                "count": 0,
+                "sort_date": paper["group_sort_date"],
+                "venues": [],
+                "_venue_map": {},
+            }
+            groups.append(by_key[key])
+        group = by_key[key]
+        label = venue_track_label(paper["venue"], paper["family"], paper["kind"])
+        venue_key = (label.casefold(), paper["kind"])
+        if venue_key not in group["_venue_map"]:
+            group["_venue_map"][venue_key] = {
+                "venue": paper["venue"],
+                "label": label,
+                "kind": paper["kind"],
                 "count": 0,
                 "sort_date": paper["group_sort_date"],
                 "papers": [],
             }
-            groups.append(by_key[key])
-        group = by_key[key]
-        group["papers"].append(paper)
+            group["venues"].append(group["_venue_map"][venue_key])
+        venue = group["_venue_map"][venue_key]
+        venue["papers"].append(paper)
+        venue["count"] += 1
+        if paper["group_sort_date"] > venue["sort_date"]:
+            venue["sort_date"] = paper["group_sort_date"]
         group["count"] += 1
         if paper["group_sort_date"] > group["sort_date"]:
             group["sort_date"] = paper["group_sort_date"]
+        if group["kind"] == "arxiv" or paper["kind"] == "conference":
+            group["kind"] = paper["kind"]
     groups.sort(key=lambda group: (group["sort_date"], group["label"]), reverse=True)
     for group in groups:
-        group["papers"].sort(key=lambda paper: (paper["date_sort"], paper["title"]), reverse=True)
+        group["venues"].sort(
+            key=lambda venue: (
+                {"conference": 2, "workshop": 1, "arxiv": 0}.get(venue["kind"], 0),
+                venue["sort_date"],
+                venue["label"],
+            ),
+            reverse=True,
+        )
+        for venue in group["venues"]:
+            venue["papers"].sort(key=lambda paper: (paper["date_sort"], paper["title"]), reverse=True)
+        group.pop("_venue_map")
     return groups
 
 
