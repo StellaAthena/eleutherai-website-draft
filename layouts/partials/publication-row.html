@@ -1,0 +1,13 @@
+<article class="publication-item publication-row{{ if .superlatives }} has-superlative{{ end }}">
+  <h3 class="publication-title">
+    {{ if .url }}
+      <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+    {{ else }}
+      {{ .title }}
+    {{ end }}
+  </h3>
+  <p class="publication-meta">
+    {{ .date }} · {{ .venue }}
+    {{ range .superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}
+  </p>
+</article>

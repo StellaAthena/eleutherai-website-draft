@@ -7,32 +7,27 @@
     </div>
   </section>
 
+  {{ with .Content }}
+    <section class="section research-goals">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>Research goals</h2></div>
+          <div class="prose">
+            {{ . }}
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
   <section class="section" id="publications">
     <div class="wrap">
       <div class="section-head">
         <div><h2>Recent Publications</h2></div>
       </div>
       <div class="publication-list">
-        {{ range $index, $paper := first 50 site.Data.research.papers }}
-          <details class="publication-item{{ if $paper.superlatives }} has-superlative{{ end }}" {{ if eq $index 0 }}open{{ end }}>
-            <summary>
-              <span>
-                <span class="publication-title">
-                  {{ if $paper.url }}
-                    <a href="{{ $paper.url }}" target="_blank" rel="noopener noreferrer">{{ $paper.title }}</a>
-                  {{ else }}
-                    {{ $paper.title }}
-                  {{ end }}
-                </span>
-                <span class="publication-meta">
-                  {{ $paper.date }} · {{ $paper.venue }}
-                  {{ range $paper.superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}
-                </span>
-              </span>
-            </summary>
-            {{ with $paper.details }}<p>{{ . }}</p>{{ end }}
-            {{ if $paper.url }}<a class="link" href="{{ $paper.url }}" target="_blank" rel="noopener noreferrer">Read paper</a>{{ end }}
-          </details>
+        {{ range first 50 site.Data.research.papers }}
+          {{ partial "publication-row.html" . }}
         {{ end }}
       </div>
     </div>

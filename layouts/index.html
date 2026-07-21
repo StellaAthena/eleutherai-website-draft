@@ -25,26 +25,8 @@
 
           <h2 id="publications-title">Recent Publications</h2>
           <div class="publication-list">
-            {{ range $index, $paper := site.Data.research.homepage_papers }}
-              <details class="publication-item{{ if $paper.superlatives }} has-superlative{{ end }}" {{ if eq $index 0 }}open{{ end }}>
-                <summary>
-                  <span>
-                    <span class="publication-title">
-                      {{ if $paper.url }}
-                        <a href="{{ $paper.url }}" target="_blank" rel="noopener noreferrer">{{ $paper.title }}</a>
-                      {{ else }}
-                        {{ $paper.title }}
-                      {{ end }}
-                    </span>
-                    <span class="publication-meta">
-                      {{ $paper.date }} · {{ $paper.venue }}
-                      {{ range $paper.superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}
-                    </span>
-                  </span>
-                </summary>
-                {{ with $paper.details }}<p>{{ . }}</p>{{ end }}
-                {{ if $paper.url }}<a class="link" href="{{ $paper.url }}" target="_blank" rel="noopener noreferrer">Read paper</a>{{ end }}
-              </details>
+            {{ range site.Data.research.homepage_papers }}
+              {{ partial "publication-row.html" . }}
             {{ end }}
           </div>
         </div>
