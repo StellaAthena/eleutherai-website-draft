@@ -1,0 +1,28 @@
+.library-page { --lib-green: #63db7b; --lib-blue: #84c8ff; --lib-panel: #0d1218; --lib-muted: #89939f; --lib-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+body:has(.library-page) .site-header a[href*="research"] { color: var(--lib-green); }
+.library-intro { padding: 82px 0 64px; border-bottom: 1px solid var(--line); }
+.library-intro h1 { margin: 0 0 28px; font-size: clamp(3.6rem, 7vw, 6.8rem); line-height: .92; }
+.library-intro > .wrap > p { max-width: 780px; margin: 0; color: var(--body); font-size: 1.22rem; line-height: 1.55; }
+.library-search { margin-top: 58px; }
+.library-search label, .library-filters > label { display: block; margin-bottom: 10px; color: var(--ink); font-weight: 700; }
+.library-search input { width: 100%; min-height: 68px; padding: 0 22px; border: 1px solid #3a4551; border-radius: 0; outline: 0; background: var(--lib-panel); color: var(--ink); font: inherit; font-size: 1.12rem; }
+.library-search input::placeholder { color: var(--lib-muted); }.library-search input:focus { border-color: var(--lib-blue); box-shadow: inset 4px 0 0 var(--lib-blue); }
+.library-workspace { padding: 0 0 100px; }
+.library-layout { display: grid; grid-template-columns: 235px minmax(0, 1fr); gap: 64px; align-items: start; }
+.library-filters { position: sticky; top: 96px; padding: 38px 0; }
+.library-filter-heading { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 36px; }
+.library-filter-heading h2 { margin: 0; font-size: 1.45rem; }.library-filter-heading button { padding: 0; border: 0; background: transparent; color: var(--lib-green); font: inherit; font-weight: 700; cursor: pointer; }
+.library-filters > label { margin-top: 24px; color: var(--body); font-size: .88rem; }
+.library-filters select { width: 100%; min-height: 44px; padding: 0 34px 0 12px; border: 1px solid #34404b; border-radius: 0; background: var(--lib-panel); color: var(--ink); font: inherit; }
+.library-results { min-width: 0; border-left: 1px solid var(--line); padding-left: 44px; }
+.library-results-heading { display: flex; justify-content: space-between; align-items: baseline; min-height: 101px; padding: 39px 0 28px; border-bottom: 1px solid var(--line); }
+.library-results-heading p { margin: 0; color: var(--lib-muted); }.library-results-heading strong { color: var(--ink); font-family: var(--lib-mono); font-size: 1.3rem; }
+.library-year-group { display: grid; grid-template-columns: 110px minmax(0, 1fr); border-bottom: 1px solid var(--line); }
+.library-year-group > h2 { position: sticky; top: 100px; align-self: start; margin: 0; padding: 27px 20px 27px 0; color: var(--lib-blue); font-family: var(--lib-mono); font-size: 1rem; }
+.library-entry { display: grid; grid-template-columns: minmax(0, 1fr) 125px auto; gap: 25px; align-items: start; padding: 25px 0 27px; border-bottom: 1px solid var(--line-soft); }
+.library-entry:last-child { border-bottom: 0; }.library-entry h3 { margin: 0 0 9px; font-size: 1.08rem; line-height: 1.42; }.library-entry-main > p { margin: 0; color: var(--lib-muted); font-size: .86rem; line-height: 1.5; }
+.library-entry-status { margin: 2px 0 0; color: var(--body); font-size: .82rem; text-align: right; }.library-entry-awards { min-width: 0; }
+#library-empty { margin: 60px 0; color: var(--body); font-size: 1.15rem; }
+[hidden] { display: none !important; }
+@media (max-width: 900px) { .library-layout { grid-template-columns: 1fr; gap: 0; }.library-filters { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; padding-bottom: 35px; }.library-filter-heading { grid-column: 1 / -1; margin-bottom: 5px; }.library-filters > label { margin: 8px 0 -4px; }.library-results { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); } }
+@media (max-width: 680px) { .library-intro { padding: 54px 0 45px; }.library-intro h1 { font-size: 3.35rem; }.library-intro > .wrap > p { font-size: 1.05rem; }.library-search { margin-top: 40px; }.library-search input { min-height: 58px; font-size: 1rem; }.library-filters { grid-template-columns: 1fr; }.library-filter-heading { grid-column: auto; }.library-year-group { grid-template-columns: 1fr; }.library-year-group > h2 { position: static; padding: 30px 0 10px; }.library-entry { grid-template-columns: 1fr auto; gap: 12px 18px; }.library-entry-main { grid-column: 1 / -1; }.library-entry-status { text-align: left; }.library-results-heading { min-height: 82px; padding: 28px 0 22px; } }

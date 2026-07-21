@@ -1,0 +1,100 @@
+{{ define "main" }}
+{{ $papers := site.Data.research.library_papers | default slice }}
+{{ $areas := slice }}
+{{ $years := slice }}
+{{ range $papers }}
+  {{ $years = $years | append .date }}
+  {{ range .areas }}{{ $areas = $areas | append . }}{{ end }}
+{{ end }}
+{{ $areas = sort (uniq $areas) }}
+{{ $years = sort (uniq $years) "value" "desc" }}
+
+<main class="library-page">
+  <section class="library-intro">
+    <div class="wrap">
+      <h1>Research Library</h1>
+      <p>Explore EleutherAI papers across language modeling, interpretability, alignment, policy, multimodal research, security, and computing.</p>
+      <div class="library-search">
+        <label for="library-query">Search publications</label>
+        <input id="library-query" type="search" placeholder="Title, venue, research area, or organization" autocomplete="off">
+      </div>
+    </div>
+  </section>
+
+  <section class="library-workspace">
+    <div class="wrap library-layout">
+      <aside class="library-filters" aria-label="Publication filters">
+        <div class="library-filter-heading">
+          <h2>Filter</h2>
+          <button id="library-clear" type="button">Clear</button>
+        </div>
+        <label for="library-area">Research area</label>
+        <select id="library-area">
+          <option value="">All areas</option>
+          {{ range $areas }}<option value="{{ . | lower }}">{{ . }}</option>{{ end }}
+        </select>
+        <label for="library-year">Year</label>
+        <select id="library-year">
+          <option value="">All years</option>
+          {{ range $years }}<option value="{{ . }}">{{ . }}</option>{{ end }}
+        </select>
+        <label for="library-kind">Venue type</label>
+        <select id="library-kind">
+          <option value="">All venue types</option>
+          <option value="conference">Conference or journal</option>
+          <option value="workshop">Workshop</option>
+          <option value="arxiv">arXiv</option>
+        </select>
+        <label for="library-status">Status</label>
+        <select id="library-status">
+          <option value="">All statuses</option>
+          <option value="accepted">Accepted</option>
+          <option value="under review">Under review</option>
+          <option value="arxiv">arXiv</option>
+          <option value="ready to submit">Ready to submit</option>
+          <option value="work-in-progress">Work in progress</option>
+          <option value="rejected">Rejected</option>
+        </select>
+      </aside>
+
+      <div class="library-results">
+        <div class="library-results-heading" aria-live="polite">
+          <p><strong id="library-count">{{ len $papers }}</strong> publications</p>
+          <p>Newest first</p>
+        </div>
+        <div id="library-list">
+          {{ range $year := $years }}
+            {{ $yearPapers := where $papers "date" $year }}
+            <section class="library-year-group" data-year-group="{{ $year }}">
+              <h2>{{ $year }}</h2>
+              <div>
+                {{ range $yearPapers }}
+                  <article class="library-entry"
+                    data-title="{{ .title | lower }}"
+                    data-year="{{ .date }}"
+                    data-venue="{{ .venue | lower }}"
+                    data-kind="{{ .kind | lower }}"
+                    data-status="{{ .status | lower }}"
+                    data-areas="{{ delimit .areas "|" | lower }}"
+                    data-org="{{ .lead_org | lower }}"
+                    data-contact="{{ .contact | lower }}">
+                    <div class="library-entry-main">
+                      <h3>{{ .title }}</h3>
+                      <p>{{ .venue }}{{ with .areas }}<span aria-hidden="true"> · </span>{{ delimit . " / " }}{{ end }}</p>
+                    </div>
+                    <p class="library-entry-status">{{ .status }}</p>
+                    <div class="library-entry-awards">{{ range .superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}</div>
+                  </article>
+                {{ end }}
+              </div>
+            </section>
+          {{ end }}
+        </div>
+        <p id="library-empty" hidden>No publications match these filters.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="{{ "research-library.js" | relURL }}" defer></script>
+{{ end }}
+{{ define "page_styles" }}<link rel="stylesheet" href="{{ printf "research-library.css?v=%d" now.Unix | relURL }}">{{ end }}

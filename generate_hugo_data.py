@@ -416,6 +416,39 @@ def all_papers(rows):
     return records
 
 
+def library_paper_record(row):
+    date = pub_date(row)
+    venue = homepage_venue(row)
+    areas = []
+    for field in ("Primary Area", "Additional Area"):
+        area = (row.get(field) or "").strip()
+        if area and area not in areas:
+            areas.append(area)
+    return {
+        "title": normalize_title(row.get("Title")),
+        "date": display_year(date),
+        "date_sort": date.strftime("%Y-%m-%d") if date != datetime.min else "",
+        "venue": venue,
+        "kind": venue_kind(venue),
+        "status": (row.get("Status") or "").strip(),
+        "areas": areas,
+        "lead_org": (row.get("Lead Org") or "").strip(),
+        "contact": (row.get("EleutherAI PoC") or "").strip(),
+        "artifact_type": "Paper",
+        "superlatives": display_terms(row.get("Superlatives")),
+    }
+
+
+def library_papers(rows):
+    records = [
+        library_paper_record(row)
+        for row in rows
+        if normalize_title(row.get("Title")) and pub_date(row) != datetime.min
+    ]
+    records.sort(key=lambda row: (row["date_sort"], row["title"]), reverse=True)
+    return records
+
+
 def grouped_papers(papers):
     groups = []
     by_key = {}
@@ -547,6 +580,7 @@ def main():
     write_json("paper_groups.json", grouped_papers(papers))
     write_json("homepage_paper_groups.json", grouped_papers(papers[:HOMEPAGE_GROUPED_PAPER_LIMIT]))
     write_json("area_papers.json", per_area)
+    write_json("library_papers.json", library_papers(rows))
     print("Generated Hugo research data")
 
 

@@ -1,0 +1,2331 @@
+[
+  {
+    "title": "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems",
+    "date": "2026",
+    "date_sort": "2026-07-11",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Rejected",
+    "areas": [
+      "Alignment",
+      "Security"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Moritz Weckbecker",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
+    "date": "2026",
+    "date_sort": "2026-07-10",
+    "venue": "ICML",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": [
+      "Oral"
+    ]
+  },
+  {
+    "title": "Automated Attribution Graph Interpretation via Probe Prompting",
+    "date": "2026",
+    "date_sort": "2026-07-10",
+    "venue": "Mechanistic interpretability workshop @ ICML",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Gonçalo Paulo",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Who Evaluates AI's Social Impacts? Mapping Coverage and Gaps in First and Third Party Evaluations",
+    "date": "2026",
+    "date_sort": "2026-07-08",
+    "venue": "ICML",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP",
+      "Ethics and Policy"
+    ],
+    "lead_org": "EvalEval Coalition",
+    "contact": "Jenn Mickel",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Faults in Our Formal Benchmarking: Dataset Defects and Evaluation Failures in Lean Theorem Proving",
+    "date": "2026",
+    "date_sort": "2026-07-08",
+    "venue": "ICML",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Pawan Ammanamanchi",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation",
+    "date": "2026",
+    "date_sort": "2026-07-07",
+    "venue": "ICML",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP",
+      "Ethics and Policy"
+    ],
+    "lead_org": "EvalEval Coalition",
+    "contact": "Jenn Mickel",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "L1 Influence in L2 Language Models: A Human-centric Approach",
+    "date": "2026",
+    "date_sort": "2026-07-04",
+    "venue": "Computational Developmental Linguistics Workshop at ACL",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "University of Cambridge",
+    "contact": "Catherine Arnett",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Weight Tying Biases Token Embeddings Towards the Output Space",
+    "date": "2026",
+    "date_sort": "2026-07-02",
+    "venue": "ACL Findings",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Catherine Arnett",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "CommonLID: Re-evaluating State-of-the-Art Language Identification Performance on Web Data",
+    "date": "2026",
+    "date_sort": "2026-07-02",
+    "venue": "ACL",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Common Crawl",
+    "contact": "Catherine Arnett",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
+    "date": "2026",
+    "date_sort": "2026-06-12",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Under Review",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EvalEval Coalition",
+    "contact": "Jenn Mickel",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "LoRA-Muon: Spectral Steepest Descent on the Low-Rank Manifold",
+    "date": "2026",
+    "date_sort": "2026-06-11",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Under Review",
+    "areas": [
+      "NLP",
+      "HPC"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "@leloy!",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
+    "date": "2026",
+    "date_sort": "2026-06-08",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Under Review",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EvalEval Coalition",
+    "contact": "Jenn Mickel",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs",
+    "date": "2026",
+    "date_sort": "2026-05-09",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Under Review",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Guijin Son",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Sparse Autoencoders Trained on the Same Data Learn Different Features",
+    "date": "2026",
+    "date_sort": "2026-04-23",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Gonçalo Paulo",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Evaluating SAE interpretability without explanations",
+    "date": "2026",
+    "date_sort": "2026-04-23",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Gonçalo Paulo",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs",
+    "date": "2026",
+    "date_sort": "2026-04-23",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Alignment",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI and AISI",
+    "contact": "Kyle O'Brien",
+    "artifact_type": "Paper",
+    "superlatives": [
+      "Workshop Best Paper Runner-up"
+    ]
+  },
+  {
+    "title": "How Open Must Language Models be to Enable Reliable Scientific Inference?",
+    "date": "2026",
+    "date_sort": "2026-03-27",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Under Review",
+    "areas": [
+      "NLP",
+      "Ethics and Policy"
+    ],
+    "lead_org": "MIT",
+    "contact": "Catherine Arnett",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Concept Influence: Leveraging Interpretability to Improve Performance and Efficiency in Training Data Attribution",
+    "date": "2026",
+    "date_sort": "2026-02-16",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Ready to Submit",
+    "areas": [
+      "Interpretability",
+      "Alignment"
+    ],
+    "lead_org": "FAR.AI",
+    "contact": "Gonçalo Paulo, Louis",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Quantifying the Effect of Test Set Contamination on Generative Evaluations",
+    "date": "2026",
+    "date_sort": "2026-02-06",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Under Review",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Stanford",
+    "contact": "Baber Abbasi",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "The Toxicology of Data: A Dose-Response Framework for Test Set Contamination, Data Poisoning, Finetuning Attacks and Memorization",
+    "date": "2026",
+    "date_sort": "2026-01-07",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Rejected",
+    "areas": [
+      "NLP",
+      "Security"
+    ],
+    "lead_org": "Stanford",
+    "contact": "Baber Abbasi",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Mitigating Emergent Misalignment with Data Attribution",
+    "date": "2025",
+    "date_sort": "2025-12-07",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Work-in-Progress",
+    "areas": [
+      "Alignment",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Gonçalo Paulo",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Benchmark Disaggregation Improves Interpretability of Training Dynamics",
+    "date": "2025",
+    "date_sort": "2025-12-06",
+    "venue": "CogInterp Workshop @ NeurIPS",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "NLP",
+      "Interpretability"
+    ],
+    "lead_org": "MIT",
+    "contact": "Catherine Arnett",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Token Entanglement in Subliminal Learning",
+    "date": "2025",
+    "date_sort": "2025-12-02",
+    "venue": "Mech Interp Workshop @ NeurIPS",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability",
+      "Alignment"
+    ],
+    "lead_org": "Bau Lab",
+    "contact": "Lucia Quirke",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "The Ghost in the Keys: A Disklavier Demo for Human-AI Musical Co-Creativity",
+    "date": "2025",
+    "date_sort": "2025-12-02",
+    "venue": "AI4Music @ NeurIPS",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "Other Modalities"
+    ],
+    "lead_org": "Queen Mary University of London and EleutherAI",
+    "contact": "Louis Bradshaw",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "The Common Pile v0.1: An 8TB Dataset of Public Domain and Openly Licensed Text",
+    "date": "2025",
+    "date_sort": "2025-12-02",
+    "venue": "NeurIPS Datasets and Benchmarks",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP",
+      "Ethics and Policy"
+    ],
+    "lead_org": "University of Toronto and EleutherAI",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "More of the Same: Persistent Representational Harms Under Increased Representation",
+    "date": "2025",
+    "date_sort": "2025-12-02",
+    "venue": "NeurIPS",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Ethics and Policy",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Jenn Mickel",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Explaining and Mitigating Cross-Linguistic Tokenizer Inequalities",
+    "date": "2025",
+    "date_sort": "2025-12-02",
+    "venue": "NeurIPS",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Catherine Arnett",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Video Deepfake Abuse: How Company Choices Predictably Shape Misuse Patterns",
+    "date": "2025",
+    "date_sort": "2025-11-25",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Ready to Submit",
+    "areas": [
+      "Ethics and Policy",
+      "Other Modalities"
+    ],
+    "lead_org": "MIT",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Who Measures What Matters? An Analysis of Social Impact Evaluations in Foundation Model Reporting",
+    "date": "2025",
+    "date_sort": "2025-11-06",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Ready to Submit",
+    "areas": [
+      "Ethics and Policy",
+      "NLP"
+    ],
+    "lead_org": "EvalEval Coalition",
+    "contact": "Jenn Mickel",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures",
+    "date": "2025",
+    "date_sort": "2025-10-25",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Under Review",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Catherine Arnett",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "RWKV-7 \"Goose\" with Expressive Dynamic State Evolution",
+    "date": "2025",
+    "date_sort": "2025-10-07",
+    "venue": "COLM",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "LF AI & Data and EleutherAI",
+    "contact": "Daniel Goldstein",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "RADLADS: Rapid Attention Distillation to Linear Attention Decoders at Scale",
+    "date": "2025",
+    "date_sort": "2025-10-07",
+    "venue": "COLM",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Recursal AI",
+    "contact": "Daniel Goldstein",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Open Problems in Mechanistic Interpretability",
+    "date": "2025",
+    "date_sort": "2025-09-27",
+    "venue": "TMLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability"
+    ],
+    "lead_org": "Apollo Research",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Scaling Self-Supervised Representation Learning for Symbolic Piano Performance",
+    "date": "2025",
+    "date_sort": "2025-09-21",
+    "venue": "ISMIR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Other Modalities"
+    ],
+    "lead_org": "Queen Mary University of London and EleutherAI",
+    "contact": "Louis Bradshaw",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "On the Acquisition of Shared Grammatical Representations in Bilingual Language Models",
+    "date": "2025",
+    "date_sort": "2025-07-27",
+    "venue": "ACL",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "UCSD",
+    "contact": "Catherine Arnett",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Steering Language Model Refusal with Sparse Autoencoders",
+    "date": "2025",
+    "date_sort": "2025-07-19",
+    "venue": "Actionable Interpretability Workshop @ ICML",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "Alignment",
+      "Interpretability"
+    ],
+    "lead_org": "Microsoft",
+    "contact": "Kyle O'Brien",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Position: Write Code that People Want to Use",
+    "date": "2025",
+    "date_sort": "2025-07-18",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Ready to Submit",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Evaluating Morphological Alignment of Tokenizers in 70 Languages",
+    "date": "2025",
+    "date_sort": "2025-07-18",
+    "venue": "Tokenizer Workshop @ ICML 2025",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Catherine Arnett",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "BPE Stays on SCRIPT: Structured Encoding for Robust Multilingual Pretokenization",
+    "date": "2025",
+    "date_sort": "2025-07-18",
+    "venue": "Tokenizer Workshop @ ICML 2025",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Cohere",
+    "contact": "Catherine Arnett",
+    "artifact_type": "Paper",
+    "superlatives": [
+      "Best paper @ Tokenizer Workshop"
+    ]
+  },
+  {
+    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
+    "date": "2025",
+    "date_sort": "2025-07-13",
+    "venue": "ICML",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Stanford (STAIR AI Lab)",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Automatically Interpreting Millions of Features in Large Language Models",
+    "date": "2025",
+    "date_sort": "2025-07-13",
+    "venue": "ICML",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Gonçalo Paulo",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "When AI Co-Scientists Fail: SPOT—a Benchmark for Automated Verification of Scientific Research",
+    "date": "2025",
+    "date_sort": "2025-05-17",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Guijin Son",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "The BiGGen Bench: A Principled Benchmark for Fine-grained Evaluation of Language Models with Language Models",
+    "date": "2025",
+    "date_sort": "2025-04-29",
+    "venue": "NAACL",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "KAIST",
+    "contact": "Guijin Son",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "KMMLU: Measuring Massive Multitask Language Understanding in Korean",
+    "date": "2025",
+    "date_sort": "2025-04-29",
+    "venue": "NAACL",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Guijin Son",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Recite, Reconstruct, Recollect: Memorization in LMs as a Multifaceted Phenomenon",
+    "date": "2025",
+    "date_sort": "2025-04-24",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP",
+      "Interpretability"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Naomi Saphra",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "PolyPythias: Stability and Outliers across Fifty Language Model Pre-Training Runs",
+    "date": "2025",
+    "date_sort": "2025-04-24",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP",
+      "Interpretability"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Oskar van der Wal",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Composable Interventions for Language Models",
+    "date": "2025",
+    "date_sort": "2025-04-24",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "University of Virginia",
+    "contact": "Kyle O'Brien",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Bridging the Data Provenance Gap Across Text, Speech, and Video",
+    "date": "2025",
+    "date_sort": "2025-04-24",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Ethics and Policy",
+      "NLP"
+    ],
+    "lead_org": "Data Provenance Initiative",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Aria-MIDI: A Dataset of MIDI Files for Symbolic Music Modeling",
+    "date": "2025",
+    "date_sort": "2025-04-24",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Other Modalities"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Louis Bradshaw",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Mechanistic Anomaly Detection for \"Quirky\" Language Models",
+    "date": "2025",
+    "date_sort": "2025-04-09",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "David Johnston",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Estimating the Probability of Sampling a Trained Neural Network at Random",
+    "date": "2025",
+    "date_sort": "2025-04-08",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "Interpretability"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Nora Belrose",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Examining Two Hop Reasoning Through Information Content Scaling",
+    "date": "2025",
+    "date_sort": "2025-03-21",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "Interpretability"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "David Johnston",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Does Transformer Interpretability Transfer to RNNs?",
+    "date": "2025",
+    "date_sort": "2025-02-25",
+    "venue": "AAAI",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Nora Belrose",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Transcoders Beat Sparse Autoencoders for Interpretability",
+    "date": "2025",
+    "date_sort": "2025-02-12",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Gonçalo Paulo",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Slowing Learning by Erasing Simple Features",
+    "date": "2025",
+    "date_sort": "2025-02-05",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "Interpretability"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Lucia Quirke",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Converting MLPs into Polynomials in Closed Form",
+    "date": "2025",
+    "date_sort": "2025-02-03",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "Interpretability"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Nora Belrose",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Can We Partially Rewrite Transformers in Natural Language?",
+    "date": "2025",
+    "date_sort": "2025-01-31",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Gonçalo Paulo",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Matrix-Driven Identification and Reconstruction of LLM Weight Homology",
+    "date": "2025",
+    "date_sort": "2025-01-30",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "Under Review",
+    "areas": [
+      "NLP",
+      "Security"
+    ],
+    "lead_org": "Tsinghua and EleutherAI",
+    "contact": "Zhang Ruichong, Daniel Goldstein",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Towards Best Practices for Open Datasets for LLM Training",
+    "date": "2025",
+    "date_sort": "2025-01-14",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP",
+      "Ethics and Policy"
+    ],
+    "lead_org": "Mozilla and EleutherAI",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "LLM Circuit Analyses Are Consistent Across Training and Scale",
+    "date": "2024",
+    "date_sort": "2024-12-10",
+    "venue": "NeurIPS",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Curt Tigges",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Consent in crisis: The rapid decline of the AI data commons",
+    "date": "2024",
+    "date_sort": "2024-12-10",
+    "venue": "NeurIPS Datasets and Benchmarks",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP",
+      "Ethics and Policy"
+    ],
+    "lead_org": "Data Provenance Initiative",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "The Foundation Model Development Cheatsheet: A Review of Responsible AI Tools & Resources",
+    "date": "2024",
+    "date_sort": "2024-12-07",
+    "venue": "TMLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP",
+      "Ethics and Policy"
+    ],
+    "lead_org": "MIT and EleutherAI",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Documenting Geographically and Contextually Diverse Data Sources: The BigScience Catalogue of Language Data and Resources",
+    "date": "2024",
+    "date_sort": "2024-12-01",
+    "venue": "Northern European Journal of Language Technology",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "BigScience",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Linear Representations of Sentiment in Large Language Models",
+    "date": "2024",
+    "date_sort": "2024-11-15",
+    "venue": "BlackBox NLP",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "MATS",
+    "contact": "Curt Tigges",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Refusal in LLMs is an Affine Function",
+    "date": "2024",
+    "date_sort": "2024-11-13",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Thomas Marshall",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Re-Evaluating Evaluation for Multilingual Summarization",
+    "date": "2024",
+    "date_sort": "2024-11-12",
+    "venue": "EMNLP",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Brown University",
+    "contact": "Jessica Forde",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Lina-Speech: Gated Linear Attention is a Fast and Parameter-Efficient Learner for text-to-speech synthesis",
+    "date": "2024",
+    "date_sort": "2024-10-30",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP",
+      "Other Modalities"
+    ],
+    "lead_org": "Sorbonne Université",
+    "contact": "Harrison Vanderbyl, Théodor Lemerle",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Balancing Label Quantity and Quality for Scalable Elicitation",
+    "date": "2024",
+    "date_sort": "2024-10-22",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP",
+      "Alignment"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Alex Mallen",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "From Decoding to Meta-Generation: Inference-time Algorithms for Large Language Models",
+    "date": "2024",
+    "date_sort": "2024-10-15",
+    "venue": "TMLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "CMU",
+    "contact": "Hailey Schoelkopf",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Eliciting Latent Knowledge from Quirky Language Models",
+    "date": "2024",
+    "date_sort": "2024-10-07",
+    "venue": "COLM",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Alex Mallen",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Eagle and Finch: RWKV with Matrix-Valued States and Dynamic Recurrence",
+    "date": "2024",
+    "date_sort": "2024-10-07",
+    "venue": "COLM",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "LF AI & Data and EleutherAI",
+    "contact": "Quentin Anthony",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "The Case for Co-Designing Model Architectures with Hardware",
+    "date": "2024",
+    "date_sort": "2024-08-12",
+    "venue": "ICPP",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "HPC"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Quentin Anthony",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Multi-Task Inference: Can Large Language Models Follow Multiple Instructions at Once?",
+    "date": "2024",
+    "date_sort": "2024-08-01",
+    "venue": "ACL",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Guijin Son",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Cold Compress: A Toolkit for Benchmarking KV Cache Compression Approaches",
+    "date": "2024",
+    "date_sort": "2024-08-01",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "AnswerDotAI",
+    "contact": "Hailey Schoelkopf",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Self-Directed Synthetic Dialogues and Revisions Technical Report",
+    "date": "2024",
+    "date_sort": "2024-07-25",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "AI2",
+    "contact": "Hailey Schoelkopf",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Stay on topic with Classifier-Free Guidance",
+    "date": "2024",
+    "date_sort": "2024-07-23",
+    "venue": "ICML",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Honglu Fan",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Position: Social Choice Should Guide AI Alignment: On Dealing with Diverse Human Feedback",
+    "date": "2024",
+    "date_sort": "2024-07-23",
+    "venue": "ICML Position Paper Track",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Ethics and Policy",
+      "Alignment"
+    ],
+    "lead_org": "CMU, Potsdam Institute, UC Berkeley",
+    "contact": "Hailey Schoelkopf",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "On the Societal Impact of Open Foundation Models",
+    "date": "2024",
+    "date_sort": "2024-07-23",
+    "venue": "ICML Position Paper Track",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Ethics and Policy"
+    ],
+    "lead_org": "Stanford University",
+    "contact": "Aviya Skowron",
+    "artifact_type": "Paper",
+    "superlatives": [
+      "Oral"
+    ]
+  },
+  {
+    "title": "Neural Networks Learn Statistics of Increasing Complexity",
+    "date": "2024",
+    "date_sort": "2024-07-23",
+    "venue": "ICML",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Nora Belrose",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Grokking Group Multiplication with Cosets",
+    "date": "2024",
+    "date_sort": "2024-07-23",
+    "venue": "ICML",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Dashiell Stander",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "A Safe Harbor for AI Evaluation and Red Teaming",
+    "date": "2024",
+    "date_sort": "2024-07-23",
+    "venue": "ICML Position Paper Track",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Ethics and Policy",
+      "Security"
+    ],
+    "lead_org": "MIT",
+    "contact": "Aviya Skowron",
+    "artifact_type": "Paper",
+    "superlatives": [
+      "Oral"
+    ]
+  },
+  {
+    "title": "GoldFinch: High Performance RWKV/Transformer Hybrid with Linear Pre-Fill and Extreme KV-Cache Compression",
+    "date": "2024",
+    "date_sort": "2024-07-16",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Recursal AI",
+    "contact": "Daniel Goldstein",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Improving Black-box Robustness with In-Context Rewriting",
+    "date": "2024",
+    "date_sort": "2024-06-18",
+    "venue": "TMLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Kyle O'Brien",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Simple and Scalable Strategies to Continually Pre-train Large Language Models",
+    "date": "2024",
+    "date_sort": "2024-06-07",
+    "venue": "TMLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Mila",
+    "contact": "Quentin Anthony",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Lessons from the Trenches on Reproducible Evaluation of Language Models",
+    "date": "2024",
+    "date_sort": "2024-05-23",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "HAE-RAE Bench: Evaluation of Korean Knowledge in Language Models",
+    "date": "2024",
+    "date_sort": "2024-05-20",
+    "venue": "COLING",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Guijin Son",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "OpenFold: Retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization",
+    "date": "2024",
+    "date_sort": "2024-05-14",
+    "venue": "Nature Methods",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Other Modalities",
+      "Interpretability"
+    ],
+    "lead_org": "Harvard and Columbia",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Attributing Mode Collapse in the fine-tuning of Large Language Models",
+    "date": "2024",
+    "date_sort": "2024-05-11",
+    "venue": "ICLR 2024 Workshop on Mathematical and Empirical Understanding of Foundation Models",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "NLP",
+      "Interpretability"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Laura O'Mahony",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "YaRN: Efficient Context Window Extension of Large Language Models",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Honglu Fan",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Hoagy Cunningham",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "ReLoRA: High-Rank Training Through Low-Rank Updates",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "UMass Lowell",
+    "contact": "Vladislav Lialin",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Quality-Diversity through AI Feedback",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Alignment",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Herbie Bradley",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "OpenWebMath: An Open Dataset of High-Quality Mathematical Web Text",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "University of Toronto",
+    "contact": "Zhangir Azerbayev",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "LLeMA: An Open Language Model for Mathematics",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Zhangir Azerbayev",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "The OpenELM Library: Leveraging Progress in Language Models for Novel Evolutionary Algorithms",
+    "date": "2024",
+    "date_sort": "2024-02-18",
+    "venue": "Genetic Programming Theory & Practice",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Alignment",
+      "NLP"
+    ],
+    "lead_org": "CarperAI",
+    "contact": "Herbie Bradley",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Suppressing Pink Elephants with Direct Principle Feedback",
+    "date": "2024",
+    "date_sort": "2024-02-12",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP",
+      "Alignment"
+    ],
+    "lead_org": "synthlabs.ai and EleutherAI",
+    "contact": "Louis Castricato",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Eliciting Language Model Behaviors using Reverse Language Models",
+    "date": "2023",
+    "date_sort": "2023-12-16",
+    "venue": "NeurIPS Workshop on Socially Responsible Language Modelling Research (SoLaR)",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "Security",
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Curtis Huebner",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Detecting Backdoors with Meta-Models",
+    "date": "2023",
+    "date_sort": "2023-12-15",
+    "venue": "NeurIPS Workshop on Backdoors in Deep Learning",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "Security"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Herbie Bradley",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "BigBIO: A Framework for Data-Centric Biomedical Natural Language Processing",
+    "date": "2023",
+    "date_sort": "2023-12-13",
+    "venue": "NeurIPS Datasets and Benchmarks",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "BigScience",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "The Goldilocks of Pragmatic Understanding: Fine-Tuning Strategy Matters for Implicature Resolution by LLMs",
+    "date": "2023",
+    "date_sort": "2023-12-10",
+    "venue": "NeurIPS",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability",
+      "NLP"
+    ],
+    "lead_org": "University College of London",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": [
+      "Spotlight"
+    ]
+  },
+  {
+    "title": "Reconstructing the Mind's Eye: fMRI-to-Image with Contrastive Learning and Diffusion Priors",
+    "date": "2023",
+    "date_sort": "2023-12-10",
+    "venue": "NeurIPS",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Other Modalities"
+    ],
+    "lead_org": "MedARC",
+    "contact": "Tanishq Abraham",
+    "artifact_type": "Paper",
+    "superlatives": [
+      "Spotlight"
+    ]
+  },
+  {
+    "title": "LEACE: Perfect linear concept erasure in closed form",
+    "date": "2023",
+    "date_sort": "2023-12-10",
+    "venue": "NeurIPS",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Interpretability",
+      "Alignment"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Nora Belrose",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Emergent and Predictable Memorization in Large Language Models",
+    "date": "2023",
+    "date_sort": "2023-12-10",
+    "venue": "NeurIPS",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Prompting Multilingual Large Language Models to Generate Code-Mixed Texts: The Case of South East Asian Languages",
+    "date": "2023",
+    "date_sort": "2023-12-07",
+    "venue": "EMNLP Workshop on Computational Approaches to Linguistic Code-Switching",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Brown University",
+    "contact": "Lintang Sutawika",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "trlX: A Framework for Large Scale Reinforcement Learning from Human Feedback",
+    "date": "2023",
+    "date_sort": "2023-12-06",
+    "venue": "EMNLP",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Alignment",
+      "NLP"
+    ],
+    "lead_org": "CarperAI",
+    "contact": "Louis Castricato",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "RWKV: Reinventing RNNs for the Transformer Era",
+    "date": "2023",
+    "date_sort": "2023-12-06",
+    "venue": "EMNLP (Findings)",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Quentin Anthony",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "StarCoder: may the source be with you!",
+    "date": "2023",
+    "date_sort": "2023-12-01",
+    "venue": "TMLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "BigCode",
+    "contact": "Hailey Schoelkopf",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Utilizing Weak Supervision to Generate Indonesian Conservation Datasets",
+    "date": "2023",
+    "date_sort": "2023-11-01",
+    "venue": "AACL Workshop in South East Asian Language Processing",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Datasaur",
+    "contact": "Lintang Sutawika",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Representation Engineering: A Top-Down Approach to AI Transparency",
+    "date": "2023",
+    "date_sort": "2023-10-02",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "Interpretability"
+    ],
+    "lead_org": "Center for AI Safety",
+    "contact": "Alex Mallen",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Reclaiming the Digital Commons: A Public Data Trust for Training Data",
+    "date": "2023",
+    "date_sort": "2023-08-29",
+    "venue": "AIES",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Ethics and Policy"
+    ],
+    "lead_org": "Mila",
+    "contact": "Herbie Bradley",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Do LLMs selectively encode the goal of an agent's reach?",
+    "date": "2023",
+    "date_sort": "2023-07-28",
+    "venue": "ICML Workshop on Theory of Mind in Communicating Agents",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "Alignment",
+      "NLP"
+    ],
+    "lead_org": "University College of London",
+    "contact": "Herbie Bradley",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Recasting Self-Attention with Holographic Reduced Representations",
+    "date": "2023",
+    "date_sort": "2023-07-23",
+    "venue": "ICML",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Security",
+      "NLP"
+    ],
+    "lead_org": "Laboratory for Physical Sciences",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling",
+    "date": "2023",
+    "date_sort": "2023-07-23",
+    "venue": "ICML",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP",
+      "Interpretability"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": [
+      "Oral"
+    ]
+  },
+  {
+    "title": "HyperTuning: Toward Adapting Large Language Models without Back-propagation",
+    "date": "2023",
+    "date_sort": "2023-07-23",
+    "venue": "ICML",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "New York University",
+    "contact": "Jason Phang",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Continual Pre-Training of Large Language Models: How to (re)warm your model?",
+    "date": "2023",
+    "date_sort": "2023-07-23",
+    "venue": "Extended to a published paper",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Mila",
+    "contact": "Quentin Anthony",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Challenges and Applications of Large Language Models",
+    "date": "2023",
+    "date_sort": "2023-07-19",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "University College of London",
+    "contact": "Herbie Bradley",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "GAIA Search: Hugging Face and Pyserini Interoperability for NLP Training Data Exploration",
+    "date": "2023",
+    "date_sort": "2023-07-09",
+    "venue": "ACL 2023 Demos Track",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Ethics and Policy",
+      "NLP"
+    ],
+    "lead_org": "BigScience",
+    "contact": "Hailey Schoelkopf",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Crosslingual Generalization through Multitask Finetuning",
+    "date": "2023",
+    "date_sort": "2023-07-09",
+    "venue": "ACL",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "BigScience",
+    "contact": "Lintang Sutawika",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "BLOOM+1: Adding Language Support to BLOOM for Zero-Shot Prompting",
+    "date": "2023",
+    "date_sort": "2023-07-09",
+    "venue": "ACL",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "BigScience",
+    "contact": "Lintang Sutawika",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "A Technical Report for Polyglot-Ko: Open-Source Large-Scale Korean Language Models",
+    "date": "2023",
+    "date_sort": "2023-06-06",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Kevin Ko",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Role-Play with Large Language Models",
+    "date": "2023",
+    "date_sort": "2023-05-25",
+    "venue": "Nature",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Alignment",
+      "NLP"
+    ],
+    "lead_org": "Google DeepMind",
+    "contact": "Laria Reynolds",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Can Transformers Learn to Solve Problems Recursively?",
+    "date": "2023",
+    "date_sort": "2023-05-24",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "Interpretability"
+    ],
+    "lead_org": "UIUC",
+    "contact": "Curt Tigges",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Eliciting latent predictions from transformers with the tuned lens",
+    "date": "2023",
+    "date_sort": "2023-05-14",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "Interpretability"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Nora Belrose",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models",
+    "date": "2023",
+    "date_sort": "2023-05-11",
+    "venue": "TMLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Google",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "ProofNet: Autoformalizing and Formally Proving Undergraduate-Level Mathematics",
+    "date": "2023",
+    "date_sort": "2023-02-24",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Yale University",
+    "contact": "Hailey Schoelkopf",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Test Set Contamination of Generative Evaluations",
+    "date": "2023",
+    "date_sort": "2023-02-06",
+    "venue": "Foundations of Deep Generative Models @ ICML",
+    "kind": "workshop",
+    "status": "Under Review",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Stanford",
+    "contact": "Baber Abbasi",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Masked inverse folding with sequence transfer for protein representation learning",
+    "date": "2023",
+    "date_sort": "2023-01-21",
+    "venue": "Protein Engineering Design and Selection",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Other Modalities"
+    ],
+    "lead_org": "Microsoft Research",
+    "contact": "Niccolò Zanichelli",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "SantaCoder: don't reach for the stars!",
+    "date": "2023",
+    "date_sort": "2023-01-09",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "BigCode",
+    "contact": "Hailey Schoelkopf",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "What Language Model to Train if You Have One Million GPU Hours?",
+    "date": "2022",
+    "date_sort": "2022-12-01",
+    "venue": "EMNLP (Findings)",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "BigScience",
+    "contact": "Jason Phang",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "The BigScience ROOTS Corpus: A 1.6TB Composite Multilingual Dataset",
+    "date": "2022",
+    "date_sort": "2022-11-28",
+    "venue": "NeurIPS Datasets and Benchmarks",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "BigScience",
+    "contact": "Lintang Sutawika",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "LAION-5B: An open large-scale dataset for training next generation image-text models",
+    "date": "2022",
+    "date_sort": "2022-11-28",
+    "venue": "NeurIPS Datasets and Benchmarks",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Other Modalities"
+    ],
+    "lead_org": "LAION",
+    "contact": "Aran Komatsuzaki",
+    "artifact_type": "Paper",
+    "superlatives": [
+      "Best Paper"
+    ]
+  },
+  {
+    "title": "EleutherAI: Going Beyond \"Open Science\" to \"Science in the Open\"",
+    "date": "2022",
+    "date_sort": "2022-11-28",
+    "venue": "NeurIPS Workshop on Broadening Research Collaborations",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "Ethics and Policy"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Jason Phang",
+    "artifact_type": "Paper",
+    "superlatives": [
+      "Oral"
+    ]
+  },
+  {
+    "title": "BLOOM: A 176b-parameter open-access multilingual language model",
+    "date": "2022",
+    "date_sort": "2022-11-10",
+    "venue": "TMLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "BigScience",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "VQGAN-CLIP: Open Domain Image Generation and Editing with Natural Language Guidance",
+    "date": "2022",
+    "date_sort": "2022-10-23",
+    "venue": "ECCV",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Other Modalities"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Fooling MOSS with Pretrained Language Models",
+    "date": "2022",
+    "date_sort": "2022-10-17",
+    "venue": "CIKM",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP",
+      "Security"
+    ],
+    "lead_org": "Booz Allen Hamilton",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Robust Preference Learning for Storytelling via Contrastive Reinforcement Learning",
+    "date": "2022",
+    "date_sort": "2022-10-15",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "Alignment",
+      "NLP"
+    ],
+    "lead_org": "CarperAI",
+    "contact": "Louis Castricato",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Musical audio samples generated from joint text embeddings",
+    "date": "2022",
+    "date_sort": "2022-10-01",
+    "venue": "The Journal of the Acoustical Society of America",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Other Modalities"
+    ],
+    "lead_org": "Stability AI",
+    "contact": "Katherine Crowson",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Data Governance in the Age of Large-Scale Data-Driven Language Technology",
+    "date": "2022",
+    "date_sort": "2022-06-20",
+    "venue": "FAccT",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Ethics and Policy",
+      "NLP"
+    ],
+    "lead_org": "BigScience",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Datasheet for the Pile",
+    "date": "2022",
+    "date_sort": "2022-06-13",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP",
+      "Ethics and Policy"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "You reap what you sow: On the Challenges of Bias Evaluation Under Multilingual Settings",
+    "date": "2022",
+    "date_sort": "2022-05-28",
+    "venue": "ACL Workshop on Challenges & Perspectives in Creating Large Language Models",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "Ethics and Policy"
+    ],
+    "lead_org": "BigScience",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "GPT-NeoX-20B: An Open-Source Autoregressive Language Model",
+    "date": "2022",
+    "date_sort": "2022-05-28",
+    "venue": "ACL Workshop on Challenges & Perspectives in Creating Large Language Models",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Sid Black",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Multitask Prompted Training Enables Zero-Shot Task Generalization",
+    "date": "2022",
+    "date_sort": "2022-04-25",
+    "venue": "ICLR",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "BigScience",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Quality at a Glance: An Audit of Web-Crawled Multilingual Datasets",
+    "date": "2022",
+    "date_sort": "2022-01-31",
+    "venue": "TACL",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Google",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "MP-NeRF: A massively parallel method for accelerating protein structure reconstruction from internal coordinates",
+    "date": "2022",
+    "date_sort": "2022-01-05",
+    "venue": "Journal of Computational Chemistry",
+    "kind": "conference",
+    "status": "Accepted",
+    "areas": [
+      "Other Modalities"
+    ],
+    "lead_org": "Vir Biotechnology",
+    "contact": "Stella Biderman",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "LAION-400M: Open Dataset of CLIP-Filtered 400 Million Image-Text Pairs",
+    "date": "2021",
+    "date_sort": "2021-12-14",
+    "venue": "NeurIPS Workshopn on Data-Centic AI",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "Other Modalities"
+    ],
+    "lead_org": "LAION",
+    "contact": "Katherine Crowson",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Cut the CARP: Fishing for zero-shot story evaluation",
+    "date": "2021",
+    "date_sort": "2021-10-06",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Louis Castricato",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "An empirical exploration in quality filtering of text data",
+    "date": "2021",
+    "date_sort": "2021-09-02",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Leo Gao",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Towards a Model-Theoretic View of Narratives",
+    "date": "2021",
+    "date_sort": "2021-06-11",
+    "venue": "NAACL Workshop on Narrative Understanding",
+    "kind": "workshop",
+    "status": "Accepted",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Georgia Tech",
+    "contact": "Louis Castricato",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "The Pile: An 800GB Dataset of Diverse Text for Language Modeling",
+    "date": "2020",
+    "date_sort": "2020-12-31",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "EleutherAI",
+    "contact": "Leo Gao",
+    "artifact_type": "Paper",
+    "superlatives": []
+  },
+  {
+    "title": "Current Limitations of Large Language Models: What You Need is Retrieval",
+    "date": "2020",
+    "date_sort": "2020-09-15",
+    "venue": "arXiv",
+    "kind": "arxiv",
+    "status": "arXiv",
+    "areas": [
+      "NLP"
+    ],
+    "lead_org": "Georgia Tech",
+    "contact": "Aran Komatsuzaki",
+    "artifact_type": "Paper",
+    "superlatives": []
+  }
+]
