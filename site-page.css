@@ -986,18 +986,52 @@ h2 {
 
 .staff-link-line {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: 12px;
-  min-height: 24px;
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: 0.94rem;
+  min-height: 32px;
+  margin-top: 14px;
 }
 
-.staff-link-line a {
-  color: var(--blue);
-  font-weight: 800;
+.staff-scholar-link {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: #4285f4;
+  transition: color 140ms ease, transform 140ms ease;
+}
+
+.staff-scholar-link:hover {
+  color: #70a4f7;
+  transform: translateY(-1px);
+}
+
+.staff-scholar-link:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.staff-scholar-link svg {
+  width: 27px;
+  height: 27px;
+  overflow: visible;
+}
+
+.scholar-cap,
+.scholar-book,
+.scholar-tassel-dot {
+  fill: currentColor;
+}
+
+.scholar-book {
+  opacity: 0.82;
+}
+
+.scholar-tassel {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 1.7;
 }
 
 .contribution-map {
