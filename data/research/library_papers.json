@@ -264,7 +264,9 @@
     "lead_org": "EleutherAI and AISI",
     "contact": "Kyle O'Brien",
     "artifact_type": "Paper",
-    "superlatives": []
+    "superlatives": [
+      "Best Paper Runner Up, BioSec Workshop @ NeurIPS"
+    ]
   },
   {
     "title": "How Open Must Language Models be to Enable Reliable Scientific Inference?",

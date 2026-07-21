@@ -72,8 +72,8 @@
                       <h3>{{ .title }}</h3>
                     </div>
                     <div class="library-entry-publication">
-                      <p>{{ .venue }}{{ with .date }}, {{ . }}{{ end }}</p>
-                      <p>{{ delimit .superlatives " · " }}</p>
+                      <p>{{ .venue }}{{ if and .date (not (strings.Contains .venue .date)) }}, {{ .date }}{{ end }}</p>
+                      {{ with .superlatives }}<p>{{ delimit . " · " }}</p>{{ end }}
                     </div>
                   </article>
                 {{ end }}

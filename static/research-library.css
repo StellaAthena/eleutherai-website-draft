@@ -21,9 +21,9 @@ body:has(.library-page) .site-header a[href*="research"] { color: var(--lib-gree
 .library-year-group > h2 { position: sticky; top: 100px; align-self: start; margin: 0; padding: 27px 20px 27px 0; color: var(--lib-blue); font-family: var(--lib-mono); font-size: 1rem; }
 .library-entry { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 32px; align-items: start; padding: 25px 0 27px; border-bottom: 1px solid var(--line-soft); }
 .library-entry:last-child { border-bottom: 0; }.library-entry h3 { margin: 0; font-size: 1.08rem; line-height: 1.42; }
-.library-entry-publication { min-height: 48px; text-align: right; }
+.library-entry-publication { text-align: right; }
 .library-entry-publication p { margin: 2px 0 0; color: var(--body); font-size: .82rem; line-height: 1.4; }
-.library-entry-publication p:last-child { min-height: 20px; margin-top: 8px; color: #e4bd51; font-weight: 700; }
+.library-entry-publication p + p { margin-top: 8px; color: #e4bd51; font-weight: 700; }
 #library-empty { margin: 60px 0; color: var(--body); font-size: 1.15rem; }
 [hidden] { display: none !important; }
 @media (max-width: 900px) { .library-layout { grid-template-columns: 1fr; gap: 0; }.library-filters { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; padding-bottom: 35px; }.library-filter-heading { grid-column: 1 / -1; margin-bottom: 5px; }.library-filters > label { margin: 8px 0 -4px; }.library-results { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); } }

@@ -431,6 +431,16 @@ def library_paper_record(row):
             kind,
             has_separate_workshop=bool((row.get("Workshop") or "").strip() and kind == "conference"),
         )
+    if kind == "conference":
+        workshops = split_workshops(row.get("Workshop"))
+        for term in display_terms(row.get("Superlatives")):
+            if "workshop" not in term.casefold() or not workshops:
+                continue
+            award = clean_award_text(term).replace("Runner-up", "Runner Up")
+            workshop = workshops[0]["venue"].replace("BioSafe Workshop", "BioSec Workshop")
+            contextual = f"{award}, {workshop}"
+            if contextual not in superlatives:
+                superlatives.append(contextual)
     areas = []
     for field in ("Primary Area", "Additional Area"):
         area = (row.get(field) or "").strip()
