@@ -6,8 +6,8 @@ overview:
     - "Our goal is a predictive science of model development. We treat intermediate checkpoints, training data, optimization, architecture, scale, and variation across runs as evidence about how models acquire their behavior. Open model suites and reproducible training runs make it possible to test explanations against trajectories rather than fit stories to endpoints."
 
 questions:
-  title: "Predict, intervene, design"
-  intro: "The agenda sets out three increasingly demanding tests of our understanding. Each would be useful on its own; together they mark progress toward theories that explain why training produces the behavior it does."
+  title: "How we know we are making progress"
+  intro: "Prediction, intervention, and design are increasingly demanding tests of an explanation. They are a way to assess the science, not the organizing philosophy of the program."
   items:
     - title: "Predict"
       text: "Forecast a model property from its training setup or early trajectory, before training finishes and ideally before it begins. We want to extend the predictive success of loss scaling to capabilities, memorization, bias, robustness, and safety-relevant behavior."
@@ -42,8 +42,11 @@ directions:
       text: "Models tend to learn some patterns before others. Characterizing this order may explain phase transitions, shortcuts, generalization strategies, and how architecture or data composition changes what is learned."
 
 featured:
-  title: "The research agenda"
-  intro: "The position paper develops this program in detail and identifies open problems across interpretability, fairness, memorization, and learning dynamics."
+  title: "Research agenda"
+  intro: "The position paper develops this program and identifies open problems across interpretability, fairness, memorization, and learning dynamics."
   paper: 'Don''t Just "Fix it in Post": A Science of AI Must Study Training Dynamics'
+  authors: "Stella Biderman, Mohammad Aflah Khan, Nilofar Mireshghallah, Catherine Arnett, Fazl Barez, and Naomi Saphra"
+  venue: "arXiv"
+  date: "2026"
   text: "The central claim is that scientific understanding should let us explain and anticipate model development - not merely describe a finished model or patch its outputs after training."
   url: "https://arxiv.org/abs/2606.05633"

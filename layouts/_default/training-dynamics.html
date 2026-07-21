@@ -4,10 +4,39 @@
 {{ $papers := index $paperMap .Params.area_key | default slice }}
 <main class="td-page">
   <section class="td-hero">
-    <div class="wrap td-hero-inner">
-      <h1>{{ .Title }}</h1>
-      <p>{{ .Params.lede }}</p>
-      <a class="td-jump" href="#agenda">Explore the agenda <span aria-hidden="true">&#8595;</span></a>
+    <div class="wrap">
+      <nav class="td-route" aria-label="Breadcrumb">
+        <a href="{{ "research.html" | relURL }}">Research</a><span aria-hidden="true">/</span><span>Training Dynamics</span>
+      </nav>
+      <div class="td-hero-copy">
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Params.lede }}</p>
+      </div>
+
+      <figure class="td-trajectory" aria-labelledby="trajectory-title">
+        <figcaption>
+          <span id="trajectory-title">A model is a process, not a point</span>
+          <span>Pythia records 154 states from initialization to a trained model.</span>
+        </figcaption>
+        <div class="td-track" aria-hidden="true">
+          <span class="td-track-line"></span>
+          <span class="td-checkpoint td-cp-0"></span>
+          <span class="td-checkpoint td-cp-1"></span>
+          <span class="td-checkpoint td-cp-2"></span>
+          <span class="td-checkpoint td-cp-3"></span>
+          <span class="td-checkpoint td-cp-4"></span>
+          <span class="td-checkpoint td-cp-5"></span>
+          <span class="td-checkpoint td-cp-6"></span>
+          <span class="td-checkpoint td-cp-7"></span>
+          <span class="td-checkpoint td-cp-8"></span>
+          <span class="td-checkpoint td-cp-final"></span>
+        </div>
+        <div class="td-track-labels">
+          <span><b>0</b> initialization</span>
+          <span><b>1K</b> early learning</span>
+          <span><b>143K</b> final checkpoint</span>
+        </div>
+      </figure>
     </div>
   </section>
 
@@ -23,17 +52,33 @@
     </section>
   {{ end }}
 
-  {{ with $data.questions }}
-    <section class="td-agenda" id="agenda">
+  {{ with $data.featured }}
+    <section class="td-citation">
+      <div class="wrap td-citation-inner">
+        <div>
+          <h2>{{ .title }}</h2>
+          <p>{{ .intro }}</p>
+        </div>
+        <article>
+          <p class="td-citation-meta">{{ .authors }} · {{ .venue }}, {{ .date }}</p>
+          <h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .paper }} <span aria-hidden="true">&#8599;</span></a></h3>
+          <p>{{ .text }}</p>
+        </article>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with $data.directions }}
+    <section class="td-directions" id="agenda">
       <div class="wrap">
         <div class="td-section-heading">
           <h2>{{ .title }}</h2>
           <p>{{ .intro }}</p>
         </div>
-        <div class="td-progression">
+        <div class="td-direction-grid">
           {{ range $index, $item := .items }}
-            <article class="td-stage">
-              <span class="td-stage-number">0{{ add $index 1 }}</span>
+            <article class="td-direction">
+              <span>0{{ add $index 1 }}</span>
               <h3>{{ $item.title }}</h3>
               <p>{{ $item.text }}</p>
             </article>
@@ -63,40 +108,18 @@
     </section>
   {{ end }}
 
-  {{ with $data.directions }}
-    <section class="td-directions">
-      <div class="wrap td-split">
-        <div>
-          <h2>{{ .title }}</h2>
-          <p class="td-side-intro">{{ .intro }}</p>
-        </div>
-        <div class="td-direction-list">
-          {{ range $index, $item := .items }}
-            <article class="td-direction">
-              <span>0{{ add $index 1 }}</span>
-              <div>
-                <h3>{{ $item.title }}</h3>
-                <p>{{ $item.text }}</p>
-              </div>
-            </article>
-          {{ end }}
-        </div>
-      </div>
-    </section>
-  {{ end }}
-
-  {{ with $data.featured }}
-    <section class="td-featured">
-      <div class="wrap td-featured-inner">
+  {{ with $data.questions }}
+    <section class="td-progress">
+      <div class="wrap td-progress-layout">
         <div>
           <h2>{{ .title }}</h2>
           <p>{{ .intro }}</p>
         </div>
-        <article>
-          <h3>{{ .paper }}</h3>
-          <p>{{ .text }}</p>
-          <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">Read the paper <span aria-hidden="true">&#8599;</span></a>
-        </article>
+        <ol class="td-progress-list">
+          {{ range .items }}
+            <li><h3>{{ .title }}</h3><p>{{ .text }}</p></li>
+          {{ end }}
+        </ol>
       </div>
     </section>
   {{ end }}
