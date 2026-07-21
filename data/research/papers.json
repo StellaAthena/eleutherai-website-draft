@@ -5,28 +5,9 @@
     "date": "2026",
     "date_sort": "2026-07-11",
     "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Alignment, Security. Lead org: EleutherAI. EleutherAI contact: Moritz Weckbecker."
-  },
-  {
-    "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
-    "url": "",
-    "date": "2026",
-    "date_sort": "2026-07-10",
-    "venue": "ICML Oral",
-    "superlatives": [
-      "Oral"
-    ],
-    "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "Automated Attribution Graph Interpretation via Probe Prompting",
-    "url": "",
-    "date": "2026",
-    "date_sort": "2026-07-10",
-    "venue": "Mechanistic interpretability workshop @ ICML",
-    "superlatives": [],
-    "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-11",
+    "superlatives": []
   },
   {
     "title": "Who Evaluates AI's Social Impacts? Mapping Coverage and Gaps in First and Third Party Evaluations",
@@ -34,8 +15,9 @@
     "date": "2026",
     "date_sort": "2026-07-08",
     "venue": "ICML",
-    "superlatives": [],
-    "details": "Area: NLP, Ethics and Policy. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-08",
+    "superlatives": []
   },
   {
     "title": "Faults in Our Formal Benchmarking: Dataset Defects and Evaluation Failures in Lean Theorem Proving",
@@ -43,8 +25,21 @@
     "date": "2026",
     "date_sort": "2026-07-08",
     "venue": "ICML",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Pawan Ammanamanchi."
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-08",
+    "superlatives": []
+  },
+  {
+    "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-07-10",
+    "venue": "ICML",
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-07",
+    "superlatives": [
+      "Oral"
+    ]
   },
   {
     "title": "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation",
@@ -52,1093 +47,19 @@
     "date": "2026",
     "date_sort": "2026-07-07",
     "venue": "ICML",
-    "superlatives": [],
-    "details": "Area: NLP, Ethics and Policy. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-07",
+    "superlatives": []
   },
   {
-    "title": "L1 Influence in L2 Language Models: A Human-centric Approach",
+    "title": "Automated Attribution Graph Interpretation via Probe Prompting",
     "url": "",
     "date": "2026",
-    "date_sort": "2026-07-04",
-    "venue": "Computational Developmental Linguistics Workshop at ACL",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: University of Cambridge. EleutherAI contact: Catherine Arnett."
-  },
-  {
-    "title": "Weight Tying Biases Token Embeddings Towards the Output Space",
-    "url": "https://arxiv.org/abs/2603.26663",
-    "date": "2026",
-    "date_sort": "2026-07-02",
-    "venue": "ACL Findings",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Catherine Arnett."
-  },
-  {
-    "title": "CommonLID: Re-evaluating State-of-the-Art Language Identification Performance on Web Data",
-    "url": "https://arxiv.org/abs/2601.18026",
-    "date": "2026",
-    "date_sort": "2026-07-02",
-    "venue": "ACL",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Common Crawl. EleutherAI contact: Catherine Arnett."
-  },
-  {
-    "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
-    "url": "",
-    "date": "2026",
-    "date_sort": "2026-06-12",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
-  },
-  {
-    "title": "LoRA-Muon: Spectral Steepest Descent on the Low-Rank Manifold",
-    "url": "https://arxiv.org/abs/2606.12921",
-    "date": "2026",
-    "date_sort": "2026-06-11",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP, HPC. Lead org: EleutherAI. EleutherAI contact: @leloy!."
-  },
-  {
-    "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
-    "url": "https://arxiv.org/abs/2606.09809",
-    "date": "2026",
-    "date_sort": "2026-06-08",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
-  },
-  {
-    "title": "Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs",
-    "url": "https://arxiv.org/abs/2605.09063",
-    "date": "2026",
-    "date_sort": "2026-05-09",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Guijin Son."
-  },
-  {
-    "title": "Sparse Autoencoders Trained on the Same Data Learn Different Features",
-    "url": "https://arxiv.org/abs/2501.16615",
-    "date": "2026",
-    "date_sort": "2026-04-23",
-    "venue": "ICLR",
-    "superlatives": [],
-    "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
-  },
-  {
-    "title": "Evaluating SAE interpretability without explanations",
-    "url": "https://arxiv.org/abs/2507.08473",
-    "date": "2026",
-    "date_sort": "2026-04-23",
-    "venue": "ICLR",
-    "superlatives": [],
-    "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
-  },
-  {
-    "title": "Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs",
-    "url": "https://arxiv.org/abs/2508.06601",
-    "date": "2026",
-    "date_sort": "2026-04-23",
-    "venue": "ICLR",
-    "superlatives": [
-      "Workshop Best Paper Runner-up"
-    ],
-    "details": "Area: Alignment, NLP. Lead org: EleutherAI and AISI. EleutherAI contact: Kyle O'Brien."
-  },
-  {
-    "title": "How Open Must Language Models be to Enable Reliable Scientific Inference?",
-    "url": "https://arxiv.org/abs/2603.26539",
-    "date": "2026",
-    "date_sort": "2026-03-27",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP, Ethics and Policy. Lead org: MIT. EleutherAI contact: Catherine Arnett."
-  },
-  {
-    "title": "Concept Influence: Leveraging Interpretability to Improve Performance and Efficiency in Training Data Attribution",
-    "url": "https://arxiv.org/abs/2602.14869",
-    "date": "2026",
-    "date_sort": "2026-02-16",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Interpretability, Alignment. Lead org: FAR.AI. EleutherAI contact: Gonçalo Paulo, Louis."
-  },
-  {
-    "title": "Quantifying the Effect of Test Set Contamination on Generative Evaluations",
-    "url": "https://arxiv.org/abs/2601.04301",
-    "date": "2026",
-    "date_sort": "2026-02-06",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Stanford. EleutherAI contact: Baber Abbasi."
-  },
-  {
-    "title": "The Toxicology of Data: A Dose-Response Framework for Test Set Contamination, Data Poisoning, Finetuning Attacks and Memorization",
-    "url": "https://arxiv.org/abs/2601.04301",
-    "date": "2026",
-    "date_sort": "2026-01-07",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP, Security. Lead org: Stanford. EleutherAI contact: Baber Abbasi."
-  },
-  {
-    "title": "Mitigating Emergent Misalignment with Data Attribution",
-    "url": "https://openreview.net/forum?id=gN7pWmjiQW",
-    "date": "2025",
-    "date_sort": "2025-12-07",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Alignment, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
-  },
-  {
-    "title": "Benchmark Disaggregation Improves Interpretability of Training Dynamics",
-    "url": "https://arxiv.org/abs/2510.24934",
-    "date": "2025",
-    "date_sort": "2025-12-06",
-    "venue": "CogInterp Workshop @ NeurIPS",
-    "superlatives": [],
-    "details": "Area: NLP, Interpretability. Lead org: MIT. EleutherAI contact: Catherine Arnett."
-  },
-  {
-    "title": "Token Entanglement in Subliminal Learning",
-    "url": "https://openreview.net/forum?id=auKgpBRzIW",
-    "date": "2025",
-    "date_sort": "2025-12-02",
-    "venue": "Mech Interp Workshop @ NeurIPS",
-    "superlatives": [],
-    "details": "Area: Interpretability, Alignment. Lead org: Bau Lab. EleutherAI contact: Lucia Quirke."
-  },
-  {
-    "title": "The Ghost in the Keys: A Disklavier Demo for Human-AI Musical Co-Creativity",
-    "url": "https://arxiv.org/abs/2511.01663",
-    "date": "2025",
-    "date_sort": "2025-12-02",
-    "venue": "AI4Music @ NeurIPS",
-    "superlatives": [],
-    "details": "Area: Other Modalities. Lead org: Queen Mary University of London and EleutherAI. EleutherAI contact: Louis Bradshaw."
-  },
-  {
-    "title": "The Common Pile v0.1: An 8TB Dataset of Public Domain and Openly Licensed Text",
-    "url": "https://arxiv.org/abs/2506.05209",
-    "date": "2025",
-    "date_sort": "2025-12-02",
-    "venue": "NeurIPS Datasets and Benchmarks",
-    "superlatives": [],
-    "details": "Area: NLP, Ethics and Policy. Lead org: University of Toronto and EleutherAI. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "More of the Same: Persistent Representational Harms Under Increased Representation",
-    "url": "https://arxiv.org/abs/2503.00333",
-    "date": "2025",
-    "date_sort": "2025-12-02",
-    "venue": "NeurIPS",
-    "superlatives": [],
-    "details": "Area: Ethics and Policy, NLP. Lead org: EleutherAI. EleutherAI contact: Jenn Mickel."
-  },
-  {
-    "title": "Explaining and Mitigating Cross-Linguistic Tokenizer Inequalities",
-    "url": "https://arxiv.org/pdf/2406.16829",
-    "date": "2025",
-    "date_sort": "2025-12-02",
-    "venue": "NeurIPS",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Catherine Arnett."
-  },
-  {
-    "title": "Video Deepfake Abuse: How Company Choices Predictably Shape Misuse Patterns",
-    "url": "https://arxiv.org/abs/2512.11815",
-    "date": "2025",
-    "date_sort": "2025-11-25",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Ethics and Policy, Other Modalities. Lead org: MIT. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "Who Measures What Matters? An Analysis of Social Impact Evaluations in Foundation Model Reporting",
-    "url": "https://arxiv.org/abs/2511.05613",
-    "date": "2025",
-    "date_sort": "2025-11-06",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Ethics and Policy, NLP. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
-  },
-  {
-    "title": "Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures",
-    "url": "https://arxiv.org/abs/2510.24081",
-    "date": "2025",
-    "date_sort": "2025-10-25",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Catherine Arnett."
-  },
-  {
-    "title": "RWKV-7 \"Goose\" with Expressive Dynamic State Evolution",
-    "url": "https://arxiv.org/abs/2503.14456",
-    "date": "2025",
-    "date_sort": "2025-10-07",
-    "venue": "COLM",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: LF AI & Data and EleutherAI. EleutherAI contact: Daniel Goldstein."
-  },
-  {
-    "title": "RADLADS: Rapid Attention Distillation to Linear Attention Decoders at Scale",
-    "url": "https://arxiv.org/abs/2505.03005",
-    "date": "2025",
-    "date_sort": "2025-10-07",
-    "venue": "COLM",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Recursal AI. EleutherAI contact: Daniel Goldstein."
-  },
-  {
-    "title": "Open Problems in Mechanistic Interpretability",
-    "url": "https://arxiv.org/abs/2501.16496",
-    "date": "2025",
-    "date_sort": "2025-09-27",
-    "venue": "TMLR",
-    "superlatives": [],
-    "details": "Area: Interpretability. Lead org: Apollo Research. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "Scaling Self-Supervised Representation Learning for Symbolic Piano Performance",
-    "url": "",
-    "date": "2025",
-    "date_sort": "2025-09-21",
-    "venue": "ISMIR",
-    "superlatives": [],
-    "details": "Area: Other Modalities. Lead org: Queen Mary University of London and EleutherAI. EleutherAI contact: Louis Bradshaw."
-  },
-  {
-    "title": "On the Acquisition of Shared Grammatical Representations in Bilingual Language Models",
-    "url": "https://arxiv.org/abs/2503.03962",
-    "date": "2025",
-    "date_sort": "2025-07-27",
-    "venue": "ACL",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: UCSD. EleutherAI contact: Catherine Arnett."
-  },
-  {
-    "title": "Steering Language Model Refusal with Sparse Autoencoders",
-    "url": "https://arxiv.org/abs/2411.11296",
-    "date": "2025",
-    "date_sort": "2025-07-19",
-    "venue": "Actionable Interpretability Workshop @ ICML",
-    "superlatives": [],
-    "details": "Area: Alignment, Interpretability. Lead org: Microsoft. EleutherAI contact: Kyle O'Brien."
-  },
-  {
-    "title": "Position: Write Code that People Want to Use",
-    "url": "",
-    "date": "2025",
-    "date_sort": "2025-07-18",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "Evaluating Morphological Alignment of Tokenizers in 70 Languages",
-    "url": "https://arxiv.org/abs/2507.06378",
-    "date": "2025",
-    "date_sort": "2025-07-18",
-    "venue": "Tokenizer Workshop @ ICML 2025",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Catherine Arnett."
-  },
-  {
-    "title": "BPE Stays on SCRIPT: Structured Encoding for Robust Multilingual Pretokenization",
-    "url": "https://arxiv.org/abs/2505.24689",
-    "date": "2025",
-    "date_sort": "2025-07-18",
-    "venue": "Tokenizer Workshop @ ICML 2025",
-    "superlatives": [
-      "Best paper @ Tokenizer Workshop"
-    ],
-    "details": "Area: NLP. Lead org: Cohere. EleutherAI contact: Catherine Arnett."
-  },
-  {
-    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
-    "url": "https://arxiv.org/abs/2406.04391",
-    "date": "2025",
-    "date_sort": "2025-07-13",
-    "venue": "ICML",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Stanford (STAIR AI Lab). EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "Automatically Interpreting Millions of Features in Large Language Models",
-    "url": "https://arxiv.org/abs/2410.13928",
-    "date": "2025",
-    "date_sort": "2025-07-13",
-    "venue": "ICML",
-    "superlatives": [],
-    "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
-  },
-  {
-    "title": "When AI Co-Scientists Fail: SPOT—a Benchmark for Automated Verification of Scientific Research",
-    "url": "https://arxiv.org/abs/2505.11855",
-    "date": "2025",
-    "date_sort": "2025-05-17",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Guijin Son."
-  },
-  {
-    "title": "The BiGGen Bench: A Principled Benchmark for Fine-grained Evaluation of Language Models with Language Models",
-    "url": "https://arxiv.org/abs/2406.05761",
-    "date": "2025",
-    "date_sort": "2025-04-29",
-    "venue": "NAACL",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: KAIST. EleutherAI contact: Guijin Son."
-  },
-  {
-    "title": "KMMLU: Measuring Massive Multitask Language Understanding in Korean",
-    "url": "https://arxiv.org/abs/2402.11548",
-    "date": "2025",
-    "date_sort": "2025-04-29",
-    "venue": "NAACL",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Guijin Son."
-  },
-  {
-    "title": "Recite, Reconstruct, Recollect: Memorization in LMs as a Multifaceted Phenomenon",
-    "url": "https://arxiv.org/abs/2406.17746",
-    "date": "2025",
-    "date_sort": "2025-04-24",
-    "venue": "ICLR",
-    "superlatives": [],
-    "details": "Area: NLP, Interpretability. Lead org: EleutherAI. EleutherAI contact: Naomi Saphra."
-  },
-  {
-    "title": "PolyPythias: Stability and Outliers across Fifty Language Model Pre-Training Runs",
-    "url": "https://arxiv.org/abs/2503.09543",
-    "date": "2025",
-    "date_sort": "2025-04-24",
-    "venue": "ICLR",
-    "superlatives": [],
-    "details": "Area: NLP, Interpretability. Lead org: EleutherAI. EleutherAI contact: Oskar van der Wal."
-  },
-  {
-    "title": "Composable Interventions for Language Models",
-    "url": "https://arxiv.org/abs/2407.06483",
-    "date": "2025",
-    "date_sort": "2025-04-24",
-    "venue": "ICLR",
-    "superlatives": [],
-    "details": "Area: Interpretability, NLP. Lead org: University of Virginia. EleutherAI contact: Kyle O'Brien."
-  },
-  {
-    "title": "Bridging the Data Provenance Gap Across Text, Speech, and Video",
-    "url": "https://openreview.net/forum?id=G5DziesYxL",
-    "date": "2025",
-    "date_sort": "2025-04-24",
-    "venue": "ICLR",
-    "superlatives": [],
-    "details": "Area: Ethics and Policy, NLP. Lead org: Data Provenance Initiative. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "Aria-MIDI: A Dataset of MIDI Files for Symbolic Music Modeling",
-    "url": "https://openreview.net/forum?id=X5hrhgndxW",
-    "date": "2025",
-    "date_sort": "2025-04-24",
-    "venue": "ICLR",
-    "superlatives": [],
-    "details": "Area: Other Modalities. Lead org: EleutherAI. EleutherAI contact: Louis Bradshaw."
-  },
-  {
-    "title": "Mechanistic Anomaly Detection for \"Quirky\" Language Models",
-    "url": "https://arxiv.org/abs/2504.08812",
-    "date": "2025",
-    "date_sort": "2025-04-09",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: David Johnston."
-  },
-  {
-    "title": "Estimating the Probability of Sampling a Trained Neural Network at Random",
-    "url": "https://arxiv.org/abs/2501.18812",
-    "date": "2025",
-    "date_sort": "2025-04-08",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: Nora Belrose."
-  },
-  {
-    "title": "Examining Two Hop Reasoning Through Information Content Scaling",
-    "url": "https://arxiv.org/abs/2502.03490",
-    "date": "2025",
-    "date_sort": "2025-03-21",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: David Johnston."
-  },
-  {
-    "title": "Does Transformer Interpretability Transfer to RNNs?",
-    "url": "https://arxiv.org/abs/2404.05971",
-    "date": "2025",
-    "date_sort": "2025-02-25",
-    "venue": "AAAI",
-    "superlatives": [],
-    "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Nora Belrose."
-  },
-  {
-    "title": "Transcoders Beat Sparse Autoencoders for Interpretability",
-    "url": "https://arxiv.org/abs/2501.18823",
-    "date": "2025",
-    "date_sort": "2025-02-12",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
-  },
-  {
-    "title": "Slowing Learning by Erasing Simple Features",
-    "url": "https://arxiv.org/pdf/2502.02820",
-    "date": "2025",
-    "date_sort": "2025-02-05",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: Lucia Quirke."
-  },
-  {
-    "title": "Converting MLPs into Polynomials in Closed Form",
-    "url": "https://arxiv.org/abs/2502.01032",
-    "date": "2025",
-    "date_sort": "2025-02-03",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: Nora Belrose."
-  },
-  {
-    "title": "Can We Partially Rewrite Transformers in Natural Language?",
-    "url": "https://arxiv.org/abs/2501.18838",
-    "date": "2025",
-    "date_sort": "2025-01-31",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
-  },
-  {
-    "title": "Matrix-Driven Identification and Reconstruction of LLM Weight Homology",
-    "url": "https://arxiv.org/abs/2508.06309",
-    "date": "2025",
-    "date_sort": "2025-01-30",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP, Security. Lead org: Tsinghua and EleutherAI. EleutherAI contact: Zhang Ruichong, Daniel Goldstein."
-  },
-  {
-    "title": "Towards Best Practices for Open Datasets for LLM Training",
-    "url": "https://arxiv.org/abs/2501.08365",
-    "date": "2025",
-    "date_sort": "2025-01-14",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP, Ethics and Policy. Lead org: Mozilla and EleutherAI. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "LLM Circuit Analyses Are Consistent Across Training and Scale",
-    "url": "https://arxiv.org/abs/2407.10827",
-    "date": "2024",
-    "date_sort": "2024-12-10",
-    "venue": "NeurIPS",
-    "superlatives": [],
-    "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: Curt Tigges."
-  },
-  {
-    "title": "Consent in crisis: The rapid decline of the AI data commons",
-    "url": "https://arxiv.org/abs/2407.14933",
-    "date": "2024",
-    "date_sort": "2024-12-10",
-    "venue": "NeurIPS Datasets and Benchmarks",
-    "superlatives": [],
-    "details": "Area: NLP, Ethics and Policy. Lead org: Data Provenance Initiative. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "The Foundation Model Development Cheatsheet: A Review of Responsible AI Tools & Resources",
-    "url": "https://arxiv.org/abs/2406.16746",
-    "date": "2024",
-    "date_sort": "2024-12-07",
-    "venue": "TMLR",
-    "superlatives": [],
-    "details": "Area: NLP, Ethics and Policy. Lead org: MIT and EleutherAI. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "Documenting Geographically and Contextually Diverse Data Sources: The BigScience Catalogue of Language Data and Resources",
-    "url": "https://arxiv.org/abs/2201.10066",
-    "date": "2024",
-    "date_sort": "2024-12-01",
-    "venue": "Northern European Journal of Language Technology",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "Linear Representations of Sentiment in Large Language Models",
-    "url": "https://arxiv.org/abs/2310.15154",
-    "date": "2024",
-    "date_sort": "2024-11-15",
-    "venue": "BlackBox NLP",
-    "superlatives": [],
-    "details": "Area: Interpretability, NLP. Lead org: MATS. EleutherAI contact: Curt Tigges."
-  },
-  {
-    "title": "Refusal in LLMs is an Affine Function",
-    "url": "https://arxiv.org/abs/2411.09003",
-    "date": "2024",
-    "date_sort": "2024-11-13",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Thomas Marshall."
-  },
-  {
-    "title": "Re-Evaluating Evaluation for Multilingual Summarization",
-    "url": "https://aclanthology.org/2024.emnlp-main.1085.pdf",
-    "date": "2024",
-    "date_sort": "2024-11-12",
-    "venue": "EMNLP",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Brown University. EleutherAI contact: Jessica Forde."
-  },
-  {
-    "title": "Lina-Speech: Gated Linear Attention is a Fast and Parameter-Efficient Learner for text-to-speech synthesis",
-    "url": "https://arxiv.org/abs/2410.23320",
-    "date": "2024",
-    "date_sort": "2024-10-30",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP, Other Modalities. Lead org: Sorbonne Université. EleutherAI contact: Harrison Vanderbyl, Théodor Lemerle."
-  },
-  {
-    "title": "Balancing Label Quantity and Quality for Scalable Elicitation",
-    "url": "https://arxiv.org/abs/2410.13215",
-    "date": "2024",
-    "date_sort": "2024-10-22",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP, Alignment. Lead org: EleutherAI. EleutherAI contact: Alex Mallen."
-  },
-  {
-    "title": "From Decoding to Meta-Generation: Inference-time Algorithms for Large Language Models",
-    "url": "https://arxiv.org/abs/2406.16838",
-    "date": "2024",
-    "date_sort": "2024-10-15",
-    "venue": "TMLR",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: CMU. EleutherAI contact: Hailey Schoelkopf."
-  },
-  {
-    "title": "Eliciting Latent Knowledge from Quirky Language Models",
-    "url": "https://arxiv.org/abs/2312.01037",
-    "date": "2024",
-    "date_sort": "2024-10-07",
-    "venue": "COLM",
-    "superlatives": [],
-    "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Alex Mallen."
-  },
-  {
-    "title": "Eagle and Finch: RWKV with Matrix-Valued States and Dynamic Recurrence",
-    "url": "https://arxiv.org/abs/2404.05892",
-    "date": "2024",
-    "date_sort": "2024-10-07",
-    "venue": "COLM",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: LF AI & Data and EleutherAI. EleutherAI contact: Quentin Anthony."
-  },
-  {
-    "title": "The Case for Co-Designing Model Architectures with Hardware",
-    "url": "https://arxiv.org/abs/2401.14489",
-    "date": "2024",
-    "date_sort": "2024-08-12",
-    "venue": "ICPP",
-    "superlatives": [],
-    "details": "Area: HPC. Lead org: EleutherAI. EleutherAI contact: Quentin Anthony."
-  },
-  {
-    "title": "Multi-Task Inference: Can Large Language Models Follow Multiple Instructions at Once?",
-    "url": "https://arxiv.org/abs/2402.11597",
-    "date": "2024",
-    "date_sort": "2024-08-01",
-    "venue": "ACL",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Guijin Son."
-  },
-  {
-    "title": "Cold Compress: A Toolkit for Benchmarking KV Cache Compression Approaches",
-    "url": "https://github.com/AnswerDotAI/cold-compress",
-    "date": "2024",
-    "date_sort": "2024-08-01",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: AnswerDotAI. EleutherAI contact: Hailey Schoelkopf."
-  },
-  {
-    "title": "Self-Directed Synthetic Dialogues and Revisions Technical Report",
-    "url": "https://arxiv.org/abs/2407.18421",
-    "date": "2024",
-    "date_sort": "2024-07-25",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: AI2. EleutherAI contact: Hailey Schoelkopf."
-  },
-  {
-    "title": "Stay on topic with Classifier-Free Guidance",
-    "url": "https://arxiv.org/abs/2306.17806",
-    "date": "2024",
-    "date_sort": "2024-07-23",
-    "venue": "ICML",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Honglu Fan."
-  },
-  {
-    "title": "Position: Social Choice Should Guide AI Alignment: On Dealing with Diverse Human Feedback",
-    "url": "https://arxiv.org/abs/2404.10271",
-    "date": "2024",
-    "date_sort": "2024-07-23",
-    "venue": "ICML Position Paper Track",
-    "superlatives": [],
-    "details": "Area: Ethics and Policy, Alignment. Lead org: CMU, Potsdam Institute, UC Berkeley. EleutherAI contact: Hailey Schoelkopf."
-  },
-  {
-    "title": "On the Societal Impact of Open Foundation Models",
-    "url": "https://crfm.stanford.edu/open-fms/",
-    "date": "2024",
-    "date_sort": "2024-07-23",
-    "venue": "ICML Position Paper Track Oral",
-    "superlatives": [
-      "Oral"
-    ],
-    "details": "Area: Ethics and Policy. Lead org: Stanford University. EleutherAI contact: Aviya Skowron."
-  },
-  {
-    "title": "Neural Networks Learn Statistics of Increasing Complexity",
-    "url": "https://arxiv.org/abs/2402.04362",
-    "date": "2024",
-    "date_sort": "2024-07-23",
-    "venue": "ICML",
-    "superlatives": [],
-    "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: Nora Belrose."
-  },
-  {
-    "title": "Grokking Group Multiplication with Cosets",
-    "url": "https://arxiv.org/abs/2312.06581",
-    "date": "2024",
-    "date_sort": "2024-07-23",
-    "venue": "ICML",
-    "superlatives": [],
-    "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: Dashiell Stander."
-  },
-  {
-    "title": "A Safe Harbor for AI Evaluation and Red Teaming",
-    "url": "https://arxiv.org/abs/2403.04893",
-    "date": "2024",
-    "date_sort": "2024-07-23",
-    "venue": "ICML Position Paper Track Oral",
-    "superlatives": [
-      "Oral"
-    ],
-    "details": "Area: Ethics and Policy, Security. Lead org: MIT. EleutherAI contact: Aviya Skowron."
-  },
-  {
-    "title": "GoldFinch: High Performance RWKV/Transformer Hybrid with Linear Pre-Fill and Extreme KV-Cache Compression",
-    "url": "https://arxiv.org/pdf/2407.12077",
-    "date": "2024",
-    "date_sort": "2024-07-16",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Recursal AI. EleutherAI contact: Daniel Goldstein."
-  },
-  {
-    "title": "Improving Black-box Robustness with In-Context Rewriting",
-    "url": "https://arxiv.org/abs/2402.08225",
-    "date": "2024",
-    "date_sort": "2024-06-18",
-    "venue": "TMLR",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Kyle O'Brien."
-  },
-  {
-    "title": "Simple and Scalable Strategies to Continually Pre-train Large Language Models",
-    "url": "https://arxiv.org/abs/2403.08763",
-    "date": "2024",
-    "date_sort": "2024-06-07",
-    "venue": "TMLR",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Mila. EleutherAI contact: Quentin Anthony."
-  },
-  {
-    "title": "Lessons from the Trenches on Reproducible Evaluation of Language Models",
-    "url": "https://arxiv.org/abs/2405.14782",
-    "date": "2024",
-    "date_sort": "2024-05-23",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "HAE-RAE Bench: Evaluation of Korean Knowledge in Language Models",
-    "url": "https://arxiv.org/abs/2309.02706",
-    "date": "2024",
-    "date_sort": "2024-05-20",
-    "venue": "COLING",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Guijin Son."
-  },
-  {
-    "title": "OpenFold: Retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization",
-    "url": "https://www.biorxiv.org/content/10.1101/2022.11.20.517210v3",
-    "date": "2024",
-    "date_sort": "2024-05-14",
-    "venue": "Nature Methods",
-    "superlatives": [],
-    "details": "Area: Other Modalities, Interpretability. Lead org: Harvard and Columbia. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "Attributing Mode Collapse in the fine-tuning of Large Language Models",
-    "url": "https://openreview.net/forum?id=3pDMYjpOxk",
-    "date": "2024",
-    "date_sort": "2024-05-11",
-    "venue": "ICLR 2024 Workshop on Mathematical and Empirical Understanding of Foundation Models",
-    "superlatives": [],
-    "details": "Area: NLP, Interpretability. Lead org: EleutherAI. EleutherAI contact: Laura O'Mahony."
-  },
-  {
-    "title": "YaRN: Efficient Context Window Extension of Large Language Models",
-    "url": "https://arxiv.org/abs/2309.00071",
-    "date": "2024",
-    "date_sort": "2024-05-07",
-    "venue": "ICLR",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Honglu Fan."
-  },
-  {
-    "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
-    "url": "https://arxiv.org/abs/2309.08600",
-    "date": "2024",
-    "date_sort": "2024-05-07",
-    "venue": "ICLR",
-    "superlatives": [],
-    "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Hoagy Cunningham."
-  },
-  {
-    "title": "ReLoRA: High-Rank Training Through Low-Rank Updates",
-    "url": "https://arxiv.org/abs/2307.05695",
-    "date": "2024",
-    "date_sort": "2024-05-07",
-    "venue": "ICLR",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: UMass Lowell. EleutherAI contact: Vladislav Lialin."
-  },
-  {
-    "title": "Quality-Diversity through AI Feedback",
-    "url": "https://arxiv.org/abs/2310.13032",
-    "date": "2024",
-    "date_sort": "2024-05-07",
-    "venue": "ICLR",
-    "superlatives": [],
-    "details": "Area: Alignment, NLP. Lead org: EleutherAI. EleutherAI contact: Herbie Bradley."
-  },
-  {
-    "title": "OpenWebMath: An Open Dataset of High-Quality Mathematical Web Text",
-    "url": "https://arxiv.org/abs/2310.06786",
-    "date": "2024",
-    "date_sort": "2024-05-07",
-    "venue": "ICLR",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: University of Toronto. EleutherAI contact: Zhangir Azerbayev."
-  },
-  {
-    "title": "LLeMA: An Open Language Model for Mathematics",
-    "url": "https://arxiv.org/abs/2310.10631",
-    "date": "2024",
-    "date_sort": "2024-05-07",
-    "venue": "ICLR",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Zhangir Azerbayev."
-  },
-  {
-    "title": "The OpenELM Library: Leveraging Progress in Language Models for Novel Evolutionary Algorithms",
-    "url": "https://openreview.net/pdf/96e2100a572823c2d8944949784475c8f3aa153b.pdf",
-    "date": "2024",
-    "date_sort": "2024-02-18",
-    "venue": "Genetic Programming Theory & Practice",
-    "superlatives": [],
-    "details": "Area: Alignment, NLP. Lead org: CarperAI. EleutherAI contact: Herbie Bradley."
-  },
-  {
-    "title": "Suppressing Pink Elephants with Direct Principle Feedback",
-    "url": "https://arxiv.org/abs/2402.07896",
-    "date": "2024",
-    "date_sort": "2024-02-12",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP, Alignment. Lead org: synthlabs.ai and EleutherAI. EleutherAI contact: Louis Castricato."
-  },
-  {
-    "title": "Eliciting Language Model Behaviors using Reverse Language Models",
-    "url": "https://neurips.cc/virtual/2023/workshop/66526#collapse78917",
-    "date": "2023",
-    "date_sort": "2023-12-16",
-    "venue": "NeurIPS Workshop on Socially Responsible Language Modelling Research (SoLaR)",
-    "superlatives": [],
-    "details": "Area: Security, NLP. Lead org: EleutherAI. EleutherAI contact: Curtis Huebner."
-  },
-  {
-    "title": "Detecting Backdoors with Meta-Models",
-    "url": "https://openreview.net/forum?id=cmJiEqniEc",
-    "date": "2023",
-    "date_sort": "2023-12-15",
-    "venue": "NeurIPS Workshop on Backdoors in Deep Learning",
-    "superlatives": [],
-    "details": "Area: Security. Lead org: EleutherAI. EleutherAI contact: Herbie Bradley."
-  },
-  {
-    "title": "BigBIO: A Framework for Data-Centric Biomedical Natural Language Processing",
-    "url": "https://arxiv.org/abs/2206.15076",
-    "date": "2023",
-    "date_sort": "2023-12-13",
-    "venue": "NeurIPS Datasets and Benchmarks",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "The Goldilocks of Pragmatic Understanding: Fine-Tuning Strategy Matters for Implicature Resolution by LLMs",
-    "url": "https://arxiv.org/abs/2210.14986",
-    "date": "2023",
-    "date_sort": "2023-12-10",
-    "venue": "NeurIPS",
-    "superlatives": [
-      "Spotlight"
-    ],
-    "details": "Area: Interpretability, NLP. Lead org: University College of London. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "Reconstructing the Mind's Eye: fMRI-to-Image with Contrastive Learning and Diffusion Priors",
-    "url": "https://arxiv.org/abs/2305.18274",
-    "date": "2023",
-    "date_sort": "2023-12-10",
-    "venue": "NeurIPS",
-    "superlatives": [
-      "Spotlight"
-    ],
-    "details": "Area: Other Modalities. Lead org: MedARC. EleutherAI contact: Tanishq Abraham."
-  },
-  {
-    "title": "LEACE: Perfect linear concept erasure in closed form",
-    "url": "https://arxiv.org/abs/2306.03819",
-    "date": "2023",
-    "date_sort": "2023-12-10",
-    "venue": "NeurIPS",
-    "superlatives": [],
-    "details": "Area: Interpretability, Alignment. Lead org: EleutherAI. EleutherAI contact: Nora Belrose."
-  },
-  {
-    "title": "Emergent and Predictable Memorization in Large Language Models",
-    "url": "https://arxiv.org/abs/2304.11158",
-    "date": "2023",
-    "date_sort": "2023-12-10",
-    "venue": "NeurIPS",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "Prompting Multilingual Large Language Models to Generate Code-Mixed Texts: The Case of South East Asian Languages",
-    "url": "https://arxiv.org/abs/2303.13592",
-    "date": "2023",
-    "date_sort": "2023-12-07",
-    "venue": "EMNLP Workshop on Computational Approaches to Linguistic Code-Switching",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Brown University. EleutherAI contact: Lintang Sutawika."
-  },
-  {
-    "title": "trlX: A Framework for Large Scale Reinforcement Learning from Human Feedback",
-    "url": "https://aclanthology.org/2023.emnlp-main.530/",
-    "date": "2023",
-    "date_sort": "2023-12-06",
-    "venue": "EMNLP",
-    "superlatives": [],
-    "details": "Area: Alignment, NLP. Lead org: CarperAI. EleutherAI contact: Louis Castricato."
-  },
-  {
-    "title": "RWKV: Reinventing RNNs for the Transformer Era",
-    "url": "https://arxiv.org/abs/2305.13048",
-    "date": "2023",
-    "date_sort": "2023-12-06",
-    "venue": "EMNLP (Findings)",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Quentin Anthony."
-  },
-  {
-    "title": "StarCoder: may the source be with you!",
-    "url": "https://arxiv.org/abs/2305.06161",
-    "date": "2023",
-    "date_sort": "2023-12-01",
-    "venue": "TMLR",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: BigCode. EleutherAI contact: Hailey Schoelkopf."
-  },
-  {
-    "title": "Utilizing Weak Supervision to Generate Indonesian Conservation Datasets",
-    "url": "https://arxiv.org/abs/2310.11258",
-    "date": "2023",
-    "date_sort": "2023-11-01",
-    "venue": "AACL Workshop in South East Asian Language Processing",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Datasaur. EleutherAI contact: Lintang Sutawika."
-  },
-  {
-    "title": "Representation Engineering: A Top-Down Approach to AI Transparency",
-    "url": "https://arxiv.org/abs/2310.01405",
-    "date": "2023",
-    "date_sort": "2023-10-02",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Interpretability. Lead org: Center for AI Safety. EleutherAI contact: Alex Mallen."
-  },
-  {
-    "title": "Reclaiming the Digital Commons: A Public Data Trust for Training Data",
-    "url": "https://dl.acm.org/doi/10.1145/3600211.3604658",
-    "date": "2023",
-    "date_sort": "2023-08-29",
-    "venue": "AIES",
-    "superlatives": [],
-    "details": "Area: Ethics and Policy. Lead org: Mila. EleutherAI contact: Herbie Bradley."
-  },
-  {
-    "title": "Do LLMs selectively encode the goal of an agent's reach?",
-    "url": "https://openreview.net/forum?id=KxvXjtyuYl",
-    "date": "2023",
-    "date_sort": "2023-07-28",
-    "venue": "ICML Workshop on Theory of Mind in Communicating Agents",
-    "superlatives": [],
-    "details": "Area: Alignment, NLP. Lead org: University College of London. EleutherAI contact: Herbie Bradley."
-  },
-  {
-    "title": "Recasting Self-Attention with Holographic Reduced Representations",
-    "url": "https://dl.acm.org/doi/10.5555/3618408.3618431",
-    "date": "2023",
-    "date_sort": "2023-07-23",
-    "venue": "ICML",
-    "superlatives": [],
-    "details": "Area: Security, NLP. Lead org: Laboratory for Physical Sciences. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling",
-    "url": "https://dl.acm.org/doi/10.5555/3618408.3618510",
-    "date": "2023",
-    "date_sort": "2023-07-23",
-    "venue": "ICML Oral",
-    "superlatives": [
-      "Oral"
-    ],
-    "details": "Area: NLP, Interpretability. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "HyperTuning: Toward Adapting Large Language Models without Back-propagation",
-    "url": "https://dl.acm.org/doi/10.5555/3618408.3619566",
-    "date": "2023",
-    "date_sort": "2023-07-23",
-    "venue": "ICML",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: New York University. EleutherAI contact: Jason Phang."
-  },
-  {
-    "title": "Continual Pre-Training of Large Language Models: How to (re)warm your model?",
-    "url": "https://arxiv.org/abs/2308.04014",
-    "date": "2023",
-    "date_sort": "2023-07-23",
-    "venue": "Extended to a published paper",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Mila. EleutherAI contact: Quentin Anthony."
-  },
-  {
-    "title": "Challenges and Applications of Large Language Models",
-    "url": "https://arxiv.org/abs/2307.10169",
-    "date": "2023",
-    "date_sort": "2023-07-19",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: University College of London. EleutherAI contact: Herbie Bradley."
-  },
-  {
-    "title": "GAIA Search: Hugging Face and Pyserini Interoperability for NLP Training Data Exploration",
-    "url": "https://aclanthology.org/2023.acl-demo.57/",
-    "date": "2023",
-    "date_sort": "2023-07-09",
-    "venue": "ACL 2023 Demos Track",
-    "superlatives": [],
-    "details": "Area: Ethics and Policy, NLP. Lead org: BigScience. EleutherAI contact: Hailey Schoelkopf."
-  },
-  {
-    "title": "Crosslingual Generalization through Multitask Finetuning",
-    "url": "https://aclanthology.org/2023.acl-long.891/",
-    "date": "2023",
-    "date_sort": "2023-07-09",
-    "venue": "ACL",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Lintang Sutawika."
-  },
-  {
-    "title": "BLOOM+1: Adding Language Support to BLOOM for Zero-Shot Prompting",
-    "url": "https://arxiv.org/abs/2212.09535",
-    "date": "2023",
-    "date_sort": "2023-07-09",
-    "venue": "ACL",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Lintang Sutawika."
-  },
-  {
-    "title": "A Technical Report for Polyglot-Ko: Open-Source Large-Scale Korean Language Models",
-    "url": "https://arxiv.org/abs/2306.02254",
-    "date": "2023",
-    "date_sort": "2023-06-06",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Kevin Ko."
-  },
-  {
-    "title": "Role-Play with Large Language Models",
-    "url": "https://arxiv.org/abs/2305.16367",
-    "date": "2023",
-    "date_sort": "2023-05-25",
-    "venue": "Nature",
-    "superlatives": [],
-    "details": "Area: Alignment, NLP. Lead org: Google DeepMind. EleutherAI contact: Laria Reynolds."
-  },
-  {
-    "title": "Can Transformers Learn to Solve Problems Recursively?",
-    "url": "https://arxiv.org/abs/2305.14699",
-    "date": "2023",
-    "date_sort": "2023-05-24",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Interpretability. Lead org: UIUC. EleutherAI contact: Curt Tigges."
-  },
-  {
-    "title": "Eliciting latent predictions from transformers with the tuned lens",
-    "url": "https://arxiv.org/abs/2303.08112",
-    "date": "2023",
-    "date_sort": "2023-05-14",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Interpretability. Lead org: EleutherAI. EleutherAI contact: Nora Belrose."
-  },
-  {
-    "title": "Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models",
-    "url": "https://arxiv.org/abs/2206.04615",
-    "date": "2023",
-    "date_sort": "2023-05-11",
-    "venue": "TMLR",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Google. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "ProofNet: Autoformalizing and Formally Proving Undergraduate-Level Mathematics",
-    "url": "https://arxiv.org/abs/2302.12433",
-    "date": "2023",
-    "date_sort": "2023-02-24",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Yale University. EleutherAI contact: Hailey Schoelkopf."
+    "date_sort": "2026-07-10",
+    "venue": "Mechanistic interpretability workshop @ ICML",
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-03",
+    "superlatives": []
   },
   {
     "title": "Test Set Contamination of Generative Evaluations",
@@ -1146,8 +67,1213 @@
     "date": "2023",
     "date_sort": "2023-02-06",
     "venue": "Foundations of Deep Generative Models @ ICML",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Stanford. EleutherAI contact: Baber Abbasi."
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-03",
+    "superlatives": []
+  },
+  {
+    "title": "Weight Tying Biases Token Embeddings Towards the Output Space",
+    "url": "https://arxiv.org/abs/2603.26663",
+    "date": "2026",
+    "date_sort": "2026-07-02",
+    "venue": "ACL Findings",
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-02",
+    "superlatives": []
+  },
+  {
+    "title": "CommonLID: Re-evaluating State-of-the-Art Language Identification Performance on Web Data",
+    "url": "https://arxiv.org/abs/2601.18026",
+    "date": "2026",
+    "date_sort": "2026-07-02",
+    "venue": "ACL",
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-02",
+    "superlatives": []
+  },
+  {
+    "title": "L1 Influence in L2 Language Models: A Human-centric Approach",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-07-04",
+    "venue": "Computational Developmental Linguistics Workshop at ACL",
+    "venue_year": "2026",
+    "group_sort_date": "2026-06-27",
+    "superlatives": []
+  },
+  {
+    "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-06-12",
+    "venue": "arXiv",
+    "venue_year": "2026",
+    "group_sort_date": "2026-06-12",
+    "superlatives": []
+  },
+  {
+    "title": "LoRA-Muon: Spectral Steepest Descent on the Low-Rank Manifold",
+    "url": "https://arxiv.org/abs/2606.12921",
+    "date": "2026",
+    "date_sort": "2026-06-11",
+    "venue": "arXiv",
+    "venue_year": "2026",
+    "group_sort_date": "2026-06-11",
+    "superlatives": []
+  },
+  {
+    "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
+    "url": "https://arxiv.org/abs/2606.09809",
+    "date": "2026",
+    "date_sort": "2026-06-08",
+    "venue": "arXiv",
+    "venue_year": "2026",
+    "group_sort_date": "2026-06-08",
+    "superlatives": []
+  },
+  {
+    "title": "Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs",
+    "url": "https://arxiv.org/abs/2605.09063",
+    "date": "2026",
+    "date_sort": "2026-05-09",
+    "venue": "arXiv",
+    "venue_year": "2026",
+    "group_sort_date": "2026-05-09",
+    "superlatives": []
+  },
+  {
+    "title": "Sparse Autoencoders Trained on the Same Data Learn Different Features",
+    "url": "https://arxiv.org/abs/2501.16615",
+    "date": "2026",
+    "date_sort": "2026-04-23",
+    "venue": "ICLR",
+    "venue_year": "2026",
+    "group_sort_date": "2026-04-23",
+    "superlatives": []
+  },
+  {
+    "title": "Evaluating SAE interpretability without explanations",
+    "url": "https://arxiv.org/abs/2507.08473",
+    "date": "2026",
+    "date_sort": "2026-04-23",
+    "venue": "ICLR",
+    "venue_year": "2026",
+    "group_sort_date": "2026-04-23",
+    "superlatives": []
+  },
+  {
+    "title": "Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs",
+    "url": "https://arxiv.org/abs/2508.06601",
+    "date": "2026",
+    "date_sort": "2026-04-23",
+    "venue": "ICLR",
+    "venue_year": "2026",
+    "group_sort_date": "2026-04-23",
+    "superlatives": [
+      "Workshop Best Paper Runner-up"
+    ]
+  },
+  {
+    "title": "How Open Must Language Models be to Enable Reliable Scientific Inference?",
+    "url": "https://arxiv.org/abs/2603.26539",
+    "date": "2026",
+    "date_sort": "2026-03-27",
+    "venue": "arXiv",
+    "venue_year": "2026",
+    "group_sort_date": "2026-03-27",
+    "superlatives": []
+  },
+  {
+    "title": "Concept Influence: Leveraging Interpretability to Improve Performance and Efficiency in Training Data Attribution",
+    "url": "https://arxiv.org/abs/2602.14869",
+    "date": "2026",
+    "date_sort": "2026-02-16",
+    "venue": "arXiv",
+    "venue_year": "2026",
+    "group_sort_date": "2026-02-16",
+    "superlatives": []
+  },
+  {
+    "title": "Quantifying the Effect of Test Set Contamination on Generative Evaluations",
+    "url": "https://arxiv.org/abs/2601.04301",
+    "date": "2026",
+    "date_sort": "2026-02-06",
+    "venue": "arXiv",
+    "venue_year": "2026",
+    "group_sort_date": "2026-02-06",
+    "superlatives": []
+  },
+  {
+    "title": "The Toxicology of Data: A Dose-Response Framework for Test Set Contamination, Data Poisoning, Finetuning Attacks and Memorization",
+    "url": "https://arxiv.org/abs/2601.04301",
+    "date": "2026",
+    "date_sort": "2026-01-07",
+    "venue": "arXiv",
+    "venue_year": "2026",
+    "group_sort_date": "2026-01-07",
+    "superlatives": []
+  },
+  {
+    "title": "Mitigating Emergent Misalignment with Data Attribution",
+    "url": "https://openreview.net/forum?id=gN7pWmjiQW",
+    "date": "2025",
+    "date_sort": "2025-12-07",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-12-07",
+    "superlatives": []
+  },
+  {
+    "title": "The Common Pile v0.1: An 8TB Dataset of Public Domain and Openly Licensed Text",
+    "url": "https://arxiv.org/abs/2506.05209",
+    "date": "2025",
+    "date_sort": "2025-12-02",
+    "venue": "NeurIPS Datasets and Benchmarks",
+    "venue_year": "2025",
+    "group_sort_date": "2025-12-02",
+    "superlatives": []
+  },
+  {
+    "title": "More of the Same: Persistent Representational Harms Under Increased Representation",
+    "url": "https://arxiv.org/abs/2503.00333",
+    "date": "2025",
+    "date_sort": "2025-12-02",
+    "venue": "NeurIPS",
+    "venue_year": "2025",
+    "group_sort_date": "2025-12-02",
+    "superlatives": []
+  },
+  {
+    "title": "Explaining and Mitigating Cross-Linguistic Tokenizer Inequalities",
+    "url": "https://arxiv.org/pdf/2406.16829",
+    "date": "2025",
+    "date_sort": "2025-12-02",
+    "venue": "NeurIPS",
+    "venue_year": "2025",
+    "group_sort_date": "2025-12-02",
+    "superlatives": []
+  },
+  {
+    "title": "Benchmark Disaggregation Improves Interpretability of Training Dynamics",
+    "url": "https://arxiv.org/abs/2510.24934",
+    "date": "2025",
+    "date_sort": "2025-12-06",
+    "venue": "CogInterp Workshop @ NeurIPS",
+    "venue_year": "2025",
+    "group_sort_date": "2025-11-29",
+    "superlatives": []
+  },
+  {
+    "title": "Token Entanglement in Subliminal Learning",
+    "url": "https://openreview.net/forum?id=auKgpBRzIW",
+    "date": "2025",
+    "date_sort": "2025-12-02",
+    "venue": "Mech Interp Workshop @ NeurIPS",
+    "venue_year": "2025",
+    "group_sort_date": "2025-11-25",
+    "superlatives": []
+  },
+  {
+    "title": "The Ghost in the Keys: A Disklavier Demo for Human-AI Musical Co-Creativity",
+    "url": "https://arxiv.org/abs/2511.01663",
+    "date": "2025",
+    "date_sort": "2025-12-02",
+    "venue": "AI4Music @ NeurIPS",
+    "venue_year": "2025",
+    "group_sort_date": "2025-11-25",
+    "superlatives": []
+  },
+  {
+    "title": "Video Deepfake Abuse: How Company Choices Predictably Shape Misuse Patterns",
+    "url": "https://arxiv.org/abs/2512.11815",
+    "date": "2025",
+    "date_sort": "2025-11-25",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-11-25",
+    "superlatives": []
+  },
+  {
+    "title": "Who Measures What Matters? An Analysis of Social Impact Evaluations in Foundation Model Reporting",
+    "url": "https://arxiv.org/abs/2511.05613",
+    "date": "2025",
+    "date_sort": "2025-11-06",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-11-06",
+    "superlatives": []
+  },
+  {
+    "title": "Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures",
+    "url": "https://arxiv.org/abs/2510.24081",
+    "date": "2025",
+    "date_sort": "2025-10-25",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-10-25",
+    "superlatives": []
+  },
+  {
+    "title": "RWKV-7 \"Goose\" with Expressive Dynamic State Evolution",
+    "url": "https://arxiv.org/abs/2503.14456",
+    "date": "2025",
+    "date_sort": "2025-10-07",
+    "venue": "COLM",
+    "venue_year": "2025",
+    "group_sort_date": "2025-10-07",
+    "superlatives": []
+  },
+  {
+    "title": "RADLADS: Rapid Attention Distillation to Linear Attention Decoders at Scale",
+    "url": "https://arxiv.org/abs/2505.03005",
+    "date": "2025",
+    "date_sort": "2025-10-07",
+    "venue": "COLM",
+    "venue_year": "2025",
+    "group_sort_date": "2025-10-07",
+    "superlatives": []
+  },
+  {
+    "title": "Open Problems in Mechanistic Interpretability",
+    "url": "https://arxiv.org/abs/2501.16496",
+    "date": "2025",
+    "date_sort": "2025-09-27",
+    "venue": "TMLR",
+    "venue_year": "2025",
+    "group_sort_date": "2025-09-27",
+    "superlatives": []
+  },
+  {
+    "title": "Scaling Self-Supervised Representation Learning for Symbolic Piano Performance",
+    "url": "",
+    "date": "2025",
+    "date_sort": "2025-09-21",
+    "venue": "ISMIR",
+    "venue_year": "2025",
+    "group_sort_date": "2025-09-21",
+    "superlatives": []
+  },
+  {
+    "title": "On the Acquisition of Shared Grammatical Representations in Bilingual Language Models",
+    "url": "https://arxiv.org/abs/2503.03962",
+    "date": "2025",
+    "date_sort": "2025-07-27",
+    "venue": "ACL",
+    "venue_year": "2025",
+    "group_sort_date": "2025-07-27",
+    "superlatives": []
+  },
+  {
+    "title": "Position: Write Code that People Want to Use",
+    "url": "",
+    "date": "2025",
+    "date_sort": "2025-07-18",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-07-18",
+    "superlatives": []
+  },
+  {
+    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
+    "url": "https://arxiv.org/abs/2406.04391",
+    "date": "2025",
+    "date_sort": "2025-07-13",
+    "venue": "ICML",
+    "venue_year": "2025",
+    "group_sort_date": "2025-07-13",
+    "superlatives": []
+  },
+  {
+    "title": "Automatically Interpreting Millions of Features in Large Language Models",
+    "url": "https://arxiv.org/abs/2410.13928",
+    "date": "2025",
+    "date_sort": "2025-07-13",
+    "venue": "ICML",
+    "venue_year": "2025",
+    "group_sort_date": "2025-07-13",
+    "superlatives": []
+  },
+  {
+    "title": "Steering Language Model Refusal with Sparse Autoencoders",
+    "url": "https://arxiv.org/abs/2411.11296",
+    "date": "2025",
+    "date_sort": "2025-07-19",
+    "venue": "Actionable Interpretability Workshop @ ICML",
+    "venue_year": "2025",
+    "group_sort_date": "2025-07-12",
+    "superlatives": []
+  },
+  {
+    "title": "Evaluating Morphological Alignment of Tokenizers in 70 Languages",
+    "url": "https://arxiv.org/abs/2507.06378",
+    "date": "2025",
+    "date_sort": "2025-07-18",
+    "venue": "Tokenizer Workshop @ ICML 2025",
+    "venue_year": "2025",
+    "group_sort_date": "2025-07-11",
+    "superlatives": []
+  },
+  {
+    "title": "BPE Stays on SCRIPT: Structured Encoding for Robust Multilingual Pretokenization",
+    "url": "https://arxiv.org/abs/2505.24689",
+    "date": "2025",
+    "date_sort": "2025-07-18",
+    "venue": "Tokenizer Workshop @ ICML 2025",
+    "venue_year": "2025",
+    "group_sort_date": "2025-07-11",
+    "superlatives": [
+      "Best paper @ Tokenizer Workshop"
+    ]
+  },
+  {
+    "title": "When AI Co-Scientists Fail: SPOT—a Benchmark for Automated Verification of Scientific Research",
+    "url": "https://arxiv.org/abs/2505.11855",
+    "date": "2025",
+    "date_sort": "2025-05-17",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-05-17",
+    "superlatives": []
+  },
+  {
+    "title": "The BiGGen Bench: A Principled Benchmark for Fine-grained Evaluation of Language Models with Language Models",
+    "url": "https://arxiv.org/abs/2406.05761",
+    "date": "2025",
+    "date_sort": "2025-04-29",
+    "venue": "NAACL",
+    "venue_year": "2025",
+    "group_sort_date": "2025-04-29",
+    "superlatives": []
+  },
+  {
+    "title": "KMMLU: Measuring Massive Multitask Language Understanding in Korean",
+    "url": "https://arxiv.org/abs/2402.11548",
+    "date": "2025",
+    "date_sort": "2025-04-29",
+    "venue": "NAACL",
+    "venue_year": "2025",
+    "group_sort_date": "2025-04-29",
+    "superlatives": []
+  },
+  {
+    "title": "Recite, Reconstruct, Recollect: Memorization in LMs as a Multifaceted Phenomenon",
+    "url": "https://arxiv.org/abs/2406.17746",
+    "date": "2025",
+    "date_sort": "2025-04-24",
+    "venue": "ICLR",
+    "venue_year": "2025",
+    "group_sort_date": "2025-04-24",
+    "superlatives": []
+  },
+  {
+    "title": "PolyPythias: Stability and Outliers across Fifty Language Model Pre-Training Runs",
+    "url": "https://arxiv.org/abs/2503.09543",
+    "date": "2025",
+    "date_sort": "2025-04-24",
+    "venue": "ICLR",
+    "venue_year": "2025",
+    "group_sort_date": "2025-04-24",
+    "superlatives": []
+  },
+  {
+    "title": "Composable Interventions for Language Models",
+    "url": "https://arxiv.org/abs/2407.06483",
+    "date": "2025",
+    "date_sort": "2025-04-24",
+    "venue": "ICLR",
+    "venue_year": "2025",
+    "group_sort_date": "2025-04-24",
+    "superlatives": []
+  },
+  {
+    "title": "Bridging the Data Provenance Gap Across Text, Speech, and Video",
+    "url": "https://openreview.net/forum?id=G5DziesYxL",
+    "date": "2025",
+    "date_sort": "2025-04-24",
+    "venue": "ICLR",
+    "venue_year": "2025",
+    "group_sort_date": "2025-04-24",
+    "superlatives": []
+  },
+  {
+    "title": "Aria-MIDI: A Dataset of MIDI Files for Symbolic Music Modeling",
+    "url": "https://openreview.net/forum?id=X5hrhgndxW",
+    "date": "2025",
+    "date_sort": "2025-04-24",
+    "venue": "ICLR",
+    "venue_year": "2025",
+    "group_sort_date": "2025-04-24",
+    "superlatives": []
+  },
+  {
+    "title": "Mechanistic Anomaly Detection for \"Quirky\" Language Models",
+    "url": "https://arxiv.org/abs/2504.08812",
+    "date": "2025",
+    "date_sort": "2025-04-09",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-04-09",
+    "superlatives": []
+  },
+  {
+    "title": "Estimating the Probability of Sampling a Trained Neural Network at Random",
+    "url": "https://arxiv.org/abs/2501.18812",
+    "date": "2025",
+    "date_sort": "2025-04-08",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-04-08",
+    "superlatives": []
+  },
+  {
+    "title": "Examining Two Hop Reasoning Through Information Content Scaling",
+    "url": "https://arxiv.org/abs/2502.03490",
+    "date": "2025",
+    "date_sort": "2025-03-21",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-03-21",
+    "superlatives": []
+  },
+  {
+    "title": "Does Transformer Interpretability Transfer to RNNs?",
+    "url": "https://arxiv.org/abs/2404.05971",
+    "date": "2025",
+    "date_sort": "2025-02-25",
+    "venue": "AAAI",
+    "venue_year": "2025",
+    "group_sort_date": "2025-02-25",
+    "superlatives": []
+  },
+  {
+    "title": "Transcoders Beat Sparse Autoencoders for Interpretability",
+    "url": "https://arxiv.org/abs/2501.18823",
+    "date": "2025",
+    "date_sort": "2025-02-12",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-02-12",
+    "superlatives": []
+  },
+  {
+    "title": "Slowing Learning by Erasing Simple Features",
+    "url": "https://arxiv.org/pdf/2502.02820",
+    "date": "2025",
+    "date_sort": "2025-02-05",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-02-05",
+    "superlatives": []
+  },
+  {
+    "title": "Converting MLPs into Polynomials in Closed Form",
+    "url": "https://arxiv.org/abs/2502.01032",
+    "date": "2025",
+    "date_sort": "2025-02-03",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-02-03",
+    "superlatives": []
+  },
+  {
+    "title": "Can We Partially Rewrite Transformers in Natural Language?",
+    "url": "https://arxiv.org/abs/2501.18838",
+    "date": "2025",
+    "date_sort": "2025-01-31",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-01-31",
+    "superlatives": []
+  },
+  {
+    "title": "Matrix-Driven Identification and Reconstruction of LLM Weight Homology",
+    "url": "https://arxiv.org/abs/2508.06309",
+    "date": "2025",
+    "date_sort": "2025-01-30",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-01-30",
+    "superlatives": []
+  },
+  {
+    "title": "Towards Best Practices for Open Datasets for LLM Training",
+    "url": "https://arxiv.org/abs/2501.08365",
+    "date": "2025",
+    "date_sort": "2025-01-14",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "group_sort_date": "2025-01-14",
+    "superlatives": []
+  },
+  {
+    "title": "LLM Circuit Analyses Are Consistent Across Training and Scale",
+    "url": "https://arxiv.org/abs/2407.10827",
+    "date": "2024",
+    "date_sort": "2024-12-10",
+    "venue": "NeurIPS",
+    "venue_year": "2024",
+    "group_sort_date": "2024-12-10",
+    "superlatives": []
+  },
+  {
+    "title": "Consent in crisis: The rapid decline of the AI data commons",
+    "url": "https://arxiv.org/abs/2407.14933",
+    "date": "2024",
+    "date_sort": "2024-12-10",
+    "venue": "NeurIPS Datasets and Benchmarks",
+    "venue_year": "2024",
+    "group_sort_date": "2024-12-10",
+    "superlatives": []
+  },
+  {
+    "title": "The Foundation Model Development Cheatsheet: A Review of Responsible AI Tools & Resources",
+    "url": "https://arxiv.org/abs/2406.16746",
+    "date": "2024",
+    "date_sort": "2024-12-07",
+    "venue": "TMLR",
+    "venue_year": "2024",
+    "group_sort_date": "2024-12-07",
+    "superlatives": []
+  },
+  {
+    "title": "Documenting Geographically and Contextually Diverse Data Sources: The BigScience Catalogue of Language Data and Resources",
+    "url": "https://arxiv.org/abs/2201.10066",
+    "date": "2024",
+    "date_sort": "2024-12-01",
+    "venue": "Northern European Journal of Language Technology",
+    "venue_year": "2024",
+    "group_sort_date": "2024-12-01",
+    "superlatives": []
+  },
+  {
+    "title": "Linear Representations of Sentiment in Large Language Models",
+    "url": "https://arxiv.org/abs/2310.15154",
+    "date": "2024",
+    "date_sort": "2024-11-15",
+    "venue": "BlackBox NLP",
+    "venue_year": "2024",
+    "group_sort_date": "2024-11-15",
+    "superlatives": []
+  },
+  {
+    "title": "Refusal in LLMs is an Affine Function",
+    "url": "https://arxiv.org/abs/2411.09003",
+    "date": "2024",
+    "date_sort": "2024-11-13",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-11-13",
+    "superlatives": []
+  },
+  {
+    "title": "Re-Evaluating Evaluation for Multilingual Summarization",
+    "url": "https://aclanthology.org/2024.emnlp-main.1085.pdf",
+    "date": "2024",
+    "date_sort": "2024-11-12",
+    "venue": "EMNLP",
+    "venue_year": "2024",
+    "group_sort_date": "2024-11-12",
+    "superlatives": []
+  },
+  {
+    "title": "Lina-Speech: Gated Linear Attention is a Fast and Parameter-Efficient Learner for text-to-speech synthesis",
+    "url": "https://arxiv.org/abs/2410.23320",
+    "date": "2024",
+    "date_sort": "2024-10-30",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-10-30",
+    "superlatives": []
+  },
+  {
+    "title": "Balancing Label Quantity and Quality for Scalable Elicitation",
+    "url": "https://arxiv.org/abs/2410.13215",
+    "date": "2024",
+    "date_sort": "2024-10-22",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-10-22",
+    "superlatives": []
+  },
+  {
+    "title": "From Decoding to Meta-Generation: Inference-time Algorithms for Large Language Models",
+    "url": "https://arxiv.org/abs/2406.16838",
+    "date": "2024",
+    "date_sort": "2024-10-15",
+    "venue": "TMLR",
+    "venue_year": "2024",
+    "group_sort_date": "2024-10-15",
+    "superlatives": []
+  },
+  {
+    "title": "Eliciting Latent Knowledge from Quirky Language Models",
+    "url": "https://arxiv.org/abs/2312.01037",
+    "date": "2024",
+    "date_sort": "2024-10-07",
+    "venue": "COLM",
+    "venue_year": "2024",
+    "group_sort_date": "2024-10-07",
+    "superlatives": []
+  },
+  {
+    "title": "Eagle and Finch: RWKV with Matrix-Valued States and Dynamic Recurrence",
+    "url": "https://arxiv.org/abs/2404.05892",
+    "date": "2024",
+    "date_sort": "2024-10-07",
+    "venue": "COLM",
+    "venue_year": "2024",
+    "group_sort_date": "2024-10-07",
+    "superlatives": []
+  },
+  {
+    "title": "The Case for Co-Designing Model Architectures with Hardware",
+    "url": "https://arxiv.org/abs/2401.14489",
+    "date": "2024",
+    "date_sort": "2024-08-12",
+    "venue": "ICPP",
+    "venue_year": "2024",
+    "group_sort_date": "2024-08-12",
+    "superlatives": []
+  },
+  {
+    "title": "Multi-Task Inference: Can Large Language Models Follow Multiple Instructions at Once?",
+    "url": "https://arxiv.org/abs/2402.11597",
+    "date": "2024",
+    "date_sort": "2024-08-01",
+    "venue": "ACL",
+    "venue_year": "2024",
+    "group_sort_date": "2024-08-01",
+    "superlatives": []
+  },
+  {
+    "title": "Cold Compress: A Toolkit for Benchmarking KV Cache Compression Approaches",
+    "url": "https://github.com/AnswerDotAI/cold-compress",
+    "date": "2024",
+    "date_sort": "2024-08-01",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-08-01",
+    "superlatives": []
+  },
+  {
+    "title": "Self-Directed Synthetic Dialogues and Revisions Technical Report",
+    "url": "https://arxiv.org/abs/2407.18421",
+    "date": "2024",
+    "date_sort": "2024-07-25",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-07-25",
+    "superlatives": []
+  },
+  {
+    "title": "Stay on topic with Classifier-Free Guidance",
+    "url": "https://arxiv.org/abs/2306.17806",
+    "date": "2024",
+    "date_sort": "2024-07-23",
+    "venue": "ICML",
+    "venue_year": "2024",
+    "group_sort_date": "2024-07-23",
+    "superlatives": []
+  },
+  {
+    "title": "Position: Social Choice Should Guide AI Alignment: On Dealing with Diverse Human Feedback",
+    "url": "https://arxiv.org/abs/2404.10271",
+    "date": "2024",
+    "date_sort": "2024-07-23",
+    "venue": "ICML Position Paper Track",
+    "venue_year": "2024",
+    "group_sort_date": "2024-07-23",
+    "superlatives": []
+  },
+  {
+    "title": "On the Societal Impact of Open Foundation Models",
+    "url": "https://crfm.stanford.edu/open-fms/",
+    "date": "2024",
+    "date_sort": "2024-07-23",
+    "venue": "ICML Position Paper Track",
+    "venue_year": "2024",
+    "group_sort_date": "2024-07-23",
+    "superlatives": [
+      "Oral"
+    ]
+  },
+  {
+    "title": "Neural Networks Learn Statistics of Increasing Complexity",
+    "url": "https://arxiv.org/abs/2402.04362",
+    "date": "2024",
+    "date_sort": "2024-07-23",
+    "venue": "ICML",
+    "venue_year": "2024",
+    "group_sort_date": "2024-07-23",
+    "superlatives": []
+  },
+  {
+    "title": "Grokking Group Multiplication with Cosets",
+    "url": "https://arxiv.org/abs/2312.06581",
+    "date": "2024",
+    "date_sort": "2024-07-23",
+    "venue": "ICML",
+    "venue_year": "2024",
+    "group_sort_date": "2024-07-23",
+    "superlatives": []
+  },
+  {
+    "title": "A Safe Harbor for AI Evaluation and Red Teaming",
+    "url": "https://arxiv.org/abs/2403.04893",
+    "date": "2024",
+    "date_sort": "2024-07-23",
+    "venue": "ICML Position Paper Track",
+    "venue_year": "2024",
+    "group_sort_date": "2024-07-23",
+    "superlatives": [
+      "Oral"
+    ]
+  },
+  {
+    "title": "GoldFinch: High Performance RWKV/Transformer Hybrid with Linear Pre-Fill and Extreme KV-Cache Compression",
+    "url": "https://arxiv.org/pdf/2407.12077",
+    "date": "2024",
+    "date_sort": "2024-07-16",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-07-16",
+    "superlatives": []
+  },
+  {
+    "title": "Improving Black-box Robustness with In-Context Rewriting",
+    "url": "https://arxiv.org/abs/2402.08225",
+    "date": "2024",
+    "date_sort": "2024-06-18",
+    "venue": "TMLR",
+    "venue_year": "2024",
+    "group_sort_date": "2024-06-18",
+    "superlatives": []
+  },
+  {
+    "title": "Simple and Scalable Strategies to Continually Pre-train Large Language Models",
+    "url": "https://arxiv.org/abs/2403.08763",
+    "date": "2024",
+    "date_sort": "2024-06-07",
+    "venue": "TMLR",
+    "venue_year": "2024",
+    "group_sort_date": "2024-06-07",
+    "superlatives": []
+  },
+  {
+    "title": "Lessons from the Trenches on Reproducible Evaluation of Language Models",
+    "url": "https://arxiv.org/abs/2405.14782",
+    "date": "2024",
+    "date_sort": "2024-05-23",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-05-23",
+    "superlatives": []
+  },
+  {
+    "title": "HAE-RAE Bench: Evaluation of Korean Knowledge in Language Models",
+    "url": "https://arxiv.org/abs/2309.02706",
+    "date": "2024",
+    "date_sort": "2024-05-20",
+    "venue": "COLING",
+    "venue_year": "2024",
+    "group_sort_date": "2024-05-20",
+    "superlatives": []
+  },
+  {
+    "title": "OpenFold: Retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization",
+    "url": "https://www.biorxiv.org/content/10.1101/2022.11.20.517210v3",
+    "date": "2024",
+    "date_sort": "2024-05-14",
+    "venue": "Nature Methods",
+    "venue_year": "2024",
+    "group_sort_date": "2024-05-14",
+    "superlatives": []
+  },
+  {
+    "title": "YaRN: Efficient Context Window Extension of Large Language Models",
+    "url": "https://arxiv.org/abs/2309.00071",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "ICLR",
+    "venue_year": "2024",
+    "group_sort_date": "2024-05-07",
+    "superlatives": []
+  },
+  {
+    "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
+    "url": "https://arxiv.org/abs/2309.08600",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "ICLR",
+    "venue_year": "2024",
+    "group_sort_date": "2024-05-07",
+    "superlatives": []
+  },
+  {
+    "title": "ReLoRA: High-Rank Training Through Low-Rank Updates",
+    "url": "https://arxiv.org/abs/2307.05695",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "ICLR",
+    "venue_year": "2024",
+    "group_sort_date": "2024-05-07",
+    "superlatives": []
+  },
+  {
+    "title": "Quality-Diversity through AI Feedback",
+    "url": "https://arxiv.org/abs/2310.13032",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "ICLR",
+    "venue_year": "2024",
+    "group_sort_date": "2024-05-07",
+    "superlatives": []
+  },
+  {
+    "title": "OpenWebMath: An Open Dataset of High-Quality Mathematical Web Text",
+    "url": "https://arxiv.org/abs/2310.06786",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "ICLR",
+    "venue_year": "2024",
+    "group_sort_date": "2024-05-07",
+    "superlatives": []
+  },
+  {
+    "title": "LLeMA: An Open Language Model for Mathematics",
+    "url": "https://arxiv.org/abs/2310.10631",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "ICLR",
+    "venue_year": "2024",
+    "group_sort_date": "2024-05-07",
+    "superlatives": []
+  },
+  {
+    "title": "Attributing Mode Collapse in the fine-tuning of Large Language Models",
+    "url": "https://openreview.net/forum?id=3pDMYjpOxk",
+    "date": "2024",
+    "date_sort": "2024-05-11",
+    "venue": "ICLR 2024 Workshop on Mathematical and Empirical Understanding of Foundation Models",
+    "venue_year": "2024",
+    "group_sort_date": "2024-05-04",
+    "superlatives": []
+  },
+  {
+    "title": "The OpenELM Library: Leveraging Progress in Language Models for Novel Evolutionary Algorithms",
+    "url": "https://openreview.net/pdf/96e2100a572823c2d8944949784475c8f3aa153b.pdf",
+    "date": "2024",
+    "date_sort": "2024-02-18",
+    "venue": "Genetic Programming Theory & Practice",
+    "venue_year": "2024",
+    "group_sort_date": "2024-02-18",
+    "superlatives": []
+  },
+  {
+    "title": "Suppressing Pink Elephants with Direct Principle Feedback",
+    "url": "https://arxiv.org/abs/2402.07896",
+    "date": "2024",
+    "date_sort": "2024-02-12",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "group_sort_date": "2024-02-12",
+    "superlatives": []
+  },
+  {
+    "title": "BigBIO: A Framework for Data-Centric Biomedical Natural Language Processing",
+    "url": "https://arxiv.org/abs/2206.15076",
+    "date": "2023",
+    "date_sort": "2023-12-13",
+    "venue": "NeurIPS Datasets and Benchmarks",
+    "venue_year": "2023",
+    "group_sort_date": "2023-12-13",
+    "superlatives": []
+  },
+  {
+    "title": "The Goldilocks of Pragmatic Understanding: Fine-Tuning Strategy Matters for Implicature Resolution by LLMs",
+    "url": "https://arxiv.org/abs/2210.14986",
+    "date": "2023",
+    "date_sort": "2023-12-10",
+    "venue": "NeurIPS",
+    "venue_year": "2023",
+    "group_sort_date": "2023-12-10",
+    "superlatives": [
+      "Spotlight"
+    ]
+  },
+  {
+    "title": "Reconstructing the Mind's Eye: fMRI-to-Image with Contrastive Learning and Diffusion Priors",
+    "url": "https://arxiv.org/abs/2305.18274",
+    "date": "2023",
+    "date_sort": "2023-12-10",
+    "venue": "NeurIPS",
+    "venue_year": "2023",
+    "group_sort_date": "2023-12-10",
+    "superlatives": [
+      "Spotlight"
+    ]
+  },
+  {
+    "title": "LEACE: Perfect linear concept erasure in closed form",
+    "url": "https://arxiv.org/abs/2306.03819",
+    "date": "2023",
+    "date_sort": "2023-12-10",
+    "venue": "NeurIPS",
+    "venue_year": "2023",
+    "group_sort_date": "2023-12-10",
+    "superlatives": []
+  },
+  {
+    "title": "Emergent and Predictable Memorization in Large Language Models",
+    "url": "https://arxiv.org/abs/2304.11158",
+    "date": "2023",
+    "date_sort": "2023-12-10",
+    "venue": "NeurIPS",
+    "venue_year": "2023",
+    "group_sort_date": "2023-12-10",
+    "superlatives": []
+  },
+  {
+    "title": "Eliciting Language Model Behaviors using Reverse Language Models",
+    "url": "https://neurips.cc/virtual/2023/workshop/66526#collapse78917",
+    "date": "2023",
+    "date_sort": "2023-12-16",
+    "venue": "NeurIPS Workshop on Socially Responsible Language Modelling Research (SoLaR)",
+    "venue_year": "2023",
+    "group_sort_date": "2023-12-09",
+    "superlatives": []
+  },
+  {
+    "title": "Detecting Backdoors with Meta-Models",
+    "url": "https://openreview.net/forum?id=cmJiEqniEc",
+    "date": "2023",
+    "date_sort": "2023-12-15",
+    "venue": "NeurIPS Workshop on Backdoors in Deep Learning",
+    "venue_year": "2023",
+    "group_sort_date": "2023-12-08",
+    "superlatives": []
+  },
+  {
+    "title": "trlX: A Framework for Large Scale Reinforcement Learning from Human Feedback",
+    "url": "https://aclanthology.org/2023.emnlp-main.530/",
+    "date": "2023",
+    "date_sort": "2023-12-06",
+    "venue": "EMNLP",
+    "venue_year": "2023",
+    "group_sort_date": "2023-12-06",
+    "superlatives": []
+  },
+  {
+    "title": "RWKV: Reinventing RNNs for the Transformer Era",
+    "url": "https://arxiv.org/abs/2305.13048",
+    "date": "2023",
+    "date_sort": "2023-12-06",
+    "venue": "EMNLP (Findings)",
+    "venue_year": "2023",
+    "group_sort_date": "2023-12-06",
+    "superlatives": []
+  },
+  {
+    "title": "StarCoder: may the source be with you!",
+    "url": "https://arxiv.org/abs/2305.06161",
+    "date": "2023",
+    "date_sort": "2023-12-01",
+    "venue": "TMLR",
+    "venue_year": "2023",
+    "group_sort_date": "2023-12-01",
+    "superlatives": []
+  },
+  {
+    "title": "Prompting Multilingual Large Language Models to Generate Code-Mixed Texts: The Case of South East Asian Languages",
+    "url": "https://arxiv.org/abs/2303.13592",
+    "date": "2023",
+    "date_sort": "2023-12-07",
+    "venue": "EMNLP Workshop on Computational Approaches to Linguistic Code-Switching",
+    "venue_year": "2023",
+    "group_sort_date": "2023-11-30",
+    "superlatives": []
+  },
+  {
+    "title": "Utilizing Weak Supervision to Generate Indonesian Conservation Datasets",
+    "url": "https://arxiv.org/abs/2310.11258",
+    "date": "2023",
+    "date_sort": "2023-11-01",
+    "venue": "AACL Workshop in South East Asian Language Processing",
+    "venue_year": "2023",
+    "group_sort_date": "2023-10-25",
+    "superlatives": []
+  },
+  {
+    "title": "Representation Engineering: A Top-Down Approach to AI Transparency",
+    "url": "https://arxiv.org/abs/2310.01405",
+    "date": "2023",
+    "date_sort": "2023-10-02",
+    "venue": "arXiv",
+    "venue_year": "2023",
+    "group_sort_date": "2023-10-02",
+    "superlatives": []
+  },
+  {
+    "title": "Reclaiming the Digital Commons: A Public Data Trust for Training Data",
+    "url": "https://dl.acm.org/doi/10.1145/3600211.3604658",
+    "date": "2023",
+    "date_sort": "2023-08-29",
+    "venue": "AIES",
+    "venue_year": "2023",
+    "group_sort_date": "2023-08-29",
+    "superlatives": []
+  },
+  {
+    "title": "Recasting Self-Attention with Holographic Reduced Representations",
+    "url": "https://dl.acm.org/doi/10.5555/3618408.3618431",
+    "date": "2023",
+    "date_sort": "2023-07-23",
+    "venue": "ICML",
+    "venue_year": "2023",
+    "group_sort_date": "2023-07-23",
+    "superlatives": []
+  },
+  {
+    "title": "Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling",
+    "url": "https://dl.acm.org/doi/10.5555/3618408.3618510",
+    "date": "2023",
+    "date_sort": "2023-07-23",
+    "venue": "ICML",
+    "venue_year": "2023",
+    "group_sort_date": "2023-07-23",
+    "superlatives": [
+      "Oral"
+    ]
+  },
+  {
+    "title": "HyperTuning: Toward Adapting Large Language Models without Back-propagation",
+    "url": "https://dl.acm.org/doi/10.5555/3618408.3619566",
+    "date": "2023",
+    "date_sort": "2023-07-23",
+    "venue": "ICML",
+    "venue_year": "2023",
+    "group_sort_date": "2023-07-23",
+    "superlatives": []
+  },
+  {
+    "title": "Continual Pre-Training of Large Language Models: How to (re)warm your model?",
+    "url": "https://arxiv.org/abs/2308.04014",
+    "date": "2023",
+    "date_sort": "2023-07-23",
+    "venue": "Extended to a published paper",
+    "venue_year": "2023",
+    "group_sort_date": "2023-07-23",
+    "superlatives": []
+  },
+  {
+    "title": "Do LLMs selectively encode the goal of an agent's reach?",
+    "url": "https://openreview.net/forum?id=KxvXjtyuYl",
+    "date": "2023",
+    "date_sort": "2023-07-28",
+    "venue": "ICML Workshop on Theory of Mind in Communicating Agents",
+    "venue_year": "2023",
+    "group_sort_date": "2023-07-21",
+    "superlatives": []
+  },
+  {
+    "title": "Challenges and Applications of Large Language Models",
+    "url": "https://arxiv.org/abs/2307.10169",
+    "date": "2023",
+    "date_sort": "2023-07-19",
+    "venue": "arXiv",
+    "venue_year": "2023",
+    "group_sort_date": "2023-07-19",
+    "superlatives": []
+  },
+  {
+    "title": "GAIA Search: Hugging Face and Pyserini Interoperability for NLP Training Data Exploration",
+    "url": "https://aclanthology.org/2023.acl-demo.57/",
+    "date": "2023",
+    "date_sort": "2023-07-09",
+    "venue": "ACL 2023 Demos Track",
+    "venue_year": "2023",
+    "group_sort_date": "2023-07-09",
+    "superlatives": []
+  },
+  {
+    "title": "Crosslingual Generalization through Multitask Finetuning",
+    "url": "https://aclanthology.org/2023.acl-long.891/",
+    "date": "2023",
+    "date_sort": "2023-07-09",
+    "venue": "ACL",
+    "venue_year": "2023",
+    "group_sort_date": "2023-07-09",
+    "superlatives": []
+  },
+  {
+    "title": "BLOOM+1: Adding Language Support to BLOOM for Zero-Shot Prompting",
+    "url": "https://arxiv.org/abs/2212.09535",
+    "date": "2023",
+    "date_sort": "2023-07-09",
+    "venue": "ACL",
+    "venue_year": "2023",
+    "group_sort_date": "2023-07-09",
+    "superlatives": []
+  },
+  {
+    "title": "A Technical Report for Polyglot-Ko: Open-Source Large-Scale Korean Language Models",
+    "url": "https://arxiv.org/abs/2306.02254",
+    "date": "2023",
+    "date_sort": "2023-06-06",
+    "venue": "arXiv",
+    "venue_year": "2023",
+    "group_sort_date": "2023-06-06",
+    "superlatives": []
+  },
+  {
+    "title": "Role-Play with Large Language Models",
+    "url": "https://arxiv.org/abs/2305.16367",
+    "date": "2023",
+    "date_sort": "2023-05-25",
+    "venue": "Nature",
+    "venue_year": "2023",
+    "group_sort_date": "2023-05-25",
+    "superlatives": []
+  },
+  {
+    "title": "Can Transformers Learn to Solve Problems Recursively?",
+    "url": "https://arxiv.org/abs/2305.14699",
+    "date": "2023",
+    "date_sort": "2023-05-24",
+    "venue": "arXiv",
+    "venue_year": "2023",
+    "group_sort_date": "2023-05-24",
+    "superlatives": []
+  },
+  {
+    "title": "Eliciting latent predictions from transformers with the tuned lens",
+    "url": "https://arxiv.org/abs/2303.08112",
+    "date": "2023",
+    "date_sort": "2023-05-14",
+    "venue": "arXiv",
+    "venue_year": "2023",
+    "group_sort_date": "2023-05-14",
+    "superlatives": []
+  },
+  {
+    "title": "Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models",
+    "url": "https://arxiv.org/abs/2206.04615",
+    "date": "2023",
+    "date_sort": "2023-05-11",
+    "venue": "TMLR",
+    "venue_year": "2023",
+    "group_sort_date": "2023-05-11",
+    "superlatives": []
+  },
+  {
+    "title": "ProofNet: Autoformalizing and Formally Proving Undergraduate-Level Mathematics",
+    "url": "https://arxiv.org/abs/2302.12433",
+    "date": "2023",
+    "date_sort": "2023-02-24",
+    "venue": "arXiv",
+    "venue_year": "2023",
+    "group_sort_date": "2023-02-24",
+    "superlatives": []
   },
   {
     "title": "Masked inverse folding with sequence transfer for protein representation learning",
@@ -1155,8 +1281,9 @@
     "date": "2023",
     "date_sort": "2023-01-21",
     "venue": "Protein Engineering Design and Selection",
-    "superlatives": [],
-    "details": "Area: Other Modalities. Lead org: Microsoft Research. EleutherAI contact: Niccolò Zanichelli."
+    "venue_year": "2023",
+    "group_sort_date": "2023-01-21",
+    "superlatives": []
   },
   {
     "title": "SantaCoder: don't reach for the stars!",
@@ -1164,8 +1291,9 @@
     "date": "2023",
     "date_sort": "2023-01-09",
     "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: BigCode. EleutherAI contact: Hailey Schoelkopf."
+    "venue_year": "2023",
+    "group_sort_date": "2023-01-09",
+    "superlatives": []
   },
   {
     "title": "What Language Model to Train if You Have One Million GPU Hours?",
@@ -1173,8 +1301,9 @@
     "date": "2022",
     "date_sort": "2022-12-01",
     "venue": "EMNLP (Findings)",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Jason Phang."
+    "venue_year": "2022",
+    "group_sort_date": "2022-12-01",
+    "superlatives": []
   },
   {
     "title": "The BigScience ROOTS Corpus: A 1.6TB Composite Multilingual Dataset",
@@ -1182,30 +1311,33 @@
     "date": "2022",
     "date_sort": "2022-11-28",
     "venue": "NeurIPS Datasets and Benchmarks",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Lintang Sutawika."
+    "venue_year": "2022",
+    "group_sort_date": "2022-11-28",
+    "superlatives": []
   },
   {
     "title": "LAION-5B: An open large-scale dataset for training next generation image-text models",
     "url": "https://openreview.net/forum?id=M3Y74vmsMcY",
     "date": "2022",
     "date_sort": "2022-11-28",
-    "venue": "NeurIPS Datasets and Benchmarks (Best Paper)",
+    "venue": "NeurIPS Datasets and Benchmarks",
+    "venue_year": "2022",
+    "group_sort_date": "2022-11-28",
     "superlatives": [
       "Best Paper"
-    ],
-    "details": "Area: Other Modalities. Lead org: LAION. EleutherAI contact: Aran Komatsuzaki."
+    ]
   },
   {
     "title": "EleutherAI: Going Beyond \"Open Science\" to \"Science in the Open\"",
     "url": "https://openreview.net/forum?id=JWHQ8U1IdYb",
     "date": "2022",
     "date_sort": "2022-11-28",
-    "venue": "NeurIPS Workshop on Broadening Research Collaborations Oral",
+    "venue": "NeurIPS Workshop on Broadening Research Collaborations",
+    "venue_year": "2022",
+    "group_sort_date": "2022-11-21",
     "superlatives": [
       "Oral"
-    ],
-    "details": "Area: Ethics and Policy. Lead org: EleutherAI. EleutherAI contact: Jason Phang."
+    ]
   },
   {
     "title": "BLOOM: A 176b-parameter open-access multilingual language model",
@@ -1213,8 +1345,9 @@
     "date": "2022",
     "date_sort": "2022-11-10",
     "venue": "TMLR",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Stella Biderman."
+    "venue_year": "2022",
+    "group_sort_date": "2022-11-10",
+    "superlatives": []
   },
   {
     "title": "VQGAN-CLIP: Open Domain Image Generation and Editing with Natural Language Guidance",
@@ -1222,8 +1355,9 @@
     "date": "2022",
     "date_sort": "2022-10-23",
     "venue": "ECCV",
-    "superlatives": [],
-    "details": "Area: Other Modalities. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
+    "venue_year": "2022",
+    "group_sort_date": "2022-10-23",
+    "superlatives": []
   },
   {
     "title": "Fooling MOSS with Pretrained Language Models",
@@ -1231,8 +1365,9 @@
     "date": "2022",
     "date_sort": "2022-10-17",
     "venue": "CIKM",
-    "superlatives": [],
-    "details": "Area: NLP, Security. Lead org: Booz Allen Hamilton. EleutherAI contact: Stella Biderman."
+    "venue_year": "2022",
+    "group_sort_date": "2022-10-17",
+    "superlatives": []
   },
   {
     "title": "Robust Preference Learning for Storytelling via Contrastive Reinforcement Learning",
@@ -1240,8 +1375,9 @@
     "date": "2022",
     "date_sort": "2022-10-15",
     "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Alignment, NLP. Lead org: CarperAI. EleutherAI contact: Louis Castricato."
+    "venue_year": "2022",
+    "group_sort_date": "2022-10-15",
+    "superlatives": []
   },
   {
     "title": "Musical audio samples generated from joint text embeddings",
@@ -1249,8 +1385,9 @@
     "date": "2022",
     "date_sort": "2022-10-01",
     "venue": "The Journal of the Acoustical Society of America",
-    "superlatives": [],
-    "details": "Area: Other Modalities. Lead org: Stability AI. EleutherAI contact: Katherine Crowson."
+    "venue_year": "2022",
+    "group_sort_date": "2022-10-01",
+    "superlatives": []
   },
   {
     "title": "Data Governance in the Age of Large-Scale Data-Driven Language Technology",
@@ -1258,8 +1395,9 @@
     "date": "2022",
     "date_sort": "2022-06-20",
     "venue": "FAccT",
-    "superlatives": [],
-    "details": "Area: Ethics and Policy, NLP. Lead org: BigScience. EleutherAI contact: Stella Biderman."
+    "venue_year": "2022",
+    "group_sort_date": "2022-06-20",
+    "superlatives": []
   },
   {
     "title": "Datasheet for the Pile",
@@ -1267,8 +1405,9 @@
     "date": "2022",
     "date_sort": "2022-06-13",
     "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP, Ethics and Policy. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
+    "venue_year": "2022",
+    "group_sort_date": "2022-06-13",
+    "superlatives": []
   },
   {
     "title": "You reap what you sow: On the Challenges of Bias Evaluation Under Multilingual Settings",
@@ -1276,8 +1415,9 @@
     "date": "2022",
     "date_sort": "2022-05-28",
     "venue": "ACL Workshop on Challenges & Perspectives in Creating Large Language Models",
-    "superlatives": [],
-    "details": "Area: Ethics and Policy. Lead org: BigScience. EleutherAI contact: Stella Biderman."
+    "venue_year": "2022",
+    "group_sort_date": "2022-05-21",
+    "superlatives": []
   },
   {
     "title": "GPT-NeoX-20B: An Open-Source Autoregressive Language Model",
@@ -1285,8 +1425,9 @@
     "date": "2022",
     "date_sort": "2022-05-28",
     "venue": "ACL Workshop on Challenges & Perspectives in Creating Large Language Models",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Sid Black."
+    "venue_year": "2022",
+    "group_sort_date": "2022-05-21",
+    "superlatives": []
   },
   {
     "title": "Multitask Prompted Training Enables Zero-Shot Task Generalization",
@@ -1294,8 +1435,9 @@
     "date": "2022",
     "date_sort": "2022-04-25",
     "venue": "ICLR",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: BigScience. EleutherAI contact: Stella Biderman."
+    "venue_year": "2022",
+    "group_sort_date": "2022-04-25",
+    "superlatives": []
   },
   {
     "title": "Quality at a Glance: An Audit of Web-Crawled Multilingual Datasets",
@@ -1303,8 +1445,9 @@
     "date": "2022",
     "date_sort": "2022-01-31",
     "venue": "TACL",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Google. EleutherAI contact: Stella Biderman."
+    "venue_year": "2022",
+    "group_sort_date": "2022-01-31",
+    "superlatives": []
   },
   {
     "title": "MP-NeRF: A massively parallel method for accelerating protein structure reconstruction from internal coordinates",
@@ -1312,8 +1455,9 @@
     "date": "2022",
     "date_sort": "2022-01-05",
     "venue": "Journal of Computational Chemistry",
-    "superlatives": [],
-    "details": "Area: Other Modalities. Lead org: Vir Biotechnology. EleutherAI contact: Stella Biderman."
+    "venue_year": "2022",
+    "group_sort_date": "2022-01-05",
+    "superlatives": []
   },
   {
     "title": "LAION-400M: Open Dataset of CLIP-Filtered 400 Million Image-Text Pairs",
@@ -1321,8 +1465,9 @@
     "date": "2021",
     "date_sort": "2021-12-14",
     "venue": "NeurIPS Workshopn on Data-Centic AI",
-    "superlatives": [],
-    "details": "Area: Other Modalities. Lead org: LAION. EleutherAI contact: Katherine Crowson."
+    "venue_year": "2021",
+    "group_sort_date": "2021-12-07",
+    "superlatives": []
   },
   {
     "title": "Cut the CARP: Fishing for zero-shot story evaluation",
@@ -1330,8 +1475,9 @@
     "date": "2021",
     "date_sort": "2021-10-06",
     "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Louis Castricato."
+    "venue_year": "2021",
+    "group_sort_date": "2021-10-06",
+    "superlatives": []
   },
   {
     "title": "An empirical exploration in quality filtering of text data",
@@ -1339,8 +1485,9 @@
     "date": "2021",
     "date_sort": "2021-09-02",
     "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Leo Gao."
+    "venue_year": "2021",
+    "group_sort_date": "2021-09-02",
+    "superlatives": []
   },
   {
     "title": "Towards a Model-Theoretic View of Narratives",
@@ -1348,8 +1495,9 @@
     "date": "2021",
     "date_sort": "2021-06-11",
     "venue": "NAACL Workshop on Narrative Understanding",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Georgia Tech. EleutherAI contact: Louis Castricato."
+    "venue_year": "2021",
+    "group_sort_date": "2021-06-04",
+    "superlatives": []
   },
   {
     "title": "The Pile: An 800GB Dataset of Diverse Text for Language Modeling",
@@ -1357,8 +1505,9 @@
     "date": "2020",
     "date_sort": "2020-12-31",
     "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Leo Gao."
+    "venue_year": "2020",
+    "group_sort_date": "2020-12-31",
+    "superlatives": []
   },
   {
     "title": "Current Limitations of Large Language Models: What You Need is Retrieval",
@@ -1366,7 +1515,8 @@
     "date": "2020",
     "date_sort": "2020-09-15",
     "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Georgia Tech. EleutherAI contact: Aran Komatsuzaki."
+    "venue_year": "2020",
+    "group_sort_date": "2020-09-15",
+    "superlatives": []
   }
 ]

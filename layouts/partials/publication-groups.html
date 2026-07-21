@@ -1,0 +1,68 @@
+{{ $groups := .groups }}
+{{ $initialCount := default 20 .initialCount }}
+{{ $stepCount := default 20 .stepCount }}
+
+<div class="publication-groups" data-publication-list data-initial-count="{{ $initialCount }}" data-step-count="{{ $stepCount }}">
+  {{ range $groups }}
+    <section class="publication-group" data-publication-group>
+      <div class="publication-group-heading">
+        <h3>{{ .label }}</h3>
+        <span aria-label="Publication count: {{ .count }}">{{ .count }}</span>
+      </div>
+      <div class="publication-group-items">
+        {{ range .papers }}
+          <article class="publication-group-item{{ if .superlatives }} has-superlative{{ end }}" data-publication-item>
+            <h4>
+              {{ if .url }}
+                <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+              {{ else }}
+                {{ .title }}
+              {{ end }}
+            </h4>
+            {{ with .superlatives }}
+              <div class="publication-badges">
+                {{ range . }}<span class="paper-badge">{{ . }}</span>{{ end }}
+              </div>
+            {{ end }}
+          </article>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+  <button class="button publication-more" type="button" data-publication-more>See more</button>
+</div>
+
+<script>
+  (() => {
+    document.querySelectorAll("[data-publication-list]").forEach((list) => {
+      const items = Array.from(list.querySelectorAll("[data-publication-item]"));
+      const groups = Array.from(list.querySelectorAll("[data-publication-group]"));
+      const button = list.querySelector("[data-publication-more]");
+      const initialCount = Number(list.dataset.initialCount || 20);
+      const stepCount = Number(list.dataset.stepCount || 20);
+      let visibleCount = initialCount;
+
+      const update = () => {
+        items.forEach((item, index) => {
+          item.hidden = index >= visibleCount;
+        });
+        groups.forEach((group) => {
+          group.hidden = !group.querySelector("[data-publication-item]:not([hidden])");
+        });
+        if (!button) return;
+        const remaining = Math.max(0, items.length - visibleCount);
+        button.hidden = remaining === 0;
+        button.textContent = "See more";
+      };
+
+      if (button) {
+        button.addEventListener("click", () => {
+          visibleCount += stepCount;
+          update();
+        });
+      }
+
+      update();
+    });
+  })();
+</script>

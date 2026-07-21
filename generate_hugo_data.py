@@ -2,7 +2,7 @@
 import csv
 import json
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.error import URLError
 from urllib.parse import urlencode, urlsplit, urlunsplit
@@ -15,6 +15,8 @@ AREA_PAPERS_CSV = ROOT / "research_area_papers.csv"
 AREA_FILTERS_CSV = ROOT / "research_area_filters.csv"
 OUTPUT_DIR = ROOT / "data" / "research"
 HOMEPAGE_PAPER_LIMIT = 10
+HOMEPAGE_GROUPED_PAPER_LIMIT = 30
+WORKSHOP_SORT_OFFSET_DAYS = 7
 PAPERS_SHEET_CSV_URL = (
     "https://docs.google.com/spreadsheets/d/"
     "14amb2CM9nVQR_-ZqpGuNPSSdMxsAk0YEoAvetgEyGRw/export?format=csv&gid=2053751678"
@@ -35,6 +37,13 @@ def display_year(date):
     if date == datetime.min:
         return ""
     return str(date.year)
+
+
+def first_valid_date(*dates):
+    for date in dates:
+        if date != datetime.min:
+            return date
+    return datetime.min
 
 
 def clean_link(link):
@@ -60,8 +69,26 @@ def display_terms(value):
     return [item.strip() for item in (value or "").replace(",", ";").split(";") if item.strip()]
 
 
+def clean_venue_label(venue, superlatives=None):
+    venue = (venue or "").strip()
+    for superlative in superlatives or []:
+        venue = venue.replace(f" ({superlative})", "")
+        if venue.endswith(f" {superlative}"):
+            venue = venue[: -len(superlative)].rstrip()
+    return venue.replace(" (Oral)", "").removesuffix(" Oral").strip()
+
+
+def is_workshop_venue(venue):
+    text = (venue or "").casefold()
+    return "workshop" in text or "@" in text
+
+
 def row_date(row):
-    return parse_date(row.get("Sort Date") or row.get("Release Date") or row.get("Archival Date"))
+    return first_valid_date(
+        parse_date(row.get("Sort Date")),
+        parse_date(row.get("Release Date")),
+        parse_date(row.get("Archival Date")),
+    )
 
 
 def pub_date(row):
@@ -79,7 +106,24 @@ def homepage_venue(row):
         venue = workshop or "arXiv"
     else:
         venue = "arXiv"
-    return venue.replace(" (Oral)", " Oral")
+    return clean_venue_label(venue, display_terms(row.get("Superlatives")))
+
+
+def venue_date(row, venue):
+    if venue == "arXiv":
+        return first_valid_date(pub_date(row), row_date(row))
+    if is_workshop_venue(venue):
+        return first_valid_date(parse_date(row.get("Workshop Date")), row_date(row), pub_date(row))
+    return first_valid_date(parse_date(row.get("Archival Date")), row_date(row), pub_date(row))
+
+
+def group_sort_date(row, venue):
+    date = venue_date(row, venue)
+    if date == datetime.min:
+        return date
+    if is_workshop_venue(venue):
+        return date - timedelta(days=WORKSHOP_SORT_OFFSET_DAYS)
+    return date
 
 
 def display_venue(row, config):
@@ -88,7 +132,7 @@ def display_venue(row, config):
     venue = (row.get("Conference or Journal") or row.get("Workshop") or row.get("Status") or "Paper").strip()
     if venue == "Accepted":
         return "Paper"
-    return venue.replace(" (Oral)", " Oral")
+    return clean_venue_label(venue, display_terms(row.get("Superlatives")))
 
 
 def read_papers():
@@ -146,27 +190,19 @@ def read_area_filters():
 
 
 def paper_record(row):
-    date = pub_date(row)
-    areas = []
-    for key in ("Primary Area", "Additional Area"):
-        value = (row.get(key) or "").strip()
-        if value and value not in areas:
-            areas.append(value)
-    details = []
-    if areas:
-        details.append("Area: " + ", ".join(areas))
-    if (row.get("Lead Org") or "").strip():
-        details.append("Lead org: " + row["Lead Org"].strip())
-    if (row.get("EleutherAI PoC") or "").strip():
-        details.append("EleutherAI contact: " + row["EleutherAI PoC"].strip())
+    paper_date = pub_date(row)
+    venue = homepage_venue(row)
+    event_date = venue_date(row, venue)
+    sort_date = group_sort_date(row, venue)
     return {
         "title": normalize_title(row.get("Title")),
         "url": clean_link(row.get("Link")),
-        "date": display_year(date),
-        "date_sort": date.strftime("%Y-%m-%d") if date != datetime.min else "",
-        "venue": homepage_venue(row),
+        "date": display_year(paper_date),
+        "date_sort": paper_date.strftime("%Y-%m-%d") if paper_date != datetime.min else "",
+        "venue": venue,
+        "venue_year": display_year(event_date),
+        "group_sort_date": sort_date.strftime("%Y-%m-%d") if sort_date != datetime.min else "",
         "superlatives": display_terms(row.get("Superlatives")),
-        "details": ". ".join(details) + ("." if details else ""),
     }
 
 
@@ -189,8 +225,35 @@ def area_paper_record(row, summary="", display_venue=""):
 
 def all_papers(rows):
     selected = [row for row in rows if normalize_title(row.get("Title")) and pub_date(row) != datetime.min]
-    selected.sort(key=lambda row: (pub_date(row), normalize_title(row.get("Title"))), reverse=True)
-    return [paper_record(row) for row in selected]
+    records = [paper_record(row) for row in selected]
+    records.sort(key=lambda row: (row["group_sort_date"], row["date_sort"], row["title"]), reverse=True)
+    return records
+
+
+def grouped_papers(papers):
+    groups = []
+    by_key = {}
+    for paper in papers:
+        key = (paper["venue"], paper["venue_year"])
+        if key not in by_key:
+            by_key[key] = {
+                "venue": paper["venue"],
+                "year": paper["venue_year"],
+                "label": f"{paper['venue']}, {paper['venue_year']}" if paper["venue_year"] else paper["venue"],
+                "count": 0,
+                "sort_date": paper["group_sort_date"],
+                "papers": [],
+            }
+            groups.append(by_key[key])
+        group = by_key[key]
+        group["papers"].append(paper)
+        group["count"] += 1
+        if paper["group_sort_date"] > group["sort_date"]:
+            group["sort_date"] = paper["group_sort_date"]
+    groups.sort(key=lambda group: (group["sort_date"], group["label"]), reverse=True)
+    for group in groups:
+        group["papers"].sort(key=lambda paper: (paper["date_sort"], paper["title"]), reverse=True)
+    return groups
 
 
 def configured_area_papers(rows, area):
@@ -265,6 +328,8 @@ def main():
     per_area = area_papers(rows)
     write_json("papers.json", papers)
     write_json("homepage_papers.json", papers[:HOMEPAGE_PAPER_LIMIT])
+    write_json("paper_groups.json", grouped_papers(papers))
+    write_json("homepage_paper_groups.json", grouped_papers(papers[:HOMEPAGE_GROUPED_PAPER_LIMIT]))
     write_json("area_papers.json", per_area)
     print("Generated Hugo research data")
 

@@ -5,28 +5,9 @@
     "date": "2026",
     "date_sort": "2026-07-11",
     "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: Alignment, Security. Lead org: EleutherAI. EleutherAI contact: Moritz Weckbecker."
-  },
-  {
-    "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
-    "url": "",
-    "date": "2026",
-    "date_sort": "2026-07-10",
-    "venue": "ICML Oral",
-    "superlatives": [
-      "Oral"
-    ],
-    "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Stella Biderman."
-  },
-  {
-    "title": "Automated Attribution Graph Interpretation via Probe Prompting",
-    "url": "",
-    "date": "2026",
-    "date_sort": "2026-07-10",
-    "venue": "Mechanistic interpretability workshop @ ICML",
-    "superlatives": [],
-    "details": "Area: Interpretability, NLP. Lead org: EleutherAI. EleutherAI contact: Gonçalo Paulo."
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-11",
+    "superlatives": []
   },
   {
     "title": "Who Evaluates AI's Social Impacts? Mapping Coverage and Gaps in First and Third Party Evaluations",
@@ -34,8 +15,9 @@
     "date": "2026",
     "date_sort": "2026-07-08",
     "venue": "ICML",
-    "superlatives": [],
-    "details": "Area: NLP, Ethics and Policy. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-08",
+    "superlatives": []
   },
   {
     "title": "Faults in Our Formal Benchmarking: Dataset Defects and Evaluation Failures in Lean Theorem Proving",
@@ -43,8 +25,21 @@
     "date": "2026",
     "date_sort": "2026-07-08",
     "venue": "ICML",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Pawan Ammanamanchi."
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-08",
+    "superlatives": []
+  },
+  {
+    "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
+    "url": "",
+    "date": "2026",
+    "date_sort": "2026-07-10",
+    "venue": "ICML",
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-07",
+    "superlatives": [
+      "Oral"
+    ]
   },
   {
     "title": "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation",
@@ -52,17 +47,29 @@
     "date": "2026",
     "date_sort": "2026-07-07",
     "venue": "ICML",
-    "superlatives": [],
-    "details": "Area: NLP, Ethics and Policy. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-07",
+    "superlatives": []
   },
   {
-    "title": "L1 Influence in L2 Language Models: A Human-centric Approach",
+    "title": "Automated Attribution Graph Interpretation via Probe Prompting",
     "url": "",
     "date": "2026",
-    "date_sort": "2026-07-04",
-    "venue": "Computational Developmental Linguistics Workshop at ACL",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: University of Cambridge. EleutherAI contact: Catherine Arnett."
+    "date_sort": "2026-07-10",
+    "venue": "Mechanistic interpretability workshop @ ICML",
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-03",
+    "superlatives": []
+  },
+  {
+    "title": "Test Set Contamination of Generative Evaluations",
+    "url": "https://arxiv.org/abs/2601.04301",
+    "date": "2023",
+    "date_sort": "2023-02-06",
+    "venue": "Foundations of Deep Generative Models @ ICML",
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-03",
+    "superlatives": []
   },
   {
     "title": "Weight Tying Biases Token Embeddings Towards the Output Space",
@@ -70,8 +77,9 @@
     "date": "2026",
     "date_sort": "2026-07-02",
     "venue": "ACL Findings",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EleutherAI. EleutherAI contact: Catherine Arnett."
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-02",
+    "superlatives": []
   },
   {
     "title": "CommonLID: Re-evaluating State-of-the-Art Language Identification Performance on Web Data",
@@ -79,16 +87,18 @@
     "date": "2026",
     "date_sort": "2026-07-02",
     "venue": "ACL",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: Common Crawl. EleutherAI contact: Catherine Arnett."
+    "venue_year": "2026",
+    "group_sort_date": "2026-07-02",
+    "superlatives": []
   },
   {
-    "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
+    "title": "L1 Influence in L2 Language Models: A Human-centric Approach",
     "url": "",
     "date": "2026",
-    "date_sort": "2026-06-12",
-    "venue": "arXiv",
-    "superlatives": [],
-    "details": "Area: NLP. Lead org: EvalEval Coalition. EleutherAI contact: Jenn Mickel."
+    "date_sort": "2026-07-04",
+    "venue": "Computational Developmental Linguistics Workshop at ACL",
+    "venue_year": "2026",
+    "group_sort_date": "2026-06-27",
+    "superlatives": []
   }
 ]

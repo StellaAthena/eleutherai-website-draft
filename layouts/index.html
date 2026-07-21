@@ -24,11 +24,7 @@
           </div>
 
           <h2 id="publications-title">Recent Publications</h2>
-          <div class="publication-list">
-            {{ range site.Data.research.homepage_papers }}
-              {{ partial "publication-row.html" . }}
-            {{ end }}
-          </div>
+          {{ partial "publication-groups.html" (dict "groups" site.Data.research.homepage_paper_groups "initialCount" 10 "stepCount" 20) }}
         </div>
 
         <aside class="home-news-sidebar" aria-labelledby="news-title">

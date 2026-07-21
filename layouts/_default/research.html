@@ -25,11 +25,7 @@
       <div class="section-head">
         <div><h2>Recent Publications</h2></div>
       </div>
-      <div class="publication-list">
-        {{ range first 50 site.Data.research.papers }}
-          {{ partial "publication-row.html" . }}
-        {{ end }}
-      </div>
+      {{ partial "publication-groups.html" (dict "groups" site.Data.research.paper_groups "initialCount" 20 "stepCount" 20) }}
     </div>
   </section>
 </main>
