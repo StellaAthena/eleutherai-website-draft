@@ -10,14 +10,14 @@
     <div class="wrap">
       <div class="home-main-layout">
         <div class="home-main-column">
-          <h2 id="projects-title">Explore our research</h2>
+          <h2 id="projects-title">Featured work</h2>
           <div class="home-project-grid">
             {{ range site.Data.home.projects }}
               <article class="home-project-card">
-                <a href="{{ .url | relURL }}" aria-label="{{ .title }}">
+                {{ if .url }}<a href="{{ .url | relURL }}" aria-label="{{ .title }}">{{ end }}
                   <img src="{{ .image }}" alt="{{ .title }}">
-                </a>
-                <h3><a href="{{ .url | relURL }}">{{ .title }}</a></h3>
+                {{ if .url }}</a>{{ end }}
+                <h3>{{ if .url }}<a href="{{ .url | relURL }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
                 <p>{{ .text }}</p>
               </article>
             {{ end }}

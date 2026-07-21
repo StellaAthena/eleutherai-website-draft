@@ -4,55 +4,38 @@
     <div class="wrap">
       <h1>{{ .Title }}</h1>
       {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
-      <div class="button-row">
-        <a class="button primary" href="{{ "research-training-dynamics.html" | relURL }}">View Training Dynamics</a>
-      </div>
     </div>
   </section>
 
-  <section class="section" id="research-areas">
+  <section class="section" id="publications">
     <div class="wrap">
       <div class="section-head">
-        <div><h2>Fields and research areas</h2></div>
+        <div><h2>Recent Publications</h2></div>
       </div>
-      <div class="artifact-table">
-        {{ range site.Data.research.areas.areas }}
-          <article class="artifact-row" id="{{ .id }}">
-            <div>
-              <h3>{{ .title }}</h3>
-              <p>{{ .text }}</p>
-              {{ with .children }}
-                <div class="area-link-row">
-                  {{ range . }}
-                    <a class="area-link" href="{{ .url | relURL }}">{{ .title }}</a>
+      <div class="publication-list">
+        {{ range $index, $paper := first 50 site.Data.research.papers }}
+          <details class="publication-item{{ if $paper.superlatives }} has-superlative{{ end }}" {{ if eq $index 0 }}open{{ end }}>
+            <summary>
+              <span>
+                <span class="publication-title">
+                  {{ if $paper.url }}
+                    <a href="{{ $paper.url }}" target="_blank" rel="noopener noreferrer">{{ $paper.title }}</a>
+                  {{ else }}
+                    {{ $paper.title }}
                   {{ end }}
-                </div>
-              {{ end }}
-            </div>
-          </article>
+                </span>
+                <span class="publication-meta">
+                  {{ $paper.date }} · {{ $paper.venue }}
+                  {{ range $paper.superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}
+                </span>
+              </span>
+            </summary>
+            {{ with $paper.details }}<p>{{ . }}</p>{{ end }}
+            {{ if $paper.url }}<a class="link" href="{{ $paper.url }}" target="_blank" rel="noopener noreferrer">Read paper</a>{{ end }}
+          </details>
         {{ end }}
       </div>
     </div>
   </section>
-
-  {{ with site.Data.research.areas.highlighted }}
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <div><h2>{{ .title }}</h2></div>
-          <p class="section-intro">{{ .text }}</p>
-        </div>
-        <div class="grid">
-          {{ range .cards }}
-            <article class="card">
-              <h3>{{ .title }}</h3>
-              <p>{{ .text }}</p>
-              <a class="link" href="{{ .url | relURL }}">{{ .link }} -></a>
-            </article>
-          {{ end }}
-        </div>
-      </div>
-    </section>
-  {{ end }}
 </main>
 {{ end }}

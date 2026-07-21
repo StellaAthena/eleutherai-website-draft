@@ -4,4 +4,5 @@ lede: "Studying safety questions that arise when capable models can be inspected
 layout: research-area
 url: /research-open-weight-safety.html
 area_key: open_weight_safety
+draft: true
 ---

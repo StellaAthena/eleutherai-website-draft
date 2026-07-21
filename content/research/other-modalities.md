@@ -4,4 +4,5 @@ lede: "Research beyond text-only language modeling, including multimodal and sci
 layout: research-area
 url: /research-other-modalities.html
 area_key: other_modalities
+draft: true
 ---
