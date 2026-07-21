@@ -245,13 +245,7 @@ a:focus-visible {
   width: 100%;
   max-width: var(--wide);
   margin: 0 auto;
-  padding: 58px 5vw;
-}
-
-.home-primary {
-  display: grid;
-  min-width: 0;
-  gap: 58px;
+  padding: 0 5vw 58px;
 }
 
 .home-block h2 {
@@ -880,7 +874,7 @@ a:focus-visible {
   }
 
   .home-main {
-    padding: 48px 24px;
+    padding: 0 24px 48px;
   }
 
   .home-block h2,
