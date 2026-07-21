@@ -2,116 +2,105 @@
 {{ $data := site.Data.research.training_dynamics }}
 {{ $paperMap := site.Data.research.area_papers | default dict }}
 {{ $papers := index $paperMap .Params.area_key | default slice }}
-<main class="td2-page">
-  <section class="td2-opening">
-    <div class="wrap">
-      <nav class="td2-route" aria-label="Breadcrumb">
-        <a href="{{ "research.html" | relURL }}">Research</a><span aria-hidden="true">/</span><span>Training Dynamics</span>
-      </nav>
-      <div class="td2-hero">
-        <div class="td2-hero-copy">
-          <h1>{{ .Title }}</h1>
-          <p>{{ .Params.lede }}</p>
-        </div>
-        <figure class="td2-checkpoints">
-          <div class="td2-dot-field" aria-hidden="true">
-            {{ range seq 154 }}<i></i>{{ end }}
-          </div>
-          <figcaption><strong>154</strong><span>intermediate states<br>in each Pythia run</span></figcaption>
-        </figure>
+<main class="td3-page">
+  <header class="td3-masthead">
+    <a class="td3-brand" href="{{ "index.html" | relURL }}"><img src="{{ "assets/eleutherai-logo.svg" | relURL }}" alt="EleutherAI"></a>
+    <nav aria-label="Primary navigation">
+      <a href="{{ "about.html" | relURL }}">About</a>
+      <a class="active" href="{{ "research.html" | relURL }}">Research</a>
+      <a href="{{ "community.html" | relURL }}">Community</a>
+      <a href="{{ "blog.html" | relURL }}">Blog</a>
+    </nav>
+  </header>
+
+  <section class="td3-hero">
+    <div class="td3-title">
+      <h1>Training<br>Dynamics</h1>
+      <p>{{ .Params.lede }}</p>
+    </div>
+    <div class="td3-model-field" aria-label="154 checkpoints in each Pythia model run">
+      <div class="td3-field-label"><strong>One model</strong><span>observed 154 times</span></div>
+      <div class="td3-field-line" aria-hidden="true">
+        {{ range seq 22 }}<i></i>{{ end }}
       </div>
+      <div class="td3-field-count"><strong>154</strong><span>released checkpoints<br>per Pythia run</span></div>
     </div>
   </section>
 
   {{ with $data.overview }}
-    <section class="td2-argument">
-      <div class="wrap">
-        <h2>{{ .title }}</h2>
-        <div class="td2-argument-body">
-          <p class="td2-thesis">{{ .intro }}</p>
-          <div class="td2-endpoint" aria-hidden="true">
-            <div><span></span><span></span><span></span><span></span><span></span><b></b></div>
-            <p><em>training trajectory</em><strong>trained model</strong></p>
-          </div>
-          {{ range .paragraphs }}<p>{{ . }}</p>{{ end }}
-        </div>
+    <section class="td3-premise">
+      <h2>{{ .title }}</h2>
+      <div>
+        <p class="td3-premise-lead">{{ .intro }}</p>
+        {{ range .paragraphs }}<p>{{ . }}</p>{{ end }}
       </div>
     </section>
   {{ end }}
 
   {{ with $data.directions }}
-    <section class="td2-program" id="agenda">
-      <div class="wrap">
-        <header class="td2-program-head">
-          <h2>{{ .title }}</h2>
-          <p>{{ .intro }}</p>
-        </header>
-        <div class="td2-chapters">
-          {{ range $index, $item := .items }}
-            <article class="td2-chapter">
-              <p class="td2-chapter-number">{{ printf "%02d" (add $index 1) }}</p>
-              <h3>{{ $item.title }}</h3>
-              <p>{{ $item.text }}</p>
-            </article>
-          {{ end }}
-        </div>
-      </div>
+    <section class="td3-questions" id="agenda">
+      <header>
+        <h2>{{ .title }}</h2>
+        <p>{{ .intro }}</p>
+      </header>
+      {{ range $index, $item := .items }}
+        <article>
+          <span>{{ printf "%02d" (add $index 1) }}</span>
+          <h3>{{ $item.title }}</h3>
+          <p>{{ $item.text }}</p>
+        </article>
+      {{ end }}
     </section>
   {{ end }}
 
   {{ with $data.projects }}
-    <section class="td2-systems" id="projects">
-      <div class="wrap">
-        <div class="td2-systems-intro">
-          <h2>{{ .title }}</h2>
-          <p>{{ .intro }}</p>
-        </div>
-        <div class="td2-system-list">
-          {{ range $index, $item := .items }}
-            <article class="td2-system">
-              <h3>{{ $item.title }}</h3>
-              <p>{{ $item.text }}</p>
-              {{ with $item.url }}<a href="{{ . | relURL }}">View project <span aria-hidden="true">&#8599;</span></a>{{ end }}
-            </article>
-          {{ end }}
-        </div>
+    <section class="td3-laboratory" id="projects">
+      <div class="td3-lab-heading">
+        <h2>{{ .title }}</h2>
+        <p>{{ .intro }}</p>
+      </div>
+      <div class="td3-runs" aria-hidden="true">
+        {{ range seq 12 }}<div>{{ range seq 14 }}<i></i>{{ end }}</div>{{ end }}
+      </div>
+      <div class="td3-projects">
+        {{ range .items }}
+          <article>
+            <h3>{{ .title }}</h3>
+            <p>{{ .text }}</p>
+            {{ with .url }}<a href="{{ . | relURL }}">View project &#8599;</a>{{ end }}
+          </article>
+        {{ end }}
       </div>
     </section>
   {{ end }}
 
   {{ with $data.featured }}
-    <section class="td2-agenda-paper">
-      <div class="wrap">
-        <p class="td2-paper-meta">{{ .authors }}<br>{{ .venue }}, {{ .date }}</p>
-        <div>
-          <h2><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .paper }} <span aria-hidden="true">&#8599;</span></a></h2>
-          <p>{{ .text }}</p>
-        </div>
+    <section class="td3-manifesto">
+      <p>{{ .authors }}<br>{{ .venue }}, {{ .date }}</p>
+      <div>
+        <h2><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .paper }}</a></h2>
+        <p>{{ .text }}</p>
+        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">Read the research agenda &#8599;</a>
       </div>
     </section>
   {{ end }}
 
   {{ if gt (len $papers) 0 }}
-    <section class="td2-publications" id="papers">
-      <div class="wrap">
-        <header>
-          <h2>Publications</h2>
-          <p>Research connected to training dynamics, newest first.</p>
-        </header>
-        <div class="td2-publication-list">
-          {{ range $papers }}
-            <article class="td2-publication">
-              <p>{{ if .venue }}{{ .venue }}{{ if .date }}, {{ end }}{{ end }}{{ .date }}</p>
-              <h3>{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
-              <div>{{ range .superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}</div>
-            </article>
-          {{ end }}
-        </div>
+    <section class="td3-papers" id="papers">
+      <header><h2>Publications</h2><p>Newest first</p></header>
+      <div>
+        {{ range $papers }}
+          <article>
+            <p>{{ if .venue }}{{ .venue }}{{ if .date }}, {{ end }}{{ end }}{{ .date }}</p>
+            <h3>{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
+            <div>{{ range .superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}</div>
+          </article>
+        {{ end }}
       </div>
     </section>
   {{ end }}
+
+  <footer class="td3-footer"><a href="{{ "research.html" | relURL }}">All EleutherAI research</a><span>EleutherAI</span></footer>
 </main>
 {{ end }}
-{{ define "page_styles" }}
-  <link rel="stylesheet" href="{{ printf "training-dynamics.css?v=%d" now.Unix | relURL }}">
-{{ end }}
+{{ define "page_styles" }}<link rel="stylesheet" href="{{ printf "training-dynamics.css?v=%d" now.Unix | relURL }}">{{ end }}
