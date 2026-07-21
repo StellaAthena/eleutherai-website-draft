@@ -1,14 +1,11 @@
 {{ define "main" }}
 {{ $papers := site.Data.research.library_papers | default slice }}
-{{ $areas := slice }}
 {{ $years := slice }}
 {{ $venues := slice }}
 {{ range $papers }}
   {{ $years = $years | append .date }}
   {{ $venues = $venues | append .family }}
-  {{ range .areas }}{{ $areas = $areas | append . }}{{ end }}
 {{ end }}
-{{ $areas = sort (uniq $areas) }}
 {{ $years = sort (uniq $years) "value" "desc" }}
 {{ $venues = sort (uniq $venues) }}
 
@@ -19,7 +16,7 @@
       <p>Explore EleutherAI papers across language modeling, interpretability, alignment, policy, multimodal research, security, and computing.</p>
       <div class="library-search">
         <label for="library-query">Search publications</label>
-        <input id="library-query" type="search" placeholder="Title, venue, research area, or organization" autocomplete="off">
+        <input id="library-query" type="search" placeholder="Title, venue, organization, or topic" autocomplete="off">
       </div>
     </div>
   </section>
@@ -31,11 +28,6 @@
           <h2>Filter</h2>
           <button id="library-clear" type="button">Clear</button>
         </div>
-        <label for="library-area">Research area</label>
-        <select id="library-area">
-          <option value="">All areas</option>
-          {{ range $areas }}<option value="{{ . | lower }}">{{ . }}</option>{{ end }}
-        </select>
         <label for="library-year">Year</label>
         <select id="library-year">
           <option value="">All years</option>
@@ -78,7 +70,6 @@
                     data-contact="{{ .contact | lower }}">
                     <div class="library-entry-main">
                       <h3>{{ .title }}</h3>
-                      <p>{{ delimit .areas " / " }}</p>
                     </div>
                     <div class="library-entry-publication">
                       <p>{{ .venue }}{{ with .date }}, {{ . }}{{ end }}</p>

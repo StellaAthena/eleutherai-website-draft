@@ -1,6 +1,5 @@
 (() => {
   const query = document.querySelector("#library-query");
-  const area = document.querySelector("#library-area");
   const year = document.querySelector("#library-year");
   const kind = document.querySelector("#library-kind");
   const venue = document.querySelector("#library-venue");
@@ -10,14 +9,13 @@
   const entries = [...document.querySelectorAll(".library-entry")];
   const groups = [...document.querySelectorAll(".library-year-group")];
 
-  if (!query || !area || !year || !kind || !venue || !clear || !count || !empty) return;
+  if (!query || !year || !kind || !venue || !clear || !count || !empty) return;
 
   function applyFilters() {
     const search = query.value.trim().toLowerCase();
     let visible = 0;
 
     entries.forEach((entry) => {
-      const entryAreas = entry.dataset.areas.toLowerCase().split("|");
       const searchable = [
         entry.dataset.title,
         entry.dataset.venue,
@@ -27,7 +25,6 @@
       ].join(" ").toLowerCase();
       const matches =
         (!search || searchable.includes(search)) &&
-        (!area.value || entryAreas.includes(area.value)) &&
         (!year.value || entry.dataset.year === year.value) &&
         (!kind.value || entry.dataset.kind.toLowerCase() === kind.value) &&
         (!venue.value || entry.dataset.family.toLowerCase() === venue.value);
@@ -42,13 +39,12 @@
     empty.hidden = visible !== 0;
   }
 
-  [query, area, year, kind, venue].forEach((control) => {
+  [query, year, kind, venue].forEach((control) => {
     control.addEventListener(control === query ? "input" : "change", applyFilters);
   });
 
   clear.addEventListener("click", () => {
     query.value = "";
-    area.value = "";
     year.value = "";
     kind.value = "";
     venue.value = "";
