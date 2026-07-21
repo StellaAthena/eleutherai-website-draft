@@ -2,83 +2,54 @@
 {{ $data := site.Data.research.training_dynamics }}
 {{ $paperMap := site.Data.research.area_papers | default dict }}
 {{ $papers := index $paperMap .Params.area_key | default slice }}
-<main class="td-page">
-  <section class="td-hero">
+<main class="td2-page">
+  <section class="td2-opening">
     <div class="wrap">
-      <nav class="td-route" aria-label="Breadcrumb">
+      <nav class="td2-route" aria-label="Breadcrumb">
         <a href="{{ "research.html" | relURL }}">Research</a><span aria-hidden="true">/</span><span>Training Dynamics</span>
       </nav>
-      <div class="td-hero-copy">
-        <h1>{{ .Title }}</h1>
-        <p>{{ .Params.lede }}</p>
+      <div class="td2-hero">
+        <div class="td2-hero-copy">
+          <h1>{{ .Title }}</h1>
+          <p>{{ .Params.lede }}</p>
+        </div>
+        <figure class="td2-checkpoints">
+          <div class="td2-dot-field" aria-hidden="true">
+            {{ range seq 154 }}<i></i>{{ end }}
+          </div>
+          <figcaption><strong>154</strong><span>intermediate states<br>in each Pythia run</span></figcaption>
+        </figure>
       </div>
-
-      <figure class="td-trajectory" aria-labelledby="trajectory-title">
-        <figcaption>
-          <span id="trajectory-title">A model is a process, not a point</span>
-          <span>Pythia records 154 states from initialization to a trained model.</span>
-        </figcaption>
-        <div class="td-track" aria-hidden="true">
-          <span class="td-track-line"></span>
-          <span class="td-checkpoint td-cp-0"></span>
-          <span class="td-checkpoint td-cp-1"></span>
-          <span class="td-checkpoint td-cp-2"></span>
-          <span class="td-checkpoint td-cp-3"></span>
-          <span class="td-checkpoint td-cp-4"></span>
-          <span class="td-checkpoint td-cp-5"></span>
-          <span class="td-checkpoint td-cp-6"></span>
-          <span class="td-checkpoint td-cp-7"></span>
-          <span class="td-checkpoint td-cp-8"></span>
-          <span class="td-checkpoint td-cp-final"></span>
-        </div>
-        <div class="td-track-labels">
-          <span><b>0</b> initialization</span>
-          <span><b>1K</b> early learning</span>
-          <span><b>143K</b> final checkpoint</span>
-        </div>
-      </figure>
     </div>
   </section>
 
   {{ with $data.overview }}
-    <section class="td-overview">
-      <div class="wrap td-split">
+    <section class="td2-argument">
+      <div class="wrap">
         <h2>{{ .title }}</h2>
-        <div class="td-prose">
-          <p class="td-standfirst">{{ .intro }}</p>
+        <div class="td2-argument-body">
+          <p class="td2-thesis">{{ .intro }}</p>
+          <div class="td2-endpoint" aria-hidden="true">
+            <div><span></span><span></span><span></span><span></span><span></span><b></b></div>
+            <p><em>training trajectory</em><strong>trained model</strong></p>
+          </div>
           {{ range .paragraphs }}<p>{{ . }}</p>{{ end }}
         </div>
       </div>
     </section>
   {{ end }}
 
-  {{ with $data.featured }}
-    <section class="td-citation">
-      <div class="wrap td-citation-inner">
-        <div>
-          <h2>{{ .title }}</h2>
-          <p>{{ .intro }}</p>
-        </div>
-        <article>
-          <p class="td-citation-meta">{{ .authors }} · {{ .venue }}, {{ .date }}</p>
-          <h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .paper }} <span aria-hidden="true">&#8599;</span></a></h3>
-          <p>{{ .text }}</p>
-        </article>
-      </div>
-    </section>
-  {{ end }}
-
   {{ with $data.directions }}
-    <section class="td-directions" id="agenda">
+    <section class="td2-program" id="agenda">
       <div class="wrap">
-        <div class="td-section-heading">
+        <header class="td2-program-head">
           <h2>{{ .title }}</h2>
           <p>{{ .intro }}</p>
-        </div>
-        <div class="td-direction-grid">
+        </header>
+        <div class="td2-chapters">
           {{ range $index, $item := .items }}
-            <article class="td-direction">
-              <span>0{{ add $index 1 }}</span>
+            <article class="td2-chapter">
+              <p class="td2-chapter-number">{{ printf "%02d" (add $index 1) }}</p>
               <h3>{{ $item.title }}</h3>
               <p>{{ $item.text }}</p>
             </article>
@@ -89,18 +60,18 @@
   {{ end }}
 
   {{ with $data.projects }}
-    <section class="td-foundations" id="projects">
+    <section class="td2-systems" id="projects">
       <div class="wrap">
-        <div class="td-section-heading">
+        <div class="td2-systems-intro">
           <h2>{{ .title }}</h2>
           <p>{{ .intro }}</p>
         </div>
-        <div class="td-foundation-list">
-          {{ range .items }}
-            <article class="td-foundation">
-              <h3>{{ .title }}</h3>
-              <p>{{ .text }}</p>
-              {{ with .url }}<a href="{{ . | relURL }}">View project <span aria-hidden="true">&#8599;</span></a>{{ end }}
+        <div class="td2-system-list">
+          {{ range $index, $item := .items }}
+            <article class="td2-system">
+              <h3>{{ $item.title }}</h3>
+              <p>{{ $item.text }}</p>
+              {{ with $item.url }}<a href="{{ . | relURL }}">View project <span aria-hidden="true">&#8599;</span></a>{{ end }}
             </article>
           {{ end }}
         </div>
@@ -108,35 +79,31 @@
     </section>
   {{ end }}
 
-  {{ with $data.questions }}
-    <section class="td-progress">
-      <div class="wrap td-progress-layout">
+  {{ with $data.featured }}
+    <section class="td2-agenda-paper">
+      <div class="wrap">
+        <p class="td2-paper-meta">{{ .authors }}<br>{{ .venue }}, {{ .date }}</p>
         <div>
-          <h2>{{ .title }}</h2>
-          <p>{{ .intro }}</p>
+          <h2><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .paper }} <span aria-hidden="true">&#8599;</span></a></h2>
+          <p>{{ .text }}</p>
         </div>
-        <ol class="td-progress-list">
-          {{ range .items }}
-            <li><h3>{{ .title }}</h3><p>{{ .text }}</p></li>
-          {{ end }}
-        </ol>
       </div>
     </section>
   {{ end }}
 
   {{ if gt (len $papers) 0 }}
-    <section class="td-papers" id="papers">
+    <section class="td2-publications" id="papers">
       <div class="wrap">
-        <div class="td-section-heading">
-          <h2>Selected papers</h2>
-          <p>Work connected to this agenda, listed newest first.</p>
-        </div>
-        <div class="td-paper-list">
+        <header>
+          <h2>Publications</h2>
+          <p>Research connected to training dynamics, newest first.</p>
+        </header>
+        <div class="td2-publication-list">
           {{ range $papers }}
-            <article class="td-paper">
-              <p class="td-paper-meta">{{ if .venue }}{{ .venue }}{{ if .date }}, {{ end }}{{ end }}{{ .date }}</p>
+            <article class="td2-publication">
+              <p>{{ if .venue }}{{ .venue }}{{ if .date }}, {{ end }}{{ end }}{{ .date }}</p>
               <h3>{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
-              {{ range .superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}
+              <div>{{ range .superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}</div>
             </article>
           {{ end }}
         </div>
