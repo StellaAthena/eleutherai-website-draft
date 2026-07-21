@@ -419,6 +419,18 @@ def all_papers(rows):
 def library_paper_record(row):
     date = pub_date(row)
     venue = homepage_venue(row)
+    if venue.casefold().startswith("extended to"):
+        venue = (row.get("Workshop") or "").strip() or "arXiv"
+    kind = venue_kind(venue)
+    superlatives = []
+    if kind in {"conference", "workshop"}:
+        raw_venue = (row.get("Conference or Journal") or "").strip() if kind == "conference" else venue
+        superlatives = appearance_superlatives(
+            row,
+            raw_venue,
+            kind,
+            has_separate_workshop=bool((row.get("Workshop") or "").strip() and kind == "conference"),
+        )
     areas = []
     for field in ("Primary Area", "Additional Area"):
         area = (row.get(field) or "").strip()
@@ -429,13 +441,14 @@ def library_paper_record(row):
         "date": display_year(date),
         "date_sort": date.strftime("%Y-%m-%d") if date != datetime.min else "",
         "venue": venue,
-        "kind": venue_kind(venue),
+        "family": venue_family(venue),
+        "kind": kind,
         "status": (row.get("Status") or "").strip(),
         "areas": areas,
         "lead_org": (row.get("Lead Org") or "").strip(),
         "contact": (row.get("EleutherAI PoC") or "").strip(),
         "artifact_type": "Paper",
-        "superlatives": display_terms(row.get("Superlatives")),
+        "superlatives": superlatives,
     }
 
 

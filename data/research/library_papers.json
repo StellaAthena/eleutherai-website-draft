@@ -4,6 +4,7 @@
     "date": "2026",
     "date_sort": "2026-07-11",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Rejected",
     "areas": [
@@ -20,6 +21,7 @@
     "date": "2026",
     "date_sort": "2026-07-10",
     "venue": "ICML",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -38,6 +40,7 @@
     "date": "2026",
     "date_sort": "2026-07-10",
     "venue": "Mechanistic interpretability workshop @ ICML",
+    "family": "ICML",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -54,6 +57,7 @@
     "date": "2026",
     "date_sort": "2026-07-08",
     "venue": "ICML",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -70,6 +74,7 @@
     "date": "2026",
     "date_sort": "2026-07-08",
     "venue": "ICML",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -85,6 +90,7 @@
     "date": "2026",
     "date_sort": "2026-07-07",
     "venue": "ICML",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -101,6 +107,7 @@
     "date": "2026",
     "date_sort": "2026-07-04",
     "venue": "Computational Developmental Linguistics Workshop at ACL",
+    "family": "ACL",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -116,6 +123,7 @@
     "date": "2026",
     "date_sort": "2026-07-02",
     "venue": "ACL Findings",
+    "family": "ACL",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -131,6 +139,7 @@
     "date": "2026",
     "date_sort": "2026-07-02",
     "venue": "ACL",
+    "family": "ACL",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -146,6 +155,7 @@
     "date": "2026",
     "date_sort": "2026-06-12",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Under Review",
     "areas": [
@@ -161,6 +171,7 @@
     "date": "2026",
     "date_sort": "2026-06-11",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Under Review",
     "areas": [
@@ -177,6 +188,7 @@
     "date": "2026",
     "date_sort": "2026-06-08",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Under Review",
     "areas": [
@@ -192,6 +204,7 @@
     "date": "2026",
     "date_sort": "2026-05-09",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Under Review",
     "areas": [
@@ -207,6 +220,7 @@
     "date": "2026",
     "date_sort": "2026-04-23",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -223,6 +237,7 @@
     "date": "2026",
     "date_sort": "2026-04-23",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -239,6 +254,7 @@
     "date": "2026",
     "date_sort": "2026-04-23",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -248,15 +264,14 @@
     "lead_org": "EleutherAI and AISI",
     "contact": "Kyle O'Brien",
     "artifact_type": "Paper",
-    "superlatives": [
-      "Workshop Best Paper Runner-up"
-    ]
+    "superlatives": []
   },
   {
     "title": "How Open Must Language Models be to Enable Reliable Scientific Inference?",
     "date": "2026",
     "date_sort": "2026-03-27",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Under Review",
     "areas": [
@@ -273,6 +288,7 @@
     "date": "2026",
     "date_sort": "2026-02-16",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Ready to Submit",
     "areas": [
@@ -289,6 +305,7 @@
     "date": "2026",
     "date_sort": "2026-02-06",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Under Review",
     "areas": [
@@ -304,6 +321,7 @@
     "date": "2026",
     "date_sort": "2026-01-07",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Rejected",
     "areas": [
@@ -320,6 +338,7 @@
     "date": "2025",
     "date_sort": "2025-12-07",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Work-in-Progress",
     "areas": [
@@ -336,6 +355,7 @@
     "date": "2025",
     "date_sort": "2025-12-06",
     "venue": "CogInterp Workshop @ NeurIPS",
+    "family": "NeurIPS",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -352,6 +372,7 @@
     "date": "2025",
     "date_sort": "2025-12-02",
     "venue": "Mech Interp Workshop @ NeurIPS",
+    "family": "NeurIPS",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -368,6 +389,7 @@
     "date": "2025",
     "date_sort": "2025-12-02",
     "venue": "AI4Music @ NeurIPS",
+    "family": "NeurIPS",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -383,6 +405,7 @@
     "date": "2025",
     "date_sort": "2025-12-02",
     "venue": "NeurIPS Datasets and Benchmarks",
+    "family": "NeurIPS",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -399,6 +422,7 @@
     "date": "2025",
     "date_sort": "2025-12-02",
     "venue": "NeurIPS",
+    "family": "NeurIPS",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -415,6 +439,7 @@
     "date": "2025",
     "date_sort": "2025-12-02",
     "venue": "NeurIPS",
+    "family": "NeurIPS",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -430,6 +455,7 @@
     "date": "2025",
     "date_sort": "2025-11-25",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Ready to Submit",
     "areas": [
@@ -446,6 +472,7 @@
     "date": "2025",
     "date_sort": "2025-11-06",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Ready to Submit",
     "areas": [
@@ -462,6 +489,7 @@
     "date": "2025",
     "date_sort": "2025-10-25",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Under Review",
     "areas": [
@@ -477,6 +505,7 @@
     "date": "2025",
     "date_sort": "2025-10-07",
     "venue": "COLM",
+    "family": "COLM",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -492,6 +521,7 @@
     "date": "2025",
     "date_sort": "2025-10-07",
     "venue": "COLM",
+    "family": "COLM",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -507,6 +537,7 @@
     "date": "2025",
     "date_sort": "2025-09-27",
     "venue": "TMLR",
+    "family": "TMLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -522,6 +553,7 @@
     "date": "2025",
     "date_sort": "2025-09-21",
     "venue": "ISMIR",
+    "family": "ISMIR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -537,6 +569,7 @@
     "date": "2025",
     "date_sort": "2025-07-27",
     "venue": "ACL",
+    "family": "ACL",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -552,6 +585,7 @@
     "date": "2025",
     "date_sort": "2025-07-19",
     "venue": "Actionable Interpretability Workshop @ ICML",
+    "family": "ICML",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -568,6 +602,7 @@
     "date": "2025",
     "date_sort": "2025-07-18",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Ready to Submit",
     "areas": [
@@ -583,6 +618,7 @@
     "date": "2025",
     "date_sort": "2025-07-18",
     "venue": "Tokenizer Workshop @ ICML 2025",
+    "family": "ICML",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -598,6 +634,7 @@
     "date": "2025",
     "date_sort": "2025-07-18",
     "venue": "Tokenizer Workshop @ ICML 2025",
+    "family": "ICML",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -615,6 +652,7 @@
     "date": "2025",
     "date_sort": "2025-07-13",
     "venue": "ICML",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -630,6 +668,7 @@
     "date": "2025",
     "date_sort": "2025-07-13",
     "venue": "ICML",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -646,6 +685,7 @@
     "date": "2025",
     "date_sort": "2025-05-17",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -661,6 +701,7 @@
     "date": "2025",
     "date_sort": "2025-04-29",
     "venue": "NAACL",
+    "family": "NAACL",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -676,6 +717,7 @@
     "date": "2025",
     "date_sort": "2025-04-29",
     "venue": "NAACL",
+    "family": "NAACL",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -691,6 +733,7 @@
     "date": "2025",
     "date_sort": "2025-04-24",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -707,6 +750,7 @@
     "date": "2025",
     "date_sort": "2025-04-24",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -723,6 +767,7 @@
     "date": "2025",
     "date_sort": "2025-04-24",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -739,6 +784,7 @@
     "date": "2025",
     "date_sort": "2025-04-24",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -755,6 +801,7 @@
     "date": "2025",
     "date_sort": "2025-04-24",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -770,6 +817,7 @@
     "date": "2025",
     "date_sort": "2025-04-09",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -786,6 +834,7 @@
     "date": "2025",
     "date_sort": "2025-04-08",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -801,6 +850,7 @@
     "date": "2025",
     "date_sort": "2025-03-21",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -816,6 +866,7 @@
     "date": "2025",
     "date_sort": "2025-02-25",
     "venue": "AAAI",
+    "family": "AAAI",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -832,6 +883,7 @@
     "date": "2025",
     "date_sort": "2025-02-12",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -848,6 +900,7 @@
     "date": "2025",
     "date_sort": "2025-02-05",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -863,6 +916,7 @@
     "date": "2025",
     "date_sort": "2025-02-03",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -878,6 +932,7 @@
     "date": "2025",
     "date_sort": "2025-01-31",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -894,6 +949,7 @@
     "date": "2025",
     "date_sort": "2025-01-30",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "Under Review",
     "areas": [
@@ -910,6 +966,7 @@
     "date": "2025",
     "date_sort": "2025-01-14",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -926,6 +983,7 @@
     "date": "2024",
     "date_sort": "2024-12-10",
     "venue": "NeurIPS",
+    "family": "NeurIPS",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -941,6 +999,7 @@
     "date": "2024",
     "date_sort": "2024-12-10",
     "venue": "NeurIPS Datasets and Benchmarks",
+    "family": "NeurIPS",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -957,6 +1016,7 @@
     "date": "2024",
     "date_sort": "2024-12-07",
     "venue": "TMLR",
+    "family": "TMLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -973,6 +1033,7 @@
     "date": "2024",
     "date_sort": "2024-12-01",
     "venue": "Northern European Journal of Language Technology",
+    "family": "Northern European Journal of Language Technology",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -988,6 +1049,7 @@
     "date": "2024",
     "date_sort": "2024-11-15",
     "venue": "BlackBox NLP",
+    "family": "BlackBox NLP",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1004,6 +1066,7 @@
     "date": "2024",
     "date_sort": "2024-11-13",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1020,6 +1083,7 @@
     "date": "2024",
     "date_sort": "2024-11-12",
     "venue": "EMNLP",
+    "family": "EMNLP",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1035,6 +1099,7 @@
     "date": "2024",
     "date_sort": "2024-10-30",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1051,6 +1116,7 @@
     "date": "2024",
     "date_sort": "2024-10-22",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1067,6 +1133,7 @@
     "date": "2024",
     "date_sort": "2024-10-15",
     "venue": "TMLR",
+    "family": "TMLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1082,6 +1149,7 @@
     "date": "2024",
     "date_sort": "2024-10-07",
     "venue": "COLM",
+    "family": "COLM",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1098,6 +1166,7 @@
     "date": "2024",
     "date_sort": "2024-10-07",
     "venue": "COLM",
+    "family": "COLM",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1113,6 +1182,7 @@
     "date": "2024",
     "date_sort": "2024-08-12",
     "venue": "ICPP",
+    "family": "ICPP",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1128,6 +1198,7 @@
     "date": "2024",
     "date_sort": "2024-08-01",
     "venue": "ACL",
+    "family": "ACL",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1143,6 +1214,7 @@
     "date": "2024",
     "date_sort": "2024-08-01",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1158,6 +1230,7 @@
     "date": "2024",
     "date_sort": "2024-07-25",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1173,6 +1246,7 @@
     "date": "2024",
     "date_sort": "2024-07-23",
     "venue": "ICML",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1188,6 +1262,7 @@
     "date": "2024",
     "date_sort": "2024-07-23",
     "venue": "ICML Position Paper Track",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1204,6 +1279,7 @@
     "date": "2024",
     "date_sort": "2024-07-23",
     "venue": "ICML Position Paper Track",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1221,6 +1297,7 @@
     "date": "2024",
     "date_sort": "2024-07-23",
     "venue": "ICML",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1236,6 +1313,7 @@
     "date": "2024",
     "date_sort": "2024-07-23",
     "venue": "ICML",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1251,6 +1329,7 @@
     "date": "2024",
     "date_sort": "2024-07-23",
     "venue": "ICML Position Paper Track",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1269,6 +1348,7 @@
     "date": "2024",
     "date_sort": "2024-07-16",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1284,6 +1364,7 @@
     "date": "2024",
     "date_sort": "2024-06-18",
     "venue": "TMLR",
+    "family": "TMLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1299,6 +1380,7 @@
     "date": "2024",
     "date_sort": "2024-06-07",
     "venue": "TMLR",
+    "family": "TMLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1314,6 +1396,7 @@
     "date": "2024",
     "date_sort": "2024-05-23",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1329,6 +1412,7 @@
     "date": "2024",
     "date_sort": "2024-05-20",
     "venue": "COLING",
+    "family": "COLING",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1344,6 +1428,7 @@
     "date": "2024",
     "date_sort": "2024-05-14",
     "venue": "Nature Methods",
+    "family": "Nature Methods",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1360,6 +1445,7 @@
     "date": "2024",
     "date_sort": "2024-05-11",
     "venue": "ICLR 2024 Workshop on Mathematical and Empirical Understanding of Foundation Models",
+    "family": "ICLR",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -1376,6 +1462,7 @@
     "date": "2024",
     "date_sort": "2024-05-07",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1391,6 +1478,7 @@
     "date": "2024",
     "date_sort": "2024-05-07",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1407,6 +1495,7 @@
     "date": "2024",
     "date_sort": "2024-05-07",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1422,6 +1511,7 @@
     "date": "2024",
     "date_sort": "2024-05-07",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1438,6 +1528,7 @@
     "date": "2024",
     "date_sort": "2024-05-07",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1453,6 +1544,7 @@
     "date": "2024",
     "date_sort": "2024-05-07",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1468,6 +1560,7 @@
     "date": "2024",
     "date_sort": "2024-02-18",
     "venue": "Genetic Programming Theory & Practice",
+    "family": "Genetic Programming Theory & Practice",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1484,6 +1577,7 @@
     "date": "2024",
     "date_sort": "2024-02-12",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1500,6 +1594,7 @@
     "date": "2023",
     "date_sort": "2023-12-16",
     "venue": "NeurIPS Workshop on Socially Responsible Language Modelling Research (SoLaR)",
+    "family": "NeurIPS",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -1516,6 +1611,7 @@
     "date": "2023",
     "date_sort": "2023-12-15",
     "venue": "NeurIPS Workshop on Backdoors in Deep Learning",
+    "family": "NeurIPS",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -1531,6 +1627,7 @@
     "date": "2023",
     "date_sort": "2023-12-13",
     "venue": "NeurIPS Datasets and Benchmarks",
+    "family": "NeurIPS",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1546,6 +1643,7 @@
     "date": "2023",
     "date_sort": "2023-12-10",
     "venue": "NeurIPS",
+    "family": "NeurIPS",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1564,6 +1662,7 @@
     "date": "2023",
     "date_sort": "2023-12-10",
     "venue": "NeurIPS",
+    "family": "NeurIPS",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1581,6 +1680,7 @@
     "date": "2023",
     "date_sort": "2023-12-10",
     "venue": "NeurIPS",
+    "family": "NeurIPS",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1597,6 +1697,7 @@
     "date": "2023",
     "date_sort": "2023-12-10",
     "venue": "NeurIPS",
+    "family": "NeurIPS",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1612,6 +1713,7 @@
     "date": "2023",
     "date_sort": "2023-12-07",
     "venue": "EMNLP Workshop on Computational Approaches to Linguistic Code-Switching",
+    "family": "EMNLP",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -1627,6 +1729,7 @@
     "date": "2023",
     "date_sort": "2023-12-06",
     "venue": "EMNLP",
+    "family": "EMNLP",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1643,6 +1746,7 @@
     "date": "2023",
     "date_sort": "2023-12-06",
     "venue": "EMNLP (Findings)",
+    "family": "EMNLP",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1658,6 +1762,7 @@
     "date": "2023",
     "date_sort": "2023-12-01",
     "venue": "TMLR",
+    "family": "TMLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1673,6 +1778,7 @@
     "date": "2023",
     "date_sort": "2023-11-01",
     "venue": "AACL Workshop in South East Asian Language Processing",
+    "family": "ACL",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -1688,6 +1794,7 @@
     "date": "2023",
     "date_sort": "2023-10-02",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1703,6 +1810,7 @@
     "date": "2023",
     "date_sort": "2023-08-29",
     "venue": "AIES",
+    "family": "AIES",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1718,6 +1826,7 @@
     "date": "2023",
     "date_sort": "2023-07-28",
     "venue": "ICML Workshop on Theory of Mind in Communicating Agents",
+    "family": "ICML",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -1734,6 +1843,7 @@
     "date": "2023",
     "date_sort": "2023-07-23",
     "venue": "ICML",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1750,6 +1860,7 @@
     "date": "2023",
     "date_sort": "2023-07-23",
     "venue": "ICML",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1768,6 +1879,7 @@
     "date": "2023",
     "date_sort": "2023-07-23",
     "venue": "ICML",
+    "family": "ICML",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1782,8 +1894,9 @@
     "title": "Continual Pre-Training of Large Language Models: How to (re)warm your model?",
     "date": "2023",
     "date_sort": "2023-07-23",
-    "venue": "Extended to a published paper",
-    "kind": "conference",
+    "venue": "ICML Workshop on Efficient Systems for Foundation Models",
+    "family": "ICML",
+    "kind": "workshop",
     "status": "Accepted",
     "areas": [
       "NLP"
@@ -1798,6 +1911,7 @@
     "date": "2023",
     "date_sort": "2023-07-19",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1813,6 +1927,7 @@
     "date": "2023",
     "date_sort": "2023-07-09",
     "venue": "ACL 2023 Demos Track",
+    "family": "ACL",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1829,6 +1944,7 @@
     "date": "2023",
     "date_sort": "2023-07-09",
     "venue": "ACL",
+    "family": "ACL",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1844,6 +1960,7 @@
     "date": "2023",
     "date_sort": "2023-07-09",
     "venue": "ACL",
+    "family": "ACL",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1859,6 +1976,7 @@
     "date": "2023",
     "date_sort": "2023-06-06",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1874,6 +1992,7 @@
     "date": "2023",
     "date_sort": "2023-05-25",
     "venue": "Nature",
+    "family": "Nature",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1890,6 +2009,7 @@
     "date": "2023",
     "date_sort": "2023-05-24",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1905,6 +2025,7 @@
     "date": "2023",
     "date_sort": "2023-05-14",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1920,6 +2041,7 @@
     "date": "2023",
     "date_sort": "2023-05-11",
     "venue": "TMLR",
+    "family": "TMLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1935,6 +2057,7 @@
     "date": "2023",
     "date_sort": "2023-02-24",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1950,6 +2073,7 @@
     "date": "2023",
     "date_sort": "2023-02-06",
     "venue": "Foundations of Deep Generative Models @ ICML",
+    "family": "ICML",
     "kind": "workshop",
     "status": "Under Review",
     "areas": [
@@ -1965,6 +2089,7 @@
     "date": "2023",
     "date_sort": "2023-01-21",
     "venue": "Protein Engineering Design and Selection",
+    "family": "Protein Engineering Design and Selection",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -1980,6 +2105,7 @@
     "date": "2023",
     "date_sort": "2023-01-09",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -1995,6 +2121,7 @@
     "date": "2022",
     "date_sort": "2022-12-01",
     "venue": "EMNLP (Findings)",
+    "family": "EMNLP",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -2010,6 +2137,7 @@
     "date": "2022",
     "date_sort": "2022-11-28",
     "venue": "NeurIPS Datasets and Benchmarks",
+    "family": "NeurIPS",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -2025,6 +2153,7 @@
     "date": "2022",
     "date_sort": "2022-11-28",
     "venue": "NeurIPS Datasets and Benchmarks",
+    "family": "NeurIPS",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -2042,6 +2171,7 @@
     "date": "2022",
     "date_sort": "2022-11-28",
     "venue": "NeurIPS Workshop on Broadening Research Collaborations",
+    "family": "NeurIPS",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -2050,15 +2180,14 @@
     "lead_org": "EleutherAI",
     "contact": "Jason Phang",
     "artifact_type": "Paper",
-    "superlatives": [
-      "Oral"
-    ]
+    "superlatives": []
   },
   {
     "title": "BLOOM: A 176b-parameter open-access multilingual language model",
     "date": "2022",
     "date_sort": "2022-11-10",
     "venue": "TMLR",
+    "family": "TMLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -2074,6 +2203,7 @@
     "date": "2022",
     "date_sort": "2022-10-23",
     "venue": "ECCV",
+    "family": "ECCV",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -2089,6 +2219,7 @@
     "date": "2022",
     "date_sort": "2022-10-17",
     "venue": "CIKM",
+    "family": "CIKM",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -2105,6 +2236,7 @@
     "date": "2022",
     "date_sort": "2022-10-15",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -2121,6 +2253,7 @@
     "date": "2022",
     "date_sort": "2022-10-01",
     "venue": "The Journal of the Acoustical Society of America",
+    "family": "The Journal of the Acoustical Society of America",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -2136,6 +2269,7 @@
     "date": "2022",
     "date_sort": "2022-06-20",
     "venue": "FAccT",
+    "family": "FAccT",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -2152,6 +2286,7 @@
     "date": "2022",
     "date_sort": "2022-06-13",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -2168,6 +2303,7 @@
     "date": "2022",
     "date_sort": "2022-05-28",
     "venue": "ACL Workshop on Challenges & Perspectives in Creating Large Language Models",
+    "family": "ACL",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -2183,6 +2319,7 @@
     "date": "2022",
     "date_sort": "2022-05-28",
     "venue": "ACL Workshop on Challenges & Perspectives in Creating Large Language Models",
+    "family": "ACL",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -2198,6 +2335,7 @@
     "date": "2022",
     "date_sort": "2022-04-25",
     "venue": "ICLR",
+    "family": "ICLR",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -2213,6 +2351,7 @@
     "date": "2022",
     "date_sort": "2022-01-31",
     "venue": "TACL",
+    "family": "TACL",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -2228,6 +2367,7 @@
     "date": "2022",
     "date_sort": "2022-01-05",
     "venue": "Journal of Computational Chemistry",
+    "family": "Journal of Computational Chemistry",
     "kind": "conference",
     "status": "Accepted",
     "areas": [
@@ -2243,6 +2383,7 @@
     "date": "2021",
     "date_sort": "2021-12-14",
     "venue": "NeurIPS Workshopn on Data-Centic AI",
+    "family": "NeurIPS",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -2258,6 +2399,7 @@
     "date": "2021",
     "date_sort": "2021-10-06",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -2273,6 +2415,7 @@
     "date": "2021",
     "date_sort": "2021-09-02",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -2288,6 +2431,7 @@
     "date": "2021",
     "date_sort": "2021-06-11",
     "venue": "NAACL Workshop on Narrative Understanding",
+    "family": "ACL",
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
@@ -2303,6 +2447,7 @@
     "date": "2020",
     "date_sort": "2020-12-31",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [
@@ -2318,6 +2463,7 @@
     "date": "2020",
     "date_sort": "2020-09-15",
     "venue": "arXiv",
+    "family": "arXiv",
     "kind": "arxiv",
     "status": "arXiv",
     "areas": [

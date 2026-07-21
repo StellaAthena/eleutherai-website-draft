@@ -2,12 +2,15 @@
 {{ $papers := site.Data.research.library_papers | default slice }}
 {{ $areas := slice }}
 {{ $years := slice }}
+{{ $venues := slice }}
 {{ range $papers }}
   {{ $years = $years | append .date }}
+  {{ $venues = $venues | append .family }}
   {{ range .areas }}{{ $areas = $areas | append . }}{{ end }}
 {{ end }}
 {{ $areas = sort (uniq $areas) }}
 {{ $years = sort (uniq $years) "value" "desc" }}
+{{ $venues = sort (uniq $venues) }}
 
 <main class="library-page">
   <section class="library-intro">
@@ -45,15 +48,10 @@
           <option value="workshop">Workshop</option>
           <option value="arxiv">arXiv</option>
         </select>
-        <label for="library-status">Status</label>
-        <select id="library-status">
-          <option value="">All statuses</option>
-          <option value="accepted">Accepted</option>
-          <option value="under review">Under review</option>
-          <option value="arxiv">arXiv</option>
-          <option value="ready to submit">Ready to submit</option>
-          <option value="work-in-progress">Work in progress</option>
-          <option value="rejected">Rejected</option>
+        <label for="library-venue">Venue</label>
+        <select id="library-venue">
+          <option value="">All venues</option>
+          {{ range $venues }}<option value="{{ . | lower }}">{{ . }}</option>{{ end }}
         </select>
       </aside>
 
@@ -73,17 +71,19 @@
                     data-title="{{ .title | lower }}"
                     data-year="{{ .date }}"
                     data-venue="{{ .venue | lower }}"
+                    data-family="{{ .family | lower }}"
                     data-kind="{{ .kind | lower }}"
-                    data-status="{{ .status | lower }}"
                     data-areas="{{ delimit .areas "|" | lower }}"
                     data-org="{{ .lead_org | lower }}"
                     data-contact="{{ .contact | lower }}">
                     <div class="library-entry-main">
                       <h3>{{ .title }}</h3>
-                      <p>{{ .venue }}{{ with .areas }}<span aria-hidden="true"> · </span>{{ delimit . " / " }}{{ end }}</p>
+                      <p>{{ delimit .areas " / " }}</p>
                     </div>
-                    <p class="library-entry-status">{{ .status }}</p>
-                    <div class="library-entry-awards">{{ range .superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}</div>
+                    <div class="library-entry-publication">
+                      <p>{{ .venue }}{{ with .date }}, {{ . }}{{ end }}</p>
+                      <p>{{ delimit .superlatives " · " }}</p>
+                    </div>
                   </article>
                 {{ end }}
               </div>

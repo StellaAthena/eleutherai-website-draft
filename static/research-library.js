@@ -3,14 +3,14 @@
   const area = document.querySelector("#library-area");
   const year = document.querySelector("#library-year");
   const kind = document.querySelector("#library-kind");
-  const status = document.querySelector("#library-status");
+  const venue = document.querySelector("#library-venue");
   const clear = document.querySelector("#library-clear");
   const count = document.querySelector("#library-count");
   const empty = document.querySelector("#library-empty");
   const entries = [...document.querySelectorAll(".library-entry")];
   const groups = [...document.querySelectorAll(".library-year-group")];
 
-  if (!query || !area || !year || !kind || !status || !clear || !count || !empty) return;
+  if (!query || !area || !year || !kind || !venue || !clear || !count || !empty) return;
 
   function applyFilters() {
     const search = query.value.trim().toLowerCase();
@@ -30,7 +30,7 @@
         (!area.value || entryAreas.includes(area.value)) &&
         (!year.value || entry.dataset.year === year.value) &&
         (!kind.value || entry.dataset.kind.toLowerCase() === kind.value) &&
-        (!status.value || entry.dataset.status.toLowerCase() === status.value);
+        (!venue.value || entry.dataset.family.toLowerCase() === venue.value);
       entry.hidden = !matches;
       if (matches) visible += 1;
     });
@@ -42,7 +42,7 @@
     empty.hidden = visible !== 0;
   }
 
-  [query, area, year, kind, status].forEach((control) => {
+  [query, area, year, kind, venue].forEach((control) => {
     control.addEventListener(control === query ? "input" : "change", applyFilters);
   });
 
@@ -51,7 +51,7 @@
     area.value = "";
     year.value = "";
     kind.value = "";
-    status.value = "";
+    venue.value = "";
     applyFilters();
     query.focus();
   });
