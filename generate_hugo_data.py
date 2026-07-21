@@ -31,10 +31,10 @@ def parse_date(value):
     return datetime.min
 
 
-def display_full_date(date):
+def display_year(date):
     if date == datetime.min:
         return ""
-    return f"{date.day} {date.strftime('%B %Y')}"
+    return str(date.year)
 
 
 def clean_link(link):
@@ -73,8 +73,9 @@ def homepage_venue(row):
     conference = (row.get("Conference or Journal") or "").strip()
     workshop = (row.get("Workshop") or "").strip()
     if status == "accepted":
-        venue = conference or workshop
+        venue = conference or workshop or "arXiv"
     elif conference:
+        # Under-review conference papers should show their prior public venue.
         venue = workshop or "arXiv"
     else:
         venue = "arXiv"
@@ -161,7 +162,7 @@ def paper_record(row):
     return {
         "title": normalize_title(row.get("Title")),
         "url": clean_link(row.get("Link")),
-        "date": display_full_date(date),
+        "date": display_year(date),
         "date_sort": date.strftime("%Y-%m-%d") if date != datetime.min else "",
         "venue": homepage_venue(row),
         "superlatives": display_terms(row.get("Superlatives")),
@@ -178,7 +179,7 @@ def area_paper_record(row, summary="", display_venue=""):
         "title": normalize_title(row.get("Title")),
         "url": clean_link(row.get("Link")),
         "summary": summary,
-        "date": display_full_date(date),
+        "date": display_year(date),
         "year": str(date.year) if date != datetime.min else "",
         "venue": venue,
         "superlatives": display_terms(row.get("Superlatives")),

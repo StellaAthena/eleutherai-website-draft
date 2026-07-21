@@ -1,0 +1,20 @@
+<article class="staff-card">
+  <div class="staff-photo">
+    {{ if .image }}
+      <img src="{{ .image }}" alt="{{ .name }}">
+    {{ else }}
+      <span aria-hidden="true">
+        {{ range first 2 (split .name " ") }}{{ substr . 0 1 }}{{ end }}
+      </span>
+    {{ end }}
+  </div>
+  <h2>{{ .name }}</h2>
+  {{ with .title }}<p class="staff-title">{{ . }}</p>{{ end }}
+  <div class="staff-link-line">
+    {{ with .links }}
+      {{ range . }}
+        {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }}</a>{{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
+</article>

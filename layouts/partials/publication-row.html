@@ -7,7 +7,7 @@
     {{ end }}
   </h3>
   <p class="publication-meta">
-    {{ .date }} · {{ .venue }}
+    {{ if .venue }}{{ .venue }}{{ if .date }}, {{ end }}{{ end }}{{ .date }}
     {{ range .superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}
   </p>
 </article>

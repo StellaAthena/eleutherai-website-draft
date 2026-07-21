@@ -156,7 +156,7 @@
               <div>
                 <h3>{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
                 <p class="paper-meta">
-                  {{ with .date }}{{ . }} · {{ end }}{{ .venue }}
+                  {{ if .venue }}{{ .venue }}{{ if .date }}, {{ end }}{{ end }}{{ .date }}
                   {{ range .superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}
                 </p>
                 {{ with .summary }}<p>{{ . }}</p>{{ end }}

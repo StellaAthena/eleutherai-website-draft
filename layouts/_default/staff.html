@@ -1,0 +1,37 @@
+{{ define "main" }}
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
+    </div>
+  </section>
+
+  {{ with site.Data.staff.staff }}
+    <section class="section staff-directory">
+      <div class="wrap">
+        <div class="staff-grid">
+          {{ range . }}
+            {{ partial "staff-card.html" . }}
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with site.Data.staff.community_research_leads }}
+    <section class="section staff-directory">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>Community Research Leads</h2></div>
+        </div>
+        <div class="staff-grid compact">
+          {{ range . }}
+            {{ partial "staff-card.html" . }}
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+</main>
+{{ end }}
