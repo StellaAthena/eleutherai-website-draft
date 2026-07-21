@@ -1,0 +1,127 @@
+{{ define "main" }}
+{{ $data := site.Data.research.training_dynamics }}
+{{ $paperMap := site.Data.research.area_papers | default dict }}
+{{ $papers := index $paperMap .Params.area_key | default slice }}
+<main class="td-page">
+  <section class="td-hero">
+    <div class="wrap td-hero-inner">
+      <h1>{{ .Title }}</h1>
+      <p>{{ .Params.lede }}</p>
+      <a class="td-jump" href="#agenda">Explore the agenda <span aria-hidden="true">&#8595;</span></a>
+    </div>
+  </section>
+
+  {{ with $data.overview }}
+    <section class="td-overview">
+      <div class="wrap td-split">
+        <h2>{{ .title }}</h2>
+        <div class="td-prose">
+          <p class="td-standfirst">{{ .intro }}</p>
+          {{ range .paragraphs }}<p>{{ . }}</p>{{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with $data.questions }}
+    <section class="td-agenda" id="agenda">
+      <div class="wrap">
+        <div class="td-section-heading">
+          <h2>{{ .title }}</h2>
+          <p>{{ .intro }}</p>
+        </div>
+        <div class="td-progression">
+          {{ range $index, $item := .items }}
+            <article class="td-stage">
+              <span class="td-stage-number">0{{ add $index 1 }}</span>
+              <h3>{{ $item.title }}</h3>
+              <p>{{ $item.text }}</p>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with $data.projects }}
+    <section class="td-foundations" id="projects">
+      <div class="wrap">
+        <div class="td-section-heading">
+          <h2>{{ .title }}</h2>
+          <p>{{ .intro }}</p>
+        </div>
+        <div class="td-foundation-list">
+          {{ range .items }}
+            <article class="td-foundation">
+              <h3>{{ .title }}</h3>
+              <p>{{ .text }}</p>
+              {{ with .url }}<a href="{{ . | relURL }}">View project <span aria-hidden="true">&#8599;</span></a>{{ end }}
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with $data.directions }}
+    <section class="td-directions">
+      <div class="wrap td-split">
+        <div>
+          <h2>{{ .title }}</h2>
+          <p class="td-side-intro">{{ .intro }}</p>
+        </div>
+        <div class="td-direction-list">
+          {{ range $index, $item := .items }}
+            <article class="td-direction">
+              <span>0{{ add $index 1 }}</span>
+              <div>
+                <h3>{{ $item.title }}</h3>
+                <p>{{ $item.text }}</p>
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with $data.featured }}
+    <section class="td-featured">
+      <div class="wrap td-featured-inner">
+        <div>
+          <h2>{{ .title }}</h2>
+          <p>{{ .intro }}</p>
+        </div>
+        <article>
+          <h3>{{ .paper }}</h3>
+          <p>{{ .text }}</p>
+          <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">Read the paper <span aria-hidden="true">&#8599;</span></a>
+        </article>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ if gt (len $papers) 0 }}
+    <section class="td-papers" id="papers">
+      <div class="wrap">
+        <div class="td-section-heading">
+          <h2>Selected papers</h2>
+          <p>Work connected to this agenda, listed newest first.</p>
+        </div>
+        <div class="td-paper-list">
+          {{ range $papers }}
+            <article class="td-paper">
+              <p class="td-paper-meta">{{ if .venue }}{{ .venue }}{{ if .date }}, {{ end }}{{ end }}{{ .date }}</p>
+              <h3>{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
+              {{ range .superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+</main>
+{{ end }}
+{{ define "page_styles" }}
+  <link rel="stylesheet" href="{{ printf "training-dynamics.css?v=%d" now.Unix | relURL }}">
+{{ end }}
