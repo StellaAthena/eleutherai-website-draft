@@ -985,88 +985,98 @@ h2 {
 }
 
 .staff-directory + .staff-directory {
-  padding-top: 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
 }
 
 .staff-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 56px 28px;
+}
+
+.staff-directory .section-head {
+  display: block;
+  margin-bottom: 36px;
+}
+
+.staff-directory .section-head h2 {
+  max-width: none;
+  font-size: 1.65rem;
 }
 
 .staff-card {
   display: grid;
+  grid-template-rows: auto auto auto;
   align-content: start;
-  justify-items: center;
-  min-height: 438px;
-  padding: 42px 24px 28px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--panel);
-  text-align: center;
+  min-width: 0;
+  text-align: left;
 }
 
 .staff-photo {
   display: grid;
   place-items: center;
-  width: min(74%, 270px);
-  aspect-ratio: 1 / 1;
-  margin-bottom: 30px;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  margin-bottom: 20px;
   overflow: hidden;
-  border-radius: 50%;
-  background:
-    linear-gradient(135deg, rgba(120, 184, 238, 0.18), rgba(98, 215, 122, 0.08)),
-    #0c1118;
+  border-radius: 2px;
+  background: #10161d;
 }
 
 .staff-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: saturate(0.88) contrast(1.02);
+  transition: filter 180ms ease;
+}
+
+.staff-card:hover .staff-photo img {
+  filter: saturate(1) contrast(1);
 }
 
 .staff-photo span {
-  color: var(--body);
+  color: #8f9aa6;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  font-size: 3rem;
-  font-weight: 800;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 600;
 }
 
 .staff-card h2 {
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   color: var(--ink);
-  font-size: 2.1rem;
-  font-weight: 300;
-  line-height: 1.1;
+  font-size: 1.38rem;
+  font-weight: 600;
+  line-height: 1.18;
   overflow-wrap: anywhere;
 }
 
 .staff-title {
   margin-bottom: 0;
-  color: var(--ink);
-  font-size: 1.26rem;
-  line-height: 1.25;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.4;
 }
 
 .staff-link-line {
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-height: 32px;
-  margin-top: 14px;
+  min-height: 24px;
+  margin-top: 10px;
 }
 
 .staff-scholar-link {
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
-  color: #4285f4;
+  width: 24px;
+  height: 24px;
+  color: #7e8996;
   transition: color 140ms ease, transform 140ms ease;
 }
 
 .staff-scholar-link:hover {
-  color: #70a4f7;
+  color: var(--blue);
   transform: translateY(-1px);
 }
 
@@ -1076,8 +1086,8 @@ h2 {
 }
 
 .staff-scholar-link svg {
-  width: 27px;
-  height: 27px;
+  width: 20px;
+  height: 20px;
   overflow: visible;
 }
 
@@ -1413,6 +1423,30 @@ footer .wrap {
 	  .publication-layout,
 	  .blog-list .artifact-row {
 	    grid-template-columns: 1fr;
+  }
+
+  .staff-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 38px 14px;
+  }
+
+  .staff-photo {
+    margin-bottom: 14px;
+  }
+
+  .staff-card h2 {
+    margin-bottom: 5px;
+    font-size: 1.05rem;
+    line-height: 1.22;
+  }
+
+  .staff-title {
+    font-size: 0.84rem;
+    line-height: 1.35;
+  }
+
+  .staff-link-line {
+    margin-top: 7px;
   }
 
   .publication-group-heading,
