@@ -31,6 +31,14 @@ staff:
   - name: "Aviya Skowron"
     title: "Head of Policy and Ethics"
     image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/14e3bf73-2e29-4f6f-844d-e55ec190716d/work+portrait+1.jpg"
+  - name: "Giuseppe Birardi"
+    title: "Interpretability Fellow"
+    image: "/assets/staff/giuseppe-birardi.png"
+  - name: "Pawan Ammanamanchi"
+    title: "AI4Science Fellow"
+  - name: "Mohammad Aflah Khan"
+    title: "AI4Science Researcher"
+    image: "/assets/staff/mohammad-aflah-khan.png"
 
 community_research_leads:
   - name: "Eugene Cheah"
