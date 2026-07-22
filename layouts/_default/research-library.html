@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{ $papers := site.Data.research.library_papers | default slice }}
+{{ $markers := dict "oral" (dict "icon" "🎙️" "label" "Oral") "spotlight" (dict "icon" "🔦" "label" "Spotlight") "runnerup" (dict "icon" "🥈" "label" "Runner-up") "bestpaper" (dict "icon" "🏆" "label" "Best paper") }}
 {{ $years := slice }}
 {{ $venues := slice }}
 {{ range $papers }}
@@ -68,12 +69,15 @@
                     data-areas="{{ delimit .areas "|" | lower }}"
                     data-org="{{ .lead_org | lower }}"
                     data-contact="{{ .contact | lower }}">
+                    <div class="library-entry-marker">
+                      {{ with .marker }}{{ $marker := index $markers . }}<span role="img" aria-label="{{ $marker.label }}" title="{{ $marker.label }}">{{ $marker.icon }}</span>{{ end }}
+                    </div>
                     <div class="library-entry-main">
                       <h3>{{ .title }}</h3>
+                      {{ with .superlatives }}<p>{{ delimit . " · " }}</p>{{ end }}
                     </div>
                     <div class="library-entry-publication">
                       <p>{{ .venue }}{{ if and .date (not (strings.Contains .venue .date)) }}, {{ .date }}{{ end }}</p>
-                      {{ with .superlatives }}<p>{{ delimit . " · " }}</p>{{ end }}
                     </div>
                   </article>
                 {{ end }}

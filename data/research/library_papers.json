@@ -14,6 +14,7 @@
     "lead_org": "EleutherAI",
     "contact": "Moritz Weckbecker",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -31,6 +32,7 @@
     "lead_org": "EleutherAI",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "oral",
     "superlatives": [
       "Oral"
     ]
@@ -50,6 +52,7 @@
     "lead_org": "EleutherAI",
     "contact": "Gonçalo Paulo",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -67,6 +70,7 @@
     "lead_org": "EvalEval Coalition",
     "contact": "Jenn Mickel",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -83,6 +87,7 @@
     "lead_org": "EleutherAI",
     "contact": "Pawan Ammanamanchi",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -100,6 +105,7 @@
     "lead_org": "EvalEval Coalition",
     "contact": "Jenn Mickel",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -116,6 +122,7 @@
     "lead_org": "University of Cambridge",
     "contact": "Catherine Arnett",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -132,6 +139,7 @@
     "lead_org": "EleutherAI",
     "contact": "Catherine Arnett",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -148,6 +156,7 @@
     "lead_org": "Common Crawl",
     "contact": "Catherine Arnett",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -164,6 +173,7 @@
     "lead_org": "EvalEval Coalition",
     "contact": "Jenn Mickel",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -181,6 +191,7 @@
     "lead_org": "EleutherAI",
     "contact": "@leloy!",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -197,6 +208,7 @@
     "lead_org": "EvalEval Coalition",
     "contact": "Jenn Mickel",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -213,6 +225,7 @@
     "lead_org": "EleutherAI",
     "contact": "Guijin Son",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -230,6 +243,7 @@
     "lead_org": "EleutherAI",
     "contact": "Gonçalo Paulo",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -247,6 +261,7 @@
     "lead_org": "EleutherAI",
     "contact": "Gonçalo Paulo",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -264,6 +279,7 @@
     "lead_org": "EleutherAI and AISI",
     "contact": "Kyle O'Brien",
     "artifact_type": "Paper",
+    "marker": "runnerup",
     "superlatives": [
       "Best Paper Runner Up, BioSec Workshop @ NeurIPS"
     ]
@@ -283,6 +299,7 @@
     "lead_org": "MIT",
     "contact": "Catherine Arnett",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -300,6 +317,7 @@
     "lead_org": "FAR.AI",
     "contact": "Gonçalo Paulo, Louis",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -316,6 +334,7 @@
     "lead_org": "Stanford",
     "contact": "Baber Abbasi",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -333,6 +352,7 @@
     "lead_org": "Stanford",
     "contact": "Baber Abbasi",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -350,6 +370,7 @@
     "lead_org": "EleutherAI",
     "contact": "Gonçalo Paulo",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -367,6 +388,7 @@
     "lead_org": "MIT",
     "contact": "Catherine Arnett",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -384,6 +406,7 @@
     "lead_org": "Bau Lab",
     "contact": "Lucia Quirke",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -400,6 +423,7 @@
     "lead_org": "Queen Mary University of London and EleutherAI",
     "contact": "Louis Bradshaw",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -417,6 +441,7 @@
     "lead_org": "University of Toronto and EleutherAI",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -434,6 +459,7 @@
     "lead_org": "EleutherAI",
     "contact": "Jenn Mickel",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -450,6 +476,7 @@
     "lead_org": "EleutherAI",
     "contact": "Catherine Arnett",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -467,6 +494,7 @@
     "lead_org": "MIT",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -484,6 +512,7 @@
     "lead_org": "EvalEval Coalition",
     "contact": "Jenn Mickel",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -500,6 +529,7 @@
     "lead_org": "EleutherAI",
     "contact": "Catherine Arnett",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -516,6 +546,7 @@
     "lead_org": "LF AI & Data and EleutherAI",
     "contact": "Daniel Goldstein",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -532,6 +563,7 @@
     "lead_org": "Recursal AI",
     "contact": "Daniel Goldstein",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -548,6 +580,7 @@
     "lead_org": "Apollo Research",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -564,6 +597,7 @@
     "lead_org": "Queen Mary University of London and EleutherAI",
     "contact": "Louis Bradshaw",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -580,6 +614,7 @@
     "lead_org": "UCSD",
     "contact": "Catherine Arnett",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -597,6 +632,7 @@
     "lead_org": "Microsoft",
     "contact": "Kyle O'Brien",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -613,6 +649,7 @@
     "lead_org": "EleutherAI",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -629,6 +666,7 @@
     "lead_org": "EleutherAI",
     "contact": "Catherine Arnett",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -645,6 +683,7 @@
     "lead_org": "Cohere",
     "contact": "Catherine Arnett",
     "artifact_type": "Paper",
+    "marker": "bestpaper",
     "superlatives": [
       "Best paper @ Tokenizer Workshop"
     ]
@@ -663,6 +702,7 @@
     "lead_org": "Stanford (STAIR AI Lab)",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -680,6 +720,7 @@
     "lead_org": "EleutherAI",
     "contact": "Gonçalo Paulo",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -696,6 +737,7 @@
     "lead_org": "EleutherAI",
     "contact": "Guijin Son",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -712,6 +754,7 @@
     "lead_org": "KAIST",
     "contact": "Guijin Son",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -728,6 +771,7 @@
     "lead_org": "EleutherAI",
     "contact": "Guijin Son",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -745,6 +789,7 @@
     "lead_org": "EleutherAI",
     "contact": "Naomi Saphra",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -762,6 +807,7 @@
     "lead_org": "EleutherAI",
     "contact": "Oskar van der Wal",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -779,6 +825,7 @@
     "lead_org": "University of Virginia",
     "contact": "Kyle O'Brien",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -796,6 +843,7 @@
     "lead_org": "Data Provenance Initiative",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -812,6 +860,7 @@
     "lead_org": "EleutherAI",
     "contact": "Louis Bradshaw",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -829,6 +878,7 @@
     "lead_org": "EleutherAI",
     "contact": "David Johnston",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -845,6 +895,7 @@
     "lead_org": "EleutherAI",
     "contact": "Nora Belrose",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -861,6 +912,7 @@
     "lead_org": "EleutherAI",
     "contact": "David Johnston",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -878,6 +930,7 @@
     "lead_org": "EleutherAI",
     "contact": "Nora Belrose",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -895,6 +948,7 @@
     "lead_org": "EleutherAI",
     "contact": "Gonçalo Paulo",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -911,6 +965,7 @@
     "lead_org": "EleutherAI",
     "contact": "Lucia Quirke",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -927,6 +982,7 @@
     "lead_org": "EleutherAI",
     "contact": "Nora Belrose",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -944,6 +1000,7 @@
     "lead_org": "EleutherAI",
     "contact": "Gonçalo Paulo",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -961,6 +1018,7 @@
     "lead_org": "Tsinghua and EleutherAI",
     "contact": "Zhang Ruichong, Daniel Goldstein",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -978,6 +1036,7 @@
     "lead_org": "Mozilla and EleutherAI",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -994,6 +1053,7 @@
     "lead_org": "EleutherAI",
     "contact": "Curt Tigges",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1011,6 +1071,7 @@
     "lead_org": "Data Provenance Initiative",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1028,6 +1089,7 @@
     "lead_org": "MIT and EleutherAI",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1044,6 +1106,7 @@
     "lead_org": "BigScience",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1061,6 +1124,7 @@
     "lead_org": "MATS",
     "contact": "Curt Tigges",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1078,6 +1142,7 @@
     "lead_org": "EleutherAI",
     "contact": "Thomas Marshall",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1094,6 +1159,7 @@
     "lead_org": "Brown University",
     "contact": "Jessica Forde",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1111,6 +1177,7 @@
     "lead_org": "Sorbonne Université",
     "contact": "Harrison Vanderbyl, Théodor Lemerle",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1128,6 +1195,7 @@
     "lead_org": "EleutherAI",
     "contact": "Alex Mallen",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1144,6 +1212,7 @@
     "lead_org": "CMU",
     "contact": "Hailey Schoelkopf",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1161,6 +1230,7 @@
     "lead_org": "EleutherAI",
     "contact": "Alex Mallen",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1177,6 +1247,7 @@
     "lead_org": "LF AI & Data and EleutherAI",
     "contact": "Quentin Anthony",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1193,6 +1264,7 @@
     "lead_org": "EleutherAI",
     "contact": "Quentin Anthony",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1209,6 +1281,7 @@
     "lead_org": "EleutherAI",
     "contact": "Guijin Son",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1225,6 +1298,7 @@
     "lead_org": "AnswerDotAI",
     "contact": "Hailey Schoelkopf",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1241,6 +1315,7 @@
     "lead_org": "AI2",
     "contact": "Hailey Schoelkopf",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1257,6 +1332,7 @@
     "lead_org": "EleutherAI",
     "contact": "Honglu Fan",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1274,6 +1350,7 @@
     "lead_org": "CMU, Potsdam Institute, UC Berkeley",
     "contact": "Hailey Schoelkopf",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1290,6 +1367,7 @@
     "lead_org": "Stanford University",
     "contact": "Aviya Skowron",
     "artifact_type": "Paper",
+    "marker": "oral",
     "superlatives": [
       "Oral"
     ]
@@ -1308,6 +1386,7 @@
     "lead_org": "EleutherAI",
     "contact": "Nora Belrose",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1324,6 +1403,7 @@
     "lead_org": "EleutherAI",
     "contact": "Dashiell Stander",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1341,6 +1421,7 @@
     "lead_org": "MIT",
     "contact": "Aviya Skowron",
     "artifact_type": "Paper",
+    "marker": "oral",
     "superlatives": [
       "Oral"
     ]
@@ -1359,6 +1440,7 @@
     "lead_org": "Recursal AI",
     "contact": "Daniel Goldstein",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1375,6 +1457,7 @@
     "lead_org": "EleutherAI",
     "contact": "Kyle O'Brien",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1391,6 +1474,7 @@
     "lead_org": "Mila",
     "contact": "Quentin Anthony",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1407,6 +1491,7 @@
     "lead_org": "EleutherAI",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1423,6 +1508,7 @@
     "lead_org": "EleutherAI",
     "contact": "Guijin Son",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1440,6 +1526,7 @@
     "lead_org": "Harvard and Columbia",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1457,6 +1544,7 @@
     "lead_org": "EleutherAI",
     "contact": "Laura O'Mahony",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1473,6 +1561,7 @@
     "lead_org": "EleutherAI",
     "contact": "Honglu Fan",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1490,6 +1579,7 @@
     "lead_org": "EleutherAI",
     "contact": "Hoagy Cunningham",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1506,6 +1596,7 @@
     "lead_org": "UMass Lowell",
     "contact": "Vladislav Lialin",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1523,6 +1614,7 @@
     "lead_org": "EleutherAI",
     "contact": "Herbie Bradley",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1539,6 +1631,7 @@
     "lead_org": "University of Toronto",
     "contact": "Zhangir Azerbayev",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1555,6 +1648,7 @@
     "lead_org": "EleutherAI",
     "contact": "Zhangir Azerbayev",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1572,6 +1666,7 @@
     "lead_org": "CarperAI",
     "contact": "Herbie Bradley",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1589,6 +1684,7 @@
     "lead_org": "synthlabs.ai and EleutherAI",
     "contact": "Louis Castricato",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1606,6 +1702,7 @@
     "lead_org": "EleutherAI",
     "contact": "Curtis Huebner",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1622,6 +1719,7 @@
     "lead_org": "EleutherAI",
     "contact": "Herbie Bradley",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1638,6 +1736,7 @@
     "lead_org": "BigScience",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1655,6 +1754,7 @@
     "lead_org": "University College of London",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "spotlight",
     "superlatives": [
       "Spotlight"
     ]
@@ -1673,6 +1773,7 @@
     "lead_org": "MedARC",
     "contact": "Tanishq Abraham",
     "artifact_type": "Paper",
+    "marker": "spotlight",
     "superlatives": [
       "Spotlight"
     ]
@@ -1692,6 +1793,7 @@
     "lead_org": "EleutherAI",
     "contact": "Nora Belrose",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1708,6 +1810,7 @@
     "lead_org": "EleutherAI",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1724,6 +1827,7 @@
     "lead_org": "Brown University",
     "contact": "Lintang Sutawika",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1741,6 +1845,7 @@
     "lead_org": "CarperAI",
     "contact": "Louis Castricato",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1757,6 +1862,7 @@
     "lead_org": "EleutherAI",
     "contact": "Quentin Anthony",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1773,6 +1879,7 @@
     "lead_org": "BigCode",
     "contact": "Hailey Schoelkopf",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1789,6 +1896,7 @@
     "lead_org": "Datasaur",
     "contact": "Lintang Sutawika",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1805,6 +1913,7 @@
     "lead_org": "Center for AI Safety",
     "contact": "Alex Mallen",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1821,6 +1930,7 @@
     "lead_org": "Mila",
     "contact": "Herbie Bradley",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1838,6 +1948,7 @@
     "lead_org": "University College of London",
     "contact": "Herbie Bradley",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1855,6 +1966,7 @@
     "lead_org": "Laboratory for Physical Sciences",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1872,6 +1984,7 @@
     "lead_org": "EleutherAI",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "oral",
     "superlatives": [
       "Oral"
     ]
@@ -1890,6 +2003,7 @@
     "lead_org": "New York University",
     "contact": "Jason Phang",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1906,6 +2020,7 @@
     "lead_org": "Mila",
     "contact": "Quentin Anthony",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1922,6 +2037,7 @@
     "lead_org": "University College of London",
     "contact": "Herbie Bradley",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1939,6 +2055,7 @@
     "lead_org": "BigScience",
     "contact": "Hailey Schoelkopf",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1955,6 +2072,7 @@
     "lead_org": "BigScience",
     "contact": "Lintang Sutawika",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1971,6 +2089,7 @@
     "lead_org": "BigScience",
     "contact": "Lintang Sutawika",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -1987,6 +2106,7 @@
     "lead_org": "EleutherAI",
     "contact": "Kevin Ko",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2004,6 +2124,7 @@
     "lead_org": "Google DeepMind",
     "contact": "Laria Reynolds",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2020,6 +2141,7 @@
     "lead_org": "UIUC",
     "contact": "Curt Tigges",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2036,6 +2158,7 @@
     "lead_org": "EleutherAI",
     "contact": "Nora Belrose",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2052,6 +2175,7 @@
     "lead_org": "Google",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2068,6 +2192,7 @@
     "lead_org": "Yale University",
     "contact": "Hailey Schoelkopf",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2084,6 +2209,7 @@
     "lead_org": "Stanford",
     "contact": "Baber Abbasi",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2100,6 +2226,7 @@
     "lead_org": "Microsoft Research",
     "contact": "Niccolò Zanichelli",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2116,6 +2243,7 @@
     "lead_org": "BigCode",
     "contact": "Hailey Schoelkopf",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2132,6 +2260,7 @@
     "lead_org": "BigScience",
     "contact": "Jason Phang",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2148,6 +2277,7 @@
     "lead_org": "BigScience",
     "contact": "Lintang Sutawika",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2164,6 +2294,7 @@
     "lead_org": "LAION",
     "contact": "Aran Komatsuzaki",
     "artifact_type": "Paper",
+    "marker": "bestpaper",
     "superlatives": [
       "Best Paper"
     ]
@@ -2182,6 +2313,7 @@
     "lead_org": "EleutherAI",
     "contact": "Jason Phang",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2198,6 +2330,7 @@
     "lead_org": "BigScience",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2214,6 +2347,7 @@
     "lead_org": "EleutherAI",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2231,6 +2365,7 @@
     "lead_org": "Booz Allen Hamilton",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2248,6 +2383,7 @@
     "lead_org": "CarperAI",
     "contact": "Louis Castricato",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2264,6 +2400,7 @@
     "lead_org": "Stability AI",
     "contact": "Katherine Crowson",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2281,6 +2418,7 @@
     "lead_org": "BigScience",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2298,6 +2436,7 @@
     "lead_org": "EleutherAI",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2314,6 +2453,7 @@
     "lead_org": "BigScience",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2330,6 +2470,7 @@
     "lead_org": "EleutherAI",
     "contact": "Sid Black",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2346,6 +2487,7 @@
     "lead_org": "BigScience",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2362,6 +2504,7 @@
     "lead_org": "Google",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2378,6 +2521,7 @@
     "lead_org": "Vir Biotechnology",
     "contact": "Stella Biderman",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2394,6 +2538,7 @@
     "lead_org": "LAION",
     "contact": "Katherine Crowson",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2410,6 +2555,7 @@
     "lead_org": "EleutherAI",
     "contact": "Louis Castricato",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2426,6 +2572,7 @@
     "lead_org": "EleutherAI",
     "contact": "Leo Gao",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2442,6 +2589,7 @@
     "lead_org": "Georgia Tech",
     "contact": "Louis Castricato",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2458,6 +2606,7 @@
     "lead_org": "EleutherAI",
     "contact": "Leo Gao",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   },
   {
@@ -2474,6 +2623,7 @@
     "lead_org": "Georgia Tech",
     "contact": "Aran Komatsuzaki",
     "artifact_type": "Paper",
+    "marker": "",
     "superlatives": []
   }
 ]

@@ -441,6 +441,16 @@ def library_paper_record(row):
             contextual = f"{award}, {workshop}"
             if contextual not in superlatives:
                 superlatives.append(contextual)
+    distinction_text = " ".join(superlatives).casefold()
+    marker = ""
+    if "runner" in distinction_text or "finalist" in distinction_text:
+        marker = "runnerup"
+    elif "best paper" in distinction_text:
+        marker = "bestpaper"
+    elif "spotlight" in distinction_text:
+        marker = "spotlight"
+    elif "oral" in distinction_text:
+        marker = "oral"
     areas = []
     for field in ("Primary Area", "Additional Area"):
         area = (row.get(field) or "").strip()
@@ -458,6 +468,7 @@ def library_paper_record(row):
         "lead_org": (row.get("Lead Org") or "").strip(),
         "contact": (row.get("EleutherAI PoC") or "").strip(),
         "artifact_type": "Paper",
+        "marker": marker,
         "superlatives": superlatives,
     }
 
