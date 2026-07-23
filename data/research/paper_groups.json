@@ -16,7 +16,7 @@
         "papers": [
           {
             "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
-            "url": "",
+            "url": "https://arxiv.org/abs/2606.06533",
             "date": "2026",
             "date_sort": "2026-07-10",
             "venue": "ICML",
@@ -42,7 +42,7 @@
           },
           {
             "title": "Faults in Our Formal Benchmarking: Dataset Defects and Evaluation Failures in Lean Theorem Proving",
-            "url": "",
+            "url": "https://arxiv.org/abs/2606.29493",
             "date": "2026",
             "date_sort": "2026-07-08",
             "venue": "ICML",
@@ -75,7 +75,7 @@
         "papers": [
           {
             "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
-            "url": "",
+            "url": "https://arxiv.org/abs/2606.06533",
             "date": "2026",
             "date_sort": "2026-07-10",
             "venue": "MechInterp Workshop @ ICML",
@@ -87,7 +87,7 @@
           },
           {
             "title": "Automated Attribution Graph Interpretation via Probe Prompting",
-            "url": "",
+            "url": "https://arxiv.org/abs/2511.07002",
             "date": "2026",
             "date_sort": "2026-07-10",
             "venue": "Mechanistic interpretability workshop @ ICML",
@@ -181,7 +181,7 @@
         "papers": [
           {
             "title": "L1 Influence in L2 Language Models: A Human-centric Approach",
-            "url": "",
+            "url": "https://arxiv.org/abs/2606.14516",
             "date": "2026",
             "date_sort": "2026-07-04",
             "venue": "Computational Developmental Linguistics Workshop at ACL",
@@ -212,7 +212,7 @@
         "papers": [
           {
             "title": "Faults in Our Formal Benchmarking: Dataset Defects and Evaluation Failures in Lean Theorem Proving",
-            "url": "",
+            "url": "https://arxiv.org/abs/2606.29493",
             "date": "2026",
             "date_sort": "2026-07-08",
             "venue": "Math-AI Workshop @ NeurIPS",
@@ -310,7 +310,7 @@
           },
           {
             "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
-            "url": "",
+            "url": "https://aclanthology.org/2026.cdl-1.15/",
             "date": "2026",
             "date_sort": "2026-06-12",
             "venue": "arXiv",
@@ -673,7 +673,7 @@
         "papers": [
           {
             "title": "Scaling Self-Supervised Representation Learning for Symbolic Piano Performance",
-            "url": "",
+            "url": "https://arxiv.org/abs/2506.23869",
             "date": "2025",
             "date_sort": "2025-09-21",
             "venue": "ISMIR",
@@ -1035,7 +1035,7 @@
           },
           {
             "title": "Position: Write Code that People Want to Use",
-            "url": "",
+            "url": "https://openreview.net/forum?id=oH0XhgzJt0",
             "date": "2025",
             "date_sort": "2025-07-18",
             "venue": "arXiv",

@@ -13,7 +13,7 @@
   },
   {
     "title": "Faults in Our Formal Benchmarking: Dataset Defects and Evaluation Failures in Lean Theorem Proving",
-    "url": "",
+    "url": "https://arxiv.org/abs/2606.29493",
     "date": "2026",
     "date_sort": "2026-07-08",
     "venue": "ICML",
@@ -25,7 +25,7 @@
   },
   {
     "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
-    "url": "",
+    "url": "https://arxiv.org/abs/2606.06533",
     "date": "2026",
     "date_sort": "2026-07-10",
     "venue": "ICML",
@@ -51,7 +51,7 @@
   },
   {
     "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
-    "url": "",
+    "url": "https://arxiv.org/abs/2606.06533",
     "date": "2026",
     "date_sort": "2026-07-10",
     "venue": "MechInterp Workshop @ ICML",
@@ -63,7 +63,7 @@
   },
   {
     "title": "Automated Attribution Graph Interpretation via Probe Prompting",
-    "url": "",
+    "url": "https://arxiv.org/abs/2511.07002",
     "date": "2026",
     "date_sort": "2026-07-10",
     "venue": "Mechanistic interpretability workshop @ ICML",
@@ -111,7 +111,7 @@
   },
   {
     "title": "Faults in Our Formal Benchmarking: Dataset Defects and Evaluation Failures in Lean Theorem Proving",
-    "url": "",
+    "url": "https://arxiv.org/abs/2606.29493",
     "date": "2026",
     "date_sort": "2026-07-08",
     "venue": "Math-AI Workshop @ NeurIPS",

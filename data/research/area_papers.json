@@ -2,7 +2,7 @@
   "training_dynamics": [
     {
       "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
-      "url": "",
+      "url": "https://arxiv.org/abs/2606.06533",
       "summary": "Training dynamics framing for a science of AI systems.",
       "date": "2026",
       "year": "2026",
@@ -388,7 +388,7 @@
     },
     {
       "title": "Faults in Our Formal Benchmarking: Dataset Defects and Evaluation Failures in Lean Theorem Proving",
-      "url": "",
+      "url": "https://arxiv.org/abs/2606.29493",
       "summary": "",
       "date": "2026",
       "year": "2026",
@@ -418,7 +418,7 @@
     },
     {
       "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
-      "url": "",
+      "url": "https://aclanthology.org/2026.cdl-1.15/",
       "summary": "",
       "date": "2026",
       "year": "2026",
@@ -806,7 +806,7 @@
   "datasets": [
     {
       "title": "Faults in Our Formal Benchmarking: Dataset Defects and Evaluation Failures in Lean Theorem Proving",
-      "url": "",
+      "url": "https://arxiv.org/abs/2606.29493",
       "summary": "",
       "date": "2026",
       "year": "2026",
@@ -826,7 +826,7 @@
     },
     {
       "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
-      "url": "",
+      "url": "https://aclanthology.org/2026.cdl-1.15/",
       "summary": "",
       "date": "2026",
       "year": "2026",
@@ -1080,7 +1080,7 @@
     },
     {
       "title": "Automated Attribution Graph Interpretation via Probe Prompting",
-      "url": "",
+      "url": "https://arxiv.org/abs/2511.07002",
       "summary": "",
       "date": "2026",
       "year": "2026",
@@ -1192,7 +1192,7 @@
   "data_attribution": [
     {
       "title": "Automated Attribution Graph Interpretation via Probe Prompting",
-      "url": "",
+      "url": "https://arxiv.org/abs/2511.07002",
       "summary": "",
       "date": "2026",
       "year": "2026",
@@ -1202,7 +1202,7 @@
     },
     {
       "title": "L1 Influence in L2 Language Models: A Human-centric Approach",
-      "url": "",
+      "url": "https://arxiv.org/abs/2606.14516",
       "summary": "",
       "date": "2026",
       "year": "2026",
@@ -1332,7 +1332,7 @@
     },
     {
       "title": "Scaling Self-Supervised Representation Learning for Symbolic Piano Performance",
-      "url": "",
+      "url": "https://arxiv.org/abs/2506.23869",
       "summary": "",
       "date": "2025",
       "year": "2025",

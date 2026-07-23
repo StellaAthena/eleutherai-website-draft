@@ -38,6 +38,15 @@ AUTHOR_OVERRIDES = {
         "Oskar van der Wal",
     ],
 }
+PAPER_URL_OVERRIDES = {
+    "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics": "https://arxiv.org/abs/2606.06533",
+    "Automated Attribution Graph Interpretation via Probe Prompting": "https://arxiv.org/abs/2511.07002",
+    "Faults in Our Formal Benchmarking: Dataset Defects and Evaluation Failures in Lean Theorem Proving": "https://arxiv.org/abs/2606.29493",
+    "L1 Influence in L2 Language Models: A Human-centric Approach": "https://arxiv.org/abs/2606.14516",
+    "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results": "https://aclanthology.org/2026.cdl-1.15/",
+    "Scaling Self-Supervised Representation Learning for Symbolic Piano Performance": "https://arxiv.org/abs/2506.23869",
+    "Position: Write Code that People Want to Use": "https://openreview.net/forum?id=oH0XhgzJt0",
+}
 AREA_PAPERS_CSV = ROOT / "research_area_papers.csv"
 AREA_FILTERS_CSV = ROOT / "research_area_filters.csv"
 OUTPUT_DIR = ROOT / "data" / "research"
@@ -132,6 +141,11 @@ def display_authors(authors, limit=4):
     if len(surnames) > limit:
         return ", ".join(surnames[:limit]) + ", et al."
     return ", ".join(surnames)
+
+
+def paper_url(row):
+    title = normalize_title(row.get("Title"))
+    return clean_link(row.get("Link")) or PAPER_URL_OVERRIDES.get(title, "")
 
 
 def looks_like_workshop(value):
@@ -328,7 +342,7 @@ def appearance_record(row, raw_venue, date, kind, award_note="", has_separate_wo
         sort_date = datetime(sort_date.year, 1, 1)
     return {
         "title": normalize_title(row.get("Title")),
-        "url": clean_link(row.get("Link")),
+        "url": paper_url(row),
         "date": display_year(paper_date),
         "date_sort": paper_date.strftime("%Y-%m-%d") if paper_date != datetime.min else "",
         "venue": venue,
@@ -446,7 +460,7 @@ def area_paper_record(row, summary="", display_venue=""):
     venue = display_venue or homepage_venue(row)
     return {
         "title": normalize_title(row.get("Title")),
-        "url": clean_link(row.get("Link")),
+        "url": paper_url(row),
         "summary": summary,
         "date": display_year(date),
         "year": str(date.year) if date != datetime.min else "",
@@ -510,7 +524,7 @@ def library_paper_record(row, author_cache):
             areas.append(area)
     return {
         "title": normalize_title(row.get("Title")),
-        "url": clean_link(row.get("Link")),
+        "url": paper_url(row),
         "date": display_year(date),
         "date_sort": date.strftime("%Y-%m-%d") if date != datetime.min else "",
         "venue": venue,
