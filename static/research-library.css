@@ -22,8 +22,8 @@ body:has(.library-page) .site-header a[href*="research"] { color: var(--lib-gree
 .library-entry { display: grid; grid-template-columns: 34px minmax(0, 1fr) 190px; gap: 18px 28px; align-items: start; padding: 25px 0 27px; border-bottom: 1px solid var(--line-soft); }
 .library-entry:last-child { border-bottom: 0; }.library-entry h3 { margin: 0; font-size: 1.08rem; line-height: 1.42; }
 .library-entry { --distinction-color: var(--body); }
-.library-entry--oral { --distinction-color: var(--lib-green); }
-.library-entry--spotlight { --distinction-color: var(--lib-blue); }
+.library-entry--oral { --distinction-color: var(--lib-blue); }
+.library-entry--spotlight { --distinction-color: var(--lib-green); }
 .library-entry--runnerup,
 .library-entry--bestpaper { --distinction-color: #e4bd51; }
 .library-entry-marker { min-height: 24px; padding-top: 1px; font-size: 1.08rem; line-height: 1.4; text-align: center; }
