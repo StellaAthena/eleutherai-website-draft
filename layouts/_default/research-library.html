@@ -60,7 +60,7 @@
               <h2>{{ $year }}</h2>
               <div>
                 {{ range $yearPapers }}
-                  <article class="library-entry"
+                  <article class="library-entry{{ with .marker }} library-entry--{{ . }}{{ end }}"
                     data-title="{{ .title | lower }}"
                     data-year="{{ .date }}"
                     data-venue="{{ .venue | lower }}"
