@@ -60,7 +60,10 @@
               <h2>{{ $year }}</h2>
               <div>
                 {{ range $yearPapers }}
-                  <article class="library-entry{{ with .marker }} library-entry--{{ . }}{{ end }}"
+                  {{ if .url }}<a class="library-entry{{ with .marker }} library-entry--{{ . }}{{ end }}"
+                    href="{{ .url }}" target="_blank" rel="noopener noreferrer"
+                  {{ else }}<article class="library-entry{{ with .marker }} library-entry--{{ . }}{{ end }}"
+                  {{ end }}
                     data-title="{{ .title | lower }}"
                     data-year="{{ .date }}"
                     data-venue="{{ .venue | lower }}"
@@ -80,7 +83,7 @@
                     <div class="library-entry-publication">
                       <p>{{ .venue }}{{ if and .date (not (strings.Contains .venue .date)) }}, {{ .date }}{{ end }}</p>
                     </div>
-                  </article>
+                  {{ if .url }}</a>{{ else }}</article>{{ end }}
                 {{ end }}
               </div>
             </section>

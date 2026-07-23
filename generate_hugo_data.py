@@ -510,6 +510,7 @@ def library_paper_record(row, author_cache):
             areas.append(area)
     return {
         "title": normalize_title(row.get("Title")),
+        "url": clean_link(row.get("Link")),
         "date": display_year(date),
         "date_sort": date.strftime("%Y-%m-%d") if date != datetime.min else "",
         "venue": venue,
