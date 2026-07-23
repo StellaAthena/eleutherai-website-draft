@@ -74,7 +74,8 @@
                     </div>
                     <div class="library-entry-main">
                       <h3>{{ .title }}</h3>
-                      {{ with .superlatives }}<p>{{ delimit . " · " }}</p>{{ end }}
+                      {{ with .authors }}<p class="library-entry-authors">{{ . }}</p>{{ end }}
+                      {{ with .superlatives }}<p class="library-entry-distinction">{{ delimit . " · " }}</p>{{ end }}
                     </div>
                     <div class="library-entry-publication">
                       <p>{{ .venue }}{{ if and .date (not (strings.Contains .venue .date)) }}, {{ .date }}{{ end }}</p>

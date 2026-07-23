@@ -6,6 +6,8 @@ BIND ?= 127.0.0.1
 
 data:
 	python3 generate_hugo_data.py
+	python3 refresh_paper_authors.py
+	python3 generate_hugo_data.py --offline
 
 data-offline:
 	python3 generate_hugo_data.py --offline

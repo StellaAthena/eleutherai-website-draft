@@ -12,6 +12,32 @@ from urllib.request import urlopen
 
 ROOT = Path(__file__).resolve().parent
 PAPERS_CSV = ROOT / "eleutherai_papers_sheet_gid2053751678.csv"
+PAPER_AUTHORS_JSON = ROOT / "data" / "research" / "paper_authors.json"
+AUTHOR_OVERRIDES = {
+    "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics": [
+        "Stella Biderman",
+        "Mohammad Aflah Khan",
+        "Nilofar Mireshghallah",
+        "Catherine Arnett",
+        "Fazl Barez",
+        "Naomi Saphra",
+    ],
+    "Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling": [
+        "Stella Biderman",
+        "Hailey Schoelkopf",
+        "Quentin Anthony",
+        "Herbie Bradley",
+        "Kyle O'Brien",
+        "Eric Hallahan",
+        "Mohammad Aflah Khan",
+        "Shivanshu Purohit",
+        "USVSN Sai Prashanth",
+        "Edward Raff",
+        "Aviya Skowron",
+        "Lintang Sutawika",
+        "Oskar van der Wal",
+    ],
+}
 AREA_PAPERS_CSV = ROOT / "research_area_papers.csv"
 AREA_FILTERS_CSV = ROOT / "research_area_filters.csv"
 OUTPUT_DIR = ROOT / "data" / "research"
@@ -83,6 +109,29 @@ def split_terms(value):
 
 def display_terms(value):
     return [item.strip() for item in (value or "").replace(",", ";").split(";") if item.strip()]
+
+
+def author_surname(name):
+    name = " ".join((name or "").split())
+    if not name:
+        return ""
+    if "," in name:
+        return name.split(",", 1)[0].strip()
+    parts = name.split()
+    surname = parts[-1]
+    particles = {"da", "de", "del", "der", "dos", "la", "le", "van", "von"}
+    index = len(parts) - 2
+    while index >= 0 and parts[index].casefold() in particles:
+        surname = f"{parts[index]} {surname}"
+        index -= 1
+    return surname
+
+
+def display_authors(authors, limit=4):
+    surnames = [author_surname(author) for author in authors if author_surname(author)]
+    if len(surnames) > limit:
+        return ", ".join(surnames[:limit]) + ", et al."
+    return ", ".join(surnames)
 
 
 def looks_like_workshop(value):
@@ -416,7 +465,7 @@ def all_papers(rows):
     return records
 
 
-def library_paper_record(row):
+def library_paper_record(row, author_cache):
     date = pub_date(row)
     venue = homepage_venue(row)
     if venue.casefold().startswith("extended to"):
@@ -451,6 +500,9 @@ def library_paper_record(row):
         marker = "spotlight"
     elif "oral" in distinction_text:
         marker = "oral"
+    sheet_authors = display_terms(row.get("Authors"))
+    title = normalize_title(row.get("Title"))
+    authors = sheet_authors or AUTHOR_OVERRIDES.get(title) or author_cache.get(title, [])
     areas = []
     for field in ("Primary Area", "Additional Area"):
         area = (row.get(field) or "").strip()
@@ -468,14 +520,18 @@ def library_paper_record(row):
         "lead_org": (row.get("Lead Org") or "").strip(),
         "contact": (row.get("EleutherAI PoC") or "").strip(),
         "artifact_type": "Paper",
+        "authors": display_authors(authors),
         "marker": marker,
         "superlatives": superlatives,
     }
 
 
 def library_papers(rows):
+    author_cache = {}
+    if PAPER_AUTHORS_JSON.exists():
+        author_cache = json.loads(PAPER_AUTHORS_JSON.read_text(encoding="utf-8"))
     records = [
-        library_paper_record(row)
+        library_paper_record(row, author_cache)
         for row in rows
         if normalize_title(row.get("Title")) and pub_date(row) != datetime.min
     ]
