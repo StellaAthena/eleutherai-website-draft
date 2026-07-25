@@ -1,42 +1,157 @@
 {{ define "main" }}
 <main>
-  <section class="home-cover" aria-labelledby="hero-title">
-    <div class="wrap">
-      <h1 id="hero-title">EleutherAI</h1>
+  {{ $news := slice }}
+  {{ range where site.RegularPages "Section" "blog" }}
+    {{ $news = $news | append (dict
+      "kind" "Blog"
+      "title" .Title
+      "url" .RelPermalink
+      "date" .Date
+      "dated" true
+      "detail" (.Date.Format "January 2, 2006")
+    ) }}
+  {{ end }}
+  {{ range site.Data.home.manual_news }}
+    {{ $date := time.AsTime "1970-01-01" }}
+    {{ $dated := false }}
+    {{ $detail := "" }}
+    {{ with .date }}
+      {{ $date = time.AsTime . }}
+      {{ $dated = true }}
+      {{ $detail = $date.Format "January 2, 2006" }}
+    {{ end }}
+    {{ $news = $news | append (dict
+      "kind" "News"
+      "title" .title
+      "url" .url
+      "date" $date
+      "dated" $dated
+      "detail" $detail
+    ) }}
+  {{ end }}
+
+  {{ $latest := slice }}
+  {{ range first 2 site.Data.research.homepage_papers }}
+    {{ $detail := delimit (slice .venue .date) ", " }}
+    {{ $latest = $latest | append (dict
+      "kind" "Paper"
+      "title" .title
+      "url" .url
+      "detail" $detail
+    ) }}
+  {{ end }}
+  {{ range first 2 (sort $news "date" "desc") }}
+    {{ $latest = $latest | append . }}
+  {{ end }}
+  {{ $generatedMetrics := dict }}
+  {{ with site.Data.home_generated_metrics.metrics }}
+    {{ $generatedMetrics = . }}
+  {{ end }}
+
+  <section class="home-current-hero" aria-labelledby="hero-title">
+    <div class="wrap home-current-layout">
+      <div class="home-current-copy">
+        <h1 id="hero-title">What EleutherAI is working on now.</h1>
+        <p>We build open research infrastructure and use it to study evaluation, interpretability, training dynamics, and safety in foundation models.</p>
+        <div class="home-metric-strip" aria-label="EleutherAI impact metrics">
+          {{ range site.Data.home.metric_rows }}
+            <div class="home-metric-row">
+              {{ range . }}
+                {{ $value := .value }}
+                {{ $url := .url }}
+                {{ with .source }}
+                  {{ with index $generatedMetrics . }}
+                    {{ with .value }}{{ $value = . }}{{ end }}
+                    {{ with .url }}{{ $url = . }}{{ end }}
+                  {{ end }}
+                {{ end }}
+                {{ $emptyClass := cond (not $value) " is-empty" "" }}
+                {{ if $url }}
+                  <a class="home-metric{{ $emptyClass }}" href="{{ $url }}" target="_blank" rel="noopener noreferrer">
+                    <strong>{{ $value }}</strong>
+                    <span>{{ .label }}</span>
+                  </a>
+                {{ else }}
+                  <div class="home-metric{{ $emptyClass }}">
+                    <strong>{{ $value }}</strong>
+                    <span>{{ .label }}</span>
+                  </div>
+                {{ end }}
+              {{ end }}
+            </div>
+          {{ end }}
+        </div>
+      </div>
+
+      <aside class="home-latest-panel" aria-labelledby="latest-title">
+        <h2 id="latest-title">Latest</h2>
+        <div class="home-latest-list">
+          {{ range first 4 $latest }}
+            <article class="home-latest-item">
+              <span>{{ .kind }}</span>
+              <h3>
+                {{ if .url }}
+                  <a href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .title }}</a>
+                {{ else }}
+                  {{ .title }}
+                {{ end }}
+              </h3>
+              {{ with .detail }}<p>{{ . }}</p>{{ end }}
+            </article>
+          {{ end }}
+        </div>
+      </aside>
     </div>
   </section>
 
-  <section class="section home-stack" aria-labelledby="projects-title">
+  <section class="section home-current-section" aria-labelledby="current-research-title">
     <div class="wrap">
-      <div class="home-main-layout">
-        <div class="home-main-column">
-          <h2 id="projects-title">Featured work</h2>
-          <div class="home-project-grid">
-            {{ range site.Data.home.projects }}
-              <article class="home-project-card">
-                {{ if .url }}<a href="{{ .url | relURL }}" aria-label="{{ .title }}">{{ end }}
-                  <img src="{{ .image }}" alt="{{ .title }}">
-                {{ if .url }}</a>{{ end }}
-                <h3>{{ if .url }}<a href="{{ .url | relURL }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
-                <p>{{ .text }}</p>
-              </article>
-            {{ end }}
-          </div>
+      <div class="home-section-head">
+        <h2 id="current-research-title">Current research</h2>
+      </div>
 
-          <h2 id="publications-title">Recent Publications</h2>
-          {{ partial "publication-groups.html" (dict "groups" site.Data.research.homepage_paper_groups "initialCount" 10 "stepCount" 20) }}
-        </div>
+      <div class="home-priority-grid">
+        {{ range site.Data.home.priorities }}
+          <article class="home-priority-card is-{{ .accent }}">
+            <div class="home-priority-top">
+              <h3>{{ .title }}</h3>
+              <span>{{ .tag }}</span>
+            </div>
+            <p>{{ .text }}</p>
+            <div class="home-priority-latest">
+              <strong>Latest</strong>
+              <span>{{ .latest }}</span>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
 
-        <aside class="home-news-sidebar" aria-labelledby="news-title">
-          <h2 id="news-title">News</h2>
-          <div class="news-list">
-            {{ range site.Data.home.news }}
-              <article class="news-list-item">
-                <h3><a href="{{ .url | relURL }}">{{ .title }}</a></h3>
-              </article>
-            {{ end }}
-          </div>
-        </aside>
+  <section class="section home-output-section" aria-labelledby="outputs-title">
+    <div class="wrap home-output-layout">
+      <h2 id="outputs-title">Recent outputs</h2>
+      <div class="home-output-list">
+        {{ range site.Data.home.recent_outputs }}
+          <article class="home-output-row">
+            <span>{{ .kind }}</span>
+            <h3>{{ .title }}</h3>
+            <p>{{ .meta }}</p>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-community-section" aria-labelledby="community-title">
+    <div class="wrap home-community-layout">
+      <div>
+        <h2 id="community-title">Research in the open</h2>
+        <p>EleutherAI operates through a public research community where staff, volunteers, and external collaborators discuss projects, share artifacts, and coordinate work.</p>
+      </div>
+      <div class="home-community-actions">
+        <a class="button primary" href="{{ "community.html" | relURL }}">Join the community</a>
+        <a class="button" href="{{ "research.html" | relURL }}">Explore research</a>
       </div>
     </div>
   </section>

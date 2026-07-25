@@ -1,0 +1,16 @@
+{
+  "metrics": [
+    {
+      "value": "57,700",
+      "label": "Citations",
+      "url": "https://scholar.google.com/citations?user=to2WKckAAAAJ&hl=en"
+    }
+  ],
+  "citations": 57706,
+  "rounded_citations": 57700,
+  "source_url": "https://scholar.google.com/citations?user=to2WKckAAAAJ&hl=en",
+  "fetched_at": "2026-07-25T12:16:37",
+  "status": "cached-offline",
+  "error": "",
+  "last_attempt_at": "2026-07-25T12:16:37"
+}

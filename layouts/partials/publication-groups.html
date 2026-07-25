@@ -8,14 +8,16 @@
       <div class="publication-group-heading">
         <h3>{{ .family }}</h3>
         {{ with .year }}<time>{{ . }}</time>{{ end }}
-        <span aria-label="Publication count: {{ .count }}">{{ .count }}</span>
+        {{ $groupCount := int .count }}
+        <span aria-label="Publication count: {{ $groupCount }}">{{ $groupCount }} {{ if eq $groupCount 1 }}paper{{ else }}papers{{ end }}</span>
       </div>
       <div class="publication-venues">
         {{ range .venues }}
           <section class="publication-venue is-{{ .kind }}" data-publication-venue>
             <div class="publication-venue-heading">
               <h4>{{ .label }}</h4>
-              <span aria-label="Track publication count: {{ .count }}">{{ .count }}</span>
+              {{ $venueCount := int .count }}
+              <span aria-label="Track publication count: {{ $venueCount }}">{{ $venueCount }} {{ if eq $venueCount 1 }}paper{{ else }}papers{{ end }}</span>
             </div>
             <div class="publication-group-items">
               {{ range .papers }}

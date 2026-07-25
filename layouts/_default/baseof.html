@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ if .IsHome }}EleutherAI{{ else }}{{ .Title }} | EleutherAI{{ end }}</title>
-  <link rel="stylesheet" href="{{ "site-page.css" | relURL }}">
+  <link rel="stylesheet" href="{{ printf "site-page.css?v=%d" now.Unix | relURL }}">
 </head>
 <body>
   {{ partial "header.html" . }}

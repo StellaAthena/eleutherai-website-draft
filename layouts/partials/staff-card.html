@@ -10,8 +10,8 @@
   </div>
   <h2>{{ .name }}</h2>
   {{ with .title }}<p class="staff-title">{{ . }}</p>{{ end }}
-  <div class="staff-link-line">
-    {{ with .scholar_url }}
+  {{ with .scholar_url }}
+    <div class="staff-link-line">
       <a class="staff-scholar-link" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar">
         <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
           <path class="scholar-cap" d="M1.5 8.35 12 2l10.5 6.35L12 14.7 1.5 8.35Z"/>
@@ -20,6 +20,6 @@
           <circle class="scholar-tassel-dot" cx="21" cy="16.9" r="1.1"/>
         </svg>
       </a>
-    {{ end }}
-  </div>
+    </div>
+  {{ end }}
 </article>

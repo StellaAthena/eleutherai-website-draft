@@ -5,7 +5,6 @@
   <section class="hero">
     <div class="wrap">
       <h1>Research notes, announcements, and technical essays.</h1>
-      <p class="lede">Long-form technical notes, release announcements, and essays from EleutherAI researchers and collaborators.</p>
     </div>
   </section>
 
@@ -13,7 +12,6 @@
     <div class="wrap">
       <div class="section-head">
         <div><h2>Latest posts</h2></div>
-        <p class="section-intro">Research notes, release writeups, policy commentary, and community updates from EleutherAI researchers and collaborators.</p>
       </div>
       <div class="grid">
         {{ range first 3 $posts }}
@@ -32,7 +30,6 @@
     <div class="wrap">
       <div class="section-head">
         <div><h2>Recent archive</h2></div>
-        <p class="section-intro">Browse recent posts from the EleutherAI archive, including research notes, release writeups, policy commentary, and community updates.</p>
       </div>
       <div class="artifact-table blog-list">
         {{ range after 3 (first 18 $posts) }}
