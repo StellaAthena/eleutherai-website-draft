@@ -744,7 +744,7 @@ def read_scholar_metric_cache():
         return None
 
 
-def scholar_metric_payload(citations, status, error=""):
+def scholar_metric_payload(citations):
     rounded_citations = round_to_nearest(citations, 100)
     return {
         "metrics": [
@@ -757,21 +757,14 @@ def scholar_metric_payload(citations, status, error=""):
         "citations": citations,
         "rounded_citations": rounded_citations,
         "source_url": SCHOLAR_PROFILE_URL,
-        "fetched_at": datetime.now().replace(microsecond=0).isoformat(),
-        "status": status,
-        "error": error,
     }
 
 
-def unavailable_scholar_metric_payload(status, error=""):
+def unavailable_scholar_metric_payload():
     return {
         "metrics": [],
         "citations": None,
         "source_url": SCHOLAR_PROFILE_URL,
-        "fetched_at": "",
-        "last_attempt_at": datetime.now().replace(microsecond=0).isoformat(),
-        "status": status,
-        "error": error,
     }
 
 
@@ -780,15 +773,9 @@ def write_scholar_metrics(offline=False):
     if offline:
         cached = read_scholar_metric_cache()
         if cached and cached.get("metrics"):
-            if cached.get("citations") is not None:
-                cached = scholar_metric_payload(cached["citations"], "cached-offline")
-            cached["status"] = "cached-offline"
-            cached["last_attempt_at"] = datetime.now().replace(microsecond=0).isoformat()
-            cached["error"] = ""
-            SCHOLAR_METRICS_PATH.write_text(json.dumps(cached, indent=2) + "\n", encoding="utf-8")
             print("Using cached Google Scholar citation count")
             return cached
-        payload = unavailable_scholar_metric_payload("unavailable-offline")
+        payload = unavailable_scholar_metric_payload()
         SCHOLAR_METRICS_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
         print("No cached Google Scholar citation count available")
         return payload
@@ -798,20 +785,14 @@ def write_scholar_metrics(offline=False):
     except Exception as exc:
         cached = read_scholar_metric_cache()
         if cached and cached.get("metrics"):
-            if cached.get("citations") is not None:
-                cached = scholar_metric_payload(cached["citations"], "cached", str(exc))
-            cached["status"] = "cached"
-            cached["last_attempt_at"] = datetime.now().replace(microsecond=0).isoformat()
-            cached["error"] = str(exc)
-            SCHOLAR_METRICS_PATH.write_text(json.dumps(cached, indent=2) + "\n", encoding="utf-8")
             print("Google Scholar refresh failed; using cached citation count")
             return cached
-        payload = unavailable_scholar_metric_payload("unavailable", str(exc))
+        payload = unavailable_scholar_metric_payload()
         SCHOLAR_METRICS_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
         print("Google Scholar refresh failed; citation metric omitted")
         return payload
 
-    payload = scholar_metric_payload(citations, "fresh")
+    payload = scholar_metric_payload(citations)
     SCHOLAR_METRICS_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print("Refreshed Google Scholar citation count")
     return payload
@@ -849,13 +830,8 @@ def write_home_generated_metrics(rows, scholar_payload):
             "rounded_count": scholar_payload.get("rounded_citations"),
             "source": scholar_payload.get("source_url", ""),
             "rounded_to": 100,
-            "status": scholar_payload.get("status", ""),
-            "fetched_at": scholar_payload.get("fetched_at", ""),
         }
-    payload = {
-        "metrics": metrics,
-        "generated_at": datetime.now().replace(microsecond=0).isoformat(),
-    }
+    payload = {"metrics": metrics}
     HOME_GENERATED_METRICS_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
 
 

@@ -25,13 +25,13 @@ metric_rows:
       value: "70M"
       label: "Model downloads"
   - - key: "research_collaborators"
-      value: ""
+      value: "120"
       label: "Research collaborators"
     - key: "discord_members"
       value: ""
       label: "Discord members"
     - key: "countries"
-      value: ""
+      value: "30"
       label: "Countries"
 
 priorities:
