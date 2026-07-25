@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import csv
+from html.parser import HTMLParser
 import json
 import re
 import sys
@@ -7,7 +8,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.error import URLError
 from urllib.parse import urlencode, urlsplit, urlunsplit
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 
 ROOT = Path(__file__).resolve().parent
@@ -50,6 +51,8 @@ PAPER_URL_OVERRIDES = {
 AREA_PAPERS_CSV = ROOT / "research_area_papers.csv"
 AREA_FILTERS_CSV = ROOT / "research_area_filters.csv"
 OUTPUT_DIR = ROOT / "data" / "research"
+SCHOLAR_METRICS_PATH = ROOT / "data" / "home_scholar_metrics.json"
+HOME_GENERATED_METRICS_PATH = ROOT / "data" / "home_generated_metrics.json"
 HOMEPAGE_PAPER_LIMIT = 10
 HOMEPAGE_GROUPED_PAPER_LIMIT = 30
 WORKSHOP_SORT_OFFSET_DAYS = 7
@@ -72,6 +75,40 @@ PAPERS_SHEET_CSV_URL = (
     "https://docs.google.com/spreadsheets/d/"
     "14amb2CM9nVQR_-ZqpGuNPSSdMxsAk0YEoAvetgEyGRw/export?format=csv&gid=2053751678"
 )
+SCHOLAR_PROFILE_URL = "https://scholar.google.com/citations?user=to2WKckAAAAJ&hl=en"
+SCHOLAR_USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+)
+
+
+class ScholarStatsParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.in_stats_table = False
+        self.depth = 0
+        self.cells = []
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "table" and attrs.get("id") == "gsc_rsb_st":
+            self.in_stats_table = True
+            self.depth = 1
+            return
+        if self.in_stats_table:
+            self.depth += 1
+
+    def handle_endtag(self, tag):
+        if self.in_stats_table:
+            self.depth -= 1
+            if self.depth <= 0:
+                self.in_stats_table = False
+
+    def handle_data(self, data):
+        if self.in_stats_table:
+            text = " ".join(data.split())
+            if text:
+                self.cells.append(text)
 
 
 def parse_date(value):
@@ -88,6 +125,10 @@ def display_year(date):
     if date == datetime.min:
         return ""
     return str(date.year)
+
+
+def round_to_nearest(value, unit):
+    return int(round(value / unit) * unit)
 
 
 def first_valid_date(*dates):
@@ -668,6 +709,156 @@ def area_papers(rows):
     return records
 
 
+def extract_scholar_citations(html):
+    parser = ScholarStatsParser()
+    parser.feed(html)
+    cells = parser.cells
+    for index, cell in enumerate(cells):
+        if cell.casefold() != "citations":
+            continue
+        for candidate in cells[index + 1 : index + 3]:
+            if re.fullmatch(r"[\d,]+", candidate):
+                return int(candidate.replace(",", ""))
+    raise ValueError("Could not find total citations in Google Scholar stats table.")
+
+
+def fetch_scholar_citations():
+    request = Request(
+        SCHOLAR_PROFILE_URL,
+        headers={
+            "User-Agent": SCHOLAR_USER_AGENT,
+            "Accept-Language": "en-US,en;q=0.9",
+        },
+    )
+    with urlopen(request, timeout=20) as response:
+        html = response.read().decode("utf-8", "replace")
+    return extract_scholar_citations(html)
+
+
+def read_scholar_metric_cache():
+    if not SCHOLAR_METRICS_PATH.exists():
+        return None
+    try:
+        return json.loads(SCHOLAR_METRICS_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def scholar_metric_payload(citations, status, error=""):
+    rounded_citations = round_to_nearest(citations, 100)
+    return {
+        "metrics": [
+            {
+                "value": f"{rounded_citations:,}",
+                "label": "Citations",
+                "url": SCHOLAR_PROFILE_URL,
+            }
+        ],
+        "citations": citations,
+        "rounded_citations": rounded_citations,
+        "source_url": SCHOLAR_PROFILE_URL,
+        "fetched_at": datetime.now().replace(microsecond=0).isoformat(),
+        "status": status,
+        "error": error,
+    }
+
+
+def unavailable_scholar_metric_payload(status, error=""):
+    return {
+        "metrics": [],
+        "citations": None,
+        "source_url": SCHOLAR_PROFILE_URL,
+        "fetched_at": "",
+        "last_attempt_at": datetime.now().replace(microsecond=0).isoformat(),
+        "status": status,
+        "error": error,
+    }
+
+
+def write_scholar_metrics(offline=False):
+    SCHOLAR_METRICS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    if offline:
+        cached = read_scholar_metric_cache()
+        if cached and cached.get("metrics"):
+            if cached.get("citations") is not None:
+                cached = scholar_metric_payload(cached["citations"], "cached-offline")
+            cached["status"] = "cached-offline"
+            cached["last_attempt_at"] = datetime.now().replace(microsecond=0).isoformat()
+            cached["error"] = ""
+            SCHOLAR_METRICS_PATH.write_text(json.dumps(cached, indent=2) + "\n", encoding="utf-8")
+            print("Using cached Google Scholar citation count")
+            return cached
+        payload = unavailable_scholar_metric_payload("unavailable-offline")
+        SCHOLAR_METRICS_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+        print("No cached Google Scholar citation count available")
+        return payload
+
+    try:
+        citations = fetch_scholar_citations()
+    except Exception as exc:
+        cached = read_scholar_metric_cache()
+        if cached and cached.get("metrics"):
+            if cached.get("citations") is not None:
+                cached = scholar_metric_payload(cached["citations"], "cached", str(exc))
+            cached["status"] = "cached"
+            cached["last_attempt_at"] = datetime.now().replace(microsecond=0).isoformat()
+            cached["error"] = str(exc)
+            SCHOLAR_METRICS_PATH.write_text(json.dumps(cached, indent=2) + "\n", encoding="utf-8")
+            print("Google Scholar refresh failed; using cached citation count")
+            return cached
+        payload = unavailable_scholar_metric_payload("unavailable", str(exc))
+        SCHOLAR_METRICS_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+        print("Google Scholar refresh failed; citation metric omitted")
+        return payload
+
+    payload = scholar_metric_payload(citations, "fresh")
+    SCHOLAR_METRICS_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    print("Refreshed Google Scholar citation count")
+    return payload
+
+
+def publication_metric_payload(rows):
+    titles = {
+        normalize_title(row.get("Title"))
+        for row in rows
+        if normalize_title(row.get("Title")) and pub_date(row) != datetime.min
+    }
+    count = len(titles)
+    rounded_count = round_to_nearest(count, 10)
+    return {
+        "value": f"{rounded_count:,}",
+        "label": "Publications",
+        "count": count,
+        "rounded_count": rounded_count,
+        "source": "papers_sheet_pub_date",
+        "rounded_to": 10,
+    }
+
+
+def write_home_generated_metrics(rows, scholar_payload):
+    metrics = {
+        "publication_count": publication_metric_payload(rows),
+    }
+    if scholar_payload.get("metrics"):
+        metric = scholar_payload["metrics"][0]
+        metrics["scholar_citations"] = {
+            "value": metric["value"],
+            "label": metric["label"],
+            "url": metric.get("url", ""),
+            "count": scholar_payload.get("citations"),
+            "rounded_count": scholar_payload.get("rounded_citations"),
+            "source": scholar_payload.get("source_url", ""),
+            "rounded_to": 100,
+            "status": scholar_payload.get("status", ""),
+            "fetched_at": scholar_payload.get("fetched_at", ""),
+        }
+    payload = {
+        "metrics": metrics,
+        "generated_at": datetime.now().replace(microsecond=0).isoformat(),
+    }
+    HOME_GENERATED_METRICS_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+
 def write_json(name, data):
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     path = OUTPUT_DIR / name
@@ -678,6 +869,8 @@ def main():
     offline = "--offline" in sys.argv[1:]
     refresh_papers_csv(require_refresh=not offline)
     rows = read_papers()
+    scholar_payload = write_scholar_metrics(offline=offline)
+    write_home_generated_metrics(rows, scholar_payload)
     papers = all_papers(rows)
     per_area = area_papers(rows)
     write_json("papers.json", papers)
