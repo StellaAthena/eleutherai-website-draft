@@ -1,0 +1,125 @@
+{{ define "main" }}
+{{ $papers := index site.Data.research.area_papers "evaluation" | default slice }}
+{{ $programs := slice
+  (dict
+    "title" "Evaluation infrastructure"
+    "text" "Reliable measurement starts with shared implementations. The Language Model Evaluation Harness makes prompts, metrics, model adapters, and task configurations inspectable and repeatable across local models and APIs."
+    "works" (slice "Language Model Evaluation Harness" "Every Eval Ever"))
+  (dict
+    "title" "Evaluating evaluations"
+    "text" "Benchmarks are measurement instruments, and they degrade. We study saturation, defective items, hidden subgroup behavior, contamination, and the assumptions that turn a collection of scores into a claim about model capability."
+    "works" (slice "When AI Benchmarks Plateau" "Evaluation Cards"))
+  (dict
+    "title" "Community-scale measurement"
+    "text" "Evaluation evidence is scattered across papers, leaderboards, model cards, and private reports. We work with the EvalEval Coalition to build shared schemas and interpretive infrastructure for comparing results across organizations."
+    "works" (slice "Evaluation Cards" "Every Eval Ever"))
+  (dict
+    "title" "Public-interest evaluation"
+    "text" "Technical benchmarks cover only part of a system's impact. We examine who evaluates social consequences, which concerns are absent from model reporting, and how independent third-party evaluation can support oversight."
+    "works" (slice "Who Evaluates AI's Social Impacts?" "Who Measures What Matters?"))
+}}
+<main class="eval-page">
+  <section class="eval-hero">
+    <div class="wrap">
+      <nav class="eval-breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ "research.html" | relURL }}">Research</a>
+        <span aria-hidden="true">/</span>
+        <span>Evaluation</span>
+      </nav>
+      <h1>Evaluation</h1>
+      <p>{{ .Params.lede }}</p>
+      <div class="eval-actions">
+        <a class="button primary" href="#publications">Browse publications</a>
+        <a class="eval-text-link" href="https://evalevalai.com/" target="_blank" rel="noopener noreferrer">Visit EvalEval Coalition <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="eval-thesis">
+    <div class="wrap eval-split">
+      <h2>Measurement is part of the science.</h2>
+      <div class="eval-prose">
+        <p>Evaluations do not merely report model quality. They define what progress looks like, which failures remain visible, and which deployment claims appear justified. A result is only as trustworthy as the benchmark, implementation, reporting, and interpretation that produced it.</p>
+        <p>Our work spans that entire chain. We build open evaluation infrastructure, diagnose when benchmarks stop measuring what researchers think they measure, and develop reporting systems that preserve the context flattened away by a single score.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="eval-programs">
+    <div class="wrap">
+      <h2>Our research</h2>
+      <div class="eval-program-list">
+        {{ range $programs }}
+          <article class="eval-program">
+            <h3>{{ .title }}</h3>
+            <p>{{ .text }}</p>
+            <p class="eval-work">{{ delimit .works " · " }}</p>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="eval-coalition">
+    <div class="wrap eval-coalition-grid">
+      <div>
+        <h2>EvalEval Coalition</h2>
+        <p class="eval-coalition-lede">A research community developing scientifically grounded research and robust infrastructure for broader-impact evaluations.</p>
+      </div>
+      <div class="eval-coalition-copy">
+        <p>EleutherAI sponsors the independent EvalEval Coalition, where EleutherAI researchers help lead work on evaluation reporting, benchmark quality, and the structure of the evaluation ecosystem. Stella Biderman serves on its steering committee.</p>
+        <p>Evaluation Cards and Every Eval Ever turn fragmented public results into evidence that can be examined for reproducibility, completeness, provenance, and comparability.</p>
+        <div class="eval-coalition-links">
+          <a href="https://evalevalai.com/" target="_blank" rel="noopener noreferrer">Coalition website <span aria-hidden="true">&#8599;</span></a>
+          <a href="https://evalevalai.com/infrastructure/2026/06/09/evaluation-cards-launch/" target="_blank" rel="noopener noreferrer">Evaluation Cards <span aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="eval-principles">
+    <div class="wrap">
+      <h2>What trustworthy evaluation requires</h2>
+      <div class="eval-principle-grid">
+        <article>
+          <h3>Reproducibility</h3>
+          <p>Enough information to run the evaluation again and understand disagreements between reported results.</p>
+        </article>
+        <article>
+          <h3>Validity</h3>
+          <p>Evidence that the benchmark measures its intended construct rather than contamination, shortcuts, or incidental properties.</p>
+        </article>
+        <article>
+          <h3>Interpretability</h3>
+          <p>Results reported with the context, disaggregation, limitations, and provenance needed to support a defensible claim.</p>
+        </article>
+        <article>
+          <h3>Coverage</h3>
+          <p>Measurement that includes languages, communities, social impacts, and failure modes omitted by standard capability suites.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="eval-publications" id="publications">
+    <div class="wrap">
+      <div class="eval-publications-head">
+        <h2>Publications</h2>
+        <p>{{ len $papers }} papers, newest first</p>
+      </div>
+      <div class="eval-paper-list">
+        {{ range $papers }}
+          <article class="eval-paper">
+            <p class="eval-paper-year">{{ .date }}</p>
+            <div>
+              <h3>{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
+              <p>{{ .venue }}{{ range .superlatives }}<span>{{ . }}</span>{{ end }}</p>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+</main>
+{{ end }}
+{{ define "page_styles" }}<link rel="stylesheet" href="{{ printf "evaluation.css?v=%d" now.Unix | relURL }}">{{ end }}

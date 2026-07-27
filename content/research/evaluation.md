@@ -1,7 +1,7 @@
 ---
 title: "Evaluation"
-lede: "Measuring model capabilities, limitations, failures, and benchmark behavior."
-layout: research-area
+lede: "We build measurement systems that make model behavior reproducible, interpretable, and useful for scientific and public decisions."
+layout: evaluation
 url: /research-evaluation.html
 area_key: evaluation
 draft: true
