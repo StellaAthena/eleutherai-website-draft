@@ -1,34 +1,23 @@
 model_training:
   overview:
-    title: "Models as public scientific objects"
-    intro: "We train and release models so that researchers can study not only what a system can do, but how it came to do it."
+    title: "Open model development"
+    intro: "Model Training covers the practice and science of training language models in ways that other researchers can inspect, reproduce, and build on."
     paragraphs:
-      - "A useful open model is more than a set of final weights. It includes the code, data decisions, intermediate checkpoints, evaluation traces, and documentation needed to reproduce the training process and investigate its consequences. Pythia made this principle concrete by releasing 16 models across eight scales, with 154 checkpoints per model and recoverable data order. PolyPythias extends that controlled setting across many random seeds, making stability and outlier runs objects of study rather than invisible variance."
-      - "Our model-training research also asks how large-scale training can become more efficient and accessible without narrowing the scientific questions we can ask. Work on ReLoRA, rapid attention distillation, continual pretraining, and GPT-NeoX explores alternative optimization methods, architectures, and training systems. The aim is not simply to produce another model release: it is to improve the experimental infrastructure through which the broader community can test claims about scaling, data, and learning."
-  questions:
-    title: "What we study"
-    intro: "We treat training decisions as experimental variables, not implementation details."
-    items:
-      - title: "What makes a release scientifically useful?"
-        text: "We study which artifacts must be preserved so independent researchers can reconstruct training, compare checkpoints, audit data choices, and distinguish robust findings from one-off outcomes."
-      - title: "How stable is pretraining?"
-        text: "Repeated runs reveal which behaviors persist across seeds, scales, and data orders, and which apparent discoveries depend on an unusually lucky or pathological trajectory."
-      - title: "Can large models be trained more efficiently?"
-        text: "We test optimization and architecture changes that reduce memory or computation while retaining the capacity and experimental control needed for serious model research."
+      - "This area includes large-scale pretraining, scaling experiments, open checkpoints, model release practices, and the engineering work needed to make trained models useful research artifacts."
   projects:
-    title: "Research infrastructure"
-    intro: "These projects provide the controlled models and training systems behind much of our empirical work."
+    title: "Projects connected to Model Training"
+    intro: "These projects are connected to open model development and model release."
     items:
       - title: "Pythia"
-        text: "A suite of models, checkpoints, training data, and reconstruction tools designed for controlled study across training and scale."
+        text: "A suite of language models and checkpoints designed for studying training and scaling."
         url: "project-pythia.html"
       - title: "GPT-NeoX"
-        text: "An open large-scale training library developed to make high-performance language-model training available outside a small number of proprietary labs."
-      - title: "PolyPythias"
-        text: "Fifty pretraining runs across model sizes and random seeds, supporting research on stability, phase transitions, and anomalous runs."
+        text: "A large-scale training framework used for open language model research."
+      - title: "Open model releases"
+        text: "Model releases that make training decisions, artifacts, and downstream analysis available to the research community."
   related:
-    title: "Connected research"
-    intro: "Model training supplies the experimental systems used throughout our research."
+    title: "Related areas"
+    intro: "Model training connects directly to data, evaluation, and training dynamics."
     areas:
       - title: "Training Dynamics"
         url: "research-training-dynamics.html"
@@ -41,34 +30,21 @@ model_training:
 
 evaluation:
   overview:
-    title: "Measurement is part of the science"
-    intro: "Evaluations do not merely report model quality. They define what progress looks like, which failures remain visible, and which deployment claims appear justified."
+    title: "Measuring model behavior"
+    intro: "Evaluation research studies how to measure models, how benchmarks fail, and how evaluation practices shape claims about progress."
     paragraphs:
-      - "Our evaluation research examines the full measurement pipeline: task construction, implementation, aggregation, reporting, and interpretation. The Language Model Evaluation Harness made reproducible evaluation infrastructure broadly available; newer work asks what evaluation results actually support. Benchmark-saturation studies show that many widely used tests lose discriminative power over time, while benchmark disaggregation reveals learning patterns hidden by a single average score."
-      - "We also study the institutional and interpretive layers around evaluation. Evaluation Cards make assumptions, evidence, and intended uses explicit; Every Eval Ever develops shared structure for results that are otherwise difficult to compare; work on social-impact evaluations asks whose concerns are represented in model reporting. Across these projects, the goal is to replace leaderboard numerology with measurements that remain legible, contestable, and useful for scientific and public decisions."
-  questions:
-    title: "What makes an evaluation trustworthy?"
-    intro: "A score is useful only when we understand what produced it and what conclusions it can bear."
-    items:
-      - title: "Does the benchmark still discriminate?"
-        text: "We measure saturation, item defects, contamination, and hidden subgroup behavior that can make apparently precise scores scientifically misleading."
-      - title: "Can results be reproduced and compared?"
-        text: "We build shared implementations and reporting schemas so differences between models are not confounded with undocumented prompts, code paths, or aggregation choices."
-      - title: "Are we measuring what matters?"
-        text: "We study gaps between technical capability tests, social-impact claims, cultural coverage, and the real decisions evaluations are used to support."
+      - "This area includes benchmark design, evaluation reporting, reproducibility, benchmark contamination, social impact evaluation, and tools for comparing model behavior."
   projects:
-    title: "Evaluation systems"
-    intro: "Our infrastructure and reporting work makes evaluation easier to run and harder to misinterpret."
+    title: "Projects connected to Evaluation"
+    intro: "These projects make model evaluation more reproducible and interpretable."
     items:
       - title: "Language Model Evaluation Harness"
-        text: "A widely used open framework for reproducible evaluation across model APIs, local models, tasks, and prompting formats."
-      - title: "Every Eval Ever"
-        text: "A shared schema and community repository intended to make evaluation results portable, comparable, and reusable."
-      - title: "Evaluation Cards"
-        text: "An interpretive reporting layer that documents what an evaluation measures, how evidence was produced, and where its conclusions should stop."
+        text: "Shared infrastructure for evaluating language models across tasks and settings."
+      - title: "Evaluation reporting"
+        text: "Work on schemas, cards, and repositories that make evaluation results easier to interpret."
   related:
-    title: "Connected research"
-    intro: "Evaluation connects empirical model science to claims about safety, capability, and progress."
+    title: "Related areas"
+    intro: "Evaluation work connects to model training, datasets, and safety."
     areas:
       - title: "Model Training"
         url: "research-model-training.html"
@@ -79,34 +55,21 @@ evaluation:
 
 multilingual:
   overview:
-    title: "Language models are not language-neutral"
-    intro: "We study how data, tokenization, training order, and evaluation shape model behavior across languages and scripts."
+    title: "Language coverage and representation"
+    intro: "Multilingual research studies how language models work across languages, scripts, and language communities."
     paragraphs:
-      - "Multilingual performance cannot be reduced to translating an English benchmark. Languages differ in morphology, writing systems, available data, cultural knowledge, and the communities that can evaluate model behavior. Work on Korean benchmarks and models, multilingual summarization, code-mixed generation, and physical commonsense across languages builds evaluation around those differences rather than treating English as the universal reference case."
-      - "We also study how multilingual representations form. Controlled bilingual training experiments ask when a model trained on one language reuses grammatical structure for another and how the order and mixture of exposure affect transfer. Work on script-aware pretokenization shows that even the first stage of a text pipeline can introduce systematic cross-lingual failures. Together, these projects connect model internals to practical design choices about corpora, tokenizers, and evaluation."
-  questions:
-    title: "What multilingual systems must account for"
-    intro: "Coverage is not enough; we want to understand the mechanisms and design choices behind it."
-    items:
-      - title: "When do languages share representations?"
-        text: "Controlled training reveals when grammatical structure transfers across languages and when models instead maintain language-specific solutions."
-      - title: "Where does the pipeline create inequity?"
-        text: "We examine tokenization, web-data quality, corpus balance, and benchmark construction as distinct sources of uneven model performance."
-      - title: "How should multilingual ability be evaluated?"
-        text: "Language-specific knowledge, morphology, culture, code-mixing, and summarization require evaluations designed with the target language rather than mechanically translated into it."
+      - "This area includes multilingual data, tokenization, code-mixing, cross-lingual evaluation, and the limits of English-centric model development."
   projects:
-    title: "Multilingual resources"
-    intro: "Our work combines models, corpora, and evaluations for languages that are poorly served by English-centric infrastructure."
+    title: "Projects connected to Multilingual Research"
+    intro: "These projects focus on language coverage, multilingual data, and multilingual evaluation."
     items:
-      - title: "Polyglot-Ko"
-        text: "A family of openly released Korean language models developed alongside analysis of large-scale Korean pretraining."
-      - title: "BLOOM and ROOTS"
-        text: "A multilingual open model and its documented training corpus, created through the BigScience collaboration."
-      - title: "Korean evaluation suites"
-        text: "HAE-RAE Bench and KMMLU test culturally grounded knowledge and broad multitask understanding in Korean."
+      - title: "Multilingual datasets"
+        text: "Dataset work that improves coverage, documentation, and quality across languages."
+      - title: "Multilingual evaluation"
+        text: "Benchmarks and analyses for measuring model behavior outside English-only settings."
   related:
-    title: "Connected research"
-    intro: "Multilingual research depends on data quality, evaluation design, and controlled training."
+    title: "Related areas"
+    intro: "Multilingual work is closely tied to datasets and evaluation."
     areas:
       - title: "Datasets"
         url: "research-datasets.html"
@@ -117,34 +80,23 @@ multilingual:
 
 datasets:
   overview:
-    title: "Data is an intervention"
-    intro: "Training corpora determine what models can learn, what they reproduce, and which research claims can later be audited."
+    title: "Data as research infrastructure"
+    intro: "Dataset research studies the corpora, documentation, filtering, and data practices that shape language models."
     paragraphs:
-      - "EleutherAI has built datasets as public research infrastructure since The Pile. Our work spans broad pretraining corpora, domain-specific resources such as OpenWebMath and BigBIO, multilingual catalogues, and tools for exploring provenance. The Common Pile demonstrates that a performant large-model corpus can be assembled entirely from public-domain and openly licensed text, challenging the assumption that frontier-quality training necessarily depends on opaque collections of unlicensed web data."
-      - "We also study the governance and downstream effects of data choices. Audits of the web data commons document rapidly changing consent signals and the inadequacy of current protocols. Contamination research measures how exposure changes evaluation results; data filtering work tests whether excluding narrow classes of knowledge can produce durable safety properties. This turns dataset construction from a preprocessing step into an experimental and governance surface."
-  questions:
-    title: "Questions we ask of data"
-    intro: "A corpus should be inspectable as a source of model behavior, not treated as an inert pile of tokens."
-    items:
-      - title: "Where did the data come from?"
-        text: "We develop documentation and provenance methods that make sources, licenses, filtering decisions, and transformations available for inspection."
-      - title: "What behavior does a dataset produce?"
-        text: "Controlled comparisons connect inclusion, exclusion, repetition, and contamination to capabilities, memorization, and safety-relevant outcomes."
-      - title: "Can open data support strong models?"
-        text: "We build high-quality public and openly licensed corpora so reproducible model research does not depend on inaccessible proprietary collections."
+      - "This area includes dataset construction, data documentation, contamination analysis, filtering interventions, licensing, and the role of public corpora in reproducible model science."
   projects:
-    title: "Open data infrastructure"
-    intro: "These datasets make important training regimes available for public study."
+    title: "Projects connected to Datasets"
+    intro: "These projects make training and evaluation data easier to study."
     items:
       - title: "The Pile"
-        text: "An 800GB mixture of diverse text sources that helped establish dataset composition and documentation as central concerns in open language-model training."
-      - title: "The Common Pile"
-        text: "An 8TB corpus of public-domain and openly licensed text, paired with model training experiments that test its practical viability."
-      - title: "OpenWebMath"
-        text: "A filtered corpus of mathematical web text designed to support open research on mathematical language models."
+        text: "A large public language modeling dataset that supported early open language model research."
+      - title: "Common Pile"
+        text: "A public-domain and openly licensed corpus for language model training."
+      - title: "Data filtering"
+        text: "Research on how filtering and attribution change model behavior before deployment."
   related:
-    title: "Connected research"
-    intro: "Dataset choices link model development to attribution, evaluation, and safety."
+    title: "Related areas"
+    intro: "Dataset work supports model training, multilingual research, and safety interventions."
     areas:
       - title: "Model Training"
         url: "research-model-training.html"
@@ -157,34 +109,21 @@ datasets:
 
 circuits:
   overview:
-    title: "From features to mechanisms"
-    intro: "We develop and test methods for identifying internal computations that explain model behavior."
+    title: "Mechanisms inside models"
+    intro: "Circuits research studies the internal features, representations, and computations that give rise to model behavior."
     paragraphs:
-      - "Mechanistic interpretability aims to move from observing inputs and outputs to understanding the computations a network has learned. Our work studies sparse representations, transcoders, probes, attribution graphs, and circuits across layers, model scales, and training checkpoints. Sparse autoencoders can expose more interpretable directions than individual neurons, but their scale creates a second problem: millions of features cannot be inspected by hand. Automated interpretation and evaluation therefore matter as much as feature extraction."
-      - "We treat interpretability methods themselves as empirical objects. Features learned by sparse autoencoders can vary across training runs; transcoders may recover functional structure more faithfully; explanations must be evaluated without relying only on plausible language-model descriptions. Longitudinal circuit analyses ask whether recovered mechanisms persist through training and scaling. This emphasis on validation is central to turning attractive visualizations into dependable scientific and auditing tools."
-  questions:
-    title: "What would reliable mechanistic evidence look like?"
-    intro: "Finding a feature is the beginning of an explanation, not the end."
-    items:
-      - title: "Do representations correspond to real computations?"
-        text: "We compare sparse autoencoders, transcoders, probes, and graph-based methods on their ability to recover causal and functionally meaningful structure."
-      - title: "Can interpretation scale?"
-        text: "Automated methods must summarize millions of features and large attribution graphs without replacing mechanistic evidence with fluent but ungrounded descriptions."
-      - title: "Are mechanisms stable?"
-        text: "We test whether circuits and features recur across checkpoints, scales, seeds, and model families, and what changes reveal about learning."
+      - "This area includes mechanistic interpretability, feature analysis, sparse autoencoders, probes, attribution graphs, and analyses of how mechanisms change across scale and training."
   projects:
-    title: "Mechanistic tool-building"
-    intro: "Our papers develop methods and evaluations for feature-level and circuit-level analysis."
+    title: "Projects connected to Circuits"
+    intro: "These projects study internal model mechanisms and representations."
     items:
-      - title: "Sparse feature science"
-        text: "Work on finding, interpreting, steering, and rigorously evaluating sparse features in language models."
-      - title: "Transcoders and attribution graphs"
-        text: "Methods that expose functional connections between components and support analysis of computations spanning many features."
-      - title: "Circuits across training"
-        text: "Longitudinal analyses that compare mechanisms across checkpoints and scales instead of treating a final model as static."
+      - title: "Circuit analysis"
+        text: "Work on identifying and comparing mechanisms inside language models."
+      - title: "Sparse autoencoders"
+        text: "Research on feature discovery, interpretation, and evaluation for model internals."
   related:
-    title: "Connected research"
-    intro: "Mechanistic analysis connects internal computation to training data, learning trajectories, and safety-relevant behavior."
+    title: "Related areas"
+    intro: "Circuits work connects to training dynamics, data attribution, and safety."
     areas:
       - title: "Training Dynamics"
         url: "research-training-dynamics.html"
@@ -195,34 +134,21 @@ circuits:
 
 data_attribution:
   overview:
-    title: "Tracing behavior back to training data"
-    intro: "We study which examples and concepts cause a model to learn a particular behavior, and how that evidence can guide intervention."
+    title: "Connecting data to behavior"
+    intro: "Data Attribution studies how training examples, datasets, and data interventions influence model internals and downstream behavior."
     paragraphs:
-      - "Training-data attribution is often framed as a search for the examples most similar to one model output. That framing is too narrow for behaviors such as bias, refusal, or emergent misalignment, which are expressed across many prompts and may arise from distributed patterns in the data. Our research combines influence estimation with interpretable directions inside the model so attribution can target semantic concepts rather than a single test example."
-      - "The practical goal is intervention. Concept Influence uses probes and sparse features to make attribution more scalable and behavior-level; work on emergent misalignment asks whether influential fine-tuning examples can be identified and removed; research on second-language learning brings human-centered influence measures to bilingual models. These projects connect mechanistic evidence, data curation, and causal tests of model behavior."
-  questions:
-    title: "From attribution to action"
-    intro: "A useful attribution should identify a cause at the level where a researcher can test or change it."
-    items:
-      - title: "What data drives a concept?"
-        text: "We attribute semantic directions and recurring behaviors rather than relying only on surface similarity to an individual output."
-      - title: "Can attribution scale to modern training?"
-        text: "We develop approximations and interpretable targets that reduce the cost of ranking influential examples in large datasets."
-      - title: "Does removing attributed data change behavior?"
-        text: "Interventions provide the strongest test: edit the implicated data, retrain or fine-tune, and measure whether the targeted behavior changes."
+      - "This area includes influence methods, attribution over training data, intervention design, and analyses that connect learned mechanisms to the data that produced them."
   projects:
-    title: "Attribution research"
-    intro: "These projects link data, internal representations, and observable model behavior."
+    title: "Projects connected to Data Attribution"
+    intro: "These projects focus on data-to-behavior connections."
     items:
-      - title: "Concept Influence"
-        text: "A method for attributing semantic model directions to training examples, improving both scalability and behavioral relevance."
+      - title: "Concept influence"
+        text: "Work on using interpretability to understand and improve data attribution."
       - title: "Misalignment attribution"
-        text: "Research testing whether data attribution can identify and remove examples responsible for emergent misalignment during fine-tuning."
-      - title: "Influence in bilingual learning"
-        text: "Human-centric attribution methods for understanding how first-language experience shapes second-language representations."
+        text: "Research on using attribution to understand and mitigate unwanted behavior."
   related:
-    title: "Connected research"
-    intro: "Attribution sits between interpretability, dataset construction, and intervention."
+    title: "Related areas"
+    intro: "Data attribution sits between interpretability, datasets, and safety."
     areas:
       - title: "Circuits"
         url: "research-circuits.html"
@@ -233,34 +159,21 @@ data_attribution:
 
 open_weight_safety:
   overview:
-    title: "Safety that survives model release"
-    intro: "Open-weight models require safeguards that remain meaningful after users can inspect, modify, fine-tune, and redistribute the system."
+    title: "Safety for inspectable and reusable models"
+    intro: "Open Weight Safety studies safeguards, risks, and interventions for models whose weights can be inspected, modified, fine-tuned, or redeployed."
     paragraphs:
-      - "Many deployment safeguards depend on controlling an API: providers can monitor usage, update filters, or revoke access. Those assumptions do not hold once weights are public. Our open-weight safety research therefore focuses on interventions embedded in training and on threat models that include adversarial modification. Deep Ignorance tests whether removing narrowly defined knowledge from pretraining can prevent dangerous capabilities from being recovered through ordinary fine-tuning, producing safeguards that are harder to tamper with than a refusal policy added after training."
-      - "We also investigate how unwanted behavior can arise and propagate in reusable systems. Data-attribution methods offer a way to locate fine-tuning examples responsible for emergent misalignment, while Thought Virus studies subliminal transmission of behavior through multi-agent interactions. The broader agenda is to preserve the scientific and social value of open models while developing safety methods designed for openness rather than borrowed from closed deployment."
-  questions:
-    title: "An open-weight threat model"
-    intro: "The relevant question is not whether a safeguard works once, but whether it remains effective under reuse."
-    items:
-      - title: "What survives fine-tuning and modification?"
-        text: "We test safeguards against users who can change prompts, adapters, weights, data, and deployment code rather than assuming a fixed serving stack."
-      - title: "Can risk be reduced during pretraining?"
-        text: "Data filtering and capability-shaping interventions may prevent dangerous knowledge from being acquired instead of attempting to suppress it later."
-      - title: "How does misalignment propagate?"
-        text: "We study how behaviors emerge from fine-tuning data and how they may spread between models or agents through apparently innocuous outputs."
+      - "This area includes safety interventions before and during training, analysis of open-weight risks, tamper resistance, model release considerations, and public-interest governance questions."
   projects:
-    title: "Safety interventions"
-    intro: "Our current work emphasizes training-time safeguards and empirical tests under adversarial reuse."
+    title: "Projects connected to Open Weight Safety"
+    intro: "These projects study risks and safeguards for openly available systems."
     items:
       - title: "Deep Ignorance"
-        text: "A pretraining-data intervention that builds selective, tamper-resistant capability restrictions into open-weight models."
-      - title: "Misalignment attribution"
-        text: "Using influence methods to find and remove fine-tuning examples that produce broadly misaligned behavior."
-      - title: "Thought Virus"
-        text: "Studying subliminal behavior transmission and viral misalignment in multi-agent systems."
+        text: "Pretraining data filtering as a way to build durable safeguards into open-weight models."
+      - title: "Open safety evaluations"
+        text: "Evaluation and red-teaming work aimed at understanding risks in reusable models."
   related:
-    title: "Connected research"
-    intro: "Open-weight safety draws on data interventions, behavioral evaluation, and model training."
+    title: "Related areas"
+    intro: "Open-weight safety connects to data, model training, and behavioral safety."
     areas:
       - title: "Behavioral Safety"
         url: "research-behavioral-safety.html"
@@ -271,34 +184,21 @@ open_weight_safety:
 
 behavioral_safety:
   overview:
-    title: "Studying failures as learned behavior"
-    intro: "We investigate how safety-relevant behavior appears, generalizes, and changes under training, interaction, and evaluation."
+    title: "Failures and interventions in model behavior"
+    intro: "Behavioral Safety studies how models behave in safety-relevant settings, how those behaviors are evaluated, and how interventions change them."
     paragraphs:
-      - "Behavioral safety requires more than checking whether a model refuses a prohibited request. Models can exploit objectives, acquire broadly misaligned tendencies from narrow fine-tuning, transmit preferences through indirect signals, or behave differently across contexts and evaluators. Our work studies these failures experimentally, with an emphasis on identifying the training conditions and interaction structures that produce them."
-      - "The agenda also includes the human choices hidden inside alignment targets. Human feedback is diverse and sometimes contradictory; social-choice research provides tools for reasoning about how preferences are aggregated rather than treating a single reward model as a neutral representation of collective values. Work on legal safe harbors addresses another condition for progress: independent researchers must be able to evaluate and red-team deployed systems without disproportionate legal risk."
-  questions:
-    title: "Behavior under pressure"
-    intro: "We study both the model failures and the evaluation environment needed to reveal them."
-    items:
-      - title: "How does narrow training generalize?"
-        text: "We test when fine-tuning on a small behavior produces broader changes in goals, preferences, or strategies across unrelated settings."
-      - title: "How do models influence one another?"
-        text: "Multi-agent experiments examine whether misaligned tendencies can be transmitted through outputs that do not explicitly state the underlying behavior."
-      - title: "Whose preferences define alignment?"
-        text: "We use social-choice perspectives to make aggregation assumptions explicit when people disagree about desirable model behavior."
+      - "This area includes misalignment, reward hacking, red-teaming, post-training behavior, pragmatic understanding, and evaluations of deployment-relevant failures."
   projects:
-    title: "Behavioral investigations"
-    intro: "These research threads connect observed failures to training, interaction, and governance."
+    title: "Projects connected to Behavioral Safety"
+    intro: "These projects focus on model behavior and safety-relevant evaluation."
     items:
-      - title: "Emergent misalignment"
-        text: "Experiments on how narrow fine-tuning data can induce broad, unintended behavioral changes and how those changes can be traced back to data."
-      - title: "Multi-agent misalignment"
-        text: "Research on indirect and viral transmission of model behavior across interacting agents."
-      - title: "Evaluation safe harbors"
-        text: "Policy work on legal protections for good-faith independent AI evaluation and red-teaming."
+      - title: "Reward hacking"
+        text: "Work on identifying and measuring ways models exploit objective or verifier failures."
+      - title: "Misalignment interventions"
+        text: "Research on how training and data choices shape unwanted model behavior."
   related:
-    title: "Connected research"
-    intro: "Behavioral safety depends on strong evaluation, causal analysis, and safeguards designed for model access."
+    title: "Related areas"
+    intro: "Behavioral safety connects to open-weight safety, evaluation, and training dynamics."
     areas:
       - title: "Open Weight Safety"
         url: "research-open-weight-safety.html"
@@ -309,34 +209,21 @@ behavioral_safety:
 
 other_modalities:
   overview:
-    title: "Open model science beyond text"
-    intro: "We apply the same commitments to reproducibility, public artifacts, and empirical understanding across biology, vision, speech, and music."
+    title: "Beyond text-only language modeling"
+    intro: "Other Modalities covers EleutherAI research in multimodal, scientific, and non-text-only settings."
     paragraphs:
-      - "Different modalities expose different scientific constraints. OpenFold retrains AlphaFold2 from the ground up, turning a powerful but difficult-to-study system into an open experimental object and revealing how its learning and generalization depend on training. Work in protein representation learning and massively parallel structure reconstruction similarly combines infrastructure with biological questions."
-      - "Our vision, speech, and music research spans datasets, architectures, and human interaction. LAION-400M and LAION-5B helped make large-scale image-text training publicly accessible; VQGAN-CLIP explored open-domain generation; MindEye reconstructs viewed images from brain activity using contrastive and diffusion models. Aria-MIDI, self-supervised piano representations, Lina-Speech, and the Aria-Duet Disklavier system ask how generative models can work with structured audio and with musicians in real time, not merely produce samples from text prompts."
-  questions:
-    title: "Questions across modalities"
-    intro: "We use domain structure and real interfaces to push beyond text-centric assumptions."
-    items:
-      - title: "What must be open for science?"
-        text: "Retraining, datasets, intermediate artifacts, and efficient implementations allow researchers to inspect systems whose original training pipelines are inaccessible."
-      - title: "How should models represent structured domains?"
-        text: "Proteins, MIDI performances, speech, images, and neural measurements each require representations that preserve the relationships important to the domain."
-      - title: "How should people interact with generative systems?"
-        text: "Embodied and real-time interfaces, such as a shared piano, reveal creative workflows that asynchronous text prompting cannot capture."
+      - "This area includes work on vision, biology, audio, multimodal generation, and other settings where open model research extends beyond standard text-only language modeling."
   projects:
-    title: "Research across domains"
-    intro: "Our projects combine open infrastructure with questions specific to scientific and creative practice."
+    title: "Projects connected to Other Modalities"
+    intro: "These projects extend open model research into adjacent domains."
     items:
       - title: "OpenFold"
-        text: "An open retraining of AlphaFold2 that supports reproducible protein-structure research and analysis of learning and generalization."
-      - title: "Aria"
-        text: "Open datasets, representations, generative models, and interactive systems for symbolic piano performance."
-      - title: "Open vision and brain decoding"
-        text: "Large image-text datasets, open generative methods, and reconstruction of visual experience from fMRI representations."
+        text: "Protein-structure work connected to open scientific machine learning."
+      - title: "Multimodal research"
+        text: "Research and collaborations involving image, audio, biology, and other modalities."
   related:
-    title: "Connected research"
-    intro: "Work beyond text depends on the same foundations of data, evaluation, and reproducible training."
+    title: "Related areas"
+    intro: "Other modalities often connect back to datasets, evaluation, and model training."
     areas:
       - title: "Datasets"
         url: "research-datasets.html"
@@ -347,34 +234,21 @@ other_modalities:
 
 privacy_and_security:
   overview:
-    title: "What models retain, reveal, and expose"
-    intro: "We study memorization, contamination, and the conditions under which independent researchers can investigate security-relevant failures."
+    title: "Privacy, security, and misuse-relevant risks"
+    intro: "Privacy and Security studies leakage, memorization, red-teaming, security evaluations, and risks that matter for public model access."
     paragraphs:
-      - "Memorization is not a single phenomenon. A model may recite an exact sequence, reconstruct information from partial cues, or demonstrate knowledge without verbatim reproduction. Our work separates these behaviors and studies how they emerge during training. Pythia checkpoints show that memorization can appear abruptly yet become predictable from earlier model states, opening the possibility of detecting privacy and leakage risks before training is complete."
-      - "The same exposure mechanisms complicate evaluation. Test-set contamination ranges from incidental overlap to deliberate data poisoning and can inflate scores in ways that depend on dose, timing, and task. Our contamination work develops controlled experiments and a dose-response framework for distinguishing these effects. We also support the institutional conditions for security research through safe-harbor proposals that protect good-faith evaluation and red-teaming."
-  questions:
-    title: "Tracing exposure and harm"
-    intro: "We want measurements that distinguish kinds of retention and connect them to practical risk."
-    items:
-      - title: "What does it mean for a model to memorize?"
-        text: "We distinguish verbatim recitation, reconstruction from cues, and behavioral evidence of retained information rather than collapsing them into one extraction metric."
-      - title: "When does memorization emerge?"
-        text: "Intermediate checkpoints reveal how exposure frequency, model scale, and training progress shape whether a datum becomes recoverable."
-      - title: "How does contamination distort evidence?"
-        text: "Controlled data exposure measures when benchmark leakage changes scores and when apparent capability reflects prior access to the test."
+      - "This area includes privacy risks in training data, test-set contamination, security-relevant evaluations, safe-harbor work, and analyses of how models may expose or amplify sensitive information."
   projects:
-    title: "Privacy and evaluation security"
-    intro: "These projects study retention directly and improve the conditions for independent investigation."
+    title: "Projects connected to Privacy and Security"
+    intro: "These projects study privacy and security risks around model development and evaluation."
     items:
-      - title: "Memorization over training"
-        text: "Longitudinal studies of when training examples become recoverable and whether final memorization can be predicted from earlier checkpoints."
-      - title: "The toxicology of data"
-        text: "A controlled, dose-response framework connecting test contamination, poisoning, fine-tuning attacks, and memorization."
-      - title: "Evaluation safe harbors"
-        text: "Legal and policy proposals protecting good-faith research on model vulnerabilities and safety failures."
+      - title: "Memorization research"
+        text: "Work on when and how models memorize, reconstruct, or expose training data."
+      - title: "Evaluation and red-teaming"
+        text: "Work on measuring security-relevant failures and supporting good-faith safety testing."
   related:
-    title: "Connected research"
-    intro: "Privacy and security depend on dataset provenance, evaluation integrity, and the threat model for released systems."
+    title: "Related areas"
+    intro: "Privacy and security connects to datasets, evaluation, and open-weight safety."
     areas:
       - title: "Datasets"
         url: "research-datasets.html"
