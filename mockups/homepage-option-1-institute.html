@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EleutherAI Homepage Mockup - Institute Statement</title>
+  <style>
+    :root {
+      --black: #04070a;
+      --panel: #0b1015;
+      --panel-2: #101821;
+      --ink: #f4f7fb;
+      --body: #c9d0da;
+      --muted: #86909f;
+      --line: #263545;
+      --blue: #84c7ff;
+      --green: #62d77a;
+      --gold: #d6b84a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(132, 199, 255, 0.11), transparent 31%),
+        linear-gradient(180deg, #070b0f, var(--black) 54%, #05070a);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      width: 1600px;
+      min-height: 1700px;
+      margin: 0 auto;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        var(--black);
+      background-size: 100% 32px;
+    }
+
+    .wrap { width: 1280px; margin: 0 auto; }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(4, 7, 10, 0.92);
+    }
+
+    nav {
+      height: 116px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand img {
+      width: 224px;
+      filter: invert(1);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 38px;
+      color: var(--body);
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .support { color: var(--green); }
+
+    .hero {
+      padding: 118px 0 82px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 92px;
+      align-items: end;
+    }
+
+    h1 {
+      max-width: 920px;
+      margin: 0 0 28px;
+      font-size: 76px;
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 820px;
+      margin: 0;
+      color: var(--body);
+      font-size: 29px;
+      line-height: 1.38;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 56px;
+      padding: 0 24px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .button.primary {
+      border-color: transparent;
+      background: var(--green);
+      color: #061008;
+    }
+
+    .identity-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .identity-row {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 22px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: baseline;
+    }
+
+    .identity-row strong {
+      color: var(--blue);
+      font-size: 17px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .identity-row span {
+      color: var(--body);
+      font-size: 21px;
+      line-height: 1.25;
+    }
+
+    section { padding: 74px 0; }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 72px;
+      margin-bottom: 44px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.08;
+    }
+
+    .section-heading p {
+      max-width: 780px;
+      margin: 0;
+      color: var(--body);
+      font-size: 23px;
+      line-height: 1.42;
+    }
+
+    .study-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .study {
+      min-height: 250px;
+      padding: 30px 30px 28px;
+      border-right: 1px solid var(--line);
+    }
+
+    .study:last-child { border-right: 0; }
+
+    .study .num {
+      color: var(--gold);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .study h3 {
+      margin: 38px 0 16px;
+      font-size: 26px;
+      line-height: 1.12;
+    }
+
+    .study p {
+      margin: 0;
+      color: var(--body);
+      font-size: 18px;
+      line-height: 1.45;
+    }
+
+    .latest-band {
+      display: grid;
+      grid-template-columns: 220px repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .latest-title,
+    .latest-item {
+      min-height: 156px;
+      padding: 24px;
+      background: rgba(10, 16, 22, 0.96);
+    }
+
+    .latest-title h2 {
+      margin: 0;
+      font-size: 33px;
+      line-height: 1.05;
+    }
+
+    .latest-item span {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--blue);
+      font-size: 15px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .latest-item h3 {
+      margin: 0 0 14px;
+      font-size: 21px;
+      line-height: 1.25;
+    }
+
+    .latest-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .project-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+    }
+
+    .project {
+      min-height: 260px;
+      padding-top: 18px;
+      border-top: 2px solid var(--line);
+    }
+
+    .project img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      margin-bottom: 18px;
+      background: var(--panel);
+    }
+
+    .project h3 {
+      margin: 0 0 10px;
+      font-size: 23px;
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--body);
+      font-size: 17px;
+      line-height: 1.4;
+    }
+
+    footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="wrap">
+        <a class="brand" href="#"><img src="../assets/eleutherai-logo.svg" alt="EleutherAI"></a>
+        <div class="nav-links">
+          <a>About</a>
+          <a>Research</a>
+          <a>Community</a>
+          <a>Blog</a>
+          <a class="support">Support Us</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <h1>Independent research on open foundation models.</h1>
+            <p>EleutherAI is a nonprofit research institute studying how large-scale AI systems are built, how they behave, and how they can be made more interpretable and safer.</p>
+            <div class="hero-actions">
+              <a class="button primary">Explore Research</a>
+              <a class="button">Join the Community</a>
+            </div>
+          </div>
+          <div class="identity-list" aria-label="EleutherAI identity">
+            <div class="identity-row"><strong>Type</strong><span>nonprofit research institute</span></div>
+            <div class="identity-row"><strong>Focus</strong><span>open models, evaluation, interpretability, safety</span></div>
+            <div class="identity-row"><strong>Outputs</strong><span>papers, models, datasets, tools</span></div>
+            <div class="identity-row"><strong>Model</strong><span>open, collaborative research</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <div class="section-heading">
+            <h2>What we study</h2>
+            <p>Our current research asks what foundation models learn, when their capabilities emerge, how to evaluate them reliably, and how open-weight systems can be studied safely.</p>
+          </div>
+          <div class="study-grid">
+            <article class="study"><span class="num">01</span><h3>Open infrastructure</h3><p>Build and release the models, datasets, and tools needed for independent research.</p></article>
+            <article class="study"><span class="num">02</span><h3>Evaluations</h3><p>Understand what benchmarks measure, where they fail, and how capabilities change with scale.</p></article>
+            <article class="study"><span class="num">03</span><h3>Interpretability over time</h3><p>Study mechanisms as they emerge across training, checkpoints, data, and scale.</p></article>
+            <article class="study"><span class="num">04</span><h3>Open-weight safety</h3><p>Develop interventions and analysis methods for models that researchers can inspect directly.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap latest-band">
+          <div class="latest-title"><h2>Latest</h2></div>
+          <article class="latest-item"><span>Paper</span><h3>Position: Don't Just "Fix it in Post"</h3><p>ICML 2026 oral on why learning dynamics should be central to AI research.</p></article>
+          <article class="latest-item"><span>Blog</span><h3>The Common Pile v0.1</h3><p>A new openly licensed corpus for language model research.</p></article>
+          <article class="latest-item"><span>Release</span><h3>Evaluation tools and datasets</h3><p>Infrastructure for measuring model behavior and benchmark quality.</p></article>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <div class="section-heading">
+            <h2>Featured work</h2>
+            <p>Long-running projects provide shared foundations for research across the open AI ecosystem.</p>
+          </div>
+          <div class="project-strip">
+            <article class="project"><img src="../assets/current-site/project_gpt_neox_image.png" alt=""><h3>GPT-NeoX</h3><p>Training infrastructure for large-scale language model research.</p></article>
+            <article class="project"><img src="../assets/current-site/the_pile_static.png" alt=""><h3>The Pile</h3><p>Dataset work for transparent pretraining research.</p></article>
+            <article class="project"><img src="../assets/current-site/gpt-neo.png" alt=""><h3>Pythia</h3><p>Checkpoints across training for studying development over time.</p></article>
+            <article class="project"><img src="../assets/current-site/art25.png" alt=""><h3>Eval Harness</h3><p>Shared tooling for evaluating language models reproducibly.</p></article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">eleuther.ai · discord.gg/eleutherai · github.com/EleutherAI</div>
+    </footer>
+  </div>
+</body>
+</html>

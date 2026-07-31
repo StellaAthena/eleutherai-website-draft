@@ -807,7 +807,7 @@ def publication_metric_payload(rows):
     count = len(titles)
     rounded_count = round_to_nearest(count, 10)
     return {
-        "value": f"{rounded_count:,}",
+        "value": f"{rounded_count:,}+",
         "label": "Publications",
         "count": count,
         "rounded_count": rounded_count,

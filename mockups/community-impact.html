@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Community direction 03 - Impact</title>
+    <style>
+      :root {
+        --bg: #07090d;
+        --panel: #10151d;
+        --ink: #f4f5f7;
+        --body: #c4c9d1;
+        --muted: #7f8997;
+        --line: #27313f;
+        --green: #62d77a;
+        --blue: #78b8ee;
+        --gold: #d8b44a;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Open Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.45;
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      .wrap { width: min(1240px, calc(100% - 56px)); margin: 0 auto; }
+
+      .direction {
+        padding: 10px 28px;
+        border-bottom: 1px solid #36404e;
+        background: #151a22;
+        color: #aeb9c8;
+        font: 700 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+      }
+
+      header { border-bottom: 1px solid var(--line); }
+
+      header .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 76px;
+        gap: 30px;
+      }
+
+      .brand img { display: block; width: 168px; filter: invert(1) brightness(1.35); }
+
+      nav { display: flex; align-items: center; gap: 28px; color: var(--body); font-size: 15px; }
+      nav .active { color: var(--ink); }
+      nav .support { color: var(--green); font-weight: 700; }
+
+      .hero {
+        padding: 82px 0 70px;
+        border-bottom: 1px solid var(--line);
+        background:
+          linear-gradient(112deg, rgba(120, 184, 238, .10), transparent 33%),
+          var(--bg);
+      }
+
+      h1, h2, h3, p { margin-top: 0; }
+
+      h1 {
+        max-width: 970px;
+        margin-bottom: 26px;
+        font-size: clamp(52px, 7.3vw, 92px);
+        line-height: .97;
+        letter-spacing: 0;
+      }
+
+      .lede {
+        max-width: 780px;
+        margin-bottom: 0;
+        color: var(--body);
+        font-size: clamp(19px, 2vw, 24px);
+        line-height: 1.42;
+      }
+
+      .map-section { padding: 0 0 74px; }
+
+      .map-frame {
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #f5f5f2;
+      }
+
+      .map-frame img {
+        display: block;
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .impact-strip {
+        display: grid;
+        grid-template-columns: 1.4fr repeat(3, 1fr);
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .impact-intro,
+      .impact-stat {
+        min-height: 162px;
+        padding: 26px 24px;
+        border-left: 1px solid var(--line);
+        border-top: 1px solid var(--line);
+      }
+
+      .impact-intro p {
+        max-width: 360px;
+        margin: 0;
+        color: var(--body);
+        font-size: 17px;
+        line-height: 1.43;
+      }
+
+      .impact-stat strong { display: block; color: var(--blue); font-size: 43px; line-height: .94; }
+      .impact-stat:nth-child(3) strong { color: var(--green); }
+      .impact-stat:nth-child(4) strong { color: var(--gold); }
+
+      .impact-stat span {
+        display: block;
+        margin-top: 12px;
+        color: var(--body);
+        font-size: 15px;
+        line-height: 1.3;
+      }
+
+      .sponsors { padding: 78px 0; border-bottom: 1px solid var(--line); }
+
+      .section-top {
+        display: grid;
+        grid-template-columns: 320px minmax(0, 1fr);
+        gap: 54px;
+        align-items: end;
+        margin-bottom: 42px;
+      }
+
+      h2 { margin-bottom: 0; font-size: clamp(34px, 4vw, 54px); line-height: 1.01; }
+
+      .section-top p {
+        max-width: 650px;
+        margin-bottom: 0;
+        color: var(--body);
+        font-size: 19px;
+        line-height: 1.43;
+      }
+
+      .sponsor-list { border-top: 1px solid var(--line); }
+
+      .sponsor {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 36px;
+        align-items: center;
+        min-height: 216px;
+        padding: 34px 0 34px 22px;
+        border-left: 4px solid var(--gold);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .sponsor:nth-child(2) { border-left-color: var(--blue); }
+      .sponsor:nth-child(3) { border-left-color: var(--green); }
+
+      .sponsor h3 { margin-bottom: 12px; font-size: 28px; line-height: 1.08; }
+
+      .sponsor-title {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .sponsor-title img { width: 74px; height: 74px; object-fit: contain; }
+
+      .sponsor p {
+        max-width: 720px;
+        margin-bottom: 0;
+        color: var(--body);
+        font-size: 17px;
+        line-height: 1.48;
+      }
+
+      .sponsor-papers {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 22px;
+        margin-top: 20px;
+      }
+
+      .sponsor-papers a {
+        color: var(--blue);
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      .sponsor:nth-child(3) .sponsor-papers a { color: var(--green); }
+
+      .sponsor-arrow { color: var(--blue); font-size: 31px; }
+      .sponsor:nth-child(2) .sponsor-arrow { color: var(--blue); }
+      .sponsor:nth-child(3) .sponsor-arrow { color: var(--green); }
+
+      .recordings { padding: 70px 0 82px; border-bottom: 1px solid var(--line); }
+
+      .recordings .wrap {
+        display: grid;
+        grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+        gap: 64px;
+        align-items: end;
+      }
+
+      .recordings p {
+        max-width: 650px;
+        margin: 18px 0 0;
+        color: var(--body);
+        font-size: 19px;
+      }
+
+      .recording-link {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: center;
+        padding: 23px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        color: var(--ink);
+        font-size: 22px;
+        font-weight: 700;
+      }
+
+      .recording-link span { color: var(--blue); font-size: 31px; }
+
+      footer { padding: 28px 0; color: var(--muted); font-size: 14px; }
+
+      @media (max-width: 800px) {
+        .wrap { width: min(100% - 36px, 1240px); }
+        nav { gap: 16px; font-size: 13px; }
+        nav a:not(.active):not(.support) { display: none; }
+        .hero { padding: 58px 0 50px; }
+        .map-frame img { min-height: 220px; object-fit: cover; }
+        .impact-strip, .section-top, .recordings .wrap { grid-template-columns: 1fr; gap: 22px; }
+        .impact-intro, .impact-stat { min-height: 0; }
+        .sponsors, .recordings { padding: 52px 0; }
+        .sponsor { grid-template-columns: 1fr; gap: 20px; min-height: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="direction">Community mockup 03 / Reach and impact</div>
+    <header>
+      <div class="wrap">
+        <a class="brand" href="#"><img src="../assets/eleutherai-logo.svg" alt="EleutherAI"></a>
+        <nav><a href="#">About</a><a href="#">Research</a><a class="active" href="#">Community</a><a href="#">Blog</a><a class="support" href="#">Support Us</a></nav>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="wrap">
+          <h1>A global community for independent AI research.</h1>
+          <p class="lede">A core value at EleutherAI is enabling people around the world to participate in AI research.</p>
+        </div>
+      </section>
+
+      <section class="map-section">
+        <div class="wrap">
+          <figure class="map-frame"><img src="https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/62b36f8a-25e3-4b61-ba34-2ef7474e2669/The_EleutherAI_Community%284%29.png" alt="Map of the EleutherAI community"></figure>
+          <div class="impact-strip">
+            <div class="impact-intro"><p>Staff, community researchers, and members span universities, nonprofits, companies, and informal research groups.</p></div>
+            <div class="impact-stat"><strong>120+</strong><span>research collaborators</span></div>
+            <div class="impact-stat"><strong>30+</strong><span>countries represented</span></div>
+            <div class="impact-stat"><strong>150+</strong><span>publications</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sponsors">
+        <div class="wrap">
+          <div class="section-top">
+            <h2>Communities we sponsor</h2>
+            <p>EleutherAI supports independent research communities working on questions that deserve more than a single institution's perspective.</p>
+          </div>
+          <div class="sponsor-list">
+            <article class="sponsor">
+              <div>
+                <h3 class="sponsor-title"><img src="assets/masi-logo.png" alt=""><a href="https://github.com/Multi-Agent-Security-Initiative" target="_blank" rel="noopener noreferrer">Multi-Agent Security Initiative</a></h3>
+                <p>A technical AI safety research community founded by Ben Hagag and Michael Mulet, studying the security challenges of a world with a rapidly growing number of AI agents.</p>
+                <div class="sponsor-papers"><a href="https://x.com/MWeckbecker/status/2029178920164004074" target="_blank" rel="noopener noreferrer">Thought Virus &#8594;</a></div>
+              </div>
+              <a class="sponsor-arrow" href="https://github.com/Multi-Agent-Security-Initiative" target="_blank" rel="noopener noreferrer" aria-label="Visit Multi-Agent Security Initiative">&#8594;</a>
+            </article>
+            <article class="sponsor">
+              <div>
+                <h3><a href="https://evaleval.github.io/" target="_blank" rel="noopener noreferrer">EvalEval Coalition</a></h3>
+                <p>A global coalition of academics and other researchers working to improve the practice of evaluations in machine learning, from benchmarks to policy.</p>
+                <div class="sponsor-papers">
+                  <a href="https://arxiv.org/abs/2602.16763" target="_blank" rel="noopener noreferrer">When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation &#8594;</a>
+                  <a href="https://arxiv.org/abs/2606.14516" target="_blank" rel="noopener noreferrer">Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results &#8594;</a>
+                </div>
+              </div>
+              <a class="sponsor-arrow" href="https://evaleval.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Visit EvalEval Coalition">&#8594;</a>
+            </article>
+            <article class="sponsor">
+              <div>
+                <h3><a href="https://universetbd.org/" target="_blank" rel="noopener noreferrer">UniverseTBD</a></h3>
+                <p>A global research lab using frontier AI to democratize science, bringing together scientists, AI researchers, technologists, and artists to keep research rigorous, creative, and open.</p>
+                <div class="sponsor-papers"><a href="https://arxiv.org/abs/2509.19453" target="_blank" rel="noopener noreferrer">The Platonic Universe: Do Foundation Models See the Same Sky? &#8594;</a></div>
+              </div>
+              <a class="sponsor-arrow" href="https://universetbd.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit UniverseTBD">&#8594;</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="recordings">
+        <div class="wrap">
+          <div><h2>Recorded conversations</h2><p>Past reading groups and research discussions are available on the EleutherAI YouTube channel.</p></div>
+          <a class="recording-link" href="https://www.youtube.com/@Eleuther_AI" target="_blank" rel="noopener noreferrer">Watch recordings <span>&#8594;</span></a>
+        </div>
+      </section>
+    </main>
+    <footer><div class="wrap">EleutherAI</div></footer>
+  </body>
+</html>
