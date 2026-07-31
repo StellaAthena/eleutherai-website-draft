@@ -4,7 +4,7 @@ model_training:
     intro: "We train and release models so that researchers can study not only what a system can do, but how it came to do it."
     paragraphs:
       - "A useful open model is more than a set of final weights. It includes the code, data decisions, intermediate checkpoints, evaluation traces, and documentation needed to reproduce the training process and investigate its consequences. Pythia made this principle concrete by releasing 16 models across eight scales, with 154 checkpoints per model and recoverable data order. PolyPythias extends that controlled setting across many random seeds, making stability and outlier runs objects of study rather than invisible variance."
-      - "Our model-training research also asks how large-scale training can become more efficient and accessible without narrowing the scientific questions we can ask. Work on ReLoRA, rapid attention distillation, continual pretraining, and GPT-NeoX explores alternative optimization methods, architectures, and training systems. The aim is not simply to produce another model release: it is to improve the experimental infrastructure through which the broader community can test claims about scaling, data, and learning."
+      - "Our model-training research also asks how large-scale training can become more efficient and accessible without narrowing the scientific questions we can ask. Work on ReLoRA, rapid attention distillation, continual pretraining, and GPT-NeoX explores alternative optimization methods, architectures, and training systems. The aim is not simply to produce another model release: it is to improve the experimental systems through which the broader community can test claims about scaling, data, and learning."
   questions:
     title: "What we study"
     intro: "We treat training decisions as experimental variables, not implementation details."
@@ -16,7 +16,7 @@ model_training:
       - title: "Can large models be trained more efficiently?"
         text: "We test optimization and architecture changes that reduce memory or computation while retaining the capacity and experimental control needed for serious model research."
   projects:
-    title: "Research infrastructure"
+    title: "Open models and training systems"
     intro: "These projects provide the controlled models and training systems behind much of our empirical work."
     items:
       - title: "Pythia"
@@ -44,7 +44,7 @@ evaluation:
     title: "Measurement is part of the science"
     intro: "Evaluations do not merely report model quality. They define what progress looks like, which failures remain visible, and which deployment claims appear justified."
     paragraphs:
-      - "Our evaluation research examines the full measurement pipeline: task construction, implementation, aggregation, reporting, and interpretation. The Language Model Evaluation Harness made reproducible evaluation infrastructure broadly available; newer work asks what evaluation results actually support. Benchmark-saturation studies show that many widely used tests lose discriminative power over time, while benchmark disaggregation reveals learning patterns hidden by a single average score."
+      - "Our evaluation research examines the full measurement pipeline: task construction, implementation, aggregation, reporting, and interpretation. The Language Model Evaluation Harness made reproducible evaluation broadly available; newer work asks what evaluation results actually support. Benchmark-saturation studies show that many widely used tests lose discriminative power over time, while benchmark disaggregation reveals learning patterns hidden by a single average score."
       - "We also study the institutional and interpretive layers around evaluation. Evaluation Cards make assumptions, evidence, and intended uses explicit; Every Eval Ever develops shared structure for results that are otherwise difficult to compare; work on social-impact evaluations asks whose concerns are represented in model reporting. Across these projects, the goal is to replace leaderboard numerology with measurements that remain legible, contestable, and useful for scientific and public decisions."
   questions:
     title: "What makes an evaluation trustworthy?"
@@ -58,7 +58,7 @@ evaluation:
         text: "We study gaps between technical capability tests, social-impact claims, cultural coverage, and the real decisions evaluations are used to support."
   projects:
     title: "Evaluation systems"
-    intro: "Our infrastructure and reporting work makes evaluation easier to run and harder to misinterpret."
+    intro: "Our tools and reporting work make evaluation easier to run and harder to misinterpret."
     items:
       - title: "Language Model Evaluation Harness"
         text: "A widely used open framework for reproducible evaluation across model APIs, local models, tasks, and prompting formats."
@@ -96,7 +96,7 @@ multilingual:
         text: "Language-specific knowledge, morphology, culture, code-mixing, and summarization require evaluations designed with the target language rather than mechanically translated into it."
   projects:
     title: "Multilingual resources"
-    intro: "Our work combines models, corpora, and evaluations for languages that are poorly served by English-centric infrastructure."
+    intro: "Our work combines models, corpora, and evaluations for languages that are poorly served by English-centric tooling and datasets."
     items:
       - title: "Polyglot-Ko"
         text: "A family of openly released Korean language models developed alongside analysis of large-scale Korean pretraining."
@@ -120,7 +120,7 @@ datasets:
     title: "Data is an intervention"
     intro: "Training corpora determine what models can learn, what they reproduce, and which research claims can later be audited."
     paragraphs:
-      - "EleutherAI has built datasets as public research infrastructure since The Pile. Our work spans broad pretraining corpora, domain-specific resources such as OpenWebMath and BigBIO, multilingual catalogues, and tools for exploring provenance. The Common Pile demonstrates that a performant large-model corpus can be assembled entirely from public-domain and openly licensed text, challenging the assumption that frontier-quality training necessarily depends on opaque collections of unlicensed web data."
+      - "EleutherAI has built public datasets since The Pile. Our work spans broad pretraining corpora, domain-specific resources such as OpenWebMath and BigBIO, multilingual catalogues, and tools for exploring provenance. The Common Pile demonstrates that a performant large-model corpus can be assembled entirely from public-domain and openly licensed text, challenging the assumption that frontier-quality training necessarily depends on opaque collections of unlicensed web data."
       - "We also study the governance and downstream effects of data choices. Audits of the web data commons document rapidly changing consent signals and the inadequacy of current protocols. Contamination research measures how exposure changes evaluation results; data filtering work tests whether excluding narrow classes of knowledge can produce durable safety properties. This turns dataset construction from a preprocessing step into an experimental and governance surface."
   questions:
     title: "Questions we ask of data"
@@ -133,7 +133,7 @@ datasets:
       - title: "Can open data support strong models?"
         text: "We build high-quality public and openly licensed corpora so reproducible model research does not depend on inaccessible proprietary collections."
   projects:
-    title: "Open data infrastructure"
+    title: "Open datasets"
     intro: "These datasets make important training regimes available for public study."
     items:
       - title: "The Pile"
@@ -312,7 +312,7 @@ other_modalities:
     title: "Open model science beyond text"
     intro: "We apply the same commitments to reproducibility, public artifacts, and empirical understanding across biology, vision, speech, and music."
     paragraphs:
-      - "Different modalities expose different scientific constraints. OpenFold retrains AlphaFold2 from the ground up, turning a powerful but difficult-to-study system into an open experimental object and revealing how its learning and generalization depend on training. Work in protein representation learning and massively parallel structure reconstruction similarly combines infrastructure with biological questions."
+      - "Different modalities expose different scientific constraints. OpenFold retrains AlphaFold2 from the ground up, turning a powerful but difficult-to-study system into an open experimental object and revealing how its learning and generalization depend on training. Work in protein representation learning and massively parallel structure reconstruction similarly combines engineering work with biological questions."
       - "Our vision, speech, and music research spans datasets, architectures, and human interaction. LAION-400M and LAION-5B helped make large-scale image-text training publicly accessible; VQGAN-CLIP explored open-domain generation; MindEye reconstructs viewed images from brain activity using contrastive and diffusion models. Aria-MIDI, self-supervised piano representations, Lina-Speech, and the Aria-Duet Disklavier system ask how generative models can work with structured audio and with musicians in real time, not merely produce samples from text prompts."
   questions:
     title: "Questions across modalities"
@@ -326,7 +326,7 @@ other_modalities:
         text: "Embodied and real-time interfaces, such as a shared piano, reveal creative workflows that asynchronous text prompting cannot capture."
   projects:
     title: "Research across domains"
-    intro: "Our projects combine open infrastructure with questions specific to scientific and creative practice."
+    intro: "Our projects combine open releases with questions specific to scientific and creative practice."
     items:
       - title: "OpenFold"
         text: "An open retraining of AlphaFold2 that supports reproducible protein-structure research and analysis of learning and generalization."

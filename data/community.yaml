@@ -1,28 +1,95 @@
-image:
+hero_actions:
+  - label: "Join Discord"
+    url: "https://www.discord.gg/eleutherai"
+    style: "primary"
+  - label: "Watch talks"
+    url: "https://www.youtube.com/@EleutherAI"
+
+metrics:
+  - value: "120+"
+    label: "Research collaborators"
+  - value: "30+"
+    label: "Countries"
+  - value: "150+"
+    label: "Publications"
+  - value: "70M"
+    label: "Model downloads"
+
+map:
+  title: "A global network of independent researchers"
+  text: "EleutherAI brings together staff, volunteers, collaborators, and independent researchers across universities, nonprofits, companies, and informal research groups."
   src: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/62b36f8a-25e3-4b61-ba34-2ef7474e2669/The_EleutherAI_Community%284%29.png"
   alt: "Map of the EleutherAI community showing paid staff, community researchers, and community members around the world."
 
-projects:
-  title: "Community-Led Research Projects"
-  intro: "EleutherAI has empowered research on a diverse array of topics, ranging from developing new architectures to efficient low-resource training to interpretability research."
+support:
+  title: "Support for independent research communities"
+  intro: "EleutherAI supports work that would otherwise be hard for independent researchers to sustain: fiscal sponsorship, direct grants, mentorship, compute access, coordination, and public releases."
   items:
-    - title: "VQGAN-CLIP: Open Domain Image Generation and Editing with Natural Language Guidance"
-      date: "8 October 2023"
-    - title: "ReLoRA: High Rank Training Through Low-Rank Updates"
-      date: "8 October 2023"
-    - title: "Classifier-Free Guidance"
-      date: "8 October 2023"
-    - title: "RWKV"
-      date: "8 October 2023"
+    - title: "Fiscal sponsorship"
+      text: "We help AI research communities receive and manage funding without needing to become standalone organizations before they can do serious work."
+    - title: "Direct grants"
+      text: "We provide financial support for researchers and small groups working on open science, evaluation, interpretability, and safety projects."
+    - title: "Research scaffolding"
+      text: "Staff and long-time contributors help with project design, engineering review, compute coordination, publication, and release practices."
+  outcomes:
+    - "Independent groups can accept funding and operate without immediately building a full nonprofit back office."
+    - "Small research projects can get enough support to become papers, tools, datasets, workshops, or public reports."
+    - "Community researchers can get institutional support while keeping the open, collaborative norms that made the work possible."
 
-people:
-  title: "Meet Our Community"
+work:
+  title: "What the community produces"
+  intro: "The community is most legible through its outputs: research projects, tools, datasets, hackathons, papers, and public discussions."
   items:
+    - title: "VQGAN-CLIP"
+      text: "Early open image-generation work built and circulated through the EleutherAI community."
+      url: ""
+    - title: "ReLoRA"
+      text: "Research on efficient training through low-rank updates."
+      url: ""
+    - title: "New England RLHF Hackers"
+      text: "Community-organized hackathons exploring reinforcement learning from human feedback."
+      url: "blog/nerh_1.html"
+    - title: "EvalEval Coalition"
+      text: "A collaborator-led effort focused on improving how AI evaluations are evaluated."
+      url: "https://evaleval.github.io/"
+
+profiles:
+  title: "Community profiles"
+  intro: "Profiles spotlight researchers whose work grew through the EleutherAI community, with links to their papers, code, talks, and interviews."
+  people:
     - name: "Naomi Saphra"
-      date: "15 November 2023"
+      role: "Research collaborator"
       image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1700767002336-5ZVY0SG3I7NIKRDXOM11/naomi.jpg"
-      quote: "We have two choices as a society. The first is to accept that one company will eventually emerge dominant with a monopoly on the models that shape our world. The other is to commit to public open source models."
+      text: "Research on interpretability, analysis, and open models."
+      url: ""
     - name: "Mohammad Aflah Khan"
-      date: "21 September 2023"
-      image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1696774265472-P3AH1QOFWDZPYHFJK27G/mohammad.jpg"
-      quote: "Open research communities let people outside a small number of institutions make real contributions to frontier AI research."
+      role: "AI4Science researcher"
+      image: "assets/staff/mohammad-aflah-khan.png"
+      text: "Research on training dynamics, evaluation, and model behavior."
+      url: ""
+
+reading_groups:
+  title: "Reading groups and recorded talks"
+  intro: "Community-organized reading groups turn the Discord from a discussion forum into a working research space: people read papers together, invite authors, and record sessions for others to learn from later."
+  items:
+    - title: "Interpretability reading group"
+      text: "A recurring forum for discussing neural network interpretability papers, often with authors presenting their work."
+      url: "https://www.youtube.com/@EleutherAI"
+    - title: "Alignment reading groups"
+      text: "Groups have worked through alignment curricula and used the community to connect newer researchers with active research conversations."
+      url: "blog/alignment-eleuther.html"
+    - title: "Talk archive"
+      text: "Recorded meetings and talks can be collected into playlists so useful discussions remain available after the live session."
+      url: "https://www.youtube.com/@EleutherAI"
+
+participation:
+  title: "How people contribute"
+  items:
+    - title: "Discuss papers"
+      text: "Researchers use the public Discord to share work, debate results, and find collaborators."
+    - title: "Join projects"
+      text: "Contributors help with code, data, evaluation, analysis, writing, and replication."
+    - title: "Organize groups"
+      text: "Community members run reading groups, hackathons, and research meetings."
+    - title: "Release artifacts"
+      text: "Projects publish papers, datasets, models, tools, notes, and recordings for others to build on."

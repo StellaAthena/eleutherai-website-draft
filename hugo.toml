@@ -1,9 +1,10 @@
-baseURL = "/"
+baseURL = "https://www.eleuther.ai/"
 languageCode = "en-us"
 title = "EleutherAI"
 uglyURLs = true
 disablePathToLower = true
-disableKinds = ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "RSS"]
 
 [markup]
   [markup.goldmark]

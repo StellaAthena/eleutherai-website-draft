@@ -1,62 +1,66 @@
 {{ define "main" }}
-<main>
-  <section class="hero">
-    <div class="wrap">
-      <h1>{{ .Title }}</h1>
-      {{ with .Params.lede }}<p class="lede">{{ . | markdownify }}</p>{{ end }}
-      <div class="button-row">
-        <a class="button primary" href="https://www.discord.gg/eleutherai">Join Discord</a>
-        <a class="button" href="{{ "research.html" | relURL }}">Browse research</a>
+<main class="community-page">
+  <section class="community-hero">
+    <div class="wrap community-hero-grid">
+      <div class="community-hero-copy">
+        <h1>{{ .Title }}</h1>
+        {{ with .Params.lede }}<p class="lede">{{ . | markdownify }}</p>{{ end }}
+        {{ with site.Data.community.hero_actions }}
+          <div class="button-row">
+            {{ range . }}
+              <a class="button{{ if eq .style "primary" }} primary{{ end }}" href="{{ .url }}"{{ if strings.HasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>
+            {{ end }}
+          </div>
+        {{ end }}
       </div>
+      {{ with site.Data.community.metrics }}
+        <div class="community-metrics" aria-label="EleutherAI community metrics">
+          {{ range . }}
+            <div class="community-metric">
+              <strong>{{ .value }}</strong>
+              <span>{{ .label }}</span>
+            </div>
+          {{ end }}
+        </div>
+      {{ end }}
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="prose article-body">{{ .Content }}</div>
-      <figure class="image-panel">
-        <img src="{{ site.Data.community.image.src }}" alt="{{ site.Data.community.image.alt }}">
-      </figure>
-    </div>
-  </section>
+  {{ with site.Data.community.map }}
+    <section class="section community-map-section">
+      <div class="wrap">
+        <div class="community-map-intro">
+          <h2>{{ .title }}</h2>
+          <p>{{ .text }}</p>
+        </div>
+        <figure class="community-map">
+          <img src="{{ .src }}" alt="{{ .alt }}">
+        </figure>
+      </div>
+    </section>
+  {{ end }}
 
-  {{ with site.Data.community.projects }}
-    <section class="section">
+  {{ with site.Data.community.work }}
+    <section class="section community-work-section">
       <div class="wrap">
         <div class="section-head">
           <div><h2>{{ .title }}</h2></div>
           <p class="section-intro">{{ .intro }}</p>
         </div>
-        <div class="grid">
-          {{ range .items }}
-            <article class="card feature-card">
-              <h3>{{ .title }}</h3>
-              <time>{{ .date }}</time>
-            </article>
-          {{ end }}
-        </div>
-      </div>
-    </section>
-  {{ end }}
-
-  {{ with site.Data.community.people }}
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <div><h2>{{ .title }}</h2></div>
-        </div>
-        <div class="people-grid">
-          {{ range .items }}
-            <article class="person-card">
-              <div class="person-photo">
-                <img src="{{ .image }}" alt="{{ .name }}">
-              </div>
-              <div class="person-copy">
-                <h3>{{ .name }}</h3>
-                <p class="item-meta">{{ .date }}</p>
-                <p>{{ .quote }}</p>
-              </div>
-            </article>
+        <div class="community-work-grid compact">
+          {{ range first 4 .items }}
+            {{ if .url }}
+              {{ $href := cond (strings.HasPrefix .url "http") .url (.url | relURL) }}
+              <a class="community-work-card" href="{{ $href }}"{{ if strings.HasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                <h3>{{ .title }}</h3>
+                <p>{{ .text }}</p>
+              </a>
+            {{ else }}
+              <article class="community-work-card">
+                <h3>{{ .title }}</h3>
+                <p>{{ .text }}</p>
+              </article>
+            {{ end }}
           {{ end }}
         </div>
       </div>
