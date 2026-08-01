@@ -1,101 +1,96 @@
 {{ define "main" }}
 {{ $papers := index site.Data.research.area_papers "evaluation" | default slice }}
-{{ $programs := slice
-  (dict
-    "title" "Evaluation infrastructure"
-    "text" "Reliable measurement starts with shared implementations. The Language Model Evaluation Harness makes prompts, metrics, model adapters, and task configurations inspectable and repeatable across local models and APIs."
-    "works" (slice "Language Model Evaluation Harness" "Every Eval Ever"))
-  (dict
-    "title" "Evaluating evaluations"
-    "text" "Benchmarks are measurement instruments, and they degrade. We study saturation, defective items, hidden subgroup behavior, contamination, and the assumptions that turn a collection of scores into a claim about model capability."
-    "works" (slice "When AI Benchmarks Plateau" "Evaluation Cards"))
-  (dict
-    "title" "Community-scale measurement"
-    "text" "Evaluation evidence is scattered across papers, leaderboards, model cards, and private reports. We work with the EvalEval Coalition to build shared schemas and interpretive infrastructure for comparing results across organizations."
-    "works" (slice "Evaluation Cards" "Every Eval Ever"))
-  (dict
-    "title" "Public-interest evaluation"
-    "text" "Technical benchmarks cover only part of a system's impact. We examine who evaluates social consequences, which concerns are absent from model reporting, and how independent third-party evaluation can support oversight."
-    "works" (slice "Who Evaluates AI's Social Impacts?" "Who Measures What Matters?"))
-}}
 <main class="eval-page">
-  <section class="eval-hero">
+  <header class="eval-intro">
     <div class="wrap">
       <nav class="eval-breadcrumb" aria-label="Breadcrumb">
         <a href="{{ "research.html" | relURL }}">Research</a>
         <span aria-hidden="true">/</span>
         <span>Evaluation</span>
       </nav>
-      <h1>Evaluation</h1>
-      <p>{{ .Params.lede }}</p>
-      <div class="eval-actions">
-        <a class="button primary" href="#publications">Browse publications</a>
-        <a class="eval-text-link" href="https://evalevalai.com/" target="_blank" rel="noopener noreferrer">Visit EvalEval Coalition <span aria-hidden="true">&#8599;</span></a>
+      <div class="eval-intro-grid">
+        <h1>Evaluation</h1>
+        <div class="eval-intro-copy">
+          <p>We build the infrastructure and evidence needed to understand what model evaluations actually measure.</p>
+          <a href="#publications">View {{ len $papers }} publications <span aria-hidden="true">&#8595;</span></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="eval-feature eval-harness">
+    <div class="wrap eval-feature-grid">
+      <div class="eval-feature-copy">
+        <p class="eval-index" aria-hidden="true">01</p>
+        <h2>Run evaluations that others can reproduce.</h2>
+        <p>The Language Model Evaluation Harness provides shared implementations of hundreds of tasks across local models and APIs. Researchers can inspect the prompts, metrics, few-shot examples, and model settings behind a result instead of treating a leaderboard score as self-explanatory.</p>
+        <a href="https://github.com/EleutherAI/lm-evaluation-harness" target="_blank" rel="noopener noreferrer">Language Model Evaluation Harness <span aria-hidden="true">&#8599;</span></a>
+      </div>
+      <div class="harness-spec" aria-label="The components needed to reproduce an evaluation result">
+        <div class="harness-result">
+          <span>Evaluation result</span>
+          <strong>reproducible</strong>
+        </div>
+        <dl>
+          <div><dt>Task</dt><dd>versioned definition</dd></div>
+          <div><dt>Prompt</dt><dd>visible configuration</dd></div>
+          <div><dt>Model</dt><dd>shared adapters</dd></div>
+          <div><dt>Metric</dt><dd>consistent scoring</dd></div>
+        </dl>
       </div>
     </div>
   </section>
 
-  <section class="eval-thesis">
-    <div class="wrap eval-split">
-      <h2>Measurement is part of the science.</h2>
-      <div class="eval-prose">
-        <p>Evaluations do not merely report model quality. They define what progress looks like, which failures remain visible, and which deployment claims appear justified. A result is only as trustworthy as the benchmark, implementation, reporting, and interpretation that produced it.</p>
-        <p>Our work spans that entire chain. We build open evaluation infrastructure, diagnose when benchmarks stop measuring what researchers think they measure, and develop reporting systems that preserve the context flattened away by a single score.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="eval-programs">
+  <section class="eval-feature eval-cards">
     <div class="wrap">
-      <h2>Our research</h2>
-      <div class="eval-program-list">
-        {{ range $programs }}
-          <article class="eval-program">
-            <h3>{{ .title }}</h3>
-            <p>{{ .text }}</p>
-            <p class="eval-work">{{ delimit .works " · " }}</p>
-          </article>
-        {{ end }}
+      <div class="eval-cards-image">
+        <img src="{{ "images/evaluation/evalcards-launch.webp" | relURL }}" alt="Evaluation Cards interface showing the evaluation ecosystem as connected evidence">
       </div>
-    </div>
-  </section>
-
-  <section class="eval-coalition">
-    <div class="wrap eval-coalition-grid">
-      <div>
-        <h2>EvalEval Coalition</h2>
-        <p class="eval-coalition-lede">A research community developing scientifically grounded research and robust infrastructure for broader-impact evaluations.</p>
-      </div>
-      <div class="eval-coalition-copy">
-        <p>EleutherAI sponsors the independent EvalEval Coalition, where EleutherAI researchers help lead work on evaluation reporting, benchmark quality, and the structure of the evaluation ecosystem. Stella Biderman serves on its steering committee.</p>
-        <p>Evaluation Cards and Every Eval Ever turn fragmented public results into evidence that can be examined for reproducibility, completeness, provenance, and comparability.</p>
-        <div class="eval-coalition-links">
-          <a href="https://evalevalai.com/" target="_blank" rel="noopener noreferrer">Coalition website <span aria-hidden="true">&#8599;</span></a>
-          <a href="https://evalevalai.com/infrastructure/2026/06/09/evaluation-cards-launch/" target="_blank" rel="noopener noreferrer">Evaluation Cards <span aria-hidden="true">&#8599;</span></a>
+      <div class="eval-cards-grid">
+        <div>
+          <p class="eval-index" aria-hidden="true">02</p>
+          <h2>Make reported results interpretable.</h2>
+        </div>
+        <div class="eval-feature-copy">
+          <p>Evaluation Cards and Every Eval Ever organize results that are otherwise scattered across papers, leaderboards, and model cards. They preserve provenance and expose whether evidence is complete, comparable, and reproducible.</p>
+          <aside class="eval-collaboration">
+            <p><strong>Developed with the EvalEval Coalition.</strong> EleutherAI sponsors the coalition, and Stella Biderman serves on its steering committee.</p>
+            <a href="https://evalevalai.com/infrastructure/2026/06/09/evaluation-cards-launch/" target="_blank" rel="noopener noreferrer">Explore Evaluation Cards <span aria-hidden="true">&#8599;</span></a>
+          </aside>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="eval-principles">
+  <section class="eval-feature eval-science">
     <div class="wrap">
-      <h2>What trustworthy evaluation requires</h2>
-      <div class="eval-principle-grid">
+      <div class="eval-science-head">
+        <div>
+          <p class="eval-index" aria-hidden="true">03</p>
+          <h2>Study the measurement instrument itself.</h2>
+        </div>
+        <p>Benchmarks are not fixed rulers. Their usefulness changes as models improve, data leaks, and aggregate scores hide differences between tasks and groups.</p>
+      </div>
+      <div class="eval-findings">
         <article>
-          <h3>Reproducibility</h3>
-          <p>Enough information to run the evaluation again and understand disagreements between reported results.</p>
+          <p class="eval-finding-kicker">Saturation</p>
+          <h3>Benchmarks can stop distinguishing between capable models.</h3>
+          <p>We measure when widely used evaluations plateau and what should replace them.</p>
         </article>
         <article>
-          <h3>Validity</h3>
-          <p>Evidence that the benchmark measures its intended construct rather than contamination, shortcuts, or incidental properties.</p>
+          <p class="eval-finding-kicker">Resolution</p>
+          <h3>Average scores can conceal the dynamics researchers care about.</h3>
+          <p>Disaggregating benchmarks reveals learning patterns hidden by a single number.</p>
         </article>
         <article>
-          <h3>Interpretability</h3>
-          <p>Results reported with the context, disaggregation, limitations, and provenance needed to support a defensible claim.</p>
+          <p class="eval-finding-kicker">Validity</p>
+          <h3>Contamination and defective items can turn precision into false confidence.</h3>
+          <p>We trace how exposure, item quality, and reporting choices change the conclusions an evaluation supports.</p>
         </article>
         <article>
-          <h3>Coverage</h3>
-          <p>Measurement that includes languages, communities, social impacts, and failure modes omitted by standard capability suites.</p>
+          <p class="eval-finding-kicker">Coverage</p>
+          <h3>Social-impact evaluations leave important questions and communities out.</h3>
+          <p>We map what first- and third-party evaluations cover, and where independent measurement is still missing.</p>
         </article>
       </div>
     </div>
@@ -104,7 +99,7 @@
   <section class="eval-publications" id="publications">
     <div class="wrap">
       <div class="eval-publications-head">
-        <h2>Publications</h2>
+        <h2>Research record</h2>
         <p>{{ len $papers }} papers, newest first</p>
       </div>
       <div class="eval-paper-list">
