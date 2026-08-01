@@ -24,7 +24,6 @@ body:has(.eval-page) .site-header a[href*="research"] { color: var(--eval-green)
 .eval-feature,
 .eval-publications { padding: 96px 0; border-bottom: 1px solid var(--line); }
 .eval-feature-grid { display: grid; grid-template-columns: minmax(300px, .95fr) minmax(430px, 1.1fr); align-items: center; gap: 100px; }
-.eval-index { margin: 0 0 30px; color: var(--eval-green); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: .88rem; font-weight: 700; }
 .eval-feature h2,
 .eval-publications h2 { margin: 0; font-size: clamp(2.35rem, 4.8vw, 4.8rem); line-height: 1.03; }
 .eval-feature-copy > p { max-width: 680px; margin: 30px 0 0; color: var(--body); font-size: 1.08rem; line-height: 1.7; }
