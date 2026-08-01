@@ -1,0 +1,97 @@
+{{ define "main" }}
+{{ $data := site.Data.research.evaluation_mockups }}
+{{ $papers := index site.Data.research.area_papers "evaluation" | default slice }}
+{{ $authors := site.Data.research.paper_authors }}
+<main class="artifact-page">
+  <header class="artifact-hero">
+    <div class="wrap">
+      <nav class="artifact-breadcrumb" aria-label="Breadcrumb"><a href="{{ "research.html" | relURL }}">Research</a><span>/</span><a href="{{ "research-evaluation.html" | relURL }}">Evaluation</a><span>/</span><span>Artifacts</span></nav>
+      <div class="artifact-hero-grid">
+        <div><h1>Evaluation tools, data, and research</h1></div>
+        <p>Open resources for running evaluations, comparing reported results, and studying the quality of the measurements themselves.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="artifact-browser">
+    <div class="wrap">
+      <div class="artifact-controls">
+        <label><span>Search</span><input id="artifact-search" type="search" placeholder="Search tools and research" autocomplete="off"></label>
+        <div class="artifact-filters" aria-label="Filter resources">
+          <button class="is-active" type="button" data-filter="all">All</button>
+          <button type="button" data-filter="infrastructure">Infrastructure</button>
+          <button type="button" data-filter="reporting">Reporting</button>
+          <button type="button" data-filter="research">Research</button>
+        </div>
+      </div>
+
+      <div class="artifact-section-head"><h2>Open resources</h2><p>{{ len $data.artifacts }} maintained projects</p></div>
+      <div class="artifact-grid">
+        {{ range $data.artifacts }}
+        <article class="artifact-card" data-search-item data-kind="{{ lower .kind }}">
+          {{ if .image }}<div class="artifact-card-image"><img src="{{ .image | relURL }}" alt=""></div>{{ else }}<div class="artifact-card-mark" aria-hidden="true"><span></span><span></span><span></span></div>{{ end }}
+          <div class="artifact-card-body">
+            <p class="artifact-kind">{{ .kind }}</p>
+            <h3>{{ .title }}</h3>
+            <p>{{ .description }}</p>
+            <ul>{{ range .metrics }}<li>{{ . }}</li>{{ end }}</ul>
+            <div class="artifact-links">{{ range .links }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }} <span aria-hidden="true">&#8599;</span></a>{{ end }}</div>
+          </div>
+        </article>
+        {{ end }}
+      </div>
+
+      <div class="artifact-section-head"><h2>Research outputs</h2><p>Selected work</p></div>
+      <div class="artifact-research-list">
+        {{ range $data.featured_research }}
+        <article data-search-item data-kind="research">
+          <div><h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a></h3><p>{{ .description }}</p></div>
+          <p class="artifact-finding">{{ .finding }}</p>
+          <a class="artifact-paper-link" href="{{ .url }}" target="_blank" rel="noopener noreferrer">Paper <span aria-hidden="true">&#8599;</span></a>
+        </article>
+        {{ end }}
+      </div>
+
+      <div class="artifact-section-head"><h2>All evaluation publications</h2><p>{{ len $papers }} publications</p></div>
+      <div class="artifact-paper-list">
+        {{ range $papers }}
+        {{ $paperAuthors := index $authors .title | default slice }}
+        <article data-search-item data-kind="research">
+          <p class="artifact-paper-year">{{ .date }}</p>
+          <div><h3>{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>{{ if $paperAuthors }}<p>{{ range first 4 $paperAuthors }}{{ replaceRE ",.*$" "" . }}{{ if ne . (index (first 4 $paperAuthors) (sub (len (first 4 $paperAuthors)) 1)) }}, {{ end }}{{ end }}{{ if gt (len $paperAuthors) 4 }}, et al.{{ end }}</p>{{ end }}</div>
+          <p class="artifact-paper-venue">{{ .venue }}</p>
+        </article>
+        {{ end }}
+      </div>
+      <p class="artifact-empty" hidden>No resources match this search.</p>
+    </div>
+  </section>
+</main>
+<script>
+(() => {
+  const input = document.querySelector('#artifact-search');
+  const buttons = [...document.querySelectorAll('[data-filter]')];
+  const items = [...document.querySelectorAll('[data-search-item]')];
+  const empty = document.querySelector('.artifact-empty');
+  let filter = 'all';
+  function update() {
+    const query = input.value.trim().toLowerCase();
+    let shown = 0;
+    items.forEach(item => {
+      const matchesFilter = filter === 'all' || item.dataset.kind === filter;
+      const matchesQuery = !query || item.textContent.toLowerCase().includes(query);
+      item.hidden = !(matchesFilter && matchesQuery);
+      if (!item.hidden) shown += 1;
+    });
+    empty.hidden = shown !== 0;
+  }
+  input.addEventListener('input', update);
+  buttons.forEach(button => button.addEventListener('click', () => {
+    filter = button.dataset.filter;
+    buttons.forEach(candidate => candidate.classList.toggle('is-active', candidate === button));
+    update();
+  }));
+})();
+</script>
+{{ end }}
+{{ define "page_styles" }}<link rel="stylesheet" href="{{ printf "evaluation-artifacts.css?v=%d" now.Unix | relURL }}">{{ end }}
