@@ -1,106 +1,114 @@
 {{ define "main" }}
-{{ $data := site.Data.research.training_dynamics }}
 {{ $paperMap := site.Data.research.area_papers | default dict }}
 {{ $papers := index $paperMap .Params.area_key | default slice }}
-<main class="td3-page">
-  <header class="td3-masthead">
-    <a class="td3-brand" href="{{ "index.html" | relURL }}"><img src="{{ "assets/eleutherai-logo.svg" | relURL }}" alt="EleutherAI"></a>
-    <nav aria-label="Primary navigation">
-      <a href="{{ "about.html" | relURL }}">About</a>
-      <a class="active" href="{{ "research.html" | relURL }}">Research</a>
-      <a href="{{ "community.html" | relURL }}">Community</a>
-      <a href="{{ "blog.html" | relURL }}">Blog</a>
-    </nav>
+<main class="td-page">
+  <header class="td-hero">
+    <div class="wrap">
+      <nav class="td-breadcrumb" aria-label="Breadcrumb"><a href="{{ "research.html" | relURL }}">Research</a><span>/</span><span>Training Dynamics</span></nav>
+      <h1>A model is a process caught at one moment</h1>
+      <p>To understand why a model behaves as it does, we study the trajectory that produced it: how data, architecture, optimization, scale, and variation across runs shape what the model learns.</p>
+    </div>
   </header>
 
-  <section class="td3-hero">
-    <div class="td3-title">
-      <h1>Training<br>Dynamics</h1>
-      <p>{{ .Params.lede }}</p>
-    </div>
-    <div class="td3-model-field" aria-label="154 checkpoints in each Pythia model run">
-      <div class="td3-field-label"><strong>One model</strong><span>observed 154 times</span></div>
-      <div class="td3-field-line" aria-hidden="true">
-        {{ range seq 22 }}<i></i>{{ end }}
-      </div>
-      <div class="td3-field-count"><strong>154</strong><span>released checkpoints<br>per Pythia run</span></div>
-    </div>
-  </section>
-
-  {{ with $data.overview }}
-    <section class="td3-premise">
-      <h2>{{ .title }}</h2>
-      <div>
-        <p class="td3-premise-lead">{{ .intro }}</p>
-        {{ range .paragraphs }}<p>{{ . }}</p>{{ end }}
+  <article class="td-story">
+    <section class="td-position">
+      <div class="wrap">
+        <div class="td-section-head">
+          <h2>AI needs explanations of development, not just descriptions of outcomes</h2>
+          <p>Most AI research examines a finished model and responds to undesirable behavior with another round of fine-tuning, filtering, or prompting. These interventions can be useful without explaining why the behavior emerged, whether the fix will survive, or how the behavior could have been prevented during training.</p>
+          <p>A science of AI should make claims before the final model is observed. It should identify which properties are stable across runs, explain how mechanisms form, and connect changes in the training process to changes in behavior.</p>
+        </div>
+        <a class="td-agenda-paper" href="https://arxiv.org/abs/2606.06533" target="_blank" rel="noopener noreferrer">
+          <span><strong>Position: Don’t Just “Fix it in Post”</strong><em>A Science of AI Must Study Training Dynamics</em></span>
+          <span>Biderman, Khan, Mireshghallah, Arnett, Barez, Saphra</span>
+          <span>ICML 2026, Oral <b aria-hidden="true">&#8599;</b></span>
+        </a>
       </div>
     </section>
-  {{ end }}
 
-  {{ with $data.directions }}
-    <section class="td3-questions" id="agenda">
-      <header>
-        <h2>{{ .title }}</h2>
-        <p>{{ .intro }}</p>
-      </header>
-      {{ range $index, $item := .items }}
-        <article>
-          <span>{{ printf "%02d" (add $index 1) }}</span>
-          <h3>{{ $item.title }}</h3>
-          <p>{{ $item.text }}</p>
-        </article>
-      {{ end }}
-    </section>
-  {{ end }}
-
-  {{ with $data.projects }}
-    <section class="td3-laboratory" id="projects">
-      <div class="td3-lab-heading">
-        <h2>{{ .title }}</h2>
-        <p>{{ .intro }}</p>
-      </div>
-      <div class="td3-runs" aria-hidden="true">
-        {{ range seq 12 }}<div>{{ range seq 14 }}<i></i>{{ end }}</div>{{ end }}
-      </div>
-      <div class="td3-projects">
-        {{ range .items }}
-          <article>
-            <h3>{{ .title }}</h3>
-            <p>{{ .text }}</p>
-            {{ with .url }}<a href="{{ . | relURL }}">View project &#8599;</a>{{ end }}
-          </article>
-        {{ end }}
+    <section class="td-observatory">
+      <div class="wrap">
+        <div class="td-section-head">
+          <h2>An observatory for model development</h2>
+          <p>Longitudinal science requires more than final weights. Pythia was designed so researchers can reconstruct what each model saw, observe its development at high temporal resolution, and make controlled comparisons across scale. PolyPythias adds repeated runs, allowing stable phenomena to be separated from seed-specific accidents.</p>
+        </div>
+        <div class="td-observatory-graphic" aria-label="Pythia observes models across training time, scale, and repeated runs">
+          <div class="td-axis"><span>Initialization</span><span>Training time</span><span>Final model</span></div>
+          <div class="td-trajectories" aria-hidden="true">{{ range seq 10 }}<i>{{ range seq 18 }}<b></b>{{ end }}</i>{{ end }}</div>
+        </div>
+        <div class="td-platforms">
+          <a href="{{ "project-pythia.html" | relURL }}"><strong>Pythia</strong><span>16 models across eight scales</span><span>154 checkpoints per model</span><span>Exact training-data order</span></a>
+          <a href="https://arxiv.org/abs/2503.09543" target="_blank" rel="noopener noreferrer"><strong>PolyPythias</strong><span>50 comparable pretraining runs</span><span>Roughly 7,000 new checkpoints</span><span>Stability and outliers across seeds</span></a>
+        </div>
       </div>
     </section>
-  {{ end }}
 
-  {{ with $data.featured }}
-    <section class="td3-manifesto">
-      <p>{{ .authors }}<br>{{ .venue }}, {{ .date }}</p>
-      <div>
-        <h2><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .paper }}</a></h2>
-        <p>{{ .text }}</p>
-        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">Read the research agenda &#8599;</a>
+    <section class="td-evidence td-evidence-dark">
+      <div class="wrap">
+        <div class="td-section-head">
+          <h2>Mechanisms have histories</h2>
+          <p>A circuit found in a finished model may be a stable algorithm, temporary scaffolding, or a vestige of an earlier strategy. Following circuits through training shows that task-level algorithms can persist across time and scale even as the individual components implementing them change.</p>
+        </div>
+        <figure>
+          <img src="{{ "images/training-dynamics/circuits-over-time.png" | relURL }}" alt="Four plots showing task behavior emerging at similar training-token counts across Pythia model scales">
+          <figcaption><span>Task abilities emerge at similar token counts across model scales</span><a href="https://arxiv.org/abs/2407.10827" target="_blank" rel="noopener noreferrer">LLM Circuit Analyses Are Consistent Across Training and Scale &#8599;</a></figcaption>
+        </figure>
       </div>
     </section>
-  {{ end }}
 
-  {{ if gt (len $papers) 0 }}
-    <section class="td3-papers" id="papers">
-      <header><h2>Publications</h2><p>Newest first</p></header>
-      <div>
-        {{ range $papers }}
-          <article>
-            <p>{{ if .venue }}{{ .venue }}{{ if .date }}, {{ end }}{{ end }}{{ .date }}</p>
-            <h3>{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}</h3>
-            <div>{{ range .superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}</div>
-          </article>
-        {{ end }}
+    <section class="td-evidence td-evidence-light">
+      <div class="wrap">
+        <div class="td-section-head">
+          <h2>Learning has an order</h2>
+          <p>Networks do not acquire every regularity at once. They first exploit simpler statistics and later become sensitive to higher-order structure. Some early capabilities are eventually displaced or reorganized, making the path itself necessary evidence for an explanation.</p>
+        </div>
+        <figure>
+          <img src="{{ "images/training-dynamics/statistics-over-time.png" | relURL }}" alt="Loss curves for one-gram through four-gram sequences at six Pythia training checkpoints">
+          <figcaption><span>Pythia’s sensitivity progresses from lower-order to higher-order sequence statistics</span><div><a href="https://arxiv.org/abs/2402.04362" target="_blank" rel="noopener noreferrer">Neural Networks Learn Statistics of Increasing Complexity &#8599;</a><a href="https://arxiv.org/abs/2502.02820" target="_blank" rel="noopener noreferrer">Slowing Learning by Erasing Simple Features &#8599;</a></div></figcaption>
+        </figure>
       </div>
     </section>
-  {{ end }}
 
-  <footer class="td3-footer"><a href="{{ "research.html" | relURL }}">All EleutherAI research</a><span>EleutherAI</span></footer>
+    <section class="td-evidence td-evidence-dark">
+      <div class="wrap">
+        <div class="td-section-head">
+          <h2>Trajectories contain predictive information</h2>
+          <p>Intermediate checkpoints can reveal which behaviors a model is likely to exhibit at the end of training. Memorization is a demanding test: the goal is not merely to forecast an aggregate score, but to predict which individual training sequences a larger model will later reproduce.</p>
+        </div>
+        <figure class="td-figure-narrow">
+          <img src="{{ "images/training-dynamics/memorization-scaling.png" | relURL }}" alt="Precision and recall scaling curves for predicting memorization in Pythia models">
+          <figcaption><span>Scaling curves test how cheaply final memorization can be forecast</span><a href="https://arxiv.org/abs/2304.11158" target="_blank" rel="noopener noreferrer">Emergent and Predictable Memorization &#8599;</a></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="td-questions">
+      <div class="wrap">
+        <div class="td-section-head">
+          <h2>Questions that organize the program</h2>
+          <p>The aim is not a catalogue of curves. We want causal, quantitative accounts that constrain what we expect from new training runs and explain which observations should generalize.</p>
+        </div>
+        <div class="td-question-list">
+          <p>Which properties of a final model can be forecast from its early trajectory?</p>
+          <p>Which mechanisms recur across seeds, scales, architectures, and datasets?</p>
+          <p>What determines the order in which capabilities and representations develop?</p>
+          <p>When can undesirable behavior be prevented during training rather than patched afterward?</p>
+        </div>
+      </div>
+    </section>
+
+    {{ if gt (len $papers) 0 }}
+    <section class="td-publications" id="publications">
+      <div class="wrap">
+        <div class="td-section-head"><h2>Training Dynamics research</h2><p>Papers on model development, stability across runs, mechanisms over time, memorization, learning order, and interventions during training.</p></div>
+        <div class="td-paper-list">
+          {{ range $papers }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span>{{ .year }}</span><strong>{{ .title }}</strong><span>{{ .venue }}</span></a>{{ end }}
+        </div>
+        <a class="td-library-link" href="{{ "papers.html" | relURL }}">Explore the Research Library &#8594;</a>
+      </div>
+    </section>
+    {{ end }}
+  </article>
 </main>
 {{ end }}
 {{ define "page_styles" }}<link rel="stylesheet" href="{{ printf "training-dynamics.css?v=%d" now.Unix | relURL }}">{{ end }}
