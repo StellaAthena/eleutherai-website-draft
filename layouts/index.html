@@ -51,7 +51,7 @@
   <section class="home-current-hero" aria-labelledby="hero-title">
     <div class="wrap home-current-layout">
       <div class="home-current-copy">
-        <h1 id="hero-title">What EleutherAI is working on now.</h1>
+        <h1 id="hero-title">Welcome to the World's Foremost Open Science AI Lab</h1>
         <p>We train models, release datasets and tools, and use them to study evaluation, interpretability, training dynamics, and safety in foundation models.</p>
         <div class="home-metric-strip" aria-label="EleutherAI impact metrics">
           {{ range site.Data.home.metric_rows }}
@@ -67,7 +67,7 @@
                 {{ end }}
                 {{ $emptyClass := cond (not $value) " is-empty" "" }}
                 {{ if $url }}
-                  <a class="home-metric{{ $emptyClass }}" href="{{ $url }}" target="_blank" rel="noopener noreferrer">
+                  <a class="home-metric{{ $emptyClass }}" href="{{ $url }}"{{ if hasPrefix $url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>
                     <strong>{{ $value }}</strong>
                     <span>{{ .label }}</span>
                   </a>

@@ -1,6 +1,6 @@
 ---
-title: "Support durable open AI research infrastructure."
-lede: "EleutherAI depends on institutional support, compute access, engineering capacity, and research partnerships to keep public artifacts useful and scientifically credible."
+title: "Support durable open AI research"
+lede: "EleutherAI depends on institutional support, compute access, engineering capacity, and research partnerships to keep public work useful and scientifically credible."
 layout: page
 url: /support.html
 ---
@@ -23,7 +23,7 @@ Support helps external researchers, volunteers, and partner institutions contrib
 
 ## Ways to help
 
-Institutional support can take the form of funding, compute, collaboration, infrastructure maintenance, or help keeping public research artifacts useful over time.
+Institutional support can take the form of funding, compute, collaboration, engineering support, or help keeping public research useful over time.
 
 ### Sponsor open research programs
 
@@ -35,4 +35,4 @@ Compute access makes it possible to train, evaluate, and release models and data
 
 ### Work with EleutherAI researchers
 
-Research collaborations can connect external labs to EleutherAI's areas, projects, and public infrastructure.
+Research collaborations can connect external labs to EleutherAI's research areas, projects, and public releases.

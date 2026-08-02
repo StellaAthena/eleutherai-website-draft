@@ -1,5 +1,5 @@
 ---
-title: "EleutherAI is a non-profit AI research lab that focuses on interpretability and alignment of large models."
+title: "EleutherAI is a non-profit AI research lab that focuses on interpretability and alignment of large models"
 layout: about
 url: /about.html
 ---

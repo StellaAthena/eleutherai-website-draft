@@ -1,0 +1,167 @@
+{{ define "page_styles" }}
+  <link rel="stylesheet" href="{{ printf "soar.css?v=%d" now.Unix | relURL }}">
+{{ end }}
+
+{{ define "main" }}
+{{ $soar := site.Data.soar }}
+{{ $soarPapers := site.Data.research.paper_collections.soar }}
+<main class="soar-page">
+  <section class="soar-hero">
+    <div class="wrap">
+      <h1>{{ $soar.title }}</h1>
+      <p>{{ $soar.lede }}</p>
+    </div>
+  </section>
+
+  <section class="soar-status-section">
+    <div class="wrap">
+      <p class="soar-status">{{ $soar.status }}</p>
+    </div>
+  </section>
+
+  <section class="soar-section soar-overview">
+    <div class="wrap">
+      <h2>Program overview</h2>
+      {{ range $soar.overview }}<p>{{ . }}</p>{{ end }}
+
+      <div class="soar-overview-grid">
+        <div>
+          <h3>Who should apply</h3>
+          <ul>
+            {{ range $soar.who_should_apply }}<li>{{ . }}</li>{{ end }}
+          </ul>
+        </div>
+        <div>
+          <h3>Frequently asked questions</h3>
+          <div class="soar-faq">
+            {{ range $soar.faq }}
+              <div>
+                <h4>{{ .question }}</h4>
+                <p>{{ .answer | markdownify }}</p>
+              </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soar-section soar-projects">
+    <div class="wrap">
+      <h2>2026 projects</h2>
+      {{ range slice "Interpretability" "Safety" "Applications" }}
+        {{ $track := . }}
+        <section class="soar-track soar-track--{{ $track | anchorize }}">
+          <h3>{{ $track }}</h3>
+          <div class="soar-project-list">
+            {{ range where $soar.projects "track" $track }}
+              <details class="soar-project">
+                <summary>
+                  <div class="soar-project-heading">
+                    <h4>{{ .title }}</h4>
+                    <p>{{ .mentor }}{{ with .affiliation }} · {{ . }}{{ end }}</p>
+                  </div>
+                  <p class="soar-project-meta">{{ .participants }} participants · {{ .timeInvestment }} · {{ .type }}</p>
+                </summary>
+                <div class="soar-project-body">
+                  <p class="soar-project-description">{{ .description }}</p>
+                  <div class="soar-project-details">
+                    <section>
+                      <h5>Project work</h5>
+                      {{ .tasks | markdownify }}
+                    </section>
+                    <section>
+                      <h5>Preparation</h5>
+                      {{ .prepWork | markdownify }}
+                    </section>
+                    <section>
+                      <h5>Deliverables</h5>
+                      {{ .deliverables | markdownify }}
+                    </section>
+                    <section>
+                      <h5>Background</h5>
+                      <p>{{ .skillsDescription }}</p>
+                    </section>
+                  </div>
+                </div>
+              </details>
+            {{ end }}
+          </div>
+        </section>
+      {{ end }}
+    </div>
+  </section>
+
+  <section id="research-papers" class="soar-section soar-papers-section">
+    <div class="wrap">
+      <h2>SOAR research papers</h2>
+      <div class="soar-paper-list">
+        {{ range $soarPapers }}
+          <article class="soar-paper">
+            <div>
+              <h3>
+                {{ if .url }}
+                  <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>
+                {{ else }}
+                  {{ .title }}
+                {{ end }}
+              </h3>
+              <p>{{ delimit .authors ", " }}</p>
+            </div>
+            <p class="soar-paper-venue">{{ .venue }}, {{ .year }}</p>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="soar-section soar-timeline-section">
+    <div class="wrap">
+      <h2>2026 timeline</h2>
+      <div class="soar-timeline">
+        {{ range $soar.timeline }}
+          <div class="soar-timeline-item">
+            <time>{{ .date }}</time>
+            <div>
+              <h3>{{ .event }}</h3>
+              {{ with .detail }}<p>{{ . }}</p>{{ end }}
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="soar-section soar-testimonials-section">
+    <div class="wrap">
+      <h2>Participant experiences</h2>
+      <div class="soar-testimonials">
+        {{ range $soar.testimonials }}
+          <blockquote>
+            <p>“{{ .quote }}”</p>
+            <footer>
+              <strong>{{ .name }}</strong>
+              <span>{{ .project }}</span>
+            </footer>
+          </blockquote>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="soar-section soar-organizers-section">
+    <div class="wrap">
+      <h2>Program organizers</h2>
+      <div class="soar-organizers">
+        {{ range $soar.organizers }}
+          <article>
+            <img src="{{ .image | relURL }}" alt="{{ .name }}">
+            <h3>{{ .name }}</h3>
+            <p>{{ .affiliation }}</p>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+</main>
+{{ end }}

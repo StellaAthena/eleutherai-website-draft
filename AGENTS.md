@@ -10,12 +10,15 @@ For website design, layout, information architecture, homepage, navigation, rese
 4. Offer 2-3 distinct visual/layout directions when the choice is not obvious.
 5. Implement only after the direction is clear, unless Stella explicitly asks for immediate edits.
 6. After implementation, review the page in the browser at desktop and mobile sizes and critique spacing, hierarchy, readability, and density.
+7. After every visually substantive change, regenerate the relevant preview before reporting completion: rebuild Hugo pages and refresh or start a local preview, or refresh the local tab for a standalone mockup. Give Stella the exact URL to view. Coordinate the preview port with concurrent website work before starting a server.
 
 ## Content and taste
 
+- Do not end headings with periods.
 - Prefer proof over explanation: show concrete work, people, papers, artifacts, metrics, and outcomes instead of describing the site's own structure.
 - Do not add generic filler copy, meta-explanations, or decorative small labels that repeat nearby headings.
 - Do not add process narration to visitor-facing copy, such as explanations of what a page is for, how its navigation works, where a link leads, or how content is maintained. Include that kind of text only when Stella explicitly asks for it or it conveys a substantial, user-relevant fact that the page would otherwise lack.
+- A mockup should contain only content appropriate for the published page. Never add editorial annotations, mockup ribbons, process labels, explanatory notes, or other non-public text to the rendered design. When a necessary piece of copy is genuinely undecided, use `Lorem ipsum` as the sole placeholder rather than inventing temporary language.
 - Do not invent facts, sponsored organizations, people, numbers, awards, or links. Leave structured placeholders only when they are clearly awaiting Stella's content.
 - Avoid cramming every related idea onto one page. Use a hub-and-spoke structure when a topic has multiple real audiences or content types.
 - Keep Hugo content/data/templates separated so Stella can edit content without digging through HTML and CSS.

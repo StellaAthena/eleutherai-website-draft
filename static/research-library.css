@@ -2,7 +2,7 @@
 body:has(.library-page) .site-header a[href*="research"] { color: var(--lib-green); }
 .library-intro { padding: 82px 0 64px; border-bottom: 1px solid var(--line); }
 .library-intro h1 { margin: 0 0 28px; font-size: clamp(3.6rem, 7vw, 6.8rem); line-height: .92; }
-.library-intro > .wrap > p { max-width: 780px; margin: 0; color: var(--body); font-size: 1.22rem; line-height: 1.55; }
+.library-intro > .wrap > p { margin: 0; color: var(--body); font-size: 1.22rem; line-height: 1.55; }
 .library-search { margin-top: 58px; }
 .library-search label, .library-filters > label { display: block; margin-bottom: 10px; color: var(--ink); font-weight: 700; }
 .library-search input { width: 100%; min-height: 68px; padding: 0 22px; border: 1px solid #3a4551; border-radius: 0; outline: 0; background: var(--lib-panel); color: var(--ink); font: inherit; font-size: 1.12rem; }

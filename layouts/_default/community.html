@@ -1,70 +1,102 @@
+{{ define "page_styles" }}
+  <link rel="stylesheet" href="{{ printf "community-impact.css?v=%d" now.Unix | relURL }}">
+{{ end }}
+
 {{ define "main" }}
-<main class="community-page">
-  <section class="community-hero">
-    <div class="wrap community-hero-grid">
-      <div class="community-hero-copy">
-        <h1>{{ .Title }}</h1>
-        {{ with .Params.lede }}<p class="lede">{{ . | markdownify }}</p>{{ end }}
-        {{ with site.Data.community.hero_actions }}
-          <div class="button-row">
-            {{ range . }}
-              <a class="button{{ if eq .style "primary" }} primary{{ end }}" href="{{ .url }}"{{ if strings.HasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>
-            {{ end }}
-          </div>
-        {{ end }}
-      </div>
-      {{ with site.Data.community.metrics }}
-        <div class="community-metrics" aria-label="EleutherAI community metrics">
-          {{ range . }}
-            <div class="community-metric">
-              <strong>{{ .value }}</strong>
-              <span>{{ .label }}</span>
-            </div>
-          {{ end }}
-        </div>
-      {{ end }}
+{{ $community := site.Data.community }}
+<main class="community-impact-page">
+  <section class="community-impact-hero">
+    <div class="wrap">
+      <h1>{{ $community.hero.title }}</h1>
+      <p class="community-impact-lede">{{ $community.hero.lede }}</p>
     </div>
   </section>
 
-  {{ with site.Data.community.map }}
-    <section class="section community-map-section">
-      <div class="wrap">
-        <div class="community-map-intro">
-          <h2>{{ .title }}</h2>
-          <p>{{ .text }}</p>
-        </div>
-        <figure class="community-map">
-          <img src="{{ .src }}" alt="{{ .alt }}">
-        </figure>
+  <section class="community-impact-map-section">
+    <div class="wrap">
+      <figure class="community-impact-map">
+        <img src="{{ $community.map.src | relURL }}" alt="{{ $community.map.alt }}">
+      </figure>
+      <div class="community-impact-stats" aria-label="EleutherAI community reach">
+        {{ range $community.metrics }}
+          <div class="community-impact-stat">
+            <strong>{{ .value }}</strong>
+            <span>{{ .label }}</span>
+          </div>
+        {{ end }}
       </div>
-    </section>
-  {{ end }}
+    </div>
+  </section>
 
-  {{ with site.Data.community.work }}
-    <section class="section community-work-section">
-      <div class="wrap">
-        <div class="section-head">
-          <div><h2>{{ .title }}</h2></div>
-          <p class="section-intro">{{ .intro }}</p>
-        </div>
-        <div class="community-work-grid compact">
-          {{ range first 4 .items }}
-            {{ if .url }}
-              {{ $href := cond (strings.HasPrefix .url "http") .url (.url | relURL) }}
-              <a class="community-work-card" href="{{ $href }}"{{ if strings.HasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>
-                <h3>{{ .title }}</h3>
-                <p>{{ .text }}</p>
-              </a>
-            {{ else }}
-              <article class="community-work-card">
-                <h3>{{ .title }}</h3>
-                <p>{{ .text }}</p>
-              </article>
-            {{ end }}
-          {{ end }}
-        </div>
+  <section class="community-impact-soar">
+    <div class="wrap">
+      <h2>{{ $community.soar.title }}</h2>
+      <p>{{ $community.soar.text }}</p>
+      <div class="community-impact-soar-links">
+        {{ range $community.soar.links }}
+          <a href="{{ .url | relURL }}">{{ .label }} <span aria-hidden="true">&#8594;</span></a>
+        {{ end }}
       </div>
-    </section>
-  {{ end }}
+    </div>
+  </section>
+
+  <section class="community-impact-partners">
+    <div class="wrap">
+      <div class="community-impact-section-top">
+        <h2>{{ $community.partners.title }}</h2>
+        <div class="community-impact-partner-intro">{{ $community.partners.intro | markdownify }}</div>
+      </div>
+      <div class="community-impact-sponsor-list">
+        {{ range $community.partners.organizations }}
+          <article class="community-impact-sponsor community-impact-sponsor--{{ .key }}">
+            <div>
+              <h3 class="community-impact-sponsor-title">
+                <img{{ with .logo_class }} class="{{ . }}"{{ end }} src="{{ .logo | relURL }}" alt="">
+                <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
+              </h3>
+              <p>{{ .text }}</p>
+              {{ with .papers }}
+                <div class="community-impact-sponsor-papers">
+                  {{ range . }}
+                    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }} <span aria-hidden="true">&#8594;</span></a>
+                  {{ end }}
+                </div>
+              {{ end }}
+            </div>
+            <a class="community-impact-sponsor-arrow" href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="Visit {{ .name }}">&#8594;</a>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="community-impact-supported">
+    <div class="wrap">
+      <h2>{{ $community.supported.title }}</h2>
+      <p>{{ $community.supported.text }}</p>
+      <div class="community-impact-supported-grid">
+        {{ range $community.supported.organizations }}
+          <a class="community-impact-supported-item" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+            <span class="community-impact-supported-mark{{ if .light_background }} has-light-background{{ end }}">
+              <img src="{{ .logo | relURL }}" alt="">
+            </span>
+            <span class="community-impact-supported-name">{{ .name }}</span>
+          </a>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="community-impact-reading">
+    <div class="wrap">
+      <div>
+        <h2>{{ $community.reading_groups.title }}</h2>
+        <p>{{ $community.reading_groups.text }}</p>
+      </div>
+      <a class="community-impact-reading-link" href="{{ $community.reading_groups.url }}" target="_blank" rel="noopener noreferrer">
+        {{ $community.reading_groups.link_label }} <span aria-hidden="true">&#8594;</span>
+      </a>
+    </div>
+  </section>
 </main>
 {{ end }}
