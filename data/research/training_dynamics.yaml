@@ -5,17 +5,6 @@ overview:
     - "Most AI research analyzes finished models and responds to undesirable behavior with post-training interventions. That can change what a model does without explaining why the behavior emerged, whether the intervention will persist, or how the behavior could have been prevented."
     - "Our goal is a predictive science of model development. We treat intermediate checkpoints, training data, optimization, architecture, scale, and variation across runs as evidence about how models acquire their behavior. Open model suites and reproducible training runs make it possible to test explanations against trajectories rather than fit stories to endpoints."
 
-questions:
-  title: "How we know we are making progress"
-  intro: "Prediction, intervention, and design are increasingly demanding tests of an explanation. They are a way to assess the science, not the organizing philosophy of the program."
-  items:
-    - title: "Predict"
-      text: "Forecast a model property from its training setup or early trajectory, before training finishes and ideally before it begins. We want to extend the predictive success of loss scaling to capabilities, memorization, bias, robustness, and safety-relevant behavior."
-    - title: "Intervene"
-      text: "Recognize when a training trajectory is heading somewhere undesirable and redirect it while training is still underway. This requires measurements that reveal when behaviors emerge and which changes to data or optimization can alter them."
-    - title: "Design"
-      text: "Specify desired properties in advance and construct training procedures that produce them reliably across seeds, scales, architectures, and datasets. This is the strongest test that we have identified the right objects and mechanisms."
-
 projects:
   title: "Experimental foundations"
   intro: "This work depends on models whose histories can actually be inspected and compared."

@@ -30,62 +30,6 @@
       </div>
     </section>
 
-    <section class="td-observatory">
-      <div class="wrap">
-        <div class="td-section-head">
-          <h2>An observatory for model development</h2>
-          <p>Longitudinal science requires more than final weights. Pythia was designed so researchers can reconstruct what each model saw, observe its development at high temporal resolution, and make controlled comparisons across scale. PolyPythias adds repeated runs, allowing stable phenomena to be separated from seed-specific accidents.</p>
-        </div>
-        <div class="td-observatory-graphic" aria-label="Pythia observes models across training time, scale, and repeated runs">
-          <div class="td-axis"><span>Initialization</span><span>Training time</span><span>Final model</span></div>
-          <div class="td-trajectories" aria-hidden="true">{{ range seq 10 }}<i>{{ range seq 18 }}<b></b>{{ end }}</i>{{ end }}</div>
-        </div>
-        <div class="td-platforms">
-          <a href="{{ "project-pythia.html" | relURL }}"><strong>Pythia</strong><span>16 models across eight scales</span><span>154 checkpoints per model</span><span>Exact training-data order</span></a>
-          <a href="https://arxiv.org/abs/2503.09543" target="_blank" rel="noopener noreferrer"><strong>PolyPythias</strong><span>50 comparable pretraining runs</span><span>Roughly 7,000 new checkpoints</span><span>Stability and outliers across seeds</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="td-evidence td-evidence-dark">
-      <div class="wrap">
-        <div class="td-section-head">
-          <h2>Mechanisms have histories</h2>
-          <p>A circuit found in a finished model may be a stable algorithm, temporary scaffolding, or a vestige of an earlier strategy. Following circuits through training shows that task-level algorithms can persist across time and scale even as the individual components implementing them change.</p>
-        </div>
-        <figure>
-          <img src="{{ "images/training-dynamics/circuits-over-time.png" | relURL }}" alt="Four plots showing task behavior emerging at similar training-token counts across Pythia model scales">
-          <figcaption><span>Task abilities emerge at similar token counts across model scales</span><a href="https://arxiv.org/abs/2407.10827" target="_blank" rel="noopener noreferrer">LLM Circuit Analyses Are Consistent Across Training and Scale &#8599;</a></figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="td-evidence td-evidence-light">
-      <div class="wrap">
-        <div class="td-section-head">
-          <h2>Learning has an order</h2>
-          <p>Networks do not acquire every regularity at once. They first exploit simpler statistics and later become sensitive to higher-order structure. Some early capabilities are eventually displaced or reorganized, making the path itself necessary evidence for an explanation.</p>
-        </div>
-        <figure>
-          <img src="{{ "images/training-dynamics/statistics-over-time.png" | relURL }}" alt="Loss curves for one-gram through four-gram sequences at six Pythia training checkpoints">
-          <figcaption><span>Pythia’s sensitivity progresses from lower-order to higher-order sequence statistics</span><div><a href="https://arxiv.org/abs/2402.04362" target="_blank" rel="noopener noreferrer">Neural Networks Learn Statistics of Increasing Complexity &#8599;</a><a href="https://arxiv.org/abs/2502.02820" target="_blank" rel="noopener noreferrer">Slowing Learning by Erasing Simple Features &#8599;</a></div></figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="td-evidence td-evidence-dark">
-      <div class="wrap">
-        <div class="td-section-head">
-          <h2>Trajectories contain predictive information</h2>
-          <p>Intermediate checkpoints can reveal which behaviors a model is likely to exhibit at the end of training. Memorization is a demanding test: the goal is not merely to forecast an aggregate score, but to predict which individual training sequences a larger model will later reproduce.</p>
-        </div>
-        <figure class="td-figure-narrow">
-          <img src="{{ "images/training-dynamics/memorization-scaling.png" | relURL }}" alt="Precision and recall scaling curves for predicting memorization in Pythia models">
-          <figcaption><span>Scaling curves test how cheaply final memorization can be forecast</span><a href="https://arxiv.org/abs/2304.11158" target="_blank" rel="noopener noreferrer">Emergent and Predictable Memorization &#8599;</a></figcaption>
-        </figure>
-      </div>
-    </section>
-
     {{ with $trainingDynamics.directions }}
     <section class="td-directions">
       <div class="wrap">
