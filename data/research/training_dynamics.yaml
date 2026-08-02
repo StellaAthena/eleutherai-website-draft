@@ -5,17 +5,6 @@ overview:
     - "Most AI research analyzes finished models and responds to undesirable behavior with post-training interventions. That can change what a model does without explaining why the behavior emerged, whether the intervention will persist, or how the behavior could have been prevented."
     - "Our goal is a predictive science of model development. We treat intermediate checkpoints, training data, optimization, architecture, scale, and variation across runs as evidence about how models acquire their behavior. Open model suites and reproducible training runs make it possible to test explanations against trajectories rather than fit stories to endpoints."
 
-questions:
-  title: "How we know we are making progress"
-  intro: "Prediction, intervention, and design are increasingly demanding tests of an explanation. They are a way to assess the science, not the organizing philosophy of the program."
-  items:
-    - title: "Predict"
-      text: "Forecast a model property from its training setup or early trajectory, before training finishes and ideally before it begins. We want to extend the predictive success of loss scaling to capabilities, memorization, bias, robustness, and safety-relevant behavior."
-    - title: "Intervene"
-      text: "Recognize when a training trajectory is heading somewhere undesirable and redirect it while training is still underway. This requires measurements that reveal when behaviors emerge and which changes to data or optimization can alter them."
-    - title: "Design"
-      text: "Specify desired properties in advance and construct training procedures that produce them reliably across seeds, scales, architectures, and datasets. This is the strongest test that we have identified the right objects and mechanisms."
-
 projects:
   title: "Experimental foundations"
   intro: "This work depends on models whose histories can actually be inspected and compared."
@@ -30,16 +19,46 @@ projects:
 
 directions:
   title: "Research directions"
-  intro: "We are using this framework to pursue questions where endpoint analysis has repeatedly proven insufficient."
+  intro: "Our work concentrates on four connected directions: how learning unfolds, how data shapes it, what a successful science should let us do, and the open infrastructure needed to make that science possible."
   items:
-    - title: "Mechanisms over time"
-      text: "Do circuits and representations form in consistent sequences? Which high-level mechanisms persist across checkpoints and scales, and which implementation details vary across runs?"
-    - title: "Memorization"
-      text: "When does a model acquire particular training examples, can final memorization be predicted from early checkpoints, and can risky acquisition be detected soon enough to change the trajectory?"
-    - title: "Bias and fairness"
-      text: "How do representational and behavioral biases develop during training? We want to identify when interventions must occur and why apparently successful post-hoc corrections often leave underlying representations intact."
-    - title: "Learning order and simplicity"
-      text: "Models tend to learn some patterns before others. Characterizing this order may explain phase transitions, shortcuts, generalization strategies, and how architecture or data composition changes what is learned."
+    - title: "Emergence and Learning Order"
+      text: "Capabilities and mechanisms do not appear all at once. We study which regularities models learn first, when new behaviors become measurable, and whether developmental patterns remain consistent across checkpoints and scales."
+      links:
+        - label: "Neural Networks Learn Statistics of Increasing Complexity"
+          url: "https://arxiv.org/abs/2402.04362"
+        - label: "LLM Circuit Analyses Are Consistent Across Training and Scale"
+          url: "https://arxiv.org/abs/2407.10827"
+        - label: "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?"
+          url: "https://arxiv.org/abs/2406.04391"
+    - title: "Data Attribution"
+      text: "Training data leaves a developmental record in model behavior and representations. We build methods for identifying which examples and datasets shaped a capability, tracing failures to their origins, and locating useful points of intervention."
+      links:
+        - label: "Bergson"
+          url: "https://github.com/EleutherAI/bergson"
+        - label: "Mitigating Emergent Misalignment with Data Attribution"
+          url: "https://openreview.net/forum?id=gN7pWmjiQW"
+        - label: "Where Does Social Reasoning Come From? Capability Provenance in Language Models"
+          url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=to2WKckAAAAJ&sortby=pubdate&citation_for_view=to2WKckAAAAJ:wlzmIqt2EaEC"
+    - title: "Predict, Intervene, Design"
+      text: "A useful explanation should let us forecast how a model will develop, redirect an undesirable trajectory while training is underway, and ultimately design training procedures that reliably produce intended properties."
+      links:
+        - label: "Pythia"
+          url: "project-pythia.html"
+        - label: "Emergent and Predictable Memorization"
+          url: "https://arxiv.org/abs/2304.11158"
+        - label: "Multitask Prompted Training Enables Zero-Shot Task Generalization"
+          url: "https://iclr.cc/virtual/2022/poster/7101"
+    - title: "Open Tooling"
+      text: "Training dynamics requires inspectable histories rather than final weights alone. We release checkpoints, code, attribution methods, and interpretability tools so developmental claims can be reproduced, challenged, and extended."
+      links:
+        - label: "Pythia"
+          url: "project-pythia.html"
+        - label: "PolyPythias"
+          url: "https://arxiv.org/abs/2503.09543"
+        - label: "Bergson"
+          url: "https://github.com/EleutherAI/bergson"
+        - label: "Sparse Autoencoders Find Highly Interpretable Features in Language Models"
+          url: "https://arxiv.org/abs/2309.08600"
 
 featured:
   title: "Research agenda"

@@ -1,0 +1,80 @@
+{{ define "main" }}
+{{ $papers := site.Data.research.area_papers.datasets }}
+{{ $components := resources.Get "blog/common-pile/components.png" }}
+<main class="data-page">
+  <header class="data-hero">
+    <div class="wrap">
+      <nav class="data-breadcrumb" aria-label="Breadcrumb"><a href="{{ "research.html" | relURL }}">Research</a><span>/</span><span>Datasets</span></nav>
+      <h1>What a model learns begins with what we choose to show it.</h1>
+      <p>Datasets are not passive inputs. Their composition determines which capabilities are possible, which communities are represented, and which risks become embedded in a model. We build open datasets and study the decisions that shape them.</p>
+    </div>
+  </header>
+
+  <article class="data-story">
+    <section class="data-infrastructure">
+      <div class="wrap">
+        <div class="data-section-head">
+          <h2>Public data should be inspectable infrastructure.</h2>
+          <p>Open models are difficult to study when their training data cannot be examined or reproduced. From The Pile to the Common Pile, EleutherAI has built large-scale corpora that expose their sources, processing choices, and limitations to outside scrutiny.</p>
+        </div>
+        {{ with $components }}
+        <figure class="data-figure">
+          <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Dataset sizes across the source categories in the Common Pile">
+          <figcaption><span>The Common Pile combines public-domain and openly licensed sources across code, government records, academic papers, books, forums, and educational material.</span><a href="https://arxiv.org/abs/2506.05209" target="_blank" rel="noopener noreferrer">Read the paper <span aria-hidden="true">&#8599;</span></a></figcaption>
+        </figure>
+        {{ end }}
+        <div class="data-project-links">
+          <a href="https://huggingface.co/collections/common-pile/common-pile-v01-artifacts-68307f7adba7e59fa183fe78" target="_blank" rel="noopener noreferrer"><strong>Common Pile</strong><span>Dataset, models, and artifacts</span></a>
+          <a href="https://pile.eleuther.ai/" target="_blank" rel="noopener noreferrer"><strong>The Pile</strong><span>Corpus and documentation</span></a>
+          <a href="https://github.com/EleutherAI/pythia" target="_blank" rel="noopener noreferrer"><strong>Pythia</strong><span>Models trained for scientific study</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="data-provenance">
+      <div class="wrap">
+        <div class="data-section-head">
+          <h2>Provenance is part of the dataset.</h2>
+          <p>A useful corpus needs more than text. Researchers need to know where its contents came from, what permissions govern them, how they were transformed, and whose interests were excluded from those decisions.</p>
+        </div>
+        <div class="data-findings">
+          <article><h3>Sources disappear</h3><p>The public web is becoming less available for AI training, often through blunt restrictions that make it harder to distinguish consensual research from exploitative collection.</p><a href="https://arxiv.org/abs/2407.14933" target="_blank" rel="noopener noreferrer">Consent in Crisis <span aria-hidden="true">&#8599;</span></a></article>
+          <article><h3>Records are incomplete</h3><p>Across text, speech, and video datasets, missing or inconsistent source records prevent researchers from auditing legality, consent, representation, and downstream reuse.</p><a href="https://openreview.net/forum?id=G5DziesYxL" target="_blank" rel="noopener noreferrer">The Data Provenance Initiative <span aria-hidden="true">&#8599;</span></a></article>
+          <article><h3>Documentation is research</h3><p>Datasheets, catalogues, and data cards turn collection decisions into inspectable evidence instead of leaving them as undocumented implementation details.</p><a href="https://arxiv.org/abs/2201.07311" target="_blank" rel="noopener noreferrer">Datasheet for The Pile <span aria-hidden="true">&#8599;</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="data-intervention">
+      <div class="wrap">
+        <div class="data-section-head">
+          <h2>Changing the data changes the model.</h2>
+          <p>Filtering, duplication, contamination, and source mixture are interventions on learning. We study their effects directly so data decisions can become testable scientific and safety choices.</p>
+        </div>
+        <div class="data-intervention-grid">
+          <article><h3>Capability</h3><p>Domain-specific corpora such as OpenWebMath and BigBIO make it possible to build and evaluate models around forms of expertise neglected by generic web data.</p></article>
+          <article><h3>Measurement</h3><p>Test contamination can inflate evaluation results and obscure generalization. Its effects depend on dose, task, and where contaminated examples enter the training process.</p></article>
+          <article><h3>Safety</h3><p>Selective pretraining-data filtering can prevent the acquisition of dangerous knowledge and produce safeguards that survive later tampering and fine-tuning.</p></article>
+        </div>
+        <a class="data-featured-paper" href="https://arxiv.org/abs/2508.06601" target="_blank" rel="noopener noreferrer"><span><strong>Deep Ignorance</strong> demonstrates that filtering pretraining data can build tamper-resistant safeguards into open-weight models.</span><em>Best Paper Runner-up, NeurIPS Biosecurity Workshop</em></a>
+      </div>
+    </section>
+
+    <section class="data-publications">
+      <div class="wrap">
+        <div class="data-section-head">
+          <h2>Selected research</h2>
+          <p>Recent work on dataset construction, provenance, filtering, contamination, and data-centered evaluation.</p>
+        </div>
+        <div class="data-paper-list">
+          {{ range first 8 $papers }}
+          <a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span class="data-paper-year">{{ .year }}</span><strong>{{ .title }}</strong><span class="data-paper-venue">{{ .venue }}</span></a>
+          {{ end }}
+        </div>
+        <a class="data-library-link" href="{{ "papers.html" | relURL }}">Explore the Research Library <span aria-hidden="true">&#8594;</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+{{ end }}
+{{ define "page_styles" }}<link rel="stylesheet" href="{{ printf "datasets.css?v=%d" now.Unix | relURL }}">{{ end }}
