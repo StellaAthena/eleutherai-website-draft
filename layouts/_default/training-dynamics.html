@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{ $paperMap := site.Data.research.area_papers | default dict }}
 {{ $papers := index $paperMap .Params.area_key | default slice }}
+{{ $trainingDynamics := site.Data.research.training_dynamics }}
 <main class="td-page">
   <header class="td-hero">
     <div class="wrap">
@@ -85,20 +86,30 @@
       </div>
     </section>
 
-    <section class="td-questions">
+    {{ with $trainingDynamics.directions }}
+    <section class="td-directions">
       <div class="wrap">
         <div class="td-section-head">
-          <h2>Questions that organize the program</h2>
-          <p>The aim is not a catalogue of curves. We want causal, quantitative accounts that constrain what we expect from new training runs and explain which observations should generalize.</p>
+          <h2>{{ .title }}</h2>
+          <p>{{ .intro }}</p>
         </div>
-        <div class="td-question-list">
-          <p>Which properties of a final model can be forecast from its early trajectory?</p>
-          <p>Which mechanisms recur across seeds, scales, architectures, and datasets?</p>
-          <p>What determines the order in which capabilities and representations develop?</p>
-          <p>When can undesirable behavior be prevented during training rather than patched afterward?</p>
+        <div class="td-direction-grid">
+          {{ range .items }}
+          <article class="td-direction-card">
+            <h3>{{ .title }}</h3>
+            <p>{{ .text }}</p>
+            <div class="td-direction-links">
+              {{ range .links }}
+              {{ $href := cond (hasPrefix .url "http") .url (.url | relURL) }}
+              <a href="{{ $href }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }} <span aria-hidden="true">{{ if hasPrefix .url "http" }}&#8599;{{ else }}&#8594;{{ end }}</span></a>
+              {{ end }}
+            </div>
+          </article>
+          {{ end }}
         </div>
       </div>
     </section>
+    {{ end }}
 
     {{ if gt (len $papers) 0 }}
     <section class="td-publications" id="publications">
