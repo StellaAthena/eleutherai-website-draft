@@ -1,0 +1,841 @@
+title: Summer of Open AI Research
+lede: Work on an AI research project under the mentorship of experienced researchers
+status: Applications have closed. Please come back next year!
+overview:
+- The Summer of Open AI Research is a 5-week, fully online research program sponsored by EleutherAI.
+- We invite people with little research experience to contribute to open science under the mentorship of experienced
+  researchers. Participants work on one of the projects below and are credited on work that may result in publication.
+who_should_apply:
+- Experienced programmers interested in AI research
+- BS, MS, and PhD students in computer science, mathematics, physics, or related fields
+- Self-taught researchers looking for structured mentorship
+- Anyone wanting to contribute to open science
+faq:
+- question: Where is the event held?
+  answer: The program is fully online and coordinated through the [EleutherAI Discord](https://discord.gg/eleutherai).
+- question: What topics and projects are offered?
+  answer: The current project list spans interpretability, AI safety, AI for science, information retrieval, computer
+    vision, and generative modeling.
+- question: Who is eligible to apply?
+  answer: Anyone may apply. Applicants are considered based on their ability to contribute to a project.
+- question: Can I apply without prior research experience?
+  answer: Yes. A central goal of SOAR is to give people outside academia their first research experience.
+- question: How much time does SOAR require?
+  answer: The commitment differs by project. Estimated weekly hours are listed with each project.
+- question: Does Open AI refer to the company behind ChatGPT?
+  answer: No. Here, open AI means research conducted openly and collaboratively.
+timeline:
+- date: 15 May 2026
+  event: Project proposal deadline
+- date: 18 May 2026
+  event: Participant applications open
+- date: 8 June 2026
+  event: Participant application deadline
+- date: 5 July 2026
+  event: Application decisions released
+  detail: Rolling decisions may arrive earlier.
+- date: 6 July 2026
+  event: Project preparation begins
+  detail: Mentors may specify preparation work before the main event.
+- date: 13 July 2026
+  event: Main event begins
+- date: 1 August 2026
+  event: Short talks
+  detail: Each cohort can share its progress with the other cohorts.
+- date: 16 August 2026
+  event: Short talks and end of event
+testimonials:
+- quote: Just after SOAR ended, I went on to be a MATS fellow in a very theory-heavy research stream. I think having
+    participated in SOAR made the difference between me looking like 'aspiring AI/ML researcher with lots of math
+    background' instead of 'physicist bandwagoning to AI'.
+  name: Charles R. W.
+  project: Improving Automated Interpretability Techniques, 2025
+- quote: As someone from industry, this was a great opportunity for me to connect with folks looking to contribute
+    to the AI ecosystem as well as gain a better understanding of academia and ongoing research.
+  name: Abdul R.
+  project: AI for Science and ASI X-risk Reduction Proof-of-Concept for Literature Knowledge Extraction Tool, 2025
+- quote: SOAR was my first experience in an AI research program. Working remotely with experienced mentors pushed
+    me to think like a researcher, from reading literature critically to designing experiments systematically to
+    knowing when to ask the right questions. I'd recommend SOAR to any early-stage researcher who wants to bridge
+    the gap between coursework and real research.
+  name: Eryawan P. Y.
+  project: An Engine for Taming LLMs - Prompt Optimisation for Verifiable Hallucination Reduction , 2025
+- quote: SOAR as a program helped me tremendously as an early career researcher. Not only did it help me with research
+    and introduce me to previously unknown research areas, but it also greatly helped my academic development. My
+    mentor was really kind and helpful, introducing me to research beyond the program's topics. Highly recommend
+    for students or people who intend to go into research.
+  name: Luis F. S.
+  project: How Tokenizer Features Affect Downstream Model Performance, 2025
+- quote: SOAR gave me the opportunity to get my foot in the door and actually contribute to a publication-worthy
+    AI research project. It connected me with talented mentors who helped build the foundations for my research
+    journey.
+  name: Ayesha I.
+  project: An Engine for Taming LLMs - Prompt Optimisation for Verifiable Hallucination Reduction, 2025
+organizers:
+- name: genetyx8
+  affiliation: EleutherAI
+  image: /images/soar/genetyx8.webp
+- name: Christian Zhou-Zheng
+  affiliation: Stanford University
+  image: /images/soar/christian-zhou-zheng.webp
+- name: Mike Mulet
+  affiliation: Constellation Institute
+  image: /images/soar/mike-mulet.webp
+- name: Seon Gunness
+  affiliation: EleutherAI
+  image: /images/soar/seon-gunness.webp
+- name: Archana Vaidheeswaran
+  affiliation: Algoverse
+  image: /images/soar/archana-vaidheeswaran.webp
+- name: Stella Biderman
+  affiliation: EleutherAI
+  image: /images/soar/stella-biderman.webp
+projects:
+- id: editable-drone-scene-simulation
+  title: Editable Scene Simulation for Autonomous Drones
+  mentor: Nahid Alam
+  affiliation: Oreon Labs
+  track: Applications
+  type: Computer Vision & Simulation
+  participants: 2-4
+  timeInvestment: 10 hours/week
+  description: Build a controllable, photorealistic drone-scene editing and simulation system inspired by ChatSim.
+    The project focuses on preparing drone video data, adapting scene-editing components, and producing a demo that
+    can modify drone footage in realistic ways.
+  tasks: '- Identify and prepare a drone video dataset such as MAVREC.
+
+    - Study the key components of ChatSim and related controllable scene-editing systems.
+
+    - Implement an initial drone-scene editing pipeline and analyze results.
+
+    - Build a small demo deployment.
+
+    - Write up methods, results, and limitations.'
+  prepWork: '- Read the ChatSim paper/repository and one related controllable scene-editing paper.
+
+    - Set up a Python environment for video processing.
+
+    - Run one segmentation or tracking model on a short drone clip.
+
+    - Prepare 2-3 example drone edit scenarios to test.
+
+    - Bring a few short drone videos or sample clips for experimentation if available.'
+  deliverables: '- Demo deployment.
+
+    - Project report or paper.
+
+    - Reproducible code for the simulation and editing pipeline.'
+  skillsDescription: Participants should have Python experience and basic computer vision knowledge. Participants
+    should be comfortable using modern coding tools. Experience with video processing, segmentation, tracking, or
+    multimodal models is a plus but not required.
+  skills:
+  - Python
+  - Computer Vision
+  - Video Processing
+- id: subliminal-prompting-mechanisms
+  title: General Mechanisms Behind Subliminal Prompting
+  mentor: Suvajit Majumder
+  affiliation: Optym
+  track: Safety
+  type: Alignment & Interpretability
+  participants: 1-5
+  timeInvestment: 20 hours/week
+  description: 'Motivated by recent work on subliminal learning, especially "Subliminal Effects in Your Data: A
+    General Mechanism via Log-Linearity," this project aims to develop a general framework for understanding in-context
+    variants of subliminal learning: subliminal prompting and subliminal chain-of-thought. The goal is to take a
+    model-organism and red-teaming approach, identifying ways to systematically accumulate or enhance artifacts
+    such as entangling numbers so that they meaningfully modify model preferences later in a conversation.'
+  tasks: '- Identify diverse datasets and target entangling concepts for experiments.
+
+    - Run experiments to generate heuristics for subliminal prompting in chain-of-thought.
+
+    - Build hypotheses for in-context signal accumulation, analogous to log-linear structure arguments in subliminal
+    learning.
+
+    - Iteratively test, refine, and disprove or support those hypotheses.'
+  prepWork: '- Read the subliminal learning paper from Owain Evans et al.
+
+    - Implement or reproduce a subliminal prompting setup, especially examples involving entangling numbers.'
+  deliverables: '- A theory or partial theory of subliminal prompting and subliminal chain-of-thought.
+
+    - Datasets and evaluations for subliminal prompting generalization across models.
+
+    - Backup outcome: clear benchmarks and empirical results, even if the theory remains incomplete.'
+  skillsDescription: Participants should have experience with model inference APIs and basic familiarity with probing
+    model internals. Participants should be comfortable running or hosting models on GPUs.
+  skills:
+  - LLM APIs
+  - Interpretability
+  - GPU Inference
+- id: right-answer-wrong-reason
+  title: Detecting Right-Answer, Wrong-Reason Behavior in Open-Weight Reasoning Models
+  mentor: Pranava Kumar
+  affiliation: MIT CSAIL Kellis Lab
+  track: Interpretability
+  type: Reasoning
+  participants: 3-10
+  timeInvestment: 6 hours/week
+  description: This project studies whether open-weight reasoning models can arrive at correct answers for the wrong
+    reasons, and whether interpretability tools can help detect that failure mode. Participants will create matched
+    reasoning problems in clean, subtly hinted, and misleadingly hinted versions, then compare final answers, written
+    reasoning, activations, and sparse-autoencoder features across conditions. The goal is to test whether internal
+    evidence can distinguish genuine reasoning from shortcut-driven reasoning when surface behavior is misleading.
+  tasks: '- Build a small benchmark of clean, hinted, and misleadingly hinted reasoning problems.
+
+    - Create a reproducible evaluation harness for running open-weight models.
+
+    - Label model responses by final answer, reasoning summary, prompt condition, and failure type.
+
+    - Analyze when models change answers or reasoning under misleading hints.
+
+    - Extract activations or SAE features that may track shortcut use or reasoning instability.
+
+    - Run small causal tests such as activation patching or feature steering.
+
+    - Synthesize behavioral and mechanistic evidence into a small audit framework.'
+  prepWork: '- Read one short paper or post on chain-of-thought faithfulness.
+
+    - Read an introduction to sparse autoencoders or mechanistic interpretability.
+
+    - Set up Python with PyTorch, Transformers, and the model-loading tools the group will use.
+
+    - Run one open-weight model locally or in a notebook on five simple reasoning prompts.
+
+    - Write three reasoning problems in clean, hinted, and misleadingly hinted versions.
+
+    - Review basic activation extraction from transformer models.
+
+    - Brush up on pandas or similar tools for organizing prompts, outputs, labels, and results.'
+  deliverables: '- Open benchmark of clean, hinted, and misleadingly hinted reasoning problems.
+
+    - Reproducible evaluation harness.
+
+    - Labeled response dataset.
+
+    - Behavioral analysis and visualizations.
+
+    - Candidate activation or SAE-feature analysis.
+
+    - Final research report or blog post.
+
+    - GitHub repository containing code, prompts, results, and documentation.'
+  skillsDescription: Participants should have Python experience, basic machine learning knowledge, and familiarity
+    with PyTorch or Hugging Face. Participants should be comfortable with basic data analysis, Git/GitHub workflows,
+    and careful reading of technical material. Careful experimental thinking is especially important.
+  skills:
+  - Python
+  - PyTorch
+  - Hugging Face
+  - Data Analysis
+- id: scaling-domain-embedding-retrieval
+  title: Scaling Information Retrieval for Domain Embedding Models
+  mentor: Enrico Shippole
+  affiliation: Teraflop AI
+  track: Applications
+  type: Information Retrieval
+  participants: 5-10
+  timeInvestment: Flexible/high commitment
+  description: This project develops domain-specific encoders for information retrieval tasks. The goal is to build
+    an information retrieval benchmark, fine-tune domain-specific encoder models, and evaluate scaling behavior
+    for embedding models across permissive and synthetic data.
+  tasks: '- Process permissive datasets into mined training pairs.
+
+    - Generate synthetic data for contrastive training.
+
+    - Fine-tune top encoder and decoder models for retrieval tasks, including hyperparameter sweeps.
+
+    - Develop hold-out test sets for a broader retrieval benchmark.
+
+    - Explore larger-scale pretraining of decoder or encoder models using modern efficient training techniques.
+
+    - Use mentor-provided example code for fine-tuning models on retrieval tasks.'
+  prepWork: '- Learn how to use sentence-transformers to fine-tune with cached MNRL; read https://arxiv.org/abs/2101.06983.
+
+    - Learn the Daft engine for streaming text processing: https://github.com/eventual-inc/daft.
+
+    - Read about Global Orthogonal Regularization and quantization: https://arxiv.org/abs/1708.06320.
+
+    - Read about converting decoder models into encoders: https://arxiv.org/abs/2509.20354.
+
+    - Read about mining hard negatives: https://arxiv.org/abs/2407.15831.
+
+    - Review prominent encoder-model literature supplied by the mentor.'
+  deliverables: '- Pretrained LLM and encoder models on permissive and synthetic data.
+
+    - Information retrieval benchmark.
+
+    - Multiple fine-tuned embedding models for different domains.'
+  skillsDescription: Participants should have Python and PyTorch experience, and should be familiar with sentence-transformers
+    and training encoder or decoder models. Participants should be comfortable with large-scale training workflows
+    such as SLURM, DDP, vLLM, or SGLang. A strong mathematical background is a plus but not required.
+  skills:
+  - PyTorch
+  - Sentence Transformers
+  - SLURM
+- id: effective-rank-semantic-compression
+  title: Effective Rank and Semantic Compression in Foundation Models
+  mentor: Aman Kumar, Mike Smith
+  affiliation: IUCAA, India
+  track: Interpretability
+  type: Representation Learning
+  participants: 1-3
+  timeInvestment: 8-12 hours/week
+  description: This project studies the spectral geometry of foundation-model representations, focusing on effective
+    rank, intrinsic dimensionality, and semantic compression in embedding spaces. Participants will investigate
+    whether independently trained vision and language models converge toward similarly low-dimensional semantic
+    structures despite differences in architecture, training objective, and dataset. The project extends recent
+    work on representational convergence, multimodal semantics, and the geometry of learned representations.
+  tasks: '- Set up a reproducible embedding extraction pipeline from the Platonic Universe project.
+
+    - Run small-scale experiments using PCA, singular value spectra, effective rank, and intrinsic dimensionality
+    on toy datasets and small pretrained models.
+
+    - Contribute to EffDim, an open-source effective-dimensionality toolkit.
+
+    - Design scalable, numerically stable methods for estimating effective dimension from millions of embeddings.
+
+    - Compare representation geometry across architectures such as CLIP, DINO, and SigLIP, and across natural-image
+    and astronomical-image datasets.
+
+    - Build visualization tools and reusable analysis utilities.'
+  prepWork: '- Set up PyTorch, Hugging Face Transformers, Jupyter, and the Platonic Universe embedding pipeline.
+
+    - Extract embeddings from at least one pretrained model such as I-JEPA or DINO.
+
+    - Read introductory material on PCA, SVD, effective rank, and intrinsic dimensionality in deep learning representations.
+
+    - Compute PCA and eigenspectra on a toy dataset.
+
+    - Visualize embeddings with UMAP or PCA.
+
+    - Review basic experiment logging, configuration management, and Git workflows.'
+  deliverables: '- Reproducible embedding extraction pipelines.
+
+    - Improvements to the open-source EffDim library.
+
+    - Benchmarking tools for spectral properties of foundation-model representations.
+
+    - Comparative analyses across architectures and datasets, including astronomy datasets.
+
+    - Visualization and diagnostic notebooks.
+
+    - Open-source code, documentation, and utilities for future research.'
+  skillsDescription: Participants should have Python experience and introductory machine learning knowledge. Participants
+    should be comfortable with Linux command-line tools, Git/GitHub workflows, and reading and writing technical
+    documentation or research notes.
+  skills:
+  - Python
+  - Representation Learning
+  - Git
+- id: foundation-models-same-sky
+  title: How Do Foundation Models See the Same Sky?
+  mentor: Kshitij Duraphe, Mike Smith, Shashwat Sourav
+  affiliation: UniverseTBD
+  track: Interpretability
+  type: Representation Learning
+  participants: 1-5
+  timeInvestment: 20-30 hours/week
+  description: 'This project extends an award-winning NeurIPS 2025 workshop paper that asks whether larger foundation
+    models converge on shared internal representations despite never being trained on astronomy data. The project
+    extends this work by applying mechanistic interpretability to astronomy: studying when physical quantities such
+    as galaxy morphology, redshift, stellar mass, and metallicity emerge inside models, how they change layer by
+    layer, and whether astronomy-specific and general-purpose models decompose galaxies into similar features. Participants
+    will investigate representations within and across models, and will ultimately produce an open-source feature
+    dictionary that working astronomers can use to inspect what their models are keying on.'
+  tasks: '- Reproduce a result from the original Platonic Universe paper on a subset of the data.
+
+    - Load a model, compute galaxy embeddings, run mutual k-NN against another model, and recover small-scale alignment
+    trends.
+
+    - Train sparse autoencoders on selected layers and inspect feature dictionaries.
+
+    - Extend SAE and probing runs across models and full datasets.
+
+    - Build production-grade pipelines for SLURM, multi-GPU SAE training, checkpointing, and resilient feature extraction.
+
+    - Implement causal intervention tooling such as activation patching and feature ablation.
+
+    - Work with mentors on layer-wise emergence, crosscoder comparisons, or explaining alignment using learned features.'
+  prepWork: '- Read the original Platonic Universe paper.
+
+    - Read the Platonic Representation Hypothesis paper from Huh et al.
+
+    - Read an introductory mechanistic interpretability piece such as Anthropic''s Toy Models of Superposition or
+    Towards Monosemanticity.
+
+    - As a warmup, load DINOv2-small, embed a few hundred galaxies from a crossmatched dataset, compute mutual k-NN
+    against a second model, and verify the alignment metric.
+
+    - Review PyTorch forward/backward hooks, Hugging Face Transformers, and a standard SAE implementation such as
+    sae_lens or dictionary_learning.'
+  deliverables: '- Primary target: a paper submission if experiments land in time.
+
+    - Shorter writeups for non-archival AI-for-science venues where appropriate.
+
+    - Public code and notebooks for reproduction, feature extraction, and analysis.'
+  skillsDescription: Participants should have strong Python experience beyond notebooks, including writing modules,
+    debugging, and working with research code. Participants should be comfortable with PyTorch training loops, mixed
+    precision, model-loading libraries such as Hugging Face or timm, Linux, Git/GitHub, SSH-based remote workflows,
+    and scientific Python tools such as NumPy, SciPy, Matplotlib, and pandas. Astronomy background is not required.
+  skills:
+  - PyTorch
+  - Scientific Computing
+  - Linux
+- id: inoculation-prompt-effectiveness
+  title: Predicting Inoculation Prompt Effectiveness from Latent Behavioral Shift
+  mentor: Avyukth R. Nilajagi
+  affiliation: SPAR, Pitt
+  track: Safety
+  type: Empirical Alignment
+  participants: 1-4
+  timeInvestment: 20-25 hours/week
+  description: This project builds on exploratory work from the SPAR '26 Spring cohort, using ideas from subliminal
+    learning and prompt-induced behavioral shifts. The goal is to develop a cheaper and more predictive heuristic
+    for ranking inoculation prompts, prompts designed to steer model behavior toward or away from undesirable traits
+    such as sycophancy, before fine-tuning. Participants will construct contrastive behavioral datasets, compute
+    prompt-conditioned preference shifts, and analyze those shifts with PCA to recover latent behavioral directions
+    in a model's preference space.
+  tasks: '- Validate and stress-test the current latent behavioral shift heuristic.
+
+    - Test whether principal directions persist across larger and more diverse prompt and behavior sets.
+
+    - Evaluate stability across prompt paraphrases and model variants.
+
+    - Compare latent-space scores against fine-tuning outcomes such as reward-hack rate reduction and robustness
+    preservation.
+
+    - Develop stronger baseline heuristics beyond elicitation-style measurements.
+
+    - Run ablations on dataset construction, model choice, and prompt framing to check whether the signal reflects
+    behavioral structure rather than artifacts.'
+  prepWork: '- Read Wichers et al. (2025) on inoculation prompting, focusing on the heuristic-evaluation experiments
+    and formal grounding sections.
+
+    - Read Tan et al. on the inoculation prompting setup.
+
+    - Review the existing pipeline and be ready to run small prompt-conditioned preference-shift experiments.'
+  deliverables: '- Technical writeup documenting methods, experiments, and findings.
+
+    - Workshop paper if the signal generalizes across settings.
+
+    - Stronger formal submission if latent-space alignment predicts downstream fine-tuning effectiveness.
+
+    - Negative or partial-results writeup if the method reveals structure but does not reliably predict effectiveness.
+
+    - Reusable framework for analyzing prompt-induced behavioral shifts.'
+  skillsDescription: Participants should have strong Python experience, experience working with LLMs, and basic
+    linear algebra and statistics for machine learning. Participants should be comfortable working independently
+    and reading research code. Familiarity with interpretability tools such as TransformerLens and fine-tuning APIs
+    is a plus but not required.
+  skills:
+  - Python
+  - TransformerLens
+  - Statistics
+- id: hierarchy-in-saes
+  title: Does Structure Survive Scale? Diagnosing Hierarchy in SAEs
+  mentor: Elena Golimblevskaia, Gonçalo Paulo
+  affiliation: Fraunhofer HHI
+  track: Interpretability
+  type: Mechanistic Interpretability
+  participants: 3-6
+  timeInvestment: 10-20 hours/week
+  description: 'Several recent methods aim to recover hierarchical structure from LLM activations: Matryoshka SAEs
+    and Temporal SAEs impose nested reconstruction bottlenecks, while Temporal Feature Analysis extracts hierarchies
+    via post-hoc clustering of predictive codes. None has been quantitatively evaluated for whether recovered hierarchies
+    form coherent parent-child structures on real LLMs. This project builds a coverage-based diagnostic for hierarchy
+    quality, applies it across these methods on Gemma-2-2b, and uses controlled PCFG experiments to isolate which
+    properties of natural language cause hierarchy-recovery methods to fail.'
+  tasks: '- Implement diagnostics based on co-activation coverage of parents and children, and validate them on
+    a synthetic hierarchy.
+
+    - Replicate the compositional-tree setup from Bussmann et al. (2025), train Matryoshka and Temporal SAEs, and
+    verify diagnostic behavior.
+
+    - Build PCFG generation with controllable distributional properties and train small transformers on generated
+    text.
+
+    - Train Matryoshka and Temporal SAEs on PCFG-trained transformer activations across controlled axes.
+
+    - Apply diagnostics to Matryoshka, Temporal SAE, and Temporal Feature Analysis on TinyStories activations.
+
+    - Apply diagnostics to released SAEs on Gemma-2-2b layer 12.
+
+    - Characterize what top-level features track when semantic hierarchy fails, and write up the cross-method synthesis.'
+  prepWork: '- Read Bussmann et al. (2025), Learning Multi-Level Features with Matryoshka Sparse Autoencoders.
+
+    - Read Bhalla et al. (2025), Temporal Sparse Autoencoders.
+
+    - Read Lubana et al. (2025), Priors in Time.
+
+    - Set up and try SAELens, TransformerLens, and Hugging Face Transformers.
+
+    - Browse Matryoshka SAEs on Neuronpedia.
+
+    - Optional: read Schulz, Mitropolsky, and Poggio (2025), Unraveling Syntax, and try the relevant released SAE
+    repositories.'
+  deliverables: '- Open-source diagnostic suite for hierarchy evaluation in sparse feature decompositions.
+
+    - Blog post, workshop paper, or ICLR/ICML submission depending on the strength of the results.'
+  skillsDescription: Participants should have Python and PyTorch experience, familiarity with sparse autoencoders,
+    and comfort with the Hugging Face ecosystem. Participants should be comfortable using SAELens or TransformerLens,
+    training a small transformer from scratch, and doing basic data analysis in Python.
+  skills:
+  - SAEs
+  - PyTorch
+  - TransformerLens
+- id: sae-seed-stability-replication
+  title: Replicating Seed Stability Results in Sparse Autoencoders
+  mentor: Gonçalo Paulo
+  affiliation: EleutherAI
+  track: Interpretability
+  type: Mechanistic Interpretability
+  participants: 1-2
+  timeInvestment: 15+ hours/week
+  description: This project replicates results from the SAE multiple-seeds paper and investigates why they differ
+    from later results in another study. Participants will compare features across SAE training seeds, starting
+    with TopK SAEs trained on small models, and extend the comparison methodology to activation overlap, CKA, or
+    SVCCA. If time permits, the project may move on to larger models or more recent SAE architectures.
+  tasks: '- Train multiple SAE seeds on Pythia-160M.
+
+    - Measure overlap between features from different seeds using the methodology from the SAE multiple-seeds paper.
+
+    - Compare alternative overlap techniques such as activation overlap, CKA, and SVCCA.
+
+    - Extend the experiments to additional models.
+
+    - Extend the experiments to different SAE architectures if time permits.'
+  prepWork: '- Read the SAE multiple-seeds paper: https://arxiv.org/abs/2501.16615.
+
+    - Read the related comparison paper: https://arxiv.org/abs/2505.20254.
+
+    - Familiarize yourself with https://github.com/EleutherAI/sparsify or another SAE training library.'
+  deliverables: '- Blog post describing the replication, comparison methods, and findings.'
+  skillsDescription: Participants should have Python and PyTorch experience. Familiarity with sparse autoencoders
+    or SAE training libraries is useful but not required.
+  skills:
+  - Python
+  - PyTorch
+  - SAEs
+- id: activation-verbalizer-causality
+  title: Activation Verbalizer Causality Experiments
+  mentor: Gonçalo Paulo
+  affiliation: EleutherAI
+  track: Interpretability
+  type: Mechanistic Interpretability
+  participants: 1-2
+  timeInvestment: 15+ hours/week
+  description: This project reproduces experiments from Natural Language Autoencoders Produce Unsupervised Explanations
+    of LLM Activations, focusing on activation oracles, paraphrasing, and interventions using the models released
+    by Anthropic. The goal is to get natural language autoencoders working in an open setup, benchmark them on simple
+    tasks, and test whether verbalization-based interventions can causally steer model behavior.
+  tasks: '- Get natural language autoencoders working on Gemma.
+
+    - Benchmark natural language autoencoders on simple tasks such as IOI, plurals, and antonyms.
+
+    - Measure the effects of paraphrasing.
+
+    - Intervene on verbalizations to steer simple tasks.
+
+    - Test adversarial paraphrasing.
+
+    - Verbalize steering vectors if time permits.'
+  prepWork: '- Read Anthropic''s Natural Language Autoencoders paper: https://transformer-circuits.pub/2026/nla/.
+
+    - Read Transluce''s PCD writeup: https://transluce.org/pcd.
+
+    - Read the activation oracles paper: https://arxiv.org/abs/2512.15674.
+
+    - Familiarize yourself with the models released by Anthropic and try setting them up.'
+  deliverables: '- Blog post describing reproduced experiments and new causality results.
+
+    - Potential workshop submission if the results are strong enough.'
+  skillsDescription: Participants should have Python and PyTorch experience. Familiarity with transformer internals,
+    activation patching, or mechanistic interpretability is useful but not required.
+  skills:
+  - Python
+  - PyTorch
+  - Mechanistic Interpretability
+- id: tracing-subliminal-learning-pretraining
+  title: Tracing Subliminal Learning to Pretraining
+  mentor: Gonçalo Paulo
+  affiliation: EleutherAI
+  track: Interpretability
+  type: Mechanistic Interpretability
+  participants: 1-2
+  timeInvestment: 15+ hours/week
+  description: This project asks whether subliminal learning is partly determined by the data order a model sees
+    during pretraining. It uses the PolyPythia suite, which includes Pythia-style models trained with controlled
+    variations in random seed and data order, to test whether animal preferences transmitted through subliminal
+    learning can be traced to pretraining data order.
+  tasks: '- Convert data from instruction format into a format suitable for fine-tuning Pythia models.
+
+    - Fine-tune different PolyPythia models to produce animal-preferring models.
+
+    - Test whether numbers generated by models with different seeds or data orders transfer subliminal preferences
+    to other models.
+
+    - Check whether different checkpoints exhibit the same biases.'
+  prepWork: '- Familiarize yourself with subliminal learning: https://arxiv.org/pdf/2507.14805.
+
+    - Familiarize yourself with PolyPythia: https://arxiv.org/abs/2503.09543.
+
+    - Think about how training data should be formatted for a model that is not instruction-tuned.
+
+    - Familiarize yourself with model fine-tuning libraries such as PEFT or Unsloth.'
+  deliverables: '- Publication targeting a main conference or workshop.'
+  skillsDescription: Participants should have Python and PyTorch experience. Familiarity with model fine-tuning
+    libraries such as PEFT or Unsloth is useful but not required.
+  skills:
+  - Python
+  - PyTorch
+  - Fine-tuning
+- id: cross-survey-conformal-astronomy
+  title: Interpretable Conformal Prediction for Cross-Survey Astronomy
+  mentor: Shashwat Sourav, Mike Smith
+  affiliation: Washington University in St. Louis
+  track: Interpretability
+  type: Representation Learning
+  participants: 1-2
+  timeInvestment: 20-30 hours/week
+  description: This project asks when embeddings of the same astronomical object are reliably aligned across surveys.
+    Participants will train a model to translate one survey's embedding into another survey's embedding space, then
+    use conformal prediction to put a statistically valid uncertainty region around the translated embedding. Small
+    regions indicate survey agreement; large regions indicate unreliable alignment and possible need for follow-up.
+    Multimodal Universe HATS datasets will help scale the work beyond a fixed paired-embedding benchmark.
+  tasks: '- Implement conformal prediction techniques for cross-survey embedding transfer.
+
+    - Build a benchmark, starting from small crossmatched datasets and moving to larger ones.
+
+    - Analyze which foundation models behave unusually across surveys.
+
+    - Lead project direction and make research choices with mentor guidance.
+
+    - Write a report and, if results are strong, prepare a public version or paper.'
+  prepWork: '- Read a short introduction to conformal prediction: https://arxiv.org/pdf/2107.07511v6.
+
+    - Focus on split conformal prediction, calibration residuals, prediction intervals/sets, and empirical coverage.
+
+    - Optional: consult Algorithmic Learning in a Random World: https://alrw.net.
+
+    - Familiarize yourself with LSDB documentation: https://lsdb.io.'
+  deliverables: '- Reproducible benchmark for cross-survey embedding transfer.
+
+    - Model-audit analysis showing which foundation models behave unusually.
+
+    - Paper target such as TMLR, COPA, or a NeurIPS ML4PS workshop submission if initial results are ready.'
+  skillsDescription: Participants should have Python and PyTorch experience. Participants should be comfortable
+    with machine learning and deep learning concepts. A statistics background is a plus but not required.
+  skills:
+  - Python
+  - PyTorch
+  - Statistics
+- id: deceptive-compliance-agents
+  title: Deceptive Compliance in LLM Agents
+  mentor: Mika Okamoto, Ansel Erol
+  affiliation: Georgia Institute of Technology
+  track: Safety
+  type: Agent Evaluation
+  participants: 2-6
+  timeInvestment: 10-20 hours/week
+  description: When an LLM agent says it will follow a rule, does it actually execute compliant actions, or just
+    produce compliant-sounding text? This project addresses the gap between stated reasoning and concrete tool-use
+    behavior in LLM agents, extending prior work on unstable LLM compliance from chatbots to agents. Participants
+    will investigate factors affecting agentic complicance and the extent to which stated intent reflects actual
+    behavior. Time permitting, the project will extend to coding agents.
+  tasks: '- Set up an agentic pipeline in which an LLM receives a scenario with an embedded rule, reasons about
+    what to do, and calls a mock API.
+
+    - Build mock tools such as order submission, purchase-order generation, and supplier email functions.
+
+    - Create a compliance checker for tool calls.
+
+    - Implement two-stage prompts where agents state intent and then act.
+
+    - Measure stated-versus-enacted compliance across models and regulatory conditions.
+
+    - Test chain-of-thought visible versus hidden conditions.
+
+    - Extend the setup with feedback such as audit outcomes, fines, or peer results.
+
+    - Aggregate results and contribute to a shared paper.'
+  prepWork: '- Read the prior compliance paper shared by the mentors.
+
+    - Read Sycophancy to Subterfuge: Investigating Reward-Tampering in Large Language Models: https://arxiv.org/abs/2406.10162.
+
+    - Read Alignment Faking in Large Language Models: https://arxiv.org/abs/2412.14093.
+
+    - Write toy Python functions that implement mock tool calls with structured inputs and outputs.'
+  deliverables: '- Open-source mock tool API suite for agentic compliance evaluation.
+
+    - Dataset of paired stated reasoning and tool-call logs across models and conditions.
+
+    - Reasoning-action consistency classifier.
+
+    - Results suitable for a paper targeting an AI safety or NLP venue.
+
+    - Co-authorship on a research paper for substantial contributors.'
+  skillsDescription: Participants should have Python experience, basic familiarity with LLM APIs such as OpenAI
+    or LiteLLM, and familiarity with agentic coding patterns such as tool use or function calling. Prior LLM-agent
+    experience, experimental design or data analysis experience, and familiarity with AI safety or LLM evaluation
+    literature are pluses but not required.
+  skills:
+  - Python
+  - LLM APIs
+  - Agents
+- id: astrobridge-multimodal-astronomy
+  title: 'AstroBridge: Connecting Multimodal Astronomical Observations to Open Language Models'
+  mentor: Ioana Ciucă, Aman Kumar, Shashwat Sourav, Mike Smith, Matthieu Le Lain
+  affiliation: Stanford University
+  track: Applications
+  type: AI for Science
+  participants: 1-2
+  timeInvestment: 15-20 hours/week
+  description: Vision-language models could help astronomers explore large scientific datasets, but most open VLM
+    pipelines are built on image-text pairs. This project extends AstroLLaVA into a reproducible multimodal alignment
+    pipeline for astronomy, covering spectra, light curves, multi-wavelength image cutouts, and selected X-ray event
+    data. Participants will construct modality-language supervision from catalog labels, redshifts, object classes,
+    metadata, cross-matches, and scientific descriptions, then train and evaluate a LLaVA-style architecture with
+    modality-specific encoders connected to an open language model. The aim is to release a data pipeline, training
+    code, and an evaluation harness as a reusable, open-source framework for future researchers.
+  tasks: '- Build the training pipeline and run most of the experiments, including evaluation.
+
+    - Start with a small one-modality baseline, likely around 100 spectra provided by the mentors.
+
+    - Load data, combine it with metadata or astrophysical information, and generate instruction-style modality-language
+    pairs.
+
+    - Run a minimal LLaVA/AstroLLaVA-style training and evaluation loop.
+
+    - Extend the same recipe to light curves, image cutouts, and selected X-ray examples.
+
+    - Help design alignment checks, evaluation metrics, documentation, and dissemination.
+
+    - Keep a research journal that can become part of a paper.'
+  prepWork: '- Read the AstroLLaVA paper.
+
+    - Read the original LLaVA visual-instruction-tuning paper.
+
+    - Familiarize yourself with the Multimodal Universe dataset, especially galaxy spectra, images, and light-curve
+    examples.
+
+    - Load one astronomy example and visualize a spectrum or light curve with Python.
+
+    - Try a simple VLM captioning prompt.
+
+    - Extract an embedding or hidden state if possible, and compute a basic similarity score between two representations.'
+  deliverables: '- Human-curated benchmark for scientific grounding in multimodal astronomy.
+
+    - Representation-alignment study of open VLMs.
+
+    - Open-source release and short paper, targeting NeurIPS ML4PS first, with TMLR as a possible follow-up.'
+  skillsDescription: Participants should have Python experience, machine learning or deep learning fundamentals,
+    and familiarity with PyTorch or a similar framework. Experience with scientific datasets and Git is useful.
+    Familiarity with Hugging Face, VLMs, or embeddings is a plus but not required.
+  skills:
+  - Python
+  - PyTorch
+  - VLMs
+- id: neolyre-singing-voice-synthesis
+  title: 'Neolyre: Modern Singing Voice Synthesis'
+  mentor: Christian Zhou-Zheng, Ronald McClellan Jr.
+  affiliation: Stanford University
+  track: Applications
+  type: Audio & Generative Modeling
+  participants: 1-5
+  timeInvestment: 20+ hours/week
+  description: Singing voice synthesis (SVS) is the task of generating a human singing voice from digital input.
+    It is the technology behind Hatsune Miku, Kasane Teto, and other VOCALOIDs and "virtual singers." State-of-the-art
+    SVS models are either closed-source (VOCALOID, SynthV) or use older architectures and train on limited data
+    (DiffSinger, NNSVS). This project aims to bring open-source SVS into the modern era. Participants will develop
+    modern open-source SVS methods by scaling up data pipelines and applying modern architectures and modeling paradigms.
+    The project aims to release a full data pipeline, pretrained acoustic model, and pretrained vocoder.
+  tasks: 'Data side:
+
+    - Create scripts for preprocessing: vocal extraction, cleaning, segmentation, and filtering/scoring.
+
+    - Develop more robust forced-alignment models.
+
+    - Create scripts for forced alignment, F0 extraction, and other useful parameters.
+
+    - Optionally generate synthetic audio from UTAU/OpenUTAU workflows.
+
+
+    Model side:
+
+    - Replicate DiffSinger on new data.
+
+    - Replace the WaveNet backbone with a Transformer-based model.
+
+    - Replace shallow diffusion with an analogous flow-matching objective.
+
+    - Improve the acoustic model as experiments indicate.
+
+    - Replicate PC-NSF-HiFiGAN on new and better data.
+
+    - Improve the vocoder as needed.'
+  prepWork: '- If needed, read introductions or surveys on diffusion and flow matching.
+
+    - Familiarize yourself with the components of an SVS system, for example through OpenVPI MakeDiffSinger documentation.
+
+    - Read and annotate the SingNet, STARS, DiffSinger, and TechSinger papers.
+
+    - Download a small SVS dataset sample and inspect its format.
+
+    - Ideally, try UTAU, VOCALOID, or SynthV to understand the user-facing workflow.'
+  deliverables: '- Replicable data pipeline for singing datasets with minimal labels.
+
+    - Pretrained acoustic model and/or vocoder, plus training codebase.
+
+    - Paper or papers on the data pipeline, model, or both.'
+  skillsDescription: Participants should have Python experience and basic experience running machine learning experiments.
+    Participants should be comfortable with PyTorch and signal processing. Audio or music-domain experience is a
+    plus but not required.
+  skills:
+  - Python
+  - PyTorch
+  - Audio
+- id: scientific-reasoning-interpretability
+  title: Evaluating Interpretability Methods for Scientific Reasoning
+  mentor: Manjari Narayan
+  affiliation: The Surrogate Science Project
+  track: Interpretability
+  type: Reasoning
+  participants: 1-3
+  timeInvestment: 10+ strong hours/week
+  description: This project audits the scientific reasoning capabilities of AI systems for frontier science and
+    high-stakes scientific decisions. It builds on prior work showing flawed reasoning in open-source models on
+    retrospective definitive experiments in drug toxicity. The project asks whether such benchmarks are useful for
+    interrogating interpretability methods and their claims to be causal, and may also build stronger benchmarks
+    for evaluating or falsifying AI forecasting abilities.
+  tasks: '- Reproduce one inspect-ai evaluation on the existing pro-arrhythmia benchmark with an open-source model.
+
+    - Train a linear probe for a mentor-specified scientific concept (e.g., hERG block) using a baseline method
+    at a pre-specified layer.
+
+    - Compare probe-training procedures on the same concept and activations: logistic regression, difference-of-means,
+    etc.. under different training conditions and contrastive experimental designs
+
+    - Evaluate interpretability methods on shortcut-prone vs. shortcut-controlled prompt sets to test which methods
+    recover the scientific concept under new conditions
+
+    - Test concept separability by training probes for related but distinct concepts (e.g., ion-channel blocking
+    vs. trafficking vs. drug–drug interactions) and assess whether the procedures agree on what''s separable.
+
+    - Package experiments as a reusable inspect-ai task and write up findings.
+
+
+    Each fellow takes one interpretability method (linear probes, activation steering, or interchange interventions)
+    and produces a focused study on the existing benchmark. Activation steering and interchange intervention tracks
+    are open to fellows who bring prior experience.'
+  deliverables: '- Blog post at minimum.
+
+    - Reusable experimental harness, new benchmark, or both.
+
+    - Public writeup of what the interpretability methods did and did not reveal.'
+  skillsDescription: Participants should be able to show open-source Python contributions, experimental design skill,
+    or strong test-driven development for AI workflows. Participants should be comfortable using AI coding assistants
+    to produce high-quality work. ARENA or similar coursework is relevant if backed by completed work.
+  skills:
+  - Python
+  - Experimental Design
+  - AI Workflows

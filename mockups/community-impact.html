@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Community direction 03 - Impact</title>
+    <title>Community | EleutherAI</title>
     <style>
       :root {
         --bg: #07090d;
@@ -30,16 +30,6 @@
       a { color: inherit; text-decoration: none; }
 
       .wrap { width: min(1240px, calc(100% - 56px)); margin: 0 auto; }
-
-      .direction {
-        padding: 10px 28px;
-        border-bottom: 1px solid #36404e;
-        background: #151a22;
-        color: #aeb9c8;
-        font: 700 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        letter-spacing: .06em;
-        text-transform: uppercase;
-      }
 
       header { border-bottom: 1px solid var(--line); }
 
@@ -68,7 +58,6 @@
       h1, h2, h3, p { margin-top: 0; }
 
       h1 {
-        max-width: 970px;
         margin-bottom: 26px;
         font-size: clamp(52px, 7.3vw, 92px);
         line-height: .97;
@@ -76,56 +65,44 @@
       }
 
       .lede {
-        max-width: 780px;
         margin-bottom: 0;
         color: var(--body);
         font-size: clamp(19px, 2vw, 24px);
         line-height: 1.42;
       }
 
-      .map-section { padding: 0 0 74px; }
+      .map-section { padding: 48px 0 74px; }
 
       .map-frame {
-        margin: 0;
+        width: min(1080px, 100%);
+        margin: 0 auto;
         overflow: hidden;
-        border: 1px solid var(--line);
         background: #f5f5f2;
       }
 
       .map-frame img {
         display: block;
         width: 100%;
-        max-height: 500px;
-        object-fit: cover;
-        object-position: center;
+        height: auto;
       }
 
       .impact-strip {
         display: grid;
-        grid-template-columns: 1.4fr repeat(3, 1fr);
-        border-right: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 72px;
+        width: min(760px, 100%);
+        margin: 0 auto;
+        text-align: center;
       }
 
-      .impact-intro,
       .impact-stat {
-        min-height: 162px;
-        padding: 26px 24px;
-        border-left: 1px solid var(--line);
-        border-top: 1px solid var(--line);
-      }
-
-      .impact-intro p {
-        max-width: 360px;
-        margin: 0;
-        color: var(--body);
-        font-size: 17px;
-        line-height: 1.43;
+        min-height: 0;
+        padding: 30px 0 0;
       }
 
       .impact-stat strong { display: block; color: var(--blue); font-size: 43px; line-height: .94; }
-      .impact-stat:nth-child(3) strong { color: var(--green); }
-      .impact-stat:nth-child(4) strong { color: var(--gold); }
+      .impact-stat:nth-child(2) strong { color: var(--green); }
+      .impact-stat:nth-child(3) strong { color: var(--gold); }
 
       .impact-stat span {
         display: block;
@@ -135,7 +112,35 @@
         line-height: 1.3;
       }
 
-      .sponsors { padding: 78px 0; border-bottom: 1px solid var(--line); }
+      .soar {
+        padding: 68px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: rgba(120, 184, 238, .045);
+      }
+
+      .soar h2 { font-size: clamp(36px, 4vw, 52px); }
+
+      .soar p {
+        margin: 18px 0 0;
+        color: var(--body);
+        font-size: 21px;
+      }
+
+      .soar-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 24px;
+        margin-top: 22px;
+      }
+
+      .soar-links a {
+        color: var(--blue);
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .sponsors { padding: 78px 0; }
 
       .section-top {
         display: grid;
@@ -148,28 +153,35 @@
       h2 { margin-bottom: 0; font-size: clamp(34px, 4vw, 54px); line-height: 1.01; }
 
       .section-top p {
-        max-width: 650px;
         margin-bottom: 0;
         color: var(--body);
         font-size: 19px;
         line-height: 1.43;
       }
 
-      .sponsor-list { border-top: 1px solid var(--line); }
+      .sponsors .section-top { display: block; }
+      .sponsors h2,
+      .incubated h2 { font-size: clamp(30px, 3vw, 42px); line-height: 1.08; }
+
+      .sponsors .section-top p { margin-top: 22px; }
+
+      .sponsors .section-top a { color: var(--blue); font-weight: 700; }
+
+      .sponsor-list { display: grid; gap: 54px; }
 
       .sponsor {
+        --accent: var(--blue);
         display: grid;
         grid-template-columns: minmax(0, 1fr) auto;
         gap: 36px;
         align-items: center;
-        min-height: 216px;
-        padding: 34px 0 34px 22px;
-        border-left: 4px solid var(--gold);
-        border-bottom: 1px solid var(--line);
+        min-height: 0;
+        padding: 0;
       }
 
-      .sponsor:nth-child(2) { border-left-color: var(--blue); }
-      .sponsor:nth-child(3) { border-left-color: var(--green); }
+      .sponsor--masi { --accent: #62d77a; }
+      .sponsor--evaleval { --accent: #78b8ee; }
+      .sponsor--universetbd { --accent: #d8b44a; }
 
       .sponsor h3 { margin-bottom: 12px; font-size: 28px; line-height: 1.08; }
 
@@ -179,10 +191,16 @@
         gap: 18px;
       }
 
+      .sponsor-title a { color: var(--accent); }
+
       .sponsor-title img { width: 74px; height: 74px; object-fit: contain; }
+      .sponsor-title img.is-evaleval {
+        width: 74px;
+        object-fit: cover;
+        object-position: left center;
+      }
 
       .sponsor p {
-        max-width: 720px;
         margin-bottom: 0;
         color: var(--body);
         font-size: 17px;
@@ -197,17 +215,62 @@
       }
 
       .sponsor-papers a {
-        color: var(--blue);
+        color: var(--accent);
         font-size: 15px;
         font-weight: 700;
         line-height: 1.35;
       }
 
-      .sponsor:nth-child(3) .sponsor-papers a { color: var(--green); }
+      .sponsor-arrow { color: var(--accent); font-size: 31px; }
 
-      .sponsor-arrow { color: var(--blue); font-size: 31px; }
-      .sponsor:nth-child(2) .sponsor-arrow { color: var(--blue); }
-      .sponsor:nth-child(3) .sponsor-arrow { color: var(--green); }
+      .incubated { padding: 72px 0; }
+
+      .incubated .section-top { grid-template-columns: 1fr; margin-bottom: 34px; }
+
+      .incubated-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+      }
+
+      .incubated-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 0;
+        text-align: center;
+      }
+
+      .incubated-item:hover .incubated-name { color: var(--blue); }
+
+      .incubated-mark {
+        display: flex;
+        width: 88px;
+        height: 88px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 14px;
+        padding: 0;
+        overflow: hidden;
+        border-radius: 50%;
+        background: transparent;
+      }
+
+      .incubated-mark img {
+        display: block;
+        width: 88px;
+        height: 88px;
+        object-fit: contain;
+      }
+
+      .incubated-mark.has-light-background { background: #fff; }
+
+      .incubated-mark.has-light-background img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .incubated-name { color: var(--ink); font-size: 19px; font-weight: 700; }
 
       .recordings { padding: 70px 0 82px; border-bottom: 1px solid var(--line); }
 
@@ -219,7 +282,6 @@
       }
 
       .recordings p {
-        max-width: 650px;
         margin: 18px 0 0;
         color: var(--body);
         font-size: 19px;
@@ -247,35 +309,41 @@
         nav { gap: 16px; font-size: 13px; }
         nav a:not(.active):not(.support) { display: none; }
         .hero { padding: 58px 0 50px; }
-        .map-frame img { min-height: 220px; object-fit: cover; }
+        .map-section { padding-top: 28px; }
         .impact-strip, .section-top, .recordings .wrap { grid-template-columns: 1fr; gap: 22px; }
-        .impact-intro, .impact-stat { min-height: 0; }
-        .sponsors, .recordings { padding: 52px 0; }
+        .impact-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+        .incubated-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 18px; }
+        .incubated-mark { width: 72px; height: 72px; }
+        .incubated-mark img { width: 72px; height: 72px; }
+        .incubated-name { font-size: 14px; }
+        .impact-stat { min-height: 0; }
+        .impact-stat strong { font-size: 34px; }
+        .impact-stat span { font-size: 13px; }
+        .soar, .sponsors, .recordings { padding: 52px 0; }
         .sponsor { grid-template-columns: 1fr; gap: 20px; min-height: 0; }
+        .sponsor-title { align-items: flex-start; }
       }
     </style>
   </head>
   <body>
-    <div class="direction">Community mockup 03 / Reach and impact</div>
     <header>
       <div class="wrap">
-        <a class="brand" href="#"><img src="../assets/eleutherai-logo.svg" alt="EleutherAI"></a>
+        <a class="brand" href="#"><img src="assets/eleutherai-logo.svg" alt="EleutherAI"></a>
         <nav><a href="#">About</a><a href="#">Research</a><a class="active" href="#">Community</a><a href="#">Blog</a><a class="support" href="#">Support Us</a></nav>
       </div>
     </header>
     <main>
       <section class="hero">
         <div class="wrap">
-          <h1>A global community for independent AI research.</h1>
+          <h1>A global community for independent AI research</h1>
           <p class="lede">A core value at EleutherAI is enabling people around the world to participate in AI research.</p>
         </div>
       </section>
 
       <section class="map-section">
         <div class="wrap">
-          <figure class="map-frame"><img src="https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/62b36f8a-25e3-4b61-ba34-2ef7474e2669/The_EleutherAI_Community%284%29.png" alt="Map of the EleutherAI community"></figure>
+          <figure class="map-frame"><img src="assets/community-map.png" alt="Map of the EleutherAI community"></figure>
           <div class="impact-strip">
-            <div class="impact-intro"><p>Staff, community researchers, and members span universities, nonprofits, companies, and informal research groups.</p></div>
             <div class="impact-stat"><strong>120+</strong><span>research collaborators</span></div>
             <div class="impact-stat"><strong>30+</strong><span>countries represented</span></div>
             <div class="impact-stat"><strong>150+</strong><span>publications</span></div>
@@ -283,24 +351,36 @@
         </div>
       </section>
 
+      <section class="soar">
+        <div class="wrap">
+          <h2>SOAR</h2>
+          <p>Every year EleutherAI holds the Summer of Open AI Research (SOAR), a 5-week fully online research internship program. We invite people with little research experience to contribute to open science under the mentorship of experienced researchers from our staff and broader community.</p>
+          <div class="soar-links">
+            <a href="/soar/">Learn about SOAR &#8594;</a>
+            <a href="/news/a-short-retrospective-on-the-eleutherai-summer-of-open-ai-research/">Read the retrospective &#8594;</a>
+            <a href="/soar/#research-papers">SOAR research papers &#8594;</a>
+          </div>
+        </div>
+      </section>
+
       <section class="sponsors">
         <div class="wrap">
           <div class="section-top">
-            <h2>Communities we sponsor</h2>
-            <p>EleutherAI supports independent research communities working on questions that deserve more than a single institution's perspective.</p>
+            <h2>Building research communities around the world</h2>
+            <p>Open science is a community effort. We partner with organizations around the world interested in growing open science and provide a variety of forms of support, including fiscal sponsorship, grants, computing resources, and technical support for their research. If your organization is interested in partnering with us, please reach out to <a href="mailto:contact@eleuther.ai">contact@eleuther.ai</a></p>
           </div>
           <div class="sponsor-list">
-            <article class="sponsor">
+            <article class="sponsor sponsor--masi">
               <div>
                 <h3 class="sponsor-title"><img src="assets/masi-logo.png" alt=""><a href="https://github.com/Multi-Agent-Security-Initiative" target="_blank" rel="noopener noreferrer">Multi-Agent Security Initiative</a></h3>
                 <p>A technical AI safety research community founded by Ben Hagag and Michael Mulet, studying the security challenges of a world with a rapidly growing number of AI agents.</p>
-                <div class="sponsor-papers"><a href="https://x.com/MWeckbecker/status/2029178920164004074" target="_blank" rel="noopener noreferrer">Thought Virus &#8594;</a></div>
+                <div class="sponsor-papers"><a href="https://arxiv.org/abs/2603.00131" target="_blank" rel="noopener noreferrer">Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems &#8594;</a></div>
               </div>
               <a class="sponsor-arrow" href="https://github.com/Multi-Agent-Security-Initiative" target="_blank" rel="noopener noreferrer" aria-label="Visit Multi-Agent Security Initiative">&#8594;</a>
             </article>
-            <article class="sponsor">
+            <article class="sponsor sponsor--evaleval">
               <div>
-                <h3><a href="https://evaleval.github.io/" target="_blank" rel="noopener noreferrer">EvalEval Coalition</a></h3>
+                <h3 class="sponsor-title"><img class="is-evaleval" src="assets/evaleval-logo.png" alt=""><a href="https://evaleval.github.io/" target="_blank" rel="noopener noreferrer">EvalEval Coalition</a></h3>
                 <p>A global coalition of academics and other researchers working to improve the practice of evaluations in machine learning, from benchmarks to policy.</p>
                 <div class="sponsor-papers">
                   <a href="https://arxiv.org/abs/2602.16763" target="_blank" rel="noopener noreferrer">When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation &#8594;</a>
@@ -309,11 +389,14 @@
               </div>
               <a class="sponsor-arrow" href="https://evaleval.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Visit EvalEval Coalition">&#8594;</a>
             </article>
-            <article class="sponsor">
+            <article class="sponsor sponsor--universetbd">
               <div>
-                <h3><a href="https://universetbd.org/" target="_blank" rel="noopener noreferrer">UniverseTBD</a></h3>
-                <p>A global research lab using frontier AI to democratize science, bringing together scientists, AI researchers, technologists, and artists to keep research rigorous, creative, and open.</p>
-                <div class="sponsor-papers"><a href="https://arxiv.org/abs/2509.19453" target="_blank" rel="noopener noreferrer">The Platonic Universe: Do Foundation Models See the Same Sky? &#8594;</a></div>
+                <h3 class="sponsor-title"><img src="assets/universetbd-logo.png" alt=""><a href="https://universetbd.org/" target="_blank" rel="noopener noreferrer">UniverseTBD</a></h3>
+                <p>A global research lab applying frontier AI to open scientific discovery, including a 100 TB astronomy dataset spanning images, spectra, time series, and scientific metadata.</p>
+                <div class="sponsor-papers">
+                  <a href="https://arxiv.org/abs/2412.02527" target="_blank" rel="noopener noreferrer">The Multimodal Universe: Enabling Large-Scale Machine Learning with 100TB of Astronomical Scientific Data &#8594;</a>
+                  <a href="https://arxiv.org/abs/2509.19453" target="_blank" rel="noopener noreferrer">The Platonic Universe: Do Foundation Models See the Same Sky? &#8594;</a>
+                </div>
               </div>
               <a class="sponsor-arrow" href="https://universetbd.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit UniverseTBD">&#8594;</a>
             </article>
@@ -321,10 +404,34 @@
         </div>
       </section>
 
+      <section class="incubated">
+        <div class="wrap">
+          <div class="section-top"><h2>Communities we have supported</h2></div>
+          <div class="incubated-grid">
+            <a class="incubated-item" href="https://discord.gg/hq4BvpkGaW" target="_blank" rel="noopener noreferrer">
+              <span class="incubated-mark has-light-background"><img src="assets/openbioml-logo.png" alt="OpenBioML"></span>
+              <span class="incubated-name">OpenBioML</span>
+            </a>
+            <a class="incubated-item" href="https://github.com/CarperAI" target="_blank" rel="noopener noreferrer">
+              <span class="incubated-mark"><img src="assets/carper-logo.png" alt="Carper"></span>
+              <span class="incubated-name">Carper</span>
+            </a>
+            <a class="incubated-item" href="https://huggingface.co/bigscience" target="_blank" rel="noopener noreferrer">
+              <span class="incubated-mark"><img src="assets/bigscience-logo.png" alt="BigScience"></span>
+              <span class="incubated-name">BigScience</span>
+            </a>
+            <a class="incubated-item" href="https://www.rwkv.com/" target="_blank" rel="noopener noreferrer">
+              <span class="incubated-mark has-light-background"><img src="assets/rwkv-logo.png" alt="RWKV"></span>
+              <span class="incubated-name">RWKV</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section class="recordings">
         <div class="wrap">
-          <div><h2>Recorded conversations</h2><p>Past reading groups and research discussions are available on the EleutherAI YouTube channel.</p></div>
-          <a class="recording-link" href="https://www.youtube.com/@Eleuther_AI" target="_blank" rel="noopener noreferrer">Watch recordings <span>&#8594;</span></a>
+          <div><h2>Reading groups</h2><p>Community members organize reading groups around active areas of AI research. Topics and schedules change over time, and recordings from past meetings are available on the EleutherAI YouTube channel.</p></div>
+          <a class="recording-link" href="https://www.youtube.com/@Eleuther_AI" target="_blank" rel="noopener noreferrer">Watch reading group recordings <span>&#8594;</span></a>
         </div>
       </section>
     </main>

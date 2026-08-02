@@ -1,5 +1,5 @@
 ---
-title: "Research at EleutherAI."
+title: "Research at EleutherAI"
 layout: research
 url: /research.html
 ---

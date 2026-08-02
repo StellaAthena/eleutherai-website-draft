@@ -1,95 +1,95 @@
-hero_actions:
-  - label: "Join Discord"
-    url: "https://www.discord.gg/eleutherai"
-    style: "primary"
-  - label: "Watch talks"
-    url: "https://www.youtube.com/@EleutherAI"
+hero:
+  title: "A global community for independent AI research"
+  lede: "A core value at EleutherAI is enabling people around the world to participate in AI research."
+
+map:
+  src: "images/community/community-map.png"
+  alt: "Map of the EleutherAI community"
 
 metrics:
   - value: "120+"
     label: "Research collaborators"
   - value: "30+"
-    label: "Countries"
+    label: "Countries represented"
   - value: "150+"
     label: "Publications"
-  - value: "70M"
-    label: "Model downloads"
 
-map:
-  title: "A global network of independent researchers"
-  text: "EleutherAI brings together staff, volunteers, collaborators, and independent researchers across universities, nonprofits, companies, and informal research groups."
-  src: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/62b36f8a-25e3-4b61-ba34-2ef7474e2669/The_EleutherAI_Community%284%29.png"
-  alt: "Map of the EleutherAI community showing paid staff, community researchers, and community members around the world."
+soar:
+  title: "SOAR"
+  text: "Every year EleutherAI holds the Summer of Open AI Research (SOAR), a 5-week fully online research internship program. We invite people with little research experience to contribute to open science under the mentorship of experienced researchers from our staff and broader community."
+  links:
+    - label: "Learn about SOAR"
+      url: "soar/"
+    - label: "Read the retrospective"
+      url: "news/a-short-retrospective-on-the-eleutherai-summer-of-open-ai-research/"
+    - label: "SOAR research papers"
+      url: "soar/#research-papers"
 
-support:
-  title: "Support for independent research communities"
-  intro: "EleutherAI supports work that would otherwise be hard for independent researchers to sustain: fiscal sponsorship, direct grants, mentorship, compute access, coordination, and public releases."
-  items:
-    - title: "Fiscal sponsorship"
-      text: "We help AI research communities receive and manage funding without needing to become standalone organizations before they can do serious work."
-    - title: "Direct grants"
-      text: "We provide financial support for researchers and small groups working on open science, evaluation, interpretability, and safety projects."
-    - title: "Research scaffolding"
-      text: "Staff and long-time contributors help with project design, engineering review, compute coordination, publication, and release practices."
-  outcomes:
-    - "Independent groups can accept funding and operate without immediately building a full nonprofit back office."
-    - "Small research projects can get enough support to become papers, tools, datasets, workshops, or public reports."
-    - "Community researchers can get institutional support while keeping the open, collaborative norms that made the work possible."
-
-work:
-  title: "What the community produces"
-  intro: "The community is most legible through its outputs: research projects, tools, datasets, hackathons, papers, and public discussions."
-  items:
-    - title: "VQGAN-CLIP"
-      text: "Early open image-generation work built and circulated through the EleutherAI community."
-      url: ""
-    - title: "ReLoRA"
-      text: "Research on efficient training through low-rank updates."
-      url: ""
-    - title: "New England RLHF Hackers"
-      text: "Community-organized hackathons exploring reinforcement learning from human feedback."
-      url: "blog/nerh_1.html"
-    - title: "EvalEval Coalition"
-      text: "A collaborator-led effort focused on improving how AI evaluations are evaluated."
+partners:
+  title: "Building research communities around the world"
+  intro: "Open science is a community effort. We partner with organizations around the world interested in growing open science and provide a variety of forms of support, including fiscal sponsorship, grants, computing resources, and technical support for their research. If your organization is interested in partnering with us, please reach out to [contact@eleuther.ai](mailto:contact@eleuther.ai)"
+  organizations:
+    - key: "masi"
+      name: "Multi-Agent Security Initiative"
+      url: "https://github.com/Multi-Agent-Security-Initiative"
+      logo: "images/community/masi-logo.png"
+      text: "A technical AI safety research community founded by Ben Hagag and Michael Mulet, studying the security challenges of a world with a rapidly growing number of AI agents."
+      papers:
+        - title: "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems"
+          url: "https://arxiv.org/abs/2603.00131"
+    - key: "evaleval"
+      name: "EvalEval Coalition"
       url: "https://evaleval.github.io/"
+      logo: "images/community/evaleval-logo.png"
+      logo_class: "is-evaleval"
+      text: "A global coalition of academics and other researchers working to improve the practice of evaluations in machine learning, from benchmarks to policy."
+      papers:
+        - title: "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation"
+          url: "https://arxiv.org/abs/2602.16763"
+        - title: "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results"
+          url: "https://arxiv.org/abs/2606.14516"
+    - key: "data-provenance"
+      name: "Data Provenance Initiative"
+      url: "https://www.dataprovenance.org/"
+      logo: "images/community/data-provenance-logo.svg"
+      text: "A research initiative building public datasets, dashboards, and audits on AI training data, web consent, open models, and real-world use."
+      papers:
+        - title: "The Data Provenance Initiative: A Large Scale Audit of Dataset Licensing & Attribution in AI"
+          url: "https://doi.org/10.48550/arXiv.2310.16787"
+        - title: "Economies of Open Intelligence: Tracing Power & Participation in the Model Ecosystem"
+          url: "https://arxiv.org/pdf/2512.03073"
+    - key: "universetbd"
+      name: "UniverseTBD"
+      url: "https://universetbd.org/"
+      logo: "images/community/universetbd-logo.png"
+      text: "A global research lab applying frontier AI to open scientific discovery, including a 100 TB astronomy dataset spanning images, spectra, time series, and scientific metadata."
+      papers:
+        - title: "The Multimodal Universe: Enabling Large-Scale Machine Learning with 100TB of Astronomical Scientific Data"
+          url: "https://arxiv.org/abs/2412.02527"
+        - title: "The Platonic Universe: Do Foundation Models See the Same Sky?"
+          url: "https://arxiv.org/abs/2509.19453"
 
-profiles:
-  title: "Community profiles"
-  intro: "Profiles spotlight researchers whose work grew through the EleutherAI community, with links to their papers, code, talks, and interviews."
-  people:
-    - name: "Naomi Saphra"
-      role: "Research collaborator"
-      image: "https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/1700767002336-5ZVY0SG3I7NIKRDXOM11/naomi.jpg"
-      text: "Research on interpretability, analysis, and open models."
-      url: ""
-    - name: "Mohammad Aflah Khan"
-      role: "AI4Science researcher"
-      image: "assets/staff/mohammad-aflah-khan.png"
-      text: "Research on training dynamics, evaluation, and model behavior."
-      url: ""
+supported:
+  title: "Communities we have supported"
+  text: "We helped these communities get started, and they have since grown into independent organizations with work and communities of their own."
+  organizations:
+    - name: "OpenBioML"
+      url: "https://discord.gg/hq4BvpkGaW"
+      logo: "images/community/openbioml-logo.png"
+      light_background: true
+    - name: "Carper"
+      url: "https://github.com/CarperAI"
+      logo: "images/community/carper-logo.png"
+    - name: "BigScience"
+      url: "https://huggingface.co/bigscience"
+      logo: "images/community/bigscience-logo.png"
+    - name: "RWKV"
+      url: "https://www.rwkv.com/"
+      logo: "images/community/rwkv-logo.png"
+      light_background: true
 
 reading_groups:
-  title: "Reading groups and recorded talks"
-  intro: "Community-organized reading groups turn the Discord from a discussion forum into a working research space: people read papers together, invite authors, and record sessions for others to learn from later."
-  items:
-    - title: "Interpretability reading group"
-      text: "A recurring forum for discussing neural network interpretability papers, often with authors presenting their work."
-      url: "https://www.youtube.com/@EleutherAI"
-    - title: "Alignment reading groups"
-      text: "Groups have worked through alignment curricula and used the community to connect newer researchers with active research conversations."
-      url: "blog/alignment-eleuther.html"
-    - title: "Talk archive"
-      text: "Recorded meetings and talks can be collected into playlists so useful discussions remain available after the live session."
-      url: "https://www.youtube.com/@EleutherAI"
-
-participation:
-  title: "How people contribute"
-  items:
-    - title: "Discuss papers"
-      text: "Researchers use the public Discord to share work, debate results, and find collaborators."
-    - title: "Join projects"
-      text: "Contributors help with code, data, evaluation, analysis, writing, and replication."
-    - title: "Organize groups"
-      text: "Community members run reading groups, hackathons, and research meetings."
-    - title: "Release artifacts"
-      text: "Projects publish papers, datasets, models, tools, notes, and recordings for others to build on."
+  title: "Reading groups"
+  text: "Community members organize reading groups around active areas of AI research. Topics and schedules change over time, and recordings from past meetings are available on the EleutherAI YouTube channel."
+  link_label: "Watch reading group recordings"
+  url: "https://www.youtube.com/@Eleuther_AI"

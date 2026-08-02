@@ -80,5 +80,5 @@ metadata:
 people: "Stella Biderman, Hailey Schoelkopf, Quentin Anthony, Herbie Bradley, Kyle O'Brien, Eric Hallahan, Mohammad Aflah Khan, Shivanshu Purohit, USVSN Sai Prashanth, Edward Raff, Aviya Skowron, Lintang Sutawika, and Oskar van der Wal"
 
 closing:
-  title: "Pythia makes training trajectories inspectable."
+  title: "Pythia makes training trajectories inspectable"
   text: "Most model releases expose final weights. Pythia exposes the path to those weights: intermediate checkpoints, controlled data order, and enough surrounding code and documentation for researchers to ask when capabilities, failures, and mechanisms emerge."

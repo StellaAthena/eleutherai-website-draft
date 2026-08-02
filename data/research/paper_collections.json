@@ -1,0 +1,67 @@
+{
+  "soar": [
+    {
+      "identifier": "soar",
+      "title": "The Spatial Blindspot of Vision-Language Models",
+      "authors": [
+        "Nahid Alam",
+        "Leema Krishna Murali",
+        "Siddhant Bharadwaj",
+        "Patrick Liu",
+        "Timothy Chung",
+        "Drishti Sharma",
+        "Akshata A",
+        "Kranthi Kiran",
+        "Wesley Tam",
+        "Bala Krishna S Vegesna"
+      ],
+      "venue": "I Can't Believe It's Not Better @ ICLR",
+      "year": 2026,
+      "url": "https://arxiv.org/abs/2601.09954"
+    },
+    {
+      "identifier": "soar",
+      "title": "Attention-Guided Audio Compression for Multimodal LLM",
+      "authors": [
+        "Prerana Rane",
+        "Amitesh Vatsa",
+        "Yash Pethe",
+        "Ogan Batu Aktolun",
+        "Kevin Li",
+        "Ishan Singh"
+      ],
+      "venue": "Low-Resource Audio Codec @ ICASSP",
+      "year": 2026,
+      "url": ""
+    },
+    {
+      "identifier": "soar",
+      "title": "Persona-Vector Routing: A Lightweight, Interpretable Guardrail for Mitigating LLM Hallucinations",
+      "authors": [
+        "Ayesha Imran",
+        "Soham Chatterjee"
+      ],
+      "venue": "LLM Persona Modeling @ NeurIPS",
+      "year": 2025,
+      "url": "https://neurips.cc/virtual/2025/129955"
+    },
+    {
+      "identifier": "soar",
+      "title": "A Traditional Approach to Symbolic Piano Continuation",
+      "authors": [
+        "Christian Zhou-Zheng",
+        "John Backsund",
+        "Dun Li Chan",
+        "Alex Coventry",
+        "Avid Eslami",
+        "Jyotin Goel",
+        "Xingwen Han",
+        "Danysh Soomro",
+        "Galen Wei"
+      ],
+      "venue": "MIREX @ ISMIR",
+      "year": 2025,
+      "url": "https://arxiv.org/abs/2509.12267"
+    }
+  ]
+}
