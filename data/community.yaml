@@ -52,7 +52,7 @@ partners:
       name: "Data Provenance Initiative"
       url: "https://www.dataprovenance.org/"
       logo: "images/community/data-provenance-logo.svg"
-      text: "A research initiative building public datasets, dashboards, and audits on AI training data, web consent, open models, and real-world use."
+      text: "A volunteer collective of AI researchers conducting large-scale audits of the data, markets, and real-world uses that shape modern AI. DPI traces training datasets from their origins through creation and reuse; documents sources, licenses, creators, languages, and geographies; measures changes in web consent; studies participation and concentration in open-model ecosystems; and is extending this work to how people use and misuse AI systems in practice."
       papers:
         - title: "The Data Provenance Initiative: A Large Scale Audit of Dataset Licensing & Attribution in AI"
           url: "https://doi.org/10.48550/arXiv.2310.16787"
