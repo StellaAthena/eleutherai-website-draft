@@ -8,9 +8,6 @@
       <nav class="td-breadcrumb" aria-label="Breadcrumb"><a href="{{ "research.html" | relURL }}">Research</a><span>/</span><span>Training Dynamics</span></nav>
       <h1>Training Dynamics</h1>
       <p>Machine learning is the study of <em>learning by computational processes</em>. The proper object of study therefore is not a fixed model but rather the training trajectory</p>
-      <figure class="td-hero-visual">
-        <img src="{{ "images/training-dynamics/model-process-loss-landscape-v5.png" | relURL }}" alt="A checkpointed model trajectory descends across a sloping loss landscape and terminates at a white star">
-      </figure>
     </div>
   </header>
 
@@ -19,8 +16,15 @@
       <div class="wrap">
         <div class="td-section-head">
           <h2>AI needs explanations of development, not just descriptions of outcomes</h2>
-          <p>Most AI research examines a finished model and responds to undesirable behavior with another round of fine-tuning, filtering, or prompting. These interventions can be useful without explaining why the behavior emerged, whether the fix will survive, or how the behavior could have been prevented during training.</p>
-          <p>A science of AI should make claims before the final model is observed. It should identify which properties are stable across runs, explain how mechanisms form, and connect changes in the training process to changes in behavior.</p>
+        </div>
+        <div class="td-overview-layout">
+          <figure class="td-overview-visual">
+            <img src="{{ "images/training-dynamics/model-process-loss-landscape-v5.png" | relURL }}" alt="A checkpointed model trajectory descends across a sloping loss landscape and terminates at a white star">
+          </figure>
+          <div class="td-overview-copy">
+            <p>Most AI research examines a finished model and responds to undesirable behavior with another round of fine-tuning, filtering, or prompting. These interventions can be useful without explaining why the behavior emerged, whether the fix will survive, or how the behavior could have been prevented during training.</p>
+            <p>A science of AI should make claims before the final model is observed. It should identify which properties are stable across runs, explain how mechanisms form, and connect changes in the training process to changes in behavior.</p>
+          </div>
         </div>
         <a class="td-agenda-paper" href="https://arxiv.org/abs/2606.06533" target="_blank" rel="noopener noreferrer">
           <span><strong>Position: Don’t Just “Fix it in Post”</strong><em>A Science of AI Must Study Training Dynamics</em></span>
