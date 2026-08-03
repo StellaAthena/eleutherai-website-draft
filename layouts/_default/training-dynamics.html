@@ -49,12 +49,25 @@
             <div class="td-direction-links">
               {{ range .links }}
               {{ $href := cond (hasPrefix .url "http") .url (.url | relURL) }}
-              <a href="{{ $href }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }} <span aria-hidden="true">{{ if hasPrefix .url "http" }}&#8599;{{ else }}&#8594;{{ end }}</span></a>
+              <a href="{{ $href }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }} <span aria-hidden="true">&#8594;</span></a>
               {{ end }}
             </div>
           </article>
           {{ end }}
         </div>
+        {{ with $trainingDynamics.visual_example }}
+        <figure class="td-process-example">
+          <video controls loop muted playsinline preload="metadata" poster="{{ .poster | relURL }}">
+            <source src="{{ .video | relURL }}" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>
+            <strong>{{ .title }}</strong>
+            <p>{{ .text }}</p>
+            <a href="{{ .source_url }}" target="_blank" rel="noopener noreferrer">{{ .source_label }} <span aria-hidden="true">&#8594;</span></a>
+          </figcaption>
+        </figure>
+        {{ end }}
       </div>
     </section>
     {{ end }}
