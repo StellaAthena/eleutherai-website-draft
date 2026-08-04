@@ -20,5 +20,25 @@
       <a href="{{ "blog.html" | relURL }}">Blog</a>
       <a class="support" href="{{ "support.html" | relURL }}">Support Us</a>
     </nav>
+    <details class="mobile-menu">
+      <summary class="mobile-menu-toggle" aria-label="Open navigation" title="Menu">
+        <span class="mobile-menu-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </summary>
+      <div class="mobile-nav-panel">
+        <nav class="mobile-nav-links wrap" aria-label="Mobile navigation">
+          <a href="{{ "about.html" | relURL }}">About</a>
+          <a class="mobile-nav-sub" href="{{ "staff.html" | relURL }}">Staff</a>
+          <a href="{{ "research.html" | relURL }}">Research</a>
+          <a href="{{ "papers.html" | relURL }}">Papers</a>
+          <a href="{{ "community.html" | relURL }}">Community</a>
+          <a href="{{ "blog.html" | relURL }}">Blog</a>
+          <a class="support" href="{{ "support.html" | relURL }}">Support Us</a>
+        </nav>
+      </div>
+    </details>
   </div>
 </header>
