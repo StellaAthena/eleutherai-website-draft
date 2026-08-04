@@ -39,25 +39,39 @@ metric_rows:
 
 priorities:
   - title: "Open models and tools"
-    tag: "models and tools"
     text: "Release model checkpoints, datasets, and evaluation tooling that make independent research possible."
-    latest: "Pythia, GPT-NeoX, LM Evaluation Harness, Common Pile"
     accent: "blue"
+    links:
+      - label: "Pythia"
+        url: "project-pythia.html"
+      - label: "GPT-NeoX"
+        url: "https://github.com/EleutherAI/gpt-neox"
+      - label: "Common Pile"
+        url: "https://arxiv.org/abs/2506.05209"
   - title: "Evaluation"
-    tag: "benchmarks"
     text: "Study what benchmarks measure, when they saturate, and how evaluations shape our picture of model capability."
-    latest: "Benchmark saturation, social-impact coverage, and test-set contamination"
     accent: "gold"
+    links:
+      - label: "LM Evaluation Harness"
+        url: "https://github.com/EleutherAI/lm-evaluation-harness"
+      - label: "Benchmark saturation"
+        url: "https://arxiv.org/abs/2602.16763"
   - title: "Interpretability over time"
-    tag: "mechanisms"
     text: "Trace how representations, circuits, memorization, and capabilities develop across checkpoints and scale."
-    latest: "Training dynamics agenda and cross-checkpoint mechanistic analyses"
     accent: "green"
+    links:
+      - label: "Pythia"
+        url: "project-pythia.html"
+      - label: "Cross-checkpoint circuits"
+        url: "https://arxiv.org/abs/2407.10827"
   - title: "Open-weight safety"
-    tag: "interventions"
     text: "Develop methods for studying and improving open-weight models that researchers can inspect directly."
-    latest: "Data attribution and pretraining-data filtering safeguards"
     accent: "violet"
+    links:
+      - label: "Deep Ignorance"
+        url: "https://arxiv.org/abs/2508.06601"
+      - label: "Bergson data attribution"
+        url: "https://github.com/EleutherAI/bergson"
 
 recent_outputs:
   - kind: "Paper"

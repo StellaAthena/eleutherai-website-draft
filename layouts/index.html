@@ -117,14 +117,13 @@
       <div class="home-priority-grid">
         {{ range site.Data.home.priorities }}
           <article class="home-priority-card is-{{ .accent }}">
-            <div class="home-priority-top">
-              <h3>{{ .title }}</h3>
-              <span>{{ .tag }}</span>
-            </div>
+            <h3>{{ .title }}</h3>
             <p>{{ .text }}</p>
-            <div class="home-priority-latest">
-              <strong>Latest</strong>
-              <span>{{ .latest }}</span>
+            <div class="home-priority-links">
+              {{ range .links }}
+                {{ $external := hasPrefix .url "http" }}
+                <a href="{{ if $external }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }} <span aria-hidden="true">&#8594;</span></a>
+              {{ end }}
             </div>
           </article>
         {{ end }}
