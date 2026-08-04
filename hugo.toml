@@ -8,6 +8,7 @@ disableKinds = ["taxonomy", "term", "RSS"]
 
 [params]
   description = "EleutherAI is a non-profit AI research lab advancing open science through models, datasets, tools, and research."
+  blogBaseURL = "https://blog.eleuther.ai/"
 
 [markup]
   [markup.goldmark]
@@ -18,9 +19,6 @@ disableKinds = ["taxonomy", "term", "RSS"]
   [[module.mounts]]
     source = "content"
     target = "content"
-  [[module.mounts]]
-    source = "content-blog"
-    target = "content/blog"
   [[module.mounts]]
     source = "layouts"
     target = "layouts"
@@ -36,9 +34,6 @@ disableKinds = ["taxonomy", "term", "RSS"]
   [[module.mounts]]
     source = "assets/eleutherai-logo.svg"
     target = "static/assets/eleutherai-logo.svg"
-  [[module.mounts]]
-    source = "assets/blog"
-    target = "static/images/blog"
   [[module.mounts]]
     source = "assets/current-site"
     target = "static/images"

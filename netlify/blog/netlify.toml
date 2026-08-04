@@ -1,0 +1,6 @@
+[build]
+  command = "make build-blog"
+  publish = "/public-blog"
+
+[build.environment]
+  HUGO_VERSION = "0.158.0"

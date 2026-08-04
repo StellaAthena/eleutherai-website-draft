@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When AI builds AI, will we maintain control? — an explainer</title>
+<meta name="description" content="A friendly visual guide to EleutherAI's dynamical model of AI governability: two competing pools of AI labour, an observability contest, and what it takes to start in control and stay in control.">
+<style>
+  :root {
+    color-scheme: light;
+    --plane: #f9f9f7;
+    --surface: #fcfcfb;
+    --ink: #0b0b0b;
+    --ink-2: #52514e;
+    --muted: #898781;
+    --grid: #e1e0d9;
+    --baseline: #c3c2b7;
+    --border: rgba(11,11,11,0.10);
+    --coop: #2a78d6;        /* cooperative labour */
+    --uncoop: #eb6834;      /* uncooperative labour */
+    --monitor: #1baf7a;     /* detect-and-fix coverage */
+    --evade: #4a3aa7;       /* evasion + opacity */
+    --coop-soft: rgba(42,120,214,0.12);
+    --uncoop-soft: rgba(235,104,52,0.14);
+    --monitor-soft: rgba(27,175,122,0.14);
+    --evade-soft: rgba(74,58,167,0.12);
+    --status-good: #0ca30c;
+    --status-warn: #fab219;
+    --status-crit: #d03b3b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --plane: #0d0d0d;
+      --surface: #1a1a19;
+      --ink: #ffffff;
+      --ink-2: #c3c2b7;
+      --muted: #898781;
+      --grid: #2c2c2a;
+      --baseline: #383835;
+      --border: rgba(255,255,255,0.10);
+      --coop: #3987e5;
+      --uncoop: #d95926;
+      --monitor: #199e70;
+      --evade: #9085e9;
+      --coop-soft: rgba(57,135,229,0.18);
+      --uncoop-soft: rgba(217,89,38,0.20);
+      --monitor-soft: rgba(25,158,112,0.20);
+      --evade-soft: rgba(144,133,233,0.18);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --plane: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7;
+    --grid: #2c2c2a; --baseline: #383835; --border: rgba(255,255,255,0.10);
+    --coop: #3987e5; --uncoop: #d95926; --monitor: #199e70; --evade: #9085e9;
+    --coop-soft: rgba(57,135,229,0.18); --uncoop-soft: rgba(217,89,38,0.20);
+    --monitor-soft: rgba(25,158,112,0.20); --evade-soft: rgba(144,133,233,0.18);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--plane);
+    color: var(--ink);
+    font: 17px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  a { color: var(--coop); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  .wide { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+  header.hero { padding: 72px 0 40px; }
+  .kicker {
+    font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; margin-bottom: 14px;
+  }
+  h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.15; margin: 0 0 18px; letter-spacing: -0.015em; }
+  .standfirst { font-size: 20px; line-height: 1.55; color: var(--ink-2); max-width: 660px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+  .btn {
+    display: inline-block; padding: 10px 18px; border-radius: 10px;
+    font-weight: 600; font-size: 15px; border: 1px solid transparent;
+  }
+  .btn-solid { background: var(--coop); color: #fff; }
+  .btn-solid:hover { text-decoration: none; filter: brightness(1.08); }
+  .btn-ghost { border-color: var(--border); color: var(--ink); background: var(--surface); }
+  .btn-ghost:hover { text-decoration: none; border-color: var(--baseline); }
+
+  section { padding: 34px 0; }
+  h2 { font-size: 26px; letter-spacing: -0.01em; margin: 0 0 6px; }
+  .lede { color: var(--ink-2); margin-top: 0; }
+
+  figure { margin: 28px 0; }
+  .panel {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 22px; overflow-x: auto;
+  }
+  figcaption { font-size: 14px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
+  figure img { max-width: 100%; height: auto; display: block; border-radius: 8px; background: #fcfcfb; }
+  .img-pad { background: #fcfcfb; border-radius: 10px; padding: 10px; }
+
+  svg text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .sv-label { font-size: 14px; font-weight: 600; fill: var(--ink); }
+  .sv-sub { font-size: 12.5px; fill: var(--ink-2); }
+  .sv-note { font-size: 12.5px; fill: var(--muted); }
+
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin: 26px 0; }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 18px 20px;
+  }
+  .tile .num { font-size: 34px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .tile .lab { font-size: 14px; color: var(--ink-2); margin-top: 6px; line-height: 1.4; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 26px 0; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 18px 20px; font-size: 15px; line-height: 1.55;
+  }
+  .card b { display: block; font-size: 16px; margin-bottom: 6px; }
+  .card .tag { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 8px; }
+  .card.accent { border-color: var(--uncoop); }
+
+  .qa { margin: 26px 0; }
+  .qa .q {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 18px 22px; margin-bottom: 14px;
+  }
+  .qa .q h3 { font-size: 17px; margin: 0 0 8px; }
+  .qa .q p { margin: 0; font-size: 15.5px; color: var(--ink-2); }
+
+  .predictions { margin: 22px 0; padding: 0; list-style: none; }
+  .predictions li {
+    padding: 12px 16px 12px 44px; position: relative; font-size: 15.5px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px;
+  }
+  .predictions li::before {
+    content: "→"; position: absolute; left: 16px; top: 10px;
+    color: var(--monitor); font-weight: 700; font-size: 17px;
+  }
+
+  .zones { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 24px 0 10px; }
+  .zone { border-radius: 12px; padding: 14px 16px; font-size: 14.5px; line-height: 1.5; border: 1px solid var(--border); background: var(--surface); }
+  .zone .zhead { font-weight: 700; display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .zdot { width: 12px; height: 12px; border-radius: 4px; display: inline-block; flex: none; }
+
+  .footnote { font-size: 14px; color: var(--muted); border-top: 1px solid var(--grid); margin-top: 30px; padding-top: 18px; }
+  footer { padding: 40px 0 70px; color: var(--muted); font-size: 14px; }
+  footer .wrap { border-top: 1px solid var(--grid); padding-top: 24px; }
+
+  /* interactive scene */
+  .anim { transition: all .55s cubic-bezier(.4,0,.2,1); }
+  .cone { transition: opacity .55s ease; }
+  .cap  { transition: opacity .4s ease; }
+  .hot  { cursor: pointer; }
+  .hot:hover { filter: brightness(1.06); }
+  #framePill { cursor: pointer; }
+  .hint { pointer-events: none; stroke-dasharray: 6 5; animation: hintPulse 2.2s ease-in-out infinite; }
+  @keyframes hintPulse { 0%, 100% { opacity: .7; } 50% { opacity: .25; } }
+
+  @media (max-width: 640px) {
+    .zones { grid-template-columns: 1fr; }
+    header.hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">EleutherAI · a visual explainer</div>
+    <h1>When AI builds AI, will we maintain control?</h1>
+    <p class="standfirst">
+      We're building a technology that will be able to manage a weapons production line and plot a coup,
+      if it were inclined. We will increasingly depend on it to manage its own production and security.
+      Some people think we'll see and fix problems as they arise; others think the important problems
+      will stay hidden until we lose control. Can modelling the development shed light on the situation?
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="/dynamical-models-of-ai-governability/">Read the full analysis</a>
+      <a class="btn btn-ghost" href="/basin-explorer/">Play with the model →</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>The question</h2>
+    <p>
+      People in AI safety put the probability of AI takeover — "P(doom)" — anywhere from under 1% to
+      over 99%, and the only thing anyone seems to agree on is that arguing about P(doom) is not very
+      productive. But we have to decide how to manage AI development, and whether or not we'll stay
+      in control matters, whether we can agree on it or not.
+    </p>
+    <p>
+      We've built a model of the contest for control of AI: between a cooperative team that tries to
+      find and fix subversive behaviour and an uncooperative team that tries to evade detection and
+      grow. We can map theories and accumulating evidence to outcomes, and focus our questions on the
+      parameters that matter most. We want to grow this into a research programme that sharpens
+      consensus around AI risk, identifies the levers and open questions that matter most, and gives
+      the people steering AI development continuous tracking of the trajectory's health.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>The model</h2>
+    <p>
+      Our model considers a "race" between cooperative and uncooperative AI labour pools, plus a
+      human pool which starts large and shrinks in importance. Humans and cooperative AI labour
+      produce more cooperative labour, as well as accidentally producing some amount of uncooperative
+      labour, which we term "leakage". They also produce "monitoring technology" which enables the
+      observation of uncooperative AI behaviour. Uncooperative AI behaviour produces more
+      uncooperative AI behaviour, as well as "evasion" which hides uncooperative behaviour from
+      monitoring. The following diagram shows a simplified version of the model.
+    </p>
+  </div>
+  <div class="wide">
+    <figure>
+      <div class="panel">
+        <svg id="scene" viewBox="0 0 910 440" width="100%" role="img" aria-label="Interactive scene: monitoring light and evasion fog contest over the uncooperative share of AI labour; hovering elements shows how the observed share O responds">
+          <defs>
+            <linearGradient id="coneG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="var(--monitor)" stop-opacity="0.55"/>
+              <stop offset="1" stop-color="var(--monitor)" stop-opacity="0.10"/>
+            </linearGradient>
+            <linearGradient id="fogG" x1="1" y1="0" x2="0" y2="0">
+              <stop offset="0" stop-color="var(--evade)" stop-opacity="0.85"/>
+              <stop offset="0.75" stop-color="var(--evade)" stop-opacity="0.35"/>
+              <stop offset="1" stop-color="var(--evade)" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- A frame (frameHit widens the border into a hoverable band) -->
+          <rect x="70" y="66" width="772" height="300" rx="16" fill="none" stroke="var(--baseline)" stroke-width="1.5"/>
+          <rect id="frameHit" x="70" y="66" width="772" height="300" rx="16" fill="none" stroke="transparent" stroke-width="18" pointer-events="stroke" style="cursor:pointer"/>
+          <g pointer-events="none">
+            <rect id="ringFrame" class="anim" x="64" y="60" width="784" height="312" rx="20" fill="none" stroke="var(--ink)" stroke-opacity="0.55" stroke-width="2.5" opacity="0"/>
+            <rect id="hintFrame" class="hint" x="64" y="60" width="784" height="312" rx="20" fill="none" stroke="var(--ink)" stroke-width="2"/>
+          </g>
+          <g id="framePill">
+            <rect x="86" y="52" width="200" height="28" rx="14" fill="var(--surface)" stroke="var(--border)" />
+            <text x="102" y="71" class="sv-sub"><tspan font-weight="700">A</tspan> · total AI labour — grows</text>
+          </g>
+
+          <!-- the moving scene -->
+          <g id="world">
+            <!-- lamp -->
+            <g id="lamp" class="hot">
+              <circle id="bulb" class="anim" cx="612" cy="130" r="15" fill="var(--monitor)"/>
+              <text x="612" y="106" text-anchor="middle" class="sv-label" fill="var(--monitor)">monitoring m</text>
+            </g>
+
+            <!-- cones (crossfaded variants) -->
+            <path id="coneBase"  class="cone" d="M 602 142 L 560 214 L 685 214 L 622 142 Z" fill="url(#coneG)" opacity="1"/>
+            <path id="coneCoop"  class="cone" d="M 600 140 L 560 214 L 735 214 L 624 140 Z" fill="url(#coneG)" opacity="0"/>
+            <path id="coneUnco"  class="cone" d="M 604 144 L 560 214 L 635 214 L 620 144 Z" fill="url(#coneG)" opacity="0"/>
+
+            <!-- labour bar -->
+            <rect id="blue"   class="anim hot" x="100" y="214" width="460" height="58" rx="9" fill="var(--coop)"/>
+            <rect id="orange" class="anim hot" x="560" y="214" width="250" height="58" rx="9" fill="var(--uncoop)"/>
+            <!-- fixed slice (part of the seen region) -->
+            <g id="fixedG" class="hot">
+              <rect id="fixedR" class="anim" x="560" y="214" width="62" height="58" rx="9" fill="var(--monitor)" opacity="0.6"/>
+              <text id="fixedT" class="anim" x="568" y="248" font-size="12.5" font-weight="600" fill="#fff">fixed</text>
+            </g>
+            <text x="118" y="248" font-size="13" font-weight="600" fill="#fff">cooperative</text>
+            <text id="uncoLab" class="anim" x="566" y="206" font-size="13" font-weight="600" fill="var(--uncoop)">uncooperative</text>
+
+            <!-- fog -->
+            <rect id="fog" class="anim hot" x="685" y="200" width="140" height="86" rx="10" fill="url(#fogG)"/>
+            <text x="826" y="158" text-anchor="end" class="sv-label" fill="var(--evade)">evasion e</text>
+            <text x="826" y="175" text-anchor="end" class="sv-note">fog over the hard-to-see</text>
+
+            <!-- O marker -->
+            <line id="oTick" class="anim" x1="685" y1="196" x2="685" y2="306" stroke="var(--ink)" stroke-width="2"/>
+            <g id="oLabG" class="anim" transform="translate(685,0)">
+              <text x="0" y="328" text-anchor="middle" class="sv-sub"><tspan font-weight="700">O</tspan> = <tspan id="oVal" font-weight="700">0.50</tspan></text>
+            </g>
+
+            <!-- grouping outlines: colour marks the pieces that move together -->
+            <g pointer-events="none">
+              <rect id="ringBlue"   class="anim" x="95"  y="209" width="470" height="68" rx="12" fill="none" stroke="var(--coop)" stroke-width="2.5" opacity="0"/>
+              <circle id="ringBulb" class="anim" cx="612" cy="130" r="22" fill="none" stroke="var(--coop)" stroke-width="2.5" opacity="0"/>
+              <rect id="ringFixed"  class="anim" x="555" y="209" width="72" height="68" rx="12" fill="none" stroke="var(--coop)" stroke-width="2.5" opacity="0"/>
+              <rect id="ringOrange" class="anim" x="555" y="209" width="260" height="68" rx="12" fill="none" stroke="var(--uncoop)" stroke-width="2.5" opacity="0"/>
+              <rect id="ringFog"    class="anim" x="680" y="195" width="150" height="96" rx="13" fill="none" stroke="var(--uncoop)" stroke-width="2.5" opacity="0"/>
+            </g>
+          </g>
+
+          <!-- pool hover hints -->
+          <g pointer-events="none">
+            <rect id="hintBlue"   class="hint" x="95"  y="209" width="470" height="68" rx="12" fill="none" stroke="var(--coop)" stroke-width="2"/>
+            <rect id="hintOrange" class="hint" x="555" y="209" width="260" height="68" rx="12" fill="none" stroke="var(--uncoop)" stroke-width="2"/>
+          </g>
+
+          <!-- state captions -->
+          <text id="capBase" class="cap sv-sub" x="455" y="416" text-anchor="middle" opacity="1">hover a dashed outline to see that part's impact</text>
+          <text id="capCoop" class="cap sv-sub" x="455" y="416" text-anchor="middle" opacity="0" fill="var(--monitor)">coverage compounds — bigger lamp, more fixed → O rises</text>
+          <text id="capUnco" class="cap sv-sub" x="455" y="416" text-anchor="middle" opacity="0" fill="var(--uncoop)">self-propagation reaches deeper into the fog, and feeds it → O falls</text>
+          <text id="capScal" class="cap sv-sub" x="455" y="416" text-anchor="middle" opacity="0" fill="var(--evade)">automation grows everything — and scale itself thickens the fog</text>
+        </svg>
+      </div>
+      <figcaption>
+        Hover to see what each component affects. A simplified illustration of our model (with human
+        labour excluded). O — the observed share of uncooperative behaviour —
+        represents detect-and-fix coverage: those misbehaviours we have documented, which is the
+        subset that we can work on fixing. The fog is "evasion" — a combination of active attempts
+        to avoid observation and the passively accumulating difficulty of observing increasingly
+        complex AI systems.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What the model predicts</h2>
+    <p>
+      Our model features large uncertainty over several key parameters, including how effectively
+      uncooperative behaviour propagates and at what rate the outputs of cooperative AI development
+      accidentally leak into the uncooperative pool. Nonetheless, we calibrate the parameters
+      according to our best inferences from publicly available data, and it delivers predictions.
+    </p>
+    <p class="lede">Run forward from today's best-guess calibration, with business as usual:</p>
+    <div class="tiles">
+      <div class="tile">
+        <div class="num" style="color:var(--uncoop)">~25%</div>
+        <div class="lab">of AI labour ends up uncooperative on the central path — and small perturbations tip into a full takeover.</div>
+      </div>
+      <div class="tile">
+        <div class="num" style="font-size:20px">New problems on their way</div>
+        <div class="lab">Current uncooperative behaviour is almost all leakage, and its production rate will rise when (and if) propagation becomes another important source.</div>
+      </div>
+      <div class="tile">
+        <div class="num" style="font-size:20px">Observations: useful, but limited</div>
+        <div class="lab">It is good news if we see less misbehaviour as AI improves, but far from a guarantee of safety.</div>
+      </div>
+    </div>
+  </div>
+  <div class="wide">
+    <figure>
+      <div class="panel img-pad">
+        <img src="/images/blog/dynamical-models/trajectory-overlap.png" alt="Sampled model trajectories: bands showing the spread of good and bad futures for the uncooperative share of AI labour, against automation growth">
+      </div>
+      <figcaption>
+        Plausible futures from the full post: each band is the 85% spread over a Monte-Carlo ensemble
+        drawing the uncertain parameters. Good outcomes keep the uncooperative share low in perpetuity;
+        bad ones bend upward. According to our model, both are on the table.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>What problems does this solve?</h2>
+    <p class="lede">
+      Our model makes predictions, but if we want to have impact there are technical and social
+      challenges to overcome: better measuring and projecting key parameters, and building
+      credibility with the communities who need to consider takeover risks. What's the payoff from
+      addressing them?
+    </p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Consensus</span>
+        <b>Alignment on settled questions, calibrated uncertainty on unsettled ones</b>
+        Disagreements often stall on duelling intuitions — advanced AI will be better at defeating
+        safeguards, but will also help build better safeguards; we can learn from experience, but
+        scheming models will deny us that experience. An explicit model does two things here: first,
+        it pushes discussion towards specific parameters (and mechanisms) with existing
+        operationalisations and estimates. Focusing on smaller questions raises the likelihood of
+        resolution, and asks for better estimates in place of vague counter-intuitions. Secondly, it
+        maps every estimate to an outcome, so duelling intuitions produce concrete differences (or
+        lack thereof) in projected outcomes.
+      </div>
+      <div class="card">
+        <span class="tag">Evidence</span>
+        <b>A place to put the news</b>
+        Every month brings a fresh report of scheming, sandbagging, or reward-gaming. Some get large
+        reactions, some don't. Careful observers are often cautious about drawing conclusions. Are
+        these signals truly alarming, or consistent with a healthy development programme? A model can
+        continually ingest fresh evidence, update parameters and deliver impact estimates.
+      </div>
+      <div class="card">
+        <span class="tag">Interventions</span>
+        <b>A first-pass policy impact analysis</b>
+        Scale up safety investment d/acc-style, slow down and reflect, stay laissez-faire, lean on
+        liability — today these are compared by intuition. These can be parametrised and their impact
+        estimated, in relation to other interventions and in relation to the estimated task of
+        delivering good outcomes with high confidence. Even simple models can separate the levers
+        that move the outcome from the ones that don't.
+      </div>
+      <div class="card">
+        <span class="tag">Regulatory targets</span>
+        <b>An instrument you could steer by</b>
+        How do we know if our policy approach can handle danger signals before it's too late? We can
+        model that too, and give concrete guidance for what we need to achieve for robustness. That's
+        the
+        <a href="https://www.lesswrong.com/posts/46CjwoPXwZPR3Lrz5/can-we-build-an-early-warning-system-for-loss-of-control-to">early-warning proposal</a>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Questions you should ask</h2>
+    <div class="qa">
+      <div class="q">
+        <h3>Isn't loss of control too complicated to model?</h3>
+        <p>
+          Simple models can be predictively effective: exponential models have been tremendously
+          successful in forecasting many changes in AI. Epidemic curves, climate energy balances and
+          bank stress tests all distil complex systems into a few decision-relevant variables, tell
+          us what to measure, and when to worry.
+        </p>
+      </div>
+      <div class="q">
+        <h3>If uncooperative AI is trying to hide from us, won't we be unable to observe it before it's too late?</h3>
+        <p>
+          Unless it can hide <em>perfectly</em>, we will get some information — and a model can help
+          us understand how much we should attend to the information we get. We can also make other
+          observations — like re-auditing old models with new tools — that can clarify misbehaviour
+          rates in a way we can't by looking solely at misbehaviour on the frontier.
+        </p>
+      </div>
+      <div class="q">
+        <h3>Do we even know how we need models to behave for good outcomes?</h3>
+        <p>
+          No — but we have some idea, and we expect to learn more as we develop the technology. We
+          can apply new lessons to old models to check whether we have been heading in the right
+          direction, and we can estimate how long the important lessons take to learn — so we don't
+          lose control before we're able to see a problem.
+        </p>
+      </div>
+      <div class="q">
+        <h3>Doesn't deceptive behaviour break the very regularities that make simple models effective?</h3>
+        <p>
+          There's a risk — but it is much harder for a deceiver to break the regularities in leakage
+          and propagation rates that govern the dynamics than to break the regularities in the
+          observed-misbehaviour series. Deception corrupts the measurement channel first; the
+          mechanics are sturdier.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Does the model make empirical predictions?</h2>
+    <p class="lede">Yes:</p>
+    <ul class="predictions">
+      <li><strong>Rising detection.</strong> Re-scoring a fixed model under newer audits surfaces more misbehaviour — which we can see in Anthropic's released model cards.</li>
+      <li><strong>Detection converges, with enough time.</strong> On old-enough models, the latest audits should eventually stop finding much that's new.</li>
+      <li><strong>Rising production of uncooperative behaviour</strong>, absent additional safety effort, misbehaviour will arise for new reasons, and we will see more of it produced.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Concrete recommendations</h2>
+    <div class="cards">
+      <div class="card accent">
+        <span class="tag">Critical question</span>
+        <b>What happens when misbehaviour no longer needs us?</b>
+        Uncooperative models and traits today aren't viable without human help. That will change.
+        How that shift moves leakage and self-propagation is the single most important thing to
+        understand — the better we understand it, the better we can predict.
+      </div>
+      <div class="card">
+        <b>Retrospective audits</b>
+        Re-score old models with new audit harnesses. Rising catch-rates on frozen models estimate what
+        today's audits are missing; converging catch-rates indicate we've nearly found it all.
+      </div>
+      <div class="card">
+        <b>Archive everything</b>
+        Preserve model weights, harnesses, and development context so those audits stay possible.
+      </div>
+    </div>
+    <p class="footnote">
+      All numbers on this page come from the full post's central calibration and are simplified in the
+      telling; the <a href="/dynamical-models-of-ai-governability/">post</a> and the
+      <a href="/basin-explorer/">basin explorer</a> are canonical, including every hedge this page skips.
+      The early-warning framing is developed further in
+      <a href="https://www.lesswrong.com/posts/46CjwoPXwZPR3Lrz5/can-we-build-an-early-warning-system-for-loss-of-control-to">the companion LessWrong post</a>.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Go deeper</h2>
+    <div class="cards">
+      <div class="card">
+        <b><a href="/dynamical-models-of-ai-governability/">The full analysis</a></b>
+        The complete model: equations, parameter calibrations from public evidence, predictions and
+        postdictions, and the AI-2027 comparison.
+      </div>
+      <div class="card">
+        <b><a href="/basin-explorer/">The basin explorer</a></b>
+        Every parameter on a slider, one-click presets for the calibrations in the post, and an outcome
+        map of which worlds end where. Disagree with a number? Move it.
+      </div>
+      <div class="card">
+        <b><a href="https://www.lesswrong.com/posts/46CjwoPXwZPR3Lrz5/can-we-build-an-early-warning-system-for-loss-of-control-to">The early-warning question</a></b>
+        Can this become a real monitoring regime? Zones, response lags, and what it would take —
+        discussion welcome.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    David Johnston · EleutherAI · 2026 — a companion to
+    <a href="/dynamical-models-of-ai-governability/">A Dynamical Model of AI Governability</a>.
+  </div>
+</footer>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const world = $('world');
+
+  // pools grow VERTICALLY on hover — horizontal positions stay put so the scene stays readable
+  const STATES = {
+    base:  { hBlue:58, hOrange:58, front:685, fixW:62, fogH:86,  o:'0.50', s:1,    bulb:15 },
+    coop:  { hBlue:84, hOrange:58, front:735, fixW:88, fogH:86,  o:'0.70', s:1,    bulb:19 },
+    uncoop:{ hBlue:58, hOrange:84, front:635, fixW:34, fogH:104, o:'0.30', s:1,    bulb:12 },
+    scale: { hBlue:58, hOrange:58, front:677, fixW:62, fogH:86,  o:'0.47', s:1.06, bulb:15 },
+  };
+  const CONES = { base:'coneBase', coop:'coneCoop', uncoop:'coneUnco', scale:'coneBase' };
+  const CAPS  = { base:'capBase', coop:'capCoop', uncoop:'capUnco', scale:'capScal' };
+  const ALL_RINGS = ['ringBlue','ringBulb','ringFixed','ringOrange','ringFog','ringFrame'];
+  const RINGS = { base:[], coop:['ringBlue','ringBulb','ringFixed'], uncoop:['ringOrange','ringFog'], scale:['ringFrame'] };
+  const HINTS = ['hintBlue','hintOrange','hintFrame'];
+
+  function apply(name){
+    const st = STATES[name];
+    // hints rest visible, hide while a state is active, return at base
+    HINTS.forEach(id => { $(id).style.visibility = (name === 'base') ? 'visible' : 'hidden'; });
+    $('blue').style.height = st.hBlue + 'px';
+    $('orange').style.height = st.hOrange + 'px';
+    $('fixedR').style.height = st.hOrange + 'px';
+    $('fixedR').style.width = st.fixW + 'px';
+    $('fixedT').style.opacity = st.fixW < 45 ? 0 : 1;
+    $('fog').style.x = st.front + 'px';
+    $('fog').style.width = (825 - st.front) + 'px';
+    $('fog').style.height = st.fogH + 'px';
+    $('oTick').style.transform = 'translateX(' + (st.front - 685) + 'px)';
+    $('oLabG').style.transform = 'translate(' + st.front + 'px, 0)';
+    $('oVal').textContent = st.o;
+    $('bulb').style.r = st.bulb + 'px';
+    // grouping outlines: same colour = moves together
+    $('ringBlue').style.height = (st.hBlue + 10) + 'px';
+    $('ringOrange').style.height = (st.hOrange + 10) + 'px';
+    $('ringFixed').style.height = (st.hOrange + 10) + 'px';
+    $('ringFixed').style.width = (st.fixW + 10) + 'px';
+    $('ringBulb').style.r = (st.bulb + 7) + 'px';
+    $('ringFog').style.x = (st.front - 5) + 'px';
+    $('ringFog').style.width = (825 - st.front + 10) + 'px';
+    $('ringFog').style.height = (st.fogH + 10) + 'px';
+    ALL_RINGS.forEach(id => { $(id).style.opacity = RINGS[name].includes(id) ? 1 : 0; });
+    for (const k in CONES) $(CONES[k]).style.opacity = 0;
+    $(CONES[name]).style.opacity = 1;
+    world.style.transformOrigin = '455px 240px';
+    world.style.transition = 'transform .55s cubic-bezier(.4,0,.2,1)';
+    world.style.transform = 'scale(' + st.s + ')';
+    for (const k in CAPS) $(CAPS[k]).style.opacity = 0;
+    $(CAPS[name]).style.opacity = 1;
+  }
+
+  function bind(el, state){
+    el.addEventListener('mouseenter', () => apply(state));
+    el.addEventListener('mouseleave', () => apply('base'));
+    el.addEventListener('click', () => apply(state));
+  }
+  bind($('blue'), 'coop');
+  bind($('lamp'), 'coop');
+  bind($('fixedG'), 'coop');
+  bind($('orange'), 'uncoop');
+  bind($('fog'), 'uncoop');
+  bind($('framePill'), 'scale');
+  bind($('frameHit'), 'scale');
+
+  apply('base');
+})();
+</script>
+</body>
+</html>

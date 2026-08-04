@@ -1,0 +1,257 @@
+[
+  {
+    "title": "A Dynamical Model of AI Governability",
+    "date": "2026-07-13",
+    "url": "https://blog.eleuther.ai/dynamical-models-of-ai-governability/"
+  },
+  {
+    "title": "Early Indicators of Reward Hacking via Reasoning Interpolation",
+    "date": "2026-04-15T00:00:00-00:00",
+    "url": "https://blog.eleuther.ai/reward-hacking-indicators/"
+  },
+  {
+    "title": "Reward Hacking Research Update",
+    "date": "2025-10-07",
+    "url": "https://blog.eleuther.ai/reward_hacking/"
+  },
+  {
+    "title": "Pretraining Data Filtering for Open-Weight AI Safety",
+    "date": "2025-08-12T14:00:00-06:00",
+    "url": "https://blog.eleuther.ai/deep-ignorance/"
+  },
+  {
+    "title": "Attention Probes",
+    "date": "2025-08-01T15:00:00-00:00",
+    "url": "https://blog.eleuther.ai/attention-probes/"
+  },
+  {
+    "title": "Research Update: Applications of Local Volume Measurement",
+    "date": "2025-06-23",
+    "url": "https://blog.eleuther.ai/tyche-poser-comparison/"
+  },
+  {
+    "title": "Studying inductive biases of random networks via local volumes",
+    "date": "2025-06-12",
+    "url": "https://blog.eleuther.ai/inductive-bias/"
+  },
+  {
+    "title": "The Common Pile v0.1",
+    "date": "2025-06-05T14:00:00-06:00",
+    "url": "https://blog.eleuther.ai/common-pile/"
+  },
+  {
+    "title": "Product Key Memory Sparse Coders",
+    "date": "2025-05-30T22:00:00-00:00",
+    "url": "https://blog.eleuther.ai/pkm-coders/"
+  },
+  {
+    "title": "SAEs trained on the same data don’t learn the same features",
+    "date": "2024-12-12T16:00:00-00:00",
+    "url": "https://blog.eleuther.ai/sae_seed_similarity/"
+  },
+  {
+    "title": "Partially rewriting an LLM in natural language",
+    "date": "2024-11-10T16:00:00-00:00",
+    "url": "https://blog.eleuther.ai/generating-text-using-nl-to-simulate-activations/"
+  },
+  {
+    "title": "Third-party evaluation to identify risks in LLMs’ training data",
+    "date": "2024-10-31T00:00:00Z",
+    "url": "https://blog.eleuther.ai/third-party-evals/"
+  },
+  {
+    "title": "Mechanistic Anomaly Detection Research Update 2",
+    "date": "2024-10-14T15:39:43+10:00",
+    "url": "https://blog.eleuther.ai/mad_research_update_2/"
+  },
+  {
+    "title": "RLHF and RLAIF in GPT-NeoX",
+    "date": "2024-10-10T00:00:00-00:00",
+    "url": "https://blog.eleuther.ai/rlhf-and-rlaif-in-gpt-neox/"
+  },
+  {
+    "title": "The Practitioner's Guide to the Maximal Update Parameterization",
+    "date": "2024-09-19T00:00:00-00:00",
+    "url": "https://blog.eleuther.ai/mutransfer/"
+  },
+  {
+    "title": "Mechanistic Anomaly Detection Research Update",
+    "date": "2024-08-05T16:00:00-00:00",
+    "url": "https://blog.eleuther.ai/mad_research_update/"
+  },
+  {
+    "title": "Open Source Automated Interpretability for Sparse Autoencoder Features",
+    "date": "2024-07-30T22:00:00-00:00",
+    "url": "https://blog.eleuther.ai/autointerp/"
+  },
+  {
+    "title": "Experiments in Weak-to-Strong Generalization",
+    "date": "2024-06-14T18:00:00+07:00",
+    "url": "https://blog.eleuther.ai/weak-to-strong/"
+  },
+  {
+    "title": "Free Form Least-Squares Concept Erasure Without Oracle Concept Labels",
+    "date": "2024-06-13T16:00:00-00:00",
+    "url": "https://blog.eleuther.ai/free-form-leace/"
+  },
+  {
+    "title": "VINC-S: Closed-form Optionally-supervised Knowledge Elicitation with Paraphrase Invariance",
+    "date": "2024-05-23T00:00:00+07:00",
+    "url": "https://blog.eleuther.ai/vincs/"
+  },
+  {
+    "title": "Pile-T5",
+    "date": "2024-04-15T00:00:00+07:00",
+    "url": "https://blog.eleuther.ai/pile-t5/"
+  },
+  {
+    "title": "Yi-34B, Llama 2, and common practices in LLM training: a fact check of the New York Times",
+    "date": "2024-03-25T09:00:00",
+    "url": "https://blog.eleuther.ai/nyt-yi-34b-response/"
+  },
+  {
+    "title": "The Foundation Model Development Cheatsheet",
+    "date": "2024-02-29T09:00:00",
+    "url": "https://blog.eleuther.ai/fm-dev-cheatsheet/"
+  },
+  {
+    "title": "Least-Squares Concept Erasure with Oracle Concept Labels",
+    "date": "2023-12-19T22:00:00-00:00",
+    "url": "https://blog.eleuther.ai/oracle-leace/"
+  },
+  {
+    "title": "Diff-in-Means Concept Editing is Worst-Case Optimal",
+    "date": "2023-12-11T22:00:00-00:00",
+    "url": "https://blog.eleuther.ai/diff-in-means/"
+  },
+  {
+    "title": "The third New England RLHF Hackers Hackathon",
+    "date": "2023-11-26T9:00:00-06:00",
+    "url": "https://blog.eleuther.ai/nerh_3/"
+  },
+  {
+    "title": "Extending the RoPE",
+    "date": "2023-11-13T22:00:00-00:00",
+    "url": "https://blog.eleuther.ai/yarn/"
+  },
+  {
+    "title": "How the Foundation Model Transparency Index Distorts Transparency",
+    "date": "2023-10-26",
+    "url": "https://blog.eleuther.ai/fmti-critique/"
+  },
+  {
+    "title": "Llemma: An Open Language Model For Mathematics",
+    "date": "2023-10-16T20:00:00-06:00",
+    "url": "https://blog.eleuther.ai/llemma/"
+  },
+  {
+    "title": "The second New England RLHF Hackers Hackathon",
+    "date": "2023-10-13T14:00:00-06:00",
+    "url": "https://blog.eleuther.ai/nerh_2/"
+  },
+  {
+    "title": "Contributor Spotlight: Mohammad Aflah Khan",
+    "date": "2023-09-21T00:00:00-00:00",
+    "url": "https://blog.eleuther.ai/contributor-spotlight-1/"
+  },
+  {
+    "title": "The first New England RLHF Hackers Hackathon",
+    "date": "2023-09-19T14:00:00-06:00",
+    "url": "https://blog.eleuther.ai/nerh_1/"
+  },
+  {
+    "title": "EleutherAI's Thoughts on the EU AI Act",
+    "date": "2023-07-26T07:00:00-10:00",
+    "url": "https://blog.eleuther.ai/eu-aia/"
+  },
+  {
+    "title": "Minetester: A fully open RL environment built on Minetest",
+    "date": "2023-07-08T00:00:00Z",
+    "url": "https://blog.eleuther.ai/minetester-intro/"
+  },
+  {
+    "title": "🐶Safetensors audited as really safe and becoming the default",
+    "date": "2023-05-23T1:00:00+00:00",
+    "url": "https://blog.eleuther.ai/safetensors-security-audit/"
+  },
+  {
+    "title": "Alignment Research @ EleutherAI",
+    "date": "2023-05-03T00:00:00Z",
+    "url": "https://blog.eleuther.ai/alignment-eleuther/"
+  },
+  {
+    "title": "Transformer Math 101",
+    "date": "2023-04-18T00:00:00+01:00",
+    "url": "https://blog.eleuther.ai/transformer-math/"
+  },
+  {
+    "title": "Exploratory Analysis of TRLX RLHF Transformers with TransformerLens",
+    "date": "2023-04-02T00:00:00Z",
+    "url": "https://blog.eleuther.ai/trlx-exploratory-analysis/"
+  },
+  {
+    "title": "EleutherAI Second Retrospective: The long version",
+    "date": "2023-03-26T22:00:00-00:00",
+    "url": "https://blog.eleuther.ai/year-two-full/"
+  },
+  {
+    "title": "The View from 30,000 Feet: Preface to the Second EleutherAI Retrospective",
+    "date": "2023-03-02T07:00:00Z",
+    "url": "https://blog.eleuther.ai/year-two-preface/"
+  },
+  {
+    "title": "Announcing GPT-NeoX-20B",
+    "date": "2022-02-02T11:00:00-05:00",
+    "url": "https://blog.eleuther.ai/announcing-20b/"
+  },
+  {
+    "title": "A Preliminary Exploration into Factored Cognition with Language Models",
+    "date": "2021-10-25T14:00:00-06:00",
+    "url": "https://blog.eleuther.ai/factored-cognition/"
+  },
+  {
+    "title": "Multiple Choice Normalization in LM Evaluation",
+    "date": "2021-10-11T09:00:00-06:00",
+    "url": "https://blog.eleuther.ai/multiple-choice-normalization/"
+  },
+  {
+    "title": "Downstream Evaluations of Rotary Position Embeddings",
+    "date": "2021-08-16T12:13:00-06:00",
+    "url": "https://blog.eleuther.ai/rotary-embeddings-eval-harness/"
+  },
+  {
+    "title": "What A Long, Strange Trip It's Been: EleutherAI One Year Retrospective",
+    "date": "2021-07-07T20:00:00-04:00",
+    "url": "https://blog.eleuther.ai/year-one/"
+  },
+  {
+    "title": "Why Release a Large Language Model?",
+    "date": "2021-06-02T23:30:00+02:00",
+    "url": "https://blog.eleuther.ai/why-release-a-large-language-model/"
+  },
+  {
+    "title": "On the Sizes of OpenAI API Models",
+    "date": "2021-05-24T14:00:03-06:00",
+    "url": "https://blog.eleuther.ai/gpt3-model-sizes/"
+  },
+  {
+    "title": "Evaluating Different Fewshot Description Prompts on GPT-3",
+    "date": "2021-05-24T14:00:02-06:00",
+    "url": "https://blog.eleuther.ai/prompts-gpt-fewshot/"
+  },
+  {
+    "title": "Finetuning Models on Downstream Tasks",
+    "date": "2021-05-24T14:00:01-06:00",
+    "url": "https://blog.eleuther.ai/tuning-on-eval-harness/"
+  },
+  {
+    "title": "Activation Function Ablation",
+    "date": "2021-05-24T14:00:00-06:00",
+    "url": "https://blog.eleuther.ai/activation-fns/"
+  },
+  {
+    "title": "Rotary Embeddings: A Relative Revolution",
+    "date": "2021-04-20T21:00:00-04:00",
+    "url": "https://blog.eleuther.ai/rotary-embeddings/"
+  }
+]

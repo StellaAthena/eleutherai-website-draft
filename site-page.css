@@ -2093,9 +2093,11 @@ h2 {
 }
 
 .article-body {
+  min-width: 0;
   padding-top: 34px;
   color: var(--body);
   font-size: 1.02rem;
+  overflow-wrap: anywhere;
 }
 
 .article-body h1,

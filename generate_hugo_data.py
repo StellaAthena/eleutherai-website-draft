@@ -53,6 +53,9 @@ AREA_FILTERS_CSV = ROOT / "research_area_filters.csv"
 OUTPUT_DIR = ROOT / "data" / "research"
 SCHOLAR_METRICS_PATH = ROOT / "data" / "home_scholar_metrics.json"
 HOME_GENERATED_METRICS_PATH = ROOT / "data" / "home_generated_metrics.json"
+BLOG_CONTENT_DIR = ROOT / "content-blog"
+BLOG_POSTS_PATH = ROOT / "data" / "blog_posts.json"
+BLOG_BASE_URL = "https://blog.eleuther.ai"
 HOMEPAGE_PAPER_LIMIT = 10
 HOMEPAGE_GROUPED_PAPER_LIMIT = 30
 WORKSHOP_SORT_OFFSET_DAYS = 7
@@ -841,6 +844,48 @@ def write_json(name, data):
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def read_front_matter(path):
+    text = path.read_text(encoding="utf-8")
+    match = re.match(r"^---\s*\n(.*?)\n---\s*\n", text, flags=re.DOTALL)
+    if not match:
+        return {}
+    values = {}
+    for line in match.group(1).splitlines():
+        key, separator, value = line.partition(":")
+        if not separator or key not in {"title", "date", "draft", "url"}:
+            continue
+        value = value.strip()
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in {'"', "'"}:
+            value = value[1:-1]
+        values[key] = value
+    return values
+
+
+def write_blog_posts():
+    posts = []
+    for path in BLOG_CONTENT_DIR.rglob("*.md"):
+        if path.name == "_index.md":
+            continue
+        front_matter = read_front_matter(path)
+        if front_matter.get("draft", "").casefold() == "true":
+            continue
+        title = front_matter.get("title", "").strip()
+        date = front_matter.get("date", "").strip()
+        if not title or not date:
+            continue
+        relative = path.relative_to(BLOG_CONTENT_DIR)
+        slug = relative.parent.name if path.name == "index.md" else path.stem
+        posts.append(
+            {
+                "title": title,
+                "date": date,
+                "url": f"{BLOG_BASE_URL}/{slug.lower()}/",
+            }
+        )
+    posts.sort(key=lambda post: (post["date"], post["title"]), reverse=True)
+    BLOG_POSTS_PATH.write_text(json.dumps(posts, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
 def main():
     offline = "--offline" in sys.argv[1:]
     refresh_papers_csv(require_refresh=not offline)
@@ -855,6 +900,7 @@ def main():
     write_json("homepage_paper_groups.json", grouped_papers(papers[:HOMEPAGE_GROUPED_PAPER_LIMIT]))
     write_json("area_papers.json", per_area)
     write_json("library_papers.json", library_papers(rows))
+    write_blog_posts()
     print("Generated Hugo research data")
 
 

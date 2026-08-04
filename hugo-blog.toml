@@ -1,0 +1,62 @@
+baseURL = "https://blog.eleuther.ai/"
+languageCode = "en-us"
+title = "EleutherAI Blog"
+enableRobotsTXT = true
+disableKinds = ["RSS"]
+
+[params]
+  description = "Research notes, announcements, and technical essays from EleutherAI."
+  mainBaseURL = "https://www.eleuther.ai/"
+  blogBaseURL = "/"
+
+[permalinks]
+  blog = "/:contentbasename/"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[module]
+  [[module.mounts]]
+    source = "layouts/blog/archives.html"
+    target = "layouts/index.html"
+  [[module.mounts]]
+    source = "content-blog"
+    target = "content/blog"
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+  [[module.mounts]]
+    source = "site-page.css"
+    target = "static/site-page.css"
+  [[module.mounts]]
+    source = "assets/eleutherai-logo.svg"
+    target = "static/assets/eleutherai-logo.svg"
+  [[module.mounts]]
+    source = "static/assets/social/eleutherai-social-card.png"
+    target = "static/assets/social/eleutherai-social-card.png"
+  [[module.mounts]]
+    source = "static/favicon.ico"
+    target = "static/favicon.ico"
+  [[module.mounts]]
+    source = "static/favicon-32x32.png"
+    target = "static/favicon-32x32.png"
+  [[module.mounts]]
+    source = "static/favicon-192x192.png"
+    target = "static/favicon-192x192.png"
+  [[module.mounts]]
+    source = "static/apple-touch-icon.png"
+    target = "static/apple-touch-icon.png"
+  [[module.mounts]]
+    source = "assets/blog"
+    target = "static/images/blog"
+  [[module.mounts]]
+    source = "assets/current-site"
+    target = "static/images"
+  [[module.mounts]]
+    source = "blog-static"
+    target = "static"

@@ -7,15 +7,15 @@
 {{- else if hasPrefix $dest "/https://cadentj.github.io/demo//" -}}
   {{- $dest = replace $dest "/https://cadentj.github.io/demo//" "https://cadentj.github.io/demo/" -}}
 {{- else if eq $dest "/mechanistic-anomaly-detection-research-update/" -}}
-  {{- $dest = "/blog/mad_research_update.html" -}}
+  {{- $dest = "https://blog.eleuther.ai/mad_research_update/" -}}
 {{- else if eq $dest "/mad_research_update/" -}}
-  {{- $dest = "/blog/mad_research_update.html" -}}
+  {{- $dest = "https://blog.eleuther.ai/mad_research_update/" -}}
 {{- else if eq $dest "/mad_research_update_2/" -}}
-  {{- $dest = "/blog/mad_research_update_2.html" -}}
+  {{- $dest = "https://blog.eleuther.ai/mad_research_update_2/" -}}
 {{- else if eq $dest "/why-release-a-large-language-model/" -}}
-  {{- $dest = "/blog/why-release-a-large-language-model.html" -}}
+  {{- $dest = "https://blog.eleuther.ai/why-release-a-large-language-model/" -}}
 {{- else if eq $dest "./year-one/" -}}
-  {{- $dest = "/blog/year-one.html" -}}
+  {{- $dest = "https://blog.eleuther.ai/year-one/" -}}
 {{- else if eq $dest "x" -}}
   {{- $dest = "#" -}}
 {{- end -}}
