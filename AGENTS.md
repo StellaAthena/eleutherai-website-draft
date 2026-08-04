@@ -22,6 +22,7 @@ For website design, layout, information architecture, homepage, navigation, rese
 - Do not invent facts, sponsored organizations, people, numbers, awards, or links. Leave structured placeholders only when they are clearly awaiting Stella's content.
 - Avoid cramming every related idea onto one page. Use a hub-and-spoke structure when a topic has multiple real audiences or content types.
 - Keep Hugo content/data/templates separated so Stella can edit content without digging through HTML and CSS.
+- Preserve the website's shared outer content frame, border, and page gutters. Within that frame, do not put headings or prose in an additional narrower text box that causes avoidable wrapping. This includes direct `max-width` rules on text and text containers as well as indirect constraints created by narrow parent containers or grid tracks. Structured metadata columns are acceptable when they serve a clear functional purpose, but ordinary headings and prose should use the full width available inside the shared page frame.
 
 ## Project handling
 

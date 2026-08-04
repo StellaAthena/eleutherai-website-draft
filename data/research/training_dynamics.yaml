@@ -60,6 +60,14 @@ directions:
         - label: "Sparse Autoencoders Find Highly Interpretable Features in Language Models"
           url: "https://arxiv.org/abs/2309.08600"
 
+visual_example:
+  video: "videos/training-dynamics/openfold-training-trajectory.mp4"
+  poster: "images/training-dynamics/openfold-training-trajectory-poster.jpg"
+  title: "OpenFold, during training"
+  text: "Across the first 5,354 of roughly 92,000 training steps, a protein prediction develops from a one-dimensional rod into a coherent three-dimensional backbone. Secondary structure appears later in the run - a visible example of learning order."
+  source_label: "Animation by Gustaf Ahdritz"
+  source_url: "https://x.com/gahdritz/status/1595421015865454593"
+
 featured:
   title: "Research agenda"
   intro: "The position paper develops this program and identifies open problems across interpretability, fairness, memorization, and learning dynamics."
