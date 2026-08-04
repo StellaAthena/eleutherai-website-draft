@@ -2108,6 +2108,12 @@ h2 {
   font-weight: 700;
 }
 
+.back-link:hover,
+.back-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .article-header {
   padding-bottom: 34px;
   border-bottom: 1px solid var(--line);

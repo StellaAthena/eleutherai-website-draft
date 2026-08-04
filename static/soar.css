@@ -361,6 +361,10 @@
     padding: 48px 0;
   }
 
+  .soar-hero h1 {
+    font-size: var(--title-mobile);
+  }
+
   .soar-faq,
   .soar-testimonials {
     grid-template-columns: 1fr;

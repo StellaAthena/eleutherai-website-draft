@@ -388,3 +388,9 @@
     gap: 22px;
   }
 }
+
+@media (max-width: 680px) {
+  .community-impact-hero h1 {
+    font-size: var(--title-mobile);
+  }
+}
