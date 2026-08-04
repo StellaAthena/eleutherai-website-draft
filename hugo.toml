@@ -6,6 +6,9 @@ disablePathToLower = true
 enableRobotsTXT = true
 disableKinds = ["taxonomy", "term", "RSS"]
 
+[params]
+  description = "EleutherAI is a non-profit AI research lab advancing open science through models, datasets, tools, and research."
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
