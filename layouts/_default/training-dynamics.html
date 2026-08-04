@@ -15,7 +15,7 @@
     <section class="td-position">
       <div class="wrap">
         <div class="td-section-head">
-          <h2>Nothing in AI makes sense except in the light of gradient descent</h2>
+          <h2>AI needs explanations of development, not just descriptions of outcomes</h2>
         </div>
         <div class="td-overview-layout">
           <figure class="td-overview-visual">
@@ -49,25 +49,12 @@
             <div class="td-direction-links">
               {{ range .links }}
               {{ $href := cond (hasPrefix .url "http") .url (.url | relURL) }}
-              <a href="{{ $href }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }} <span aria-hidden="true">&#8594;</span></a>
+              <a href="{{ $href }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }} <span aria-hidden="true">{{ if hasPrefix .url "http" }}&#8599;{{ else }}&#8594;{{ end }}</span></a>
               {{ end }}
             </div>
           </article>
           {{ end }}
         </div>
-        {{ with $trainingDynamics.visual_example }}
-        <figure class="td-process-example">
-          <video controls loop muted playsinline preload="metadata" poster="{{ .poster | relURL }}">
-            <source src="{{ .video | relURL }}" type="video/mp4">
-            Your browser does not support embedded video.
-          </video>
-          <figcaption>
-            <strong>{{ .title }}</strong>
-            <p>{{ .text }}</p>
-            <a href="{{ .source_url }}" target="_blank" rel="noopener noreferrer">{{ .source_label }} <span aria-hidden="true">&#8594;</span></a>
-          </figcaption>
-        </figure>
-        {{ end }}
       </div>
     </section>
     {{ end }}
