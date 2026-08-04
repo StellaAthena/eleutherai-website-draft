@@ -1,48 +1,52 @@
 {{ define "main" }}
 <main>
-  {{ $news := slice }}
-  {{ range where site.RegularPages "Section" "blog" }}
-    {{ $news = $news | append (dict
-      "kind" "Blog"
+  {{ $latest := slice }}
+  {{/* The main build reads blog pages directly; the split blog build supplies the same entries as generated data. */}}
+  {{ with site.Data.blog_posts }}
+    {{ range . }}
+      {{ $date := time.AsTime .date }}
+      {{ $latest = $latest | append (dict
+        "kind" "Blog"
+        "title" .title
+        "url" .url
+        "date" $date
+        "detail" ($date.Format "January 2, 2006")
+      ) }}
+    {{ end }}
+  {{ else }}
+    {{ range where site.RegularPages "Section" "blog" }}
+      {{ $latest = $latest | append (dict
+        "kind" "Blog"
+        "title" .Title
+        "url" .RelPermalink
+        "date" .Date
+        "detail" (.Date.Format "January 2, 2006")
+      ) }}
+    {{ end }}
+  {{ end }}
+  {{ range where site.RegularPages "Section" "news" }}
+    {{ $latest = $latest | append (dict
+      "kind" "News"
       "title" .Title
       "url" .RelPermalink
       "date" .Date
-      "dated" true
       "detail" (.Date.Format "January 2, 2006")
     ) }}
   {{ end }}
   {{ range site.Data.home.manual_news }}
-    {{ $date := time.AsTime "1970-01-01" }}
-    {{ $dated := false }}
-    {{ $detail := "" }}
+    {{ $item := . }}
     {{ with .date }}
-      {{ $date = time.AsTime . }}
-      {{ $dated = true }}
-      {{ $detail = $date.Format "January 2, 2006" }}
+      {{ $date := time.AsTime . }}
+      {{ $latest = $latest | append (dict
+        "kind" "News"
+        "title" $item.title
+        "url" $item.url
+        "date" $date
+        "detail" ($date.Format "January 2, 2006")
+      ) }}
     {{ end }}
-    {{ $news = $news | append (dict
-      "kind" "News"
-      "title" .title
-      "url" .url
-      "date" $date
-      "dated" $dated
-      "detail" $detail
-    ) }}
   {{ end }}
-
-  {{ $latest := slice }}
-  {{ range first 2 site.Data.research.homepage_papers }}
-    {{ $detail := delimit (slice .venue .date) ", " }}
-    {{ $latest = $latest | append (dict
-      "kind" "Paper"
-      "title" .title
-      "url" .url
-      "detail" $detail
-    ) }}
-  {{ end }}
-  {{ range first 2 (sort $news "date" "desc") }}
-    {{ $latest = $latest | append . }}
-  {{ end }}
+  {{ $latest = first 4 (sort $latest "date" "desc") }}
   {{ $generatedMetrics := dict }}
   {{ with site.Data.home_generated_metrics.metrics }}
     {{ $generatedMetrics = . }}
@@ -86,7 +90,7 @@
       <aside class="home-latest-panel" aria-labelledby="latest-title">
         <h2 id="latest-title">Latest</h2>
         <div class="home-latest-list">
-          {{ range first 4 $latest }}
+          {{ range $latest }}
             <article class="home-latest-item">
               <span>{{ .kind }}</span>
               <h3>
