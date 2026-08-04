@@ -1932,11 +1932,13 @@ h2 {
 .staff-link-line {
   display: flex;
   align-items: center;
+  gap: 7px;
   min-height: 24px;
   margin-top: 10px;
 }
 
-.staff-scholar-link {
+.staff-scholar-link,
+.staff-profile-link {
   display: grid;
   place-items: center;
   width: 24px;
@@ -1945,20 +1947,31 @@ h2 {
   transition: color 140ms ease, transform 140ms ease;
 }
 
-.staff-scholar-link:hover {
+.staff-scholar-link:hover,
+.staff-profile-link:hover {
   color: var(--blue);
   transform: translateY(-1px);
 }
 
-.staff-scholar-link:focus-visible {
+.staff-scholar-link:focus-visible,
+.staff-profile-link:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 3px;
 }
 
-.staff-scholar-link svg {
+.staff-scholar-link svg,
+.staff-profile-link svg {
   width: 20px;
   height: 20px;
   overflow: visible;
+}
+
+.staff-profile-link svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
 }
 
 .scholar-cap,
