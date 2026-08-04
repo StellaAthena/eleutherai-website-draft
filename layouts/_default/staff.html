@@ -19,19 +19,5 @@
     </section>
   {{ end }}
 
-  {{ with site.Data.staff.community_research_leads }}
-    <section class="section staff-directory">
-      <div class="wrap">
-        <div class="section-head section-head-single">
-          <div><h2>Community Research Leads</h2></div>
-        </div>
-        <div class="staff-grid compact">
-          {{ range sort . "sort_name" }}
-            {{ partial "staff-card.html" . }}
-          {{ end }}
-        </div>
-      </div>
-    </section>
-  {{ end }}
 </main>
 {{ end }}
