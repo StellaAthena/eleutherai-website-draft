@@ -383,27 +383,6 @@ h2 {
   background: var(--green);
 }
 
-.home-cover {
-  position: relative;
-  min-height: 520px;
-  border-bottom: 1px solid var(--line);
-  background:
-    linear-gradient(rgba(7, 9, 13, 0.18), rgba(7, 9, 13, 0.5)),
-    url("https://images.squarespace-cdn.com/content/v1/6343e7de9a7c4b05ef290bd4/2a93f55f-1491-4c98-a14c-a8617e65c96f/unsplash-image-DoeUjAawWUM.jpg") center / cover;
-}
-
-.home-cover .wrap {
-  display: grid;
-  min-height: 520px;
-  place-items: center;
-}
-
-.home-cover h1 {
-  margin-bottom: 0;
-  text-align: center;
-  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.56);
-}
-
 .home-stack {
   padding: 74px 0;
 }
@@ -2499,11 +2478,6 @@ footer .wrap {
 
   .staff-card {
     min-height: 0;
-  }
-
-  .home-cover,
-  .home-cover .wrap {
-    min-height: 420px;
   }
 
 }
