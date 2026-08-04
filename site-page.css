@@ -10,8 +10,15 @@
   --blue: #78b8ee;
   --gold: #d8b44a;
   --violet: #ad8df2;
+  --coral: #ee7b79;
   --light: #f5f5f2;
   --light-body: #30343a;
+
+  /* Filled panel surfaces (priority cards, future accented sections) */
+  --blue-surface: #1477a8;
+  --gold-surface: #8b6b05;
+  --green-surface: #17844d;
+  --violet-surface: #7049ad;
 
   /* Shared page-title scale — used by all non-homepage hero h1s */
   --title-size: 4rem;
@@ -645,23 +652,23 @@ h2 {
   padding: 39px 36px 30px;
   overflow: hidden;
   border-radius: 6px;
-  background: #1477a8;
+  background: var(--blue-surface);
   box-shadow: inset 0 7px 0 var(--priority-accent);
 }
 
 .home-priority-card.is-gold {
   --priority-accent: var(--gold);
-  background: #8b6b05;
+  background: var(--gold-surface);
 }
 
 .home-priority-card.is-green {
   --priority-accent: var(--green);
-  background: #17844d;
+  background: var(--green-surface);
 }
 
 .home-priority-card.is-violet {
   --priority-accent: var(--violet);
-  background: #7049ad;
+  background: var(--violet-surface);
 }
 
 .home-priority-card h3 {
@@ -698,7 +705,8 @@ h2 {
 
 .home-priority-links a:hover,
 .home-priority-links a:focus-visible {
-  color: #081018;
+  text-decoration-thickness: 2px;
+  outline-offset: 3px;
 }
 
 .home-output-section {

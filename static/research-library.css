@@ -1,4 +1,4 @@
-.library-page { --lib-green: #63db7b; --lib-blue: #84c8ff; --lib-panel: #0d1218; --lib-muted: #89939f; --lib-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+.library-page { --lib-green: var(--green); --lib-blue: #84c8ff; --lib-panel: #0d1218; --lib-muted: #89939f; --lib-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
 .library-intro { padding: 82px 0 64px; border-bottom: 1px solid var(--line); }
 .library-intro h1 { margin: 0 0 28px; font-size: var(--title-size); line-height: var(--title-lh); }
 .library-intro > .wrap > p { margin: 0; color: var(--body); font-size: 1.22rem; line-height: 1.55; }

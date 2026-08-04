@@ -1,6 +1,6 @@
 .soar-page {
   --soar-interpretability: var(--blue);
-  --soar-safety: #ee7b79;
+  --soar-safety: var(--coral);
   --soar-applications: var(--gold);
 }
 
