@@ -10,7 +10,7 @@ Founded in July 2020 by Connor Leahy, Sid Black, and Leo Gao, EleutherAI has gro
 
 EleutherAI operates primarily through [our public Discord server](https://www.discord.gg/eleutherai), where we discuss research in the field and coordinate our projects. We embrace an open and collaborative research model, and our discord server does not strongly differentiate between employees, volunteers, and collaborators at other institutions. However, our community specifically caters to researchers and research-level discussion, and we ask that people interested in learning about AI research primarily observe.
 
-EleutherAI employs two dozen full and part-time research staff, who work alongside a dozen or so regular volunteers and external collaborators.
+EleutherAI employs 13 full- and part-time staff members, who work alongside a dozen or so regular volunteers and external collaborators.
 
 ## Our Mission
 
