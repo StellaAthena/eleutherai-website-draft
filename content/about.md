@@ -30,6 +30,6 @@ We created and maintained landmark open-source AI foundations, including GPT-J, 
 
 Our models have been downloaded over 70 million times, enabling cutting-edge research on interpretability, ethics, training dynamics, and more.
 
-Our research has resulted in over 130 publications in top machine learning and natural language processing venues including NeurIPS, ICML, ICLR, EMNLP, ECCV, TMLR, Nature, ACL, Blackbox NLP, NAACL, and COLM.
+Our research has resulted in at least 150 publications in top machine learning and natural language processing venues including NeurIPS, ICML, ICLR, EMNLP, ECCV, TMLR, Nature, ACL, Blackbox NLP, NAACL, and COLM.
 
 We sponsor AI research and education efforts around the world, bringing access to and knowledge about recently developed technologies to people and places who otherwise wouldn't have access to it.

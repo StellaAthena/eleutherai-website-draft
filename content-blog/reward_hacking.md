@@ -1,5 +1,5 @@
 ---
-title: "Reward Hacking Resarch Update"
+title: "Reward Hacking Research Update"
 date: 2025-10-07
 description: "Interim report on ongoing work on reward hacking"
 author: ["David Johnston"]
