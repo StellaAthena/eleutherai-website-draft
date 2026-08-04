@@ -404,6 +404,12 @@ h2 {
   font-weight: 700;
 }
 
+.link:hover,
+.link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .button-row {
   display: flex;
   flex-wrap: wrap;
@@ -422,12 +428,31 @@ h2 {
   color: var(--ink);
   font-weight: 700;
   background: var(--panel);
+  transition: border-color 140ms ease;
+}
+
+.button:hover {
+  border-color: rgba(120, 184, 238, 0.6);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
 }
 
 .button.primary {
   border-color: var(--green);
   color: var(--black);
   background: var(--green);
+  transition: filter 140ms ease;
+}
+
+.button.primary:hover {
+  filter: brightness(1.08);
+}
+
+.button.primary:focus-visible {
+  outline-color: var(--green);
 }
 
 .home-stack {
