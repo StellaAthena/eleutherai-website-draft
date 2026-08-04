@@ -1,5 +1,4 @@
 .data-page { --data-blue:#82c8f8; --data-green:#67dc82; --data-yellow:#e5bf56; --data-muted:#9ba4ae; --data-panel:#0f151b; }
-body:has(.data-page) .site-header a[href*="research"] { color:var(--data-green); }
 .data-breadcrumb { display:flex; gap:10px; margin-bottom:48px; color:var(--data-muted); font-size:.86rem; }
 .data-breadcrumb a { color:var(--data-blue); text-decoration:none; }
 .data-hero { padding:44px 0 64px; border-bottom:1px solid var(--line); }

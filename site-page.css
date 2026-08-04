@@ -78,6 +78,17 @@ nav {
   color: var(--ink);
 }
 
+.nav-menu a[aria-current] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 9px;
+}
+
+.nav-menu .support[aria-current] {
+  color: var(--green);
+}
+
 .mobile-menu {
   display: none;
 }
@@ -178,6 +189,22 @@ nav {
   color: var(--ink);
 }
 
+.mobile-nav-links a[aria-current] {
+  position: relative;
+  color: var(--ink);
+}
+
+.mobile-nav-links a[aria-current]::after {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: -14px;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--blue);
+  content: "";
+}
+
 .mobile-nav-links .mobile-nav-sub {
   position: relative;
   min-height: 44px;
@@ -200,6 +227,14 @@ nav {
   border-bottom: 0;
   color: var(--green);
   font-weight: 700;
+}
+
+.mobile-nav-links .support[aria-current] {
+  color: var(--green);
+}
+
+.mobile-nav-links .support[aria-current]::after {
+  background: var(--green);
 }
 
 .nav-item {

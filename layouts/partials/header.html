@@ -1,3 +1,33 @@
+{{- $pageID := "" -}}
+{{- if eq .Layout "about" -}}
+  {{- $pageID = "about" -}}
+{{- else if eq .Layout "staff" -}}
+  {{- $pageID = "staff" -}}
+{{- else if eq .Layout "research" -}}
+  {{- $pageID = "research" -}}
+{{- else if eq .Layout "research-library" -}}
+  {{- $pageID = "papers" -}}
+{{- else if eq .Layout "community" -}}
+  {{- $pageID = "community" -}}
+{{- else if eq .Layout "soar" -}}
+  {{- $pageID = "soar" -}}
+{{- else if eq .Layout "pythia" -}}
+  {{- $pageID = "pythia" -}}
+{{- else if eq .Section "blog" -}}
+  {{- $pageID = "blog" -}}
+{{- else if eq .RelPermalink "/support.html" -}}
+  {{- $pageID = "support" -}}
+{{- end -}}
+
+{{- $sectionID := $pageID -}}
+{{- if eq $pageID "staff" -}}
+  {{- $sectionID = "about" -}}
+{{- else if eq $pageID "pythia" -}}
+  {{- $sectionID = "research" -}}
+{{- else if eq $pageID "soar" -}}
+  {{- $sectionID = "community" -}}
+{{- end -}}
+
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="{{ "index.html" | relURL }}" aria-label="EleutherAI home">
@@ -5,7 +35,7 @@
     </a>
     <nav class="nav-menu" aria-label="Primary navigation">
       <div class="nav-item has-menu">
-        <a href="{{ "about.html" | relURL }}">About</a>
+        <a href="{{ "about.html" | relURL }}"{{ if eq $sectionID "about" }} aria-current="{{ if eq $pageID "about" }}page{{ else }}location{{ end }}"{{ end }}>About</a>
         <div class="dropdown about-dropdown" role="menu">
           <div class="dropdown-group">
             <span>EleutherAI</span>
@@ -14,11 +44,11 @@
           </div>
         </div>
       </div>
-      <a href="{{ "research.html" | relURL }}">Research</a>
-      <a href="{{ "papers.html" | relURL }}">Papers</a>
-      <a href="{{ "community.html" | relURL }}">Community</a>
-      <a href="{{ "blog.html" | relURL }}">Blog</a>
-      <a class="support" href="{{ "support.html" | relURL }}">Support Us</a>
+      <a href="{{ "research.html" | relURL }}"{{ if eq $sectionID "research" }} aria-current="{{ if eq $pageID "research" }}page{{ else }}location{{ end }}"{{ end }}>Research</a>
+      <a href="{{ "papers.html" | relURL }}"{{ if eq $sectionID "papers" }} aria-current="page"{{ end }}>Papers</a>
+      <a href="{{ "community.html" | relURL }}"{{ if eq $sectionID "community" }} aria-current="{{ if eq $pageID "community" }}page{{ else }}location{{ end }}"{{ end }}>Community</a>
+      <a href="{{ "blog.html" | relURL }}"{{ if eq $sectionID "blog" }} aria-current="{{ if .IsSection }}page{{ else }}location{{ end }}"{{ end }}>Blog</a>
+      <a class="support" href="{{ "support.html" | relURL }}"{{ if eq $sectionID "support" }} aria-current="page"{{ end }}>Support Us</a>
     </nav>
     <details class="mobile-menu">
       <summary class="mobile-menu-toggle" aria-label="Open navigation" title="Menu">
@@ -30,13 +60,13 @@
       </summary>
       <div class="mobile-nav-panel">
         <nav class="mobile-nav-links wrap" aria-label="Mobile navigation">
-          <a href="{{ "about.html" | relURL }}">About</a>
-          <a class="mobile-nav-sub" href="{{ "staff.html" | relURL }}">Staff</a>
-          <a href="{{ "research.html" | relURL }}">Research</a>
-          <a href="{{ "papers.html" | relURL }}">Papers</a>
-          <a href="{{ "community.html" | relURL }}">Community</a>
-          <a href="{{ "blog.html" | relURL }}">Blog</a>
-          <a class="support" href="{{ "support.html" | relURL }}">Support Us</a>
+          <a href="{{ "about.html" | relURL }}"{{ if eq $pageID "about" }} aria-current="page"{{ end }}>About</a>
+          <a class="mobile-nav-sub" href="{{ "staff.html" | relURL }}"{{ if eq $pageID "staff" }} aria-current="page"{{ end }}>Staff</a>
+          <a href="{{ "research.html" | relURL }}"{{ if eq $sectionID "research" }} aria-current="{{ if eq $pageID "research" }}page{{ else }}location{{ end }}"{{ end }}>Research</a>
+          <a href="{{ "papers.html" | relURL }}"{{ if eq $pageID "papers" }} aria-current="page"{{ end }}>Papers</a>
+          <a href="{{ "community.html" | relURL }}"{{ if eq $sectionID "community" }} aria-current="{{ if eq $pageID "community" }}page{{ else }}location{{ end }}"{{ end }}>Community</a>
+          <a href="{{ "blog.html" | relURL }}"{{ if eq $sectionID "blog" }} aria-current="{{ if .IsSection }}page{{ else }}location{{ end }}"{{ end }}>Blog</a>
+          <a class="support" href="{{ "support.html" | relURL }}"{{ if eq $pageID "support" }} aria-current="page"{{ end }}>Support Us</a>
         </nav>
       </div>
     </details>
