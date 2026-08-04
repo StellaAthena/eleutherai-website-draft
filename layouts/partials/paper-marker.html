@@ -1,0 +1,25 @@
+{{- /*
+  Renders a publication distinction marker (emoji + accessible label).
+
+  Usage: {{ partial "paper-marker.html" . }}
+
+  Expects the calling context (.) to have an optional .marker string field.
+  Valid values: "oral" | "spotlight" | "runnerup" | "bestpaper"
+
+  Approved symbols (DESIGN_HANDOFF.md):
+    oral       → 🎙️  Oral presentation
+    spotlight  → 🔦  Spotlight presentation
+    runnerup   → 🥈  Best-paper runner-up
+    bestpaper  → 🏆  Best paper
+*/ -}}
+{{- $markers := dict
+    "oral"      (dict "icon" "🎙️" "label" "Oral")
+    "spotlight" (dict "icon" "🔦" "label" "Spotlight")
+    "runnerup"  (dict "icon" "🥈" "label" "Runner-up")
+    "bestpaper" (dict "icon" "🏆" "label" "Best paper") -}}
+{{- with .marker -}}
+  {{- $m := index $markers . -}}
+  {{- if $m -}}
+<span class="paper-marker" role="img" aria-label="{{ $m.label }}" title="{{ $m.label }}">{{ $m.icon }}</span>
+  {{- end -}}
+{{- end -}}

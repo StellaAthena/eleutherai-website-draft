@@ -29,9 +29,10 @@
                       {{ .title }}
                     {{ end }}
                   </h5>
-                  {{ with .superlatives }}
+                  {{ if or .marker .superlatives }}
                     <div class="publication-badges">
-                      {{ range . }}<span class="paper-badge">{{ . }}</span>{{ end }}
+                      {{ partial "paper-marker.html" . }}
+                      {{ range .superlatives }}<span class="paper-badge">{{ . }}</span>{{ end }}
                     </div>
                   {{ end }}
                 </article>
