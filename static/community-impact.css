@@ -15,8 +15,8 @@
 
 .community-impact-hero h1 {
   margin-bottom: 26px;
-  font-size: clamp(52px, 7.3vw, 92px);
-  line-height: 0.97;
+  font-size: var(--title-size);
+  line-height: var(--title-lh);
   letter-spacing: 0;
 }
 
