@@ -6,7 +6,7 @@
 }
 
 .community-impact-hero {
-  padding: 82px 0 70px;
+  padding: 82px 0 76px;
   border-bottom: 1px solid var(--line);
   background:
     linear-gradient(112deg, rgba(120, 184, 238, 0.1), transparent 33%),
@@ -14,27 +14,44 @@
 }
 
 .community-impact-hero h1 {
-  margin-bottom: 26px;
+  margin-bottom: 44px;
   font-size: var(--title-size);
   line-height: var(--title-lh);
   letter-spacing: 0;
 }
 
-.community-impact-lede {
-  margin-bottom: 0;
-  color: var(--body);
-  font-size: clamp(19px, 2vw, 24px);
-  line-height: 1.42;
+.community-impact-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(46px, 5.5vw, 76px);
+  align-items: start;
 }
 
-.community-impact-map-section {
-  padding: 48px 0 74px;
+.community-impact-intro p {
+  margin-bottom: 22px;
+  color: var(--body);
+  font-size: clamp(17px, 1.4vw, 19px);
+  line-height: 1.56;
+}
+
+.community-impact-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.community-impact-intro a {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.community-impact-map-column {
+  min-width: 0;
 }
 
 .community-impact-map {
-  width: min(1080px, 100%);
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   overflow: hidden;
+  border: 1px solid var(--line);
   background: var(--light);
 }
 
@@ -47,9 +64,9 @@
 .community-impact-stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 72px;
-  width: min(760px, 100%);
-  margin: 0 auto;
+  gap: 18px;
+  width: 100%;
+  margin: 0;
   text-align: center;
 }
 
@@ -336,8 +353,13 @@
     padding: 58px 0 50px;
   }
 
-  .community-impact-map-section {
-    padding-top: 28px;
+  .community-impact-hero h1 {
+    margin-bottom: 34px;
+  }
+
+  .community-impact-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 38px;
   }
 
   .community-impact-stats {

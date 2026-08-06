@@ -1,6 +1,12 @@
 hero:
   title: "A global community for independent AI research"
-  lede: "A core value at EleutherAI is enabling people around the world to participate in AI research."
+  intro:
+    - >-
+      Research on large AI systems requires substantial compute, sophisticated infrastructure, and specialized knowledge. These resources are concentrated in a handful of corporations and universities, and the models, data, and methods behind much of the resulting work are unavailable to researchers outside them. We do not believe that a small, elite circle should have a monopoly on the ability to do influential research.
+    - >-
+      EleutherAI works to widen that circle. We release models, datasets, code, and methods so other researchers can inspect, reproduce, and extend our work, and we do that work [in the open](https://arxiv.org/abs/2210.06413), where anyone can follow along and contribute. But public artifacts are not enough: researchers also need compute, mentorship, and the chance to lead work of their own. Our community reaches across more than thirty countries to train aspiring researchers, provide resources to those without them, and grow them into independent researchers in their own right.
+    - >-
+      We also help independent research communities build capacity of their own. Through shared compute and collaboration, new groups can pursue their own questions and publish openly. The goal is not to bring every promising group inside EleutherAI, it is for more researchers and organizations to set their own agendas, contribute work others can build on, and stand on their own. Several communities featured below began with that support. Their independence is one of the clearest measures of our success.
 
 map:
   src: "images/community/community-map.png"

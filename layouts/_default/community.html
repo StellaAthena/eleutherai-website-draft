@@ -8,22 +8,25 @@
   <section class="community-impact-hero">
     <div class="wrap">
       <h1>{{ $community.hero.title }}</h1>
-      <p class="community-impact-lede">{{ $community.hero.lede }}</p>
-    </div>
-  </section>
-
-  <section class="community-impact-map-section">
-    <div class="wrap">
-      <figure class="community-impact-map">
-        <img src="{{ $community.map.src | relURL }}" alt="{{ $community.map.alt }}">
-      </figure>
-      <div class="community-impact-stats" aria-label="EleutherAI community reach">
-        {{ range $community.metrics }}
-          <div class="community-impact-stat">
-            <strong>{{ .value }}</strong>
-            <span>{{ .label }}</span>
+      <div class="community-impact-hero-grid">
+        <div class="community-impact-intro">
+          {{ range $community.hero.intro }}
+            <p>{{ . | markdownify }}</p>
+          {{ end }}
+        </div>
+        <div class="community-impact-map-column">
+          <figure class="community-impact-map">
+            <img src="{{ $community.map.src | relURL }}" alt="{{ $community.map.alt }}">
+          </figure>
+          <div class="community-impact-stats" aria-label="EleutherAI community reach">
+            {{ range $community.metrics }}
+              <div class="community-impact-stat">
+                <strong>{{ .value }}</strong>
+                <span>{{ .label }}</span>
+              </div>
+            {{ end }}
           </div>
-        {{ end }}
+        </div>
       </div>
     </div>
   </section>
