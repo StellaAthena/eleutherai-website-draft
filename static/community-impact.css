@@ -27,7 +27,8 @@
   align-items: start;
 }
 
-.community-impact-intro p {
+.community-impact-intro p,
+.community-impact-conclusion p {
   margin-bottom: 22px;
   color: var(--body);
   font-size: clamp(17px, 1.4vw, 19px);
@@ -41,6 +42,14 @@
 .community-impact-intro a {
   color: var(--blue);
   font-weight: 700;
+}
+
+.community-impact-conclusion {
+  margin-top: 38px;
+}
+
+.community-impact-conclusion p {
+  margin-bottom: 0;
 }
 
 .community-impact-map-column {
