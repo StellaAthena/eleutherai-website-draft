@@ -21,8 +21,8 @@ metrics:
     label: "Countries represented"
 
 soar:
-  title: "SOAR"
-  text: "Every year EleutherAI holds the Summer of Open AI Research (SOAR), a 5-week fully online research internship program. We invite people with little research experience to contribute to open science under the mentorship of experienced researchers from our staff and broader community."
+  title: "Summer of Open AI Research (SOAR)"
+  text: "Every year EleutherAI holds SOAR, a 5-week fully online research internship program. We invite people with little research experience to contribute to open science under the mentorship of experienced researchers from our staff and broader community."
   links:
     - label: "Learn about SOAR"
       url: "soar/"
@@ -32,7 +32,7 @@ soar:
       url: "soar/#research-papers"
 
 partners:
-  title: "Building research communities around the world"
+  title: "Support for Other Communities"
   intro: "Open science is a community effort. We partner with organizations around the world interested in growing open science and provide a variety of forms of support, including fiscal sponsorship, grants, computing resources, and technical support for their research. If your organization is interested in partnering with us, please reach out to [contact@eleuther.ai](mailto:contact@eleuther.ai)"
   organizations:
     - key: "masi"
