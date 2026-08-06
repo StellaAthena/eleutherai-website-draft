@@ -86,7 +86,7 @@
 }
 
 .community-impact-stat:nth-child(3) strong {
-  color: var(--gold);
+  color: var(--violet);
 }
 
 .community-impact-stat span {

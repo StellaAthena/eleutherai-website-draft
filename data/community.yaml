@@ -1,5 +1,5 @@
 hero:
-  title: "A global community for independent AI research"
+  title: "Building the global research community"
   intro:
     - >-
       Research on large AI systems requires substantial compute, sophisticated infrastructure, and specialized knowledge. These resources are concentrated in a handful of corporations and universities, and the models, data, and methods behind much of the resulting work are unavailable to researchers outside them. We do not believe that a small, elite circle should have a monopoly on the ability to do influential research.
@@ -13,12 +13,12 @@ map:
   alt: "Map of the EleutherAI community"
 
 metrics:
+  - value: "150+"
+    label: "Publications"
   - value: "120+"
     label: "Research collaborators"
   - value: "30+"
     label: "Countries represented"
-  - value: "150+"
-    label: "Publications"
 
 soar:
   title: "SOAR"
