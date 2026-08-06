@@ -8,12 +8,7 @@
   <section class="community-impact-hero">
     <div class="wrap">
       <h1>{{ $community.hero.title }}</h1>
-      <div class="community-impact-hero-grid">
-        <div class="community-impact-intro">
-          {{ range $community.hero.intro }}
-            <p>{{ . | markdownify }}</p>
-          {{ end }}
-        </div>
+      <div class="community-impact-hero-flow">
         <div class="community-impact-map-column">
           <figure class="community-impact-map">
             <img src="{{ $community.map.src | relURL }}" alt="{{ $community.map.alt }}">
@@ -27,9 +22,11 @@
             {{ end }}
           </div>
         </div>
-      </div>
-      <div class="community-impact-conclusion">
-        <p>{{ $community.hero.conclusion | markdownify }}</p>
+        <div class="community-impact-intro">
+          {{ range $community.hero.intro }}
+            <p>{{ . | markdownify }}</p>
+          {{ end }}
+        </div>
       </div>
     </div>
   </section>
