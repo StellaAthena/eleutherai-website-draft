@@ -30,7 +30,7 @@ We therefore seek to:
 
 We created and maintained landmark open-source AI foundations, including GPT-J, GPT-NeoX, the Pythia suite, and The Pile. Our contributions have played key roles in community efforts like BLOOM, VQGAN-CLIP, Stable Diffusion, and Open Fold.
 
-Our models have been downloaded over 70 million times, enabling cutting-edge research on interpretability, ethics, training dynamics, and more.
+Our models have been downloaded hundreds of millions of times, enabling cutting-edge research on interpretability, ethics, training dynamics, and more.
 
 Our research has resulted in at least 150 publications in top machine learning and natural language processing venues including NeurIPS, ICML, ICLR, EMNLP, ECCV, TMLR, Nature, ACL, Blackbox NLP, NAACL, and COLM.
 
