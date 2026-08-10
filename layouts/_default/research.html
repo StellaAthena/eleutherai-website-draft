@@ -19,14 +19,5 @@
       </div>
     </section>
   {{ end }}
-
-  <section class="section" id="publications">
-    <div class="wrap">
-      <div class="section-head section-head-single">
-        <div><h2>Recent Publications</h2></div>
-      </div>
-      {{ partial "publication-groups.html" (dict "groups" site.Data.research.paper_groups "initialCount" 20 "stepCount" 20) }}
-    </div>
-  </section>
 </main>
 {{ end }}
