@@ -83,6 +83,8 @@ SCHOLAR_USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 )
+HF_ANALYTICS_URL = "https://huggingface.co/organizations/EleutherAI/settings/publisher/analytics?timePeriod=allTime"
+HF_MODEL_DOWNLOADS_CACHE = ROOT / "data" / "hf_model_downloads_cache.json"
 
 
 class ScholarStatsParser(HTMLParser):
@@ -748,7 +750,7 @@ def read_scholar_metric_cache():
 
 
 def scholar_metric_payload(citations):
-    rounded_citations = round_to_nearest(citations, 100)
+    rounded_citations = int(citations / 1000) * 1000
     return {
         "metrics": [
             {
@@ -801,6 +803,80 @@ def write_scholar_metrics(offline=False):
     return payload
 
 
+def fetch_hf_model_downloads():
+    import os
+    env_value = os.environ.get("HF_MODEL_DOWNLOADS")
+    if env_value:
+        return env_value
+
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        raise ValueError("Playwright not installed")
+
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch()
+            page = browser.new_page()
+            page.goto(HF_ANALYTICS_URL, timeout=30000)
+            page.wait_for_load_state("domcontentloaded", timeout=15000)
+
+            text = page.inner_text("body")
+            match = re.search(r'Models\s*\(\d+\)\s*(\d+(?:\.\d+)?M)', text)
+
+            if not match:
+                match = re.search(r'(\d+M)\s+downloads', text)
+
+            browser.close()
+
+            if match:
+                return match.group(1)
+            else:
+                raise ValueError("Could not find model download count in rendered HF analytics page")
+    except Exception as exc:
+        raise ValueError(f"HuggingFace fetch failed: {exc}") from exc
+
+
+def read_hf_downloads_cache():
+    if not HF_MODEL_DOWNLOADS_CACHE.exists():
+        return None
+    try:
+        return json.loads(HF_MODEL_DOWNLOADS_CACHE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def write_hf_downloads_cache(value):
+    HF_MODEL_DOWNLOADS_CACHE.parent.mkdir(parents=True, exist_ok=True)
+    HF_MODEL_DOWNLOADS_CACHE.write_text(json.dumps({"value": value}, indent=2) + "\n", encoding="utf-8")
+
+
+def hf_model_downloads_payload(offline=False):
+    if offline:
+        cached = read_hf_downloads_cache()
+        if cached and cached.get("value"):
+            print("Using cached HuggingFace model download count")
+            return cached["value"]
+        print("No cached HuggingFace model download count available")
+        return ""
+
+    try:
+        value = fetch_hf_model_downloads()
+        write_hf_downloads_cache(value)
+        print("Refreshed HuggingFace model download count")
+        return value
+    except SystemExit:
+        raise
+    except Exception as exc:
+        cached = read_hf_downloads_cache()
+        if cached and cached.get("value"):
+            print(f"HuggingFace fetch failed ({exc}); using cached model download count")
+            return cached["value"]
+        print(f"HuggingFace fetch failed ({exc}); model download metric omitted")
+        print("To enable HF downloads fetching, install playwright: pip install playwright")
+        return ""
+
+
 def publication_metric_payload(rows):
     titles = {
         normalize_title(row.get("Title"))
@@ -819,20 +895,31 @@ def publication_metric_payload(rows):
     }
 
 
-def write_home_generated_metrics(rows, scholar_payload):
+def write_home_generated_metrics(rows, scholar_payload, hf_downloads, offline=False):
     metrics = {
         "publication_count": publication_metric_payload(rows),
     }
     if scholar_payload.get("metrics"):
         metric = scholar_payload["metrics"][0]
+        value = metric["value"]
+        if not value.endswith("+"):
+            value = value + "+"
         metrics["scholar_citations"] = {
-            "value": metric["value"],
+            "value": value,
             "label": metric["label"],
             "url": metric.get("url", ""),
             "count": scholar_payload.get("citations"),
             "rounded_count": scholar_payload.get("rounded_citations"),
             "source": scholar_payload.get("source_url", ""),
-            "rounded_to": 100,
+            "rounded_to": 1000,
+        }
+    if hf_downloads:
+        hf_value = hf_downloads if hf_downloads.endswith("+") else hf_downloads + "+"
+        metrics["model_downloads"] = {
+            "value": hf_value,
+            "label": "Model downloads",
+            "url": "https://huggingface.co/EleutherAI",
+            "source": HF_ANALYTICS_URL,
         }
     payload = {"metrics": metrics}
     HOME_GENERATED_METRICS_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
@@ -891,7 +978,8 @@ def main():
     refresh_papers_csv(require_refresh=not offline)
     rows = read_papers()
     scholar_payload = write_scholar_metrics(offline=offline)
-    write_home_generated_metrics(rows, scholar_payload)
+    hf_downloads = hf_model_downloads_payload(offline=offline)
+    write_home_generated_metrics(rows, scholar_payload, hf_downloads, offline=offline)
     papers = all_papers(rows)
     per_area = area_papers(rows)
     write_json("papers.json", papers)
