@@ -1,7 +1,7 @@
 ---
 title: "Research at EleutherAI"
 layout: research
-url: /research.html
+url: /research/
 ---
 
 EleutherAI's research agenda is about making AI systems legible, reproducible, and safer in a field where the most important research objects are often controlled by a small number of companies. We train and release models, datasets, evaluations, and tools so researchers outside frontier labs can reproduce results, criticize claims, measure behavior, and set research agendas rather than only consume finished systems.

@@ -38,6 +38,7 @@
     "Gao, Leo"
   ],
   "Aria-MIDI: A Dataset of MIDI Files for Symbolic Music Modeling": [],
+  "Attention-Guided Audio Compression for Multimodal LLM": [],
   "Attributing Mode Collapse in the fine-tuning of Large Language Models": [],
   "Automatically Interpreting Millions of Features in Large Language Models": [
     "Paulo, Gonçalo",
@@ -1210,6 +1211,7 @@
     "Gao, Leo",
     "Frazier, Spencer"
   ],
+  "Data Governance in the Age of Large-Scale Data-Driven Language Technology": [],
   "Datasheet for the Pile": [
     "Biderman, Stella",
     "Bicheno, Kieran",
@@ -2098,6 +2100,7 @@
     "Radev, Dragomir",
     "Avigad, Jeremy"
   ],
+  "Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling": [],
   "Quality at a Glance: An Audit of Web-Crawled Multilingual Datasets": [
     "Julia Kreutzer",
     "Isaac Caswell",
@@ -2760,6 +2763,18 @@
     "Nabeshima, Noa",
     "Presser, Shawn",
     "Leahy, Connor"
+  ],
+  "The Spatial Blindspot of Vision-Language Models": [
+    "Alam, Nahid",
+    "Murali, Leema Krishna",
+    "Bharadwaj, Siddhant",
+    "Liu, Patrick",
+    "Chung, Timothy",
+    "Sharma, Drishti",
+    "A, Akshata",
+    "Kiran, Kranthi",
+    "Tam, Wesley",
+    "Vegesna, Bala Krishna S"
   ],
   "The Toxicology of Data: A Dose-Response Framework for Test Set Contamination, Data Poisoning, Finetuning Attacks and Memorization": [
     "Schaeffer, Rylan",

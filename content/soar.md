@@ -4,5 +4,5 @@ description: "EleutherAI's five-week online research internship program"
 layout: soar
 url: /soar/
 aliases:
-  - /soar.html
+  - /soar/
 ---

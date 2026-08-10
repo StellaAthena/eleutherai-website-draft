@@ -1,12 +1,12 @@
 {
   "metrics": [
     {
-      "value": "58,200",
+      "value": "58,000",
       "label": "Citations",
       "url": "https://scholar.google.com/citations?user=to2WKckAAAAJ&hl=en"
     }
   ],
-  "citations": 58237,
-  "rounded_citations": 58200,
+  "citations": 58499,
+  "rounded_citations": 58000,
   "source_url": "https://scholar.google.com/citations?user=to2WKckAAAAJ&hl=en"
 }

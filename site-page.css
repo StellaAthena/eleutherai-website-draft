@@ -531,27 +531,28 @@ h2 {
 .home-current-copy h1 {
   margin-bottom: 24px;
   font-size: clamp(3.2rem, 6.2vw, 5.1rem);
-  line-height: 1;
+  line-height: 1.15;
   overflow-wrap: break-word;
 }
 
 .home-current-copy p {
+  margin-top: 48px;
   margin-bottom: 0;
   color: var(--body);
-  font-size: clamp(1.18rem, 2vw, 1.55rem);
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
   line-height: 1.42;
 }
 
 .home-metric-strip {
   display: grid;
-  gap: 22px;
+  gap: 28px;
   margin-top: 48px;
 }
 
 .home-metric-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 28px;
 }
 
 .home-metric {
@@ -567,7 +568,7 @@ h2 {
   min-height: 1em;
   color: var(--ink);
   font-size: clamp(1.7rem, 3vw, 2.25rem);
-  line-height: 1;
+  line-height: 1.15;
 }
 
 .home-metric.is-empty strong {
@@ -583,6 +584,7 @@ h2 {
 }
 
 .home-latest-panel {
+  margin-top: 48px;
   border: 1px solid var(--line);
   background:
     linear-gradient(180deg, rgba(120, 184, 238, 0.045), rgba(16, 21, 29, 0.86)),
@@ -640,6 +642,7 @@ h2 {
 
 .home-current-section {
   padding-top: 72px;
+  border-top: 1px solid var(--line);
 }
 
 .home-section-head {

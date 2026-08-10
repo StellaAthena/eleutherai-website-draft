@@ -1311,6 +1311,26 @@
   ],
   "other_modalities": [
     {
+      "title": "Attention-Guided Audio Compression for Multimodal LLM",
+      "url": "https://ieeexplore.ieee.org/abstract/document/11461737",
+      "summary": "",
+      "date": "2026",
+      "year": "2026",
+      "venue": "Low-Resource Audio Codec @ ICASSP",
+      "superlatives": [],
+      "sort_date": "2026-05-04"
+    },
+    {
+      "title": "The Spatial Blindspot of Vision-Language Models",
+      "url": "https://arxiv.org/abs/2601.09954",
+      "summary": "",
+      "date": "2026",
+      "year": "2026",
+      "venue": "I Can't Believe It's Not Better @ ICLR",
+      "superlatives": [],
+      "sort_date": "2026-04-27"
+    },
+    {
       "title": "The Ghost in the Keys: A Disklavier Demo for Human-AI Musical Co-Creativity",
       "url": "https://arxiv.org/abs/2511.01663",
       "summary": "",
@@ -1329,6 +1349,16 @@
       "venue": "arXiv",
       "superlatives": [],
       "sort_date": "2025-11-25"
+    },
+    {
+      "title": "A Traditional Approach to Symbolic Piano Continuation",
+      "url": "",
+      "summary": "",
+      "date": "2025",
+      "year": "2025",
+      "venue": "MIREX @ ISMIR",
+      "superlatives": [],
+      "sort_date": "2025-09-24"
     },
     {
       "title": "Scaling Self-Supervised Representation Learning for Symbolic Piano Performance",

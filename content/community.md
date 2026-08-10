@@ -1,5 +1,5 @@
 ---
 title: "Community"
 layout: community
-url: /community.html
+url: /community/
 ---

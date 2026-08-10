@@ -2,7 +2,7 @@
 title: "Support durable open AI research"
 lede: "EleutherAI depends on institutional support, compute access, engineering capacity, and research partnerships to keep public work useful and scientifically credible."
 layout: page
-url: /support.html
+url: /support/
 ---
 
 ## Research that stays public
