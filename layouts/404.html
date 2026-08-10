@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $mainBase := site.Params.mainBaseURL | default "" }}
-{{ $researchURL := cond (ne $mainBase "") (printf "%sresearch.html" $mainBase) ("research.html" | relURL) }}
+{{ $researchURL := cond (ne $mainBase "") (printf "%sresearch/" $mainBase) ("research/" | relURL) }}
 <main>
   <section class="hero">
     <div class="wrap">

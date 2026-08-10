@@ -15,7 +15,7 @@
   {{- $pageID = "pythia" -}}
 {{- else if eq .Section "blog" -}}
   {{- $pageID = "blog" -}}
-{{- else if eq .RelPermalink "/support.html" -}}
+{{- else if eq .RelPermalink "/support/" -}}
   {{- $pageID = "support" -}}
 {{- end -}}
 
@@ -29,14 +29,15 @@
 {{- end -}}
 
 {{- $mainBase := site.Params.mainBaseURL | default "" -}}
-{{- $homeURL := cond (ne $mainBase "") $mainBase ("index.html" | relURL) -}}
-{{- $aboutURL := cond (ne $mainBase "") (printf "%sabout.html" $mainBase) ("about.html" | relURL) -}}
-{{- $staffURL := cond (ne $mainBase "") (printf "%sstaff.html" $mainBase) ("staff.html" | relURL) -}}
-{{- $researchURL := cond (ne $mainBase "") (printf "%sresearch.html" $mainBase) ("research.html" | relURL) -}}
-{{- $papersURL := cond (ne $mainBase "") (printf "%spapers.html" $mainBase) ("papers.html" | relURL) -}}
-{{- $communityURL := cond (ne $mainBase "") (printf "%scommunity.html" $mainBase) ("community.html" | relURL) -}}
-{{- $supportURL := cond (ne $mainBase "") (printf "%ssupport.html" $mainBase) ("support.html" | relURL) -}}
-{{- $blogURL := site.Params.blogBaseURL | default ("blog.html" | relURL) -}}
+{{- $homeURL := cond (ne $mainBase "") $mainBase ("" | relURL) -}}
+{{- $aboutURL := cond (ne $mainBase "") (printf "%sabout/" $mainBase) ("about/" | relURL) -}}
+{{- $staffURL := cond (ne $mainBase "") (printf "%sstaff/" $mainBase) ("staff/" | relURL) -}}
+{{- $researchURL := cond (ne $mainBase "") (printf "%sresearch/" $mainBase) ("research/" | relURL) -}}
+{{- $papersURL := cond (ne $mainBase "") (printf "%spapers/" $mainBase) ("papers/" | relURL) -}}
+{{- $communityURL := cond (ne $mainBase "") (printf "%scommunity/" $mainBase) ("community/" | relURL) -}}
+{{- $supportURL := cond (ne $mainBase "") (printf "%ssupport/" $mainBase) ("support/" | relURL) -}}
+{{- $blogBaseURL := site.Params.blogBaseURL | default "https://blog.eleuther.ai/" -}}
+{{- $blogURL := os.Getenv "BLOG_BASE_URL" | default $blogBaseURL -}}
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="{{ $homeURL }}" aria-label="EleutherAI home">

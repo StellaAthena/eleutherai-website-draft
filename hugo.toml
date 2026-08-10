@@ -1,13 +1,18 @@
 baseURL = "https://www.eleuther.ai/"
 languageCode = "en-us"
 title = "EleutherAI"
-uglyURLs = true
+uglyURLs = false
 disablePathToLower = true
 enableRobotsTXT = true
 disableKinds = ["taxonomy", "term", "RSS"]
 
+[security.funcs]
+  getenv = ['^BLOG_BASE_URL$']
+
 [params]
   description = "EleutherAI is a non-profit AI research lab advancing open science through models, datasets, tools, and research."
+  # Blog URL can be overridden with BLOG_BASE_URL environment variable for local testing
+  # Production default: https://blog.eleuther.ai/
   blogBaseURL = "https://blog.eleuther.ai/"
 
 [markup]

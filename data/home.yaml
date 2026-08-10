@@ -21,7 +21,7 @@ metric_rows:
     - key: "countries"
       value: "30+"
       label: "Countries"
-      url: "community.html"
+      url: "community/"
 
 priorities:
   - title: "Open models and tools"
@@ -29,7 +29,7 @@ priorities:
     accent: "blue"
     links:
       - label: "Pythia"
-        url: "project-pythia.html"
+        url: "project-pythia/"
       - label: "GPT-NeoX"
         url: "https://github.com/EleutherAI/gpt-neox"
       - label: "Common Pile"
@@ -47,7 +47,7 @@ priorities:
     accent: "green"
     links:
       - label: "Pythia"
-        url: "project-pythia.html"
+        url: "project-pythia/"
       - label: "Cross-checkpoint circuits"
         url: "https://arxiv.org/abs/2407.10827"
   - title: "Open-weight safety"
@@ -75,8 +75,8 @@ recent_outputs:
 
 manual_news:
   - title: "A short retrospective on the EleutherAI Summer of Open AI Research"
-    url: "https://www.eleuther.ai/news/a-short-retrospective-on-the-eleutherai-summer-of-open-ai-research"
+    url: "news/a-short-retrospective-on-the-eleutherai-summer-of-open-ai-research/"
   - title: "Summer of Open Science"
-    url: "https://www.eleuther.ai/soar"
+    url: "soar/"
   - title: "EvalEval Coalition"
     url: "https://evaleval.github.io/"
