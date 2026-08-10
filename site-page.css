@@ -21,9 +21,9 @@
   --violet-surface: #7049ad;
 
   /* Shared page-title scale — used by all non-homepage hero h1s */
-  --title-size: 4rem;
+  --title-size: 3.25rem;
   --title-lh: 1.04;
-  --title-mobile: 2.45rem;
+  --title-mobile: 2.25rem;
 }
 
 
@@ -1679,8 +1679,8 @@ h2 {
 
 .community-hero-copy h1 {
   margin-bottom: 24px;
-  font-size: clamp(3.4rem, 7vw, 5.6rem);
-  line-height: 0.98;
+  font-size: var(--title-size);
+  line-height: var(--title-lh);
 }
 
 .community-hero-copy .lede {
@@ -2172,7 +2172,7 @@ h2 {
 }
 
 .article-header h1 {
-  font-size: 3.6rem;
+  font-size: 3rem;
 }
 
 .article-dek {
@@ -2455,6 +2455,10 @@ footer .wrap {
   }
 
   h1 {
+    font-size: var(--title-mobile);
+  }
+
+  .article-header h1 {
     font-size: var(--title-mobile);
   }
 
