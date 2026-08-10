@@ -44,8 +44,8 @@ priorities:
     title: "Open models and tools"
     layout: "light"
     accent: "blue"
-    image: "images/research/homepage/open-models-common-pile.png"
-    image_alt: "Common Pile dataset components grouped by source and size"
+    image: "images/research/homepage/open-models-pile.png"
+    image_alt: "The Pile cover figure, composed from words associated with its diverse data sources"
     text: |-
       Open research on large models requires more than released weights. It requires open data to train on, open code to train and evaluate with, and open models whose full development is public.
 
