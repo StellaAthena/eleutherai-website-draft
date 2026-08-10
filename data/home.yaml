@@ -25,40 +25,66 @@ metric_rows:
       url: "community/"
 
 priorities:
-  - title: "Open models and tools"
-    text: "Release model checkpoints, datasets, and evaluation tooling that make independent research possible."
-    accent: "blue"
+  - key: "interpretability-over-time"
+    title: "Interpretability over time"
+    layout: "lead"
+    accent: "green"
+    image: "images/research/homepage/interpretability-over-time.png"
+    image_alt: "Cross-checkpoint measurements showing language-model behaviors emerging over the course of training"
+    text: |-
+      Most interpretability research studies a finished model, frozen at the end of training. We study how model internals emerge, arguing that [a science of AI must study training dynamics](https://arxiv.org/abs/2606.06533) rather than treating models as static artifacts to be dissected after the fact.
+
+      Our Pythia suite pioneered this approach, pairing model checkpoints across training with the exact data seen at each step. It has become the standard scientific instrument for research on learning dynamics, memorization, and how capabilities form, with thousands of citing works.
     links:
       - label: "Pythia"
         url: "project-pythia/"
-      - label: "GPT-NeoX"
-        url: "https://github.com/EleutherAI/gpt-neox"
-      - label: "Common Pile"
-        url: "https://arxiv.org/abs/2506.05209"
-  - title: "Evaluation"
-    text: "Study what benchmarks measure, when they saturate, and how evaluations shape our picture of model capability."
+      - label: "Training dynamics agenda"
+        url: "https://arxiv.org/abs/2606.06533"
+  - key: "open-models-and-tools"
+    title: "Open models and tools"
+    layout: "light"
+    accent: "blue"
+    image: "images/research/homepage/open-models-common-pile.png"
+    image_alt: "Common Pile dataset components grouped by source and size"
+    text: |-
+      Open research on large models requires more than released weights. It requires open data to train on, open code to train and evaluate with, and open models whose full development is public.
+
+      We have built all three layers since 2020: datasets from the Pile to the Common Pile, libraries like GPT-NeoX and lm-evaluation-harness, and model suites released with their training data, code, and checkpoints. Everything is free, openly licensed, and used across the research community, from independent researchers to national labs.
+    links:
+      - label: "Datasets"
+        url: "https://huggingface.co/EleutherAI/datasets"
+      - label: "Infrastructure"
+        url: "https://github.com/EleutherAI"
+      - label: "Models"
+        url: "https://huggingface.co/EleutherAI/models"
+  - key: "open-weight-safety"
+    title: "Open-weight safety"
+    layout: "safety"
+    accent: "coral"
+    image: "images/research/homepage/open-weight-safety.png"
+    image_alt: "Deep Ignorance results showing filtered models resisting adversarial fine-tuning without reduced general capability"
+    text: |-
+      Open models need a safety science built for openness. We have championed open models since our founding, and we believe they can be safe without giving up the freedom to inspect, modify, and deploy them. That requires interventions in the training data, the training process, and the model itself: techniques that are technologically and philosophically compatible with the open source movement. EleutherAI is building the field of open-weight safety, defining its problems, developing new approaches, and creating the infrastructure researchers need to test them.
+
+      Our Deep Ignorance project showed one such approach: filtering targeted hazardous material from pretraining data so models do not internalize that knowledge in the first place. The resulting safeguard lives in what the model learns and is substantially more resistant to adversarial fine-tuning than post-training alternatives. With FAR.AI, we co-organize the Open-Weight Pre-Training Safety Accelerator, giving researchers access to the pretraining runs needed to test interventions like these at scale. We also helped create the Foundation Model Development Cheatsheet, a practical guide to building models responsibly across the full development pipeline.
+    links:
+      - label: "Deep Ignorance"
+        url: "https://arxiv.org/abs/2508.06601"
+      - label: "Development Cheatsheet"
+        url: "https://fmcheatsheet.org/"
+  - key: "evaluation"
+    title: "Evaluation"
+    layout: "compact"
     accent: "gold"
+    image: "images/research/homepage/evaluation.png"
+    image_alt: "Benchmark saturation levels across a broad collection of language-model benchmarks"
+    text: |-
+      We study what benchmarks measure, when they saturate, and how evaluations shape our picture of model capability.
     links:
       - label: "LM Evaluation Harness"
         url: "https://github.com/EleutherAI/lm-evaluation-harness"
       - label: "Benchmark saturation"
         url: "https://arxiv.org/abs/2602.16763"
-  - title: "Interpretability over time"
-    text: "Trace how representations, circuits, memorization, and capabilities develop across checkpoints and scale."
-    accent: "green"
-    links:
-      - label: "Pythia"
-        url: "project-pythia/"
-      - label: "Cross-checkpoint circuits"
-        url: "https://arxiv.org/abs/2407.10827"
-  - title: "Open-weight safety"
-    text: "Develop methods for studying and improving open-weight models that researchers can inspect directly."
-    accent: "violet"
-    links:
-      - label: "Deep Ignorance"
-        url: "https://arxiv.org/abs/2508.06601"
-      - label: "Bergson data attribution"
-        url: "https://github.com/EleutherAI/bergson"
 
 recent_outputs:
   - kind: "Paper"

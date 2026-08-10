@@ -114,19 +114,28 @@
         <h2 id="current-research-title">Current research</h2>
       </div>
 
-      <div class="home-priority-grid">
+      <div class="home-research-stories">
         {{ range site.Data.home.priorities }}
-          <article class="home-priority-card is-{{ .accent }}">
-            <h3>{{ .title }}</h3>
-            <p>{{ .text }}</p>
-            <div class="home-priority-links">
-              {{ range .links }}
-                {{ $external := hasPrefix .url "http" }}
-                <a href="{{ if $external }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }} <span aria-hidden="true">&#8594;</span></a>
-              {{ end }}
+          <article class="home-research-story is-{{ .layout }} is-{{ .accent }}">
+            <div class="home-research-visual">
+              <img src="{{ .image | relURL }}" alt="{{ .image_alt }}" loading="lazy">
+            </div>
+            <div class="home-research-copy">
+              <h3>{{ .title }}</h3>
+              <div class="home-research-text">{{ .text | markdownify }}</div>
+              <div class="home-research-links">
+                {{ range .links }}
+                  {{ $external := hasPrefix .url "http" }}
+                  <a href="{{ if $external }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }} <span aria-hidden="true">&#8594;</span></a>
+                {{ end }}
+              </div>
             </div>
           </article>
         {{ end }}
+      </div>
+
+      <div class="home-research-all">
+        <a href="{{ "research/" | relURL }}">Explore all research <span aria-hidden="true">&#8594;</span></a>
       </div>
     </div>
   </section>
