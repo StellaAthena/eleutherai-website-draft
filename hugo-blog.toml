@@ -4,6 +4,9 @@ title = "EleutherAI Blog"
 enableRobotsTXT = true
 disableKinds = ["RSS"]
 
+[security.funcs]
+  getenv = ['^BLOG_BASE_URL$']
+
 [params]
   description = "Research notes, announcements, and technical essays from EleutherAI."
   mainBaseURL = "https://www.eleuther.ai/"
