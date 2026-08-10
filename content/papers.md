@@ -1,6 +1,8 @@
 ---
 title: "Research Library"
 layout: research-library
-url: /papers.html
+url: /papers/
+aliases:
+  - /papers.html
 draft: false
 ---
