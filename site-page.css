@@ -685,12 +685,7 @@ h2 {
 .home-research-story.is-gold { --story-accent: var(--gold); }
 
 .home-research-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-width: 0;
-  height: clamp(300px, 29vw, 390px);
-  padding: clamp(14px, 2vw, 24px);
   border: 1px solid var(--line);
   background: #fff;
 }
@@ -698,9 +693,7 @@ h2 {
 .home-research-visual img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
+  height: auto;
 }
 
 .home-research-copy {
@@ -2410,7 +2403,6 @@ footer .wrap {
   .home-research-story.is-safety .home-research-visual,
   .home-research-story.is-compact .home-research-visual {
     order: 1;
-    height: clamp(300px, 55vw, 430px);
   }
 
   .home-research-story .home-research-copy,
@@ -2555,7 +2547,7 @@ footer .wrap {
   .home-research-story.is-light .home-research-visual,
   .home-research-story.is-safety .home-research-visual,
   .home-research-story.is-compact .home-research-visual {
-    height: 250px;
+    height: auto;
   }
 
   .home-research-copy,
