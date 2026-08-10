@@ -71,7 +71,7 @@ priorities:
       - label: "Deep Ignorance"
         url: "https://arxiv.org/abs/2508.06601"
       - label: "Development Cheatsheet"
-        url: "https://fmcheatsheet.org/"
+        url: "https://arxiv.org/abs/2406.16746"
   - key: "evaluation"
     title: "Evaluation"
     layout: "compact"
