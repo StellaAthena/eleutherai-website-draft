@@ -70,7 +70,9 @@
                 {{ end }}
                 {{ $emptyClass := cond (not $value) " is-empty" "" }}
                 {{ if $url }}
-                  <a class="home-metric{{ $emptyClass }}" href="{{ $url }}"{{ if hasPrefix $url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                  {{ $external := hasPrefix $url "http" }}
+                  {{ $href := cond $external $url ($url | relURL) }}
+                  <a class="home-metric{{ $emptyClass }}" href="{{ $href }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>
                     <strong>{{ $value }}</strong>
                     <span>{{ .label }}</span>
                   </a>
