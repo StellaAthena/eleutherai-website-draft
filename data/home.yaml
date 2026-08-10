@@ -29,7 +29,7 @@ priorities:
     title: "Interpretability over time"
     layout: "lead"
     accent: "green"
-    image: "images/research/homepage/interpretability-over-time.png"
+    image: "images/research/homepage/interpretability-over-time.webp"
     image_alt: "A model's diffuse internal connections organizing into distinct mechanisms over the course of training"
     text: |-
       Most interpretability research studies a finished model, frozen at the end of training. We study how model internals emerge, arguing that [a science of AI must study training dynamics](https://arxiv.org/abs/2606.06533) rather than treating models as static artifacts to be dissected after the fact.
