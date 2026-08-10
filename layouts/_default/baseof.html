@@ -35,7 +35,6 @@
   <meta name="twitter:image" content="{{ $socialImage }}">
   <meta name="twitter:image:alt" content="EleutherAI — The World's Foremost Open Science AI Lab">
   <link rel="stylesheet" href="{{ printf "site-page.css?v=%d" now.Unix | relURL }}">
-  {{ block "page_styles" . }}{{ end }}
 </head>
 <body>
   {{ partial "header.html" . }}

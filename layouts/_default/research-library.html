@@ -10,7 +10,7 @@
 {{ $venues = sort (uniq $venues) }}
 
 <main class="library-page">
-  <section class="library-intro">
+  <section class="hero library-intro">
     <div class="wrap">
       <h1>Research Library</h1>
       <p>Explore EleutherAI papers across language modeling, interpretability, alignment, policy, multimodal research, security, and computing.</p>
@@ -95,4 +95,3 @@
 </main>
 <script src="{{ "research-library.js" | relURL }}" defer></script>
 {{ end }}
-{{ define "page_styles" }}<link rel="stylesheet" href="{{ printf "research-library.css?v=%d" now.Unix | relURL }}">{{ end }}

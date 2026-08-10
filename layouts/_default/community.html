@@ -1,11 +1,7 @@
-{{ define "page_styles" }}
-  <link rel="stylesheet" href="{{ printf "community-impact.css?v=%d" now.Unix | relURL }}">
-{{ end }}
-
 {{ define "main" }}
 {{ $community := site.Data.community }}
 <main class="community-impact-page">
-  <section class="community-impact-hero">
+  <section class="hero community-impact-hero">
     <div class="wrap">
       <h1>{{ $community.hero.title }}</h1>
       <div class="community-impact-hero-flow">
