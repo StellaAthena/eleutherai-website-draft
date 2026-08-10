@@ -76,7 +76,7 @@ For more info and evaluations, head over to our blog post (https://blog.eleuther
 {{</discord/thread>}}
 {{</figure>}}
 
-We typically don’t provide timelines or roadmaps, but as an additional motivator we committed to a timeline for full release—in an announcement that mentioned @everyone and [a blog post that was widely shared on the web](http://fedora.local:1314/announcing-20b/).
+We typically don’t provide timelines or roadmaps, but as an additional motivator we committed to a timeline for full release—in an announcement that mentioned @everyone and [a blog post that was widely shared on the web](https://blog.eleuther.ai/announcing-20b/).
 And so we were stuck with it. Whether we were ready or not, February 9, 2022 it was. Of course, our work was far from done: We had a model, but we had much to document. The next week was a mad dash of writing, benchmarking, and analysis.
 
 

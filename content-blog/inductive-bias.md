@@ -48,9 +48,9 @@ Our underlying motivation for a volume based measure is the basin volume hypothe
 We define each region to be a [star domain](https://en.wikipedia.org/wiki/Star_domain) $W$ such that $\\forall w\in W : C(w)< \epsilon $, where $C$ is some cost function.
 <figure>
     <figure>
-        <img src="/images/blog/inductive-bias/Star_domain.png" style="width: 50%; height: 400px; border: none;"></iframe>
+        <img src="/images/blog/inductive-bias/Star_domain.png" style="width: 50%; height: 400px; border: none;">
         <figcaption style="text-align: center;">
-            Visualization of the star domain used to estimate local volumes</a>
+            Visualization of the star domain used to estimate local volumes
         </figcaption>
     </figure>
 
@@ -79,7 +79,7 @@ We ran two types of experiments:
 2. **Training**: We train the networks on a simple task (modular addition) and compute the volume of the star domain along the training checkpoints.
 
 ### 1. Initialization
-<img src="/images/blog/inductive-bias/image.png" style="width: 100%; height: 600px; border: none;"></iframe>
+<img src="/images/blog/inductive-bias/image.png" style="width: 100%; height: 600px; border: none;">
 
 Overall, **we were not able to replicate** the findings in [NRS](https://arxiv.org/abs/2403.02241).
 Specifically, we did not observe that higher weight amplitude and additional layers lead to a lower volume of the star domain (as those correspond to more complex solutions according to the basin volume hypothesis).
