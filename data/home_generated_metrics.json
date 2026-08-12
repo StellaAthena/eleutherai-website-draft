@@ -1,19 +1,19 @@
 {
   "metrics": {
     "publication_count": {
-      "value": "150+",
+      "value": "190+",
       "label": "Publications",
-      "count": 150,
-      "rounded_count": 150,
-      "source": "papers_sheet_pub_date",
+      "count": 191,
+      "rounded_count": 190,
+      "source": "papers_sheet_sort_date",
       "rounded_to": 10
     },
     "scholar_citations": {
-      "value": "58,000+",
+      "value": "59,000+",
       "label": "Citations",
       "url": "https://scholar.google.com/citations?user=to2WKckAAAAJ&hl=en",
-      "count": 58499,
-      "rounded_count": 58000,
+      "count": 59532,
+      "rounded_count": 59000,
       "source": "https://scholar.google.com/citations?user=to2WKckAAAAJ&hl=en",
       "rounded_to": 1000
     },

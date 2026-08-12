@@ -16,7 +16,7 @@
       <p>Explore EleutherAI papers across language modeling, interpretability, alignment, policy, multimodal research, security, and computing.</p>
       <div class="library-search">
         <label for="library-query">Search publications</label>
-        <input id="library-query" type="search" placeholder="Title, venue, organization, or topic" autocomplete="off">
+        <input id="library-query" type="search" placeholder="Title, author, venue, organization, or topic" autocomplete="off">
       </div>
     </div>
   </section>
@@ -68,6 +68,7 @@
                     data-venue="{{ .venue | lower }}"
                     data-family="{{ .family | lower }}"
                     data-kind="{{ .kind | lower }}"
+                    data-authors="{{ .author_search | default .authors | lower }}"
                     data-areas="{{ delimit .areas "|" | lower }}"
                     data-org="{{ .lead_org | lower }}"
                     data-contact="{{ .contact | lower }}">
@@ -93,5 +94,6 @@
     </div>
   </section>
 </main>
-<script src="{{ "research-library.js" | relURL }}" defer></script>
+{{ $libraryScriptVersion := md5 (readFile "static/research-library.js") }}
+<script src="{{ "research-library.js" | relURL }}?v={{ $libraryScriptVersion }}" defer></script>
 {{ end }}

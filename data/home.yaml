@@ -12,18 +12,6 @@ metric_rows:
       label: "Model downloads"
       source: "model_downloads"
       url: "https://huggingface.co/EleutherAI"
-  - - key: "research_collaborators"
-      value: "120+"
-      label: "Research collaborators"
-    - key: "discord_members"
-      value: "30k+"
-      label: "Discord members"
-      url: "https://discord.gg/eleutherai"
-    - key: "countries"
-      value: "30+"
-      label: "Countries"
-      url: "community/"
-
 priorities:
   - key: "interpretability-over-time"
     title: "Interpretability over time"
@@ -85,6 +73,8 @@ priorities:
         url: "https://github.com/EleutherAI/lm-evaluation-harness"
       - label: "Benchmark saturation"
         url: "https://arxiv.org/abs/2602.16763"
+      - label: "EvalEval Coalition"
+        url: "https://evalevalai.com/"
 
 recent_outputs:
   - kind: "Paper"

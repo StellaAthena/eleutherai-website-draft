@@ -4,7 +4,7 @@ This repository contains the Hugo source for the EleutherAI website and blog.
 
 - Main site: [www.eleuther.ai](https://www.eleuther.ai/)
 - Blog: [blog.eleuther.ai](https://blog.eleuther.ai/)
-- Publication source of truth: [EleutherAI papers Google Sheet](https://docs.google.com/spreadsheets/d/14amb2CM9nVQR_-ZqpGuNPSSdMxsAk0YEoAvetgEyGRw/edit?usp=sharing)
+- Publication source of truth: [EleutherAI papers Google Sheet](https://docs.google.com/spreadsheets/d/1LcB7_1lHZgO8_EmOkrvfV2BTaOngX95J5v8PJeuN4rM/edit?usp=sharing)
 
 The main site and blog share templates, styles, data, and assets, but Hugo builds them as separate sites for separate Netlify deployments.
 
@@ -69,7 +69,7 @@ Most text should be added to Markdown under `content/` or structured YAML under 
 | Community page | [`data/community.yaml`](data/community.yaml) | `content/community.md` contains only the page front matter. |
 | Staff page | [`data/staff.yaml`](data/staff.yaml) | Store portraits locally under `static/assets/staff/`. |
 | Research introduction | [`content/research/_index.md`](content/research/_index.md) | The publication list below it is generated automatically. |
-| Research Library | [Google Sheet](https://docs.google.com/spreadsheets/d/14amb2CM9nVQR_-ZqpGuNPSSdMxsAk0YEoAvetgEyGRw/edit?usp=sharing) | `content/papers.md` only defines the route and layout. Do not hand-edit the rendered paper list. |
+| Research Library | [Google Sheet](https://docs.google.com/spreadsheets/d/1LcB7_1lHZgO8_EmOkrvfV2BTaOngX95J5v8PJeuN4rM/edit?usp=sharing) | `content/papers.md` only defines the route and layout. Do not hand-edit the rendered paper list. |
 | Pythia project page | [`data/projects/pythia.yaml`](data/projects/pythia.yaml) | The page title and summary are in `content/projects/pythia.md`. |
 | SOAR page | [`data/soar.yaml`](data/soar.yaml) | The page title and description are in `content/soar.md`. |
 | News post | [`content/news/`](content/news/) | Dated news posts can enter the homepage Latest feed. |
@@ -96,64 +96,54 @@ The Makefile coordinates data refreshes and Hugo. The normal main-site build is:
 ```text
 make build
   -> python3 generate_hugo_data.py
-  -> python3 refresh_paper_authors.py
-  -> python3 generate_hugo_data.py --offline
   -> hugo --cleanDestinationDir
 ```
 
 Each stage has a different purpose.
 
-## First data pass: `generate_hugo_data.py`
+## Data generation: `generate_hugo_data.py`
 
-The first pass runs online. It fetches external data, normalizes publication records, derives display fields, and writes JSON for Hugo.
+The normal build runs this script online. It fetches external data, normalizes publication records, derives display fields, and writes JSON for Hugo.
 
 ### 1. Refresh the publication Sheet
 
 The script downloads a cache-busted CSV export of the papers tab and writes it to:
 
 ```text
-eleutherai_papers_sheet_gid2053751678.csv
+eleutherai_papers.csv
 ```
 
-The script verifies that the response contains the expected `Sort Date` and `Title` headers. If the Sheet cannot be downloaded, a live build stops instead of silently claiming that stale publication data is current.
+The script verifies the full expected header set before replacing the local snapshot. If the Sheet cannot be downloaded, or its schema changes unexpectedly, a live build stops instead of silently claiming that stale publication data is current.
 
 The principal Sheet columns currently used are:
 
 | Sheet column | How the website uses it |
 | --- | --- |
 | `Title` | Display title and record identity |
-| `Pub Date` | Determines whether a paper enters the public library; supplies its displayed year and primary chronological sort |
+| `Sort Date` | Determines whether a paper enters the public library; supplies its displayed year and chronological sort |
+| `Display Authors` | Author line shown in the Research Library |
+| `all authors` | Complete semicolon-separated author list used for author search and metadata generation |
+| `Area` | Semicolon-separated research-area metadata used by generated collections and filters |
 | `Link` | Makes the paper entry clickable |
-| `Status` | Selects accepted versus under-review venue behavior |
-| `Conference or Journal` | Archival venue for accepted papers; indicates that a non-accepted paper is under review at a conference |
-| `Archival Date` | Conference or journal appearance date |
-| `Workshop` | Workshop appearance or the prior public venue for a paper under conference review |
-| `Workshop Date` | Workshop appearance date |
-| `Superlatives` | Oral, spotlight, best-paper, and runner-up text and symbols |
-| `Primary Area`, `Additional Area` | Research Library metadata and broad research-area filtering |
-| `Lead Org` | Generated Research Library metadata |
-| `EleutherAI PoC` | Generated Research Library contact metadata |
+| `Conference or Journal` | Primary archival venue; blank values fall back to a workshop or arXiv |
+| `Workshop` | Workshop appearance; may coexist with an archival venue |
+| `Superlative` | Oral, spotlight, best-paper, and runner-up text and symbols |
 
-A row must have both a normalized title and a parseable `Pub Date` to appear in the main Research Library and publication count. Rows without `Pub Date` can still be used by some research-area outputs if they have another valid date.
-
-The Sheet includes an `Additional Metadata` column, but the current generator does not parse it. Adding a value there will not yet populate a website collection or filter.
+A row must have both a normalized title and a parseable `Sort Date` to appear in the main Research Library and publication count.
 
 ### 2. Normalize links, dates, and venues
 
 The script cleans OpenReview tracking parameters and uses a small URL override table for known papers whose links were missing or incorrect in earlier data.
 
-Venue logic is derived from `Status`, `Conference or Journal`, and `Workshop`:
+Venue logic is derived from `Conference or Journal` and `Workshop`:
 
-- Accepted papers use the conference or journal, then a workshop if no archival venue exists, then arXiv as a fallback.
-- Accepted papers with both an archival venue and a distinct workshop can produce separate appearances in the grouped publication lists.
-- Non-accepted papers with a conference value are treated as under conference review. The displayed public venue is the prior workshop when available, otherwise arXiv.
-- Non-accepted papers without a conference value display as arXiv.
+- Papers use the conference or journal, then a workshop if no archival venue exists, then arXiv as a fallback.
+- Papers with both an archival venue and a distinct workshop can produce separate appearances in grouped publication data.
 
-Dates serve different purposes:
+The generator maps the simplified Sheet schema into its internal publication model:
 
-- `Pub Date` controls inclusion and the one-record-per-paper library chronology.
-- `Archival Date` dates a conference or journal appearance.
-- `Workshop Date` dates a workshop appearance.
+- `Sort Date` controls inclusion and the one-record-per-paper library chronology.
+- The same date is used for conference and workshop appearance sorting because the Sheet intentionally maintains one date per paper.
 - arXiv groups are normalized to January 1 so they are treated as the earliest chronological point in their year and appear after later conference and workshop groups in the newest-first display.
 - Workshop sort dates receive a seven-day offset so a corresponding main conference is presented above its workshops.
 
@@ -161,7 +151,7 @@ That final ordering rule is editorial rather than historical: it keeps main conf
 
 ### 3. Derive publication distinctions
 
-The script cleans the `Superlatives` field and associates awards with the appropriate conference or workshop appearance. For the Research Library it chooses one marker using this precedence:
+The script cleans the `Superlative` field and associates an award with the appropriate conference or workshop appearance. Commas inside a single award description are preserved. For the Research Library it chooses one marker using this precedence:
 
 1. runner-up or finalist
 2. best paper
@@ -221,7 +211,7 @@ The script creates `data/research/area_papers.json` in two ways:
 - Training Dynamics uses the hand-curated titles, summaries, and optional venue labels in `research_area_papers.csv`.
 - Other areas use the broad-area, include-term, and exclude-term rules in `research_area_filters.csv`.
 
-The keyword filters search the paper title, superlatives, conference or journal, and workshop text. They do not currently use `Additional Metadata` from the Sheet. These generated sets are useful data, but individual research-area pages are intentionally not exposed in the current public release.
+The keyword filters search the paper title, superlative, conference or journal, workshop, and semicolon-separated `Area` values. These generated sets are useful data, but individual research-area pages are intentionally not exposed in the current public release.
 
 The `datasets` key in this file is a filtered set of papers about datasets. It is not a catalog of released dataset artifacts, and the build does not currently query Hugging Face for a dataset inventory.
 
@@ -231,7 +221,7 @@ The generator writes `data/home_generated_metrics.json` from three sources.
 
 #### Publications
 
-It counts unique titled Sheet rows with a valid `Pub Date`, rounds the result to the nearest ten, and appends `+`. The resulting object uses the key `publication_count`.
+It counts unique titled Sheet rows with a valid `Sort Date`, rounds the result to the nearest ten, and appends `+`. The resulting object uses the key `publication_count`.
 
 #### Citations
 
@@ -274,44 +264,13 @@ The first pass writes:
 
 Do not edit these files directly. Edit their source data and rebuild.
 
-## Author enrichment: `refresh_paper_authors.py`
+## Author search
 
-The publication Sheet currently does not include a populated `Authors` column, so a second script enriches the library records.
-
-The script:
-
-1. Loads the refreshed Sheet CSV.
-2. Loads the existing `data/research/paper_authors.json` cache.
-3. Selects linked papers that are not already cached. Passing `--all` forces a complete refresh.
-4. Fetches paper pages with up to four concurrent workers.
-5. Reads standard HTML metadata tags of the form `<meta name="citation_author" ...>`.
-6. Stores the resulting full author names by normalized paper title.
-
-Failures are reported but do not stop the site build. Some publisher and Scholar pages block automated metadata requests. The generator also has explicit author overrides for a small number of important papers.
-
-When rendering the Research Library, author sources are checked in this order:
-
-1. an `Authors` value from the Sheet, if that column is added and populated
-2. a hard-coded author override for known exceptions
-3. `data/research/paper_authors.json`
-
-The display layer converts full names to surnames and shows at most four before `et al.`.
-
-## Second data pass
-
-After author enrichment, the Makefile runs:
-
-```bash
-python3 generate_hugo_data.py --offline
-```
-
-This pass intentionally does not download the Sheet or refresh online metrics. It reuses the CSV and metric caches produced by the first pass, reloads the newly updated author cache, and rewrites the generated publication JSON.
-
-Without this second pass, newly fetched authors would not be present in `library_papers.json` until the next build.
+The Sheet's semicolon-separated `all authors` column is the sole source for complete publication authorship. `generate_hugo_data.py` puts every full name into the hidden Research Library search index while continuing to display the shorter `Display Authors` line. A live or offline build stops with a list of affected titles if any paper has a blank `all authors` cell; fix the Sheet rather than adding a local author override.
 
 ## Hugo rendering
 
-Finally, `hugo --cleanDestinationDir` renders the main site with `hugo.toml` and writes `public/`.
+After data generation, `hugo --cleanDestinationDir` renders the main site with `hugo.toml` and writes `public/`.
 
 Important data connections include:
 

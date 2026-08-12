@@ -1,5 +1,103 @@
 [
   {
+    "title": "Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs",
+    "url": "https://arxiv.org/abs/2605.09063",
+    "date": "2026",
+    "date_sort": "2026-12-06",
+    "venue": "NeurIPS",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "NeurIPS",
+    "group_sort_date": "2026-12-06",
+    "superlatives": []
+  },
+  {
+    "title": "Matrix-Driven Identification and Reconstruction of LLM Weight Homology",
+    "url": "https://arxiv.org/abs/2508.06309",
+    "date": "2026",
+    "date_sort": "2026-12-06",
+    "venue": "NeurIPS",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "NeurIPS",
+    "group_sort_date": "2026-12-06",
+    "superlatives": []
+  },
+  {
+    "title": "LoRA-Muon: Spectral Steepest Descent on the Low-Rank Manifold",
+    "url": "https://arxiv.org/abs/2606.12921",
+    "date": "2026",
+    "date_sort": "2026-12-06",
+    "venue": "NeurIPS",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "NeurIPS",
+    "group_sort_date": "2026-12-06",
+    "superlatives": []
+  },
+  {
+    "title": "Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures",
+    "url": "https://arxiv.org/abs/2510.24081",
+    "date": "2026",
+    "date_sort": "2026-12-06",
+    "venue": "NeurIPS Evaluations and Benchmarks",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "NeurIPS",
+    "group_sort_date": "2026-12-06",
+    "superlatives": []
+  },
+  {
+    "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
+    "url": "https://arxiv.org/abs/2606.14516",
+    "date": "2026",
+    "date_sort": "2026-12-06",
+    "venue": "NeurIPS Datasets and Evaluations",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "NeurIPS",
+    "group_sort_date": "2026-12-06",
+    "superlatives": []
+  },
+  {
+    "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
+    "url": "https://arxiv.org/abs/2606.09809",
+    "date": "2026",
+    "date_sort": "2026-12-06",
+    "venue": "NeurIPS Datasets and Evaluations",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "NeurIPS",
+    "group_sort_date": "2026-12-06",
+    "superlatives": []
+  },
+  {
+    "title": "Where Does Social Reasoning Come From? Capability Provenance in Language Models",
+    "url": "https://arxiv.org/abs/2606.19625",
+    "date": "2026",
+    "date_sort": "2026-10-06",
+    "venue": "COLM",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "COLM",
+    "group_sort_date": "2026-10-06",
+    "superlatives": []
+  },
+  {
+    "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
+    "url": "https://arxiv.org/abs/2606.06533",
+    "date": "2026",
+    "date_sort": "2026-07-10",
+    "venue": "ICML",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "ICML",
+    "group_sort_date": "2026-07-10",
+    "superlatives": [
+      "Oral at ICML"
+    ]
+  },
+  {
     "title": "Who Evaluates AI's Social Impacts? Mapping Coverage and Gaps in First and Third Party Evaluations",
     "url": "https://arxiv.org/abs/2511.05613",
     "date": "2026",
@@ -24,20 +122,6 @@
     "superlatives": []
   },
   {
-    "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
-    "url": "https://arxiv.org/abs/2606.06533",
-    "date": "2026",
-    "date_sort": "2026-07-10",
-    "venue": "ICML",
-    "venue_year": "2026",
-    "kind": "conference",
-    "family": "ICML",
-    "group_sort_date": "2026-07-07",
-    "superlatives": [
-      "Oral"
-    ]
-  },
-  {
     "title": "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation",
     "url": "https://arxiv.org/abs/2602.16763",
     "date": "2026",
@@ -47,6 +131,18 @@
     "kind": "conference",
     "family": "ICML",
     "group_sort_date": "2026-07-07",
+    "superlatives": []
+  },
+  {
+    "title": "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems",
+    "url": "https://arxiv.org/abs/2603.00131",
+    "date": "2026",
+    "date_sort": "2026-07-11",
+    "venue": "Agents in the Wild @ ICML",
+    "venue_year": "2026",
+    "kind": "workshop",
+    "family": "ICML",
+    "group_sort_date": "2026-07-04",
     "superlatives": []
   },
   {
@@ -67,18 +163,6 @@
     "date": "2026",
     "date_sort": "2026-07-10",
     "venue": "Mechanistic interpretability workshop @ ICML",
-    "venue_year": "2026",
-    "kind": "workshop",
-    "family": "ICML",
-    "group_sort_date": "2026-07-03",
-    "superlatives": []
-  },
-  {
-    "title": "Test Set Contamination of Generative Evaluations",
-    "url": "https://arxiv.org/abs/2601.04301",
-    "date": "2023",
-    "date_sort": "2023-02-06",
-    "venue": "Foundations of Deep Generative Models @ ICML",
     "venue_year": "2026",
     "kind": "workshop",
     "family": "ICML",
@@ -123,7 +207,7 @@
   },
   {
     "title": "L1 Influence in L2 Language Models: A Human-centric Approach",
-    "url": "https://arxiv.org/abs/2606.14516",
+    "url": "https://aclanthology.org/2026.cdl-1.15/",
     "date": "2026",
     "date_sort": "2026-07-04",
     "venue": "Computational Developmental Linguistics Workshop at ACL",
@@ -131,6 +215,42 @@
     "kind": "workshop",
     "family": "ACL",
     "group_sort_date": "2026-06-27",
+    "superlatives": []
+  },
+  {
+    "title": "Challenges to Grassroot Organization Engagement with AI Policy",
+    "url": "https://nips.cc/virtual/2025/136959",
+    "date": "2026",
+    "date_sort": "2026-06-25",
+    "venue": "FAccT",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "FAccT",
+    "group_sort_date": "2026-06-25",
+    "superlatives": []
+  },
+  {
+    "title": "Challenges to Grassroot Organization Engagement with AI Policy",
+    "url": "https://nips.cc/virtual/2025/136959",
+    "date": "2026",
+    "date_sort": "2026-06-25",
+    "venue": "Algorithmic Collective Action @ NeurIPS",
+    "venue_year": "2026",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2026-06-18",
+    "superlatives": []
+  },
+  {
+    "title": "Attention-Guided Audio Compression for Multimodal LLM",
+    "url": "https://ieeexplore.ieee.org/abstract/document/11461737",
+    "date": "2026",
+    "date_sort": "2026-05-04",
+    "venue": "Low-Resource Audio Codec @ ICASSP",
+    "venue_year": "2026",
+    "kind": "workshop",
+    "family": "ICASSP",
+    "group_sort_date": "2026-04-27",
     "superlatives": []
   },
   {
@@ -170,70 +290,96 @@
     "superlatives": []
   },
   {
-    "title": "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems",
-    "url": "https://arxiv.org/abs/2603.00131",
+    "title": "The Spatial Blindspot of Vision-Language Models",
+    "url": "https://arxiv.org/abs/2601.09954",
     "date": "2026",
-    "date_sort": "2026-07-11",
-    "venue": "arXiv",
+    "date_sort": "2026-04-27",
+    "venue": "I Can't Believe It's Not Better @ ICLR",
     "venue_year": "2026",
-    "kind": "arxiv",
-    "family": "arXiv",
-    "group_sort_date": "2026-01-01",
+    "kind": "workshop",
+    "family": "ICLR",
+    "group_sort_date": "2026-04-20",
     "superlatives": []
   },
   {
-    "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
-    "url": "https://aclanthology.org/2026.cdl-1.15/",
+    "title": "Sparse Autoencoders Trained on the Same Data Learn Different Features",
+    "url": "https://arxiv.org/abs/2501.16615",
     "date": "2026",
-    "date_sort": "2026-06-12",
-    "venue": "arXiv",
+    "date_sort": "2026-04-23",
+    "venue": "Mech Interp Workshop @ NeurIPS",
     "venue_year": "2026",
-    "kind": "arxiv",
-    "family": "arXiv",
-    "group_sort_date": "2026-01-01",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2026-04-16",
     "superlatives": []
   },
   {
-    "title": "LoRA-Muon: Spectral Steepest Descent on the Low-Rank Manifold",
-    "url": "https://arxiv.org/abs/2606.12921",
+    "title": "Evaluating SAE interpretability without explanations",
+    "url": "https://arxiv.org/abs/2507.08473",
     "date": "2026",
-    "date_sort": "2026-06-11",
-    "venue": "arXiv",
+    "date_sort": "2026-04-23",
+    "venue": "Mech Interp Workshop @ NeurIPS",
     "venue_year": "2026",
-    "kind": "arxiv",
-    "family": "arXiv",
-    "group_sort_date": "2026-01-01",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2026-04-16",
     "superlatives": []
   },
   {
-    "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
-    "url": "https://arxiv.org/abs/2606.09809",
+    "title": "Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs",
+    "url": "https://arxiv.org/abs/2508.06601",
     "date": "2026",
-    "date_sort": "2026-06-08",
-    "venue": "arXiv",
+    "date_sort": "2026-04-23",
+    "venue": "BioSafe Workshop at NeurIPS 2025",
     "venue_year": "2026",
-    "kind": "arxiv",
-    "family": "arXiv",
-    "group_sort_date": "2026-01-01",
-    "superlatives": []
-  },
-  {
-    "title": "Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs",
-    "url": "https://arxiv.org/abs/2605.09063",
-    "date": "2026",
-    "date_sort": "2026-05-09",
-    "venue": "arXiv",
-    "venue_year": "2026",
-    "kind": "arxiv",
-    "family": "arXiv",
-    "group_sort_date": "2026-01-01",
-    "superlatives": []
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2026-04-16",
+    "superlatives": [
+      "Best Paper Runner-Up at BioSafe Workshop, NeurIPS"
+    ]
   },
   {
     "title": "How Open Must Language Models be to Enable Reliable Scientific Inference?",
     "url": "https://arxiv.org/abs/2603.26539",
     "date": "2026",
     "date_sort": "2026-03-27",
+    "venue": "NeurIPS Datasets and Benchmarks",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "NeurIPS",
+    "group_sort_date": "2026-03-27",
+    "superlatives": []
+  },
+  {
+    "title": "Quantifying the Effect of Test Set Contamination on Generative Evaluations",
+    "url": "https://arxiv.org/abs/2601.04301",
+    "date": "2026",
+    "date_sort": "2026-02-06",
+    "venue": "NeurIPS",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "NeurIPS",
+    "group_sort_date": "2026-02-06",
+    "superlatives": []
+  },
+  {
+    "title": "Bergson: An Open Source Library for Data Attribution",
+    "url": "https://arxiv.org/abs/2606.11660",
+    "date": "2026",
+    "date_sort": "2026-06-10",
+    "venue": "arXiv",
+    "venue_year": "2026",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2026-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Queer NLP: A Critical Survey on Literature Gaps, Biases and Trends",
+    "url": "https://arxiv.org/abs/2602.16151",
+    "date": "2026",
+    "date_sort": "2026-02-18",
     "venue": "arXiv",
     "venue_year": "2026",
     "kind": "arxiv",
@@ -254,22 +400,10 @@
     "superlatives": []
   },
   {
-    "title": "Quantifying the Effect of Test Set Contamination on Generative Evaluations",
-    "url": "https://arxiv.org/abs/2601.04301",
+    "title": "Adversarial Samples Are Not Created Equal",
+    "url": "https://arxiv.org/abs/2601.00577",
     "date": "2026",
-    "date_sort": "2026-02-06",
-    "venue": "arXiv",
-    "venue_year": "2026",
-    "kind": "arxiv",
-    "family": "arXiv",
-    "group_sort_date": "2026-01-01",
-    "superlatives": []
-  },
-  {
-    "title": "The Toxicology of Data: A Dose-Response Framework for Test Set Contamination, Data Poisoning, Finetuning Attacks and Memorization",
-    "url": "https://arxiv.org/abs/2601.04301",
-    "date": "2026",
-    "date_sort": "2026-01-07",
+    "date_sort": "2026-01-02",
     "venue": "arXiv",
     "venue_year": "2026",
     "kind": "arxiv",
@@ -314,49 +448,23 @@
     "superlatives": []
   },
   {
-    "title": "Sparse Autoencoders Trained on the Same Data Learn Different Features",
-    "url": "https://arxiv.org/abs/2501.16615",
-    "date": "2026",
-    "date_sort": "2026-04-23",
+    "title": "Mitigating Emergent Misalignment with Data Attribution",
+    "url": "https://openreview.net/forum?id=gN7pWmjiQW",
+    "date": "2025",
+    "date_sort": "2025-12-07",
     "venue": "Mech Interp Workshop @ NeurIPS",
     "venue_year": "2025",
     "kind": "workshop",
     "family": "NeurIPS",
     "group_sort_date": "2025-11-30",
     "superlatives": []
-  },
-  {
-    "title": "Evaluating SAE interpretability without explanations",
-    "url": "https://arxiv.org/abs/2507.08473",
-    "date": "2026",
-    "date_sort": "2026-04-23",
-    "venue": "Mech Interp Workshop @ NeurIPS",
-    "venue_year": "2025",
-    "kind": "workshop",
-    "family": "NeurIPS",
-    "group_sort_date": "2025-11-30",
-    "superlatives": []
-  },
-  {
-    "title": "Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs",
-    "url": "https://arxiv.org/abs/2508.06601",
-    "date": "2026",
-    "date_sort": "2026-04-23",
-    "venue": "BioSafe Workshop @ NeurIPS",
-    "venue_year": "2025",
-    "kind": "workshop",
-    "family": "NeurIPS",
-    "group_sort_date": "2025-11-29",
-    "superlatives": [
-      "Best Paper Runner-up"
-    ]
   },
   {
     "title": "Benchmark Disaggregation Improves Interpretability of Training Dynamics",
     "url": "https://arxiv.org/abs/2510.24934",
     "date": "2025",
     "date_sort": "2025-12-06",
-    "venue": "CogInterp Workshop @ NeurIPS",
+    "venue": "CogInterp Workshop at NeurIPS 2025",
     "venue_year": "2025",
     "kind": "workshop",
     "family": "NeurIPS",
@@ -385,6 +493,30 @@
     "kind": "workshop",
     "family": "NeurIPS",
     "group_sort_date": "2025-11-25",
+    "superlatives": []
+  },
+  {
+    "title": "Persona-Vector Routing: A Lightweight, Interpretable Guardrail for Mitigating LLM Hallucinations",
+    "url": "https://neurips.cc/virtual/2025/129955",
+    "date": "2025",
+    "date_sort": "2025-12-01",
+    "venue": "First Workshop on LLM Persona Modeling @ NeurIPS",
+    "venue_year": "2025",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2025-11-24",
+    "superlatives": []
+  },
+  {
+    "title": "CCS-Lib: A Python Package to Elicit Latent Knowledge from LLMs",
+    "url": "https://joss.theoj.org/papers/10.21105/joss.06511",
+    "date": "2025",
+    "date_sort": "2025-10-21",
+    "venue": "Journal of Open Source Software",
+    "venue_year": "2025",
+    "kind": "conference",
+    "family": "Journal of Open Source Software",
+    "group_sort_date": "2025-10-21",
     "superlatives": []
   },
   {
@@ -436,6 +568,18 @@
     "superlatives": []
   },
   {
+    "title": "A Traditional Approach to Symbolic Piano Continuation",
+    "url": "https://arxiv.org/abs/2509.12267",
+    "date": "2025",
+    "date_sort": "2025-09-24",
+    "venue": "MIREX @ ISMIR",
+    "venue_year": "2025",
+    "kind": "workshop",
+    "family": "ISMIR",
+    "group_sort_date": "2025-09-17",
+    "superlatives": []
+  },
+  {
     "title": "On the Acquisition of Shared Grammatical Representations in Bilingual Language Models",
     "url": "https://arxiv.org/abs/2503.03962",
     "date": "2025",
@@ -484,11 +628,23 @@
     "superlatives": []
   },
   {
+    "title": "Position: Write Code that People Want to Use",
+    "url": "https://openreview.net/forum?id=oH0XhgzJt0",
+    "date": "2025",
+    "date_sort": "2025-07-18",
+    "venue": "CodeML Workshop @ ICML",
+    "venue_year": "2025",
+    "kind": "workshop",
+    "family": "ICML",
+    "group_sort_date": "2025-07-11",
+    "superlatives": []
+  },
+  {
     "title": "Evaluating Morphological Alignment of Tokenizers in 70 Languages",
     "url": "https://arxiv.org/abs/2507.06378",
     "date": "2025",
     "date_sort": "2025-07-18",
-    "venue": "Tokenizer Workshop @ ICML 2025",
+    "venue": "Tokenization Workshop at ICML 2025",
     "venue_year": "2025",
     "kind": "workshop",
     "family": "ICML",
@@ -500,14 +656,80 @@
     "url": "https://arxiv.org/abs/2505.24689",
     "date": "2025",
     "date_sort": "2025-07-18",
-    "venue": "Tokenizer Workshop @ ICML 2025",
+    "venue": "Tokenization Workshop at ICML 2025",
     "venue_year": "2025",
     "kind": "workshop",
     "family": "ICML",
     "group_sort_date": "2025-07-11",
+    "superlatives": []
+  },
+  {
+    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
+    "url": "https://arxiv.org/abs/2406.04391",
+    "date": "2025",
+    "date_sort": "2025-07-13",
+    "venue": "Neural Scaling Laws Workshop",
+    "venue_year": "2025",
+    "kind": "workshop",
+    "family": "Neural Scaling Laws Workshop",
+    "group_sort_date": "2025-07-06",
     "superlatives": [
-      "Best paper @ Tokenizer Workshop"
+      "Oral at TiFA Workshop, ICML"
     ]
+  },
+  {
+    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
+    "url": "https://arxiv.org/abs/2406.04391",
+    "date": "2025",
+    "date_sort": "2025-07-13",
+    "venue": "DMLR Workshop",
+    "venue_year": "2025",
+    "kind": "workshop",
+    "family": "DMLR Workshop",
+    "group_sort_date": "2025-07-06",
+    "superlatives": [
+      "Oral at TiFA Workshop, ICML"
+    ]
+  },
+  {
+    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
+    "url": "https://arxiv.org/abs/2406.04391",
+    "date": "2025",
+    "date_sort": "2025-07-13",
+    "venue": "TiFA Workshop",
+    "venue_year": "2025",
+    "kind": "workshop",
+    "family": "TiFA Workshop",
+    "group_sort_date": "2025-07-06",
+    "superlatives": [
+      "Oral at TiFA Workshop, ICML"
+    ]
+  },
+  {
+    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
+    "url": "https://arxiv.org/abs/2406.04391",
+    "date": "2025",
+    "date_sort": "2025-07-13",
+    "venue": "NextGenAISafety Workshop at ICML 2024",
+    "venue_year": "2025",
+    "kind": "workshop",
+    "family": "ICML",
+    "group_sort_date": "2025-07-06",
+    "superlatives": [
+      "Oral at TiFA Workshop, ICML"
+    ]
+  },
+  {
+    "title": "A Different Approach to AI Safety: Proceedings from the Columbia Convening on Openness in Artificial Intelligence and AI Safety",
+    "url": "https://arxiv.org/abs/2506.22183",
+    "date": "2025",
+    "date_sort": "2025-06-27",
+    "venue": "Columbia Convening on AI Openness and Safety",
+    "venue_year": "2025",
+    "kind": "workshop",
+    "family": "Columbia Convening on AI Openness and Safety",
+    "group_sort_date": "2025-06-20",
+    "superlatives": []
   },
   {
     "title": "The BiGGen Bench: A Principled Benchmark for Fine-grained Evaluation of Language Models with Language Models",
@@ -519,7 +741,9 @@
     "kind": "conference",
     "family": "NAACL",
     "group_sort_date": "2025-04-29",
-    "superlatives": []
+    "superlatives": [
+      "Best Paper at NAACL"
+    ]
   },
   {
     "title": "KMMLU: Measuring Massive Multitask Language Understanding in Korean",
@@ -571,7 +795,7 @@
   },
   {
     "title": "Bridging the Data Provenance Gap Across Text, Speech, and Video",
-    "url": "https://openreview.net/forum?id=G5DziesYxL",
+    "url": "https://arxiv.org/abs/2412.17847",
     "date": "2025",
     "date_sort": "2025-04-24",
     "venue": "ICLR",
@@ -583,7 +807,7 @@
   },
   {
     "title": "Aria-MIDI: A Dataset of MIDI Files for Symbolic Music Modeling",
-    "url": "https://openreview.net/forum?id=X5hrhgndxW",
+    "url": "https://arxiv.org/abs/2504.15071",
     "date": "2025",
     "date_sort": "2025-04-24",
     "venue": "ICLR",
@@ -606,18 +830,6 @@
     "superlatives": []
   },
   {
-    "title": "Mitigating Emergent Misalignment with Data Attribution",
-    "url": "https://openreview.net/forum?id=gN7pWmjiQW",
-    "date": "2025",
-    "date_sort": "2025-12-07",
-    "venue": "arXiv",
-    "venue_year": "2025",
-    "kind": "arxiv",
-    "family": "arXiv",
-    "group_sort_date": "2025-01-01",
-    "superlatives": []
-  },
-  {
     "title": "Video Deepfake Abuse: How Company Choices Predictably Shape Misuse Patterns",
     "url": "https://arxiv.org/abs/2512.11815",
     "date": "2025",
@@ -630,34 +842,10 @@
     "superlatives": []
   },
   {
-    "title": "Who Measures What Matters? An Analysis of Social Impact Evaluations in Foundation Model Reporting",
-    "url": "https://arxiv.org/abs/2511.05613",
+    "title": "Binary Sparse Coding for Interpretability",
+    "url": "https://arxiv.org/abs/2509.25596",
     "date": "2025",
-    "date_sort": "2025-11-06",
-    "venue": "arXiv",
-    "venue_year": "2025",
-    "kind": "arxiv",
-    "family": "arXiv",
-    "group_sort_date": "2025-01-01",
-    "superlatives": []
-  },
-  {
-    "title": "Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures",
-    "url": "https://arxiv.org/abs/2510.24081",
-    "date": "2025",
-    "date_sort": "2025-10-25",
-    "venue": "arXiv",
-    "venue_year": "2025",
-    "kind": "arxiv",
-    "family": "arXiv",
-    "group_sort_date": "2025-01-01",
-    "superlatives": []
-  },
-  {
-    "title": "Position: Write Code that People Want to Use",
-    "url": "https://openreview.net/forum?id=oH0XhgzJt0",
-    "date": "2025",
-    "date_sort": "2025-07-18",
+    "date_sort": "2025-09-29",
     "venue": "arXiv",
     "venue_year": "2025",
     "kind": "arxiv",
@@ -714,6 +902,18 @@
     "superlatives": []
   },
   {
+    "title": "Beyond Release: Access Considerations for Generative AI Systems",
+    "url": "https://arxiv.org/abs/2502.16701",
+    "date": "2025",
+    "date_sort": "2025-02-23",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2025-01-01",
+    "superlatives": []
+  },
+  {
     "title": "Transcoders Beat Sparse Autoencoders for Interpretability",
     "url": "https://arxiv.org/abs/2501.18823",
     "date": "2025",
@@ -762,10 +962,22 @@
     "superlatives": []
   },
   {
-    "title": "Matrix-Driven Identification and Reconstruction of LLM Weight Homology",
-    "url": "https://arxiv.org/abs/2508.06309",
+    "title": "Humanity's Last Exam",
+    "url": "https://arxiv.org/abs/2501.14249",
     "date": "2025",
-    "date_sort": "2025-01-30",
+    "date_sort": "2025-01-24",
+    "venue": "arXiv",
+    "venue_year": "2025",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2025-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Robin: a Suite of Multi-Scale Vision-Language Models and the CHIRP Evaluation Benchmark",
+    "url": "https://arxiv.org/abs/2501.09672",
+    "date": "2025",
+    "date_sort": "2025-01-16",
     "venue": "arXiv",
     "venue_year": "2025",
     "kind": "arxiv",
@@ -786,6 +998,18 @@
     "superlatives": []
   },
   {
+    "title": "RedPajama: an Open Dataset for Training Large Language Models",
+    "url": "https://arxiv.org/abs/2411.12372",
+    "date": "2024",
+    "date_sort": "2024-12-10",
+    "venue": "NeurIPS Datasets and Benchmarks",
+    "venue_year": "2024",
+    "kind": "conference",
+    "family": "NeurIPS",
+    "group_sort_date": "2024-12-10",
+    "superlatives": []
+  },
+  {
     "title": "LLM Circuit Analyses Are Consistent Across Training and Scale",
     "url": "https://arxiv.org/abs/2407.10827",
     "date": "2024",
@@ -803,6 +1027,18 @@
     "date": "2024",
     "date_sort": "2024-12-10",
     "venue": "NeurIPS Datasets and Benchmarks",
+    "venue_year": "2024",
+    "kind": "conference",
+    "family": "NeurIPS",
+    "group_sort_date": "2024-12-10",
+    "superlatives": []
+  },
+  {
+    "title": "A Walsh Hadamard Derived Linear Vector Symbolic Architecture",
+    "url": "https://arxiv.org/abs/2410.22669",
+    "date": "2024",
+    "date_sort": "2024-12-10",
+    "venue": "NeurIPS",
     "venue_year": "2024",
     "kind": "conference",
     "family": "NeurIPS",
@@ -831,6 +1067,18 @@
     "kind": "conference",
     "family": "Northern European Journal of Language Technology",
     "group_sort_date": "2024-12-01",
+    "superlatives": []
+  },
+  {
+    "title": "Language Model Crossover: Variation through Few-Shot Prompting",
+    "url": "https://arxiv.org/abs/2302.12170",
+    "date": "2024",
+    "date_sort": "2024-11-28",
+    "venue": "ACM Transactions on Evolutionary Learning and Optimization",
+    "venue_year": "2024",
+    "kind": "conference",
+    "family": "ACM Transactions on Evolutionary Learning and Optimization",
+    "group_sort_date": "2024-11-28",
     "superlatives": []
   },
   {
@@ -894,6 +1142,44 @@
     "superlatives": []
   },
   {
+    "title": "Eliciting Latent Knowledge from Quirky Language Models",
+    "url": "https://arxiv.org/abs/2312.01037",
+    "date": "2024",
+    "date_sort": "2024-10-07",
+    "venue": "ICLR 2024 Workshop on Mathematical and Empirical Understanding of Foundation Models",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "ICLR",
+    "group_sort_date": "2024-09-30",
+    "superlatives": []
+  },
+  {
+    "title": "The Data Provenance Initiative: A Large Scale Audit of Dataset Licensing & Attribution in AI",
+    "url": "https://arxiv.org/abs/2310.16787",
+    "date": "2024",
+    "date_sort": "2024-08-30",
+    "venue": "Nature Machine Intelligence",
+    "venue_year": "2024",
+    "kind": "conference",
+    "family": "Nature Machine Intelligence",
+    "group_sort_date": "2024-08-30",
+    "superlatives": []
+  },
+  {
+    "title": "The Data Provenance Initiative: A Large Scale Audit of Dataset Licensing & Attribution in AI",
+    "url": "https://arxiv.org/abs/2310.16787",
+    "date": "2024",
+    "date_sort": "2024-08-30",
+    "venue": "GenLaw Workshop at ICML 2023",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "ICML",
+    "group_sort_date": "2024-08-23",
+    "superlatives": [
+      "Spotlight at GenLaw Workshop, ICML"
+    ]
+  },
+  {
     "title": "The Case for Co-Designing Model Architectures with Hardware",
     "url": "https://arxiv.org/abs/2401.14489",
     "date": "2024",
@@ -915,6 +1201,18 @@
     "kind": "conference",
     "family": "ACL",
     "group_sort_date": "2024-08-01",
+    "superlatives": []
+  },
+  {
+    "title": "Multi-Task Inference: Can Large Language Models Follow Multiple Instructions at Once?",
+    "url": "https://arxiv.org/abs/2402.11597",
+    "date": "2024",
+    "date_sort": "2024-08-01",
+    "venue": "ICLR 2024 Workshop on Mathematical and Empirical Understanding of Foundation Models",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "ICLR",
+    "group_sort_date": "2024-07-25",
     "superlatives": []
   },
   {
@@ -943,7 +1241,7 @@
   },
   {
     "title": "On the Societal Impact of Open Foundation Models",
-    "url": "https://crfm.stanford.edu/open-fms/",
+    "url": "https://arxiv.org/abs/2403.07918",
     "date": "2024",
     "date_sort": "2024-07-23",
     "venue": "ICML Position Paper Track",
@@ -952,7 +1250,7 @@
     "family": "ICML",
     "group_sort_date": "2024-07-23",
     "superlatives": [
-      "Oral"
+      "Oral at ICML"
     ]
   },
   {
@@ -980,6 +1278,18 @@
     "superlatives": []
   },
   {
+    "title": "Beyond Open vs. Closed: Emerging Consensus and Key Questions for Foundation AI Model Governance",
+    "url": "https://carnegieendowment.org/research/2024/07/beyond-open-vs-closed-emerging-consensus-and-key-questions-for-foundation-ai-model-governance",
+    "date": "2024",
+    "date_sort": "2024-07-23",
+    "venue": "Carnegie Endowment for International Peace",
+    "venue_year": "2024",
+    "kind": "conference",
+    "family": "Carnegie Endowment for International Peace",
+    "group_sort_date": "2024-07-23",
+    "superlatives": []
+  },
+  {
     "title": "A Safe Harbor for AI Evaluation and Red Teaming",
     "url": "https://arxiv.org/abs/2403.04893",
     "date": "2024",
@@ -990,55 +1300,19 @@
     "family": "ICML",
     "group_sort_date": "2024-07-23",
     "superlatives": [
-      "Oral"
+      "Oral at ICML"
     ]
   },
   {
-    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
-    "url": "https://arxiv.org/abs/2406.04391",
-    "date": "2025",
-    "date_sort": "2025-07-13",
-    "venue": "The 7th workshop on Neural Scaling Laws (talk)",
+    "title": "Scalable High-Resolution Pixel-Space Image Synthesis with Hourglass Diffusion Transformers",
+    "url": "https://arxiv.org/abs/2401.11605",
+    "date": "2024",
+    "date_sort": "2024-07-21",
+    "venue": "ICML",
     "venue_year": "2024",
-    "kind": "workshop",
-    "family": "The 7th workshop on Neural Scaling Laws (talk)",
-    "group_sort_date": "2024-07-15",
-    "superlatives": []
-  },
-  {
-    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
-    "url": "https://arxiv.org/abs/2406.04391",
-    "date": "2025",
-    "date_sort": "2025-07-13",
-    "venue": "DMLR workshop (ICML 24)",
-    "venue_year": "2024",
-    "kind": "workshop",
+    "kind": "conference",
     "family": "ICML",
-    "group_sort_date": "2024-07-15",
-    "superlatives": []
-  },
-  {
-    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
-    "url": "https://arxiv.org/abs/2406.04391",
-    "date": "2025",
-    "date_sort": "2025-07-13",
-    "venue": "ICML 24 TiFA Workshop",
-    "venue_year": "2024",
-    "kind": "workshop",
-    "family": "ICML",
-    "group_sort_date": "2024-07-15",
-    "superlatives": []
-  },
-  {
-    "title": "Why Has Predicting Downstream Capabilities of Frontier AI Models with Scale Remained Elusive?",
-    "url": "https://arxiv.org/abs/2406.04391",
-    "date": "2025",
-    "date_sort": "2025-07-13",
-    "venue": "NextGenAISafety Workshop (ICML 24)",
-    "venue_year": "2024",
-    "kind": "workshop",
-    "family": "ICML",
-    "group_sort_date": "2024-07-15",
+    "group_sort_date": "2024-07-21",
     "superlatives": []
   },
   {
@@ -1050,7 +1324,7 @@
     "venue_year": "2024",
     "kind": "workshop",
     "family": "SSCW 2024",
-    "group_sort_date": "2024-06-27",
+    "group_sort_date": "2024-07-16",
     "superlatives": []
   },
   {
@@ -1090,6 +1364,18 @@
     "superlatives": []
   },
   {
+    "title": "Democratic Governance of AI Systems and Datasets",
+    "url": "https://openfuture.eu/wp-content/uploads/2024/05/240517Democratic_Governance_of_AI_Systems.pdf",
+    "date": "2024",
+    "date_sort": "2024-05-17",
+    "venue": "Think7 Policy Brief",
+    "venue_year": "2024",
+    "kind": "conference",
+    "family": "Think7 Policy Brief",
+    "group_sort_date": "2024-05-17",
+    "superlatives": []
+  },
+  {
     "title": "OpenFold: Retraining AlphaFold2 yields new insights into its learning mechanisms and capacity for generalization",
     "url": "https://www.biorxiv.org/content/10.1101/2022.11.20.517210v3",
     "date": "2024",
@@ -1099,6 +1385,18 @@
     "kind": "conference",
     "family": "Nature Methods",
     "group_sort_date": "2024-05-14",
+    "superlatives": []
+  },
+  {
+    "title": "Towards a Framework for Openness in Foundation Models: Proceedings from the Columbia Convening on Openness in Artificial Intelligence",
+    "url": "https://arxiv.org/abs/2405.15802",
+    "date": "2024",
+    "date_sort": "2024-05-17",
+    "venue": "Columbia Convening on Openness in Artificial Intelligence",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "Columbia Convening on Openness in Artificial Intelligence",
+    "group_sort_date": "2024-05-10",
     "superlatives": []
   },
   {
@@ -1174,30 +1472,6 @@
     "superlatives": []
   },
   {
-    "title": "Eliciting Latent Knowledge from Quirky Language Models",
-    "url": "https://arxiv.org/abs/2312.01037",
-    "date": "2024",
-    "date_sort": "2024-10-07",
-    "venue": "ICLR 2024 Workshop on Mathematical and Empirical Understanding of Foundation Models",
-    "venue_year": "2024",
-    "kind": "workshop",
-    "family": "ICLR",
-    "group_sort_date": "2024-05-04",
-    "superlatives": []
-  },
-  {
-    "title": "Multi-Task Inference: Can Large Language Models Follow Multiple Instructions at Once?",
-    "url": "https://arxiv.org/abs/2402.11597",
-    "date": "2024",
-    "date_sort": "2024-08-01",
-    "venue": "ICLR 2024 Workshop on Mathematical and Empirical Understanding of Foundation Models",
-    "venue_year": "2024",
-    "kind": "workshop",
-    "family": "ICLR",
-    "group_sort_date": "2024-05-04",
-    "superlatives": []
-  },
-  {
     "title": "Attributing Mode Collapse in the fine-tuning of Large Language Models",
     "url": "https://openreview.net/forum?id=3pDMYjpOxk",
     "date": "2024",
@@ -1210,8 +1484,82 @@
     "superlatives": []
   },
   {
+    "title": "Holographic Global Convolutional Networks for Long-Range Prediction Tasks in Malware Detection",
+    "url": "https://arxiv.org/abs/2403.17978",
+    "date": "2024",
+    "date_sort": "2024-05-02",
+    "venue": "AISTATS 2024",
+    "venue_year": "2024",
+    "kind": "conference",
+    "family": "AISTATS 2024",
+    "group_sort_date": "2024-05-02",
+    "superlatives": []
+  },
+  {
+    "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
+    "url": "https://arxiv.org/abs/2309.08600",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "NeurIPS Workshop on Attributing Model Behavior at Scale",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2024-04-30",
+    "superlatives": []
+  },
+  {
+    "title": "ReLoRA: High-Rank Training Through Low-Rank Updates",
+    "url": "https://arxiv.org/abs/2307.05695",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "NeurIPS Workshop on Advancing Neural Network Training: Computational Efficiency, Scalability",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2024-04-30",
+    "superlatives": []
+  },
+  {
+    "title": "Quality-Diversity through AI Feedback",
+    "url": "https://arxiv.org/abs/2310.13032",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "NeurIPS Workshop on Agent Learning in Open-Endedness",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2024-04-30",
+    "superlatives": []
+  },
+  {
+    "title": "OpenWebMath: An Open Dataset of High-Quality Mathematical Web Text",
+    "url": "https://arxiv.org/abs/2310.06786",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "MATH-AI Workshop at NeurIPS 2023",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2024-04-30",
+    "superlatives": [
+      "Oral at MATH-AI Workshop, NeurIPS"
+    ]
+  },
+  {
+    "title": "LLeMA: An Open Language Model for Mathematics",
+    "url": "https://arxiv.org/abs/2310.10631",
+    "date": "2024",
+    "date_sort": "2024-05-07",
+    "venue": "NeurIPS Workshop on Math and AI",
+    "venue_year": "2024",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2024-04-30",
+    "superlatives": []
+  },
+  {
     "title": "The OpenELM Library: Leveraging Progress in Language Models for Novel Evolutionary Algorithms",
-    "url": "https://openreview.net/pdf/96e2100a572823c2d8944949784475c8f3aa153b.pdf",
+    "url": "https://openreview.net/forum?id=C0SGtHjr4wK",
     "date": "2024",
     "date_sort": "2024-02-18",
     "venue": "Genetic Programming Theory & Practice",
@@ -1219,6 +1567,30 @@
     "kind": "conference",
     "family": "Genetic Programming Theory & Practice",
     "group_sort_date": "2024-02-18",
+    "superlatives": []
+  },
+  {
+    "title": "Understanding Gradient Descent through the Training Jacobian",
+    "url": "https://arxiv.org/abs/2412.07003",
+    "date": "2024",
+    "date_sort": "2024-12-09",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2024-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Surveying the Effects of Quality, Diversity, and Complexity in Synthetic Data From Large Language Models",
+    "url": "https://arxiv.org/abs/2412.02980",
+    "date": "2024",
+    "date_sort": "2024-12-04",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2024-01-01",
     "superlatives": []
   },
   {
@@ -1250,6 +1622,18 @@
     "url": "https://arxiv.org/abs/2410.13215",
     "date": "2024",
     "date_sort": "2024-10-22",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2024-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Tree Attention: Topology-aware Decoding for Long-Context Attention on GPU Clusters",
+    "url": "https://arxiv.org/abs/2408.04093",
+    "date": "2024",
+    "date_sort": "2024-08-07",
     "venue": "arXiv",
     "venue_year": "2024",
     "kind": "arxiv",
@@ -1306,10 +1690,46 @@
     "superlatives": []
   },
   {
+    "title": "Musically Aware Automatic Piano Transcription Using Synthetic Pretraining",
+    "url": "https://www.alexander-spangher.com/papers/aria_amt.pdf",
+    "date": "2024",
+    "date_sort": "2024-04-27",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2024-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Investigating the Effectiveness of HyperTuning via Gisting",
+    "url": "https://arxiv.org/abs/2402.16817",
+    "date": "2024",
+    "date_sort": "2024-02-26",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2024-01-01",
+    "superlatives": []
+  },
+  {
     "title": "Suppressing Pink Elephants with Direct Principle Feedback",
     "url": "https://arxiv.org/abs/2402.07896",
     "date": "2024",
     "date_sort": "2024-02-12",
+    "venue": "arXiv",
+    "venue_year": "2024",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2024-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Comparative Study of Large Language Model Architectures on Frontier",
+    "url": "https://arxiv.org/abs/2402.00691",
+    "date": "2024",
+    "date_sort": "2024-02-01",
     "venue": "arXiv",
     "venue_year": "2024",
     "kind": "arxiv",
@@ -1339,9 +1759,7 @@
     "kind": "conference",
     "family": "NeurIPS",
     "group_sort_date": "2023-12-10",
-    "superlatives": [
-      "Spotlight"
-    ]
+    "superlatives": []
   },
   {
     "title": "Reconstructing the Mind's Eye: fMRI-to-Image with Contrastive Learning and Diffusion Priors",
@@ -1354,8 +1772,20 @@
     "family": "NeurIPS",
     "group_sort_date": "2023-12-10",
     "superlatives": [
-      "Spotlight"
+      "Spotlight at NeurIPS"
     ]
+  },
+  {
+    "title": "Neural MMO 2.0: A Massively Multi-task Addition to Massively Multi-Agent Learning",
+    "url": "https://arxiv.org/abs/2311.03736",
+    "date": "2023",
+    "date_sort": "2023-12-10",
+    "venue": "NeurIPS Datasets and Benchmarks",
+    "venue_year": "2023",
+    "kind": "conference",
+    "family": "NeurIPS",
+    "group_sort_date": "2023-12-10",
+    "superlatives": []
   },
   {
     "title": "LEACE: Perfect linear concept erasure in closed form",
@@ -1382,76 +1812,18 @@
     "superlatives": []
   },
   {
-    "title": "ReLoRA: High-Rank Training Through Low-Rank Updates",
-    "url": "https://arxiv.org/abs/2307.05695",
-    "date": "2024",
-    "date_sort": "2024-05-07",
-    "venue": "NeurIPS Workshop on Advancing Neural Network Training: Computational Efficiency, Scalability",
-    "venue_year": "2023",
-    "kind": "workshop",
-    "family": "NeurIPS",
-    "group_sort_date": "2023-12-09",
-    "superlatives": []
-  },
-  {
-    "title": "Quality-Diversity through AI Feedback",
-    "url": "https://arxiv.org/abs/2310.13032",
-    "date": "2024",
-    "date_sort": "2024-05-07",
-    "venue": "NeurIPS Workshop on Agent Learning in Open-Endedness",
-    "venue_year": "2023",
-    "kind": "workshop",
-    "family": "NeurIPS",
-    "group_sort_date": "2023-12-09",
-    "superlatives": []
-  },
-  {
     "title": "Eliciting Language Model Behaviors using Reverse Language Models",
     "url": "https://neurips.cc/virtual/2023/workshop/66526#collapse78917",
     "date": "2023",
     "date_sort": "2023-12-16",
-    "venue": "NeurIPS Workshop on Socially Responsible Language Modelling Research (SoLaR)",
+    "venue": "SoLaR Workshop at NeurIPS 2023",
     "venue_year": "2023",
     "kind": "workshop",
     "family": "NeurIPS",
     "group_sort_date": "2023-12-09",
-    "superlatives": []
-  },
-  {
-    "title": "Sparse Autoencoders Find Highly Interpretable Features in Language Models",
-    "url": "https://arxiv.org/abs/2309.08600",
-    "date": "2024",
-    "date_sort": "2024-05-07",
-    "venue": "NeurIPS Workshop on Attributing Model Behavior at Scale",
-    "venue_year": "2023",
-    "kind": "workshop",
-    "family": "NeurIPS",
-    "group_sort_date": "2023-12-08",
-    "superlatives": []
-  },
-  {
-    "title": "OpenWebMath: An Open Dataset of High-Quality Mathematical Web Text",
-    "url": "https://arxiv.org/abs/2310.06786",
-    "date": "2024",
-    "date_sort": "2024-05-07",
-    "venue": "NeurIPS Workshop on Math and AI",
-    "venue_year": "2023",
-    "kind": "workshop",
-    "family": "NeurIPS",
-    "group_sort_date": "2023-12-08",
-    "superlatives": []
-  },
-  {
-    "title": "LLeMA: An Open Language Model for Mathematics",
-    "url": "https://arxiv.org/abs/2310.10631",
-    "date": "2024",
-    "date_sort": "2024-05-07",
-    "venue": "NeurIPS Workshop on Math and AI",
-    "venue_year": "2023",
-    "kind": "workshop",
-    "family": "NeurIPS",
-    "group_sort_date": "2023-12-08",
-    "superlatives": []
+    "superlatives": [
+      "Spotlight at SoLaR Workshop, NeurIPS"
+    ]
   },
   {
     "title": "Detecting Backdoors with Meta-Models",
@@ -1502,6 +1874,18 @@
     "superlatives": []
   },
   {
+    "title": "2023 Open Source Generative AI Survey Report",
+    "url": "https://www.linuxfoundation.org/research/2023-generative-ai-study",
+    "date": "2023",
+    "date_sort": "2023-12-01",
+    "venue": "Linux Foundation Research",
+    "venue_year": "2023",
+    "kind": "conference",
+    "family": "Linux Foundation Research",
+    "group_sort_date": "2023-12-01",
+    "superlatives": []
+  },
+  {
     "title": "Prompting Multilingual Large Language Models to Generate Code-Mixed Texts: The Case of South East Asian Languages",
     "url": "https://arxiv.org/abs/2303.13592",
     "date": "2023",
@@ -1514,11 +1898,23 @@
     "superlatives": []
   },
   {
+    "title": "Current Status of NLP in South East Asia with Insights from Multilingualism and Language Diversity",
+    "url": "https://aclanthology.org/2023.ijcnlp-tutorials.2/",
+    "date": "2023",
+    "date_sort": "2023-11-01",
+    "venue": "IJCNLP-AACL 2023 Tutorial Abstracts",
+    "venue_year": "2023",
+    "kind": "conference",
+    "family": "IJCNLP-AACL 2023 Tutorial Abstracts",
+    "group_sort_date": "2023-11-01",
+    "superlatives": []
+  },
+  {
     "title": "Utilizing Weak Supervision to Generate Indonesian Conservation Datasets",
     "url": "https://arxiv.org/abs/2310.11258",
     "date": "2023",
     "date_sort": "2023-11-01",
-    "venue": "AACL Workshop in South East Asian Language Processing",
+    "venue": "AACL Workshop on Southeast Asian Language Processing",
     "venue_year": "2023",
     "kind": "workshop",
     "family": "ACL",
@@ -1526,8 +1922,32 @@
     "superlatives": []
   },
   {
+    "title": "Current Status of NLP in South East Asia with Insights from Multilingualism and Language Diversity",
+    "url": "https://aclanthology.org/2023.ijcnlp-tutorials.2/",
+    "date": "2023",
+    "date_sort": "2023-11-01",
+    "venue": "IJCNLP-AACL 2023 Tutorial",
+    "venue_year": "2023",
+    "kind": "workshop",
+    "family": "IJCNLP-AACL 2023 Tutorial",
+    "group_sort_date": "2023-10-25",
+    "superlatives": []
+  },
+  {
+    "title": "Towards Meta-Models for Automated Interpretability",
+    "url": "https://openreview.net/forum?id=fM1ETm3ssl",
+    "date": "2023",
+    "date_sort": "2023-09-23",
+    "venue": "ICLR 2024 submission",
+    "venue_year": "2023",
+    "kind": "conference",
+    "family": "ICLR",
+    "group_sort_date": "2023-09-23",
+    "superlatives": []
+  },
+  {
     "title": "Reclaiming the Digital Commons: A Public Data Trust for Training Data",
-    "url": "https://dl.acm.org/doi/10.1145/3600211.3604658",
+    "url": "https://arxiv.org/abs/2303.09001",
     "date": "2023",
     "date_sort": "2023-08-29",
     "venue": "AIES",
@@ -1539,7 +1959,7 @@
   },
   {
     "title": "Recasting Self-Attention with Holographic Reduced Representations",
-    "url": "https://dl.acm.org/doi/10.5555/3618408.3618431",
+    "url": "https://arxiv.org/abs/2305.19534",
     "date": "2023",
     "date_sort": "2023-07-23",
     "venue": "ICML",
@@ -1551,7 +1971,7 @@
   },
   {
     "title": "Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling",
-    "url": "https://dl.acm.org/doi/10.5555/3618408.3618510",
+    "url": "https://arxiv.org/abs/2304.01373",
     "date": "2023",
     "date_sort": "2023-07-23",
     "venue": "ICML",
@@ -1560,12 +1980,12 @@
     "family": "ICML",
     "group_sort_date": "2023-07-23",
     "superlatives": [
-      "Oral"
+      "Oral at ICML"
     ]
   },
   {
     "title": "HyperTuning: Toward Adapting Large Language Models without Back-propagation",
-    "url": "https://dl.acm.org/doi/10.5555/3618408.3619566",
+    "url": "https://arxiv.org/abs/2211.12485",
     "date": "2023",
     "date_sort": "2023-07-23",
     "venue": "ICML",
@@ -1573,18 +1993,6 @@
     "kind": "conference",
     "family": "ICML",
     "group_sort_date": "2023-07-23",
-    "superlatives": []
-  },
-  {
-    "title": "Do LLMs selectively encode the goal of an agent's reach?",
-    "url": "https://openreview.net/forum?id=KxvXjtyuYl",
-    "date": "2023",
-    "date_sort": "2023-07-28",
-    "venue": "ICML Workshop on Theory of Mind in Communicating Agents",
-    "venue_year": "2023",
-    "kind": "workshop",
-    "family": "ICML",
-    "group_sort_date": "2023-07-21",
     "superlatives": []
   },
   {
@@ -1601,7 +2009,7 @@
   },
   {
     "title": "GAIA Search: Hugging Face and Pyserini Interoperability for NLP Training Data Exploration",
-    "url": "https://aclanthology.org/2023.acl-demo.57/",
+    "url": "https://arxiv.org/abs/2306.01481",
     "date": "2023",
     "date_sort": "2023-07-09",
     "venue": "ACL 2023 Demos Track",
@@ -1613,7 +2021,7 @@
   },
   {
     "title": "Crosslingual Generalization through Multitask Finetuning",
-    "url": "https://aclanthology.org/2023.acl-long.891/",
+    "url": "https://arxiv.org/abs/2211.01786",
     "date": "2023",
     "date_sort": "2023-07-09",
     "venue": "ACL",
@@ -1660,6 +2068,32 @@
     "superlatives": []
   },
   {
+    "title": "Sparse Upcycling: Training Mixture-of-Experts from Dense Checkpoints",
+    "url": "https://arxiv.org/abs/2212.05055",
+    "date": "2023",
+    "date_sort": "2023-05-01",
+    "venue": "ICLR 2023",
+    "venue_year": "2023",
+    "kind": "conference",
+    "family": "ICLR",
+    "group_sort_date": "2023-05-01",
+    "superlatives": []
+  },
+  {
+    "title": "ProofNet: Autoformalizing and Formally Proving Undergraduate-Level Mathematics",
+    "url": "https://arxiv.org/abs/2302.12433",
+    "date": "2023",
+    "date_sort": "2023-02-24",
+    "venue": "MATH-AI Workshop at NeurIPS 2022",
+    "venue_year": "2023",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2023-02-17",
+    "superlatives": [
+      "Oral at MATH-AI Workshop, NeurIPS"
+    ]
+  },
+  {
     "title": "Masked inverse folding with sequence transfer for protein representation learning",
     "url": "https://pubmed.ncbi.nlm.nih.gov/37883472/",
     "date": "2023",
@@ -1684,10 +2118,34 @@
     "superlatives": []
   },
   {
+    "title": "ARB: Advanced Reasoning Benchmark for Large Language Models",
+    "url": "https://arxiv.org/abs/2307.13692",
+    "date": "2023",
+    "date_sort": "2023-07-25",
+    "venue": "arXiv",
+    "venue_year": "2023",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2023-01-01",
+    "superlatives": []
+  },
+  {
     "title": "Challenges and Applications of Large Language Models",
     "url": "https://arxiv.org/abs/2307.10169",
     "date": "2023",
     "date_sort": "2023-07-19",
+    "venue": "arXiv",
+    "venue_year": "2023",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2023-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Evaluating the Social Impact of Generative AI Systems in Systems and Society",
+    "url": "https://arxiv.org/abs/2306.05949",
+    "date": "2023",
+    "date_sort": "2023-06-09",
     "venue": "arXiv",
     "venue_year": "2023",
     "kind": "arxiv",
@@ -1732,18 +2190,6 @@
     "superlatives": []
   },
   {
-    "title": "ProofNet: Autoformalizing and Formally Proving Undergraduate-Level Mathematics",
-    "url": "https://arxiv.org/abs/2302.12433",
-    "date": "2023",
-    "date_sort": "2023-02-24",
-    "venue": "arXiv",
-    "venue_year": "2023",
-    "kind": "arxiv",
-    "family": "arXiv",
-    "group_sort_date": "2023-01-01",
-    "superlatives": []
-  },
-  {
     "title": "SantaCoder: don't reach for the stars!",
     "url": "https://arxiv.org/abs/2301.03988",
     "date": "2023",
@@ -1757,7 +2203,7 @@
   },
   {
     "title": "What Language Model to Train if You Have One Million GPU Hours?",
-    "url": "https://aclanthology.org/2022.findings-emnlp.54/",
+    "url": "https://arxiv.org/abs/2210.15424",
     "date": "2022",
     "date_sort": "2022-12-01",
     "venue": "EMNLP (Findings)",
@@ -1769,19 +2215,7 @@
   },
   {
     "title": "The BigScience ROOTS Corpus: A 1.6TB Composite Multilingual Dataset",
-    "url": "https://proceedings.neurips.cc/paper_files/paper/2022/hash/ce9e92e3de2372a4b93353eb7f3dc0bd-Abstract-Datasets_and_Benchmarks.html",
-    "date": "2022",
-    "date_sort": "2022-11-28",
-    "venue": "NeurIPS Datasets and Benchmarks",
-    "venue_year": "2022",
-    "kind": "conference",
-    "family": "NeurIPS",
-    "group_sort_date": "2022-11-28",
-    "superlatives": []
-  },
-  {
-    "title": "LAION-5B: An open large-scale dataset for training next generation image-text models",
-    "url": "https://openreview.net/forum?id=M3Y74vmsMcY",
+    "url": "https://arxiv.org/abs/2303.03915",
     "date": "2022",
     "date_sort": "2022-11-28",
     "venue": "NeurIPS Datasets and Benchmarks",
@@ -1790,12 +2224,26 @@
     "family": "NeurIPS",
     "group_sort_date": "2022-11-28",
     "superlatives": [
-      "Best Paper"
+      "Featured Paper at NeurIPS Datasets and Benchmarks Track"
+    ]
+  },
+  {
+    "title": "LAION-5B: An open large-scale dataset for training next generation image-text models",
+    "url": "https://arxiv.org/abs/2210.08402",
+    "date": "2022",
+    "date_sort": "2022-11-28",
+    "venue": "NeurIPS Datasets and Benchmarks",
+    "venue_year": "2022",
+    "kind": "conference",
+    "family": "NeurIPS",
+    "group_sort_date": "2022-11-28",
+    "superlatives": [
+      "Outstanding Datasets and Benchmarks Paper at NeurIPS"
     ]
   },
   {
     "title": "EleutherAI: Going Beyond \"Open Science\" to \"Science in the Open\"",
-    "url": "https://openreview.net/forum?id=JWHQ8U1IdYb",
+    "url": "https://arxiv.org/abs/2210.06413",
     "date": "2022",
     "date_sort": "2022-11-28",
     "venue": "NeurIPS Workshop on Broadening Research Collaborations",
@@ -1804,7 +2252,7 @@
     "family": "NeurIPS",
     "group_sort_date": "2022-11-21",
     "superlatives": [
-      "Oral"
+      "Oral at Broadening Research Collaborations Workshop, NeurIPS"
     ]
   },
   {
@@ -1821,7 +2269,7 @@
   },
   {
     "title": "VQGAN-CLIP: Open Domain Image Generation and Editing with Natural Language Guidance",
-    "url": "https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136970088.pdf",
+    "url": "https://arxiv.org/abs/2204.08583",
     "date": "2022",
     "date_sort": "2022-10-23",
     "venue": "ECCV",
@@ -1833,7 +2281,7 @@
   },
   {
     "title": "Fooling MOSS with Pretrained Language Models",
-    "url": "https://dl.acm.org/doi/abs/10.1145/3511808.3557079",
+    "url": "https://arxiv.org/abs/2201.07406",
     "date": "2022",
     "date_sort": "2022-10-17",
     "venue": "CIKM",
@@ -1857,7 +2305,7 @@
   },
   {
     "title": "Data Governance in the Age of Large-Scale Data-Driven Language Technology",
-    "url": "https://dl.acm.org/doi/abs/10.1145/3531146.3534637",
+    "url": "https://arxiv.org/abs/2206.03216",
     "date": "2022",
     "date_sort": "2022-06-20",
     "venue": "FAccT",
@@ -1865,6 +2313,18 @@
     "kind": "conference",
     "family": "FAccT",
     "group_sort_date": "2022-06-20",
+    "superlatives": []
+  },
+  {
+    "title": "PromptSource: An Integrated Development Environment and Repository for Natural Language Prompts",
+    "url": "https://arxiv.org/abs/2202.01279",
+    "date": "2022",
+    "date_sort": "2022-05-22",
+    "venue": "ACL 2022 System Demonstrations",
+    "venue_year": "2022",
+    "kind": "conference",
+    "family": "ACL",
+    "group_sort_date": "2022-05-22",
     "superlatives": []
   },
   {
@@ -1881,7 +2341,7 @@
   },
   {
     "title": "GPT-NeoX-20B: An Open-Source Autoregressive Language Model",
-    "url": "https://aclanthology.org/2022.bigscience-1.9/",
+    "url": "https://arxiv.org/abs/2204.06745",
     "date": "2022",
     "date_sort": "2022-05-28",
     "venue": "ACL Workshop on Challenges & Perspectives in Creating Large Language Models",
@@ -1893,7 +2353,7 @@
   },
   {
     "title": "Multitask Prompted Training Enables Zero-Shot Task Generalization",
-    "url": "https://iclr.cc/virtual/2022/poster/7101",
+    "url": "https://arxiv.org/abs/2110.08207",
     "date": "2022",
     "date_sort": "2022-04-25",
     "venue": "ICLR",
@@ -1905,7 +2365,7 @@
   },
   {
     "title": "Quality at a Glance: An Audit of Web-Crawled Multilingual Datasets",
-    "url": "https://aclanthology.org/2022.tacl-1.4/",
+    "url": "https://arxiv.org/abs/2103.12028",
     "date": "2022",
     "date_sort": "2022-01-31",
     "venue": "TACL",
@@ -1913,6 +2373,18 @@
     "kind": "conference",
     "family": "TACL",
     "group_sort_date": "2022-01-31",
+    "superlatives": []
+  },
+  {
+    "title": "Quality at a Glance: An Audit of Web-Crawled Multilingual Datasets",
+    "url": "https://arxiv.org/abs/2103.12028",
+    "date": "2022",
+    "date_sort": "2022-01-31",
+    "venue": "EACL AfricaNLP Workshop",
+    "venue_year": "2022",
+    "kind": "workshop",
+    "family": "ACL",
+    "group_sort_date": "2022-01-24",
     "superlatives": []
   },
   {
@@ -1956,7 +2428,7 @@
     "url": "https://arxiv.org/abs/2111.02114",
     "date": "2021",
     "date_sort": "2021-12-14",
-    "venue": "NeurIPS Workshopn on Data-Centic AI",
+    "venue": "NeurIPS Workshop on Data-Centric AI",
     "venue_year": "2021",
     "kind": "workshop",
     "family": "NeurIPS",
@@ -1965,7 +2437,7 @@
   },
   {
     "title": "Towards a Model-Theoretic View of Narratives",
-    "url": "https://aclanthology.org/2021.nuse-1.10/",
+    "url": "https://arxiv.org/abs/2103.12872",
     "date": "2021",
     "date_sort": "2021-06-11",
     "venue": "NAACL Workshop on Narrative Understanding",
@@ -1976,15 +2448,27 @@
     "superlatives": []
   },
   {
-    "title": "Quality at a Glance: An Audit of Web-Crawled Multilingual Datasets",
-    "url": "https://aclanthology.org/2022.tacl-1.4/",
-    "date": "2022",
-    "date_sort": "2022-01-31",
-    "venue": "EACL AfricaNLP Workshop",
+    "title": "Fabula Entropy Indexing: Objective Measures of Story Coherence",
+    "url": "https://arxiv.org/abs/2104.07472",
+    "date": "2021",
+    "date_sort": "2021-06-11",
+    "venue": "NAACL Workshop on Narrative Understanding",
     "venue_year": "2021",
     "kind": "workshop",
     "family": "ACL",
-    "group_sort_date": "2021-04-12",
+    "group_sort_date": "2021-06-04",
+    "superlatives": []
+  },
+  {
+    "title": "The Hard Problem of Aligning AI to Human Values",
+    "url": "https://www.stellabiderman.ai/research-interests",
+    "date": "2021",
+    "date_sort": "2021-04-27",
+    "venue": "The State of AI Ethics Report, Volume 4",
+    "venue_year": "2021",
+    "kind": "conference",
+    "family": "The State of AI Ethics Report, Volume 4",
+    "group_sort_date": "2021-04-27",
     "superlatives": []
   },
   {
@@ -2012,6 +2496,66 @@
     "superlatives": []
   },
   {
+    "title": "Scaling Scaling Laws with Board Games",
+    "url": "https://arxiv.org/abs/2104.03113",
+    "date": "2021",
+    "date_sort": "2021-04-07",
+    "venue": "arXiv",
+    "venue_year": "2021",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2021-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Prompt Programming for Large Language Models: Beyond the Few-Shot Paradigm",
+    "url": "https://arxiv.org/abs/2102.07350",
+    "date": "2021",
+    "date_sort": "2021-02-15",
+    "venue": "arXiv",
+    "venue_year": "2021",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2021-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Multiversal Views on Language Models",
+    "url": "https://arxiv.org/abs/2102.06391",
+    "date": "2021",
+    "date_sort": "2021-02-12",
+    "venue": "arXiv",
+    "venue_year": "2021",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2021-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "Pitfalls in Machine Learning Research: Reexamining the Development Cycle",
+    "url": "https://arxiv.org/abs/2011.02832",
+    "date": "2020",
+    "date_sort": "2020-12-12",
+    "venue": "Proceedings on I Can't Believe It's Not Better! at NeurIPS Workshops",
+    "venue_year": "2020",
+    "kind": "workshop",
+    "family": "NeurIPS",
+    "group_sort_date": "2020-12-05",
+    "superlatives": []
+  },
+  {
+    "title": "Pitfalls in Machine Learning Research: Reexamining the Development Cycle",
+    "url": "https://arxiv.org/abs/2011.02832",
+    "date": "2020",
+    "date_sort": "2020-12-12",
+    "venue": "I Can't Believe It's Not Better! at NeurIPS 2020",
+    "venue_year": "2020",
+    "kind": "workshop",
+    "family": "I Can't Believe It's Not Better! at NeurIPS 2020",
+    "group_sort_date": "2020-12-05",
+    "superlatives": []
+  },
+  {
     "title": "The Pile: An 800GB Dataset of Diverse Text for Language Modeling",
     "url": "https://arxiv.org/abs/2101.00027",
     "date": "2020",
@@ -2033,6 +2577,18 @@
     "kind": "arxiv",
     "family": "arXiv",
     "group_sort_date": "2020-01-01",
+    "superlatives": []
+  },
+  {
+    "title": "One Epoch Is All You Need",
+    "url": "https://arxiv.org/abs/1906.06669",
+    "date": "2019",
+    "date_sort": "2019-06-16",
+    "venue": "arXiv",
+    "venue_year": "2019",
+    "kind": "arxiv",
+    "family": "arXiv",
+    "group_sort_date": "2019-01-01",
     "superlatives": []
   }
 ]

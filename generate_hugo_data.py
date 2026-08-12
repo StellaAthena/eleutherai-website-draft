@@ -12,33 +12,7 @@ from urllib.request import Request, urlopen
 
 
 ROOT = Path(__file__).resolve().parent
-PAPERS_CSV = ROOT / "eleutherai_papers_sheet_gid2053751678.csv"
-PAPER_AUTHORS_JSON = ROOT / "data" / "research" / "paper_authors.json"
-AUTHOR_OVERRIDES = {
-    "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics": [
-        "Stella Biderman",
-        "Mohammad Aflah Khan",
-        "Nilofar Mireshghallah",
-        "Catherine Arnett",
-        "Fazl Barez",
-        "Naomi Saphra",
-    ],
-    "Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling": [
-        "Stella Biderman",
-        "Hailey Schoelkopf",
-        "Quentin Anthony",
-        "Herbie Bradley",
-        "Kyle O'Brien",
-        "Eric Hallahan",
-        "Mohammad Aflah Khan",
-        "Shivanshu Purohit",
-        "USVSN Sai Prashanth",
-        "Edward Raff",
-        "Aviya Skowron",
-        "Lintang Sutawika",
-        "Oskar van der Wal",
-    ],
-}
+PAPERS_CSV = ROOT / "eleutherai_papers.csv"
 PAPER_URL_OVERRIDES = {
     "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics": "https://arxiv.org/abs/2606.06533",
     "Automated Attribution Graph Interpretation via Probe Prompting": "https://arxiv.org/abs/2511.07002",
@@ -76,7 +50,7 @@ CONFERENCE_FAMILIES = (
 )
 PAPERS_SHEET_CSV_URL = (
     "https://docs.google.com/spreadsheets/d/"
-    "14amb2CM9nVQR_-ZqpGuNPSSdMxsAk0YEoAvetgEyGRw/export?format=csv&gid=2053751678"
+    "1LcB7_1lHZgO8_EmOkrvfV2BTaOngX95J5v8PJeuN4rM/export?format=csv"
 )
 SCHOLAR_PROFILE_URL = "https://scholar.google.com/citations?user=to2WKckAAAAJ&hl=en"
 SCHOLAR_USER_AGENT = (
@@ -166,6 +140,38 @@ def display_terms(value):
     return [item.strip() for item in (value or "").replace(",", ";").split(";") if item.strip()]
 
 
+def full_author_terms(value):
+    return [item.strip() for item in (value or "").split(";") if item.strip()]
+
+
+def row_superlatives(row):
+    # The current Sheet uses one Superlative cell whose text may contain commas.
+    value = (row.get("Superlative") or "").strip()
+    if value:
+        return [value]
+    return display_terms(row.get("Superlatives"))
+
+
+def normalize_paper_row(row):
+    normalized = dict(row)
+    sort_date = (row.get("Sort Date") or "").strip()
+    conference = (row.get("Conference or Journal") or "").strip()
+    workshop = (row.get("Workshop") or "").strip()
+    areas = [area.strip() for area in (row.get("Area") or "").split(";") if area.strip()]
+
+    normalized["Pub Date"] = (row.get("Pub Date") or sort_date).strip()
+    normalized["Archival Date"] = (row.get("Archival Date") or (sort_date if conference else "")).strip()
+    normalized["Workshop Date"] = (row.get("Workshop Date") or (sort_date if workshop else "")).strip()
+    normalized["Superlatives"] = (row.get("Superlatives") or row.get("Superlative") or "").strip()
+    normalized["Primary Area"] = (row.get("Primary Area") or (areas[0] if areas else "")).strip()
+    normalized["Additional Area"] = (
+        row.get("Additional Area") or "; ".join(areas[1:])
+    ).strip()
+    if not (row.get("Status") or "").strip():
+        normalized["Status"] = "Accepted" if conference or workshop else "Preprint"
+    return normalized
+
+
 def author_surname(name):
     name = " ".join((name or "").split())
     if not name:
@@ -187,6 +193,37 @@ def display_authors(authors, limit=4):
     if len(surnames) > limit:
         return ", ".join(surnames[:limit]) + ", et al."
     return ", ".join(surnames)
+
+
+def author_search_terms(authors):
+    terms = []
+    for author in authors:
+        author = " ".join((author or "").split())
+        if not author:
+            continue
+        terms.append(author)
+        if "," in author:
+            surname, given = [part.strip() for part in author.split(",", 1)]
+            if surname and given:
+                terms.append(f"{given} {surname}")
+    return terms
+
+
+def clean_display_authors(value):
+    value = " ".join((value or "").split())
+    match = re.fullmatch(r"(.*?)\s*\(\s*and\s+((?:\d+\s+)?others?)\s*\)", value, flags=re.IGNORECASE)
+    if not match:
+        return value
+
+    named_authors = match.group(1).strip()
+    others = match.group(2).strip()
+    if ", and " in named_authors:
+        named_authors = ", ".join(named_authors.rsplit(", and ", 1))
+    elif " and " in named_authors:
+        named_authors = ", ".join(named_authors.rsplit(" and ", 1))
+
+    separator = ", and " if "," in named_authors else " and "
+    return f"{named_authors}{separator}{others}"
 
 
 def paper_url(row):
@@ -320,7 +357,7 @@ def homepage_venue(row):
         venue = workshop or "arXiv"
     else:
         venue = "arXiv"
-    return clean_venue_label(venue, display_terms(row.get("Superlatives")))
+    return clean_venue_label(venue, row_superlatives(row))
 
 
 def venue_date(row, venue):
@@ -348,14 +385,14 @@ def display_venue(row, config):
     venue = (row.get("Conference or Journal") or row.get("Workshop") or row.get("Status") or "Paper").strip()
     if venue == "Accepted":
         return "Paper"
-    return clean_venue_label(venue, display_terms(row.get("Superlatives")))
+    return clean_venue_label(venue, row_superlatives(row))
 
 
 def appearance_superlatives(row, raw_venue, kind, award_note="", has_separate_workshop=False):
     raw_lower = (raw_venue or "").casefold()
     award_lower = (award_note or "").casefold()
     selected = []
-    for term in display_terms(row.get("Superlatives")):
+    for term in row_superlatives(row):
         lower = term.casefold()
         if kind == "workshop":
             if "workshop" in lower or lower in raw_lower or ("best paper" in lower and "best paper" in award_lower):
@@ -363,7 +400,7 @@ def appearance_superlatives(row, raw_venue, kind, award_note="", has_separate_wo
         elif kind == "conference":
             if "workshop" in lower:
                 continue
-            if lower in raw_lower or not has_separate_workshop:
+            if lower in raw_lower or raw_lower in lower or not has_separate_workshop:
                 selected.append(clean_award_text(term))
     if kind == "workshop" and award_note and "best paper" in award_lower:
         selected.append(clean_award_text(award_note))
@@ -379,7 +416,7 @@ def appearance_superlatives(row, raw_venue, kind, award_note="", has_separate_wo
 
 
 def appearance_record(row, raw_venue, date, kind, award_note="", has_separate_workshop=False):
-    venue = clean_venue_label(raw_venue, display_terms(row.get("Superlatives")))
+    venue = clean_venue_label(raw_venue, row_superlatives(row))
     paper_date = pub_date(row)
     sort_date = date
     if kind == "workshop" and sort_date != datetime.min:
@@ -413,7 +450,7 @@ def paper_records(row):
         separate_workshops = [
             workshop
             for workshop in workshops
-            if clean_venue_label(workshop["venue"], display_terms(row.get("Superlatives"))) != clean_venue_label(conference, display_terms(row.get("Superlatives")))
+            if clean_venue_label(workshop["venue"], row_superlatives(row)) != clean_venue_label(conference, row_superlatives(row))
         ]
         conference_is_real = conference and not conference.casefold().startswith("extended to")
         if conference_is_real:
@@ -422,7 +459,7 @@ def paper_records(row):
                     row,
                     conference,
                     first_valid_date(archival_date, row_date(row), paper_date),
-                    venue_kind(clean_venue_label(conference, display_terms(row.get("Superlatives")))),
+                    venue_kind(clean_venue_label(conference, row_superlatives(row))),
                     has_separate_workshop=bool(separate_workshops),
                 )
             )
@@ -447,7 +484,17 @@ def paper_records(row):
 
 def read_papers():
     with PAPERS_CSV.open(newline="", encoding="utf-8") as f:
-        return list(csv.DictReader(f))
+        rows = [normalize_paper_row(row) for row in csv.DictReader(f)]
+    missing_authors = [
+        normalize_title(row.get("Title"))
+        for row in rows
+        if normalize_title(row.get("Title")) and not full_author_terms(row.get("all authors"))
+    ]
+    if missing_authors:
+        raise SystemExit(
+            "Papers CSV is missing `all authors` for: " + "; ".join(missing_authors)
+        )
+    return rows
 
 
 def refresh_papers_csv(require_refresh=True):
@@ -465,7 +512,19 @@ def refresh_papers_csv(require_refresh=True):
 
     text = text.replace("\r\n", "\n").replace("\r", "\n")
     header = text.splitlines()[0] if text.splitlines() else ""
-    if "Sort Date" not in header or "Title" not in header:
+    required_headers = {
+        "Sort Date",
+        "Title",
+        "Display Authors",
+        "Area",
+        "Conference or Journal",
+        "Workshop",
+        "Superlative",
+        "Link",
+        "all authors",
+    }
+    headers = set(next(csv.reader([header]), []))
+    if not required_headers.issubset(headers):
         raise SystemExit("Google Sheet export did not look like the papers CSV.")
 
     PAPERS_CSV.write_text(text, encoding="utf-8")
@@ -511,7 +570,7 @@ def area_paper_record(row, summary="", display_venue=""):
         "date": display_year(date),
         "year": str(date.year) if date != datetime.min else "",
         "venue": venue,
-        "superlatives": display_terms(row.get("Superlatives")),
+        "superlatives": row_superlatives(row),
         "sort_date": date.strftime("%Y-%m-%d") if date != datetime.min else "",
     }
 
@@ -525,7 +584,7 @@ def all_papers(rows):
     return records
 
 
-def library_paper_record(row, author_cache):
+def library_paper_record(row):
     date = pub_date(row)
     venue = homepage_venue(row)
     if venue.casefold().startswith("extended to"):
@@ -542,32 +601,30 @@ def library_paper_record(row, author_cache):
         )
     if kind == "conference":
         workshops = split_workshops(row.get("Workshop"))
-        for term in display_terms(row.get("Superlatives")):
+        for term in row_superlatives(row):
             if "workshop" not in term.casefold() or not workshops:
                 continue
             award = clean_award_text(term).replace("Runner-up", "Runner Up")
-            workshop = workshops[0]["venue"].replace("BioSafe Workshop", "BioSec Workshop")
-            contextual = f"{award}, {workshop}"
-            if contextual not in superlatives:
-                superlatives.append(contextual)
+            if award not in superlatives:
+                superlatives.append(award)
     distinction_text = " ".join(superlatives).casefold()
     marker = ""
     if "runner" in distinction_text or "finalist" in distinction_text:
         marker = "runnerup"
-    elif "best paper" in distinction_text:
+    elif "best paper" in distinction_text or "outstanding" in distinction_text:
         marker = "bestpaper"
-    elif "spotlight" in distinction_text:
+    elif "spotlight" in distinction_text or "featured paper" in distinction_text:
         marker = "spotlight"
     elif "oral" in distinction_text:
         marker = "oral"
-    sheet_authors = display_terms(row.get("Authors"))
-    title = normalize_title(row.get("Title"))
-    authors = sheet_authors or AUTHOR_OVERRIDES.get(title) or author_cache.get(title, [])
+    display_authors_text = clean_display_authors(row.get("Display Authors"))
+    authors = full_author_terms(row.get("all authors"))
     areas = []
     for field in ("Primary Area", "Additional Area"):
-        area = (row.get(field) or "").strip()
-        if area and area not in areas:
-            areas.append(area)
+        for area in (row.get(field) or "").split(";"):
+            area = area.strip()
+            if area and area not in areas:
+                areas.append(area)
     return {
         "title": normalize_title(row.get("Title")),
         "url": paper_url(row),
@@ -581,18 +638,16 @@ def library_paper_record(row, author_cache):
         "lead_org": (row.get("Lead Org") or "").strip(),
         "contact": (row.get("EleutherAI PoC") or "").strip(),
         "artifact_type": "Paper",
-        "authors": display_authors(authors),
+        "authors": display_authors_text or display_authors(authors),
+        "author_search": " ".join([display_authors_text, *author_search_terms(authors)]).strip(),
         "marker": marker,
         "superlatives": superlatives,
     }
 
 
 def library_papers(rows):
-    author_cache = {}
-    if PAPER_AUTHORS_JSON.exists():
-        author_cache = json.loads(PAPER_AUTHORS_JSON.read_text(encoding="utf-8"))
     records = [
-        library_paper_record(row, author_cache)
+        library_paper_record(row)
         for row in rows
         if normalize_title(row.get("Title")) and pub_date(row) != datetime.min
     ]
@@ -670,17 +725,14 @@ def configured_area_papers(rows, area):
 
 
 def row_areas(row):
-    return {
-        (row.get("Primary Area") or "").strip().casefold(),
-        (row.get("Additional Area") or "").strip().casefold(),
-    }
+    return set(split_terms(";".join([row.get("Primary Area") or "", row.get("Additional Area") or ""])))
 
 
 def row_search_text(row):
     return " ".join(
         [
             normalize_title(row.get("Title")),
-            row.get("Superlatives") or "",
+            "; ".join(row_superlatives(row)),
             row.get("Conference or Journal") or "",
             row.get("Workshop") or "",
         ]
@@ -890,7 +942,7 @@ def publication_metric_payload(rows):
         "label": "Publications",
         "count": count,
         "rounded_count": rounded_count,
-        "source": "papers_sheet_pub_date",
+        "source": "papers_sheet_sort_date",
         "rounded_to": 10,
     }
 
