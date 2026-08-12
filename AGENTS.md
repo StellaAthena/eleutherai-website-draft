@@ -51,7 +51,6 @@ Keep editable content separate from templates and styling.
 - `static/`: page-specific CSS, JavaScript, icons, and public assets
 - `assets/`: source images and shared brand assets mounted by Hugo
 - `generate_hugo_data.py`: publication, research, homepage-metric, and blog-index generation
-- `refresh_paper_authors.py`: publication-author metadata refresh
 
 Prefer Markdown or YAML for copy changes. Change a template only when page structure or behavior must change. Do not embed maintainable content directly in HTML when it belongs in `content/` or `data/`.
 
@@ -61,15 +60,15 @@ Prefer Markdown or YAML for copy changes. Change a template only when page struc
 
 The EleutherAI papers Google Sheet is the source of truth:
 
-`https://docs.google.com/spreadsheets/d/14amb2CM9nVQR_-ZqpGuNPSSdMxsAk0YEoAvetgEyGRw/edit?usp=sharing`
+`https://docs.google.com/spreadsheets/d/1LcB7_1lHZgO8_EmOkrvfV2BTaOngX95J5v8PJeuN4rM/edit?usp=sharing`
 
-A normal live build downloads the Sheet, regenerates the publication library and homepage publication data, refreshes missing author metadata where possible, and then builds Hugo.
+A normal live build downloads the Sheet, regenerates the publication library and homepage publication data, and then builds Hugo.
 
-A paper requires a title and `Pub Date` to appear in the Research Library and publication count. A link makes the rendered entry clickable. Author-metadata failures are nonfatal and may use cached data.
+A paper requires a title, `Sort Date`, and complete semicolon-separated `all authors` value. `Display Authors` supplies the public author line, `all authors` supplies the author-search index, semicolon-separated `Area` values supply research metadata, and `Superlative` supplies distinctions. A link makes the rendered entry clickable.
 
 Do not manually edit these generated files:
 
-- `eleutherai_papers_sheet_gid2053751678.csv`
+- `eleutherai_papers.csv`
 - `data/research/papers.json`
 - `data/research/library_papers.json`
 - `data/research/paper_groups.json`

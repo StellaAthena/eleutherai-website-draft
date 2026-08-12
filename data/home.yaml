@@ -73,6 +73,8 @@ priorities:
         url: "https://github.com/EleutherAI/lm-evaluation-harness"
       - label: "Benchmark saturation"
         url: "https://arxiv.org/abs/2602.16763"
+      - label: "EvalEval Coalition"
+        url: "https://evalevalai.com/"
 
 recent_outputs:
   - kind: "Paper"

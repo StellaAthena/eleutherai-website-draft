@@ -18,6 +18,7 @@
     entries.forEach((entry) => {
       const searchable = [
         entry.dataset.title,
+        entry.dataset.authors,
         entry.dataset.venue,
         entry.dataset.areas,
         entry.dataset.org,
