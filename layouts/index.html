@@ -132,9 +132,6 @@
         {{ end }}
       </div>
 
-      <div class="home-research-all">
-        <a href="{{ "research/" | relURL }}">Explore all research <span aria-hidden="true">&#8594;</span></a>
-      </div>
     </div>
   </section>
 
@@ -142,12 +139,13 @@
     <div class="wrap home-output-layout">
       <h2 id="outputs-title">Recent outputs</h2>
       <div class="home-output-list">
-        {{ range site.Data.home.recent_outputs }}
-          <article class="home-output-row">
+        {{ range site.Data.home_recent_outputs }}
+          {{ $external := hasPrefix .url "http" }}
+          <a class="home-output-row" href="{{ if $external }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>
             <span>{{ .kind }}</span>
             <h3>{{ .title }}</h3>
             <p>{{ .meta }}</p>
-          </article>
+          </a>
         {{ end }}
       </div>
     </div>

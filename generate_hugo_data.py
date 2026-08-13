@@ -4,7 +4,7 @@ from html.parser import HTMLParser
 import json
 import re
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.error import URLError
 from urllib.parse import urlencode, urlsplit, urlunsplit
@@ -29,7 +29,9 @@ SCHOLAR_METRICS_PATH = ROOT / "data" / "home_scholar_metrics.json"
 HOME_GENERATED_METRICS_PATH = ROOT / "data" / "home_generated_metrics.json"
 BLOG_CONTENT_DIR = ROOT / "content-blog"
 BLOG_POSTS_PATH = ROOT / "data" / "blog_posts.json"
+HOME_RECENT_OUTPUTS_PATH = ROOT / "data" / "home_recent_outputs.json"
 BLOG_BASE_URL = "https://blog.eleuther.ai"
+HOME_RECENT_OUTPUT_LIMIT = 4
 HOMEPAGE_PAPER_LIMIT = 10
 HOMEPAGE_GROUPED_PAPER_LIMIT = 30
 WORKSHOP_SORT_OFFSET_DAYS = 7
@@ -59,6 +61,17 @@ SCHOLAR_USER_AGENT = (
 )
 HF_ANALYTICS_URL = "https://huggingface.co/organizations/EleutherAI/settings/publisher/analytics?timePeriod=allTime"
 HF_MODEL_DOWNLOADS_CACHE = ROOT / "data" / "hf_model_downloads_cache.json"
+REQUIRED_PAPER_HEADERS = {
+    "Sort Date",
+    "Title",
+    "Display Authors",
+    "Area",
+    "Conference or Journal",
+    "Workshop",
+    "Superlative",
+    "Link",
+    "All Authors",
+}
 
 
 class ScholarStatsParser(HTMLParser):
@@ -100,6 +113,59 @@ def parse_date(value):
     return datetime.min
 
 
+def normalize_header(value):
+    return " ".join((value or "").split()).casefold()
+
+
+def header_value(row, name):
+    normalized_name = normalize_header(name)
+    for key, value in row.items():
+        if normalize_header(key) == normalized_name:
+            return value
+    return ""
+
+
+def highest_impact_header(headers):
+    matches = [header for header in headers if normalize_header(header) == "highest impact"]
+    return matches[0] if len(matches) == 1 else ""
+
+
+def parse_highest_impact_marker(value):
+    marker = normalize_header(str(value))
+    if marker in {"", "false"}:
+        return False
+    if marker == "true":
+        return True
+    raise ValueError(f"unrecognized Highest Impact marker: {value!r}")
+
+
+def parse_output_date(value):
+    value = (value or "").strip()
+    paper_date = parse_date(value)
+    if paper_date != datetime.min:
+        return paper_date
+    value = re.sub(r"T(\d):", r"T0\1:", value)
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return datetime.min
+    if parsed.tzinfo is not None:
+        parsed = parsed.astimezone(timezone.utc).replace(tzinfo=None)
+    return parsed
+
+
+def format_output_date(value):
+    value = (value or "").strip()
+    parsed = parse_date(value)
+    if parsed == datetime.min:
+        value = re.sub(r"T(\d):", r"T0\1:", value)
+        try:
+            parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        except ValueError:
+            return ""
+    return parsed.strftime("%B %-d, %Y")
+
+
 def display_year(date):
     if date == datetime.min:
         return ""
@@ -130,6 +196,10 @@ def clean_link(link):
 
 def normalize_title(title):
     return " ".join((title or "").split())
+
+
+def paper_identity_title(title):
+    return re.sub(r"^Position:\s*", "", normalize_title(title), flags=re.IGNORECASE)
 
 
 def split_terms(value):
@@ -167,6 +237,8 @@ def normalize_paper_row(row):
     normalized["Additional Area"] = (
         row.get("Additional Area") or "; ".join(areas[1:])
     ).strip()
+    normalized["all authors"] = (header_value(row, "all authors") or "").strip()
+    normalized["Highest Impact"] = (header_value(row, "highest impact") or "").strip()
     if not (row.get("Status") or "").strip():
         normalized["Status"] = "Accepted" if conference or workshop else "Preprint"
     return normalized
@@ -512,19 +584,8 @@ def refresh_papers_csv(require_refresh=True):
 
     text = text.replace("\r\n", "\n").replace("\r", "\n")
     header = text.splitlines()[0] if text.splitlines() else ""
-    required_headers = {
-        "Sort Date",
-        "Title",
-        "Display Authors",
-        "Area",
-        "Conference or Journal",
-        "Workshop",
-        "Superlative",
-        "Link",
-        "all authors",
-    }
-    headers = set(next(csv.reader([header]), []))
-    if not required_headers.issubset(headers):
+    headers = next(csv.reader([header]), [])
+    if not REQUIRED_PAPER_HEADERS.issubset(set(headers)) or not highest_impact_header(headers):
         raise SystemExit("Google Sheet export did not look like the papers CSV.")
 
     PAPERS_CSV.write_text(text, encoding="utf-8")
@@ -713,10 +774,10 @@ def grouped_papers(papers):
 
 def configured_area_papers(rows, area):
     configs = read_area_configs(area)
-    by_title = {normalize_title(row.get("Title")): row for row in rows}
+    by_title = {paper_identity_title(row.get("Title")): row for row in rows}
     records = []
     for config in configs:
-        row = by_title.get(normalize_title(config["title"]))
+        row = by_title.get(paper_identity_title(config["title"]))
         if not row:
             raise SystemExit(f"Missing configured paper title in papers CSV: {config['title']}")
         records.append(area_paper_record(row, config["summary"], display_venue(row, config)))
@@ -1023,6 +1084,78 @@ def write_blog_posts():
         )
     posts.sort(key=lambda post: (post["date"], post["title"]), reverse=True)
     BLOG_POSTS_PATH.write_text(json.dumps(posts, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return posts
+
+
+def recent_outputs(rows, blog_posts, limit=HOME_RECENT_OUTPUT_LIMIT):
+    outputs = []
+    invalid_markers = []
+    for row in rows:
+        marker = row.get("Highest Impact", header_value(row, "highest impact"))
+        try:
+            selected = parse_highest_impact_marker(marker)
+        except ValueError:
+            invalid_markers.append(f"{normalize_title(row.get('Title'))}: {marker!r}")
+            continue
+        if not selected:
+            continue
+        title = normalize_title(row.get("Title"))
+        date_value = (row.get("Sort Date") or "").strip()
+        date = parse_output_date(date_value)
+        url = paper_url(row)
+        if not title or date == datetime.min or not url:
+            raise ValueError(f"Highest Impact paper is missing a title, Sort Date, or link: {title or '<untitled>'}")
+        venue = homepage_venue(row)
+        display_date = format_output_date(date_value)
+        meta = f"{venue} · {display_date}" if venue else display_date
+        outputs.append(
+            {
+                "kind": "Paper",
+                "title": title,
+                "url": url,
+                "date": date.strftime("%Y-%m-%dT%H:%M:%S"),
+                "meta": meta,
+            }
+        )
+
+    if invalid_markers:
+        raise ValueError("Invalid Highest Impact markers: " + "; ".join(invalid_markers))
+
+    for post in blog_posts:
+        date_value = (post.get("date") or "").strip()
+        date = parse_output_date(date_value)
+        title = normalize_title(post.get("title"))
+        url = (post.get("url") or "").strip()
+        if not title or date == datetime.min or not url:
+            continue
+        outputs.append(
+            {
+                "kind": "Blog",
+                "title": title,
+                "url": url,
+                "date": date.strftime("%Y-%m-%dT%H:%M:%S"),
+                "meta": format_output_date(date_value),
+            }
+        )
+
+    unique_outputs = {}
+    for output in outputs:
+        key = (output["kind"].casefold(), output["url"], output["title"].casefold())
+        unique_outputs[key] = output
+    sorted_outputs = sorted(
+        unique_outputs.values(),
+        key=lambda output: (output["date"], output["title"], output["kind"]),
+        reverse=True,
+    )
+    return sorted_outputs[:limit]
+
+
+def write_home_recent_outputs(rows, blog_posts):
+    outputs = recent_outputs(rows, blog_posts)
+    HOME_RECENT_OUTPUTS_PATH.write_text(
+        json.dumps(outputs, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
 
 
 def main():
@@ -1040,7 +1173,15 @@ def main():
     write_json("homepage_paper_groups.json", grouped_papers(papers[:HOMEPAGE_GROUPED_PAPER_LIMIT]))
     write_json("area_papers.json", per_area)
     write_json("library_papers.json", library_papers(rows))
-    write_blog_posts()
+    blog_posts = write_blog_posts()
+    with PAPERS_CSV.open(newline="", encoding="utf-8") as papers_file:
+        local_headers = next(csv.reader(papers_file), [])
+    if not offline or highest_impact_header(local_headers):
+        write_home_recent_outputs(rows, blog_posts)
+    elif not HOME_RECENT_OUTPUTS_PATH.exists():
+        raise SystemExit("Offline papers CSV has no Highest Impact column or generated homepage output snapshot.")
+    else:
+        print("Using generated homepage output snapshot")
     print("Generated Hugo research data")
 
 

@@ -64,7 +64,7 @@ Most text should be added to Markdown under `content/` or structured YAML under 
 | Content | Edit here | Notes |
 | --- | --- | --- |
 | Homepage hero and section structure | [`layouts/index.html`](layouts/index.html) | The homepage's main prose and arrangement currently live in the template. |
-| Homepage metrics, Current Research links, recent outputs, manual news | [`data/home.yaml`](data/home.yaml) | Generated metric values replace entries that have a `source` key. |
+| Homepage metrics, Current Research links, manual news | [`data/home.yaml`](data/home.yaml) | Generated metric values replace entries that have a `source` key. Recent outputs are generated from the papers Sheet and blog front matter. |
 | About page | [`content/about.md`](content/about.md) | Donor logos and links are stored separately in `data/donors.yaml`. |
 | Community page | [`data/community.yaml`](data/community.yaml) | `content/community.md` contains only the page front matter. |
 | Staff page | [`data/staff.yaml`](data/staff.yaml) | Store portraits locally under `static/assets/staff/`. |
@@ -121,8 +121,9 @@ The principal Sheet columns currently used are:
 | --- | --- |
 | `Title` | Display title and record identity |
 | `Sort Date` | Determines whether a paper enters the public library; supplies its displayed year and chronological sort |
+| `Highest Impact` | Selects papers for the generated homepage Recent outputs candidate set; checked rows export as `TRUE` |
 | `Display Authors` | Author line shown in the Research Library |
-| `all authors` | Complete semicolon-separated author list used for author search and metadata generation |
+| `All Authors` | Complete semicolon-separated author list used for author search and metadata generation |
 | `Area` | Semicolon-separated research-area metadata used by generated collections and filters |
 | `Link` | Makes the paper entry clickable |
 | `Conference or Journal` | Primary archival venue; blank values fall back to a workshop or arXiv |
@@ -261,6 +262,7 @@ The first pass writes:
 | `data/research/library_papers.json` | One searchable record per dated paper |
 | `data/home_generated_metrics.json` | Publication, citation, and model-download homepage values |
 | `data/blog_posts.json` | Dated blog entries used by the homepage Latest feed |
+| `data/home_recent_outputs.json` | Four newest items from highest-impact papers and published blog posts |
 
 Do not edit these files directly. Edit their source data and rebuild.
 

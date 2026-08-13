@@ -73,20 +73,6 @@ priorities:
       - label: "EvalEval Coalition"
         url: "https://evalevalai.com/"
 
-recent_outputs:
-  - kind: "Paper"
-    title: "Position: Don't Just \"Fix it in Post\": A Science of AI Must Study Learning Dynamics"
-    meta: "ICML 2026"
-  - kind: "Paper"
-    title: "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation"
-    meta: "ICML 2026"
-  - kind: "Blog"
-    title: "The Common Pile v0.1"
-    meta: "June 2025"
-  - kind: "Tool"
-    title: "Language Model Evaluation Harness"
-    meta: "ongoing"
-
 manual_news:
   - title: "A short retrospective on the EleutherAI Summer of Open AI Research"
     url: "news/a-short-retrospective-on-the-eleutherai-summer-of-open-ai-research/"
