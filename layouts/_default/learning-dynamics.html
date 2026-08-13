@@ -10,11 +10,29 @@
         <span aria-hidden="true">/</span>
         <span>Learning dynamics</span>
       </nav>
-      <h1>Learning dynamics</h1>
-      <p class="ld-lede">Models are not static artifacts. We study how capabilities, representations, memorization, and failures develop over the course of training—and how those trajectories can support prediction and intervention.</p>
-      <div class="button-row">
-        <a class="button primary" href="{{ $data.agenda.url }}" target="_blank" rel="noopener noreferrer">Read the research agenda</a>
-        <a class="button secondary" href="#publications">View all {{ len $papers }} papers</a>
+      <div class="ld-hero-grid">
+        <div class="ld-hero-copy">
+          <p class="ld-area-label">Learning dynamics</p>
+          <h1>Interpretability<br>over time</h1>
+          <p class="ld-lede">Most interpretability studies a finished model. We study how capabilities, representations, and failures form during training—because explaining behavior means understanding how it develops.</p>
+          <div class="button-row">
+            <a class="button primary" href="#key-work">Explore the research</a>
+            <a class="button secondary" href="#instruments">Open instruments</a>
+          </div>
+          <p class="ld-hero-meta"><strong>{{ len $papers }}</strong> publications <span>·</span> <strong>2019 → today</strong> <span>·</span> checkpoints, data &amp; code in the open</p>
+        </div>
+        {{ with $data.evidence }}
+        <figure class="ld-hero-figure">
+          <div class="ld-video-frame">
+            <video controls loop muted playsinline preload="metadata" poster="{{ .poster | relURL }}">
+              <source src="{{ .video | relURL }}" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <div class="ld-timeline" aria-hidden="true"><span>early</span><i></i><span>training</span><i></i><span>later</span></div>
+          </div>
+          <figcaption><strong>Watch structure emerge.</strong> {{ .hero_caption }} <span>{{ .credit }}</span></figcaption>
+        </figure>
+        {{ end }}
       </div>
     </div>
   </header>
@@ -23,56 +41,32 @@
     <section class="ld-thesis">
       <div class="wrap">
         <div class="ld-thesis-layout">
-          <h2>Models are processes, not artifacts</h2>
+          <h2>The important facts are decided during training</h2>
           <div class="ld-prose">
-            <p>Most interpretability research examines a finished model, frozen at the end of training. That can reveal what is present without explaining when it formed, which parts of the training process produced it, or whether the same account holds across runs and scales.</p>
-            <p>Learning dynamics treats the training trajectory as the object of study. Intermediate checkpoints, controlled data order, repeated runs, and longitudinal evaluations let explanations be tested against development rather than fitted only to an endpoint.</p>
+            <p>What a model memorizes, which capabilities it acquires, and which mechanisms produce its behavior are settled while it trains. A final checkpoint reveals the outcome, but hides the process that produced it.</p>
+            <p>We treat the trajectory itself as an object of study. Intermediate checkpoints, repeated runs, known data order, and longitudinal evaluations let us watch behavior form—and test explanations against development rather than only against an endpoint.</p>
           </div>
         </div>
         <a class="ld-agenda" href="{{ $data.agenda.url }}" target="_blank" rel="noopener noreferrer">
+          <span class="ld-agenda-kicker">Research agenda</span>
           <span class="ld-agenda-title"><strong>{{ $data.agenda.title }}</strong><span>{{ $data.agenda.subtitle }}</span></span>
-          <span>{{ $data.agenda.authors }}</span>
-          <span><span class="paper-marker" role="img" aria-label="Oral" title="Oral">🎙️</span> {{ $data.agenda.venue }} <b aria-hidden="true">↗</b></span>
+          <span class="ld-agenda-meta">{{ $data.agenda.venue }} <b aria-hidden="true">↗</b></span>
         </a>
       </div>
     </section>
 
-    {{ with $data.evidence }}
-    <section class="ld-evidence">
-      <div class="wrap ld-evidence-layout">
-        <figure>
-          <video controls loop muted playsinline preload="metadata" poster="{{ .poster | relURL }}">
-            <source src="{{ .video | relURL }}" type="video/mp4">
-            Your browser does not support embedded video.
-          </video>
-          <figcaption>{{ .credit }}</figcaption>
-        </figure>
-        <div>
-          <h2>{{ .title }}</h2>
-          <p>{{ .text }}</p>
-          <a class="ld-text-link" href="{{ .paper_url }}" target="_blank" rel="noopener noreferrer">{{ .paper_label }} <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-    </section>
-    {{ end }}
-
-    {{ with $data.directions }}
-    <section class="ld-directions">
+    {{ with $data.questions }}
+    <section class="ld-questions">
       <div class="wrap">
-        <div class="ld-section-head">
+        <div class="ld-section-intro">
           <h2>{{ .title }}</h2>
           <p>{{ .intro }}</p>
         </div>
-        <div class="ld-direction-grid">
-          {{ range .items }}
-          <article class="ld-direction">
-            <h3>{{ .title }}</h3>
-            <p>{{ .text }}</p>
-            <div class="ld-direction-links">
-              {{ range .links }}
-              <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }} <span aria-hidden="true">↗</span></a>
-              {{ end }}
-            </div>
+        <div class="ld-question-grid">
+          {{ range $index, $item := .items }}
+          <article class="ld-question">
+            <span aria-hidden="true">0{{ add $index 1 }}</span>
+            <div><h3>{{ $item.title }}</h3><p>{{ $item.text }}</p></div>
           </article>
           {{ end }}
         </div>
@@ -80,18 +74,50 @@
     </section>
     {{ end }}
 
-    {{ with $data.pythia }}
-    <section class="ld-pythia">
-      <div class="wrap ld-pythia-layout">
-        <h2>{{ .title }}</h2>
-        <div>
-          <p>{{ .text }}</p>
-          <div class="ld-pythia-links">
-            {{ range .links }}
-              {{ $external := hasPrefix .url "http" }}
-              <a href="{{ if $external }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }} <span aria-hidden="true">{{ if $external }}↗{{ else }}→{{ end }}</span></a>
-            {{ end }}
+    <section class="ld-key-work" id="key-work">
+      <div class="wrap">
+        <div class="ld-section-top">
+          <div><p class="ld-kicker">Selected research</p><h2>The work behind the questions</h2></div>
+          <a href="#publications">See all {{ len $papers }} publications <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="ld-featured-paper">
+          <div>
+            <p class="ld-featured-label">Position paper · {{ $data.agenda.venue }}</p>
+            <h3>{{ $data.agenda.title }}: {{ $data.agenda.subtitle }}</h3>
           </div>
+          <div>
+            <p>{{ $data.agenda.summary }}</p>
+            <a href="{{ $data.agenda.url }}" target="_blank" rel="noopener noreferrer">Read the paper <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="ld-key-grid">
+          {{ range $data.key_papers }}
+          <a class="ld-key-paper" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+            <span class="ld-paper-tag">{{ .venue }}</span>
+            <h3>{{ .title }}</h3>
+            <p>{{ .summary }}</p>
+            <span class="ld-card-link">Read the paper <b aria-hidden="true">↗</b></span>
+          </a>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+
+    {{ with $data.instruments }}
+    <section class="ld-instruments" id="instruments">
+      <div class="wrap">
+        <div class="ld-section-intro">
+          <h2>{{ .title }}</h2>
+          <p>{{ .intro }}</p>
+        </div>
+        <div class="ld-instrument-list">
+          {{ range .items }}
+          <a href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>
+            <span class="ld-instrument-type">{{ .type }}</span>
+            <span><strong>{{ .name }}</strong><small>{{ .description }}</small></span>
+            <b aria-hidden="true">↗</b>
+          </a>
+          {{ end }}
         </div>
       </div>
     </section>
@@ -99,9 +125,9 @@
 
     <section class="ld-publications" id="publications">
       <div class="wrap">
-        <div class="ld-section-head">
-          <h2>Learning dynamics research</h2>
-          <p>All papers whose Area field in EleutherAI’s research index includes “Learning Dynamics,” listed newest first.</p>
+        <div class="ld-section-intro">
+          <h2>All research in this area</h2>
+          <p>The complete EleutherAI publication index for learning dynamics, listed newest first.</p>
         </div>
         <div class="ld-paper-list">
           {{ range $papers }}
@@ -115,10 +141,17 @@
         <a class="ld-library-link" href="{{ "papers/" | relURL }}">Explore the complete Research Library <span aria-hidden="true">→</span></a>
       </div>
     </section>
+
+    <section class="ld-cta">
+      <div class="wrap ld-cta-layout">
+        <div><p class="ld-kicker">Research in the open</p><h2>Build the science of learning dynamics with us</h2></div>
+        <div><p>Bring a question about how models learn. We collaborate in public, release the instruments behind our work, and welcome researchers from anywhere.</p><div class="button-row"><a class="button primary" href="{{ "community/" | relURL }}">Join the community</a><a class="button secondary" href="{{ "research/" | relURL }}">All research</a></div></div>
+      </div>
+    </section>
   </article>
 </main>
 {{ end }}
 
 {{ define "page_styles" }}
-<link rel="stylesheet" href="{{ "learning-dynamics.css?v=2" | relURL }}">
+<link rel="stylesheet" href="{{ "learning-dynamics.css?v=3" | relURL }}">
 {{ end }}
