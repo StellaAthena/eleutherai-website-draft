@@ -740,8 +740,7 @@ h2 {
   margin-top: 26px;
 }
 
-.home-research-links a,
-.home-research-all a {
+.home-research-links a {
   color: var(--story-accent);
   font-size: 0.92rem;
   font-weight: 700;
@@ -751,9 +750,7 @@ h2 {
 }
 
 .home-research-links a:hover,
-.home-research-links a:focus-visible,
-.home-research-all a:hover,
-.home-research-all a:focus-visible {
+.home-research-links a:focus-visible {
   color: var(--ink);
   text-decoration-thickness: 2px;
   outline-offset: 3px;
@@ -765,17 +762,6 @@ h2 {
 
 .home-research-story:nth-child(even) .home-research-copy {
   order: 1;
-}
-
-.home-research-all {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 28px;
-}
-
-.home-research-all a {
-  --story-accent: var(--green);
-  font-size: 1rem;
 }
 
 .home-output-section {

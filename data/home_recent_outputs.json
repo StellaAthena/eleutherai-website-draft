@@ -1,0 +1,30 @@
+[
+  {
+    "kind": "Blog",
+    "title": "A Dynamical Model of AI Governability",
+    "url": "https://blog.eleuther.ai/dynamical-models-of-ai-governability/",
+    "date": "2026-07-13T00:00:00",
+    "meta": "July 13, 2026"
+  },
+  {
+    "kind": "Paper",
+    "title": "Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
+    "url": "https://arxiv.org/abs/2606.06533",
+    "date": "2026-07-10T00:00:00",
+    "meta": "ICML · July 10, 2026"
+  },
+  {
+    "kind": "Paper",
+    "title": "Bergson: An Open Source Library for Data Attribution",
+    "url": "https://arxiv.org/abs/2606.11660",
+    "date": "2026-06-10T00:00:00",
+    "meta": "arXiv · June 10, 2026"
+  },
+  {
+    "kind": "Paper",
+    "title": "Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs",
+    "url": "https://arxiv.org/abs/2508.06601",
+    "date": "2026-04-23T00:00:00",
+    "meta": "ICLR · April 23, 2026"
+  }
+]
