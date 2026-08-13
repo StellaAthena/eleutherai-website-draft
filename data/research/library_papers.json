@@ -9,8 +9,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "Model Internals"
+      "Data, Model Internals"
     ],
     "lead_org": "",
     "contact": "",
@@ -50,8 +49,7 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "Evaluation"
+      "Data, Evaluation"
     ],
     "lead_org": "",
     "contact": "",
@@ -62,7 +60,7 @@
     "superlatives": []
   },
   {
-    "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
+    "title": "Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
     "url": "https://arxiv.org/abs/2606.06533",
     "date": "2026",
     "date_sort": "2026-07-10",
@@ -71,10 +69,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Learning Dynamics",
-      "Model Internals",
-      "Open-Weight Safety"
+      "Training Models, Learning Dynamics, Model Internals, Open-Weight Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -116,9 +111,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Evaluation",
-      "Behavioral Safety",
-      "AI Governance & Societal Impacts"
+      "Evaluation, Behavioral Safety, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -138,8 +131,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Evaluation",
-      "AI4Science"
+      "Evaluation, AI4Science"
     ],
     "lead_org": "",
     "contact": "",
@@ -199,8 +191,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Model Internals"
+      "Training Models, Model Internals"
     ],
     "lead_org": "",
     "contact": "",
@@ -220,8 +211,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "Evaluation"
+      "Data, Evaluation"
     ],
     "lead_org": "",
     "contact": "",
@@ -301,8 +291,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Data",
-      "Model Internals"
+      "Data, Model Internals"
     ],
     "lead_org": "",
     "contact": "",
@@ -342,9 +331,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "Evaluation",
-      "AI4Science"
+      "Data, Evaluation, AI4Science"
     ],
     "lead_org": "",
     "contact": "",
@@ -364,8 +351,7 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Multimodal"
+      "Training Models, Multimodal"
     ],
     "lead_org": "",
     "contact": "",
@@ -385,8 +371,7 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Multimodal"
+      "Training Models, Multimodal"
     ],
     "lead_org": "",
     "contact": "",
@@ -426,8 +411,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Evaluation",
-      "Model Internals"
+      "Evaluation, Model Internals"
     ],
     "lead_org": "",
     "contact": "",
@@ -447,8 +431,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Open-Weight Safety"
+      "Training Models, Open-Weight Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -510,8 +493,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Data",
-      "Model Internals"
+      "Data, Model Internals"
     ],
     "lead_org": "",
     "contact": "",
@@ -531,8 +513,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Evaluation",
-      "Behavioral Safety"
+      "Evaluation, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -552,8 +533,7 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "Behavioral Safety"
+      "Data, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -593,9 +573,7 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Learning Dynamics",
-      "Model Internals",
-      "Behavioral Safety"
+      "Learning Dynamics, Model Internals, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -655,9 +633,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Evaluation",
-      "Behavioral Safety",
-      "AI Governance & Societal Impacts"
+      "Evaluation, Behavioral Safety, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -697,8 +673,7 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Model Internals",
-      "Behavioral Safety"
+      "Model Internals, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -718,10 +693,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Multimodal",
-      "Open-Weight Safety",
-      "Behavioral Safety",
-      "AI Governance & Societal Impacts"
+      "Multimodal, Open-Weight Safety, Behavioral Safety, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -761,8 +733,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Model Internals",
-      "Behavioral Safety"
+      "Model Internals, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -862,8 +833,7 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Multimodal"
+      "Training Models, Multimodal"
     ],
     "lead_org": "",
     "contact": "",
@@ -883,8 +853,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Multimodal"
+      "Training Models, Multimodal"
     ],
     "lead_org": "",
     "contact": "",
@@ -925,8 +894,7 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Model Internals",
-      "Behavioral Safety"
+      "Model Internals, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -937,7 +905,7 @@
     "superlatives": []
   },
   {
-    "title": "Position: Write Code that People Want to Use",
+    "title": "Write Code that People Want to Use",
     "url": "https://openreview.net/forum?id=oH0XhgzJt0",
     "date": "2025",
     "date_sort": "2025-07-18",
@@ -1006,8 +974,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Evaluation",
-      "Learning Dynamics"
+      "Evaluation, Learning Dynamics"
     ],
     "lead_org": "",
     "contact": "",
@@ -1029,8 +996,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Evaluation",
-      "Model Internals"
+      "Evaluation, Model Internals"
     ],
     "lead_org": "",
     "contact": "",
@@ -1050,9 +1016,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Open-Weight Safety",
-      "Behavioral Safety",
-      "AI Governance & Societal Impacts"
+      "Open-Weight Safety, Behavioral Safety, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -1072,8 +1036,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Evaluation",
-      "AI4Science"
+      "Evaluation, AI4Science"
     ],
     "lead_org": "",
     "contact": "",
@@ -1135,8 +1098,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "Learning Dynamics"
+      "Data, Learning Dynamics"
     ],
     "lead_org": "",
     "contact": "",
@@ -1156,8 +1118,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Learning Dynamics"
+      "Training Models, Learning Dynamics"
     ],
     "lead_org": "",
     "contact": "",
@@ -1177,8 +1138,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Open-Weight Safety",
-      "Behavioral Safety"
+      "Open-Weight Safety, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -1198,9 +1158,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "Multimodal",
-      "AI Governance & Societal Impacts"
+      "Data, Multimodal, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -1220,8 +1178,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "Multimodal"
+      "Data, Multimodal"
     ],
     "lead_org": "",
     "contact": "",
@@ -1241,8 +1198,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Model Internals",
-      "Behavioral Safety"
+      "Model Internals, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -1262,8 +1218,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Learning Dynamics",
-      "Model Internals"
+      "Learning Dynamics, Model Internals"
     ],
     "lead_org": "",
     "contact": "",
@@ -1323,8 +1278,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Open-Weight Safety",
-      "AI Governance & Societal Impacts"
+      "Open-Weight Safety, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -1384,8 +1338,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Learning Dynamics",
-      "Model Internals"
+      "Learning Dynamics, Model Internals"
     ],
     "lead_org": "",
     "contact": "",
@@ -1425,9 +1378,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Model Internals",
-      "Security",
-      "Open-Weight Safety"
+      "Model Internals, Security, Open-Weight Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -1467,10 +1418,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Training Models",
-      "Data",
-      "Evaluation",
-      "Multimodal"
+      "Training Models, Data, Evaluation, Multimodal"
     ],
     "lead_org": "",
     "contact": "",
@@ -1490,8 +1438,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Data",
-      "AI Governance & Societal Impacts"
+      "Data, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -1511,8 +1458,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "Training Models"
+      "Data, Training Models"
     ],
     "lead_org": "",
     "contact": "",
@@ -1532,8 +1478,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Learning Dynamics",
-      "Model Internals"
+      "Learning Dynamics, Model Internals"
     ],
     "lead_org": "",
     "contact": "",
@@ -1553,8 +1498,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "AI Governance & Societal Impacts"
+      "Data, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -1574,8 +1518,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Security"
+      "Training Models, Security"
     ],
     "lead_org": "",
     "contact": "",
@@ -1595,8 +1538,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Learning Dynamics",
-      "Model Internals"
+      "Learning Dynamics, Model Internals"
     ],
     "lead_org": "",
     "contact": "",
@@ -1616,9 +1558,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Evaluation",
-      "Behavioral Safety",
-      "AI Governance & Societal Impacts"
+      "Evaluation, Behavioral Safety, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -1638,8 +1578,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Training Models",
-      "Data"
+      "Training Models, Data"
     ],
     "lead_org": "",
     "contact": "",
@@ -1719,8 +1658,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Model Internals",
-      "Behavioral Safety"
+      "Model Internals, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -1760,8 +1698,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Training Models",
-      "Multimodal"
+      "Training Models, Multimodal"
     ],
     "lead_org": "",
     "contact": "",
@@ -1781,8 +1718,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Model Internals",
-      "Behavioral Safety"
+      "Model Internals, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -1822,8 +1758,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Model Internals",
-      "Behavioral Safety"
+      "Model Internals, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -1863,8 +1798,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "AI Governance & Societal Impacts"
+      "Data, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -1997,7 +1931,7 @@
     "superlatives": []
   },
   {
-    "title": "Position: Social Choice Should Guide AI Alignment: On Dealing with Diverse Human Feedback",
+    "title": "Social Choice Should Guide AI Alignment: On Dealing with Diverse Human Feedback",
     "url": "https://arxiv.org/abs/2404.10271",
     "date": "2024",
     "date_sort": "2024-07-23",
@@ -2006,8 +1940,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Behavioral Safety",
-      "AI Governance & Societal Impacts"
+      "Behavioral Safety, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -2027,8 +1960,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Open-Weight Safety",
-      "AI Governance & Societal Impacts"
+      "Open-Weight Safety, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -2070,8 +2002,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Learning Dynamics",
-      "Model Internals"
+      "Learning Dynamics, Model Internals"
     ],
     "lead_org": "",
     "contact": "",
@@ -2091,8 +2022,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Open-Weight Safety",
-      "AI Governance & Societal Impacts"
+      "Open-Weight Safety, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -2112,9 +2042,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Evaluation",
-      "Behavioral Safety",
-      "AI Governance & Societal Impacts"
+      "Evaluation, Behavioral Safety, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -2136,8 +2064,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Multimodal"
+      "Training Models, Multimodal"
     ],
     "lead_org": "",
     "contact": "",
@@ -2197,8 +2124,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Learning Dynamics"
+      "Training Models, Learning Dynamics"
     ],
     "lead_org": "",
     "contact": "",
@@ -2298,9 +2224,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "AI4Science",
-      "Learning Dynamics"
+      "Training Models, AI4Science, Learning Dynamics"
     ],
     "lead_org": "",
     "contact": "",
@@ -2420,8 +2344,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "AI4Science"
+      "Data, AI4Science"
     ],
     "lead_org": "",
     "contact": "",
@@ -2443,9 +2366,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Data",
-      "AI4Science"
+      "Training Models, Data, AI4Science"
     ],
     "lead_org": "",
     "contact": "",
@@ -2465,14 +2386,13 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Security"
+      "Training Models, Security"
     ],
     "lead_org": "",
     "contact": "",
     "artifact_type": "Paper",
     "authors": "Alam, Raff, Biderman, Oates, and Holt",
-    "author_search": "Alam, Raff, Biderman, Oates, and Holt Mohammad Mahmudul Alam Edward Raff Stella R Biderman Tim Oates James Holt",
+    "author_search": "Alam, Raff, Biderman, Oates, and Holt Mohammad Mahmudul Alam Edward Raff Stella Biderman Tim Oates James Holt",
     "marker": "",
     "superlatives": []
   },
@@ -2486,10 +2406,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Multimodal",
-      "Training Models",
-      "Data",
-      "Evaluation"
+      "Multimodal, Training Models, Data, Evaluation"
     ],
     "lead_org": "",
     "contact": "",
@@ -2549,8 +2466,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Behavioral Safety",
-      "Open-Weight Safety"
+      "Behavioral Safety, Open-Weight Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -2570,8 +2486,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Training Models",
-      "AI4Science"
+      "Training Models, AI4Science"
     ],
     "lead_org": "",
     "contact": "",
@@ -2591,8 +2506,7 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Evaluation",
-      "Behavioral Safety"
+      "Evaluation, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -2614,9 +2528,7 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Model Internals",
-      "Open-Weight Safety",
-      "Security"
+      "Model Internals, Open-Weight Safety, Security"
     ],
     "lead_org": "",
     "contact": "",
@@ -2636,8 +2548,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "AI4Science"
+      "Data, AI4Science"
     ],
     "lead_org": "",
     "contact": "",
@@ -2677,8 +2588,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "AI4Science",
-      "Multimodal"
+      "AI4Science, Multimodal"
     ],
     "lead_org": "",
     "contact": "",
@@ -2700,8 +2610,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Evaluation"
+      "Training Models, Evaluation"
     ],
     "lead_org": "",
     "contact": "",
@@ -2721,8 +2630,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Model Internals",
-      "Behavioral Safety"
+      "Model Internals, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -2742,8 +2650,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Learning Dynamics",
-      "Behavioral Safety"
+      "Learning Dynamics, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -2783,8 +2690,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Behavioral Safety"
+      "Training Models, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -2824,8 +2730,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Data"
+      "Training Models, Data"
     ],
     "lead_org": "",
     "contact": "",
@@ -2865,8 +2770,7 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "AI4Science"
+      "Data, AI4Science"
     ],
     "lead_org": "",
     "contact": "",
@@ -2906,8 +2810,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Model Internals",
-      "Behavioral Safety"
+      "Model Internals, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -2947,8 +2850,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "AI Governance & Societal Impacts"
+      "Data, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -2968,8 +2870,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Evaluation",
-      "AI4Science"
+      "Evaluation, AI4Science"
     ],
     "lead_org": "",
     "contact": "",
@@ -3009,10 +2910,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Learning Dynamics",
-      "Model Internals",
-      "Open-Weight Safety"
+      "Training Models, Learning Dynamics, Model Internals, Open-Weight Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -3054,8 +2952,7 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Learning Dynamics"
+      "Training Models, Learning Dynamics"
     ],
     "lead_org": "",
     "contact": "",
@@ -3115,8 +3012,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Training Models",
-      "Data"
+      "Training Models, Data"
     ],
     "lead_org": "",
     "contact": "",
@@ -3156,9 +3052,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Evaluation",
-      "Behavioral Safety",
-      "AI Governance & Societal Impacts"
+      "Evaluation, Behavioral Safety, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -3178,8 +3072,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Training Models",
-      "Data"
+      "Training Models, Data"
     ],
     "lead_org": "",
     "contact": "",
@@ -3285,7 +3178,7 @@
     "contact": "",
     "artifact_type": "Paper",
     "authors": "Komatsuzaki, Puigcerver, Lee-Thorp, Riquelme Ruiz, Mustafa, Ainslie, Tay, Dehghani, and Houlsby",
-    "author_search": "Komatsuzaki, Puigcerver, Lee-Thorp, Riquelme Ruiz, Mustafa, Ainslie, Tay, Dehghani, and Houlsby Aran Komatsuzaki Joan Puigcerver James Lee-Thorp Carlos Riquelme Ruiz Basil Mustafa Joshua Ainslie Yi Tay Mostafa Dehghani Neil Houlsby",
+    "author_search": "Komatsuzaki, Puigcerver, Lee-Thorp, Riquelme Ruiz, Mustafa, Ainslie, Tay, Dehghani, and Houlsby Aran Komatsuzaki",
     "marker": "",
     "superlatives": []
   },
@@ -3299,14 +3192,13 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Evaluation",
-      "AI4Science"
+      "Evaluation, AI4Science"
     ],
     "lead_org": "",
     "contact": "",
     "artifact_type": "Paper",
     "authors": "Azerbayev, Piotrowski, Schoelkopf, Ayers, Radev, and Avigad",
-    "author_search": "Azerbayev, Piotrowski, Schoelkopf, Ayers, Radev, and Avigad Zhangir Azerbayev Bartosz Piotrowski Hailey Schoelkopf Edward W. Ayers Dragomir Radev Jeremy Avigad",
+    "author_search": "Azerbayev, Piotrowski, Schoelkopf, Ayers, Radev, and Avigad Hailey Schoelkopf",
     "marker": "oral",
     "superlatives": [
       "Oral at MATH-AI Workshop, NeurIPS"
@@ -3322,14 +3214,13 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "AI4Science",
-      "Training Models"
+      "AI4Science, Training Models"
     ],
     "lead_org": "",
     "contact": "",
     "artifact_type": "Paper",
     "authors": "Yang, Zanichelli, and Yeh",
-    "author_search": "Yang, Zanichelli, and Yeh Kevin Yang Niccolò Zanichelli Hugh Yeh",
+    "author_search": "Yang, Zanichelli, and Yeh Niccolò Zanichelli",
     "marker": "",
     "superlatives": []
   },
@@ -3349,7 +3240,7 @@
     "contact": "",
     "artifact_type": "Paper",
     "authors": "Ben Allal, Li, Kocetkov, Mou, Akiki, and 36 others",
-    "author_search": "Ben Allal, Li, Kocetkov, Mou, Akiki, and 36 others Loubna Ben Allal Raymond Li Denis Kocetkov Chenghao Mou Christopher Akiki Carlos Munoz Ferrandis Niklas Muennighoff Mayank Mishra Alex Gu Manan Dey Logesh Kumar Umapathi Carolyn Jane Anderson Yangtian Zi Joel Lamy Poirier Hailey Schoelkopf Sergey Troshin Dmitry Abulkhanov Manuel Romero Michael Lappert Francesco De Toni Bernardo García del Río Qian Liu Shamik Bose Urvashi Bhattacharyya Terry Yue Zhuo Ian Yu Paulo Villegas Marco Zocca Sourab Mangrulkar David Lansky Huu Nguyen Danish Contractor Luis Villa Jia Li Dzmitry Bahdanau Yacine Jernite Sean Hughes Daniel Fried Arjun Guha Harm de Vries Leandro von Werra",
+    "author_search": "Ben Allal, Li, Kocetkov, Mou, Akiki, and 36 others Hailey Schoelkopf",
     "marker": "",
     "superlatives": []
   },
@@ -3405,8 +3296,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "Multimodal"
+      "Data, Multimodal"
     ],
     "lead_org": "",
     "contact": "",
@@ -3456,7 +3346,7 @@
     "contact": "",
     "artifact_type": "Paper",
     "authors": "Le Scao, Fan, Akiki, Pavlick, Ilić, Hesslow, Castagné, Luccioni, Yvon, Gallé, Tow, Rush, Biderman, Webson, Ammanamanchi, Wang, Sagot, Muennighoff, Villanova del Moral, Ruwase, Bawden, Bekman, McMillan-Major, Wolf, Beltagy, Nguyen, Saulnier, Tan, Ortiz Suarez, Sanh, Laurençon, Jernite, Launay, Mitchell, Raffel, and 357 others",
-    "author_search": "Le Scao, Fan, Akiki, Pavlick, Ilić, Hesslow, Castagné, Luccioni, Yvon, Gallé, Tow, Rush, Biderman, Webson, Ammanamanchi, Wang, Sagot, Muennighoff, Villanova del Moral, Ruwase, Bawden, Bekman, McMillan-Major, Wolf, Beltagy, Nguyen, Saulnier, Tan, Ortiz Suarez, Sanh, Laurençon, Jernite, Launay, Mitchell, Raffel, and 357 others BigScience Workshop : Teven Le Scao Angela Fan Christopher Akiki Ellie Pavlick Suzana Ilić Daniel Hesslow Roman Castagné Alexandra Sasha Luccioni François Yvon Matthias Gallé Jonathan Tow Alexander M. Rush Stella Biderman Albert Webson Pawan Sasanka Ammanamanchi Thomas Wang Benoît Sagot Niklas Muennighoff Albert Villanova del Moral Olatunji Ruwase Rachel Bawden Stas Bekman Angelina McMillan-Major Iz Beltagy Huu Nguyen Lucile Saulnier Samson Tan Pedro Ortiz Suarez Victor Sanh Hugo Laurençon Yacine Jernite Julien Launay Margaret Mitchell Colin Raffel Aaron Gokaslan Adi Simhi Aitor Soroa Alham Fikri Aji Amit Alfassy Anna Rogers Ariel Kreisberg Nitzav Canwen Xu Chenghao Mou Chris Emezue Christopher Klamm Colin Leong Daniel van Strien David Ifeoluwa Adelani Dragomir Radev Eduardo González Ponferrada Efrat Levkovizh Ethan Kim Eyal Bar Natan Francesco De Toni Gérard Dupont Germán Kruszewski Giada Pistilli Hady Elsahar Hamza Benyamina Hieu Tran Ian Yu Idris Abdulmumin Isaac Johnson Itziar Gonzalez-Dios Javier de la Rosa Jenny Chim Jesse Dodge Jian Zhu Jonathan Chang Jörg Frohberg Joseph Tobing Joydeep Bhattacharjee Khalid Almubarak Kimbo Chen Kyle Lo Leandro Von Werra Leon Weber Long Phan Loubna Ben allal Ludovic Tanguy Manan Dey Manuel Romero Muñoz Maraim Masoud María Grandury Mario Šaško Max Huang Maximin Coavoux Mayank Singh Mike Tian-Jian Jiang Minh Chien Vu Mohammad A. Jauhar Mustafa Ghaleb Nishant Subramani Nora Kassner Nurulaqilla Khamis Olivier Nguyen Omar Espejel Ona de Gibert Paulo Villegas Peter Henderson Pierre Colombo Priscilla Amuok Quentin Lhoest Rheza Harliman Rishi Bommasani Roberto Luis López Rui Ribeiro Salomey Osei Sampo Pyysalo Sebastian Nagel Shamik Bose Shamsuddeen Hassan Muhammad Shanya Sharma Shayne Longpre Somaieh Nikpoor Stanislav Silberberg Suhas Pai Sydney Zink Tiago Timponi Torrent Timo Schick Tristan Thrush Valentin Danchev Vassilina Nikoulina Veronika Laippala Violette Lepercq Vrinda Prabhu Zaid Alyafeai Zeerak Talat Arun Raja Benjamin Heinzerling Chenglei Si Davut Emre Taşar Elizabeth Salesky Sabrina J. Mielke Wilson Y. Lee Abheesht Sharma Andrea Santilli Antoine Chaffin Arnaud Stiegler Debajyoti Datta Eliza Szczechla Gunjan Chhablani Han Wang Harshit Pandey Hendrik Strobelt Jason Alan Fries Jos Rozen Leo Gao Lintang Sutawika M Saiful Bari Maged S. Al-shaibani Matteo Manica Nihal Nayak Ryan Teehan Samuel Albanie Sheng Shen Srulik Ben-David Stephen H. Bach Taewoon Kim Tali Bers Thibault Fevry Trishala Neeraj Urmish Thakker Vikas Raunak Xiangru Tang Zheng-Xin Yong Zhiqing Sun Shaked Brody Yallow Uri Hadar Tojarieh Adam Roberts Hyung Won Chung Jaesung Tae Jason Phang Ofir Press Conglong Li Deepak Narayanan Hatim Bourfoune Jared Casper Jeff Rasley Max Ryabinin Mayank Mishra Minjia Zhang Mohammad Shoeybi Myriam Peyrounette Nicolas Patry Nouamane Tazi Omar Sanseviero Patrick von Platen Pierre Cornette Pierre François Lavallée Rémi Lacroix Samyam Rajbhandari Sanchit Gandhi Shaden Smith Stéphane Requena Suraj Patil Tim Dettmers Ahmed Baruwa Amanpreet Singh Anastasia Cheveleva Anne-Laure Ligozat Arjun Subramonian Aurélie Névéol Charles Lovering Dan Garrette Deepak Tunuguntla Ehud Reiter Ekaterina Taktasheva Ekaterina Voloshina Eli Bogdanov Genta Indra Winata Hailey Schoelkopf Jan-Christoph Kalo Jekaterina Novikova Jessica Zosa Forde Jordan Clive Jungo Kasai Ken Kawamura Liam Hazan Marine Carpuat Miruna Clinciu Najoung Kim Newton Cheng Oleg Serikov Omer Antverg Oskar van der Wal Rui Zhang Ruochen Zhang Sebastian Gehrmann Shachar Mirkin Shani Pais Tatiana Shavrina Thomas Scialom Tian Yun Tomasz Limisiewicz Verena Rieser Vitaly Protasov Vladislav Mikhailov Yada Pruksachatkun Yonatan Belinkov Zachary Bamberger Zdeněk Kasner Alice Rueda Amanda Pestana Amir Feizpour Ammar Khan Amy Faranak Ana Santos Anthony Hevia Antigona Unldreaj Arash Aghagol Arezoo Abdollahi Aycha Tammour Azadeh HajiHosseini Bahareh Behroozi Benjamin Ajibade Bharat Saxena Carlos Muñoz Ferrandis Daniel McDuff Danish Contractor David Lansky Davis David Douwe Kiela Duong A. Nguyen Edward Tan Emi Baylor Ezinwanne Ozoani Fatima Mirza Frankline Ononiwu Habib Rezanejad Hessie Jones Indrani Bhattacharya Irene Solaiman Irina Sedenko Isar Nejadgholi Jesse Passmore Josh Seltzer Julio Bonis Sanz Livia Dutra Mairon Samagaio Maraim Elbadri Margot Mieskes Marissa Gerchick Martha Akinlolu Michael McKenna Mike Qiu Muhammed Ghauri Mykola Burynok Nafis Abrar Nazneen Rajani Nour Elkott Nour Fahmy Olanrewaju Samuel Ran An Rasmus Kromann Ryan Hao Samira Alizadeh Sarmad Shubber Silas Wang Sourav Roy Sylvain Viguier Thanh Le Tobi Oyebade Trieu Le Yoyo Yang Zach Nguyen Abhinav Ramesh Kashyap Alfredo Palasciano Alison Callahan Anima Shukla Antonio Miranda-Escalada Ayush Singh Benjamin Beilharz Bo Wang Caio Brito Chenxi Zhou Chirag Jain Chuxin Xu Clémentine Fourrier Daniel León Periñán Daniel Molano Dian Yu Enrique Manjavacas Fabio Barth Florian Fuhrimann Gabriel Altay Giyaseddin Bayrak Gully Burns Helena U. Vrabec Imane Bello Ishani Dash Jihyun Kang John Giorgi Jonas Golde Jose David Posada Karthik Rangasai Sivaraman Lokesh Bulchandani Lu Liu Luisa Shinzato Madeleine Hahn de Bykhovetz Maiko Takeuchi Marc Pàmies Maria A Castillo Marianna Nezhurina Mario Sänger Matthias Samwald Michael Cullan Michael Weinberg Michiel De Wolf Mina Mihaljcic Minna Liu Moritz Freidank Myungsun Kang Natasha Seelam Nathan Dahlberg Nicholas Michio Broad Nikolaus Muellner Pascale Fung Patrick Haller Ramya Chandrasekhar Renata Eisenberg Robert Martin Rodrigo Canalli Rosaline Su Ruisi Su Samuel Cahyawijaya Samuele Garda Shlok S Deshmukh Shubhanshu Mishra Sid Kiblawi Simon Ott Sinee Sang-aroonsiri Srishti Kumar Stefan Schweter Sushil Bharati Tanmay Laud Théo Gigant Tomoya Kainuma Wojciech Kusa Yanis Labrak Yash Shailesh Bajaj Yash Venkatraman Yifan Xu Yingxin Xu Yu Xu Zhe Tan Zhongli Xie Zifan Ye Mathilde Bras Younes Belkada Thomas Wolf",
+    "author_search": "Le Scao, Fan, Akiki, Pavlick, Ilić, Hesslow, Castagné, Luccioni, Yvon, Gallé, Tow, Rush, Biderman, Webson, Ammanamanchi, Wang, Sagot, Muennighoff, Villanova del Moral, Ruwase, Bawden, Bekman, McMillan-Major, Wolf, Beltagy, Nguyen, Saulnier, Tan, Ortiz Suarez, Sanh, Laurençon, Jernite, Launay, Mitchell, Raffel, and 357 others Teven Le Scao Angela Fan Christopher Akiki Ellie Pavlick Suzana Ilić Daniel Hesslow Roman Castagné Alexandra Sasha Luccioni François Yvon Matthias Gallé Jonathan Tow Alexander M. Rush Stella Biderman Albert Webson Pawan Sasanka Ammanamanchi Thomas Wang Benoît Sagot Niklas Muennighoff Albert Villanova del Moral Olatunji Ruwase Rachel Bawden Stas Bekman Angelina McMillan-Major Iz Beltagy Huu Nguyen Lucile Saulnier Samson Tan Pedro Ortiz Suarez Victor Sanh Hugo Laurençon Yacine Jernite Julien Launay Margaret Mitchell Colin Raffel Aaron Gokaslan Adi Simhi Aitor Soroa Alham Fikri Aji Amit Alfassy Anna Rogers Ariel Kreisberg Nitzav Canwen Xu Chenghao Mou Chris Emezue Christopher Klamm Colin Leong Daniel van Strien David Ifeoluwa Adelani Dragomir Radev Eduardo González Ponferrada Efrat Levkovizh Ethan Kim Eyal Bar Natan Francesco De Toni Gérard Dupont Germán Kruszewski Giada Pistilli Hady Elsahar Hamza Benyamina Hieu Tran Ian Yu Idris Abdulmumin Isaac Johnson Itziar Gonzalez-Dios Javier de la Rosa Jenny Chim Jesse Dodge Jian Zhu Jonathan Chang Jörg Frohberg Joseph Tobing Joydeep Bhattacharjee Khalid Almubarak Kimbo Chen Kyle Lo Leandro Von Werra Leon Weber Long Phan Loubna Ben allal Ludovic Tanguy Manan Dey Manuel Romero Muñoz Maraim Masoud María Grandury Mario Šaško Max Huang Maximin Coavoux Mayank Singh Mike Tian-Jian Jiang Minh Chien Vu Mohammad A. Jauhar Mustafa Ghaleb Nishant Subramani Nora Kassner Nurulaqilla Khamis Olivier Nguyen Omar Espejel Ona de Gibert Paulo Villegas Peter Henderson Pierre Colombo Priscilla Amuok Quentin Lhoest Rheza Harliman Rishi Bommasani Roberto Luis López Rui Ribeiro Salomey Osei Sampo Pyysalo Sebastian Nagel Shamik Bose Shamsuddeen Hassan Muhammad Shanya Sharma Shayne Longpre Somaieh Nikpoor Stanislav Silberberg Suhas Pai Sydney Zink Tiago Timponi Torrent Timo Schick Tristan Thrush Valentin Danchev Vassilina Nikoulina Veronika Laippala Violette Lepercq Vrinda Prabhu Zaid Alyafeai Zeerak Talat Arun Raja Benjamin Heinzerling Chenglei Si Davut Emre Taşar Elizabeth Salesky Sabrina J. Mielke Wilson Y. Lee Abheesht Sharma Andrea Santilli Antoine Chaffin Arnaud Stiegler Debajyoti Datta Eliza Szczechla Gunjan Chhablani Han Wang Harshit Pandey Hendrik Strobelt Jason Alan Fries Jos Rozen Leo Gao Lintang Sutawika M Saiful Bari Maged S. Al-shaibani Matteo Manica Nihal Nayak Ryan Teehan Samuel Albanie Sheng Shen Srulik Ben-David Stephen H. Bach Taewoon Kim Tali Bers Thibault Fevry Trishala Neeraj Urmish Thakker Vikas Raunak Xiangru Tang Zheng-Xin Yong Zhiqing Sun Shaked Brody Yallow Uri Hadar Tojarieh Adam Roberts Hyung Won Chung Jaesung Tae Jason Phang Ofir Press Conglong Li Deepak Narayanan Hatim Bourfoune Jared Casper Jeff Rasley Max Ryabinin Mayank Mishra Minjia Zhang Mohammad Shoeybi Myriam Peyrounette Nicolas Patry Nouamane Tazi Omar Sanseviero Patrick von Platen Pierre Cornette Pierre François Lavallée Rémi Lacroix Samyam Rajbhandari Sanchit Gandhi Shaden Smith Stéphane Requena Suraj Patil Tim Dettmers Ahmed Baruwa Amanpreet Singh Anastasia Cheveleva Anne-Laure Ligozat Arjun Subramonian Aurélie Névéol Charles Lovering Dan Garrette Deepak Tunuguntla Ehud Reiter Ekaterina Taktasheva Ekaterina Voloshina Eli Bogdanov Genta Indra Winata Hailey Schoelkopf Jan-Christoph Kalo Jekaterina Novikova Jessica Zosa Forde Jordan Clive Jungo Kasai Ken Kawamura Liam Hazan Marine Carpuat Miruna Clinciu Najoung Kim Newton Cheng Oleg Serikov Omer Antverg Oskar van der Wal Rui Zhang Ruochen Zhang Sebastian Gehrmann Shachar Mirkin Shani Pais Tatiana Shavrina Thomas Scialom Tian Yun Tomasz Limisiewicz Verena Rieser Vitaly Protasov Vladislav Mikhailov Yada Pruksachatkun Yonatan Belinkov Zachary Bamberger Zdeněk Kasner Alice Rueda Amanda Pestana Amir Feizpour Ammar Khan Amy Faranak Ana Santos Anthony Hevia Antigona Unldreaj Arash Aghagol Arezoo Abdollahi Aycha Tammour Azadeh HajiHosseini Bahareh Behroozi Benjamin Ajibade Bharat Saxena Carlos Muñoz Ferrandis Daniel McDuff Danish Contractor David Lansky Davis David Douwe Kiela Duong A. Nguyen Edward Tan Emi Baylor Ezinwanne Ozoani Fatima Mirza Frankline Ononiwu Habib Rezanejad Hessie Jones Indrani Bhattacharya Irene Solaiman Irina Sedenko Isar Nejadgholi Jesse Passmore Josh Seltzer Julio Bonis Sanz Livia Dutra Mairon Samagaio Maraim Elbadri Margot Mieskes Marissa Gerchick Martha Akinlolu Michael McKenna Mike Qiu Muhammed Ghauri Mykola Burynok Nafis Abrar Nazneen Rajani Nour Elkott Nour Fahmy Olanrewaju Samuel Ran An Rasmus Kromann Ryan Hao Samira Alizadeh Sarmad Shubber Silas Wang Sourav Roy Sylvain Viguier Thanh Le Tobi Oyebade Trieu Le Yoyo Yang Zach Nguyen Abhinav Ramesh Kashyap Alfredo Palasciano Alison Callahan Anima Shukla Antonio Miranda-Escalada Ayush Singh Benjamin Beilharz Bo Wang Caio Brito Chenxi Zhou Chirag Jain Chuxin Xu Clémentine Fourrier Daniel León Periñán Daniel Molano Dian Yu Enrique Manjavacas Fabio Barth Florian Fuhrimann Gabriel Altay Giyaseddin Bayrak Gully Burns Helena U. Vrabec Imane Bello Ishani Dash Jihyun Kang John Giorgi Jonas Golde Jose David Posada Karthik Rangasai Sivaraman Lokesh Bulchandani Lu Liu Luisa Shinzato Madeleine Hahn de Bykhovetz Maiko Takeuchi Marc Pàmies Maria A Castillo Marianna Nezhurina Mario Sänger Matthias Samwald Michael Cullan Michael Weinberg Michiel De Wolf Mina Mihaljcic Minna Liu Moritz Freidank Myungsun Kang Natasha Seelam Nathan Dahlberg Nicholas Michio Broad Nikolaus Muellner Pascale Fung Patrick Haller Ramya Chandrasekhar Renata Eisenberg Robert Martin Rodrigo Canalli Rosaline Su Ruisi Su Samuel Cahyawijaya Samuele Garda Shlok S Deshmukh Shubhanshu Mishra Sid Kiblawi Simon Ott Sinee Sang-aroonsiri Srishti Kumar Stefan Schweter Sushil Bharati Tanmay Laud Théo Gigant Tomoya Kainuma Wojciech Kusa Yanis Labrak Yash Shailesh Bajaj Yash Venkatraman Yifan Xu Yingxin Xu Yu Xu Zhe Tan Zhongli Xie Zifan Ye Mathilde Bras Younes Belkada Thomas Wolf",
     "marker": "",
     "superlatives": []
   },
@@ -3490,8 +3380,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Evaluation",
-      "Security"
+      "Evaluation, Security"
     ],
     "lead_org": "",
     "contact": "",
@@ -3531,8 +3420,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Multimodal",
-      "Training Models"
+      "Multimodal, Training Models"
     ],
     "lead_org": "",
     "contact": "",
@@ -3552,8 +3440,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "AI Governance & Societal Impacts"
+      "Data, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -3593,8 +3480,7 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Evaluation",
-      "Behavioral Safety"
+      "Evaluation, Behavioral Safety"
     ],
     "lead_org": "",
     "contact": "",
@@ -3714,8 +3600,7 @@
     "kind": "workshop",
     "status": "Accepted",
     "areas": [
-      "Data",
-      "Multimodal"
+      "Data, Multimodal"
     ],
     "lead_org": "",
     "contact": "",
@@ -3815,8 +3700,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Behavioral Safety",
-      "AI Governance & Societal Impacts"
+      "Behavioral Safety, AI Governance & Societal Impacts"
     ],
     "lead_org": "",
     "contact": "",
@@ -3836,8 +3720,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Training Models",
-      "Learning Dynamics"
+      "Training Models, Learning Dynamics"
     ],
     "lead_org": "",
     "contact": "",
@@ -3957,8 +3840,7 @@
     "kind": "arxiv",
     "status": "Preprint",
     "areas": [
-      "Training Models",
-      "Learning Dynamics"
+      "Training Models, Learning Dynamics"
     ],
     "lead_org": "",
     "contact": "",
