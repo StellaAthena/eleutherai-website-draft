@@ -1,0 +1,64 @@
+hero:
+  title: "Safety without a kill switch"
+  lede: "Open-weight models cannot rely on API monitoring, access revocation, or hidden safeguards. We study defenses that remain effective when anyone can inspect, modify, and deploy the system."
+
+principles:
+  title: "Release changes the threat model"
+  intro: "For open-weight systems, safety cannot live at a single gate. It has to survive access, modification, redistribution, and deployment in environments the original developer does not control."
+  items:
+    - number: "01"
+      title: "Assume full access"
+      text: "Evaluate safeguards against users who can inspect every parameter, rewrite inference code, and fine-tune without permission."
+    - number: "02"
+      title: "Design for modification"
+      text: "Build interventions whose safety properties are difficult to remove accidentally—or deliberately—after release."
+    - number: "03"
+      title: "Distribute scrutiny"
+      text: "Use open access to enable independent auditing, replication, red teaming, and defenses developed outside the originating lab."
+
+questions:
+  - title: "Can safety be built into learning?"
+    text: "We study interventions during pretraining that change what a model can recover later, even after adversarial fine-tuning."
+  - title: "What survives weight access?"
+    text: "We test which behavioral safeguards remain meaningful when attackers can edit the model rather than merely prompt it."
+  - title: "How should release risk be measured?"
+    text: "We separate risks caused by capability, access, affordances, and deployment context instead of treating openness as one binary variable."
+  - title: "What can open scrutiny improve?"
+    text: "We examine where broad access makes vulnerabilities easier to discover, reproduce, and repair across an ecosystem."
+
+featured:
+  label: "Featured approach · ICLR 2026"
+  title: "Deep Ignorance: Filtering Pretraining Data Builds Tamper-Resistant Safeguards into Open-Weight LLMs"
+  summary: "Instead of teaching a model to refuse dangerous knowledge after training, remove the relevant information before it is learned. The resulting safeguard is designed for a world where downstream users have the weights."
+  url: "https://arxiv.org/abs/2508.06601"
+
+key_work:
+  - label: "Safety intervention"
+    title: "Composable Interventions for Language Models"
+    summary: "Modular edits offer a way to combine and inspect model interventions without requiring one monolithic alignment procedure."
+    url: "https://arxiv.org/abs/2407.06483"
+  - label: "Release governance"
+    title: "Beyond Release: Access Considerations for Generative AI Systems"
+    summary: "Model access is a spectrum of technical and institutional choices, not a simple open-versus-closed switch."
+    url: "https://arxiv.org/abs/2502.16701"
+  - label: "Public-interest research"
+    title: "A Different Approach to AI Safety"
+    summary: "A convening on how openness, plural participation, and independent research can contribute to safer AI systems."
+    url: "https://arxiv.org/abs/2506.22183"
+  - label: "Threat detection"
+    title: "Detecting Backdoors with Meta-Models"
+    summary: "Detect compromised models by learning signals across model populations rather than relying only on behavior at the interface."
+    url: "https://openreview.net/forum?id=cmJiEqniEc"
+
+resources:
+  title: "Safety is an ecosystem property"
+  intro: "Open-weight safety depends on more than a single model. It needs shared evaluations, inspectable interventions, reproducible training, and a community able to respond."
+  items:
+    - name: "Training records"
+      description: "Checkpoints and known data histories expose when dangerous capabilities form."
+    - name: "Independent evaluation"
+      description: "Auditors can reproduce claims and test models in settings developers did not anticipate."
+    - name: "Model interventions"
+      description: "Open tooling lets defenses be inspected, combined, adapted, and stress-tested."
+    - name: "Distributed response"
+      description: "Researchers across institutions can diagnose failures and develop mitigations in parallel."

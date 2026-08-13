@@ -1,0 +1,70 @@
+{{ define "main" }}
+{{ $data := site.Data.research.open_weight_safety }}
+{{ $safetyPapers := slice }}
+{{ range site.Data.research.library_papers }}
+  {{ $areas := delimit (.areas | default slice) ", " }}
+  {{ if in $areas "Open-Weight Safety" }}{{ $safetyPapers = $safetyPapers | append . }}{{ end }}
+{{ end }}
+<main class="ows-page">
+  <header class="ows-hero">
+    <div class="wrap">
+      <nav class="ows-breadcrumb" aria-label="Breadcrumb"><a href="{{ "research/" | relURL }}">Research</a><span aria-hidden="true">/</span><span>Open-weight safety</span></nav>
+      <div class="ows-hero-grid">
+        <div>
+          <p class="ows-kicker">Open-weight safety</p>
+          <h1>{{ $data.hero.title }}</h1>
+          <p class="ows-lede">{{ $data.hero.lede }}</p>
+          <div class="button-row"><a class="button primary" href="#approach">Explore the approach</a><a class="button secondary" href="#work">Selected work</a></div>
+        </div>
+        <figure class="ows-system-map">
+          <div class="ows-map-stage">
+            <svg viewBox="0 0 600 430" role="img" aria-label="Concept map showing released model weights distributed to independent researchers, deployers, auditors, and downstream builders.">
+              <g class="ows-links"><path d="M300 215 115 92M300 215 485 92M300 215 535 265M300 215 405 380M300 215 195 380M300 215 65 265"/></g>
+              <g class="ows-node"><circle cx="300" cy="215" r="76"/><text x="300" y="205">OPEN</text><text x="300" y="230">WEIGHTS</text></g>
+              <g class="ows-satellite"><circle cx="115" cy="92" r="48"/><text x="115" y="88">independent</text><text x="115" y="106">auditors</text></g>
+              <g class="ows-satellite"><circle cx="485" cy="92" r="48"/><text x="485" y="88">safety</text><text x="485" y="106">researchers</text></g>
+              <g class="ows-satellite"><circle cx="535" cy="265" r="48"/><text x="535" y="261">downstream</text><text x="535" y="279">builders</text></g>
+              <g class="ows-satellite"><circle cx="405" cy="380" r="48"/><text x="405" y="376">local</text><text x="405" y="394">deployers</text></g>
+              <g class="ows-satellite"><circle cx="195" cy="380" r="48"/><text x="195" y="376">public-interest</text><text x="195" y="394">labs</text></g>
+              <g class="ows-satellite"><circle cx="65" cy="265" r="48"/><text x="65" y="261">adversarial</text><text x="65" y="279">users</text></g>
+            </svg>
+          </div>
+          <figcaption><strong>After release, control becomes distributed.</strong> Safety has to travel with the model—not depend on a gate controlled by its creator.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </header>
+
+  <article>
+    <section class="ows-principles" id="approach"><div class="wrap">
+      <div class="ows-section-intro"><h2>{{ $data.principles.title }}</h2><p>{{ $data.principles.intro }}</p></div>
+      <div class="ows-principle-grid">{{ range $data.principles.items }}<article><span>{{ .number }}</span><h3>{{ .title }}</h3><p>{{ .text }}</p></article>{{ end }}</div>
+    </div></section>
+
+    <section class="ows-questions"><div class="wrap">
+      <div class="ows-section-top"><div><p class="ows-kicker">Research questions</p><h2>Safety that survives release</h2></div><p>Once the weights leave their creator, assumptions that work for closed APIs break. These questions define a different engineering and governance problem.</p></div>
+      <div class="ows-question-list">{{ range $index, $item := $data.questions }}<article><span>0{{ add $index 1 }}</span><h3>{{ $item.title }}</h3><p>{{ $item.text }}</p></article>{{ end }}</div>
+    </div></section>
+
+    <section class="ows-work" id="work"><div class="wrap">
+      <div class="ows-section-heading"><p class="ows-kicker">Selected work</p><h2>From threat models to durable interventions</h2></div>
+      <a class="ows-featured" href="{{ $data.featured.url }}" target="_blank" rel="noopener noreferrer"><div><span>{{ $data.featured.label }}</span><h3>{{ $data.featured.title }}</h3></div><div><p>{{ $data.featured.summary }}</p><strong>Read the paper <b aria-hidden="true">↗</b></strong></div></a>
+      <div class="ows-work-grid">{{ range $data.key_work }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span>{{ .label }}</span><h3>{{ .title }}</h3><p>{{ .summary }}</p><strong>Explore <b aria-hidden="true">↗</b></strong></a>{{ end }}</div>
+    </div></section>
+
+    <section class="ows-resources"><div class="wrap">
+      <div class="ows-section-intro"><h2>{{ $data.resources.title }}</h2><p>{{ $data.resources.intro }}</p></div>
+      <div class="ows-resource-grid">{{ range $data.resources.items }}<article><i aria-hidden="true"></i><h3>{{ .name }}</h3><p>{{ .description }}</p></article>{{ end }}</div>
+    </div></section>
+
+    <section class="ows-index"><div class="wrap">
+      <div class="ows-section-top"><div><p class="ows-kicker">Area index</p><h2>Open-weight safety research</h2></div><p>Representative publications spanning technical interventions, security, release practices, and governance.</p></div>
+      <div class="ows-paper-list">{{ range $safetyPapers }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span>{{ .date }}</span><strong>{{ .title }}</strong><small>{{ .venue }}</small></a>{{ end }}</div>
+    </div></section>
+
+    <section class="ows-cta"><div class="wrap"><div><p class="ows-kicker">Safety in public</p><h2>More eyes. More experiments. Stronger defenses.</h2></div><div><p>Open-weight safety needs researchers who can inspect assumptions, reproduce failures, and build defenses that work beyond one lab’s infrastructure.</p><div class="button-row"><a class="button primary" href="{{ "community/" | relURL }}">Join the community</a><a class="button secondary" href="{{ "research/" | relURL }}">All research</a></div></div></div></section>
+  </article>
+</main>
+{{ end }}
+
+{{ define "page_styles" }}<link rel="stylesheet" href="{{ "open-weight-safety.css?v=1" | relURL }}">{{ end }}
