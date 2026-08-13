@@ -537,6 +537,11 @@ h2 {
   line-height: 1.42;
 }
 
+.home-current-copy .home-community-actions {
+  justify-content: flex-start;
+  margin-top: 24px;
+}
+
 .home-metric-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -631,6 +636,7 @@ h2 {
 
 .home-current-section {
   padding-top: 28px;
+  border-bottom: 1px solid var(--line);
 }
 
 .home-section-head {
@@ -653,10 +659,6 @@ h2 {
   line-height: 1.45;
 }
 
-.home-research-stories {
-  border-bottom: 1px solid var(--line);
-}
-
 .home-research-story {
   --story-accent: var(--blue);
   display: flow-root;
@@ -666,6 +668,7 @@ h2 {
 
 .home-research-story.is-blue { --story-accent: var(--blue); }
 .home-research-story.is-green { --story-accent: var(--green); }
+.home-research-story.is-violet { --story-accent: var(--violet); }
 .home-research-story.is-coral { --story-accent: var(--coral); }
 .home-research-story.is-gold { --story-accent: var(--gold); }
 
@@ -764,7 +767,6 @@ h2 {
   grid-template-columns: minmax(300px, 0.34fr) minmax(0, 0.66fr);
   gap: 54px;
   padding-top: 48px;
-  border-top: 1px solid var(--line);
 }
 
 .home-output-layout h2 {
@@ -775,7 +777,6 @@ h2 {
 
 .home-output-list {
   display: grid;
-  border-top: 1px solid var(--line);
 }
 
 .home-output-row {
@@ -799,31 +800,6 @@ h2 {
   font-size: 0.9rem;
   line-height: 1.35;
   text-align: right;
-}
-
-.home-community-section {
-  padding-top: 46px;
-}
-
-.home-community-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 0.72fr) auto;
-  gap: 44px;
-  align-items: center;
-  padding: 34px 0 0;
-  border-top: 1px solid var(--line);
-}
-
-.home-community-layout h2 {
-  margin-bottom: 16px;
-  font-size: clamp(1.9rem, 3vw, 2.45rem);
-}
-
-.home-community-layout p {
-  margin-bottom: 0;
-  color: var(--body);
-  font-size: 1.05rem;
-  line-height: 1.45;
 }
 
 .home-community-actions {
@@ -2345,7 +2321,6 @@ footer .wrap {
   .home-current-layout,
   .home-section-head,
   .home-output-layout,
-  .home-community-layout,
   .community-hero-grid,
   .community-map-intro,
   .community-support-layout,
@@ -2447,7 +2422,6 @@ footer .wrap {
 	  .home-section-head,
 	  .home-research-story,
 	  .home-output-layout,
-	  .home-community-layout,
 	  .community-hero-grid,
 	  .community-map-intro,
 	  .community-support-layout,
@@ -2545,8 +2519,7 @@ footer .wrap {
     text-align: left;
   }
 
-  .home-output-layout,
-  .home-community-layout {
+  .home-output-layout {
     gap: 24px;
   }
 

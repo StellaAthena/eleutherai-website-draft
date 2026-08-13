@@ -10,21 +10,6 @@ metrics:
     source: "model_downloads"
     url: "https://huggingface.co/EleutherAI"
 priorities:
-  - key: "interpretability-over-time"
-    title: "Interpretability over time"
-    layout: "lead"
-    accent: "green"
-    image: "images/research/homepage/interpretability-over-time.webp"
-    image_alt: "A model's diffuse internal connections organizing into distinct mechanisms over the course of training"
-    text: |-
-      Most interpretability research studies a finished model, frozen at the end of training. We study how model internals emerge, arguing that [a science of AI must study training dynamics](https://arxiv.org/abs/2606.06533) rather than treating models as static artifacts to be dissected after the fact.
-
-      Our Pythia suite pioneered this approach, pairing model checkpoints across training with the exact data seen at each step. It has become the standard scientific instrument for research on learning dynamics, memorization, and how capabilities form, with thousands of citing works.
-    links:
-      - label: "Pythia"
-        url: "project-pythia/"
-      - label: "Training dynamics agenda"
-        url: "https://arxiv.org/abs/2606.06533"
   - key: "open-models-and-tools"
     title: "Open models and tools"
     layout: "light"
@@ -42,10 +27,25 @@ priorities:
         url: "https://github.com/EleutherAI"
       - label: "Models"
         url: "https://huggingface.co/EleutherAI/models"
+  - key: "interpretability-over-time"
+    title: "Interpretability over time"
+    layout: "lead"
+    accent: "green"
+    image: "images/research/homepage/interpretability-over-time.webp"
+    image_alt: "A model's diffuse internal connections organizing into distinct mechanisms over the course of training"
+    text: |-
+      Most interpretability research studies a finished model, frozen at the end of training. We study how model internals emerge, arguing that [a science of AI must study training dynamics](https://arxiv.org/abs/2606.06533) rather than treating models as static artifacts to be dissected after the fact.
+
+      Our Pythia suite pioneered this approach, pairing model checkpoints across training with the exact data seen at each step. It has become the standard scientific instrument for research on learning dynamics, memorization, and how capabilities form, with thousands of citing works.
+    links:
+      - label: "Pythia"
+        url: "project-pythia/"
+      - label: "Training dynamics agenda"
+        url: "https://arxiv.org/abs/2606.06533"
   - key: "open-weight-safety"
     title: "Open-weight safety"
     layout: "safety"
-    accent: "coral"
+    accent: "violet"
     image: "images/research/homepage/open-weight-safety.png"
     image_alt: "Deep Ignorance results showing filtered models resisting adversarial fine-tuning without reduced general capability"
     text: |-

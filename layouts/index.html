@@ -82,7 +82,11 @@
             {{ end }}
           {{ end }}
         </div>
-        <p>We build open-source AI infrastructure, pioneer interpretability and open-weight safety, and help researchers without frontier-lab resources do frontier work. Explore what we are currently excited about:</p>
+        <p>We build open-source AI infrastructure, pioneer interpretability and open-weight safety, and help researchers without frontier-lab resources do frontier work.</p>
+        <div class="home-community-actions">
+          <a class="button primary" href="{{ "community/" | relURL }}">Join the community</a>
+          <a class="button" href="{{ "research/" | relURL }}">Explore our research</a>
+        </div>
       </div>
 
       <aside class="home-latest-panel" aria-labelledby="latest-title">
@@ -109,7 +113,7 @@
   <section class="section home-current-section" aria-labelledby="current-research-title">
     <div class="wrap">
       <div class="home-section-head">
-        <h2 id="current-research-title">Current research</h2>
+        <h2 id="current-research-title">Focus Areas</h2>
       </div>
 
       <div class="home-research-stories">
@@ -151,17 +155,5 @@
     </div>
   </section>
 
-  <section class="section home-community-section" aria-labelledby="community-title">
-    <div class="wrap home-community-layout">
-      <div>
-        <h2 id="community-title">Research in the open</h2>
-        <p>EleutherAI operates through a public research community where staff, volunteers, and external collaborators discuss projects, share artifacts, and coordinate work.</p>
-      </div>
-      <div class="home-community-actions">
-        <a class="button primary" href="{{ "community/" | relURL }}">Join the community</a>
-        <a class="button" href="{{ "research/" | relURL }}">Explore research</a>
-      </div>
-    </div>
-  </section>
 </main>
 {{ end }}
