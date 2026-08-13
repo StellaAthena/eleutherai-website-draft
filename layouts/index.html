@@ -57,33 +57,29 @@
       <div class="home-current-copy">
         <h1 id="hero-title">Welcome to the world's most cited discord server</h1>
         <div class="home-metric-strip" aria-label="EleutherAI impact metrics">
-          {{ range site.Data.home.metric_rows }}
-            <div class="home-metric-row">
-              {{ range . }}
-                {{ $value := .value }}
-                {{ $url := .url }}
-                {{ with .source }}
-                  {{ with index $generatedMetrics . }}
-                    {{ with .value }}{{ $value = . }}{{ end }}
-                    {{ with .url }}{{ $url = . }}{{ end }}
-                  {{ end }}
-                {{ end }}
-                {{ $emptyClass := cond (not $value) " is-empty" "" }}
-                {{ if $url }}
-                  {{ $external := hasPrefix $url "http" }}
-                  {{ $href := cond $external $url ($url | relURL) }}
-                  <a class="home-metric{{ $emptyClass }}" href="{{ $href }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>
-                    <strong>{{ $value }}</strong>
-                    <span>{{ .label }}</span>
-                  </a>
-                {{ else }}
-                  <div class="home-metric{{ $emptyClass }}">
-                    <strong>{{ $value }}</strong>
-                    <span>{{ .label }}</span>
-                  </div>
-                {{ end }}
+          {{ range site.Data.home.metrics }}
+            {{ $value := .value }}
+            {{ $url := .url }}
+            {{ with .source }}
+              {{ with index $generatedMetrics . }}
+                {{ with .value }}{{ $value = . }}{{ end }}
+                {{ with .url }}{{ $url = . }}{{ end }}
               {{ end }}
-            </div>
+            {{ end }}
+            {{ $emptyClass := cond (not $value) " is-empty" "" }}
+            {{ if $url }}
+              {{ $external := hasPrefix $url "http" }}
+              {{ $href := cond $external $url ($url | relURL) }}
+              <a class="home-metric{{ $emptyClass }}" href="{{ $href }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                <strong>{{ $value }}</strong>
+                <span>{{ .label }}</span>
+              </a>
+            {{ else }}
+              <div class="home-metric{{ $emptyClass }}">
+                <strong>{{ $value }}</strong>
+                <span>{{ .label }}</span>
+              </div>
+            {{ end }}
           {{ end }}
         </div>
         <p>We build open-source AI infrastructure, pioneer interpretability and open-weight safety, and help researchers without frontier-lab resources do frontier work. Explore what we are currently excited about:</p>
