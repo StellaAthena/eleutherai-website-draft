@@ -6,7 +6,7 @@ hero:
     - >-
       EleutherAI works to widen that circle. We release models, datasets, code, and methods so other researchers can inspect, reproduce, and extend our work, and we do that work [in the open](https://arxiv.org/abs/2210.06413), where anyone can follow along and contribute. But public artifacts are not enough: researchers also need compute, mentorship, and the chance to lead work of their own. Our community reaches across more than thirty countries to train aspiring researchers, provide resources to those without them, and grow them into independent researchers in their own right.
     - >-
-      We also help independent research communities build capacity of their own. Through shared compute and collaboration, new groups can pursue their own questions and publish openly. The goal is not to bring every promising group inside EleutherAI, it is for more researchers and organizations to set their own agendas, contribute work others can build on, and stand on their own. Several communities featured below began with that support. Their independence is one of the clearest measures of our success.
+      We also help independent research communities build capacity of their own. Through shared compute and collaboration, new groups can pursue their own questions and publish openly. The goal is not to bring every promising group inside EleutherAI, it is for more researchers and organizations to set their own agendas, contribute work others can build on, and stand on their own. Several communities featured below began with that support.
 
 map:
   src: "images/community/community-map.png"
@@ -39,7 +39,8 @@ partners:
       name: "Multi-Agent Security Initiative"
       url: "https://github.com/Multi-Agent-Security-Initiative"
       logo: "images/community/masi-logo.png"
-      text: "A technical AI safety research community founded by Ben Hagag and Michael Mulet, studying the security challenges of a world with a rapidly growing number of AI agents."
+      text: >-
+        The prominence of AI agents is growing rapidly, but work on multi-agent security and safety is lagging severely behind. Founded by Ben Hagag and Michael Mulet, MASI is focused on multi-agent security as a field of its own by studying how the presence of multiple interacting agents changes the AI safety and security landscape.
       papers:
         - title: "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems"
           url: "https://arxiv.org/abs/2603.00131"
@@ -48,7 +49,8 @@ partners:
       url: "https://evaleval.github.io/"
       logo: "images/community/evaleval-logo.png"
       logo_class: "is-evaleval"
-      text: "A global coalition of academics and other researchers working to improve the practice of evaluations in machine learning, from benchmarks to policy."
+      text: >-
+        How AI is measured shapes what gets built and believed. EvalEval is a global coalition of researchers, co-hosted by EleutherAI, Hugging Face and the University of Edinburgh, working to rebuild evaluation as shared open infrastructure: common ways to report results, honest accounting of where benchmarks break down, and standards that range from the benchmark all the way to policy.
       papers:
         - title: "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation"
           url: "https://arxiv.org/abs/2602.16763"
@@ -58,7 +60,8 @@ partners:
       name: "Data Provenance Initiative"
       url: "https://www.dataprovenance.org/"
       logo: "images/community/data-provenance-logo.svg"
-      text: "A volunteer collective of AI researchers conducting large-scale audits of the data, markets, and real-world uses that shape modern AI. DPI traces training datasets from their origins through creation and reuse; documents sources, licenses, creators, languages, and geographies; measures changes in web consent; studies participation and concentration in open-model ecosystems; and is extending this work to how people use and misuse AI systems in practice."
+      text: >-
+        Modern AI is built on data whose origins, ownership, and consent are mostly undocumented. The Data Provenance Initiative is a volunteer collective of researchers that audits that foundation at scale: tracing training datasets from their origins through creation and reuse; documenting sources, licenses, creators, languages, and geographies; tracking how web consent is changing; and mapping who actually holds power in the open-model ecosystem.
       papers:
         - title: "The Data Provenance Initiative: A Large Scale Audit of Dataset Licensing & Attribution in AI"
           url: "https://doi.org/10.48550/arXiv.2310.16787"
@@ -68,7 +71,8 @@ partners:
       name: "UniverseTBD"
       url: "https://universetbd.org/"
       logo: "images/community/universetbd-logo.png"
-      text: "A global research lab applying frontier AI to open scientific discovery, including a 100 TB astronomy dataset spanning images, spectra, time series, and scientific metadata."
+      text: >-
+        UniverseTBD is a collection of researchers with backgrounds in AI and across the sciences working to bring recent advancements in AI to bear on problems of interest to astrophysics researchers. They put a heavy focus on making these advances more accessible to scientists, building the datasets and tools that open discovery to more people, alongside agents that help researchers search the literature and generate new hypotheses.
       papers:
         - title: "The Multimodal Universe: Enabling Large-Scale Machine Learning with 100TB of Astronomical Scientific Data"
           url: "https://arxiv.org/abs/2412.02527"
