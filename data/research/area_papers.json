@@ -377,44 +377,14 @@
   ],
   "evaluation": [
     {
-      "title": "Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs",
-      "url": "https://arxiv.org/abs/2605.09063",
+      "title": "Quantifying the Effect of Test Set Contamination on Generative Evaluations",
+      "url": "https://arxiv.org/abs/2601.04301",
       "summary": "",
       "date": "2026",
       "year": "2026",
-      "venue": "NeurIPS",
+      "venue": "Foundations of Deep Generative Models @ ICML",
       "superlatives": [],
-      "sort_date": "2026-12-06"
-    },
-    {
-      "title": "Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures",
-      "url": "https://arxiv.org/abs/2510.24081",
-      "summary": "",
-      "date": "2026",
-      "year": "2026",
-      "venue": "NeurIPS Evaluations and Benchmarks",
-      "superlatives": [],
-      "sort_date": "2026-12-06"
-    },
-    {
-      "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
-      "url": "https://arxiv.org/abs/2606.14516",
-      "summary": "",
-      "date": "2026",
-      "year": "2026",
-      "venue": "NeurIPS Datasets and Evaluations",
-      "superlatives": [],
-      "sort_date": "2026-12-06"
-    },
-    {
-      "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
-      "url": "https://arxiv.org/abs/2606.09809",
-      "summary": "",
-      "date": "2026",
-      "year": "2026",
-      "venue": "NeurIPS Datasets and Evaluations",
-      "superlatives": [],
-      "sort_date": "2026-12-06"
+      "sort_date": "2026-07-10"
     },
     {
       "title": "Who Evaluates AI's Social Impacts? Mapping Coverage and Gaps in First and Third Party Evaluations",
@@ -457,6 +427,36 @@
       "sort_date": "2026-07-02"
     },
     {
+      "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
+      "url": "https://arxiv.org/abs/2606.14516",
+      "summary": "",
+      "date": "2026",
+      "year": "2026",
+      "venue": "NeurIPS Datasets and Evaluations",
+      "superlatives": [],
+      "sort_date": "2026-06-12"
+    },
+    {
+      "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
+      "url": "https://arxiv.org/abs/2606.09809",
+      "summary": "",
+      "date": "2026",
+      "year": "2026",
+      "venue": "NeurIPS Datasets and Evaluations",
+      "superlatives": [],
+      "sort_date": "2026-06-08"
+    },
+    {
+      "title": "Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs",
+      "url": "https://arxiv.org/abs/2605.09063",
+      "summary": "",
+      "date": "2026",
+      "year": "2026",
+      "venue": "NeurIPS",
+      "superlatives": [],
+      "sort_date": "2026-05-09"
+    },
+    {
       "title": "Evaluating SAE interpretability without explanations",
       "url": "https://arxiv.org/abs/2507.08473",
       "summary": "",
@@ -467,14 +467,14 @@
       "sort_date": "2026-04-23"
     },
     {
-      "title": "Quantifying the Effect of Test Set Contamination on Generative Evaluations",
-      "url": "https://arxiv.org/abs/2601.04301",
+      "title": "Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures",
+      "url": "https://arxiv.org/abs/2510.24081",
       "summary": "",
-      "date": "2026",
-      "year": "2026",
-      "venue": "NeurIPS",
+      "date": "2025",
+      "year": "2025",
+      "venue": "NeurIPS Evaluations and Benchmarks",
       "superlatives": [],
-      "sort_date": "2026-02-06"
+      "sort_date": "2025-10-25"
     },
     {
       "title": "Evaluating Morphological Alignment of Tokenizers in 70 Languages",
@@ -767,6 +767,16 @@
   ],
   "datasets": [
     {
+      "title": "Quantifying the Effect of Test Set Contamination on Generative Evaluations",
+      "url": "https://arxiv.org/abs/2601.04301",
+      "summary": "",
+      "date": "2026",
+      "year": "2026",
+      "venue": "Foundations of Deep Generative Models @ ICML",
+      "superlatives": [],
+      "sort_date": "2026-07-10"
+    },
+    {
       "title": "CommonLID: Re-evaluating State-of-the-Art Language Identification Performance on Web Data",
       "url": "https://arxiv.org/abs/2601.18026",
       "summary": "",
@@ -795,16 +805,6 @@
       "venue": "arXiv",
       "superlatives": [],
       "sort_date": "2026-02-16"
-    },
-    {
-      "title": "Quantifying the Effect of Test Set Contamination on Generative Evaluations",
-      "url": "https://arxiv.org/abs/2601.04301",
-      "summary": "",
-      "date": "2026",
-      "year": "2026",
-      "venue": "NeurIPS",
-      "superlatives": [],
-      "sort_date": "2026-02-06"
     },
     {
       "title": "Mitigating Emergent Misalignment with Data Attribution",
