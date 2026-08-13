@@ -2703,6 +2703,15 @@ footer .wrap {
   color: var(--violet);
 }
 
+.community-impact-stat:nth-child(4) {
+  grid-column: 1 / -1;
+  padding-top: 24px;
+}
+
+.community-impact-stat:nth-child(4) strong {
+  color: var(--gold);
+}
+
 .community-impact-stat span {
   display: block;
   margin-top: 12px;
