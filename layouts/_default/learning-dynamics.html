@@ -1,0 +1,124 @@
+{{ define "main" }}
+{{ $paperMap := site.Data.research.area_papers | default dict }}
+{{ $papers := index $paperMap .Params.area_key | default slice }}
+{{ $data := site.Data.research.learning_dynamics }}
+<main class="ld-page">
+  <header class="ld-hero">
+    <div class="wrap">
+      <nav class="ld-breadcrumb" aria-label="Breadcrumb">
+        <a href="{{ "research/" | relURL }}">Research</a>
+        <span aria-hidden="true">/</span>
+        <span>Learning dynamics</span>
+      </nav>
+      <h1>Learning dynamics</h1>
+      <p class="ld-lede">Models are not static artifacts. We study how capabilities, representations, memorization, and failures develop over the course of training—and how those trajectories can support prediction and intervention.</p>
+      <div class="button-row">
+        <a class="button primary" href="{{ $data.agenda.url }}" target="_blank" rel="noopener noreferrer">Read the research agenda</a>
+        <a class="button secondary" href="#publications">View all {{ len $papers }} papers</a>
+      </div>
+    </div>
+  </header>
+
+  <article>
+    <section class="ld-thesis">
+      <div class="wrap">
+        <div class="ld-thesis-layout">
+          <h2>Models are processes, not artifacts</h2>
+          <div class="ld-prose">
+            <p>Most interpretability research examines a finished model, frozen at the end of training. That can reveal what is present without explaining when it formed, which parts of the training process produced it, or whether the same account holds across runs and scales.</p>
+            <p>Learning dynamics treats the training trajectory as the object of study. Intermediate checkpoints, controlled data order, repeated runs, and longitudinal evaluations let explanations be tested against development rather than fitted only to an endpoint.</p>
+          </div>
+        </div>
+        <a class="ld-agenda" href="{{ $data.agenda.url }}" target="_blank" rel="noopener noreferrer">
+          <span class="ld-agenda-title"><strong>{{ $data.agenda.title }}</strong><span>{{ $data.agenda.subtitle }}</span></span>
+          <span>{{ $data.agenda.authors }}</span>
+          <span><span class="paper-marker" role="img" aria-label="Oral" title="Oral">🎙️</span> {{ $data.agenda.venue }} <b aria-hidden="true">↗</b></span>
+        </a>
+      </div>
+    </section>
+
+    {{ with $data.evidence }}
+    <section class="ld-evidence">
+      <div class="wrap ld-evidence-layout">
+        <figure>
+          <video controls loop muted playsinline preload="metadata" poster="{{ .poster | relURL }}">
+            <source src="{{ .video | relURL }}" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>{{ .credit }}</figcaption>
+        </figure>
+        <div>
+          <h2>{{ .title }}</h2>
+          <p>{{ .text }}</p>
+          <a class="ld-text-link" href="{{ .paper_url }}" target="_blank" rel="noopener noreferrer">{{ .paper_label }} <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+    {{ end }}
+
+    {{ with $data.directions }}
+    <section class="ld-directions">
+      <div class="wrap">
+        <div class="ld-section-head">
+          <h2>{{ .title }}</h2>
+          <p>{{ .intro }}</p>
+        </div>
+        <div class="ld-direction-grid">
+          {{ range .items }}
+          <article class="ld-direction">
+            <h3>{{ .title }}</h3>
+            <p>{{ .text }}</p>
+            <div class="ld-direction-links">
+              {{ range .links }}
+              <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }} <span aria-hidden="true">↗</span></a>
+              {{ end }}
+            </div>
+          </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+    {{ end }}
+
+    {{ with $data.pythia }}
+    <section class="ld-pythia">
+      <div class="wrap ld-pythia-layout">
+        <h2>{{ .title }}</h2>
+        <div>
+          <p>{{ .text }}</p>
+          <div class="ld-pythia-links">
+            {{ range .links }}
+              {{ $external := hasPrefix .url "http" }}
+              <a href="{{ if $external }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }} <span aria-hidden="true">{{ if $external }}↗{{ else }}→{{ end }}</span></a>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </section>
+    {{ end }}
+
+    <section class="ld-publications" id="publications">
+      <div class="wrap">
+        <div class="ld-section-head">
+          <h2>Learning dynamics research</h2>
+          <p>All papers whose Area field in EleutherAI’s research index includes “Learning Dynamics,” listed newest first.</p>
+        </div>
+        <div class="ld-paper-list">
+          {{ range $papers }}
+          <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+            <span class="ld-paper-year">{{ .year }}</span>
+            <span class="ld-paper-main"><strong>{{ partial "paper-marker.html" . }}{{ .title }}</strong>{{ with .authors }}<span>{{ . }}</span>{{ end }}</span>
+            <span class="ld-paper-venue">{{ .venue }}</span>
+          </a>
+          {{ end }}
+        </div>
+        <a class="ld-library-link" href="{{ "papers/" | relURL }}">Explore the complete Research Library <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </article>
+</main>
+{{ end }}
+
+{{ define "page_styles" }}
+<link rel="stylesheet" href="{{ "learning-dynamics.css?v=2" | relURL }}">
+{{ end }}

@@ -21,6 +21,8 @@ priorities:
 
       Our Pythia suite pioneered this approach, pairing model checkpoints across training with the exact data seen at each step. It has become the standard scientific instrument for research on learning dynamics, memorization, and how capabilities form, with thousands of citing works.
     links:
+      - label: "Explore learning dynamics"
+        url: "research/learning-dynamics/"
       - label: "Pythia"
         url: "project-pythia/"
       - label: "Training dynamics agenda"

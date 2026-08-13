@@ -606,14 +606,17 @@ def area_paper_record(row, summary="", display_venue=""):
     date = pub_date(row)
     if date == datetime.min:
         date = row_date(row)
-    venue = display_venue or homepage_venue(row)
+    library_record = library_paper_record(row)
+    venue = display_venue or library_record["venue"]
     return {
         "title": normalize_title(row.get("Title")),
         "url": paper_url(row),
         "summary": summary,
+        "authors": (row.get("Display Authors") or "").strip(),
         "date": display_year(date),
         "year": str(date.year) if date != datetime.min else "",
         "venue": venue,
+        "marker": library_record["marker"],
         "superlatives": row_superlatives(row),
         "sort_date": date.strftime("%Y-%m-%d") if date != datetime.min else "",
     }
@@ -801,9 +804,20 @@ def filtered_area_papers(rows, config):
     return records
 
 
+def papers_with_area_text(rows, area_text):
+    area_text = area_text.casefold()
+    records = [
+        area_paper_record(row)
+        for row in rows
+        if area_text in (row.get("Area") or "").casefold()
+    ]
+    records.sort(key=lambda row: (row["sort_date"], row["title"]), reverse=True)
+    return records
+
+
 def area_papers(rows):
     records = {
-        "training_dynamics": configured_area_papers(rows, "Training Dynamics"),
+        "training_dynamics": papers_with_area_text(rows, "Learning Dynamics"),
     }
     for config in read_area_filters():
         records[config["key"]] = filtered_area_papers(rows, config)
