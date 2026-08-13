@@ -88,13 +88,26 @@
 
   <section class="community-impact-reading">
     <div class="wrap">
-      <div>
+      <div class="community-impact-reading-intro">
         <h2>{{ $community.reading_groups.title }}</h2>
         <p>{{ $community.reading_groups.text }}</p>
       </div>
-      <a class="community-impact-reading-link" href="{{ $community.reading_groups.url }}" target="_blank" rel="noopener noreferrer">
-        {{ $community.reading_groups.link_label }} <span aria-hidden="true">&#8594;</span>
-      </a>
+      <div class="community-impact-reading-discovery">
+        <div class="community-impact-recordings">
+          {{ range $community.reading_groups.recordings }}
+            <a class="community-impact-recording" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+              <span>
+                <strong>{{ .title }}</strong>
+                <span>{{ .text }}</span>
+              </span>
+              <span class="community-impact-recording-arrow" aria-hidden="true">&#8594;</span>
+            </a>
+          {{ end }}
+        </div>
+        <a class="community-impact-reading-archive" href="{{ $community.reading_groups.url }}" target="_blank" rel="noopener noreferrer">
+          {{ $community.reading_groups.link_label }} <span aria-hidden="true">&#8594;</span>
+        </a>
+      </div>
     </div>
   </section>
 </main>
