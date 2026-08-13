@@ -1,119 +1,322 @@
 [
   {
-    "family": "NeurIPS",
+    "family": "COLM",
     "year": "2026",
     "kind": "conference",
-    "label": "NeurIPS, 2026",
-    "count": 13,
-    "sort_date": "2026-12-06",
+    "label": "COLM, 2026",
+    "count": 1,
+    "sort_date": "2026-10-06",
     "venues": [
       {
-        "venue": "NeurIPS",
+        "venue": "COLM",
+        "label": "Main conference",
+        "kind": "conference",
+        "count": 1,
+        "sort_date": "2026-10-06",
+        "papers": [
+          {
+            "title": "Where Does Social Reasoning Come From? Capability Provenance in Language Models",
+            "url": "https://arxiv.org/abs/2606.19625",
+            "date": "2026",
+            "date_sort": "2026-10-06",
+            "venue": "COLM",
+            "venue_year": "2026",
+            "kind": "conference",
+            "family": "COLM",
+            "group_sort_date": "2026-10-06",
+            "superlatives": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "family": "ICML",
+    "year": "2026",
+    "kind": "conference",
+    "label": "ICML, 2026",
+    "count": 8,
+    "sort_date": "2026-07-10",
+    "venues": [
+      {
+        "venue": "ICML",
         "label": "Main conference",
         "kind": "conference",
         "count": 4,
-        "sort_date": "2026-12-06",
+        "sort_date": "2026-07-10",
         "papers": [
           {
-            "title": "Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs",
-            "url": "https://arxiv.org/abs/2605.09063",
+            "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
+            "url": "https://arxiv.org/abs/2606.06533",
             "date": "2026",
-            "date_sort": "2026-12-06",
-            "venue": "NeurIPS",
+            "date_sort": "2026-07-10",
+            "venue": "ICML",
             "venue_year": "2026",
             "kind": "conference",
-            "family": "NeurIPS",
-            "group_sort_date": "2026-12-06",
+            "family": "ICML",
+            "group_sort_date": "2026-07-10",
+            "superlatives": [
+              "Oral at ICML"
+            ]
+          },
+          {
+            "title": "Who Evaluates AI's Social Impacts? Mapping Coverage and Gaps in First and Third Party Evaluations",
+            "url": "https://arxiv.org/abs/2511.05613",
+            "date": "2026",
+            "date_sort": "2026-07-08",
+            "venue": "ICML",
+            "venue_year": "2026",
+            "kind": "conference",
+            "family": "ICML",
+            "group_sort_date": "2026-07-08",
             "superlatives": []
           },
           {
-            "title": "Matrix-Driven Identification and Reconstruction of LLM Weight Homology",
-            "url": "https://arxiv.org/abs/2508.06309",
+            "title": "Faults in Our Formal Benchmarking: Dataset Defects and Evaluation Failures in Lean Theorem Proving",
+            "url": "https://arxiv.org/abs/2606.29493",
             "date": "2026",
-            "date_sort": "2026-12-06",
-            "venue": "NeurIPS",
+            "date_sort": "2026-07-08",
+            "venue": "ICML",
             "venue_year": "2026",
             "kind": "conference",
-            "family": "NeurIPS",
-            "group_sort_date": "2026-12-06",
+            "family": "ICML",
+            "group_sort_date": "2026-07-08",
             "superlatives": []
           },
           {
-            "title": "LoRA-Muon: Spectral Steepest Descent on the Low-Rank Manifold",
-            "url": "https://arxiv.org/abs/2606.12921",
+            "title": "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation",
+            "url": "https://arxiv.org/abs/2602.16763",
             "date": "2026",
-            "date_sort": "2026-12-06",
-            "venue": "NeurIPS",
+            "date_sort": "2026-07-07",
+            "venue": "ICML",
             "venue_year": "2026",
             "kind": "conference",
-            "family": "NeurIPS",
-            "group_sort_date": "2026-12-06",
+            "family": "ICML",
+            "group_sort_date": "2026-07-07",
+            "superlatives": []
+          }
+        ]
+      },
+      {
+        "venue": "Agents in the Wild @ ICML",
+        "label": "Agents in the Wild",
+        "kind": "workshop",
+        "count": 1,
+        "sort_date": "2026-07-04",
+        "papers": [
+          {
+            "title": "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems",
+            "url": "https://arxiv.org/abs/2603.00131",
+            "date": "2026",
+            "date_sort": "2026-07-11",
+            "venue": "Agents in the Wild @ ICML",
+            "venue_year": "2026",
+            "kind": "workshop",
+            "family": "ICML",
+            "group_sort_date": "2026-07-04",
+            "superlatives": []
+          }
+        ]
+      },
+      {
+        "venue": "MechInterp Workshop @ ICML",
+        "label": "MechInterp Workshop",
+        "kind": "workshop",
+        "count": 2,
+        "sort_date": "2026-07-03",
+        "papers": [
+          {
+            "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
+            "url": "https://arxiv.org/abs/2606.06533",
+            "date": "2026",
+            "date_sort": "2026-07-10",
+            "venue": "MechInterp Workshop @ ICML",
+            "venue_year": "2026",
+            "kind": "workshop",
+            "family": "ICML",
+            "group_sort_date": "2026-07-03",
             "superlatives": []
           },
+          {
+            "title": "Automated Attribution Graph Interpretation via Probe Prompting",
+            "url": "https://arxiv.org/abs/2511.07002",
+            "date": "2026",
+            "date_sort": "2026-07-10",
+            "venue": "Mechanistic interpretability workshop @ ICML",
+            "venue_year": "2026",
+            "kind": "workshop",
+            "family": "ICML",
+            "group_sort_date": "2026-07-03",
+            "superlatives": []
+          }
+        ]
+      },
+      {
+        "venue": "Foundations of Deep Generative Models @ ICML",
+        "label": "Foundations of Deep Generative Models",
+        "kind": "workshop",
+        "count": 1,
+        "sort_date": "2026-07-03",
+        "papers": [
           {
             "title": "Quantifying the Effect of Test Set Contamination on Generative Evaluations",
             "url": "https://arxiv.org/abs/2601.04301",
             "date": "2026",
-            "date_sort": "2026-02-06",
-            "venue": "NeurIPS",
+            "date_sort": "2026-07-10",
+            "venue": "Foundations of Deep Generative Models @ ICML",
+            "venue_year": "2026",
+            "kind": "workshop",
+            "family": "ICML",
+            "group_sort_date": "2026-07-03",
+            "superlatives": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "family": "ACL",
+    "year": "2026",
+    "kind": "conference",
+    "label": "ACL, 2026",
+    "count": 3,
+    "sort_date": "2026-07-02",
+    "venues": [
+      {
+        "venue": "ACL",
+        "label": "Main conference",
+        "kind": "conference",
+        "count": 1,
+        "sort_date": "2026-07-02",
+        "papers": [
+          {
+            "title": "CommonLID: Re-evaluating State-of-the-Art Language Identification Performance on Web Data",
+            "url": "https://arxiv.org/abs/2601.18026",
+            "date": "2026",
+            "date_sort": "2026-07-02",
+            "venue": "ACL",
             "venue_year": "2026",
             "kind": "conference",
-            "family": "NeurIPS",
-            "group_sort_date": "2026-02-06",
+            "family": "ACL",
+            "group_sort_date": "2026-07-02",
             "superlatives": []
           }
         ]
       },
       {
-        "venue": "NeurIPS Evaluations and Benchmarks",
-        "label": "Evaluations and Benchmarks",
+        "venue": "ACL Findings",
+        "label": "Findings",
         "kind": "conference",
         "count": 1,
-        "sort_date": "2026-12-06",
+        "sort_date": "2026-07-02",
         "papers": [
           {
-            "title": "Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures",
-            "url": "https://arxiv.org/abs/2510.24081",
+            "title": "Weight Tying Biases Token Embeddings Towards the Output Space",
+            "url": "https://arxiv.org/abs/2603.26663",
             "date": "2026",
-            "date_sort": "2026-12-06",
-            "venue": "NeurIPS Evaluations and Benchmarks",
+            "date_sort": "2026-07-02",
+            "venue": "ACL Findings",
             "venue_year": "2026",
             "kind": "conference",
-            "family": "NeurIPS",
-            "group_sort_date": "2026-12-06",
+            "family": "ACL",
+            "group_sort_date": "2026-07-02",
             "superlatives": []
           }
         ]
       },
+      {
+        "venue": "Computational Developmental Linguistics Workshop at ACL",
+        "label": "Computational Developmental Linguistics Workshop",
+        "kind": "workshop",
+        "count": 1,
+        "sort_date": "2026-06-27",
+        "papers": [
+          {
+            "title": "L1 Influence in L2 Language Models: A Human-centric Approach",
+            "url": "https://aclanthology.org/2026.cdl-1.15/",
+            "date": "2026",
+            "date_sort": "2026-07-04",
+            "venue": "Computational Developmental Linguistics Workshop at ACL",
+            "venue_year": "2026",
+            "kind": "workshop",
+            "family": "ACL",
+            "group_sort_date": "2026-06-27",
+            "superlatives": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "family": "NeurIPS",
+    "year": "2026",
+    "kind": "conference",
+    "label": "NeurIPS, 2026",
+    "count": 10,
+    "sort_date": "2026-07-01",
+    "venues": [
       {
         "venue": "NeurIPS Datasets and Evaluations",
         "label": "Datasets and Evaluations",
         "kind": "conference",
         "count": 2,
-        "sort_date": "2026-12-06",
+        "sort_date": "2026-06-12",
         "papers": [
           {
             "title": "Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results",
             "url": "https://arxiv.org/abs/2606.14516",
             "date": "2026",
-            "date_sort": "2026-12-06",
+            "date_sort": "2026-06-12",
             "venue": "NeurIPS Datasets and Evaluations",
             "venue_year": "2026",
             "kind": "conference",
             "family": "NeurIPS",
-            "group_sort_date": "2026-12-06",
+            "group_sort_date": "2026-06-12",
             "superlatives": []
           },
           {
             "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
             "url": "https://arxiv.org/abs/2606.09809",
             "date": "2026",
-            "date_sort": "2026-12-06",
+            "date_sort": "2026-06-08",
             "venue": "NeurIPS Datasets and Evaluations",
             "venue_year": "2026",
             "kind": "conference",
             "family": "NeurIPS",
-            "group_sort_date": "2026-12-06",
+            "group_sort_date": "2026-06-08",
+            "superlatives": []
+          }
+        ]
+      },
+      {
+        "venue": "NeurIPS",
+        "label": "Main conference",
+        "kind": "conference",
+        "count": 2,
+        "sort_date": "2026-06-11",
+        "papers": [
+          {
+            "title": "LoRA-Muon: Spectral Steepest Descent on the Low-Rank Manifold",
+            "url": "https://arxiv.org/abs/2606.12921",
+            "date": "2026",
+            "date_sort": "2026-06-11",
+            "venue": "NeurIPS",
+            "venue_year": "2026",
+            "kind": "conference",
+            "family": "NeurIPS",
+            "group_sort_date": "2026-06-11",
+            "superlatives": []
+          },
+          {
+            "title": "Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs",
+            "url": "https://arxiv.org/abs/2605.09063",
+            "date": "2026",
+            "date_sort": "2026-05-09",
+            "venue": "NeurIPS",
+            "venue_year": "2026",
+            "kind": "conference",
+            "family": "NeurIPS",
+            "group_sort_date": "2026-05-09",
             "superlatives": []
           }
         ]
@@ -234,233 +437,6 @@
             "superlatives": [
               "Best Paper Runner-Up at BioSafe Workshop, NeurIPS"
             ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "family": "COLM",
-    "year": "2026",
-    "kind": "conference",
-    "label": "COLM, 2026",
-    "count": 1,
-    "sort_date": "2026-10-06",
-    "venues": [
-      {
-        "venue": "COLM",
-        "label": "Main conference",
-        "kind": "conference",
-        "count": 1,
-        "sort_date": "2026-10-06",
-        "papers": [
-          {
-            "title": "Where Does Social Reasoning Come From? Capability Provenance in Language Models",
-            "url": "https://arxiv.org/abs/2606.19625",
-            "date": "2026",
-            "date_sort": "2026-10-06",
-            "venue": "COLM",
-            "venue_year": "2026",
-            "kind": "conference",
-            "family": "COLM",
-            "group_sort_date": "2026-10-06",
-            "superlatives": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "family": "ICML",
-    "year": "2026",
-    "kind": "conference",
-    "label": "ICML, 2026",
-    "count": 7,
-    "sort_date": "2026-07-10",
-    "venues": [
-      {
-        "venue": "ICML",
-        "label": "Main conference",
-        "kind": "conference",
-        "count": 4,
-        "sort_date": "2026-07-10",
-        "papers": [
-          {
-            "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
-            "url": "https://arxiv.org/abs/2606.06533",
-            "date": "2026",
-            "date_sort": "2026-07-10",
-            "venue": "ICML",
-            "venue_year": "2026",
-            "kind": "conference",
-            "family": "ICML",
-            "group_sort_date": "2026-07-10",
-            "superlatives": [
-              "Oral at ICML"
-            ]
-          },
-          {
-            "title": "Who Evaluates AI's Social Impacts? Mapping Coverage and Gaps in First and Third Party Evaluations",
-            "url": "https://arxiv.org/abs/2511.05613",
-            "date": "2026",
-            "date_sort": "2026-07-08",
-            "venue": "ICML",
-            "venue_year": "2026",
-            "kind": "conference",
-            "family": "ICML",
-            "group_sort_date": "2026-07-08",
-            "superlatives": []
-          },
-          {
-            "title": "Faults in Our Formal Benchmarking: Dataset Defects and Evaluation Failures in Lean Theorem Proving",
-            "url": "https://arxiv.org/abs/2606.29493",
-            "date": "2026",
-            "date_sort": "2026-07-08",
-            "venue": "ICML",
-            "venue_year": "2026",
-            "kind": "conference",
-            "family": "ICML",
-            "group_sort_date": "2026-07-08",
-            "superlatives": []
-          },
-          {
-            "title": "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation",
-            "url": "https://arxiv.org/abs/2602.16763",
-            "date": "2026",
-            "date_sort": "2026-07-07",
-            "venue": "ICML",
-            "venue_year": "2026",
-            "kind": "conference",
-            "family": "ICML",
-            "group_sort_date": "2026-07-07",
-            "superlatives": []
-          }
-        ]
-      },
-      {
-        "venue": "Agents in the Wild @ ICML",
-        "label": "Agents in the Wild",
-        "kind": "workshop",
-        "count": 1,
-        "sort_date": "2026-07-04",
-        "papers": [
-          {
-            "title": "Thought Virus: Viral Misalignment via Subliminal Prompting in Multi-Agent Systems",
-            "url": "https://arxiv.org/abs/2603.00131",
-            "date": "2026",
-            "date_sort": "2026-07-11",
-            "venue": "Agents in the Wild @ ICML",
-            "venue_year": "2026",
-            "kind": "workshop",
-            "family": "ICML",
-            "group_sort_date": "2026-07-04",
-            "superlatives": []
-          }
-        ]
-      },
-      {
-        "venue": "MechInterp Workshop @ ICML",
-        "label": "MechInterp Workshop",
-        "kind": "workshop",
-        "count": 2,
-        "sort_date": "2026-07-03",
-        "papers": [
-          {
-            "title": "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
-            "url": "https://arxiv.org/abs/2606.06533",
-            "date": "2026",
-            "date_sort": "2026-07-10",
-            "venue": "MechInterp Workshop @ ICML",
-            "venue_year": "2026",
-            "kind": "workshop",
-            "family": "ICML",
-            "group_sort_date": "2026-07-03",
-            "superlatives": []
-          },
-          {
-            "title": "Automated Attribution Graph Interpretation via Probe Prompting",
-            "url": "https://arxiv.org/abs/2511.07002",
-            "date": "2026",
-            "date_sort": "2026-07-10",
-            "venue": "Mechanistic interpretability workshop @ ICML",
-            "venue_year": "2026",
-            "kind": "workshop",
-            "family": "ICML",
-            "group_sort_date": "2026-07-03",
-            "superlatives": []
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "family": "ACL",
-    "year": "2026",
-    "kind": "conference",
-    "label": "ACL, 2026",
-    "count": 3,
-    "sort_date": "2026-07-02",
-    "venues": [
-      {
-        "venue": "ACL",
-        "label": "Main conference",
-        "kind": "conference",
-        "count": 1,
-        "sort_date": "2026-07-02",
-        "papers": [
-          {
-            "title": "CommonLID: Re-evaluating State-of-the-Art Language Identification Performance on Web Data",
-            "url": "https://arxiv.org/abs/2601.18026",
-            "date": "2026",
-            "date_sort": "2026-07-02",
-            "venue": "ACL",
-            "venue_year": "2026",
-            "kind": "conference",
-            "family": "ACL",
-            "group_sort_date": "2026-07-02",
-            "superlatives": []
-          }
-        ]
-      },
-      {
-        "venue": "ACL Findings",
-        "label": "Findings",
-        "kind": "conference",
-        "count": 1,
-        "sort_date": "2026-07-02",
-        "papers": [
-          {
-            "title": "Weight Tying Biases Token Embeddings Towards the Output Space",
-            "url": "https://arxiv.org/abs/2603.26663",
-            "date": "2026",
-            "date_sort": "2026-07-02",
-            "venue": "ACL Findings",
-            "venue_year": "2026",
-            "kind": "conference",
-            "family": "ACL",
-            "group_sort_date": "2026-07-02",
-            "superlatives": []
-          }
-        ]
-      },
-      {
-        "venue": "Computational Developmental Linguistics Workshop at ACL",
-        "label": "Computational Developmental Linguistics Workshop",
-        "kind": "workshop",
-        "count": 1,
-        "sort_date": "2026-06-27",
-        "papers": [
-          {
-            "title": "L1 Influence in L2 Language Models: A Human-centric Approach",
-            "url": "https://aclanthology.org/2026.cdl-1.15/",
-            "date": "2026",
-            "date_sort": "2026-07-04",
-            "venue": "Computational Developmental Linguistics Workshop at ACL",
-            "venue_year": "2026",
-            "kind": "workshop",
-            "family": "ACL",
-            "group_sort_date": "2026-06-27",
-            "superlatives": []
           }
         ]
       }
@@ -598,6 +574,49 @@
             "kind": "workshop",
             "family": "ICLR",
             "group_sort_date": "2026-04-20",
+            "superlatives": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "family": "arXiv",
+    "year": "2026",
+    "kind": "arxiv",
+    "label": "arXiv, 2026",
+    "count": 2,
+    "sort_date": "2026-01-01",
+    "venues": [
+      {
+        "venue": "arXiv",
+        "label": "Preprints",
+        "kind": "arxiv",
+        "count": 2,
+        "sort_date": "2026-01-01",
+        "papers": [
+          {
+            "title": "Bergson: An Open Source Library for Data Attribution",
+            "url": "https://arxiv.org/abs/2606.11660",
+            "date": "2026",
+            "date_sort": "2026-06-10",
+            "venue": "arXiv",
+            "venue_year": "2026",
+            "kind": "arxiv",
+            "family": "arXiv",
+            "group_sort_date": "2026-01-01",
+            "superlatives": []
+          },
+          {
+            "title": "Queer NLP: A Critical Survey on Literature Gaps, Biases and Trends",
+            "url": "https://arxiv.org/abs/2602.16151",
+            "date": "2026",
+            "date_sort": "2026-02-18",
+            "venue": "arXiv",
+            "venue_year": "2026",
+            "kind": "arxiv",
+            "family": "arXiv",
+            "group_sort_date": "2026-01-01",
             "superlatives": []
           }
         ]

@@ -209,23 +209,6 @@ def author_search_terms(authors):
     return terms
 
 
-def clean_display_authors(value):
-    value = " ".join((value or "").split())
-    match = re.fullmatch(r"(.*?)\s*\(\s*and\s+((?:\d+\s+)?others?)\s*\)", value, flags=re.IGNORECASE)
-    if not match:
-        return value
-
-    named_authors = match.group(1).strip()
-    others = match.group(2).strip()
-    if ", and " in named_authors:
-        named_authors = ", ".join(named_authors.rsplit(", and ", 1))
-    elif " and " in named_authors:
-        named_authors = ", ".join(named_authors.rsplit(" and ", 1))
-
-    separator = ", and " if "," in named_authors else " and "
-    return f"{named_authors}{separator}{others}"
-
-
 def paper_url(row):
     title = normalize_title(row.get("Title"))
     return clean_link(row.get("Link")) or PAPER_URL_OVERRIDES.get(title, "")
@@ -617,7 +600,7 @@ def library_paper_record(row):
         marker = "spotlight"
     elif "oral" in distinction_text:
         marker = "oral"
-    display_authors_text = clean_display_authors(row.get("Display Authors"))
+    display_authors_text = (row.get("Display Authors") or "").strip()
     authors = full_author_terms(row.get("all authors"))
     areas = []
     for field in ("Primary Area", "Additional Area"):
