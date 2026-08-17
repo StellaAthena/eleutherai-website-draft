@@ -167,6 +167,7 @@ The production main-site Netlify configuration runs `make build` and publishes `
 The shared palette is defined in `site-page.css`: green, blue, gold, violet, and coral, with related surface colors.
 
 - Use the palette consistently across the site.
+- When a list or sequence gives each item its own highlight color, assign colors in this order: blue, green, violet, gold, coral. For sequences longer than five items, cycle back to blue and repeat the same order.
 - Use color for hierarchy, publication distinctions, links, and selected featured material.
 - Do not permanently assign one color to each research area. Research areas overlap and the taxonomy will grow.
 - Do not make every section a differently colored panel.

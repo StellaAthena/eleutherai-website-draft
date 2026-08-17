@@ -222,7 +222,7 @@ The generator writes `data/home_generated_metrics.json` from three sources.
 
 #### Publications
 
-It counts unique titled Sheet rows with a valid `Sort Date`, rounds the result to the nearest ten, and appends `+`. The resulting object uses the key `publication_count`.
+It counts unique titled Sheet rows with a valid `Sort Date`, rounds the result down to the nearest 25, and appends `+`. The resulting object uses the key `publication_count`.
 
 #### Citations
 

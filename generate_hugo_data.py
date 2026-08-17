@@ -172,8 +172,8 @@ def display_year(date):
     return str(date.year)
 
 
-def round_to_nearest(value, unit):
-    return int(round(value / unit) * unit)
+def round_down(value, unit):
+    return int(value / unit) * unit
 
 
 def first_valid_date(*dates):
@@ -980,14 +980,14 @@ def publication_metric_payload(rows):
         if normalize_title(row.get("Title")) and pub_date(row) != datetime.min
     }
     count = len(titles)
-    rounded_count = round_to_nearest(count, 10)
+    rounded_count = round_down(count, 25)
     return {
         "value": f"{rounded_count:,}+",
         "label": "Publications",
         "count": count,
         "rounded_count": rounded_count,
         "source": "papers_sheet_sort_date",
-        "rounded_to": 10,
+        "rounded_to": 25,
     }
 
 

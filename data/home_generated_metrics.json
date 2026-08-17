@@ -1,12 +1,12 @@
 {
   "metrics": {
     "publication_count": {
-      "value": "190+",
+      "value": "175+",
       "label": "Publications",
       "count": 191,
-      "rounded_count": 190,
+      "rounded_count": 175,
       "source": "papers_sheet_sort_date",
-      "rounded_to": 10
+      "rounded_to": 25
     },
     "scholar_citations": {
       "value": "59,000+",
@@ -18,7 +18,7 @@
       "rounded_to": 1000
     },
     "model_downloads": {
-      "value": "121M+",
+      "value": "125M+",
       "label": "Model downloads",
       "url": "https://huggingface.co/EleutherAI",
       "source": "https://huggingface.co/organizations/EleutherAI/settings/publisher/analytics?timePeriod=allTime"
