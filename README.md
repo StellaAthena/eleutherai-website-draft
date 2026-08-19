@@ -10,7 +10,19 @@ The main site and blog share templates, styles, data, and assets, but Hugo build
 
 ## Build and view the website
 
-The build requires Python 3, Make, and Hugo Extended. Netlify currently uses Hugo Extended 0.158.0.
+The build requires Python 3.12 or newer, Make, and Hugo Extended 0.158.0. The supported versions are recorded in `.python-version` and `.hugo-version`.
+
+For a new local checkout, install the development dependencies in a virtual environment:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements-dev.txt
+playwright install chromium
+make check-tools
+```
+
+Playwright is used only for refreshing the Hugging Face download metric. Offline builds and tests do not launch a browser.
 
 From the repository root, build the main site with current online data:
 
@@ -53,11 +65,13 @@ make build-offline
 make build-all-offline
 ```
 
-Offline builds do not check the publication Sheet or refresh online metrics.
+Offline builds do not check the publication Sheet, refresh online metrics, or query YouTube. They validate and use the checked-in snapshots instead.
 
 ## Where to add content
 
 Most text should be added to Markdown under `content/` or structured YAML under `data/`. The files under `layouts/` determine how that content is arranged. CSS and public assets live under `site-page.css`, `static/`, and `assets/`.
+
+Files directly under `data/` and `data/projects/` are maintained by people. Everything under `data/generated/` is written by the build scripts and must not be edited directly. Change the relevant Google Sheet, Markdown, YAML, external source, or generator and rebuild.
 
 ### Page-by-page guide
 
@@ -67,6 +81,7 @@ Most text should be added to Markdown under `content/` or structured YAML under 
 | Homepage metrics, Current Research links, manual news | [`data/home.yaml`](data/home.yaml) | Generated metric values replace entries that have a `source` key. Recent outputs are generated from the papers Sheet and blog front matter. |
 | About page | [`content/about.md`](content/about.md) | Donor logos and links are stored separately in `data/donors.yaml`. |
 | Community page | [`data/community.yaml`](data/community.yaml) | `content/community.md` contains only the page front matter. |
+| Community reading-group videos | [EleutherAI YouTube](https://www.youtube.com/@Eleuther_AI) | The build refreshes [`data/generated/community_reading_groups.json`](data/generated/community_reading_groups.json); use the repository's `refresh-community-videos` skill when maintaining or troubleshooting it. |
 | Staff page | [`data/staff.yaml`](data/staff.yaml) | Store portraits locally under `static/assets/staff/`. |
 | Research introduction | [`content/research/_index.md`](content/research/_index.md) | The publication list below it is generated automatically. |
 | Research Library | [Google Sheet](https://docs.google.com/spreadsheets/d/1LcB7_1lHZgO8_EmOkrvfV2BTaOngX95J5v8PJeuN4rM/edit?usp=sharing) | `content/papers.md` only defines the route and layout. Do not hand-edit the rendered paper list. |
@@ -85,8 +100,7 @@ Most text should be added to Markdown under `content/` or structured YAML under 
 ### Directories that are not content sources
 
 - `public/` and `public-blog/` are generated build outputs. Do not edit them.
-- Root-level files such as `about.html`, `research.html`, and `staff.html` are legacy static artifacts, not the current Hugo source.
-- `blog/`, `clone/`, and `mockups/` are legacy or exploratory material. They are not used by the normal Hugo build.
+- `/blog/` and `blog.html` remain under review as possible deployment artifacts. Do not change or remove them until that deployment is confirmed.
 - `generate_blog_pages.py` belongs to the older standalone blog export and is not called by the current Makefile.
 
 ## What the build process does
@@ -96,10 +110,17 @@ The Makefile coordinates data refreshes and Hugo. The normal main-site build is:
 ```text
 make build
   -> python3 generate_hugo_data.py
+  -> python3 scripts/refresh_youtube_reading_groups.py
   -> hugo --cleanDestinationDir
 ```
 
 Each stage has a different purpose.
+
+### YouTube reading-group refresh
+
+`scripts/refresh_youtube_reading_groups.py` selects the three newest videos whose titles contain `Reading Group` or the standalone abbreviation `RG`. With `YOUTUBE_API_KEY` set, it paginates through the channel's complete uploads playlist. Without that key, an ordinary build uses YouTube's limited recent Atom feed and records that limitation in the freshness report. It extracts a concise session title and reading-group name, uses the first substantive sentence of the official description as the topic overview, and writes those fields with the publication date, video ID, and link to `data/generated/community_reading_groups.json`.
+
+The checked-in JSON file is the deterministic offline fallback. A live build warns and uses that snapshot if YouTube is temporarily unavailable; it fails only when neither online discovery nor a valid three-video snapshot is available. `make build-offline` never queries YouTube and validates the snapshot before Hugo runs. `make verify-live` requires `YOUTUBE_API_KEY` so it can prove that the selection came from the complete uploads history.
 
 ## Data generation: `generate_hugo_data.py`
 
@@ -207,7 +228,7 @@ Papers inside each venue are sorted in reverse chronological order.
 
 ### 6. Generate research-area paper sets
 
-The script creates `data/research/area_papers.json` in two ways:
+The script creates `data/generated/research/area_papers.json` in two ways:
 
 - Training Dynamics uses the hand-curated titles, summaries, and optional venue labels in `research_area_papers.csv`.
 - Other areas use the broad-area, include-term, and exclude-term rules in `research_area_filters.csv`.
@@ -218,7 +239,7 @@ The `datasets` key in this file is a filtered set of papers about datasets. It i
 
 ### 7. Refresh homepage metrics
 
-The generator writes `data/home_generated_metrics.json` from three sources.
+The generator writes `data/generated/home_generated_metrics.json` from three sources.
 
 #### Publications
 
@@ -226,7 +247,7 @@ It counts unique titled Sheet rows with a valid `Sort Date`, rounds the result d
 
 #### Citations
 
-It fetches EleutherAI's Google Scholar profile, extracts the total citation count, rounds down to the nearest thousand, and appends `+` when the homepage renders it. The successful response is cached in `data/home_scholar_metrics.json`.
+It fetches EleutherAI's Google Scholar profile, extracts the total citation count, rounds down to the nearest thousand, and appends `+` when the homepage renders it. The successful response is cached in `data/generated/home_scholar_metrics.json`.
 
 If Scholar cannot be refreshed, the script uses the cached value. If no cache exists, it omits the metric rather than failing the full build.
 
@@ -236,15 +257,15 @@ It obtains the Hugging Face model-download value in this order:
 
 1. `HF_MODEL_DOWNLOADS` environment variable, when set
 2. the rendered EleutherAI publisher analytics page through Playwright
-3. the checked-in cache in `data/hf_model_downloads_cache.json`
+3. the checked-in cache in `data/generated/hf_model_downloads_cache.json`
 
 If neither a live value nor a cache is available, the metric is omitted. This is a model-download metric only; it does not count dataset downloads.
 
-The homepage reads `data/home.yaml`. Metric entries with a `source` such as `publication_count`, `scholar_citations`, or `model_downloads` are filled from `data/home_generated_metrics.json` during Hugo rendering.
+The homepage reads `data/home.yaml`. Metric entries with a `source` such as `publication_count`, `scholar_citations`, or `model_downloads` are filled from `data/generated/home_generated_metrics.json` during Hugo rendering.
 
 ### 8. Build the blog index used by the homepage
 
-The generator scans `content-blog/` recursively. It skips the section index and posts marked `draft: true`, then reads each post's title and date. It writes a sorted list to `data/blog_posts.json` with production blog-subdomain URLs.
+The generator scans `content-blog/` recursively. It skips the section index and posts marked `draft: true`, then reads each post's title and date. It writes a sorted list to `data/generated/blog_posts.json` with production blog-subdomain URLs.
 
 The homepage combines these blog entries with `content/news/` and dated `manual_news` entries from `data/home.yaml`. `layouts/index.html` sorts the combined feed and displays the four newest items.
 
@@ -254,15 +275,19 @@ The first pass writes:
 
 | Generated file | Contents |
 | --- | --- |
-| `data/research/papers.json` | All publication appearances, including separate workshop and conference appearances |
-| `data/research/homepage_papers.json` | The first 10 publication appearances |
-| `data/research/paper_groups.json` | All appearances grouped by venue family, year, and track |
-| `data/research/homepage_paper_groups.json` | Grouped data from the first 30 appearances |
-| `data/research/area_papers.json` | Curated and keyword-filtered research-area paper sets |
-| `data/research/library_papers.json` | One searchable record per dated paper |
-| `data/home_generated_metrics.json` | Publication, citation, and model-download homepage values |
-| `data/blog_posts.json` | Dated blog entries used by the homepage Latest feed |
-| `data/home_recent_outputs.json` | Four newest items from highest-impact papers and published blog posts |
+| `data/generated/research/papers.json` | All publication appearances, including separate workshop and conference appearances |
+| `data/generated/research/homepage_papers.json` | The first 10 publication appearances |
+| `data/generated/research/paper_groups.json` | All appearances grouped by venue family, year, and track |
+| `data/generated/research/homepage_paper_groups.json` | Grouped data from the first 30 appearances |
+| `data/generated/research/area_papers.json` | Curated and keyword-filtered research-area paper sets |
+| `data/generated/research/library_papers.json` | One searchable record per dated paper |
+| `data/generated/research/paper_collections.json` | Named publication collections such as SOAR |
+| `data/generated/home_generated_metrics.json` | Publication, citation, and model-download homepage values |
+| `data/generated/home_scholar_metrics.json` | Last successful Scholar response used as a fallback |
+| `data/generated/hf_model_downloads_cache.json` | Last supplied or successfully fetched download value |
+| `data/generated/blog_posts.json` | Dated blog entries used by the homepage Latest feed |
+| `data/generated/home_recent_outputs.json` | Four newest items from highest-impact papers and published blog posts |
+| `data/generated/community_reading_groups.json` | Three newest selected reading-group recordings |
 
 Do not edit these files directly. Edit their source data and rebuild.
 
@@ -276,8 +301,8 @@ After data generation, `hugo --cleanDestinationDir` renders the main site with `
 
 Important data connections include:
 
-- `layouts/index.html` reads `data/home.yaml`, `data/home_generated_metrics.json`, and `data/blog_posts.json`.
-- `layouts/_default/research-library.html` reads `data/research/library_papers.json`.
+- `layouts/index.html` reads `data/home.yaml` and generated homepage data under `data/generated/`.
+- `layouts/_default/research-library.html` reads `data/generated/research/library_papers.json`.
 - `layouts/_default/research.html` and `layouts/partials/publication-groups.html` read the grouped publication data.
 - `layouts/_default/community.html` reads `data/community.yaml`.
 - `layouts/_default/staff.html` reads `data/staff.yaml`.
@@ -291,15 +316,17 @@ Important data connections include:
 For ordinary content that does not depend on external data:
 
 ```bash
-make build-all-offline
-git diff --check
+make verify
 ```
 
 For publications, homepage metrics, news aggregation, or other externally sourced data:
 
 ```bash
-make build-all
-git diff --check
+make verify-live
 ```
+
+`make verify` runs the tests, regenerates checked-in snapshots offline, builds both deployments with Hugo warnings treated as errors, checks local links and assets, and fails if generated snapshots differ from `HEAD` or the diff contains whitespace errors. GitHub Actions runs the same command.
+
+`make verify-live` additionally requires every external source to be current. Set `YOUTUBE_API_KEY` for complete YouTube uploads discovery and either install Playwright or provide `HF_MODEL_DOWNLOADS`. Run `make freshness` after any build to see which sources were fetched live and which used snapshots.
 
 Review the affected main-site and blog pages locally before committing generated changes.

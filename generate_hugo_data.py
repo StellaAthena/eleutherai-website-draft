@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
+import argparse
 import csv
 from html.parser import HTMLParser
 import json
+import os
 import re
-import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.error import URLError
@@ -13,6 +14,7 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parent
 PAPERS_CSV = ROOT / "eleutherai_papers.csv"
+GENERATED_DIR = ROOT / "data" / "generated"
 PAPER_URL_OVERRIDES = {
     "Position: Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics": "https://arxiv.org/abs/2606.06533",
     "Automated Attribution Graph Interpretation via Probe Prompting": "https://arxiv.org/abs/2511.07002",
@@ -24,12 +26,13 @@ PAPER_URL_OVERRIDES = {
 }
 AREA_PAPERS_CSV = ROOT / "research_area_papers.csv"
 AREA_FILTERS_CSV = ROOT / "research_area_filters.csv"
-OUTPUT_DIR = ROOT / "data" / "research"
-SCHOLAR_METRICS_PATH = ROOT / "data" / "home_scholar_metrics.json"
-HOME_GENERATED_METRICS_PATH = ROOT / "data" / "home_generated_metrics.json"
+OUTPUT_DIR = GENERATED_DIR / "research"
+SCHOLAR_METRICS_PATH = GENERATED_DIR / "home_scholar_metrics.json"
+HOME_GENERATED_METRICS_PATH = GENERATED_DIR / "home_generated_metrics.json"
 BLOG_CONTENT_DIR = ROOT / "content-blog"
-BLOG_POSTS_PATH = ROOT / "data" / "blog_posts.json"
-HOME_RECENT_OUTPUTS_PATH = ROOT / "data" / "home_recent_outputs.json"
+BLOG_POSTS_PATH = GENERATED_DIR / "blog_posts.json"
+HOME_RECENT_OUTPUTS_PATH = GENERATED_DIR / "home_recent_outputs.json"
+FRESHNESS_PATH = GENERATED_DIR / "freshness" / "research.json"
 BLOG_BASE_URL = "https://blog.eleuther.ai"
 HOME_RECENT_OUTPUT_LIMIT = 4
 HOMEPAGE_PAPER_LIMIT = 10
@@ -60,7 +63,7 @@ SCHOLAR_USER_AGENT = (
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
 )
 HF_ANALYTICS_URL = "https://huggingface.co/organizations/EleutherAI/settings/publisher/analytics?timePeriod=allTime"
-HF_MODEL_DOWNLOADS_CACHE = ROOT / "data" / "hf_model_downloads_cache.json"
+HF_MODEL_DOWNLOADS_CACHE = GENERATED_DIR / "hf_model_downloads_cache.json"
 REQUIRED_PAPER_HEADERS = {
     "Sort Date",
     "Title",
@@ -555,7 +558,7 @@ def read_papers():
 def refresh_papers_csv(require_refresh=True):
     if not require_refresh:
         print("Using local papers CSV snapshot")
-        return
+        return "offline"
 
     cache_buster = urlencode({"t": datetime.now().timestamp()})
     url = f"{PAPERS_SHEET_CSV_URL}&{cache_buster}"
@@ -573,6 +576,7 @@ def refresh_papers_csv(require_refresh=True):
 
     PAPERS_CSV.write_text(text, encoding="utf-8")
     print("Refreshed papers CSV from Google Sheets")
+    return "live"
 
 
 def read_area_configs(area):
@@ -875,11 +879,11 @@ def write_scholar_metrics(offline=False):
         cached = read_scholar_metric_cache()
         if cached and cached.get("metrics"):
             print("Using cached Google Scholar citation count")
-            return cached
+            return cached, "offline"
         payload = unavailable_scholar_metric_payload()
         SCHOLAR_METRICS_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
         print("No cached Google Scholar citation count available")
-        return payload
+        return payload, "missing"
 
     try:
         citations = fetch_scholar_citations()
@@ -887,20 +891,19 @@ def write_scholar_metrics(offline=False):
         cached = read_scholar_metric_cache()
         if cached and cached.get("metrics"):
             print("Google Scholar refresh failed; using cached citation count")
-            return cached
+            return cached, "cache"
         payload = unavailable_scholar_metric_payload()
         SCHOLAR_METRICS_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
         print("Google Scholar refresh failed; citation metric omitted")
-        return payload
+        return payload, "missing"
 
     payload = scholar_metric_payload(citations)
     SCHOLAR_METRICS_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     print("Refreshed Google Scholar citation count")
-    return payload
+    return payload, "live"
 
 
 def fetch_hf_model_downloads():
-    import os
     env_value = os.environ.get("HF_MODEL_DOWNLOADS")
     if env_value:
         return env_value
@@ -952,25 +955,43 @@ def hf_model_downloads_payload(offline=False):
         cached = read_hf_downloads_cache()
         if cached and cached.get("value"):
             print("Using cached HuggingFace model download count")
-            return cached["value"]
+            return cached["value"], "offline"
         print("No cached HuggingFace model download count available")
-        return ""
+        return "", "missing"
 
     try:
         value = fetch_hf_model_downloads()
         write_hf_downloads_cache(value)
         print("Refreshed HuggingFace model download count")
-        return value
+        status = "provided" if os.environ.get("HF_MODEL_DOWNLOADS") else "live"
+        return value, status
     except SystemExit:
         raise
     except Exception as exc:
         cached = read_hf_downloads_cache()
         if cached and cached.get("value"):
             print(f"HuggingFace fetch failed ({exc}); using cached model download count")
-            return cached["value"]
+            return cached["value"], "cache"
         print(f"HuggingFace fetch failed ({exc}); model download metric omitted")
         print("To enable HF downloads fetching, install playwright: pip install playwright")
-        return ""
+        return "", "missing"
+
+
+def write_freshness_report(mode, sources):
+    FRESHNESS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "mode": mode,
+        "sources": sources,
+    }
+    FRESHNESS_PATH.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+
+def require_fresh_sources(sources):
+    allowed = {"live", "provided", "local"}
+    stale = [name for name, details in sources.items() if details["status"] not in allowed]
+    if stale:
+        raise SystemExit("Strict live verification failed for: " + ", ".join(stale))
 
 
 def publication_metric_payload(rows):
@@ -1142,12 +1163,18 @@ def write_home_recent_outputs(rows, blog_posts):
 
 
 def main():
-    offline = "--offline" in sys.argv[1:]
-    refresh_papers_csv(require_refresh=not offline)
+    parser = argparse.ArgumentParser(description="Generate Hugo data from authoritative sources.")
+    parser.add_argument("--offline", action="store_true", help="use checked-in external-data snapshots")
+    parser.add_argument("--strict", action="store_true", help="fail if a live external source uses a fallback")
+    args = parser.parse_args()
+    if args.offline and args.strict:
+        parser.error("--offline and --strict cannot be used together")
+
+    papers_status = refresh_papers_csv(require_refresh=not args.offline)
     rows = read_papers()
-    scholar_payload = write_scholar_metrics(offline=offline)
-    hf_downloads = hf_model_downloads_payload(offline=offline)
-    write_home_generated_metrics(rows, scholar_payload, hf_downloads, offline=offline)
+    scholar_payload, scholar_status = write_scholar_metrics(offline=args.offline)
+    hf_downloads, hf_status = hf_model_downloads_payload(offline=args.offline)
+    write_home_generated_metrics(rows, scholar_payload, hf_downloads, offline=args.offline)
     papers = all_papers(rows)
     per_area = area_papers(rows)
     write_json("papers.json", papers)
@@ -1159,12 +1186,21 @@ def main():
     blog_posts = write_blog_posts()
     with PAPERS_CSV.open(newline="", encoding="utf-8") as papers_file:
         local_headers = next(csv.reader(papers_file), [])
-    if not offline or highest_impact_header(local_headers):
+    if not args.offline or highest_impact_header(local_headers):
         write_home_recent_outputs(rows, blog_posts)
     elif not HOME_RECENT_OUTPUTS_PATH.exists():
         raise SystemExit("Offline papers CSV has no Highest Impact column or generated homepage output snapshot.")
     else:
         print("Using generated homepage output snapshot")
+    sources = {
+        "google_sheet": {"status": papers_status, "url": PAPERS_SHEET_CSV_URL},
+        "google_scholar": {"status": scholar_status, "url": SCHOLAR_PROFILE_URL},
+        "huggingface_downloads": {"status": hf_status, "url": HF_ANALYTICS_URL},
+        "blog_content": {"status": "local", "path": str(BLOG_CONTENT_DIR.relative_to(ROOT))},
+    }
+    write_freshness_report("offline" if args.offline else "live", sources)
+    if args.strict:
+        require_fresh_sources(sources)
     print("Generated Hugo research data")
 
 

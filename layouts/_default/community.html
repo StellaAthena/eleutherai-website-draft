@@ -1,5 +1,6 @@
 {{ define "main" }}
-{{ $community := site.Data.community }}
+  {{ $community := site.Data.community }}
+  {{ $readingGroups := site.Data.generated.community_reading_groups }}
 <main class="community-impact-page">
   <section class="hero community-impact-hero">
     <div class="wrap">
@@ -88,13 +89,26 @@
 
   <section class="community-impact-reading">
     <div class="wrap">
-      <div>
+      <div class="community-impact-reading-intro">
         <h2>{{ $community.reading_groups.title }}</h2>
         <p>{{ $community.reading_groups.text }}</p>
       </div>
-      <a class="community-impact-reading-link" href="{{ $community.reading_groups.url }}" target="_blank" rel="noopener noreferrer">
-        {{ $community.reading_groups.link_label }} <span aria-hidden="true">&#8594;</span>
-      </a>
+      <div class="community-impact-reading-discovery">
+        <div class="community-impact-recordings">
+          {{ range $readingGroups.recordings }}
+            <a class="community-impact-recording" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+              <span>
+                <strong>{{ .session_title }}</strong>
+                <span><b>{{ .reading_group }}.</b> {{ .overview }}</span>
+              </span>
+              <span class="community-impact-recording-arrow" aria-hidden="true">&#8594;</span>
+            </a>
+          {{ end }}
+        </div>
+        <a class="community-impact-reading-archive" href="{{ $community.reading_groups.url }}" target="_blank" rel="noopener noreferrer">
+          {{ $community.reading_groups.link_label }} <span aria-hidden="true">&#8594;</span>
+        </a>
+      </div>
     </div>
   </section>
 </main>

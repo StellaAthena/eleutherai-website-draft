@@ -1,0 +1,36 @@
+{
+  "channel_url": "https://www.youtube.com/@Eleuther_AI",
+  "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCljbpGFxy_7i4bMDXyuB96A",
+  "recordings": [
+    {
+      "title": "ML Performance Reading Group Session 25: Prefill as a Service",
+      "session_title": "Prefill as a Service",
+      "reading_group": "ML Performance Reading Group",
+      "overview": "A discussion of cross-datacenter LLM serving that separates prefill and decode work by transferring KV caches between independently scaled clusters.",
+      "published": "2026-06-02T18:06:52+00:00",
+      "date": "June 2, 2026",
+      "url": "https://www.youtube.com/watch?v=e12wdaW2xgk",
+      "video_id": "e12wdaW2xgk"
+    },
+    {
+      "title": "Planning, Reasoning, and Agents RG, 2026-03-11 Session: Reasoning about Action, Change, and Planning",
+      "session_title": "Reasoning about Action, Change, and Planning",
+      "reading_group": "Planning, Reasoning, and Agents Reading Group",
+      "overview": "Harsha Kokel discusses the evolution of automated planning in the era of Large Language Models (LLMs), contrasting classical symbolic planning frameworks with modern natural language approaches.",
+      "published": "2026-04-16T16:34:44+00:00",
+      "date": "April 16, 2026",
+      "url": "https://www.youtube.com/watch?v=lqSyRVWWUJk",
+      "video_id": "lqSyRVWWUJk"
+    },
+    {
+      "title": "Planning, Reasoning, and Agents RG, 2026-02-04 Session: Characterizing Effective Reasoning Traces",
+      "session_title": "Characterizing Effective Reasoning Traces",
+      "reading_group": "Planning, Reasoning, and Agents Reading Group",
+      "overview": "Yunzhen Feng presents research on what characterizes effective reasoning in Large Language Models, investigating the length, review behavior, and underlying structure of Chain-of-Thought traces.",
+      "published": "2026-04-07T02:37:39+00:00",
+      "date": "April 7, 2026",
+      "url": "https://www.youtube.com/watch?v=-mZN2Gvqvi4",
+      "video_id": "-mZN2Gvqvi4"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 [build]
-  command = "make build"
+  command = "python3 -m pip install -r requirements-test.txt && make build-production"
   publish = "public"
 
 [build.environment]
   HUGO_VERSION = "0.158.0"
+  PYTHON_VERSION = "3.12"

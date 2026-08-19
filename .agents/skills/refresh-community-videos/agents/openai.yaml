@@ -1,0 +1,4 @@
+interface:
+  display_name: "Refresh Community Videos"
+  short_description: "Refresh and verify recent YouTube reading-group videos."
+  default_prompt: "Refresh the Community page reading-group videos from the EleutherAI YouTube feed, rebuild the site, and report the selected recordings."

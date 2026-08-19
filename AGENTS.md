@@ -45,7 +45,7 @@ Keep editable content separate from templates and styling.
 
 - `content/`: main-site Markdown and news posts
 - `content-blog/`: blog posts and blog front matter
-- `data/`: editable structured content and generated Hugo data
+- `data/`: editable structured content; machine-produced Hugo data is isolated under `data/generated/`
 - `layouts/`: Hugo templates and shared partials
 - `site-page.css`: shared site-wide visual system
 - `static/`: page-specific CSS, JavaScript, icons, and public assets
@@ -69,14 +69,7 @@ A paper requires a title, `Sort Date`, and complete semicolon-separated `all aut
 Do not manually edit these generated files:
 
 - `eleutherai_papers.csv`
-- `data/research/papers.json`
-- `data/research/library_papers.json`
-- `data/research/paper_groups.json`
-- `data/research/homepage_papers.json`
-- `data/research/homepage_paper_groups.json`
-- `data/research/area_papers.json`
-- `data/home_generated_metrics.json`
-- `data/blog_posts.json`
+- everything under `data/generated/`, including publication representations, homepage feeds and metrics, external-data caches, and Community reading-group recordings
 
 Edit the Sheet or the appropriate editable YAML and regenerate the outputs.
 
@@ -94,6 +87,12 @@ The homepage `Latest` feed combines:
 
 It sorts the combined feed chronologically and displays the four newest items. Do not create a second hand-ordered copy in a template.
 
+### Community videos
+
+The three Community reading-group recordings come from the official EleutherAI YouTube channel. A normal build refreshes `data/generated/community_reading_groups.json`; an offline build validates and uses that checked-in snapshot. With `YOUTUBE_API_KEY`, the refresh paginates through the complete uploads playlist. Without it, ordinary builds use the limited recent Atom feed and record `live_limited` in the freshness report.
+
+Use the repository skill under `.agents/skills/refresh-community-videos/` when maintaining the selection or summaries. Do not hand-edit the generated JSON. `make verify-live` must fail unless complete uploads discovery and every other external source are live or explicitly provided.
+
 ### Staff and assets
 
 Staff data lives in `data/staff.yaml`. Store portraits under `static/assets/staff/`. Do not hotlink staff portraits or core site assets from the old website or third-party CDNs.
@@ -101,6 +100,8 @@ Staff data lives in `data/staff.yaml`. Store portraits under `static/assets/staf
 ## Build and preview
 
 Use the Makefile rather than inventing parallel build commands.
+
+For a new checkout, install `requirements-dev.txt`, install Playwright Chromium, and run `make check-tools`. The supported Python and Hugo versions are recorded in `.python-version` and `.hugo-version`.
 
 ### Main site with live data
 
@@ -270,8 +271,10 @@ git diff --check
 For changes affecting publications, news, blog indexing, citations, or homepage metrics, also run a live build:
 
 ```bash
-make build-all
+make verify-live
 ```
+
+For all other changes, run `make verify`. This runs tests, regenerates offline snapshots, treats Hugo warnings as errors, checks local page and asset references, and fails if generated snapshots differ from `HEAD`. Run `make freshness` to report whether each external source was live, provided, limited, cached, offline, or missing.
 
 When changing shared layouts, navigation, CSS, logos, favicons, or social metadata, test both the main site and a representative long technical blog post.
 

@@ -4,3 +4,4 @@ __pycache__/
 .hugo_build.lock
 public/
 public-blog/
+data/generated/freshness/

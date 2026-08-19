@@ -101,7 +101,7 @@ supported:
       light_background: true
 
 reading_groups:
-  title: "Reading groups"
-  text: "Community members organize reading groups around active areas of AI research. Topics and schedules change over time, and recordings from past meetings are available on the EleutherAI YouTube channel."
-  link_label: "Watch reading group recordings"
+  title: "Research talks and reading groups"
+  text: "EleutherAI members organize technical discussions around active areas of AI research, from close readings of recent papers to presentations of work in progress."
+  link_label: "Browse all recordings"
   url: "https://www.youtube.com/@Eleuther_AI"
