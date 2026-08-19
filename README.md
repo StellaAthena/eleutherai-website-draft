@@ -53,7 +53,7 @@ make build-offline
 make build-all-offline
 ```
 
-Offline builds do not check the publication Sheet or refresh online metrics.
+Offline builds do not check the publication Sheet, refresh online metrics, or query YouTube. They validate and use the checked-in snapshots instead.
 
 ## Where to add content
 
@@ -67,6 +67,7 @@ Most text should be added to Markdown under `content/` or structured YAML under 
 | Homepage metrics, Current Research links, manual news | [`data/home.yaml`](data/home.yaml) | Generated metric values replace entries that have a `source` key. Recent outputs are generated from the papers Sheet and blog front matter. |
 | About page | [`content/about.md`](content/about.md) | Donor logos and links are stored separately in `data/donors.yaml`. |
 | Community page | [`data/community.yaml`](data/community.yaml) | `content/community.md` contains only the page front matter. |
+| Community reading-group videos | [EleutherAI YouTube](https://www.youtube.com/@Eleuther_AI) | The build refreshes [`data/community_reading_groups.json`](data/community_reading_groups.json); use the repository's `refresh-community-videos` skill when maintaining or troubleshooting it. |
 | Staff page | [`data/staff.yaml`](data/staff.yaml) | Store portraits locally under `static/assets/staff/`. |
 | Research introduction | [`content/research/_index.md`](content/research/_index.md) | The publication list below it is generated automatically. |
 | Research Library | [Google Sheet](https://docs.google.com/spreadsheets/d/1LcB7_1lHZgO8_EmOkrvfV2BTaOngX95J5v8PJeuN4rM/edit?usp=sharing) | `content/papers.md` only defines the route and layout. Do not hand-edit the rendered paper list. |
@@ -96,10 +97,17 @@ The Makefile coordinates data refreshes and Hugo. The normal main-site build is:
 ```text
 make build
   -> python3 generate_hugo_data.py
+  -> python3 scripts/refresh_youtube_reading_groups.py
   -> hugo --cleanDestinationDir
 ```
 
 Each stage has a different purpose.
+
+### YouTube reading-group refresh
+
+`scripts/refresh_youtube_reading_groups.py` reads EleutherAI's official YouTube Atom feed and selects the three newest videos whose titles contain `Reading Group` or the standalone abbreviation `RG`. It writes their official titles, publication dates, video IDs, and links to `data/community_reading_groups.json`, which the Community page renders directly.
+
+The checked-in JSON file is the deterministic offline fallback. A live build warns and uses that snapshot if YouTube is temporarily unavailable; it fails only when neither the feed nor a valid three-video snapshot is available. `make build-offline` never queries YouTube and validates the snapshot before Hugo runs.
 
 ## Data generation: `generate_hugo_data.py`
 

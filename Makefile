@@ -6,9 +6,11 @@ BIND ?= 127.0.0.1
 
 data:
 	python3 generate_hugo_data.py
+	python3 scripts/refresh_youtube_reading_groups.py
 
 data-offline:
 	python3 generate_hugo_data.py --offline
+	python3 scripts/refresh_youtube_reading_groups.py --offline
 
 build: data
 	hugo --cleanDestinationDir
