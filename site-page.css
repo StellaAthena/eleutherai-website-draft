@@ -688,6 +688,7 @@ h2 {
 }
 
 .home-research-copy {
+  display: flow-root;
   min-width: 0;
 }
 
