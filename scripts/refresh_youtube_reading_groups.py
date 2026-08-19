@@ -3,18 +3,24 @@
 
 import argparse
 import json
+import os
 import re
 import sys
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlencode
 
 
 CHANNEL_ID = "UCljbpGFxy_7i4bMDXyuB96A"
 CHANNEL_URL = "https://www.youtube.com/@Eleuther_AI"
 FEED_URL = f"https://www.youtube.com/feeds/videos.xml?channel_id={CHANNEL_ID}"
-OUTPUT_PATH = Path(__file__).resolve().parents[1] / "data" / "community_reading_groups.json"
+UPLOADS_PLAYLIST_ID = "UU" + CHANNEL_ID[2:]
+API_URL = "https://www.googleapis.com/youtube/v3/playlistItems"
+ROOT = Path(__file__).resolve().parents[1]
+OUTPUT_PATH = ROOT / "data" / "generated" / "community_reading_groups.json"
+FRESHNESS_PATH = ROOT / "data" / "generated" / "freshness" / "youtube.json"
 VIDEO_LIMIT = 3
 READING_GROUP_PATTERN = re.compile(r"\b(?:reading\s+group|rg)\b", re.IGNORECASE)
 NAMESPACES = {
@@ -105,6 +111,40 @@ def parse_feed(payload):
     return recordings[:VIDEO_LIMIT]
 
 
+def parse_api_page(payload):
+    data = json.loads(payload)
+    recordings = []
+    for item in data.get("items", []):
+        snippet = item.get("snippet", {})
+        title = snippet.get("title", "").strip()
+        if not READING_GROUP_PATTERN.search(title):
+            continue
+        resource = snippet.get("resourceId", {})
+        video_id = resource.get("videoId", "").strip()
+        content_details = item.get("contentDetails", {})
+        published = (
+            content_details.get("videoPublishedAt", "").strip()
+            or snippet.get("publishedAt", "").strip()
+        )
+        if not video_id or not published:
+            continue
+        description = snippet.get("description", "").strip()
+        session_title, reading_group, overview = presentation_fields(title, description, video_id)
+        recordings.append(
+            {
+                "title": title,
+                "session_title": session_title,
+                "reading_group": reading_group,
+                "overview": overview,
+                "published": published,
+                "date": display_date(published),
+                "url": f"https://www.youtube.com/watch?v={video_id}",
+                "video_id": video_id,
+            }
+        )
+    return recordings, data.get("nextPageToken", "")
+
+
 def validate_recordings(recordings):
     if len(recordings) != VIDEO_LIMIT:
         raise ValueError(f"expected {VIDEO_LIMIT} reading-group recordings, found {len(recordings)}")
@@ -135,32 +175,91 @@ def fetch_feed():
         return response.read()
 
 
+def fetch_api_recordings(api_key):
+    recordings = []
+    page_token = ""
+    for _ in range(20):
+        params = {
+            "part": "snippet,contentDetails",
+            "playlistId": UPLOADS_PLAYLIST_ID,
+            "maxResults": 50,
+            "key": api_key,
+        }
+        if page_token:
+            params["pageToken"] = page_token
+        request = urllib.request.Request(
+            f"{API_URL}?{urlencode(params)}",
+            headers={"User-Agent": "EleutherAI website build"},
+        )
+        with urllib.request.urlopen(request, timeout=30) as response:
+            page_recordings, page_token = parse_api_page(response.read())
+        recordings.extend(page_recordings)
+        if len(recordings) >= VIDEO_LIMIT or not page_token:
+            break
+    recordings.sort(key=lambda recording: recording["published"], reverse=True)
+    return recordings[:VIDEO_LIMIT]
+
+
+def fetch_recordings():
+    api_key = os.environ.get("YOUTUBE_API_KEY", "").strip()
+    if api_key:
+        return fetch_api_recordings(api_key), "live", API_URL
+    return parse_feed(fetch_feed()), "live_limited", FEED_URL
+
+
 def write_cache(recordings):
     data = {"channel_url": CHANNEL_URL, "feed_url": FEED_URL, "recordings": recordings}
     OUTPUT_PATH.write_text(json.dumps(data, indent=2, ensure_ascii=True) + "\n")
     return data
 
 
+def write_freshness_report(mode, status, source, detail=""):
+    FRESHNESS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "mode": mode,
+        "sources": {
+            "youtube": {
+                "status": status,
+                "url": source,
+                "detail": detail,
+            }
+        },
+    }
+    FRESHNESS_PATH.write_text(json.dumps(payload, indent=2) + "\n")
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--offline", action="store_true", help="validate and retain the checked-in snapshot")
+    parser.add_argument("--strict", action="store_true", help="require complete uploads-playlist discovery")
     args = parser.parse_args()
+    if args.offline and args.strict:
+        parser.error("--offline and --strict cannot be used together")
 
     if args.offline:
         data = read_cache()
+        write_freshness_report("offline", "offline", FEED_URL, "validated checked-in snapshot")
         print(f"Using {len(data['recordings'])} cached YouTube reading-group recordings.")
         return
 
     try:
-        recordings = parse_feed(fetch_feed())
+        recordings, status, source = fetch_recordings()
         validate_recordings(recordings)
         write_cache(recordings)
-        print(f"Refreshed {len(recordings)} YouTube reading-group recordings.")
+        detail = "complete uploads playlist" if status == "live" else "limited recent Atom feed"
+        write_freshness_report("live", status, source, detail)
+        if args.strict and status != "live":
+            raise RuntimeError("YOUTUBE_API_KEY is required for complete uploads-playlist discovery")
+        print(f"Refreshed {len(recordings)} YouTube reading-group recordings ({detail}).")
     except Exception as error:
+        if args.strict:
+            raise RuntimeError(f"Strict YouTube refresh failed: {error}") from error
         try:
             data = read_cache()
         except Exception:
             raise RuntimeError(f"YouTube refresh failed and no valid cache is available: {error}") from error
+        write_freshness_report("live", "cache", FEED_URL, str(error))
         print(
             f"Warning: YouTube refresh failed ({error}); using {len(data['recordings'])} cached recordings.",
             file=sys.stderr,

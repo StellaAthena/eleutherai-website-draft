@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $papers := site.Data.research.library_papers | default slice }}
+{{ $papers := site.Data.generated.research.library_papers | default slice }}
 {{ $years := slice }}
 {{ $venues := slice }}
 {{ range $papers }}

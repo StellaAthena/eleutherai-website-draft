@@ -2,7 +2,7 @@
 <main>
   {{ $latest := slice }}
   {{/* The main build reads blog pages directly; the split blog build supplies the same entries as generated data. */}}
-  {{ with site.Data.blog_posts }}
+  {{ with site.Data.generated.blog_posts }}
     {{ range . }}
       {{ $date := time.AsTime .date }}
       {{ $latest = $latest | append (dict
@@ -48,7 +48,7 @@
   {{ end }}
   {{ $latest = first 4 (sort $latest "date" "desc") }}
   {{ $generatedMetrics := dict }}
-  {{ with site.Data.home_generated_metrics.metrics }}
+  {{ with site.Data.generated.home_generated_metrics.metrics }}
     {{ $generatedMetrics = . }}
   {{ end }}
 
@@ -143,7 +143,7 @@
     <div class="wrap home-output-layout">
       <h2 id="outputs-title">Recent outputs</h2>
       <div class="home-output-list">
-        {{ range site.Data.home_recent_outputs }}
+        {{ range site.Data.generated.home_recent_outputs }}
           {{ $external := hasPrefix .url "http" }}
           <a class="home-output-row" href="{{ if $external }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>
             <span>{{ .kind }}</span>

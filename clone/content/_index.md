@@ -1,4 +1,0 @@
----
-title: "EleutherAI"
-layout: home
----

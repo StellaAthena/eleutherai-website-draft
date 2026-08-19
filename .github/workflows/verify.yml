@@ -1,0 +1,27 @@
+name: Verify website
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          cache: pip
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 0.158.0
+          extended: true
+      - run: python3 -m pip install -r requirements-test.txt
+      - run: make verify
+      - name: Confirm generated snapshots are committed
+        run: git diff --exit-code -- eleutherai_papers.csv data/generated
