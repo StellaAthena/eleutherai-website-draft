@@ -20,7 +20,8 @@ Keep the Community page current using official YouTube metadata without introduc
 - Source only from the official EleutherAI channel Atom feed.
 - Match titles containing `Reading Group` or `RG` as a standalone abbreviation, case-insensitively.
 - Select the three newest matches by YouTube publication timestamp.
-- Preserve official titles and dates. Do not generate summaries.
+- Extract the session title and reading-group name from the official upload title.
+- Use the first substantive sentence of the official description for the overview. Keep any necessary fallback concise and source-grounded.
 - Treat `data/community_reading_groups.json` as a checked-in fallback, not the editorial source of truth.
 
 If a valid reading-group upload is omitted because its title does not match these rules, explain the exception and ask before broadening the matcher. If the feed format changes, update the parser and tests together.

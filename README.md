@@ -105,7 +105,7 @@ Each stage has a different purpose.
 
 ### YouTube reading-group refresh
 
-`scripts/refresh_youtube_reading_groups.py` reads EleutherAI's official YouTube Atom feed and selects the three newest videos whose titles contain `Reading Group` or the standalone abbreviation `RG`. It writes their official titles, publication dates, video IDs, and links to `data/community_reading_groups.json`, which the Community page renders directly.
+`scripts/refresh_youtube_reading_groups.py` reads EleutherAI's official YouTube Atom feed and selects the three newest videos whose titles contain `Reading Group` or the standalone abbreviation `RG`. It extracts a concise session title and reading-group name, uses the first substantive sentence of the official description as the topic overview, and writes those fields with the publication date, video ID, and link to `data/community_reading_groups.json`.
 
 The checked-in JSON file is the deterministic offline fallback. A live build warns and uses that snapshot if YouTube is temporarily unavailable; it fails only when neither the feed nor a valid three-video snapshot is available. `make build-offline` never queries YouTube and validates the snapshot before Hugo runs.
 

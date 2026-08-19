@@ -98,8 +98,8 @@
           {{ range $readingGroups.recordings }}
             <a class="community-impact-recording" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
               <span>
-                <strong>{{ .title }}</strong>
-                <span>Published {{ .date }}</span>
+                <strong>{{ .session_title }}</strong>
+                <span><b>{{ .reading_group }}.</b> {{ .overview }}</span>
               </span>
               <span class="community-impact-recording-arrow" aria-hidden="true">&#8594;</span>
             </a>

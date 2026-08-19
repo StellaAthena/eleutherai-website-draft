@@ -12,14 +12,19 @@ def test_parse_feed_selects_latest_reading_groups():
     payload = b"""<?xml version=\"1.0\" encoding=\"UTF-8\"?>
     <feed xmlns=\"http://www.w3.org/2005/Atom\" xmlns:yt=\"http://www.youtube.com/xml/schemas/2015\">
       <entry><yt:videoId>ordinary</yt:videoId><title>Project update</title><published>2026-08-01T00:00:00+00:00</published></entry>
-      <entry><yt:videoId>newest</yt:videoId><title>Evaluation Reading Group</title><published>2026-07-01T00:00:00+00:00</published></entry>
-      <entry><yt:videoId>second</yt:videoId><title>Agents RG session</title><published>2026-06-01T00:00:00+00:00</published></entry>
-      <entry><yt:videoId>third</yt:videoId><title>ML Performance Reading Group</title><published>2026-05-01T00:00:00+00:00</published></entry>
+      <entry><yt:videoId>newest</yt:videoId><title>Evaluation Reading Group Session 4: Better Benchmarks</title><published>2026-07-01T00:00:00+00:00</published><media:group xmlns:media=\"http://search.yahoo.com/mrss/\"><media:description>Evaluation Reading Group meeting recording.\n\nA discussion of how benchmarks fail. A second sentence.</media:description></media:group></entry>
+      <entry><yt:videoId>second</yt:videoId><title>Planning and Agents RG, 2026-06-01 Session: Better Search</title><published>2026-06-01T00:00:00+00:00</published></entry>
+      <entry><yt:videoId>third</yt:videoId><title>ML Performance Reading Group Session 3: Faster Serving</title><published>2026-05-01T00:00:00+00:00</published></entry>
       <entry><yt:videoId>fourth</yt:videoId><title>Older Reading Group</title><published>2026-04-01T00:00:00+00:00</published></entry>
     </feed>"""
     recordings = MODULE.parse_feed(payload)
     assert [recording["video_id"] for recording in recordings] == ["newest", "second", "third"]
     assert recordings[0]["date"] == "July 1, 2026"
+    assert recordings[0]["session_title"] == "Better Benchmarks"
+    assert recordings[0]["reading_group"] == "Evaluation Reading Group"
+    assert recordings[0]["overview"] == "A discussion of how benchmarks fail."
+    assert recordings[1]["session_title"] == "Better Search"
+    assert recordings[1]["reading_group"] == "Planning and Agents Reading Group"
 
 
 def test_checked_in_cache_is_valid():

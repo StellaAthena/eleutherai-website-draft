@@ -19,13 +19,57 @@ VIDEO_LIMIT = 3
 READING_GROUP_PATTERN = re.compile(r"\b(?:reading\s+group|rg)\b", re.IGNORECASE)
 NAMESPACES = {
     "atom": "http://www.w3.org/2005/Atom",
+    "media": "http://search.yahoo.com/mrss/",
     "yt": "http://www.youtube.com/xml/schemas/2015",
+}
+OVERVIEW_OVERRIDES = {
+    "e12wdaW2xgk": "A discussion of cross-datacenter LLM serving that separates prefill and decode work by transferring KV caches between independently scaled clusters."
 }
 
 
 def display_date(value):
     published = datetime.fromisoformat(value.replace("Z", "+00:00"))
     return f"{published.strftime('%B')} {published.day}, {published.year}"
+
+
+def presentation_fields(title, description, video_id):
+    reading_group = "EleutherAI Reading Group"
+    session_title = title
+
+    full_name_match = re.match(
+        r"^(?P<group>.+?)\s+Reading Group(?:\s+Session\s+\d+)?:\s*(?P<session>.+)$",
+        title,
+        re.IGNORECASE,
+    )
+    abbreviation_match = re.match(
+        r"^(?P<group>.+?)\s+RG,.*?\s+Session:\s*(?P<session>.+)$",
+        title,
+        re.IGNORECASE,
+    )
+    match = full_name_match or abbreviation_match
+    if match:
+        reading_group = f"{match.group('group').strip()} Reading Group"
+        session_title = match.group("session").strip()
+
+    overview = OVERVIEW_OVERRIDES.get(video_id)
+    if not overview:
+        paragraphs = [re.sub(r"\s+", " ", paragraph).strip() for paragraph in description.split("\n\n")]
+        substantive = next(
+            (
+                paragraph
+                for paragraph in paragraphs
+                if paragraph
+                and not paragraph.lower().endswith("meeting recording.")
+                and not paragraph.lower().startswith(("paper:", "slides:", "presenter:", "links:", "reading group on discord:"))
+            ),
+            "",
+        )
+        sentence_match = re.match(r"^.*?[.!?](?:\s|$)", substantive)
+        overview = sentence_match.group(0).strip() if sentence_match else substantive
+    if not overview:
+        overview = f"A technical discussion of {session_title}."
+
+    return session_title, reading_group, overview
 
 
 def parse_feed(payload):
@@ -38,12 +82,18 @@ def parse_feed(payload):
 
         video_id = entry.findtext("yt:videoId", default="", namespaces=NAMESPACES).strip()
         published = entry.findtext("atom:published", default="", namespaces=NAMESPACES).strip()
+        description = entry.findtext("media:group/media:description", default="", namespaces=NAMESPACES).strip()
         if not video_id or not published:
             continue
+
+        session_title, reading_group, overview = presentation_fields(title, description, video_id)
 
         recordings.append(
             {
                 "title": title,
+                "session_title": session_title,
+                "reading_group": reading_group,
+                "overview": overview,
                 "published": published,
                 "date": display_date(published),
                 "url": f"https://www.youtube.com/watch?v={video_id}",
@@ -59,7 +109,16 @@ def validate_recordings(recordings):
     if len(recordings) != VIDEO_LIMIT:
         raise ValueError(f"expected {VIDEO_LIMIT} reading-group recordings, found {len(recordings)}")
     for recording in recordings:
-        missing = {"title", "published", "date", "url", "video_id"} - recording.keys()
+        missing = {
+            "title",
+            "session_title",
+            "reading_group",
+            "overview",
+            "published",
+            "date",
+            "url",
+            "video_id",
+        } - recording.keys()
         if missing:
             raise ValueError(f"recording is missing fields: {', '.join(sorted(missing))}")
 
