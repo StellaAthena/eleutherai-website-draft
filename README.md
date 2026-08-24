@@ -30,20 +30,22 @@ From the repository root, build the main site with current online data:
 make build
 ```
 
-The static output is written to `public/`. Preview the completed build locally:
+The static output is written to `public/`. To preview the complete website locally, start the main site and blog together:
 
 ```bash
-make serve-offline PORT=8060
-open http://127.0.0.1:8060/
+make serve-all-offline
+open http://127.0.0.1:8067/
 ```
+
+The main site runs on port `8067` and the blog runs on port `8068`. Navigation automatically moves between the two local previews instead of opening the production websites.
 
 For normal editing with Hugo's live-reloading server:
 
 ```bash
-make serve PORT=8060
+make serve-all
 ```
 
-This refreshes the online data before starting the server.
+This refreshes the online data before starting both servers.
 
 Build both the main site and blog:
 
@@ -51,11 +53,11 @@ Build both the main site and blog:
 make build-all
 ```
 
-Preview the blog separately:
+The individual preview commands remain available when only one deployment is needed:
 
 ```bash
-make serve-blog-offline PORT=8061
-open http://127.0.0.1:8061/
+make serve-offline PORT=8067
+make serve-blog-offline PORT=8068
 ```
 
 When internet access is unavailable, use the checked-in data snapshots:

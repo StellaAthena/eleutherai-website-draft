@@ -1,7 +1,9 @@
 .DEFAULT_GOAL := build
-.PHONY: data data-offline data-live-strict test check-tools check-links check-generated freshness build build-offline build-blog build-blog-offline build-all build-all-offline build-all-strict-offline build-production build-blog-production verify verify-live serve serve-offline serve-blog serve-blog-offline
+.PHONY: data data-offline data-live-strict test check-tools check-links check-generated freshness build build-offline build-blog build-blog-offline build-all build-all-offline build-all-strict-offline build-production build-blog-production verify verify-live serve serve-offline serve-blog serve-blog-offline serve-all serve-all-offline
 
 PORT ?= 8060
+MAIN_PORT ?= 8067
+BLOG_PORT ?= 8068
 BIND ?= 127.0.0.1
 PYTHON ?= python3
 HUGO ?= hugo
@@ -79,3 +81,19 @@ serve-blog:
 	hugo server --config hugo-blog.toml --destination public-blog --disableFastRender --bind $(BIND) --port $(PORT)
 
 serve-blog-offline: serve-blog
+
+serve-all: data
+	@$(MAKE) _serve-all
+
+serve-all-offline: data-offline
+	@$(MAKE) _serve-all
+
+.PHONY: _serve-all
+_serve-all:
+	@set -e; \
+	main_url="http://$(BIND):$(MAIN_PORT)/"; \
+	blog_url="http://$(BIND):$(BLOG_PORT)/"; \
+	MAIN_BASE_URL="$$main_url" BLOG_BASE_URL="$$blog_url" $(HUGO) server --disableFastRender --bind $(BIND) --port $(MAIN_PORT) & main_pid=$$!; \
+	MAIN_BASE_URL="$$main_url" BLOG_BASE_URL="$$blog_url" $(HUGO) server --config hugo-blog.toml --destination public-blog --disableFastRender --bind $(BIND) --port $(BLOG_PORT) & blog_pid=$$!; \
+	trap 'kill $$main_pid $$blog_pid 2>/dev/null || true' INT TERM EXIT; \
+	wait $$main_pid $$blog_pid

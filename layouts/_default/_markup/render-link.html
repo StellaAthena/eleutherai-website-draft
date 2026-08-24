@@ -19,4 +19,19 @@
 {{- else if eq $dest "x" -}}
   {{- $dest = "#" -}}
 {{- end -}}
+{{- if hugo.IsServer -}}
+  {{- $mainOverride := os.Getenv "MAIN_BASE_URL" -}}
+  {{- $mainLocal := $mainOverride | default (site.Params.localMainBaseURL | default "http://127.0.0.1:8067/") -}}
+  {{- $blogOverride := os.Getenv "BLOG_BASE_URL" -}}
+  {{- $blogLocal := $blogOverride | default (site.Params.localBlogBaseURL | default "http://127.0.0.1:8068/") -}}
+  {{- $mainLocal = strings.TrimSuffix "/" $mainLocal -}}
+  {{- $blogLocal = strings.TrimSuffix "/" $blogLocal -}}
+  {{- if hasPrefix $dest "https://blog.eleuther.ai" -}}
+    {{- $dest = replace $dest "https://blog.eleuther.ai" $blogLocal -}}
+  {{- else if hasPrefix $dest "https://www.eleuther.ai" -}}
+    {{- $dest = replace $dest "https://www.eleuther.ai" $mainLocal -}}
+  {{- else if hasPrefix $dest "https://eleuther.ai" -}}
+    {{- $dest = replace $dest "https://eleuther.ai" $mainLocal -}}
+  {{- end -}}
+{{- end -}}
 <a href="{{ $dest | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>

@@ -206,6 +206,18 @@
     "superlatives": []
   },
   {
+    "title": "Bergson: An Open Source Library for Data Attribution",
+    "url": "https://arxiv.org/abs/2606.11660",
+    "date": "2026",
+    "date_sort": "2026-06-10",
+    "venue": "EMNLP System Demonstrations",
+    "venue_year": "2026",
+    "kind": "conference",
+    "family": "EMNLP",
+    "group_sort_date": "2026-06-10",
+    "superlatives": []
+  },
+  {
     "title": "Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting",
     "url": "https://arxiv.org/abs/2606.09809",
     "date": "2026",
@@ -337,18 +349,6 @@
     "kind": "conference",
     "family": "NeurIPS",
     "group_sort_date": "2026-03-27",
-    "superlatives": []
-  },
-  {
-    "title": "Bergson: An Open Source Library for Data Attribution",
-    "url": "https://arxiv.org/abs/2606.11660",
-    "date": "2026",
-    "date_sort": "2026-06-10",
-    "venue": "arXiv",
-    "venue_year": "2026",
-    "kind": "arxiv",
-    "family": "arXiv",
-    "group_sort_date": "2026-01-01",
     "superlatives": []
   },
   {

@@ -5,11 +5,12 @@ enableRobotsTXT = true
 disableKinds = ["RSS"]
 
 [security.funcs]
-  getenv = ['^BLOG_BASE_URL$']
+  getenv = ['^(BLOG|MAIN)_BASE_URL$']
 
 [params]
   description = "Research notes, announcements, and technical essays from EleutherAI."
   mainBaseURL = "https://www.eleuther.ai/"
+  localMainBaseURL = "http://127.0.0.1:8067/"
   blogBaseURL = "/"
 
 [permalinks]

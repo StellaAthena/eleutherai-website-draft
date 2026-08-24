@@ -474,6 +474,37 @@
     ]
   },
   {
+    "family": "EMNLP",
+    "year": "2026",
+    "kind": "conference",
+    "label": "EMNLP, 2026",
+    "count": 1,
+    "sort_date": "2026-06-10",
+    "venues": [
+      {
+        "venue": "EMNLP System Demonstrations",
+        "label": "System Demonstrations",
+        "kind": "conference",
+        "count": 1,
+        "sort_date": "2026-06-10",
+        "papers": [
+          {
+            "title": "Bergson: An Open Source Library for Data Attribution",
+            "url": "https://arxiv.org/abs/2606.11660",
+            "date": "2026",
+            "date_sort": "2026-06-10",
+            "venue": "EMNLP System Demonstrations",
+            "venue_year": "2026",
+            "kind": "conference",
+            "family": "EMNLP",
+            "group_sort_date": "2026-06-10",
+            "superlatives": []
+          }
+        ]
+      }
+    ]
+  },
+  {
     "family": "ICASSP",
     "year": "2026",
     "kind": "workshop",
@@ -585,28 +616,16 @@
     "year": "2026",
     "kind": "arxiv",
     "label": "arXiv, 2026",
-    "count": 2,
+    "count": 1,
     "sort_date": "2026-01-01",
     "venues": [
       {
         "venue": "arXiv",
         "label": "Preprints",
         "kind": "arxiv",
-        "count": 2,
+        "count": 1,
         "sort_date": "2026-01-01",
         "papers": [
-          {
-            "title": "Bergson: An Open Source Library for Data Attribution",
-            "url": "https://arxiv.org/abs/2606.11660",
-            "date": "2026",
-            "date_sort": "2026-06-10",
-            "venue": "arXiv",
-            "venue_year": "2026",
-            "kind": "arxiv",
-            "family": "arXiv",
-            "group_sort_date": "2026-01-01",
-            "superlatives": []
-          },
           {
             "title": "Queer NLP: A Critical Survey on Literature Gaps, Biases and Trends",
             "url": "https://arxiv.org/abs/2602.16151",

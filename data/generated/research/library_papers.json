@@ -286,10 +286,10 @@
     "url": "https://arxiv.org/abs/2606.11660",
     "date": "2026",
     "date_sort": "2026-06-10",
-    "venue": "arXiv",
-    "family": "arXiv",
-    "kind": "arxiv",
-    "status": "Preprint",
+    "venue": "EMNLP System Demonstrations",
+    "family": "EMNLP",
+    "kind": "conference",
+    "status": "Accepted",
     "areas": [
       "Data, Model Internals"
     ],
@@ -873,8 +873,7 @@
     "kind": "conference",
     "status": "Accepted",
     "areas": [
-      "Learning Dynamics",
-      "Model Internals"
+      "Learning Dynamics, Model Internals"
     ],
     "lead_org": "",
     "contact": "",

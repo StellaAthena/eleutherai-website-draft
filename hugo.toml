@@ -7,13 +7,14 @@ enableRobotsTXT = true
 disableKinds = ["taxonomy", "term", "RSS"]
 
 [security.funcs]
-  getenv = ['^BLOG_BASE_URL$']
+  getenv = ['^(BLOG|MAIN)_BASE_URL$']
 
 [params]
   description = "EleutherAI is a non-profit AI research lab advancing open science through models, datasets, tools, and research."
   # Blog URL can be overridden with BLOG_BASE_URL environment variable for local testing
   # Production default: https://blog.eleuther.ai/
   blogBaseURL = "https://blog.eleuther.ai/"
+  localBlogBaseURL = "http://127.0.0.1:8068/"
 
 [markup]
   [markup.goldmark]

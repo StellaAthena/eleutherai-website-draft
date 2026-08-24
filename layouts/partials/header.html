@@ -28,7 +28,11 @@
   {{- $sectionID = "community" -}}
 {{- end -}}
 
-{{- $mainBase := site.Params.mainBaseURL | default "" -}}
+{{- $mainOverride := os.Getenv "MAIN_BASE_URL" -}}
+{{- $mainBase := $mainOverride | default (site.Params.mainBaseURL | default "") -}}
+{{- if and hugo.IsServer (eq $mainOverride "") -}}
+  {{- $mainBase = site.Params.localMainBaseURL | default $mainBase -}}
+{{- end -}}
 {{- $homeURL := cond (ne $mainBase "") $mainBase ("" | relURL) -}}
 {{- $aboutURL := cond (ne $mainBase "") (printf "%sabout/" $mainBase) ("about/" | relURL) -}}
 {{- $staffURL := cond (ne $mainBase "") (printf "%sstaff/" $mainBase) ("staff/" | relURL) -}}
@@ -36,7 +40,11 @@
 {{- $papersURL := cond (ne $mainBase "") (printf "%spapers/" $mainBase) ("papers/" | relURL) -}}
 {{- $communityURL := cond (ne $mainBase "") (printf "%scommunity/" $mainBase) ("community/" | relURL) -}}
 {{- $blogBaseURL := site.Params.blogBaseURL | default "https://blog.eleuther.ai/" -}}
-{{- $blogURL := os.Getenv "BLOG_BASE_URL" | default $blogBaseURL -}}
+{{- $blogOverride := os.Getenv "BLOG_BASE_URL" -}}
+{{- $blogURL := $blogOverride | default $blogBaseURL -}}
+{{- if and hugo.IsServer (eq $blogOverride "") -}}
+  {{- $blogURL = site.Params.localBlogBaseURL | default "http://127.0.0.1:8068/" -}}
+{{- end -}}
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="{{ $homeURL }}" aria-label="EleutherAI home">

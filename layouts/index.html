@@ -1,5 +1,8 @@
 {{ define "main" }}
 <main>
+  {{ $blogOverride := os.Getenv "BLOG_BASE_URL" }}
+  {{ $localBlogBase := $blogOverride | default (site.Params.localBlogBaseURL | default "http://127.0.0.1:8068/") }}
+  {{ $localBlogBase = strings.TrimSuffix "/" $localBlogBase }}
   {{ $latest := slice }}
   {{/* The main build reads blog pages directly; the split blog build supplies the same entries as generated data. */}}
   {{ with site.Data.generated.blog_posts }}
@@ -93,11 +96,17 @@
         <h2 id="latest-title">Latest</h2>
         <div class="home-latest-list">
           {{ range $latest }}
+            {{ $url := .url }}
+            {{ $internalBlogURL := and $url (hasPrefix $url "https://blog.eleuther.ai") }}
+            {{ if and hugo.IsServer $internalBlogURL }}
+              {{ $url = replace $url "https://blog.eleuther.ai" $localBlogBase }}
+            {{ end }}
+            {{ $external := and $url (hasPrefix $url "http") (not $internalBlogURL) }}
             <article class="home-latest-item">
               <span>{{ .kind }}</span>
               <h3>
-                {{ if .url }}
-                  <a href="{{ .url }}"{{ if hasPrefix .url "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .title }}</a>
+                {{ if $url }}
+                  <a href="{{ $url }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .title }}</a>
                 {{ else }}
                   {{ .title }}
                 {{ end }}
@@ -144,8 +153,13 @@
       <h2 id="outputs-title">Recent outputs</h2>
       <div class="home-output-list">
         {{ range site.Data.generated.home_recent_outputs }}
-          {{ $external := hasPrefix .url "http" }}
-          <a class="home-output-row" href="{{ if $external }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>
+          {{ $url := .url }}
+          {{ $internalBlogURL := hasPrefix $url "https://blog.eleuther.ai" }}
+          {{ if and hugo.IsServer $internalBlogURL }}
+            {{ $url = replace $url "https://blog.eleuther.ai" $localBlogBase }}
+          {{ end }}
+          {{ $external := and (hasPrefix $url "http") (not $internalBlogURL) }}
+          <a class="home-output-row" href="{{ if or $external $internalBlogURL }}{{ $url }}{{ else }}{{ $url | relURL }}{{ end }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>
             <span>{{ .kind }}</span>
             <h3>{{ .title }}</h3>
             <p>{{ .meta }}</p>
