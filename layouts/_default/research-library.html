@@ -45,6 +45,7 @@
           <option value="">All venues</option>
           {{ range $venues }}<option value="{{ . | lower }}">{{ . }}</option>{{ end }}
         </select>
+        <p id="library-filter-status" class="library-filter-status" aria-live="polite"></p>
       </aside>
 
       <div class="library-results">
@@ -89,7 +90,10 @@
             </section>
           {{ end }}
         </div>
-        <p id="library-empty" hidden>No publications match these filters.</p>
+        <div id="library-empty" hidden>
+          <p>No publications match these filters.</p>
+          <button id="library-empty-clear" type="button">Clear filters</button>
+        </div>
       </div>
     </div>
   </section>
