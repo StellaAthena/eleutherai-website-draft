@@ -11,7 +11,7 @@ metrics:
     url: "https://huggingface.co/EleutherAI"
 priorities:
   - key: "open-models-and-tools"
-    title: "Open models and tools"
+    title: "Open Models and Tools"
     layout: "light"
     accent: "blue"
     image: "images/research/homepage/open-models-pile-composition.png"
@@ -28,7 +28,7 @@ priorities:
       - label: "Models"
         url: "https://huggingface.co/EleutherAI/models"
   - key: "interpretability-over-time"
-    title: "Interpretability over time"
+    title: "Interpretability Over Time"
     layout: "lead"
     accent: "green"
     image: "images/research/homepage/interpretability-over-time.webp"
@@ -39,11 +39,11 @@ priorities:
       Our Pythia suite pioneered this approach, pairing model checkpoints across training with the exact data seen at each step. It has become the standard scientific instrument for research on learning dynamics, memorization, and how capabilities form, with thousands of citing works.
     links:
       - label: "Pythia"
-        url: "project-pythia/"
-      - label: "Training dynamics agenda"
+        url: "https://arxiv.org/abs/2304.01373"
+      - label: "Training Dynamics Agenda"
         url: "https://arxiv.org/abs/2606.06533"
   - key: "open-weight-safety"
-    title: "Open-weight safety"
+    title: "Open-Weight Safety"
     layout: "safety"
     accent: "violet"
     image: "images/research/homepage/open-weight-safety.png"
@@ -68,15 +68,11 @@ priorities:
     links:
       - label: "LM Evaluation Harness"
         url: "https://github.com/EleutherAI/lm-evaluation-harness"
-      - label: "Benchmark saturation"
+      - label: "Benchmark Saturation"
         url: "https://arxiv.org/abs/2602.16763"
       - label: "EvalEval Coalition"
         url: "https://evalevalai.com/"
 
-manual_news:
-  - title: "A short retrospective on the EleutherAI Summer of Open AI Research"
-    url: "news/a-short-retrospective-on-the-eleutherai-summer-of-open-ai-research/"
-  - title: "Summer of Open Science"
-    url: "soar/"
-  - title: "EvalEval Coalition"
-    url: "https://evaleval.github.io/"
+# Manual news items need a `date` (YYYY-MM-DD) to appear in the homepage Latest feed.
+# Dated posts under content/news/ and blog posts are picked up automatically.
+manual_news: []

@@ -49,10 +49,10 @@ The following is an example illustrating the core idea of RoPE—a more rigorous
 
 $$
 \begin{align}
-    \mathrm{RoPE}(x, m) &= xe^{mi\varepsilon} \\\\
-    \langle \mathrm{RoPE}(q_j, m), \mathrm{RoPE}(k_j, n)\rangle &= \langle q_j e^{mi\varepsilon}, k_j e^{ni\varepsilon} \rangle \\\\
-    &= q_j k_j e^{mi\varepsilon} \overline{e^{ni\varepsilon}} \\\\
-    &= q_j k_j e^{(m - n)i\varepsilon} \\\\
+    \mathrm{RoPE}(x, m) &= xe^{mi\varepsilon} \\
+    \langle \mathrm{RoPE}(q_j, m), \mathrm{RoPE}(k_j, n)\rangle &= \langle q_j e^{mi\varepsilon}, k_j e^{ni\varepsilon} \rangle \\
+    &= q_j k_j e^{mi\varepsilon} \overline{e^{ni\varepsilon}} \\
+    &= q_j k_j e^{(m - n)i\varepsilon} \\
     &= \mathrm{RoPE}(q_j k_j, m - n)
 \end{align}
 $$
@@ -88,8 +88,8 @@ where $g(\mathbf{q},\mathbf{k},m-n)$ now represents the pre-softmax logit of the
 
 $$
 \begin{align*}
-    f(\mathbf{q}, m) &= R_f(\mathbf{q}, m)e^{i\Theta_f(\mathbf{q}, m)}\\\\
-    f(\mathbf{k}, n) &= R_f(\mathbf{k}, n)e^{i\Theta_f(\mathbf{k}, n)}\\\\
+    f(\mathbf{q}, m) &= R_f(\mathbf{q}, m)e^{i\Theta_f(\mathbf{q}, m)}\\
+    f(\mathbf{k}, n) &= R_f(\mathbf{k}, n)e^{i\Theta_f(\mathbf{k}, n)}\\
     g(\mathbf{q}, \mathbf{k}, m - n) &= R_g(\mathbf{q}, \mathbf{k}, m - n)e^{i\Theta_g(\mathbf{q}, \mathbf{k}, m - n)}
 \end{align*}
 $$
@@ -98,8 +98,8 @@ Computing the inner product and equating corresponding components yields
 
 $$
 \begin{align*}
-    R_f(\mathbf{q}, m) R_f(\mathbf{k}, n) &= R_g(\mathbf{q}, \mathbf{k}, m - n)\\\\
-    \Theta_f(\mathbf{q}, m) - \Theta_f(\mathbf{k}, n) &= \Theta_g(\mathbf{q}, \mathbf{k}, m - n)\\\\
+    R_f(\mathbf{q}, m) R_f(\mathbf{k}, n) &= R_g(\mathbf{q}, \mathbf{k}, m - n)\\
+    \Theta_f(\mathbf{q}, m) - \Theta_f(\mathbf{k}, n) &= \Theta_g(\mathbf{q}, \mathbf{k}, m - n)\\
 \end{align*}
 $$
 
@@ -122,15 +122,15 @@ and likewise for $\mathbf{k}$. Since computers tend to like real numbers and mat
 $$
     f(\mathbf{q}, m) =
     \begin{pmatrix}
-	    M_1 & & & \\\\
-	   & M_2 & & \\\\
-	   & & \ddots & \\\\
+	    M_1 & & & \\
+	   & M_2 & & \\
+	   & & \ddots & \\
 	   & & & M_{d/2}
     \end{pmatrix}
     \begin{pmatrix}
-	   q_1\\\\
-	   q_2\\\\
-	   \vdots\\\\
+	   q_1\\
+	   q_2\\
+	   \vdots\\
 	   q_d
     \end{pmatrix} = \mathbf{\Theta_m Q_m} = \mathbf{\Theta_m W_q X_m}
 $$
@@ -143,8 +143,8 @@ With relative ease RoPE can be extended into the multidimensional case. To repre
 
 $$
 \begin{align*}
-    \langle f(\mathbf{q}, m, i),f(\mathbf{k}, n, j) \rangle &= \langle f_1(\mathbf{q}\_{:d/2}, m),f_1(\mathbf{k}\_{:d/2}, n) \rangle + \langle f_2(\mathbf{q}\_{d/2:}, i),f_2(\mathbf{k}\_{d/2:}, j) \rangle \\\\
-    &= g_1(\mathbf{q}\_{:d/2}, \mathbf{k}\_{:d/2}, m - n) + g_2(\mathbf{q}\_{d/2:}, \mathbf{k}\_{d/2:}, i - j) \\\\
+    \langle f(\mathbf{q}, m, i),f(\mathbf{k}, n, j) \rangle &= \langle f_1(\mathbf{q}_{:d/2}, m),f_1(\mathbf{k}_{:d/2}, n) \rangle + \langle f_2(\mathbf{q}_{d/2:}, i),f_2(\mathbf{k}_{d/2:}, j) \rangle \\
+    &= g_1(\mathbf{q}_{:d/2}, \mathbf{k}_{:d/2}, m - n) + g_2(\mathbf{q}_{d/2:}, \mathbf{k}_{d/2:}, i - j) \\
     &= g(\mathbf{q}, \mathbf{k}, m - n, i - j)
 \end{align*}
 $$

@@ -1,5 +1,6 @@
 (() => {
   const query = document.querySelector("#library-query");
+  const area = document.querySelector("#library-area");
   const year = document.querySelector("#library-year");
   const kind = document.querySelector("#library-kind");
   const venue = document.querySelector("#library-venue");
@@ -11,7 +12,9 @@
   const entries = [...document.querySelectorAll(".library-entry")];
   const groups = [...document.querySelectorAll(".library-year-group")];
 
-  if (!query || !year || !kind || !venue || !clear || !emptyClear || !count || !empty || !filterStatus) return;
+  if (!query || !area || !year || !kind || !venue || !clear || !emptyClear || !count || !empty || !filterStatus) return;
+
+  const areaLabels = new Map([...area.options].slice(1).map((option) => [option.value, option.textContent]));
 
   const yearLabels = new Map([...year.options].slice(1).map((option) => [option.value, option.textContent]));
   const kindLabels = new Map([...kind.options].slice(1).map((option) => [option.value, option.textContent]));
@@ -53,8 +56,20 @@
     ]));
   }
 
+  function entryAreas(entry) {
+    return (entry.dataset.areas || "").split("|").filter(Boolean);
+  }
+
+  function areaCounts(items) {
+    return items.reduce((counts, entry) => {
+      entryAreas(entry).forEach((value) => counts.set(value, (counts.get(value) || 0) + 1));
+      return counts;
+    }, new Map());
+  }
+
   function updateDependentFilters() {
-    const yearEntries = entries.filter((entry) => !year.value || entry.dataset.year === year.value);
+    const areaEntries = entries.filter((entry) => !area.value || entryAreas(entry).includes(area.value));
+    const yearEntries = areaEntries.filter((entry) => !year.value || entry.dataset.year === year.value);
     const kindReset = rebuildOptions(kind, "All venue types", compactKindLabels(kindLabels), countsFor(yearEntries, "kind"));
     const kindEntries = yearEntries.filter((entry) => !kind.value || entry.dataset.kind === kind.value);
     const venueReset = rebuildOptions(venue, "All venues", venueLabels, countsFor(kindEntries, "family"));
@@ -82,6 +97,7 @@
       ].join(" ").toLowerCase();
       const matches =
         (!search || searchable.includes(search)) &&
+        (!area.value || entryAreas(entry).includes(area.value)) &&
         (!year.value || entry.dataset.year === year.value) &&
         (!kind.value || entry.dataset.kind.toLowerCase() === kind.value) &&
         (!venue.value || entry.dataset.family.toLowerCase() === venue.value);
@@ -97,6 +113,11 @@
   }
 
   query.addEventListener("input", applyFilters);
+  area.addEventListener("change", () => {
+    setOptionCounts(year, yearLabels, countsFor(entries.filter((entry) => !area.value || entryAreas(entry).includes(area.value)), "year"));
+    updateDependentFilters();
+    applyFilters();
+  });
   year.addEventListener("change", () => {
     updateDependentFilters();
     applyFilters();
@@ -109,6 +130,8 @@
 
   function clearFilters() {
     query.value = "";
+    area.value = "";
+    setOptionCounts(year, yearLabels, countsFor(entries, "year"));
     year.value = "";
     kind.value = "";
     venue.value = "";
@@ -120,7 +143,19 @@
   clear.addEventListener("click", clearFilters);
   emptyClear.addEventListener("click", clearFilters);
 
+  setOptionCounts(area, areaLabels, areaCounts(entries));
   setOptionCounts(year, yearLabels, countsFor(entries, "year"));
+
+  // Deep links from research-area pages: /papers/?area=Open-Weight%20Safety
+  const params = new URLSearchParams(window.location.search);
+  const requestedArea = (params.get("area") || "").trim().toLowerCase();
+  if (requestedArea && areaLabels.has(requestedArea)) {
+    area.value = requestedArea;
+    setOptionCounts(year, yearLabels, countsFor(entries.filter((entry) => entryAreas(entry).includes(requestedArea)), "year"));
+  }
+  const requestedQuery = (params.get("q") || "").trim();
+  if (requestedQuery) query.value = requestedQuery;
+
   updateDependentFilters();
   applyFilters();
 })();

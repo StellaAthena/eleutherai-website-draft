@@ -1,9 +1,19 @@
 {{ define "main" }}
+{{ $areaPapers := site.Data.generated.research.area_papers | default dict }}
+{{ $areas := site.Data.research.areas.areas }}
+{{ $featured := where $areas "featured" true }}
+{{ $other := where $areas "featured" "!=" true }}
+{{ $paperCount := "" }}
+{{ with site.Data.generated.home_generated_metrics.metrics.publication_count }}{{ $paperCount = .value }}{{ end }}
 <main>
   <section class="hero">
     <div class="wrap">
       <h1>{{ .Title }}</h1>
       {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
+      <div class="button-row">
+        <a class="button primary" href="{{ "papers/" | relURL }}">Browse {{ with $paperCount }}{{ . }} {{ end }}papers</a>
+        <a class="button" href="#areas">Research areas</a>
+      </div>
     </div>
   </section>
 
@@ -11,10 +21,65 @@
     <section class="section research-goals">
       <div class="wrap">
         <div class="section-head">
-          <div><h2>Research goals</h2></div>
+          <div><h2>Research Goals</h2></div>
           <div class="prose">
             {{ . }}
           </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  <section class="section research-areas" id="areas">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2>Research Areas</h2></div>
+        <p class="section-intro">Our work is organized around five main areas. Each page describes what we are working on now, the artifacts we maintain, and the papers behind them.</p>
+      </div>
+      <div class="research-area-grid">
+        {{ range $featured }}
+          {{ $count := len (index $areaPapers .key | default slice) }}
+          <a class="research-area-card is-{{ .accent }}" href="{{ printf "research/%s/" .slug | relURL }}">
+            <h3>{{ .title }}</h3>
+            <p>{{ .summary }}</p>
+            {{ if gt $count 0 }}<span>{{ $count }} papers</span>{{ end }}
+          </a>
+        {{ end }}
+      </div>
+      {{ with $other }}
+        <div class="research-area-more">
+          <h3>Also</h3>
+          <ul>
+            {{ range . }}
+              {{ $count := len (index $areaPapers .key | default slice) }}
+              <li>
+                <a href="{{ printf "research/%s/" .slug | relURL }}">{{ .title }}</a>
+                <span>{{ .summary }}{{ if gt $count 0 }} ({{ $count }} papers){{ end }}</span>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+
+  {{ with site.Data.research.areas.projects }}
+    <section class="section research-projects" id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div><h2>Major Projects</h2></div>
+          <p class="section-intro">{{ .intro }}</p>
+        </div>
+        <div class="artifact-table">
+          {{ range .items }}
+            {{ $external := hasPrefix .url "http" }}
+            <article class="artifact-row research-project-row">
+              <div>
+                <h3><a href="{{ if $external }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .name }}</a></h3>
+                <p>{{ .text }}</p>
+              </div>
+            </article>
+          {{ end }}
         </div>
       </div>
     </section>

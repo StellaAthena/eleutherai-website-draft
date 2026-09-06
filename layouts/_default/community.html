@@ -99,7 +99,8 @@
             <a class="community-impact-recording" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
               <span>
                 <strong>{{ .session_title }}</strong>
-                <span><b>{{ .reading_group }}.</b> {{ .overview }}</span>
+                <span class="community-impact-recording-meta">{{ .reading_group }}{{ with .date }} · {{ . }}{{ end }}</span>
+                <span>{{ .overview }}</span>
               </span>
               <span class="community-impact-recording-arrow" aria-hidden="true">&#8594;</span>
             </a>

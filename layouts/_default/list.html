@@ -10,11 +10,12 @@
   <section class="section">
     <div class="wrap">
       <div class="artifact-table">
-        {{ range .Pages.ByTitle }}
+        {{ range .Pages.ByDate.Reverse }}
           <article class="artifact-row">
             <div>
               <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-              {{ with .Params.lede }}<p>{{ . }}</p>{{ end }}
+              {{ with .Params.lede | default .Params.description }}<p>{{ . }}</p>{{ end }}
+              {{ if not .Date.IsZero }}<p><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></p>{{ end }}
             </div>
           </article>
         {{ end }}

@@ -27,12 +27,12 @@ We would like to understand what training tasks different architectures are (un)
 Say we have a supervised learning task $f:X\to Y$, where $X$ and $Y$ are finite sets, and a neural network with weights $w\in W$. While the weights $w$ induce a function $f_w :\mathbb{R}^{|X|} \to \mathbb{R}^{|Y|}$, the association $w\mapsto f_w$ is very much non-identifiable, i.e. there are usually many different $w,w'\in W$ that induce the same function $f_w=f_{w'}$ (see e.g. [here](https://arxiv.org/pdf/1905.09803)). The map $w\mapsto f_w$, called the parameter-function map, and has been extensively studied and its properties attributed to the generalization behaviour of neural networks (e.g. [here](https://arxiv.org/abs/1909.11522), [here](https://arxiv.org/abs/2405.10927) and references therein). 
 Thus we can think of the loss landscape as a composition of the parameter-function map and the induced loss function
 $$ L:W\xrightarrow{p} \mathcal{F} \xrightarrow{L_{\mathbb{F}}} \mathbb{R}$$
-where  $\mathcal{F}=\\\{ f_w:\mathbb{R}^{|X|} \to \mathbb{R}^{|Y|} \mid w\in W \\\}$ is the function space of all possible $f_w$.
+where  $\mathcal{F}=\\{ f_w:\mathbb{R}^{|X|} \to \mathbb{R}^{|Y|} \mid w\in W \\}$ is the function space of all possible $f_w$.
 We stress that the parameter-function map is completely _task-independent_! It does not take into account the training distribution.
 In practice, we need to specify a distribution $\mathcal{D}$ to compare and compute metrics related to $f_w$, but these will still be label-independent. For our experiments we tried both uniform distributions and distributions based on the training data, but we did not observe any significant differences.
 
 That said, our choice of metric, or divergence, on the space of functions _is_ somewhat task-dependent. We could choose a simple, task-agnostic metric, like the maximum distance between the outputs of two functions $(f, f')$ on any input $x\in X$. However, this may not be very useful in practice, as it would not take into account the distribution of the inputs, and in some cases it may not even be defined (if the distance between the functions is unbounded). As soon as we have a distribution $\mathcal{D}$ over $X$, we can define a more informative divergence function, the average KL-divergence between the two functions:
-$$D_{KL}(f_w \mid\mid f_{w'}) = \mathbb{E}\_{x\sim \mathcal{D}}[D_{KL}(f_w(x) \mid\mid f_{w'}(x))]$$
+$$D_{KL}(f_w \mid\mid f_{w'}) = \mathbb{E}_{x\sim \mathcal{D}}[D_{KL}(f_w(x) \mid\mid f_{w'}(x))]$$
 This is a measure of how different the two functions are, weighted by the distribution $\mathcal{D}$. It assumes the output of the functions is a probability distribution, but we could also use a different divergence, such as the squared Euclidean distance. While the average KL is data-dependent, it has the nice property that it does not depend on the labels. We therefore use it in our experiments.
 
 ## Local volume

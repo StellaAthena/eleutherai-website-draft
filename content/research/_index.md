@@ -1,5 +1,6 @@
 ---
 title: "Research at EleutherAI"
+lede: "We make AI systems legible, reproducible, and safer by training and releasing what the rest of the field needs to study them: models, datasets, evaluations, and tools."
 layout: research
 url: /research/
 aliases:

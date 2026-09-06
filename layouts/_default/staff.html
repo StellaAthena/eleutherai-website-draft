@@ -1,4 +1,7 @@
 {{ define "main" }}
+{{ $staff := site.Data.staff.staff }}
+{{ $teams := site.Data.staff.teams }}
+{{ $areas := site.Data.research.areas.areas }}
 <main>
   <section class="hero">
     <div class="wrap">
@@ -7,17 +10,59 @@
     </div>
   </section>
 
-  {{ with site.Data.staff.staff }}
+  {{ if $teams }}
+    {{ range $teams }}
+      {{ $team := . }}
+      {{ $members := where $staff "team" $team.key }}
+      {{ if $members }}
+        <section class="section staff-directory" id="team-{{ $team.key }}">
+          <div class="wrap">
+            <div class="section-head">
+              <h2>{{ $team.name }}</h2>
+              {{ with $team.text }}<p>{{ . }}</p>{{ end }}
+              {{ with $team.research_areas }}
+                <p class="staff-team-areas">
+                  Research:
+                  {{- range $i, $key := . -}}
+                    {{- range $areas -}}
+                      {{- if eq .key $key }}{{ if $i }} ·{{ end }} <a href="{{ printf "research/%s/" .slug | relURL }}">{{ .title }}</a>{{ end -}}
+                    {{- end -}}
+                  {{- end }}
+                </p>
+              {{ end }}
+            </div>
+            <div class="staff-grid">
+              {{ range sort $members "sort_name" }}
+                {{ partial "staff-card.html" . }}
+              {{ end }}
+            </div>
+          </div>
+        </section>
+      {{ end }}
+    {{ end }}
+    {{ $unassigned := where $staff "team" "not in" (apply $teams "index" "." "key") }}
+    {{ with $unassigned }}
+      <section class="section staff-directory">
+        <div class="wrap">
+          <div class="section-head"><h2>Also</h2></div>
+          <div class="staff-grid">
+            {{ range sort . "sort_name" }}
+              {{ partial "staff-card.html" . }}
+            {{ end }}
+          </div>
+        </div>
+      </section>
+    {{ end }}
+  {{ else }}
     <section class="section staff-directory">
       <div class="wrap">
         <div class="staff-grid">
-          {{ range sort . "sort_name" }}
+          {{ range sort $staff "sort_name" }}
             {{ partial "staff-card.html" . }}
           {{ end }}
         </div>
       </div>
     </section>
   {{ end }}
-
 </main>
 {{ end }}

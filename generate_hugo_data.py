@@ -24,7 +24,6 @@ PAPER_URL_OVERRIDES = {
     "Scaling Self-Supervised Representation Learning for Symbolic Piano Performance": "https://arxiv.org/abs/2506.23869",
     "Position: Write Code that People Want to Use": "https://openreview.net/forum?id=oH0XhgzJt0",
 }
-AREA_PAPERS_CSV = ROOT / "research_area_papers.csv"
 AREA_FILTERS_CSV = ROOT / "research_area_filters.csv"
 OUTPUT_DIR = GENERATED_DIR / "research"
 SCHOLAR_METRICS_PATH = GENERATED_DIR / "home_scholar_metrics.json"
@@ -230,7 +229,7 @@ def normalize_paper_row(row):
     sort_date = (row.get("Sort Date") or "").strip()
     conference = (row.get("Conference or Journal") or "").strip()
     workshop = (row.get("Workshop") or "").strip()
-    areas = [area.strip() for area in (row.get("Area") or "").split(";") if area.strip()]
+    areas = [area.strip() for area in re.split(r"[;,]", row.get("Area") or "") if area.strip()]
 
     normalized["Pub Date"] = (row.get("Pub Date") or sort_date).strip()
     normalized["Archival Date"] = (row.get("Archival Date") or (sort_date if conference else "")).strip()
@@ -437,15 +436,6 @@ def group_sort_date(row, venue):
     return date
 
 
-def display_venue(row, config):
-    if config.get("display_venue"):
-        return config["display_venue"]
-    venue = (row.get("Conference or Journal") or row.get("Workshop") or row.get("Status") or "Paper").strip()
-    if venue == "Accepted":
-        return "Paper"
-    return clean_venue_label(venue, row_superlatives(row))
-
-
 def appearance_superlatives(row, raw_venue, kind, award_note="", has_separate_workshop=False):
     raw_lower = (raw_venue or "").casefold()
     award_lower = (award_note or "").casefold()
@@ -579,19 +569,6 @@ def refresh_papers_csv(require_refresh=True):
     return "live"
 
 
-def read_area_configs(area):
-    with AREA_PAPERS_CSV.open(newline="", encoding="utf-8") as f:
-        return [
-            {
-                "title": row["Title"],
-                "summary": row["Summary"],
-                "display_venue": row.get("Display Venue", "").strip(),
-            }
-            for row in csv.DictReader(f)
-            if row.get("Research Area") == area
-        ]
-
-
 def read_area_filters():
     with AREA_FILTERS_CSV.open(newline="", encoding="utf-8") as f:
         return [
@@ -606,6 +583,20 @@ def read_area_filters():
         ]
 
 
+def distinction_marker(superlatives):
+    """Pick the single marker rendered by layouts/partials/paper-marker.html."""
+    distinction_text = " ".join(superlatives).casefold()
+    if "runner" in distinction_text or "finalist" in distinction_text:
+        return "runnerup"
+    if "best paper" in distinction_text or "outstanding" in distinction_text:
+        return "bestpaper"
+    if "spotlight" in distinction_text or "featured paper" in distinction_text:
+        return "spotlight"
+    if "oral" in distinction_text:
+        return "oral"
+    return ""
+
+
 def area_paper_record(row, summary="", display_venue=""):
     date = pub_date(row)
     if date == datetime.min:
@@ -618,6 +609,8 @@ def area_paper_record(row, summary="", display_venue=""):
         "date": display_year(date),
         "year": str(date.year) if date != datetime.min else "",
         "venue": venue,
+        "authors": (row.get("Display Authors") or "").strip(),
+        "marker": distinction_marker(row_superlatives(row)),
         "superlatives": row_superlatives(row),
         "sort_date": date.strftime("%Y-%m-%d") if date != datetime.min else "",
     }
@@ -655,16 +648,7 @@ def library_paper_record(row):
             award = clean_award_text(term).replace("Runner-up", "Runner Up")
             if award not in superlatives:
                 superlatives.append(award)
-    distinction_text = " ".join(superlatives).casefold()
-    marker = ""
-    if "runner" in distinction_text or "finalist" in distinction_text:
-        marker = "runnerup"
-    elif "best paper" in distinction_text or "outstanding" in distinction_text:
-        marker = "bestpaper"
-    elif "spotlight" in distinction_text or "featured paper" in distinction_text:
-        marker = "spotlight"
-    elif "oral" in distinction_text:
-        marker = "oral"
+    marker = distinction_marker(superlatives)
     display_authors_text = (row.get("Display Authors") or "").strip()
     authors = full_author_terms(row.get("all authors"))
     areas = []
@@ -759,19 +743,6 @@ def grouped_papers(papers):
     return groups
 
 
-def configured_area_papers(rows, area):
-    configs = read_area_configs(area)
-    by_title = {paper_identity_title(row.get("Title")): row for row in rows}
-    records = []
-    for config in configs:
-        row = by_title.get(paper_identity_title(config["title"]))
-        if not row:
-            raise SystemExit(f"Missing configured paper title in papers CSV: {config['title']}")
-        records.append(area_paper_record(row, config["summary"], display_venue(row, config)))
-    records.sort(key=lambda row: (row["sort_date"], row["title"]), reverse=True)
-    return records
-
-
 def row_areas(row):
     return set(split_terms(";".join([row.get("Primary Area") or "", row.get("Additional Area") or ""])))
 
@@ -806,9 +777,7 @@ def filtered_area_papers(rows, config):
 
 
 def area_papers(rows):
-    records = {
-        "training_dynamics": configured_area_papers(rows, "Training Dynamics"),
-    }
+    records = {}
     for config in read_area_filters():
         records[config["key"]] = filtered_area_papers(rows, config)
     return records
@@ -1001,14 +970,14 @@ def publication_metric_payload(rows):
         if normalize_title(row.get("Title")) and pub_date(row) != datetime.min
     }
     count = len(titles)
-    rounded_count = round_down(count, 25)
+    rounded_count = round_down(count, 10)
     return {
         "value": f"{rounded_count:,}+",
         "label": "Publications",
         "count": count,
         "rounded_count": rounded_count,
         "source": "papers_sheet_sort_date",
-        "rounded_to": 25,
+        "rounded_to": 10,
     }
 
 
@@ -1125,22 +1094,7 @@ def recent_outputs(rows, blog_posts, limit=HOME_RECENT_OUTPUT_LIMIT):
     if invalid_markers:
         raise ValueError("Invalid Highest Impact markers: " + "; ".join(invalid_markers))
 
-    for post in blog_posts:
-        date_value = (post.get("date") or "").strip()
-        date = parse_output_date(date_value)
-        title = normalize_title(post.get("title"))
-        url = (post.get("url") or "").strip()
-        if not title or date == datetime.min or not url:
-            continue
-        outputs.append(
-            {
-                "kind": "Blog",
-                "title": title,
-                "url": url,
-                "date": date.strftime("%Y-%m-%dT%H:%M:%S"),
-                "meta": format_output_date(date_value),
-            }
-        )
+    # Blog posts already appear in the homepage Latest panel, so this list is papers only.
 
     unique_outputs = {}
     for output in outputs:

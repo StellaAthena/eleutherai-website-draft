@@ -84,14 +84,13 @@ Files directly under `data/` and `data/projects/` are maintained by people. Ever
 | About page | [`content/about.md`](content/about.md) | Donor logos and links are stored separately in `data/donors.yaml`. |
 | Community page | [`data/community.yaml`](data/community.yaml) | `content/community.md` contains only the page front matter. |
 | Community reading-group videos | [EleutherAI YouTube](https://www.youtube.com/@Eleuther_AI) | The build refreshes [`data/generated/community_reading_groups.json`](data/generated/community_reading_groups.json); use the repository's `refresh-community-videos` skill when maintaining or troubleshooting it. |
-| Staff page | [`data/staff.yaml`](data/staff.yaml) | Store portraits locally under `static/assets/staff/`. |
-| Research introduction | [`content/research/_index.md`](content/research/_index.md) | The publication list below it is generated automatically. |
+| Staff page | [`data/staff.yaml`](data/staff.yaml) | `teams` mirrors the org chart; give each person a `team` key. Store portraits locally under `static/assets/staff/`. |
+| Research page and research areas | [`data/research/areas.yaml`](data/research/areas.yaml) | Area prose, key projects, current directions, and the Major Projects list. Each area also needs a stub under `content/research/`. The intro paragraphs are in [`content/research/_index.md`](content/research/_index.md). Paper lists per area are generated from the Sheet's `Area` column via `research_area_filters.csv`. |
 | Research Library | [Google Sheet](https://docs.google.com/spreadsheets/d/1LcB7_1lHZgO8_EmOkrvfV2BTaOngX95J5v8PJeuN4rM/edit?usp=sharing) | `content/papers.md` only defines the route and layout. Do not hand-edit the rendered paper list. |
-| Pythia project page | [`data/projects/pythia.yaml`](data/projects/pythia.yaml) | The page title and summary are in `content/projects/pythia.md`. |
 | SOAR page | [`data/soar.yaml`](data/soar.yaml) | The page title and description are in `content/soar.md`. |
 | News post | [`content/news/`](content/news/) | Dated news posts can enter the homepage Latest feed. |
 | Manual homepage news item | [`data/home.yaml`](data/home.yaml) under `manual_news` | Give the item a title, URL, and date if it should participate in chronological sorting. |
-| Blog post | [`content-blog/`](content-blog/) | Add Markdown front matter with at least `title` and `date`. |
+| Blog post | [`content-blog/`](content-blog/) | Add Markdown front matter with at least `title` and `date`. Write math as plain TeX inside `$…$` or `$$…$$`; MathJax loads automatically on pages that contain it. |
 | General standalone page | [`content/`](content/) | Most ordinary Markdown pages use a template under `layouts/_default/`. |
 | Header and navigation | [`layouts/partials/header.html`](layouts/partials/header.html) | Shared by the main site and blog. |
 | Footer | [`layouts/partials/footer.html`](layouts/partials/footer.html) | Shared by the main site and blog. |
@@ -309,7 +308,6 @@ Important data connections include:
 - `layouts/_default/community.html` reads `data/community.yaml`.
 - `layouts/_default/staff.html` reads `data/staff.yaml`.
 - `layouts/_default/soar.html` reads `data/soar.yaml` and the SOAR paper collection.
-- `layouts/_default/pythia.html` reads `data/projects/pythia.yaml`.
 
 `make build-all` performs the complete main-site process above and then builds the blog with `hugo-blog.toml` into `public-blog/`. A standalone `make build-blog` does not refresh publication data first; it uses the generated data already present in the checkout.
 

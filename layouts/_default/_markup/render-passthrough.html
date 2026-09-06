@@ -1,0 +1,7 @@
+{{- /* Math is left untouched for MathJax; record that this page needs it. */ -}}
+{{- .Page.Store.Set "hasMath" true -}}
+{{- if eq .Type "block" -}}
+{{- printf "$$%s$$" .Inner -}}
+{{- else -}}
+{{- printf "\\(%s\\)" .Inner -}}
+{{- end -}}

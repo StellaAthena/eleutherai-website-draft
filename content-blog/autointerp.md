@@ -158,7 +158,7 @@ We can visualize explanation quality across the whole distribution of examples. 
 
 ![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeHF7BaBaPYkdyH5D8i5_fbYRwa9iajine_J7oNAQQTDJPQUTsMSn7LSnsjpvaGoCSEKgV2Tqz1R7lSKb9LMV3fA1hORth2fBHaCQqywGtIf6w-gWYiz9-io_82Z01RYvXAHoQH4kSEXWWdnVONN08UokXA?key=5hGzhgAbyv361OYwubzqdA)
 
-_Figure 4: For each plot, the top figure depicts 1,000 examples binned in twenty activation intervals, and the bottom figure represents the fraction of the four boolean possibilities corresponding to the combination of fuzzing and detection scoring. These features are randomly selected from layers zero to two; specifically, they are the post MLP features L0\_14, L2\_6, and L2\_24. Figures are inspired by_ ([_Bricken et al._](https://transformer-circuits.pub/2023/monosemantic-features) 2023)
+_Figure 4: For each plot, the top figure depicts 1,000 examples binned in twenty activation intervals, and the bottom figure represents the fraction of the four boolean possibilities corresponding to the combination of fuzzing and detection scoring. These features are randomly selected from layers zero to two; specifically, they are the post MLP features L0_14, L2_6, and L2_24. Figures are inspired by_ ([_Bricken et al._](https://transformer-circuits.pub/2023/monosemantic-features) 2023)
 
 
 ## Scorers
@@ -214,7 +214,7 @@ _Figure 9: The distribution of generation scoring over 300 explanations of the 1
 | Method            | Prompt Tokens | Unique Prompt Tokens | Output Tokens | Runtime in seconds   |
 | Explanation       | 397           | 566.45 ± 26.18       | 29.90 ± 7.27  | 3.14 ± 0.48          |
 | Detection/Fuzzing | 725           | 53.13 ± 10.53        | 11.99 ± 0.13  | 4.29 ± 0.14          |
-| Simulation        | –             | 24074.85 ± 71.45     | 1598.1 ± 74.9 | 73.9063 ± 13.5540 \* |
+| Simulation        | –             | 24074.85 ± 71.45     | 1598.1 ± 74.9 | 73.9063 ± 13.5540 * |
 
 We measure token I/O and runtime for explanation and scoring. For scoring methods, these metrics correspond to the number of tokens/runtime to evaluate five examples. Tests are run on a single NVIDIA RTX A6000 on a quantized Llama-3 70b with VLLM prefix caching. Simulation scoring is notably slower as we used [Outlines](https://outlines-dev.github.io/outlines/reference/serve/vllm/) (a structured generation backend) to enforce valid JSON responses. 
 
