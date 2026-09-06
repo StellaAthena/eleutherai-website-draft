@@ -63,9 +63,19 @@ def test_cards_sort_by_newest_recording():
     assert [record["name"] for record in records] == ["Evaluation Reading Group", "Planning and Agents Reading Group"]
 
 
-def test_group_with_no_recordings_is_an_error():
+def test_group_with_no_recordings_is_skipped_with_warning(capsys):
+    groups = [
+        {"name": "Empty Reading Group", "playlist_id": "PLempty", "title_pattern": ""},
+        {"name": "Evaluation Reading Group", "playlist_id": "PLtest", "title_pattern": ""},
+    ]
+    records = MODULE.build_records(groups, {"PLempty": [], "PLtest": MODULE.parse_feed_videos(PLAYLIST_FEED)}, [])
+    assert [record["name"] for record in records] == ["Evaluation Reading Group"]
+    assert "Empty Reading Group" in capsys.readouterr().err
+
+
+def test_all_groups_empty_is_an_error():
     groups = [{"name": "Empty Reading Group", "playlist_id": "PLempty", "title_pattern": ""}]
-    with pytest.raises(ValueError, match="no recordings found"):
+    with pytest.raises(ValueError, match="no reading group produced"):
         MODULE.build_records(groups, {"PLempty": []}, [])
 
 

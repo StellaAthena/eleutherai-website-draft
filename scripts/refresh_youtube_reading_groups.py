@@ -192,8 +192,13 @@ def select_latest(videos, pattern=""):
 
 
 def build_records(groups, playlist_videos, channel_videos):
-    """Assemble one card per configured group from already-fetched video lists."""
+    """Assemble one card per configured group from already-fetched video lists.
+
+    Groups whose playlist yields nothing are skipped with a warning so one empty
+    or misconfigured series does not block the others.
+    """
     records = []
+    skipped = []
     for group in groups:
         if group["playlist_id"]:
             video = select_latest(playlist_videos.get(group["playlist_id"], []))
@@ -204,9 +209,18 @@ def build_records(groups, playlist_videos, channel_videos):
         else:
             raise ValueError(f"{group['name']}: set playlist_id or title_pattern")
         if not video:
-            raise ValueError(f"{group['name']}: no recordings found")
+            skipped.append(group["name"])
+            continue
         records.append(group_record(group, video, source))
     records.sort(key=lambda record: record["published"], reverse=True)
+    if skipped:
+        print(
+            "No recordings found for: " + ", ".join(skipped)
+            + ". Check that each playlist is public and its ID matches the `list=` value in the playlist URL.",
+            file=sys.stderr,
+        )
+    if not records:
+        raise ValueError("no reading group produced a recording")
     return records
 
 
@@ -265,8 +279,8 @@ def fetch_records(groups):
                 fetch_api_playlist(UPLOADS_PLAYLIST_ID, api_key) if api_key else parse_feed_videos(fetch_url(FEED_URL))
             )
     records = build_records(groups, playlist_videos, channel_videos)
-    status = "live" if all(record["source"] == "playlist" for record in records) else "live_limited"
-    return records, status
+    complete = len(records) == len(groups) and all(record["source"] == "playlist" for record in records)
+    return records, ("live" if complete else "live_limited")
 
 
 def write_cache(records):
@@ -314,7 +328,7 @@ def main():
         detail = (
             "every group resolved through its playlist"
             if status == "live"
-            else "some groups fell back to the channel feed; add their playlist_id in data/reading_groups.yaml"
+            else "some groups were skipped or fell back to the channel feed; see warnings above"
         )
         write_freshness_report("live", status, PLAYLISTS_URL, detail)
         if args.strict and status != "live":
