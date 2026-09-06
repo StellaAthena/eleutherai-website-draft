@@ -2951,6 +2951,20 @@ footer .wrap {
   background: rgba(173, 141, 242, 0.06);
 }
 
+.community-impact-recording:nth-child(4) {
+  --recording-accent: var(--gold);
+  background: rgba(216, 180, 74, 0.06);
+}
+
+.community-impact-recording:nth-child(5) {
+  --recording-accent: var(--coral);
+  background: rgba(238, 123, 121, 0.06);
+}
+
+.community-impact-recording:nth-child(6) {
+  --recording-accent: var(--blue);
+}
+
 .community-impact-recording > span:first-child {
   display: grid;
   gap: 7px;

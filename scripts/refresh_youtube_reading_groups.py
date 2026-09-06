@@ -61,20 +61,29 @@ def display_date(value):
     return f"{published.strftime('%B')} {published.day}, {published.year}"
 
 
+SESSION_TITLE_PATTERNS = [
+    # "Planning, Reasoning, and Agents RG, 2026-03-11 Session: Reasoning about ..."
+    re.compile(r"^(?P<group>.+?)\s+RG,.*?\bSession:\s*(?P<session>.+)$", re.IGNORECASE),
+    # "ML Performance Reading Group Session 25: Prefill as a Service"
+    # "MoE Reading Group #7 - Hash Layers for Large Sparse Models"
+    # "Math Reading Group - Random Matrix Theory II Wishart Matrices"
+    re.compile(
+        r"^(?P<group>.+?\bReading Group)\b\s*(?:Session\s*#?\d+|#\d+)?\s*[:\-\u2013\u2014]\s*(?P<session>.+)$",
+        re.IGNORECASE,
+    ),
+]
+TRAILING_DATE_PATTERN = re.compile(r"\s*\(\d{1,2}/\d{1,2}/\d{2,4}\)\s*$")
+
+
 def session_title(title):
     """Strip the series prefix from an upload title, leaving the session's own title."""
-    full_name_match = re.match(
-        r"^(?P<group>.+?)\s+Reading Group(?:\s+Session\s+\d+)?:\s*(?P<session>.+)$",
-        title,
-        re.IGNORECASE,
-    )
-    abbreviation_match = re.match(
-        r"^(?P<group>.+?)\s+RG,.*?\s+Session:\s*(?P<session>.+)$",
-        title,
-        re.IGNORECASE,
-    )
-    match = full_name_match or abbreviation_match
-    return match.group("session").strip() if match else title
+    session = title
+    for pattern in SESSION_TITLE_PATTERNS:
+        match = pattern.match(title)
+        if match:
+            session = match.group("session").strip()
+            break
+    return TRAILING_DATE_PATTERN.sub("", session).strip() or title
 
 
 def overview_text(description, video_id, fallback_title):
@@ -94,7 +103,10 @@ def overview_text(description, video_id, fallback_title):
     )
     sentence_match = re.match(r"^.*?[.!?](?:\s|$)", substantive)
     overview = sentence_match.group(0).strip() if sentence_match else substantive
-    return overview or f"A technical discussion of {fallback_title}."
+    # Skip descriptions that merely restate the upload title; the card shows the title already.
+    if overview.casefold().rstrip(".") == fallback_title.casefold().rstrip("."):
+        return ""
+    return overview
 
 
 def load_config(path=CONFIG_PATH):

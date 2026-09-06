@@ -100,7 +100,7 @@
               <span>
                 <strong>{{ .name }}</strong>
                 <span class="community-impact-recording-meta">Latest session: {{ .latest_session_title }} · {{ .date }}</span>
-                <span>{{ .overview }}</span>
+                {{ with .overview }}<span>{{ . }}</span>{{ end }}
               </span>
               <span class="community-impact-recording-arrow" aria-hidden="true">&#8594;</span>
             </a>

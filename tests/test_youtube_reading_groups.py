@@ -79,6 +79,26 @@ def test_all_groups_empty_is_an_error():
         MODULE.build_records(groups, {"PLempty": []}, [])
 
 
+@pytest.mark.parametrize(
+    ("title", "expected"),
+    [
+        ("ML Performance Reading Group Session 25: Prefill as a Service", "Prefill as a Service"),
+        ("Planning, Reasoning, and Agents RG, 2026-03-11 Session: Reasoning about Action, Change, and Planning", "Reasoning about Action, Change, and Planning"),
+        ("MoE Reading Group #7 - Hash Layers for Large Sparse Models", "Hash Layers for Large Sparse Models"),
+        ("Math Reading Group - Random Matrix Theory II Wishart Matrices (08/09/2023)", "Random Matrix Theory II Wishart Matrices"),
+        ("Functional Analysis Reading Group - 5.1-5.2 - Compact Operators", "5.1-5.2 - Compact Operators"),
+        ("A talk with no series prefix", "A talk with no series prefix"),
+    ],
+)
+def test_session_title_strips_series_prefix(title, expected):
+    assert MODULE.session_title(title) == expected
+
+
+def test_overview_is_empty_when_description_has_nothing_useful():
+    assert MODULE.overview_text("", "vid", "Hash Layers") == ""
+    assert MODULE.overview_text("MoE Reading Group meeting recording.", "vid", "Hash Layers") == ""
+
+
 def test_parse_api_videos_extracts_metadata():
     payload = json.dumps(
         {
