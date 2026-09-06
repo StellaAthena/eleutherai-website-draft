@@ -1,0 +1,103 @@
+{{ define "main" }}
+{{ $areaKey := .Params.area_key }}
+{{ $area := dict }}
+{{ range site.Data.research.areas.areas }}
+  {{ if eq .key $areaKey }}{{ $area = . }}{{ end }}
+{{ end }}
+{{ $papers := index (site.Data.generated.research.area_papers | default dict) $areaKey | default slice }}
+{{ $team := dict }}
+{{ with $area.team }}
+  {{ range site.Data.staff.teams }}
+    {{ if eq .key $area.team }}{{ $team = . }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ $paperLimit := 12 }}
+{{ $libraryURL := "" }}
+{{ with $area.sheet_areas }}
+  {{ $libraryURL = printf "%s?area=%s" ("papers/" | relURL) (urlquery (index . 0)) }}
+{{ else }}
+  {{ $libraryURL = printf "%s?q=%s" ("papers/" | relURL) (urlquery ($area.library_query | default $area.title)) }}
+{{ end }}
+<main class="research-area is-{{ $area.accent | default "blue" }}">
+  <section class="hero">
+    <div class="wrap">
+      <a class="back-link" href="{{ "research/" | relURL }}">Research</a>
+      <h1>{{ $area.title | default .Title }}</h1>
+      {{ with $area.lede }}<p class="lede">{{ . }}</p>{{ end }}
+      <div class="research-area-facts">
+        {{ if gt (len $papers) 0 }}
+          <a href="{{ $libraryURL }}">{{ len $papers }} papers in the library</a>
+        {{ end }}
+        {{ with $team.name }}
+          <a href="{{ "staff/" | relURL }}#team-{{ $team.key }}">{{ . }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap research-area-layout">
+      <div class="prose research-area-prose">
+        {{ range $area.body }}<p>{{ . | markdownify }}</p>{{ end }}
+      </div>
+      {{ with $area.projects }}
+        <aside class="research-area-projects" aria-labelledby="area-projects-title">
+          <h2 id="area-projects-title">Key Projects</h2>
+          <ul>
+            {{ range . }}
+              {{ $external := hasPrefix .url "http" }}
+              <li>
+                <a href="{{ if $external }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .name }}</a>
+                {{ with .text }}<span>{{ . }}</span>{{ end }}
+              </li>
+            {{ end }}
+          </ul>
+        </aside>
+      {{ end }}
+    </div>
+  </section>
+
+  {{ with $area.directions }}
+    <section class="section research-area-directions">
+      <div class="wrap">
+        <h2>Current Directions</h2>
+        <dl>
+          {{ range . }}
+            <div>
+              <dt>{{ .title }}</dt>
+              <dd>{{ .text }}</dd>
+            </div>
+          {{ end }}
+        </dl>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ if gt (len $papers) 0 }}
+    <section class="section research-area-papers" id="papers">
+      <div class="wrap">
+        <div class="research-area-papers-head">
+          <h2>Selected Papers</h2>
+          <p>Newest first. {{ if gt (len $papers) $paperLimit }}Showing {{ $paperLimit }} of {{ len $papers }}.{{ end }}</p>
+        </div>
+        <div class="artifact-table">
+          {{ range first $paperLimit $papers }}
+            <article class="artifact-row research-area-paper">
+              <div>
+                <h3>
+                  {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}
+                  {{ with .marker }}{{ partial "paper-marker.html" (dict "marker" .) }}{{ end }}
+                </h3>
+                <p>{{ with .authors }}{{ . }}. {{ end }}{{ .venue }}{{ with .year }}, {{ . }}{{ end }}</p>
+              </div>
+            </article>
+          {{ end }}
+        </div>
+        <p class="research-area-papers-more">
+          <a class="link" href="{{ $libraryURL }}">All {{ len $papers }} papers in this area <span aria-hidden="true">&#8594;</span></a>
+        </p>
+      </div>
+    </section>
+  {{ end }}
+</main>
+{{ end }}

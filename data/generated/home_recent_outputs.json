@@ -1,12 +1,5 @@
 [
   {
-    "kind": "Blog",
-    "title": "A Dynamical Model of AI Governability",
-    "url": "https://blog.eleuther.ai/dynamical-models-of-ai-governability/",
-    "date": "2026-07-13T00:00:00",
-    "meta": "July 13, 2026"
-  },
-  {
     "kind": "Paper",
     "title": "Don't Just \"Fix it in Post'': A Science of AI Must Study Learning Dynamics",
     "url": "https://arxiv.org/abs/2606.06533",
@@ -26,5 +19,12 @@
     "url": "https://arxiv.org/abs/2508.06601",
     "date": "2026-04-23T00:00:00",
     "meta": "ICLR · April 23, 2026"
+  },
+  {
+    "kind": "Paper",
+    "title": "The Common Pile v0.1: An 8TB Dataset of Public Domain and Openly Licensed Text",
+    "url": "https://arxiv.org/abs/2506.05209",
+    "date": "2025-12-02T00:00:00",
+    "meta": "NeurIPS Datasets and Benchmarks · December 2, 2025"
   }
 ]

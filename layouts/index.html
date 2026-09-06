@@ -58,7 +58,7 @@
   <section class="hero home-current-hero" aria-labelledby="hero-title">
     <div class="wrap home-current-layout">
       <div class="home-current-copy">
-        <h1 id="hero-title">Welcome to the world's most cited discord server</h1>
+        <h1 id="hero-title">Independent AI Research, Done in the Open</h1>
         <div class="home-metric-strip" aria-label="EleutherAI impact metrics">
           {{ range site.Data.home.metrics }}
             {{ $value := .value }}
@@ -87,7 +87,7 @@
         </div>
         <p>We build open-source AI infrastructure, pioneer interpretability and open-weight safety, and help researchers without frontier-lab resources do frontier work.</p>
         <div class="home-community-actions">
-          <a class="button primary" href="https://www.discord.gg/eleutherai" target="_blank" rel="noopener noreferrer">Join the community</a>
+          <a class="button primary" href="https://discord.gg/eleutherai" target="_blank" rel="noopener noreferrer">Join the community</a>
           <a class="button" href="{{ "research/" | relURL }}">Explore our research</a>
         </div>
       </div>
@@ -150,7 +150,7 @@
 
   <section class="section home-output-section" aria-labelledby="outputs-title">
     <div class="wrap home-output-layout">
-      <h2 id="outputs-title">Recent outputs</h2>
+      <h2 id="outputs-title">Recent Papers</h2>
       <div class="home-output-list">
         {{ range site.Data.generated.home_recent_outputs }}
           {{ $url := .url }}

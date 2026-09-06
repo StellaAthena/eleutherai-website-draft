@@ -1,36 +1,71 @@
 {
   "channel_url": "https://www.youtube.com/@Eleuther_AI",
-  "feed_url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCljbpGFxy_7i4bMDXyuB96A",
-  "recordings": [
+  "playlists_url": "https://www.youtube.com/@Eleuther_AI/playlists",
+  "groups": [
     {
-      "title": "ML Performance Reading Group Session 25: Prefill as a Service",
-      "session_title": "Prefill as a Service",
-      "reading_group": "ML Performance Reading Group",
-      "overview": "A discussion of cross-datacenter LLM serving that separates prefill and decode work by transferring KV caches between independently scaled clusters.",
+      "name": "ML Scalability & Performance Reading Group",
+      "playlist_id": "PLvtrkEledFjqOLuDB_9FWL3dgivYqc6-3",
+      "playlist_url": "https://www.youtube.com/playlist?list=PLvtrkEledFjqOLuDB_9FWL3dgivYqc6-3",
+      "url": "https://www.youtube.com/watch?v=e12wdaW2xgk&list=PLvtrkEledFjqOLuDB_9FWL3dgivYqc6-3",
+      "latest_title": "ML Performance Reading Group Session 25: Prefill as a Service",
+      "latest_session_title": "Prefill as a Service",
+      "video_id": "e12wdaW2xgk",
       "published": "2026-06-02T18:06:52+00:00",
       "date": "June 2, 2026",
-      "url": "https://www.youtube.com/watch?v=e12wdaW2xgk",
-      "video_id": "e12wdaW2xgk"
+      "overview": "A discussion of cross-datacenter LLM serving that separates prefill and decode work by transferring KV caches between independently scaled clusters.",
+      "source": "playlist"
     },
     {
-      "title": "Planning, Reasoning, and Agents RG, 2026-03-11 Session: Reasoning about Action, Change, and Planning",
-      "session_title": "Reasoning about Action, Change, and Planning",
-      "reading_group": "Planning, Reasoning, and Agents Reading Group",
-      "overview": "Harsha Kokel discusses the evolution of automated planning in the era of Large Language Models (LLMs), contrasting classical symbolic planning frameworks with modern natural language approaches.",
+      "name": "Planning, Reasoning, and Agents Reading Group",
+      "playlist_id": "PLvtrkEledFjruaDxEPZiXEIvLlb-4F2Nh",
+      "playlist_url": "https://www.youtube.com/playlist?list=PLvtrkEledFjruaDxEPZiXEIvLlb-4F2Nh",
+      "url": "https://www.youtube.com/watch?v=lqSyRVWWUJk&list=PLvtrkEledFjruaDxEPZiXEIvLlb-4F2Nh",
+      "latest_title": "Planning, Reasoning, and Agents RG, 2026-03-11 Session: Reasoning about Action, Change, and Planning",
+      "latest_session_title": "Reasoning about Action, Change, and Planning",
+      "video_id": "lqSyRVWWUJk",
       "published": "2026-04-16T16:34:44+00:00",
       "date": "April 16, 2026",
-      "url": "https://www.youtube.com/watch?v=lqSyRVWWUJk",
-      "video_id": "lqSyRVWWUJk"
+      "overview": "Harsha Kokel discusses the evolution of automated planning in the era of Large Language Models (LLMs), contrasting classical symbolic planning frameworks with modern natural language approaches.",
+      "source": "playlist"
     },
     {
-      "title": "Planning, Reasoning, and Agents RG, 2026-02-04 Session: Characterizing Effective Reasoning Traces",
-      "session_title": "Characterizing Effective Reasoning Traces",
-      "reading_group": "Planning, Reasoning, and Agents Reading Group",
-      "overview": "Yunzhen Feng presents research on what characterizes effective reasoning in Large Language Models, investigating the length, review behavior, and underlying structure of Chain-of-Thought traces.",
-      "published": "2026-04-07T02:37:39+00:00",
-      "date": "April 7, 2026",
-      "url": "https://www.youtube.com/watch?v=-mZN2Gvqvi4",
-      "video_id": "-mZN2Gvqvi4"
+      "name": "Math Reading Group",
+      "playlist_id": "PLvtrkEledFjodK_UKua2h4exNMcWNGJrs",
+      "playlist_url": "https://www.youtube.com/playlist?list=PLvtrkEledFjodK_UKua2h4exNMcWNGJrs",
+      "url": "https://www.youtube.com/watch?v=Dv0G1SkFc8k&list=PLvtrkEledFjodK_UKua2h4exNMcWNGJrs",
+      "latest_title": "Math Reading Group - Random Matrix Theory II Wishart Matrices (08/09/2023)",
+      "latest_session_title": "Random Matrix Theory II Wishart Matrices",
+      "video_id": "Dv0G1SkFc8k",
+      "published": "2023-10-10T08:17:40+00:00",
+      "date": "October 10, 2023",
+      "overview": "",
+      "source": "playlist"
+    },
+    {
+      "name": "MoE Reading Group",
+      "playlist_id": "PLvtrkEledFjoTA9cYo_wX6aG2WT5RFBY9",
+      "playlist_url": "https://www.youtube.com/playlist?list=PLvtrkEledFjoTA9cYo_wX6aG2WT5RFBY9",
+      "url": "https://www.youtube.com/watch?v=JLelXVCyVHQ&list=PLvtrkEledFjoTA9cYo_wX6aG2WT5RFBY9",
+      "latest_title": "MoE Reading Group #7 - Hash Layers for Large Sparse Models",
+      "latest_session_title": "Hash Layers for Large Sparse Models",
+      "video_id": "JLelXVCyVHQ",
+      "published": "2023-10-08T17:08:23+00:00",
+      "date": "October 8, 2023",
+      "overview": "",
+      "source": "playlist"
+    },
+    {
+      "name": "Functional Analysis Reading Group",
+      "playlist_id": "PLvtrkEledFjrK4G5g6tpJnhZrGdwVC85q",
+      "playlist_url": "https://www.youtube.com/playlist?list=PLvtrkEledFjrK4G5g6tpJnhZrGdwVC85q",
+      "url": "https://www.youtube.com/watch?v=eCNjLqDqung&list=PLvtrkEledFjrK4G5g6tpJnhZrGdwVC85q",
+      "latest_title": "Functional Analysis Reading Group - 5.1-5.2 - Compact Operators",
+      "latest_session_title": "5.1-5.2 - Compact Operators",
+      "video_id": "eCNjLqDqung",
+      "published": "2023-04-29T11:18:15+00:00",
+      "date": "April 29, 2023",
+      "overview": "",
+      "source": "playlist"
     }
   ]
 }

@@ -1,0 +1,325 @@
+# Research areas shown on /research/ and rendered as individual pages by
+# layouts/_default/research-area.html. Each entry needs a matching Markdown
+# stub under content/research/<slug>.md with `layout: research-area` and
+# `area_key: <key>`.
+#
+# `sheet_areas` lists the values from the papers Sheet's `Area` column that
+# belong to this page; the paper lists are generated from that mapping by
+# generate_hugo_data.py via research_area_filters.csv. Keep the two in sync.
+#
+# `featured: true` areas appear in the main grid on /research/; the rest are
+# listed below it.
+
+areas:
+  - key: "interpretability"
+    slug: "interpretability"
+    title: "Interpretability and Training Dynamics"
+    featured: true
+    team: "interpretability"
+    accent: "green"
+    sheet_areas: ["Model Internals", "Learning Dynamics"]
+    summary: "How model behavior and internal structure emerge over the course of training, and what shaped them."
+    lede: "Most interpretability research studies a finished model. We study how capabilities, failure modes, and internal mechanisms develop during training, which aspects of the data and training process shape that trajectory, and what interventions would have changed the outcome."
+    body:
+      - "A scientific understanding of language models needs more than post-hoc analysis of a trained checkpoint. It requires knowing how behaviors arise over training, and that in turn requires the artifacts to study it: intermediate checkpoints, controlled repeated runs, and the exact data seen at each step. Our Pythia suite pioneered this approach and has become the standard instrument for research on learning dynamics, memorization, and how capabilities form. The position paper *Don't Just \"Fix It in Post\": A Science of AI Must Study Training Dynamics* (ICML 2026 oral) lays out the argument."
+      - "We work on this at two levels of abstraction. Learning mechanics treats neural networks as mathematical objects: optimization dynamics, loss landscapes, hyperparameter regimes, representation geometry, feature learning, and scaling behavior. Training dynamics is concerned with the development of semantic behaviors such as memorization, factual recall, compositional generalization, and bias, and is often sensitive to the contents of the training data. Foundational results from the first level tend to inspire methods at the second."
+      - "Data attribution connects specific model behaviors to the training data that shaped them, and we see it as a central tool for these questions. Our Bergson library contains the first public implementation of many leading attribution techniques. We use it both to study attribution as a method and to ask how data contents shape model behavior, including as a way to select what to filter out of pretraining data in the first place."
+      - "We also treat models as the product of multiple stages of training, from pretraining through midtraining, supervised fine-tuning, and preference optimization, rather than as a single artifact. Understanding how each stage contributes to final behavior is undervalued in the field and is something we deliberately center."
+    directions:
+      - title: "Learning mechanics in controlled settings"
+        text: "Retraining small models many times to ask which optimizer, data order, and architecture choices change the outcome, and whether those effects survive at scale."
+      - title: "Data attribution as an intervention tool"
+        text: "Validating attribution methods on problems that matter, starting with attribution-guided filtering of hazardous pretraining data in collaboration with the open-weight safety team."
+      - title: "Interpretability methods"
+        text: "Sparse autoencoders, transcoders, concept erasure, and the tuned lens: tools for reading representations and for measuring how stable those readings are across seeds and training time."
+    projects:
+      - name: "Pythia"
+        url: "https://arxiv.org/abs/2304.01373"
+        text: "Model suites with intermediate checkpoints and reproducible data order, across scale."
+      - name: "Bergson"
+        url: "https://arxiv.org/abs/2606.11660"
+        text: "Open-source library for training-data attribution."
+      - name: "PolyPythias"
+        url: "https://arxiv.org/abs/2503.09543"
+        text: "Fifty repeated pretraining runs for studying stability and outliers."
+      - name: "Tuned Lens"
+        url: "https://arxiv.org/abs/2303.08112"
+        text: "Eliciting latent predictions from intermediate layers."
+      - name: "LEACE"
+        url: "https://arxiv.org/abs/2306.03819"
+        text: "Closed-form linear concept erasure."
+
+  - key: "open_weight_safety"
+    slug: "open-weight-safety"
+    title: "Open-Weight Safety"
+    featured: true
+    team: "interpretability"
+    accent: "violet"
+    sheet_areas: ["Open-Weight Safety"]
+    summary: "Safeguards that remain useful when anyone can download, inspect, and fine-tune the model."
+    lede: "Once weights are released, safeguards cannot depend on API monitoring or revocable access, and many post-training protections can be removed by fine-tuning or model editing. We build safety methods that survive white-box access and that stay compatible with the freedom to inspect, modify, and deploy open models."
+    body:
+      - "We have championed open models since our founding, and we believe they can be safe without giving up what makes them useful. For open-weight systems the important question is not whether a safeguard works in the default interface, but how durably it persists when an adversary can directly access and modify the model. That calls for interventions in the training data, the training process, and the model itself."
+      - "Deep Ignorance showed one such approach: filtering targeted hazardous material out of pretraining data so that the model never internalizes it. At 7B scale this reduced dangerous biorisk capabilities while preserving general performance, and the resulting safeguard was substantially more resistant to adversarial fine-tuning than post-training alternatives. The next questions are how the result scales across model sizes, training budgets, and filtering thresholds, and whether finer-grained, sub-document filtering does better."
+      - "Beyond filtering, we are working on machine unlearning that holds up under a wide range of adversarial attacks, knowledge-editing methods, and up-sampling demonstrations of desirable behavior during pretraining. We also work directly with open-weight model developers to get these techniques into production, and we run field-building efforts such as the Open-Weight Pretraining Safety Accelerator, co-organized with FAR.AI, which gives researchers access to the pretraining runs needed to test interventions at scale."
+    directions:
+      - title: "Scaling laws for data filtering"
+        text: "Controlled model suites that measure when pretraining-data filtering works, when it breaks, and what it costs in benign capability."
+      - title: "Attribution-guided filtering"
+        text: "Using data attribution to decide what to filter, with the aim of beating the classifier-based approach used in Deep Ignorance."
+      - title: "Tamper-resistant unlearning"
+        text: "Validating candidate unlearning methods against the full range of known white-box and black-box attacks."
+    projects:
+      - name: "Deep Ignorance"
+        url: "https://arxiv.org/abs/2508.06601"
+        text: "Pretraining-data filtering as a tamper-resistant safeguard (ICLR 2026)."
+      - name: "Foundation Model Development Cheatsheet"
+        url: "https://arxiv.org/abs/2406.16746"
+        text: "A practical guide to responsible practices across the full development pipeline."
+      - name: "Open-Weight Pretraining Safety Accelerator"
+        url: "https://www.far.ai/"
+        text: "Pretraining compute and support for open-weight safety research, with FAR.AI."
+
+  - key: "behavioral_safety"
+    slug: "behavioral-safety"
+    title: "Behavioral Safety"
+    featured: true
+    team: "interpretability"
+    accent: "coral"
+    sheet_areas: ["Behavioral Safety"]
+    summary: "When a model's answer reflects what it knows, and when it reflects what it has learned is safe or rewarded to say."
+    lede: "A model may know the answer to a question but refuse to give it, deny that it knows, agree with a user who is wrong, change its answer under a superficial reframing, or behave differently when it infers something about the user or the evaluation setting. We study these failures where capability, training incentives, and deployment context meet."
+    body:
+      - "Many current safety claims are made at the level of behavior, while post-training is increasingly designed to shape what a model says, when it says it, and how it presents its reasoning. We focus on behavioral failures that are empirically tractable, deployment-relevant, and likely to reveal gaps in current alignment training: deception, sycophancy, evaluation awareness, sandbagging, and unfaithful chain-of-thought."
+      - "The central questions are practical as well as scientific. When does an unreliable answer reflect missing knowledge, and when does it reflect a learned policy? Which failures are stable properties of the model, and which are induced by prompt framing, user modeling, or the details of the post-training procedure? How much should we trust a behavioral evaluation when the model may be sensitive to whether it appears to be in an evaluation, deployment, or training-like setting?"
+      - "To study failures that are hard to observe in deployed systems, we build model organisms and evaluation suites in open-weight models with reproducible training procedures. The aim is not to create arbitrary pathological models but to test whether plausible post-training pipelines produce the failures we care about, how they scale with capability and training pressure, and which mitigations survive contact with white-box and black-box evaluation. We also stress-test alignment methods that are increasingly used in practice, such as character training, deliberative alignment, inoculation prompting, safety-focused RLHF and DPO, and on-policy distillation, asking what each changes, what makes it work, and when its apparent benefits disappear."
+    directions:
+      - title: "Distinguishing ignorance from suppression"
+        text: "Methods that isolate model components with a causal role in deception-like behavior, building on the Liars' Bench benchmark, to tell missing knowledge apart from learned misreporting."
+      - title: "Model organisms"
+        text: "Realistic organisms of sycophancy, evaluation awareness, reward-seeking, and user-conditioned behavior, produced by plausible training pipelines rather than by construction."
+      - title: "Stress-testing alignment training"
+        text: "For each widely used method and a near-frontier open model: what behavior changes, what new failure modes appear, and where the benefits stop."
+    projects:
+      - name: "Steering Refusal with Sparse Autoencoders"
+        url: "https://arxiv.org/abs/2411.11296"
+        text: "Using SAE features to understand and steer safety-trained refusal."
+      - name: "Mitigating Emergent Misalignment with Data Attribution"
+        url: "https://openreview.net/forum?id=gN7pWmjiQW"
+        text: "Tracing emergent misalignment back to the fine-tuning data responsible for it."
+      - name: "A Safe Harbor for AI Evaluation and Red Teaming"
+        url: "https://arxiv.org/abs/2403.04893"
+        text: "Legal and technical protections for independent safety evaluation."
+
+  - key: "evaluation"
+    slug: "evaluation"
+    title: "Evaluation"
+    featured: true
+    team: "nlp"
+    accent: "gold"
+    sheet_areas: ["Evaluation"]
+    summary: "What benchmarks measure, when they saturate, and how evaluation shapes our picture of model capability."
+    lede: "Evaluation is the infrastructure the rest of the field's claims rest on. We maintain the tooling most open-model evaluations run on, study where benchmarks break down, and work to make evaluation results reproducible and comparable across the community."
+    body:
+      - "The Language Model Evaluation Harness is the backend for the Open LLM Leaderboard and a standard tool for evaluating open models. Maintaining it has taught us a great deal about how small differences in prompting, scoring, and implementation produce large differences in reported numbers, and about how easily those differences go unnoticed."
+      - "Beyond tooling, we study evaluation itself: how benchmarks saturate, what the age and construction of a benchmark does to cross-model comparisons, and how to report results so they can be aggregated and audited. Through the EvalEval Coalition, co-hosted with Hugging Face and the University of Edinburgh, we work with researchers across institutions to rebuild evaluation as shared open infrastructure, from common reporting schemas up to standards that inform policy."
+    directions:
+      - title: "Benchmark saturation and validity"
+        text: "Systematic studies of when benchmarks stop discriminating between models, and what that means for the claims built on them."
+      - title: "Shared evaluation infrastructure"
+        text: "A unifying schema and community repository for evaluation results, so numbers from different groups can be compared."
+      - title: "Evaluating what training changes"
+        text: "Longitudinal evaluation across checkpoints and training stages, connecting this work to our research on training dynamics."
+    projects:
+      - name: "LM Evaluation Harness"
+        url: "https://github.com/EleutherAI/lm-evaluation-harness"
+        text: "The standard framework for few-shot evaluation of language models."
+      - name: "When AI Benchmarks Plateau"
+        url: "https://arxiv.org/abs/2602.16763"
+        text: "A systematic study of benchmark saturation."
+      - name: "Every Eval Ever"
+        url: "https://arxiv.org/abs/2606.14516"
+        text: "A unifying schema and community repository for AI evaluation results."
+      - name: "EvalEval Coalition"
+        url: "https://evalevalai.com/"
+        text: "A global coalition rebuilding evaluation as open infrastructure."
+
+  - key: "open_models"
+    slug: "open-models-and-data"
+    title: "Open Models, Data, and Infrastructure"
+    featured: true
+    team: "nlp"
+    accent: "blue"
+    sheet_areas: ["Training Models", "Data"]
+    summary: "Datasets, training frameworks, and model suites released with everything needed to reproduce and extend them."
+    lede: "Open research on large models requires more than released weights. It requires open data to train on, open code to train and evaluate with, and models whose full development is public. We have built all three layers since 2020."
+    body:
+      - "The Pile established that a curated, documented, openly available pretraining corpus could support competitive models, and GPT-NeoX-20B was for a time the largest open-source language model in the world. The Common Pile continues that work with an 8TB corpus of public domain and openly licensed text, and the Comma models trained on it show what is possible when licensing is taken seriously from the start."
+      - "Our training framework, GPT-NeoX, and our high-performance computing team provide training infrastructure as a service to our own research teams and to external groups. That infrastructure is what makes controlled model suites such as Pythia, the filtering scaling suites used in open-weight safety research, and model organisms for behavioral safety possible. We also contribute to architecture research, including the RWKV family of recurrent models and work on optimizers and hyperparameter transfer."
+    directions:
+      - title: "Pythia 2.0"
+        text: "A successor model suite spanning multiple training stages, with parallel runs using different post-training algorithms so researchers can study how those choices shape behavior."
+      - title: "Openly licensed data"
+        text: "Growing the Common Pile and studying how license-clean data affects model quality across languages and domains."
+      - title: "Infrastructure as a service"
+        text: "Training and evaluation infrastructure for internal teams and for the external research communities we support."
+    projects:
+      - name: "The Pile"
+        url: "https://arxiv.org/abs/2101.00027"
+        text: "An 800GB dataset of diverse text for language modeling."
+      - name: "The Common Pile"
+        url: "https://arxiv.org/abs/2506.05209"
+        text: "8TB of public domain and openly licensed text."
+      - name: "GPT-NeoX"
+        url: "https://github.com/EleutherAI/gpt-neox"
+        text: "Our large-scale training framework, and the 20B model trained with it."
+      - name: "Pythia"
+        url: "https://arxiv.org/abs/2304.01373"
+        text: "Model suites for studying training and scaling."
+      - name: "Models on Hugging Face"
+        url: "https://huggingface.co/EleutherAI/models"
+        text: "All released checkpoints."
+
+  - key: "multilingual"
+    slug: "multilingual"
+    title: "Multilingual NLP"
+    featured: false
+    team: "nlp"
+    accent: "blue"
+    sheet_areas: []
+    library_query: "multilingual"
+    summary: "Tokenization, data, and evaluation for languages beyond English."
+    lede: "How language models handle scripts, code-mixing, and low-resource languages, from pretokenization through evaluation, and how multilingual data should be audited and documented."
+    body:
+      - "Multilingual capability is often an afterthought in model development, and the tooling reflects it: tokenizers that fragment non-Latin scripts, benchmarks translated without validation, and datasets whose quality was never checked in the languages they claim to cover. We work on each of these, and we contributed to BLOOM, the BigScience ROOTS corpus, and their extensions."
+    projects:
+      - name: "BPE Stays on SCRIPT"
+        url: "https://arxiv.org/abs/2505.24689"
+        text: "Structured encoding for robust multilingual pretokenization."
+      - name: "Quality at a Glance"
+        url: "https://arxiv.org/abs/2103.12028"
+        text: "An audit of web-crawled multilingual datasets."
+      - name: "BLOOM"
+        url: "https://arxiv.org/abs/2211.05100"
+        text: "A 176B-parameter open-access multilingual language model."
+
+  - key: "ai4science"
+    slug: "ai-for-science"
+    title: "AI for Science"
+    featured: false
+    team: "nlp"
+    accent: "gold"
+    sheet_areas: ["AI4Science"]
+    summary: "Open models, datasets, and benchmarks for mathematics, astronomy, and biology."
+    lede: "Applying open models to scientific problems, and building the datasets and benchmarks scientists need to evaluate them, in mathematics, astronomy, and protein science."
+    body:
+      - "Scientific domains are where the gap between open and closed models is most consequential, because reproducibility is the point. We have trained open models for mathematics, released large open datasets of mathematical text, built mathematician-curated benchmarks for research-level problems, and supported community efforts such as OpenFold and the Multimodal Universe."
+    projects:
+      - name: "LLeMA"
+        url: "https://arxiv.org/abs/2310.10631"
+        text: "An open language model for mathematics."
+      - name: "OpenWebMath"
+        url: "https://arxiv.org/abs/2310.06786"
+        text: "An open dataset of high-quality mathematical web text."
+      - name: "Soohak"
+        url: "https://arxiv.org/abs/2605.09063"
+        text: "A mathematician-curated benchmark for research-level math."
+      - name: "OpenFold"
+        url: "https://github.com/aqlaboratory/openfold"
+        text: "A trainable, open reimplementation of AlphaFold2."
+
+  - key: "governance"
+    slug: "governance-and-policy"
+    title: "AI Governance and Policy"
+    featured: false
+    team: "policy"
+    accent: "violet"
+    sheet_areas: ["AI Governance & Societal Impacts"]
+    summary: "Data governance, licensing, and the case for open science in AI policy."
+    lede: "The policy questions that determine whether open research on AI remains possible: how training data is governed and licensed, how independent evaluation is protected, and how open-weight models are treated in regulation."
+    body:
+      - "Our policy work grows out of our technical work. Building the Common Pile required a detailed position on data licensing and provenance; maintaining evaluation infrastructure led us to advocate for a legal safe harbor for independent evaluation and red teaming; and releasing open models put us in the debates over how open-weight systems should be regulated. We publish research on these questions and engage with policymakers directly."
+    projects:
+      - name: "Data Governance in the Age of Large-Scale Data-Driven Language Technology"
+        url: "https://arxiv.org/abs/2206.03216"
+        text: "A framework for governing the data behind large models."
+      - name: "The Data Provenance Initiative"
+        url: "https://arxiv.org/abs/2310.16787"
+        text: "A large-scale audit of dataset licensing and attribution in AI."
+      - name: "Beyond Open vs. Closed"
+        url: "https://carnegieendowment.org/research/2024/07/beyond-open-vs-closed-emerging-consensus-and-key-questions-for-foundation-ai-model-governance"
+        text: "Emerging consensus and key questions for foundation model governance."
+
+  - key: "multimodal"
+    slug: "multimodal"
+    title: "Multimodal"
+    featured: false
+    team: "nlp"
+    accent: "green"
+    sheet_areas: ["Multimodal"]
+    summary: "Vision-language, audio, and music models."
+    lede: "Open models and evaluations for images, audio, and music, from the early text-to-image work that became VQGAN-CLIP to current vision-language model suites."
+    body:
+      - "Much of this work is community-driven: VQGAN-CLIP emerged from the EleutherAI Discord and helped start the open text-to-image era. More recent work includes the Robin suite of multi-scale vision-language models, studies of what those models systematically miss, and self-supervised representation learning for music."
+    projects:
+      - name: "VQGAN-CLIP"
+        url: "https://arxiv.org/abs/2204.08583"
+        text: "Open-domain image generation and editing with natural language guidance."
+      - name: "Robin"
+        url: "https://arxiv.org/abs/2501.09672"
+        text: "A suite of multi-scale vision-language models and the CHIRP benchmark."
+
+  - key: "security"
+    slug: "privacy-and-security"
+    title: "Privacy and Security"
+    featured: false
+    team: "interpretability"
+    accent: "coral"
+    sheet_areas: ["Security"]
+    summary: "Memorization, extraction, and the security properties of open systems."
+    lede: "What models remember about their training data, how that can be measured and predicted, and what it means for the people whose data was used."
+    body:
+      - "Memorization sits at the intersection of privacy, copyright, and training dynamics. Using Pythia, we showed that memorization is emergent and partly predictable from smaller models and earlier checkpoints, and later work characterizes it as several distinct phenomena rather than one. This connects directly to our research on data attribution and open-weight safety."
+    projects:
+      - name: "Emergent and Predictable Memorization"
+        url: "https://arxiv.org/abs/2304.11158"
+        text: "Forecasting which sequences a model will memorize."
+      - name: "Recite, Reconstruct, Recollect"
+        url: "https://arxiv.org/abs/2406.17746"
+        text: "Memorization as a multifaceted phenomenon."
+
+projects:
+  intro: "Long-running artifacts that other researchers build on. Each is maintained and documented, and most have a paper describing them."
+  items:
+    - name: "Pythia"
+      url: "https://arxiv.org/abs/2304.01373"
+      area: "interpretability"
+      text: "Model suites with intermediate checkpoints for studying training and scaling."
+    - name: "GPT-NeoX"
+      url: "https://github.com/EleutherAI/gpt-neox"
+      area: "open_models"
+      text: "Large-scale training framework built on Megatron and DeepSpeed."
+    - name: "LM Evaluation Harness"
+      url: "https://github.com/EleutherAI/lm-evaluation-harness"
+      area: "evaluation"
+      text: "The standard framework for evaluating language models."
+    - name: "The Pile and the Common Pile"
+      url: "https://arxiv.org/abs/2506.05209"
+      area: "open_models"
+      text: "Open pretraining corpora, the second built entirely from openly licensed text."
+    - name: "Deep Ignorance"
+      url: "https://arxiv.org/abs/2508.06601"
+      area: "open_weight_safety"
+      text: "Filtered pretraining data as a tamper-resistant safeguard."
+    - name: "Bergson"
+      url: "https://arxiv.org/abs/2606.11660"
+      area: "interpretability"
+      text: "Training-data attribution library."
+    - name: "EvalEval Coalition"
+      url: "https://evalevalai.com/"
+      area: "evaluation"
+      text: "Community effort to rebuild evaluation as open infrastructure."
+    - name: "Summer of Open AI Research"
+      url: "soar/"
+      area: ""
+      text: "Our annual five-week mentored research program."

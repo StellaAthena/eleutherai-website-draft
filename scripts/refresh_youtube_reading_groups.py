@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Refresh the Community page's recent reading-group recordings."""
+"""Refresh the Community page's reading-group cards from YouTube playlists.
+
+Each reading group in data/reading_groups.yaml is a series (playlist) on the
+EleutherAI channel. The card is titled with the series name and links to the
+newest recording in that playlist. Groups without a playlist ID fall back to
+matching the newest channel upload whose title matches `title_pattern`.
+"""
 
 import argparse
 import json
@@ -12,17 +18,21 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlencode
 
+import yaml
+
 
 CHANNEL_ID = "UCljbpGFxy_7i4bMDXyuB96A"
 CHANNEL_URL = "https://www.youtube.com/@Eleuther_AI"
+PLAYLISTS_URL = f"{CHANNEL_URL}/playlists"
 FEED_URL = f"https://www.youtube.com/feeds/videos.xml?channel_id={CHANNEL_ID}"
+PLAYLIST_FEED_URL = "https://www.youtube.com/feeds/videos.xml?playlist_id={playlist_id}"
 UPLOADS_PLAYLIST_ID = "UU" + CHANNEL_ID[2:]
 API_URL = "https://www.googleapis.com/youtube/v3/playlistItems"
 ROOT = Path(__file__).resolve().parents[1]
+CONFIG_PATH = ROOT / "data" / "reading_groups.yaml"
 OUTPUT_PATH = ROOT / "data" / "generated" / "community_reading_groups.json"
 FRESHNESS_PATH = ROOT / "data" / "generated" / "freshness" / "youtube.json"
-VIDEO_LIMIT = 3
-READING_GROUP_PATTERN = re.compile(r"\b(?:reading\s+group|rg)\b", re.IGNORECASE)
+GROUP_LIMIT = 6
 NAMESPACES = {
     "atom": "http://www.w3.org/2005/Atom",
     "media": "http://search.yahoo.com/mrss/",
@@ -31,6 +41,19 @@ NAMESPACES = {
 OVERVIEW_OVERRIDES = {
     "e12wdaW2xgk": "A discussion of cross-datacenter LLM serving that separates prefill and decode work by transferring KV caches between independently scaled clusters."
 }
+REQUIRED_FIELDS = {
+    "name",
+    "playlist_id",
+    "playlist_url",
+    "url",
+    "latest_title",
+    "latest_session_title",
+    "video_id",
+    "published",
+    "date",
+    "overview",
+    "source",
+}
 
 
 def display_date(value):
@@ -38,177 +61,242 @@ def display_date(value):
     return f"{published.strftime('%B')} {published.day}, {published.year}"
 
 
-def presentation_fields(title, description, video_id):
-    reading_group = "EleutherAI Reading Group"
-    session_title = title
-
-    full_name_match = re.match(
-        r"^(?P<group>.+?)\s+Reading Group(?:\s+Session\s+\d+)?:\s*(?P<session>.+)$",
-        title,
+SESSION_TITLE_PATTERNS = [
+    # "Planning, Reasoning, and Agents RG, 2026-03-11 Session: Reasoning about ..."
+    re.compile(r"^(?P<group>.+?)\s+RG,.*?\bSession:\s*(?P<session>.+)$", re.IGNORECASE),
+    # "ML Performance Reading Group Session 25: Prefill as a Service"
+    # "MoE Reading Group #7 - Hash Layers for Large Sparse Models"
+    # "Math Reading Group - Random Matrix Theory II Wishart Matrices"
+    re.compile(
+        r"^(?P<group>.+?\bReading Group)\b\s*(?:Session\s*#?\d+|#\d+)?\s*[:\-\u2013\u2014]\s*(?P<session>.+)$",
         re.IGNORECASE,
-    )
-    abbreviation_match = re.match(
-        r"^(?P<group>.+?)\s+RG,.*?\s+Session:\s*(?P<session>.+)$",
-        title,
-        re.IGNORECASE,
-    )
-    match = full_name_match or abbreviation_match
-    if match:
-        reading_group = f"{match.group('group').strip()} Reading Group"
-        session_title = match.group("session").strip()
+    ),
+]
+TRAILING_DATE_PATTERN = re.compile(r"\s*\(\d{1,2}/\d{1,2}/\d{2,4}\)\s*$")
 
+
+def session_title(title):
+    """Strip the series prefix from an upload title, leaving the session's own title."""
+    session = title
+    for pattern in SESSION_TITLE_PATTERNS:
+        match = pattern.match(title)
+        if match:
+            session = match.group("session").strip()
+            break
+    return TRAILING_DATE_PATTERN.sub("", session).strip() or title
+
+
+def overview_text(description, video_id, fallback_title):
     overview = OVERVIEW_OVERRIDES.get(video_id)
-    if not overview:
-        paragraphs = [re.sub(r"\s+", " ", paragraph).strip() for paragraph in description.split("\n\n")]
-        substantive = next(
-            (
-                paragraph
-                for paragraph in paragraphs
-                if paragraph
-                and not paragraph.lower().endswith("meeting recording.")
-                and not paragraph.lower().startswith(("paper:", "slides:", "presenter:", "links:", "reading group on discord:"))
-            ),
-            "",
-        )
-        sentence_match = re.match(r"^.*?[.!?](?:\s|$)", substantive)
-        overview = sentence_match.group(0).strip() if sentence_match else substantive
-    if not overview:
-        overview = f"A technical discussion of {session_title}."
+    if overview:
+        return overview
+    paragraphs = [re.sub(r"\s+", " ", paragraph).strip() for paragraph in (description or "").split("\n\n")]
+    substantive = next(
+        (
+            paragraph
+            for paragraph in paragraphs
+            if paragraph
+            and not paragraph.lower().endswith("meeting recording.")
+            and not paragraph.lower().startswith(("paper:", "slides:", "presenter:", "links:", "reading group on discord:"))
+        ),
+        "",
+    )
+    sentence_match = re.match(r"^.*?[.!?](?:\s|$)", substantive)
+    overview = sentence_match.group(0).strip() if sentence_match else substantive
+    # Skip descriptions that merely restate the upload title; the card shows the title already.
+    if overview.casefold().rstrip(".") == fallback_title.casefold().rstrip("."):
+        return ""
+    return overview
 
-    return session_title, reading_group, overview
 
-
-def parse_feed(payload):
-    root = ET.fromstring(payload)
-    recordings = []
-    for entry in root.findall("atom:entry", NAMESPACES):
-        title = entry.findtext("atom:title", default="", namespaces=NAMESPACES).strip()
-        if not READING_GROUP_PATTERN.search(title):
-            continue
-
-        video_id = entry.findtext("yt:videoId", default="", namespaces=NAMESPACES).strip()
-        published = entry.findtext("atom:published", default="", namespaces=NAMESPACES).strip()
-        description = entry.findtext("media:group/media:description", default="", namespaces=NAMESPACES).strip()
-        if not video_id or not published:
-            continue
-
-        session_title, reading_group, overview = presentation_fields(title, description, video_id)
-
-        recordings.append(
+def load_config(path=CONFIG_PATH):
+    data = yaml.safe_load(path.read_text()) or {}
+    groups = []
+    for entry in data.get("groups", []):
+        name = (entry.get("name") or "").strip()
+        if not name:
+            raise ValueError("every reading group needs a name")
+        groups.append(
             {
-                "title": title,
-                "session_title": session_title,
-                "reading_group": reading_group,
-                "overview": overview,
-                "published": published,
-                "date": display_date(published),
-                "url": f"https://www.youtube.com/watch?v={video_id}",
-                "video_id": video_id,
+                "name": name,
+                "playlist_id": (entry.get("playlist_id") or "").strip(),
+                "title_pattern": (entry.get("title_pattern") or "").strip(),
             }
         )
+    if not groups:
+        raise ValueError(f"no reading groups configured in {path}")
+    return groups[:GROUP_LIMIT]
 
-    recordings.sort(key=lambda recording: recording["published"], reverse=True)
-    return recordings[:VIDEO_LIMIT]
+
+def parse_feed_videos(payload):
+    """Return every video in an Atom feed (channel or playlist), newest first."""
+    root = ET.fromstring(payload)
+    videos = []
+    for entry in root.findall("atom:entry", NAMESPACES):
+        video_id = entry.findtext("yt:videoId", default="", namespaces=NAMESPACES).strip()
+        published = entry.findtext("atom:published", default="", namespaces=NAMESPACES).strip()
+        if not video_id or not published:
+            continue
+        videos.append(
+            {
+                "video_id": video_id,
+                "title": entry.findtext("atom:title", default="", namespaces=NAMESPACES).strip(),
+                "description": entry.findtext("media:group/media:description", default="", namespaces=NAMESPACES).strip(),
+                "published": published,
+            }
+        )
+    videos.sort(key=lambda video: video["published"], reverse=True)
+    return videos
 
 
-def parse_api_page(payload):
+def parse_api_videos(payload):
     data = json.loads(payload)
-    recordings = []
+    videos = []
     for item in data.get("items", []):
         snippet = item.get("snippet", {})
-        title = snippet.get("title", "").strip()
-        if not READING_GROUP_PATTERN.search(title):
-            continue
-        resource = snippet.get("resourceId", {})
-        video_id = resource.get("videoId", "").strip()
-        content_details = item.get("contentDetails", {})
+        video_id = snippet.get("resourceId", {}).get("videoId", "").strip()
         published = (
-            content_details.get("videoPublishedAt", "").strip()
+            item.get("contentDetails", {}).get("videoPublishedAt", "").strip()
             or snippet.get("publishedAt", "").strip()
         )
         if not video_id or not published:
             continue
-        description = snippet.get("description", "").strip()
-        session_title, reading_group, overview = presentation_fields(title, description, video_id)
-        recordings.append(
+        videos.append(
             {
-                "title": title,
-                "session_title": session_title,
-                "reading_group": reading_group,
-                "overview": overview,
-                "published": published,
-                "date": display_date(published),
-                "url": f"https://www.youtube.com/watch?v={video_id}",
                 "video_id": video_id,
+                "title": snippet.get("title", "").strip(),
+                "description": snippet.get("description", "").strip(),
+                "published": published,
             }
         )
-    return recordings, data.get("nextPageToken", "")
+    return videos, data.get("nextPageToken", "")
 
 
-def validate_recordings(recordings):
-    if len(recordings) != VIDEO_LIMIT:
-        raise ValueError(f"expected {VIDEO_LIMIT} reading-group recordings, found {len(recordings)}")
-    for recording in recordings:
-        missing = {
-            "title",
-            "session_title",
-            "reading_group",
-            "overview",
-            "published",
-            "date",
-            "url",
-            "video_id",
-        } - recording.keys()
+def group_record(group, video, source):
+    playlist_id = group["playlist_id"]
+    if playlist_id:
+        url = f"https://www.youtube.com/watch?v={video['video_id']}&list={playlist_id}"
+        playlist_url = f"https://www.youtube.com/playlist?list={playlist_id}"
+    else:
+        url = f"https://www.youtube.com/watch?v={video['video_id']}"
+        playlist_url = ""
+    title = video["title"]
+    return {
+        "name": group["name"],
+        "playlist_id": playlist_id,
+        "playlist_url": playlist_url,
+        "url": url,
+        "latest_title": title,
+        "latest_session_title": session_title(title),
+        "video_id": video["video_id"],
+        "published": video["published"],
+        "date": display_date(video["published"]),
+        "overview": overview_text(video.get("description", ""), video["video_id"], session_title(title)),
+        "source": source,
+    }
+
+
+def select_latest(videos, pattern=""):
+    if pattern:
+        matcher = re.compile(pattern, re.IGNORECASE)
+        videos = [video for video in videos if matcher.search(video["title"])]
+    return videos[0] if videos else None
+
+
+def build_records(groups, playlist_videos, channel_videos):
+    """Assemble one card per configured group from already-fetched video lists.
+
+    Groups whose playlist yields nothing are skipped with a warning so one empty
+    or misconfigured series does not block the others.
+    """
+    records = []
+    skipped = []
+    for group in groups:
+        if group["playlist_id"]:
+            video = select_latest(playlist_videos.get(group["playlist_id"], []))
+            source = "playlist"
+        elif group["title_pattern"]:
+            video = select_latest(channel_videos, group["title_pattern"])
+            source = "channel_feed"
+        else:
+            raise ValueError(f"{group['name']}: set playlist_id or title_pattern")
+        if not video:
+            skipped.append(group["name"])
+            continue
+        records.append(group_record(group, video, source))
+    records.sort(key=lambda record: record["published"], reverse=True)
+    if skipped:
+        print(
+            "No recordings found for: " + ", ".join(skipped)
+            + ". Check that each playlist is public and its ID matches the `list=` value in the playlist URL.",
+            file=sys.stderr,
+        )
+    if not records:
+        raise ValueError("no reading group produced a recording")
+    return records
+
+
+def validate_records(records):
+    if not records:
+        raise ValueError("expected at least one reading-group card")
+    if len(records) > GROUP_LIMIT:
+        raise ValueError(f"expected at most {GROUP_LIMIT} reading-group cards, found {len(records)}")
+    for record in records:
+        missing = REQUIRED_FIELDS - record.keys()
         if missing:
-            raise ValueError(f"recording is missing fields: {', '.join(sorted(missing))}")
+            raise ValueError(f"reading group is missing fields: {', '.join(sorted(missing))}")
 
 
 def read_cache():
     data = json.loads(OUTPUT_PATH.read_text())
-    validate_recordings(data["recordings"])
+    validate_records(data["groups"])
     return data
 
 
-def fetch_feed():
-    request = urllib.request.Request(FEED_URL, headers={"User-Agent": "EleutherAI website build"})
+def fetch_url(url):
+    request = urllib.request.Request(url, headers={"User-Agent": "EleutherAI website build"})
     with urllib.request.urlopen(request, timeout=30) as response:
         return response.read()
 
 
-def fetch_api_recordings(api_key):
-    recordings = []
+def fetch_api_playlist(playlist_id, api_key, pages=20):
+    videos = []
     page_token = ""
-    for _ in range(20):
-        params = {
-            "part": "snippet,contentDetails",
-            "playlistId": UPLOADS_PLAYLIST_ID,
-            "maxResults": 50,
-            "key": api_key,
-        }
+    for _ in range(pages):
+        params = {"part": "snippet,contentDetails", "playlistId": playlist_id, "maxResults": 50, "key": api_key}
         if page_token:
             params["pageToken"] = page_token
-        request = urllib.request.Request(
-            f"{API_URL}?{urlencode(params)}",
-            headers={"User-Agent": "EleutherAI website build"},
-        )
-        with urllib.request.urlopen(request, timeout=30) as response:
-            page_recordings, page_token = parse_api_page(response.read())
-        recordings.extend(page_recordings)
-        if len(recordings) >= VIDEO_LIMIT or not page_token:
+        page_videos, page_token = parse_api_videos(fetch_url(f"{API_URL}?{urlencode(params)}"))
+        videos.extend(page_videos)
+        if not page_token:
             break
-    recordings.sort(key=lambda recording: recording["published"], reverse=True)
-    return recordings[:VIDEO_LIMIT]
+    videos.sort(key=lambda video: video["published"], reverse=True)
+    return videos
 
 
-def fetch_recordings():
+def fetch_records(groups):
     api_key = os.environ.get("YOUTUBE_API_KEY", "").strip()
-    if api_key:
-        return fetch_api_recordings(api_key), "live", API_URL
-    return parse_feed(fetch_feed()), "live_limited", FEED_URL
+    playlist_videos = {}
+    channel_videos = []
+    for group in groups:
+        if group["playlist_id"]:
+            if api_key:
+                playlist_videos[group["playlist_id"]] = fetch_api_playlist(group["playlist_id"], api_key)
+            else:
+                playlist_videos[group["playlist_id"]] = parse_feed_videos(
+                    fetch_url(PLAYLIST_FEED_URL.format(playlist_id=group["playlist_id"]))
+                )
+        elif group["title_pattern"] and not channel_videos:
+            channel_videos = (
+                fetch_api_playlist(UPLOADS_PLAYLIST_ID, api_key) if api_key else parse_feed_videos(fetch_url(FEED_URL))
+            )
+    records = build_records(groups, playlist_videos, channel_videos)
+    complete = len(records) == len(groups) and all(record["source"] == "playlist" for record in records)
+    return records, ("live" if complete else "live_limited")
 
 
-def write_cache(recordings):
-    data = {"channel_url": CHANNEL_URL, "feed_url": FEED_URL, "recordings": recordings}
+def write_cache(records):
+    data = {"channel_url": CHANNEL_URL, "playlists_url": PLAYLISTS_URL, "groups": records}
     OUTPUT_PATH.write_text(json.dumps(data, indent=2, ensure_ascii=True) + "\n")
     return data
 
@@ -218,13 +306,7 @@ def write_freshness_report(mode, status, source, detail=""):
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "mode": mode,
-        "sources": {
-            "youtube": {
-                "status": status,
-                "url": source,
-                "detail": detail,
-            }
-        },
+        "sources": {"youtube": {"status": status, "url": source, "detail": detail}},
     }
     FRESHNESS_PATH.write_text(json.dumps(payload, indent=2) + "\n")
 
@@ -232,38 +314,49 @@ def write_freshness_report(mode, status, source, detail=""):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--offline", action="store_true", help="validate and retain the checked-in snapshot")
-    parser.add_argument("--strict", action="store_true", help="require complete uploads-playlist discovery")
+    parser.add_argument("--strict", action="store_true", help="require every group to resolve through its playlist")
     args = parser.parse_args()
     if args.offline and args.strict:
         parser.error("--offline and --strict cannot be used together")
 
     if args.offline:
         data = read_cache()
-        write_freshness_report("offline", "offline", FEED_URL, "validated checked-in snapshot")
-        print(f"Using {len(data['recordings'])} cached YouTube reading-group recordings.")
+        missing = [group["name"] for group in load_config() if group["name"] not in {g["name"] for g in data["groups"]}]
+        write_freshness_report("offline", "offline", PLAYLISTS_URL, "validated checked-in snapshot")
+        print(f"Using {len(data['groups'])} cached YouTube reading-group cards.")
+        if missing:
+            print(
+                "Not yet in the snapshot (run a live refresh and commit data/generated/community_reading_groups.json): "
+                + ", ".join(missing),
+                file=sys.stderr,
+            )
         return
 
     try:
-        recordings, status, source = fetch_recordings()
-        validate_recordings(recordings)
-        write_cache(recordings)
-        detail = "complete uploads playlist" if status == "live" else "limited recent Atom feed"
-        write_freshness_report("live", status, source, detail)
+        groups = load_config()
+        records, status = fetch_records(groups)
+        validate_records(records)
+        write_cache(records)
+        detail = (
+            "every group resolved through its playlist"
+            if status == "live"
+            else "some groups were skipped or fell back to the channel feed; see warnings above"
+        )
+        write_freshness_report("live", status, PLAYLISTS_URL, detail)
         if args.strict and status != "live":
-            raise RuntimeError("YOUTUBE_API_KEY is required for complete uploads-playlist discovery")
-        print(f"Refreshed {len(recordings)} YouTube reading-group recordings ({detail}).")
+            raise RuntimeError(detail)
+        print(f"Refreshed {len(records)} YouTube reading-group cards ({detail}).")
     except Exception as error:
         if args.strict:
             raise RuntimeError(f"Strict YouTube refresh failed: {error}") from error
         try:
             data = read_cache()
-        except Exception:
-            raise RuntimeError(f"YouTube refresh failed and no valid cache is available: {error}") from error
-        write_freshness_report("live", "cache", FEED_URL, str(error))
-        print(
-            f"Warning: YouTube refresh failed ({error}); using {len(data['recordings'])} cached recordings.",
-            file=sys.stderr,
-        )
+        except Exception as cache_error:
+            raise RuntimeError(
+                f"YouTube refresh failed ({error}) and the checked-in snapshot is invalid ({cache_error})"
+            ) from error
+        write_freshness_report("live", "fallback_cache", PLAYLISTS_URL, f"used checked-in snapshot after error: {error}")
+        print(f"YouTube refresh failed ({error}); using {len(data['groups'])} cached reading-group cards.", file=sys.stderr)
 
 
 if __name__ == "__main__":

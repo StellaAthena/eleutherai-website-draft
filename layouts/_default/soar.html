@@ -17,18 +17,18 @@
 
   <section class="soar-section soar-overview">
     <div class="wrap">
-      <h2>Program overview</h2>
+      <h2>Program Overview</h2>
       {{ range $soar.overview }}<p>{{ . }}</p>{{ end }}
 
       <div class="soar-overview-grid">
         <div>
-          <h3>Who should apply</h3>
+          <h3>Who Should Apply</h3>
           <ul>
             {{ range $soar.who_should_apply }}<li>{{ . }}</li>{{ end }}
           </ul>
         </div>
         <div>
-          <h3>Frequently asked questions</h3>
+          <h3>Frequently Asked Questions</h3>
           <div class="soar-faq">
             {{ range $soar.faq }}
               <div>
@@ -44,7 +44,7 @@
 
   <section class="soar-section soar-projects">
     <div class="wrap">
-      <h2>2026 projects</h2>
+      <h2>2026 Projects</h2>
       {{ range slice "Interpretability" "Safety" "Applications" }}
         {{ $track := . }}
         <section class="soar-track soar-track--{{ $track | anchorize }}">
@@ -90,7 +90,7 @@
 
   <section id="research-papers" class="soar-section soar-papers-section">
     <div class="wrap">
-      <h2>SOAR research papers</h2>
+      <h2>SOAR Research Papers</h2>
       <div class="soar-paper-list">
         {{ range $soarPapers }}
           <article class="soar-paper">
@@ -113,7 +113,7 @@
 
   <section class="soar-section soar-timeline-section">
     <div class="wrap">
-      <h2>2026 timeline</h2>
+      <h2>2026 Timeline</h2>
       <div class="soar-timeline">
         {{ range $soar.timeline }}
           <div class="soar-timeline-item">
@@ -130,7 +130,7 @@
 
   <section class="soar-section soar-testimonials-section">
     <div class="wrap">
-      <h2>Participant experiences</h2>
+      <h2>Participant Experiences</h2>
       <div class="soar-testimonials">
         {{ range $soar.testimonials }}
           <blockquote>
@@ -147,7 +147,7 @@
 
   <section class="soar-section soar-organizers-section">
     <div class="wrap">
-      <h2>Program organizers</h2>
+      <h2>Program Organizers</h2>
       <div class="soar-organizers">
         {{ range $soar.organizers }}
           <article>

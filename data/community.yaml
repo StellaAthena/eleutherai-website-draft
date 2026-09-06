@@ -1,5 +1,5 @@
 hero:
-  title: "Building the global research community"
+  title: "Building the Global Research Community"
   intro:
     - >-
       Research on large AI systems requires substantial compute, sophisticated infrastructure, and specialized knowledge. These resources are concentrated in a handful of corporations and universities, and the models, data, and methods behind much of the resulting work are unavailable to researchers outside them. We do not believe that a small, elite circle should have a monopoly on the ability to do influential research.
@@ -39,7 +39,7 @@ partners:
   organizations:
     - key: "evaleval"
       name: "EvalEval Coalition"
-      url: "https://evaleval.github.io/"
+      url: "https://evalevalai.com/"
       logo: "images/community/evaleval-logo.png"
       logo_class: "is-evaleval"
       text: >-
@@ -82,7 +82,7 @@ partners:
           url: "https://arxiv.org/abs/2509.19453"
 
 supported:
-  title: "Communities we have supported"
+  title: "Communities We Have Supported"
   text: "We helped these communities get started, and they have since grown into independent organizations with work and communities of their own."
   organizations:
     - name: "OpenBioML"
@@ -101,7 +101,7 @@ supported:
       light_background: true
 
 reading_groups:
-  title: "Research talks and reading groups"
+  title: "Research Talks and Reading Groups"
   text: "EleutherAI members organize technical discussions around active areas of AI research, from close readings of recent papers to presentations of work in progress."
-  link_label: "Browse all recordings"
-  url: "https://www.youtube.com/@Eleuther_AI"
+  link_label: "Browse all reading groups"
+  url: "https://www.youtube.com/@Eleuther_AI/playlists"

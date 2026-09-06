@@ -95,11 +95,12 @@
       </div>
       <div class="community-impact-reading-discovery">
         <div class="community-impact-recordings">
-          {{ range $readingGroups.recordings }}
+          {{ range $readingGroups.groups }}
             <a class="community-impact-recording" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
               <span>
-                <strong>{{ .session_title }}</strong>
-                <span><b>{{ .reading_group }}.</b> {{ .overview }}</span>
+                <strong>{{ .name }}</strong>
+                <span class="community-impact-recording-meta">Latest session: {{ .latest_session_title }} · {{ .date }}</span>
+                {{ with .overview }}<span>{{ . }}</span>{{ end }}
               </span>
               <span class="community-impact-recording-arrow" aria-hidden="true">&#8594;</span>
             </a>

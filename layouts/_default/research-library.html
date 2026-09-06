@@ -2,12 +2,15 @@
 {{ $papers := site.Data.generated.research.library_papers | default slice }}
 {{ $years := slice }}
 {{ $venues := slice }}
+{{ $areas := slice }}
 {{ range $papers }}
   {{ $years = $years | append .date }}
   {{ $venues = $venues | append .family }}
+  {{ range .areas }}{{ $areas = $areas | append . }}{{ end }}
 {{ end }}
 {{ $years = sort (uniq $years) "value" "desc" }}
 {{ $venues = sort (uniq $venues) }}
+{{ $areas = sort (uniq $areas) }}
 
 <main class="library-page">
   <section class="hero library-intro">
@@ -28,6 +31,11 @@
           <h2>Filter</h2>
           <button id="library-clear" type="button">Clear</button>
         </div>
+        <label for="library-area">Research area</label>
+        <select id="library-area">
+          <option value="">All areas</option>
+          {{ range $areas }}<option value="{{ . | lower }}">{{ . }}</option>{{ end }}
+        </select>
         <label for="library-year">Year</label>
         <select id="library-year">
           <option value="">All years</option>

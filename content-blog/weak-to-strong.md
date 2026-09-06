@@ -101,7 +101,7 @@ Burns et al. find that, on some tasks, an auxiliary loss term can reduce the amo
 
 $$
 \begin{align*}
-    L_{\text{conf}} &= \text{CE}(f(x), (1-\alpha) \cdot f_w(x) + \alpha  \cdot \hat f_t(x))\\\\
+    L_{\text{conf}} &= \text{CE}(f(x), (1-\alpha) \cdot f_w(x) + \alpha  \cdot \hat f_t(x))\\
     &= (1-\alpha) \cdot \text{CE}(f(x), f_w(x)) + \alpha \cdot  \text{CE}(f(x), \hat f_t(x))
 \end{align*} 
 $$
@@ -117,8 +117,8 @@ The circled areas should approximately correspond to 8B strong and 0.5B weak mod
 
 $$
 \begin{align*}
-\text{compute} &\propto N_{\text{params}} \times N_{\text{tokens}}\\\\
-N_{\text{tokens}} &\propto N_{\text{params}}\\\\
+\text{compute} &\propto N_{\text{params}} \times N_{\text{tokens}}\\
+N_{\text{tokens}} &\propto N_{\text{params}}\\
 \implies \text{compute} &\propto N_{\text{params}}^2
 \end{align*}
 $$
@@ -133,7 +133,7 @@ If we use the student's predictions as soft labels instead of hardening them, th
 
 $$
 \begin{align*}
-    L_{\text{entropy}} &= \text{CE}(f(x), (1-\alpha) \cdot f_w(x) + \alpha  \cdot f(x))\\\\
+    L_{\text{entropy}} &= \text{CE}(f(x), (1-\alpha) \cdot f_w(x) + \alpha  \cdot f(x))\\
     &= (1-\alpha) \cdot \text{CE}(f(x), f_w(x)) + \alpha  \cdot \text{H}(f(x))
 \end{align*} 
 $$

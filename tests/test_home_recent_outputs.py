@@ -43,26 +43,22 @@ class HighestImpactMarkerTests(unittest.TestCase):
 
 
 class RecentOutputsTests(unittest.TestCase):
-    def test_mixed_papers_and_blogs_sort_by_exact_date(self):
+    def test_blog_posts_are_excluded_and_papers_sort_by_exact_date(self):
         outputs = generator.recent_outputs(
             [paper("Paper A", "Jan 3, 2026"), paper("Paper B", "Jan 1, 2026")],
             [blog("Blog A", "2026-01-02T23:30:00-00:00")],
             limit=10,
         )
-        self.assertEqual([item["title"] for item in outputs], ["Paper A", "Blog A", "Paper B"])
+        self.assertEqual([item["title"] for item in outputs], ["Paper A", "Paper B"])
 
-    def test_single_digit_blog_hour_remains_in_union(self):
-        outputs = generator.recent_outputs([], [blog("Early Blog", "2023-11-26T9:00:00-06:00")])
-        self.assertEqual([item["title"] for item in outputs], ["Early Blog"])
-
-    def test_union_includes_marked_papers_and_blogs_once(self):
+    def test_marked_papers_appear_once(self):
         marked = paper("Marked", "Jan 2, 2026")
         outputs = generator.recent_outputs(
             [marked, dict(marked), paper("Unmarked", "Jan 3, 2026", marker="")],
             [blog("Blog", "2026-01-01")],
             limit=10,
         )
-        self.assertEqual([(item["kind"], item["title"]) for item in outputs], [("Paper", "Marked"), ("Blog", "Blog")])
+        self.assertEqual([(item["kind"], item["title"]) for item in outputs], [("Paper", "Marked")])
 
     def test_limit_keeps_only_four_newest_without_kind_quotas(self):
         papers = [paper(f"Paper {day}", f"Jan {day}, 2026") for day in range(1, 6)]

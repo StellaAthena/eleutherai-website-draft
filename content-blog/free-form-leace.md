@@ -22,16 +22,16 @@ We prove a more general result, where we are interested in the case $\Omega = \m
 
 **Theorem 1.**
 
-Let $X$ be a random object taking values in the set $\Omega$, and let $Z$ be a random vector in $\mathbb{R}^k$. Let $h: \Omega \rightarrow \mathbb{R}^n$ be measurable and define $f : \Omega \rightarrow \mathbb{R}^k$ such that $f(x) = \mathbb{E}[Z | X=x]$. Assume $h(X)$ and $f(X)$ have finite second moments. Then for every p.s.d. inner product $\langle \mathbf a, \mathbf b \rangle\_{\mathbf M} = \mathbf a^T \mathbf M \mathbf b$ on $\mathbb{R}^d$, the objective
+Let $X$ be a random object taking values in the set $\Omega$, and let $Z$ be a random vector in $\mathbb{R}^k$. Let $h: \Omega \rightarrow \mathbb{R}^n$ be measurable and define $f : \Omega \rightarrow \mathbb{R}^k$ such that $f(x) = \mathbb{E}[Z | X=x]$. Assume $h(X)$ and $f(X)$ have finite second moments. Then for every p.s.d. inner product $\langle \mathbf a, \mathbf b \rangle_{\mathbf M} = \mathbf a^T \mathbf M \mathbf b$ on $\mathbb{R}^d$, the objective
 
 $$
-    \mathop{\mathrm{inf \hspace{0.5em}}}\_{\substack{\mathrm r : \Omega \rightarrow \mathbb{R}^n}} \mathbb{E} \big\| \mathrm r(X) - \mathrm h(X) \big\|^2\_{\mathbf M} \quad \mathrm{s.t.} \hspace{0.5em} \mathrm{Cov}(\mathrm r(X), \mathrm Z) = \mathbf{0}
+    \mathop{\mathrm{inf \hspace{0.5em}}}_{\substack{\mathrm r : \Omega \rightarrow \mathbb{R}^n}} \mathbb{E} \big\| \mathrm r(X) - \mathrm h(X) \big\|^2_{\mathbf M} \quad \mathrm{s.t.} \hspace{0.5em} \mathrm{Cov}(\mathrm r(X), \mathrm Z) = \mathbf{0}
 $$
 
 is minimized by:
 
 $$
-    r^*(x) = h(x) - \mathbf{\Sigma}\_{h(X)Z} \mathbf{\Sigma}\_{f(X)f(X)}^+ \big(\mathrm f(x) - \mathbb{E}[\mathrm Z]\big)
+    r^*(x) = h(x) - \mathbf{\Sigma}_{h(X)Z} \mathbf{\Sigma}_{f(X)f(X)}^+ \big(\mathrm f(x) - \mathbb{E}[\mathrm Z]\big)
 $$
 
 where $\mathbf{A}^{+}$ denotes the Moore-Penrose pseudoinverse of a matrix $\mathbf{A}$.
@@ -41,26 +41,26 @@ where $\mathbf{A}^{+}$ denotes the Moore-Penrose pseudoinverse of a matrix $\mat
 Observe that $\mathrm{Cov}(r(X), Z) = \mathrm{Cov}(r(X), f(X))$, so we rewrite the objective as:
 
 $$
-    P\_1 = \mathop{\mathrm{inf \hspace{0.5em}}}\_{\substack{\mathrm r : \Omega \rightarrow \mathbb{R}^n}} \mathbb{E} \big\| \mathrm r(X) - \mathrm h(X) \big\|^2\_{\mathbf M} \quad \mathrm{s.t.} \hspace{0.5em} \mathrm{Cov}(\mathrm r(X), \mathrm f(X)) = \mathbf{0}
+    P_1 = \mathop{\mathrm{inf \hspace{0.5em}}}_{\substack{\mathrm r : \Omega \rightarrow \mathbb{R}^n}} \mathbb{E} \big\| \mathrm r(X) - \mathrm h(X) \big\|^2_{\mathbf M} \quad \mathrm{s.t.} \hspace{0.5em} \mathrm{Cov}(\mathrm r(X), \mathrm f(X)) = \mathbf{0}
 $$
 
-We first consider a related objective. Let $\mathcal H$ be the Hilbert space of square-integrable real-valued random variables equipped with the inner product $\langle \xi, \zeta \rangle\_{\mathcal H} := \mathbb{E}[\xi \zeta]$. Now consider:
+We first consider a related objective. Let $\mathcal H$ be the Hilbert space of square-integrable real-valued random variables equipped with the inner product $\langle \xi, \zeta \rangle_{\mathcal H} := \mathbb{E}[\xi \zeta]$. Now consider:
 
 $$
-    P\_2 = \mathop{\mathrm{inf \hspace{0.5em}}}\_{\substack{\mathrm Y \in \mathcal H}^n} \mathbb{E} \big\| \mathrm Y - \mathrm h(X) \big\|^2\_{\mathbf M} \quad \mathrm{s.t.} \hspace{0.5em} \mathrm{Cov}(\mathrm Y, \mathrm f(X)) = \mathbf{0}
+    P_2 = \mathop{\mathrm{inf \hspace{0.5em}}}_{\substack{\mathrm Y \in \mathcal H}^n} \mathbb{E} \big\| \mathrm Y - \mathrm h(X) \big\|^2_{\mathbf M} \quad \mathrm{s.t.} \hspace{0.5em} \mathrm{Cov}(\mathrm Y, \mathrm f(X)) = \mathbf{0}
 $$
 
-Any function $r : \Omega \rightarrow \mathbb{R}^n$ that is feasible for $P\_1$ corresponds to a random variable $r(X)$ that is feasible for $P\_2$. So $P\_2 \leq P\_1$.
+Any function $r : \Omega \rightarrow \mathbb{R}^n$ that is feasible for $P_1$ corresponds to a random variable $r(X)$ that is feasible for $P_2$. So $P_2 \leq P_1$.
 
-By assumption, $h(X)$ and $f(X)$ have finite second moments, so $h(X) \in \mathcal{H}^n$ and $f(X) \in \mathcal{H}^k$. So, we showed in the previous [blog post](https://blog.eleuther.ai/oracle-leace/) that $P\_2$ is minimized by the (appropriately shifted) ordinary least squares residuals from regressing $\mathrm h(X)$ on $\mathrm f(X)$:
+By assumption, $h(X)$ and $f(X)$ have finite second moments, so $h(X) \in \mathcal{H}^n$ and $f(X) \in \mathcal{H}^k$. So, we showed in the previous [blog post](https://blog.eleuther.ai/oracle-leace/) that $P_2$ is minimized by the (appropriately shifted) ordinary least squares residuals from regressing $\mathrm h(X)$ on $\mathrm f(X)$:
 
 $$
-    \mathrm Y\_{\mathrm{LEACE}} = \mathrm h(X) - \mathbf{\Sigma}\_{h(X)f(X)} \mathbf{\Sigma}\_{f(X)f(X)}^+ \big(\mathrm f(X) - \mathbb{E}[\mathrm f(X)]\big)
+    \mathrm Y_{\mathrm{LEACE}} = \mathrm h(X) - \mathbf{\Sigma}_{h(X)f(X)} \mathbf{\Sigma}_{f(X)f(X)}^+ \big(\mathrm f(X) - \mathbb{E}[\mathrm f(X)]\big)
 $$
 
-Notice that $Y\_{\mathrm{LEACE}} = r^\*(X)$, where $r^\* : \Omega \rightarrow \mathbb{R}^n$ is such that $r^\*(x) = h(x) - \mathbf{\Sigma}\_{h(X)f(X)} \mathbf{\Sigma}\_{f(X)f(X)}^+ \big(\mathrm f(x) - \mathbb{E}[\mathrm f(X)]\big)$. Since $r^*$ is feasible for $P\_1$ and $Y\_{\mathrm{LEACE}}$ is optimal for $P\_2$, $P\_1 \leq P\_2$.
+Notice that $Y_{\mathrm{LEACE}} = r^*(X)$, where $r^* : \Omega \rightarrow \mathbb{R}^n$ is such that $r^*(x) = h(x) - \mathbf{\Sigma}_{h(X)f(X)} \mathbf{\Sigma}_{f(X)f(X)}^+ \big(\mathrm f(x) - \mathbb{E}[\mathrm f(X)]\big)$. Since $r^*$ is feasible for $P_1$ and $Y_{\mathrm{LEACE}}$ is optimal for $P_2$, $P_1 \leq P_2$.
 
-So $P\_1 = P\_2$, with minimizer $r^\*$. Since $E[f(X)] = \mathbb{E}[Z]$ and $\mathbf{\Sigma}\_{h(X)f(X)} = \mathbf{\Sigma}\_{h(X)Z}$, we rewrite $r^*(x) = h(x) - \mathbf{\Sigma}\_{h(X)Z} \mathbf{\Sigma}\_{f(X)f(X)}^+ \big(\mathrm f(x) - \mathbb{E}[\mathrm Z]\big)$.
+So $P_1 = P_2$, with minimizer $r^*$. Since $E[f(X)] = \mathbb{E}[Z]$ and $\mathbf{\Sigma}_{h(X)f(X)} = \mathbf{\Sigma}_{h(X)Z}$, we rewrite $r^*(x) = h(x) - \mathbf{\Sigma}_{h(X)Z} \mathbf{\Sigma}_{f(X)f(X)}^+ \big(\mathrm f(x) - \mathbb{E}[\mathrm Z]\big)$.
 
 ## Discussion
 

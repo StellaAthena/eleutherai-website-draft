@@ -1,0 +1,22 @@
+# Reading-group series shown on the Community page.
+#
+# Each card is titled with `name` and links to the newest recording inside the
+# group's YouTube playlist (watch?v=<video>&list=<playlist>). Find playlist IDs
+# on https://www.youtube.com/@Eleuther_AI/playlists: open a playlist and copy
+# the `list=` value from the URL. Cards sort by most recent recording; at most
+# six are shown.
+#
+# If a series has no playlist yet, leave `playlist_id` empty and set
+# `title_pattern` (a case-insensitive regex) to select the newest matching
+# channel upload instead.
+groups:
+  - name: "ML Scalability & Performance Reading Group"
+    playlist_id: "PLvtrkEledFjqOLuDB_9FWL3dgivYqc6-3"
+  - name: "Planning, Reasoning, and Agents Reading Group"
+    playlist_id: "PLvtrkEledFjruaDxEPZiXEIvLlb-4F2Nh"
+  - name: "Math Reading Group"
+    playlist_id: "PLvtrkEledFjodK_UKua2h4exNMcWNGJrs"
+  - name: "Functional Analysis Reading Group"
+    playlist_id: "PLvtrkEledFjrK4G5g6tpJnhZrGdwVC85q"
+  - name: "MoE Reading Group"
+    playlist_id: "PLvtrkEledFjoTA9cYo_wX6aG2WT5RFBY9"

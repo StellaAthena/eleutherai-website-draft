@@ -5,15 +5,15 @@
   {{- $pageID = "staff" -}}
 {{- else if eq .Layout "research" -}}
   {{- $pageID = "research" -}}
+{{- else if eq .Layout "research-area" -}}
+  {{- $pageID = "research-area" -}}
 {{- else if eq .Layout "research-library" -}}
   {{- $pageID = "papers" -}}
 {{- else if eq .Layout "community" -}}
   {{- $pageID = "community" -}}
 {{- else if eq .Layout "soar" -}}
   {{- $pageID = "soar" -}}
-{{- else if eq .Layout "pythia" -}}
-  {{- $pageID = "pythia" -}}
-{{- else if eq .Section "blog" -}}
+{{- else if or (eq .Section "blog") (and .IsHome (eq site.Params.blogBaseURL "/")) -}}
   {{- $pageID = "blog" -}}
 {{- else if eq .RelPermalink "/support/" -}}
   {{- $pageID = "support" -}}
@@ -22,7 +22,7 @@
 {{- $sectionID := $pageID -}}
 {{- if eq $pageID "staff" -}}
   {{- $sectionID = "about" -}}
-{{- else if eq $pageID "pythia" -}}
+{{- else if eq $pageID "research-area" -}}
   {{- $sectionID = "research" -}}
 {{- else if eq $pageID "soar" -}}
   {{- $sectionID = "community" -}}
@@ -64,7 +64,7 @@
       <a href="{{ $researchURL }}"{{ if eq $sectionID "research" }} aria-current="{{ if eq $pageID "research" }}page{{ else }}location{{ end }}"{{ end }}>Research</a>
       <a href="{{ $papersURL }}"{{ if eq $sectionID "papers" }} aria-current="page"{{ end }}>Papers</a>
       <a href="{{ $communityURL }}"{{ if eq $sectionID "community" }} aria-current="{{ if eq $pageID "community" }}page{{ else }}location{{ end }}"{{ end }}>Community</a>
-      <a href="{{ $blogURL }}"{{ if eq $sectionID "blog" }} aria-current="{{ if .IsSection }}page{{ else }}location{{ end }}"{{ end }}>Blog</a>
+      <a href="{{ $blogURL }}"{{ if eq $sectionID "blog" }} aria-current="{{ if or .IsSection .IsHome }}page{{ else }}location{{ end }}"{{ end }}>Blog</a>
     </nav>
     <details class="mobile-menu">
       <summary class="mobile-menu-toggle" aria-label="Open navigation" title="Menu">
@@ -81,7 +81,7 @@
           <a href="{{ $researchURL }}"{{ if eq $sectionID "research" }} aria-current="{{ if eq $pageID "research" }}page{{ else }}location{{ end }}"{{ end }}>Research</a>
           <a href="{{ $papersURL }}"{{ if eq $pageID "papers" }} aria-current="page"{{ end }}>Papers</a>
           <a href="{{ $communityURL }}"{{ if eq $sectionID "community" }} aria-current="{{ if eq $pageID "community" }}page{{ else }}location{{ end }}"{{ end }}>Community</a>
-          <a href="{{ $blogURL }}"{{ if eq $sectionID "blog" }} aria-current="{{ if .IsSection }}page{{ else }}location{{ end }}"{{ end }}>Blog</a>
+          <a href="{{ $blogURL }}"{{ if eq $sectionID "blog" }} aria-current="{{ if or .IsSection .IsHome }}page{{ else }}location{{ end }}"{{ end }}>Blog</a>
         </nav>
       </div>
     </details>
