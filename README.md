@@ -83,7 +83,7 @@ Files directly under `data/` and `data/projects/` are maintained by people. Ever
 | Homepage metrics, Current Research links, manual news | [`data/home.yaml`](data/home.yaml) | Generated metric values replace entries that have a `source` key. Recent outputs are generated from the papers Sheet and blog front matter. |
 | About page | [`content/about.md`](content/about.md) | Donor logos and links are stored separately in `data/donors.yaml`. |
 | Community page | [`data/community.yaml`](data/community.yaml) | `content/community.md` contains only the page front matter. |
-| Community reading-group videos | [EleutherAI YouTube](https://www.youtube.com/@Eleuther_AI) | The build refreshes [`data/generated/community_reading_groups.json`](data/generated/community_reading_groups.json); use the repository's `refresh-community-videos` skill when maintaining or troubleshooting it. |
+| Community reading-group cards | [`data/reading_groups.yaml`](data/reading_groups.yaml) | One entry per reading-group series with its YouTube playlist ID (from [the channel's playlists page](https://www.youtube.com/@Eleuther_AI/playlists)). The build refreshes [`data/generated/community_reading_groups.json`](data/generated/community_reading_groups.json) with each series' newest recording; use the repository's `refresh-community-videos` skill when maintaining or troubleshooting it. |
 | Staff page | [`data/staff.yaml`](data/staff.yaml) | `teams` mirrors the org chart; give each person a `team` key. Store portraits locally under `static/assets/staff/`. |
 | Research page and research areas | [`data/research/areas.yaml`](data/research/areas.yaml) | Area prose, key projects, current directions, and the Major Projects list. Each area also needs a stub under `content/research/`. The intro paragraphs are in [`content/research/_index.md`](content/research/_index.md). Paper lists per area are generated from the Sheet's `Area` column via `research_area_filters.csv`. |
 | Research Library | [Google Sheet](https://docs.google.com/spreadsheets/d/1LcB7_1lHZgO8_EmOkrvfV2BTaOngX95J5v8PJeuN4rM/edit?usp=sharing) | `content/papers.md` only defines the route and layout. Do not hand-edit the rendered paper list. |
@@ -119,7 +119,7 @@ Each stage has a different purpose.
 
 ### YouTube reading-group refresh
 
-`scripts/refresh_youtube_reading_groups.py` selects the three newest videos whose titles contain `Reading Group` or the standalone abbreviation `RG`. With `YOUTUBE_API_KEY` set, it paginates through the channel's complete uploads playlist. Without that key, an ordinary build uses YouTube's limited recent Atom feed and records that limitation in the freshness report. It extracts a concise session title and reading-group name, uses the first substantive sentence of the official description as the topic overview, and writes those fields with the publication date, video ID, and link to `data/generated/community_reading_groups.json`.
+`scripts/refresh_youtube_reading_groups.py` reads `data/reading_groups.yaml`, which lists each reading-group series and its YouTube playlist ID. For every series it fetches the playlist feed (or, with `YOUTUBE_API_KEY` set, the full playlist through the Data API), takes the newest recording, and writes the series name, a link into the playlist at that recording, the session title, date, and a one-sentence overview from the official description to `data/generated/community_reading_groups.json`. A series with no `playlist_id` yet can set `title_pattern` to pick the newest matching channel upload instead; the freshness report flags this as `live_limited` until the playlist ID is added.
 
 The checked-in JSON file is the deterministic offline fallback. A live build warns and uses that snapshot if YouTube is temporarily unavailable; it fails only when neither online discovery nor a valid three-video snapshot is available. `make build-offline` never queries YouTube and validates the snapshot before Hugo runs. `make verify-live` requires `YOUTUBE_API_KEY` so it can prove that the selection came from the complete uploads history.
 
@@ -288,7 +288,7 @@ The first pass writes:
 | `data/generated/hf_model_downloads_cache.json` | Last supplied or successfully fetched download value |
 | `data/generated/blog_posts.json` | Dated blog entries used by the homepage Latest feed |
 | `data/generated/home_recent_outputs.json` | Four newest items from highest-impact papers and published blog posts |
-| `data/generated/community_reading_groups.json` | Three newest selected reading-group recordings |
+| `data/generated/community_reading_groups.json` | One card per configured reading-group series, newest recording first |
 
 Do not edit these files directly. Edit their source data and rebuild.
 

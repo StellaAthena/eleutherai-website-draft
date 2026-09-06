@@ -103,5 +103,5 @@ supported:
 reading_groups:
   title: "Research Talks and Reading Groups"
   text: "EleutherAI members organize technical discussions around active areas of AI research, from close readings of recent papers to presentations of work in progress."
-  link_label: "Browse all recordings"
-  url: "https://www.youtube.com/@Eleuther_AI"
+  link_label: "Browse all reading groups"
+  url: "https://www.youtube.com/@Eleuther_AI/playlists"
