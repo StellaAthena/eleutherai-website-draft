@@ -26,24 +26,24 @@ faq:
   answer: No. Here, open AI means research conducted openly and collaboratively.
 timeline:
 - date: 15 May 2026
-  event: Project proposal deadline
+  event: Project Proposal Deadline
 - date: 18 May 2026
-  event: Participant applications open
+  event: Participant Applications Open
 - date: 8 June 2026
-  event: Participant application deadline
+  event: Participant Application Deadline
 - date: 5 July 2026
-  event: Application decisions released
+  event: Application Decisions Released
   detail: Rolling decisions may arrive earlier.
 - date: 6 July 2026
-  event: Project preparation begins
+  event: Project Preparation Begins
   detail: Mentors may specify preparation work before the main event.
 - date: 13 July 2026
-  event: Main event begins
+  event: Main Event Begins
 - date: 1 August 2026
-  event: Short talks
+  event: Short Talks
   detail: Each cohort can share its progress with the other cohorts.
 - date: 16 August 2026
-  event: Short talks and end of event
+  event: Short Talks and End of Event
 testimonials:
 - quote: Just after SOAR ended, I went on to be a MATS fellow in a very theory-heavy research stream. I think having
     participated in SOAR made the difference between me looking like 'aspiring AI/ML researcher with lots of math

@@ -11,11 +11,11 @@ aliases:
 
 In August of last year, EleutherAI hosted the *Summer of Open AI Research* (SOAR) for the first time. Despite being organized on short notice without any budget, it was quite successful! As we are now organizing the second edition of SOAR, it seemed like a good time to write a retrospective on the event.
 
-## How it started
+## How It Started
 
 In true Eleuther fashion, the idea for SOAR came from a conversation in the server's #off-topic channel. Unlike the usual low-signal chatter, this particular conversation was about the rise of open-source, community-driven research as done by EAI and other organizations, and the influx of people, often with no prior research experience, joining the EAI Discord willing to contribute to projects. We noticed a lack of onboarding mechanisms for these people and decided to address this by organizing a hackathon-style event.
 
-## How it went
+## How It Went
 
 After gathering projects from researchers from Eleuther, Cohere, Apart, and other organizations, we ended up with 12 projects on topics ranging from mechanistic interpretability to AI safety. Our initial estimate for the number of applications was around 100, which was way off the 500+ applications we ended up receiving over two weeks. After a somewhat chaotic review process, we ended up with 142 people accepted.
 
@@ -27,7 +27,7 @@ A number of participants kept working on their projects after the end of the eve
 
 Overall, participants who made it to the end reported being satisfied with their experience, and that SOAR was a learning experience that enabled them to get accepted into other fellowships, find a job, or simply perform better in their current position. For some mentees, SOAR allowed them to learn research skills that they would not otherwise have had the opportunity to learn.
 
-## Conclusion and lessons learned
+## Conclusion and Lessons Learned
 
 We were very impressed with the outcome of SOAR and what it was able to accomplish despite initially being a community-driven event with little means. Allowing anyone to join and contribute to a research project is at the core of the EleutherAI ethos, and we are quite proud of contributing to that spirit through SOAR.
 
@@ -57,7 +57,7 @@ We are excited to see what will come out of this year's projects!
 >
 > **Ayesha I.**
 
-## Appendix: Papers that came out of SOAR 2025
+## Appendix: Papers That Came Out of SOAR 2025
 
 The following is the list of publications that resulted from SOAR 2025. We may update it in the future as some other papers are still under development.
 
