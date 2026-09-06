@@ -1003,7 +1003,7 @@ def write_home_generated_metrics(rows, scholar_payload, hf_downloads, offline=Fa
         hf_value = hf_downloads if hf_downloads.endswith("+") else hf_downloads + "+"
         metrics["model_downloads"] = {
             "value": hf_value,
-            "label": "Model downloads",
+            "label": "Model Downloads",
             "url": "https://huggingface.co/EleutherAI",
             "source": HF_ANALYTICS_URL,
         }

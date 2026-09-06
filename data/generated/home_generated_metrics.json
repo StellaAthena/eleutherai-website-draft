@@ -19,7 +19,7 @@
     },
     "model_downloads": {
       "value": "125M+",
-      "label": "Model downloads",
+      "label": "Model Downloads",
       "url": "https://huggingface.co/EleutherAI",
       "source": "https://huggingface.co/organizations/EleutherAI/settings/publisher/analytics?timePeriod=allTime"
     }

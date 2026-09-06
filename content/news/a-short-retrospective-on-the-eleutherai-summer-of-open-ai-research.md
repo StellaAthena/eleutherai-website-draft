@@ -1,5 +1,5 @@
 ---
-title: "A short retrospective on the EleutherAI Summer of Open AI Research"
+title: "A Short Retrospective on the EleutherAI Summer of Open AI Research"
 author: "Irregular Rhomboid"
 description: "A look back at the first Summer of Open AI Research and what its participants accomplished"
 date: 2026-05-18T09:51:40+01:00

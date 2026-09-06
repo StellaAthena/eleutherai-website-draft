@@ -6,7 +6,7 @@ metrics:
     label: "Citations"
     source: "scholar_citations"
   - value: ""
-    label: "Model downloads"
+    label: "Model Downloads"
     source: "model_downloads"
     url: "https://huggingface.co/EleutherAI"
 priorities:

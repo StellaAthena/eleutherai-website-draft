@@ -1,5 +1,5 @@
 ---
-title: "Support durable open AI research"
+title: "Support Durable Open AI Research"
 lede: "EleutherAI depends on institutional support, compute access, engineering capacity, and research partnerships to keep public work useful and scientifically credible."
 layout: page
 url: /support/
