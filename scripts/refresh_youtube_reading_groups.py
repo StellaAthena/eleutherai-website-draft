@@ -295,8 +295,15 @@ def main():
 
     if args.offline:
         data = read_cache()
+        missing = [group["name"] for group in load_config() if group["name"] not in {g["name"] for g in data["groups"]}]
         write_freshness_report("offline", "offline", PLAYLISTS_URL, "validated checked-in snapshot")
         print(f"Using {len(data['groups'])} cached YouTube reading-group cards.")
+        if missing:
+            print(
+                "Not yet in the snapshot (run a live refresh and commit data/generated/community_reading_groups.json): "
+                + ", ".join(missing),
+                file=sys.stderr,
+            )
         return
 
     try:

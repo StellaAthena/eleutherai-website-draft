@@ -95,7 +95,7 @@ def test_parse_api_videos_extracts_metadata():
 def test_checked_in_config_and_cache_are_valid():
     groups = MODULE.load_config()
     data = MODULE.read_cache()
-    assert {group["name"] for group in groups} == {record["name"] for record in data["groups"]}
+    assert {record["name"] for record in data["groups"]} <= {group["name"] for group in groups}
     assert all("youtube.com/watch?v=" in record["url"] for record in data["groups"])
 
 

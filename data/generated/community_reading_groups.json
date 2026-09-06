@@ -17,16 +17,16 @@
     },
     {
       "name": "Planning, Reasoning, and Agents Reading Group",
-      "playlist_id": "",
-      "playlist_url": "",
-      "url": "https://www.youtube.com/watch?v=lqSyRVWWUJk",
+      "playlist_id": "PLvtrkEledFjruaDxEPZiXEIvLlb-4F2Nh",
+      "playlist_url": "https://www.youtube.com/playlist?list=PLvtrkEledFjruaDxEPZiXEIvLlb-4F2Nh",
+      "url": "https://www.youtube.com/watch?v=lqSyRVWWUJk&list=PLvtrkEledFjruaDxEPZiXEIvLlb-4F2Nh",
       "latest_title": "Planning, Reasoning, and Agents RG, 2026-03-11 Session: Reasoning about Action, Change, and Planning",
       "latest_session_title": "Reasoning about Action, Change, and Planning",
       "video_id": "lqSyRVWWUJk",
       "published": "2026-04-16T16:34:44+00:00",
       "date": "April 16, 2026",
       "overview": "Harsha Kokel discusses the evolution of automated planning in the era of Large Language Models (LLMs), contrasting classical symbolic planning frameworks with modern natural language approaches.",
-      "source": "channel_feed"
+      "source": "playlist"
     }
   ]
 }
