@@ -27,6 +27,45 @@
       "date": "April 16, 2026",
       "overview": "Harsha Kokel discusses the evolution of automated planning in the era of Large Language Models (LLMs), contrasting classical symbolic planning frameworks with modern natural language approaches.",
       "source": "playlist"
+    },
+    {
+      "name": "Math Reading Group",
+      "playlist_id": "PLvtrkEledFjodK_UKua2h4exNMcWNGJrs",
+      "playlist_url": "https://www.youtube.com/playlist?list=PLvtrkEledFjodK_UKua2h4exNMcWNGJrs",
+      "url": "https://www.youtube.com/watch?v=Dv0G1SkFc8k&list=PLvtrkEledFjodK_UKua2h4exNMcWNGJrs",
+      "latest_title": "Math Reading Group - Random Matrix Theory II Wishart Matrices (08/09/2023)",
+      "latest_session_title": "Random Matrix Theory II Wishart Matrices",
+      "video_id": "Dv0G1SkFc8k",
+      "published": "2023-10-10T08:17:40+00:00",
+      "date": "October 10, 2023",
+      "overview": "",
+      "source": "playlist"
+    },
+    {
+      "name": "MoE Reading Group",
+      "playlist_id": "PLvtrkEledFjoTA9cYo_wX6aG2WT5RFBY9",
+      "playlist_url": "https://www.youtube.com/playlist?list=PLvtrkEledFjoTA9cYo_wX6aG2WT5RFBY9",
+      "url": "https://www.youtube.com/watch?v=JLelXVCyVHQ&list=PLvtrkEledFjoTA9cYo_wX6aG2WT5RFBY9",
+      "latest_title": "MoE Reading Group #7 - Hash Layers for Large Sparse Models",
+      "latest_session_title": "Hash Layers for Large Sparse Models",
+      "video_id": "JLelXVCyVHQ",
+      "published": "2023-10-08T17:08:23+00:00",
+      "date": "October 8, 2023",
+      "overview": "",
+      "source": "playlist"
+    },
+    {
+      "name": "Functional Analysis Reading Group",
+      "playlist_id": "PLvtrkEledFjrK4G5g6tpJnhZrGdwVC85q",
+      "playlist_url": "https://www.youtube.com/playlist?list=PLvtrkEledFjrK4G5g6tpJnhZrGdwVC85q",
+      "url": "https://www.youtube.com/watch?v=eCNjLqDqung&list=PLvtrkEledFjrK4G5g6tpJnhZrGdwVC85q",
+      "latest_title": "Functional Analysis Reading Group - 5.1-5.2 - Compact Operators",
+      "latest_session_title": "5.1-5.2 - Compact Operators",
+      "video_id": "eCNjLqDqung",
+      "published": "2023-04-29T11:18:15+00:00",
+      "date": "April 29, 2023",
+      "overview": "",
+      "source": "playlist"
     }
   ]
 }
